@@ -1,9 +1,9 @@
 Defining Big Data
 -----------------
 
-> Small data are slow and sampled. Big Data are quick and n=all. @kitchin2016makes
+> *Small data are slow and sampled. Big Data are quick and n=all.* @kitchin2016makes
 
-  *This chapter outlines the defining properties of big data, focusing on characteristics with possible implications for cartographic practice. and also explains the evoulution of the concept through the review of related work.*
+> *This chapter outlines the defining properties of big data, focusing on characteristics with possible implications for cartographic practice. and also explains the evoulution of the concept through the review of related work.*
 
 ## Ontological characteristics (*big* stands for *fast* and *exhaustive*)
 
