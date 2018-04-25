@@ -7,26 +7,24 @@ Defining Big Data
 
 ## Ontological characteristics (*big* stands for *fast* and *exhaustive*)
 
-This thesis builds on a taxonomy composed by @kitchin2014data (refined in @kitchin2016makes) that sums up the key ontological properties attributed to Big Data:
+Despite the lively interest triggered by the concept in recent years, the explanation of the term *big data* remains hazy and there is no widely accepted unifying definition to the date. Perhaps the most successful effort in this matter is a taxonomy composed by @kitchin2014data (refined in @kitchin2016makes) that summarizes the key properties attributed to big data. Kitchin critically assesses these properties and goes on to assign them relative importance in distinguishing big from "small" data. He also takes care to separate the concept in itself from accompanying social phenomena, hence he speaks of *ontological* characteristics.
+This provides a useful starting point for our thinking of big data from the cartographic standpoint, so let us list the ontological characteristics including some Kitchin's comments:
 
-* **Volume** -- measured in storage requirements (terabytes or petabytes) or in number of records
-* **Velocity** -- data created in real-time (continually or sporadically), we can distinguish the frequency of generation from the frequency of handling, recording, and publishing
-* **Variety** -- data heterogenous in nature, structured, semi-structured or unstructured
-* **Exhaustivity** -- an entire system is captured, n = all, rather than being sampled
-* **Resolution and indexicality** -- fine-grained (in resolution) rather than being aggregated and uniquely indexical
-(in identification) which enables linking with other datasets
-* **Relationality** -- (containing common fields that enable the conjoining of different datasets)
-* **Extensionality and scalability** -- flexibility of data generation, can add/change new fields easily, can expand in size rapidly, can adapt to  varying data flow -- more a property of the infrastructure than the data itself
+* **Volume** -- can be measured in storage requirements (terabytes or petabytes) or in number of records
+* **Velocity** -- generation happens in real-time either constantly (e.g. CCTV) or sporadically (e.g. web search), we can distinguish the frequency of generation from the frequency of data *handling*, *recording*, and *publishing* that can be delayed from the time of generation
+* **Variety** -- heterogeneous in nature, though this property is rather weak as various levels of organization are allowed (*structured*, *semi-structured* or *unstructured*)
+* **Exhaustivity** -- an entire system is captured (*n=all*), rather than being sampled
+* **Resolution and indexicality** -- fine-grained (in resolution) rather than being aggregated and uniquely indexical (in identification) which enables linking with other datasets
+* **Relationality** -- containing common fields that enable the conjoining of different datasets
+* **Extensionality and scalability** -- flexibility of data generation, possibility to add or change new fields easily, possibility to rapidly expand in size
 
-The above parameters, as well as their cartographic implications, will be discussed more in depth in chapter 3, but here it is important to mention two open questions that for many people make attempts to define Big Data vague at best, sometimes to the point of questioning the existence of the phenomenon itself.
+The above parameters, as well as their cartographic implications, will be discussed more in depth in chapter 3, but here it is important to mention two open questions that for many people make attempts to define big data vague at best, sometimes to the point of questioning the existence of the phenomenon itself. (**cite**)
 
-First, there are no tresholds that would define exacly how large is "big" volume, how fast is "big" velocity, and so on. It is possible that this will clear out with time (in best case from a systematic analysis of a sufficient number of case studies) but these tresholds may as well remain blurry and ever in flux.
+First, there are no thresholds that would define exactly how large is "big" volume, how fast is "big" velocity, and so on. It is possible that this will clear out with time (in best case by a systematic analysis of a sufficient number of case studies) but these thresholds may as well remain blurry and ever in flux.
 
-The second problem is that even if we had a clearly defined set of criteria, in practice we could hardly find a data set that would fit all of them. Therefore not all properties are deemed mandatory which in turn leads to confusion and labeling almost anything as Big Data. Here again we will hold on to @kitchin2016makes argument wo sees *velocity* and *exhaustivity* as qualities that set Big Data apart and distinguish them from "small" data. We can add that these two characteristics also present the most interesting challenges to cartographic presentation of such data. So even though we will continue to use the established term in the following text, the little too simplistic adjective "big" will be meant as a proxy for "fast and exhaustive".
+The second problem is that even if we had a clearly defined set of criteria, in practice we could hardly find a data set that would fit all of them. Therefore not all properties are deemed mandatory which in turn leads to confusion and labeling almost anything as big data. Here we can hold on to Kitchin's (@kitchin2016makes) argument who sees *velocity* and *exhaustivity* as qualities that set Big Data apart and distinguish them from "small" data. We can add that these two characteristics also present the most interesting challenges to cartographic presentation of such data. So even though we will continue to use the established term in the following text, the little too simplistic adjective "big" will be meant as a proxy for "fast and exhaustive".
 
-To borrow Kitchin's example (@kitchin2014big), typical census dataset does not mark as Big Data because even though it may be extensive in volume, it has very slow velocity being generated once every ten years, weak variety consisting of structured questions, no flexibility or scalability. In contrast, large enterprises like Facebook or WalMart process petabytes of varying customer content at real time.
-
-The definition of Big Data is elusive also because the majority of field (the business) is more focused on building productive Big Data ventures, without much conceptual attention to the subject matter. So far there is no settled consensus around Big Data defintion in the academia either, but as @kitchin2016makes predicts, the "genus" of Big Data will be further delineated and its various "species" identified.
+The definition of big data is elusive perhaps also because the majority of actors (working in business) is more focused on building productive big data ventures, without much conceptual attention to the subject itself. So far there is no settled consensus around Big Data definition in the academia either, but as @kitchin2016makes predicts, the "genus" of Big Data will be further delineated and its various "species" identified.
 
 ## Other accounts on Big Data
 
@@ -85,17 +83,22 @@ Handling, process-based, holistic:
 -- visualisation: maps, abstract, interactive, real-time (**here be the focus of this work**)
 -- privacy and security: data privacy, management, security
 
-**As a social phenomenon**
+**As a social phenomenon** (here also sceptical views)
 
 Concluding with the societal impact. For some authors, the debate on perfect definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the typical hype cycle (see Gartner repors 2017, 2016 etc.). Even though the technological industry is largely fasion-driven, its societal impacts are real (even though unevenly distributed...).
 
--------
-To those with resorces, technical facilites (that emerged in recent yers) allow storing data for future reuse even thought the utilization may be unclear at the moment of storing. There is an underlying hope that we can make sense of those data in the future. Data holders seek ways to monetize the information. BD are an attribute of interconnected society where individuals using ubiquitous technologies (web services, and mobile devices) create bigger and bigger digital footprints.
--------
 
 To mayer2013big big data stands for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, is important the societal impacts that are likely to stay even when the big data hype is over. About such impacts is the following chapter.
 
--- oslí mostík: Beforce we move to describing the challenges and opportunities big data pose to cartography, first let us dwell on some societal and scientific impact of the phenomenon, as this can provide a motivation for cartography to take part in addressing those issues. 
+# geospatial big data
+
+
+# zaver a oslí mostík do dalsej kapitoly
+
+To those with resorces, technical facilites (that emerged in recent yers) allow storing data for future reuse even thought the utilization may be unclear at the moment of storing. There is an underlying hope that we can make sense of those data in the future. Data holders seek ways to monetize the information. BD are an attribute of interconnected society where individuals using ubiquitous technologies (web services, and mobile devices) create bigger and bigger digital footprints.
+
+Beforce we move to describing the challenges and opportunities big data pose to cartography, first let us dwell on some societal and scientific impact of the phenomenon, as this can provide a motivation for cartography to take part in addressing those issues. 
+
 
 TODOs:
 -- More granular stuff in kitchin2014opportunities, more properites for comparison -- read and use later. (maybe copy the whole table, or produce something similar for cartographic preproduction) - not BD specific
