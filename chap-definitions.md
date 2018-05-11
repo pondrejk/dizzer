@@ -36,7 +36,9 @@ Other properties attributed to big data include *veracity* (the data can be mess
 
 Laney's 3 Vs were brought into commercial management-speak and became a slogan further powering the hype of big data. Nevertheless, it inspired a number of other authors to extend it creatively. For example @uprichard2013focus lists other v-words to be associated with big data, both in positive (*versatility*, *virtuosity*, *vibrancy*...) and negative (*valueless*, *vampire-like*, *violating*...) light. @marr2014big describes five Vs of big data, @van20133v sees seven Vs, @boellstorff2015introduction propose three Rs and @lupton2015thirteen even uses thirteen p-words to describe the subject. As @kitchin2016makes notes, these additional v-words and new p-words are often descriptive of a broad set of issues associated with big data, rather than characterising the ontological traits of data themselves.
 
-**Technical infrastructure-based definitions**
+**Technical infrastructure-based definitions** 
+
+"thinking of BD as of a management issue"
 
 Several authors conceptualize big data from more technical standpoint, using as a measure the computational difficulties of storing and processing the data on a single machine. One example for all is @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” 
 
@@ -55,6 +57,9 @@ Rather than putting up to a gargantuan task of counting the mass of all possible
 Other companies prominently mentioned in context of big data are Google, Wallmart, or Amazon. This is justified, as these companies also have put user/customer data analytics to the core of their businesses, fuelling the progress in the field. Social media, web search and browsing data, on-line or off-line shopping patterns, but also mobile devices, sensors and large scientific projects are mostly thought of as generators of big data to be leveraged.
 
 **Metaphoric acconuts**
+"mythology of big data"
+
+Metaphores nad comparisions do not come with exactness or robustness, though they illustrate how people think about the phenomenon.
 
 Authors with social science background take notes of the thoughts and beliefs associated with big data.
 

@@ -81,6 +81,20 @@ or more topic-based structure? from promise and peril
      --Regulation, Contracts or Other Approaches?
 
 
+from presentations at information+ 2016
+----------
+
+Catherine D’Ignazio 
+
+Creative Data Literacy: Bridging the Gap Between the Data Haves and Have-nots
+
+Communities are swimming in data—demographic data, participation data, government data, social media data—but very few understand what to do with it. Though governments and foundations are creating open data portals and corporations are creating APIs, these rarely focus on use, usability, building community or creating impact. So although there is an explosion of data, there is a significant lag in data literacy at the scale of communities and individuals. This creates a situation of data-haves and have-nots. But there are emerging technocultural practices that combine participation, creativity, and context to connect data to everyday life. These include citizen science, data journalism, novel public engagement in government processes, and participatory data art. This talk surveys these practices both lovingly and critically, including their premises, aspirations and the challenges to creating citizens that are truly empowered with data.
+
+Yanni Loukissas
+
+Local Data: Learning to Look at Big Data as Aggregates
+
+Data are local: made by people and their dutiful machines, at a time, in a place, with the instruments at hand, using limited resources, to reach disciplined audiences. Although they are reliably transferred across digital communication networks, everywhere data remain marked by local artifacts: traces of the conditions and values that are particular to their origins. Even big data—a term that valorizes the scale and perceived autonomy of today’s data practices—are no more than aggregations of local knowledge, grounded in and inseparable from their social and material beginnings. This paper argues that we should learn to look at big data as data aggregates: collections of local data with varied and discordant infrastructural ties. In other words, if we are to fully understand the opportunities and pitfalls of big data, we must begin to see both the forest and the trees. 
 
 
 
