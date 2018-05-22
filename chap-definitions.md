@@ -42,7 +42,7 @@ Laney's 3 Vs were brought into commercial management-speak and became a slogan f
 
 Several authors conceptualize big data from more technical standpoint, using as a measure the computational difficulties of storing and processing the data on a single machine. One example for all is @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” 
 
-The problem with such definitions is determining exactly what size is "too big to fit". The computational power of accessible hardware is constantly increasing (Moore's law) and new technologies emerge to address the issue -- for example remote cloud storage (AWS, GCE), platform as a service (Heroku, Openshift), and so on. **list more here, and better terminology**, virtualization of storage, networking, memory, distributed database storage, post-SQL databass (hadoop, appache spark), map-reduce...
+The problem with such definitions is determining exactly what size is "too big to fit". The computational power of accessible hardware is constantly increasing (Moore's law <sub>Defines a footnote: what is Moore's Law?</sub>) and new technologies emerge to address the issue -- for example remote cloud storage (AWS, GCE), platform as a service (Heroku, Openshift), and so on. **list more here, and better terminology**, virtualization of storage, networking, memory, distributed database storage, post-SQL databass (hadoop, appache spark), map-reduce...
 
 The "too big to fit" definitions are therefore highly dependent on the resources currently available. That being said, understanding the subject as *data that prevent local offline processing on common desktop in reasonable time* is a useful shorthand for judging big from "small" data. The threshold between local (offline) and remote (cloud-dependent) processing exists even though it is a blurry and dynamic one. It can be best advised to consider the scalability of data-processing workflows early on -- as some problems... (nejaky zdroj o problemoch zo skalovatlnostou).
 
@@ -57,19 +57,22 @@ Rather than putting up to a gargantuan task of counting the mass of all possible
 Other companies prominently mentioned in context of big data are Google, Wallmart, or Amazon. This is justified, as these companies also have put user/customer data analytics to the core of their businesses, fuelling the progress in the field. Social media, web search and browsing data, on-line or off-line shopping patterns, but also mobile devices, sensors and large scientific projects are mostly thought of as generators of big data to be leveraged.
 
 **Metaphoric acconuts**
-"mythology of big data"
 
-Metaphores nad comparisions do not come with exactness or robustness, though they illustrate how people think about the phenomenon.
+Metaphores rely on a notion of analogy between two dissimlar things, but can also become indepndent verbal objects, aesthetically appealing but not overly revealing. Despite that, we should not ignore metaphoric accounts, as they contribute to the mythology surrounding big data, which might not accurately describe the phenomenon itself but reflects what many people expect from it.
 
 Authors with social science background take notes of the thoughts and beliefs associated with big data.
 
--- @puschmann2014big identified two conceptual metaphors prevailing in to date accounts on Big Data: as a natural force to be controlled and as a resource to be consumed.
+-- @puschmann2014big identified two conceptual metaphors prevailing in to date accounts on Big Data: as a natural force to be controlled and as a resource to be consumed. 
+
+Not new, think of "data mining" -- utilitarization mindset.
 
 More metaphoric accounts:
 @manyika2013open -- liquid metaphor
 -- other metaphors:
 
 -- on metaphors @lupton2013swimming, also @lupton2015managing -- self-tracking and quantified self
+
+Not verbal but visual, artistic renderings -- data as material for art -- see for example projects on Creative Applications network, (plus some books taschen, etc. two volumes of data flow...) Often it is impossible to distinguish from generative art that uses generated data rather than exising information. In some aspects these can be inspirative for cartography (design quality, employment of computation and rendering software...), though "o tom potom".
 
 
 **Holistic, prcess-based**
