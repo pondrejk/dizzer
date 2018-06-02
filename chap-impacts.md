@@ -15,6 +15,13 @@ Some Impacts of Data Abundance
 More on *value* -- the potential market value is potentially huge ("The potential value of Big Data is huge. Speaking about new Big Data initiatives in the US healthcare system last year, McKinsey estimated if these initiatives were rolled out system-wide, they “could account for $300 billion to $450 billion in reduced health-care spending, or 12 to 17 percent of the $2.6 trillion baseline in US health-care costs”. However, the cost of poor data is also huge- it’s estimated to cost US businesses $3.1 trillion a year. In essence, data on its own is virtually worthless. The value lies in rigorous analysis of accurate data, and the information and insights this provides." says @mcnulty2014understanding link on McKinsey <http://www.mckinsey.com/industries/healthcare-systems-and-services/our-insights/the-big-data-revolution-in-us-health-care>), but it "has the potential to cost unlimited amounts of money" @fischer2015why.
 
 
+@anderson2008end: "where massive amounts of data and applied mathematics replace every other tool that might be brought to bear ... Who knows why people do what they do? The point is they do, and we can track it and measure it with unprecedented fidelity. With enough data, the numbers speak for themselves."
+
+
+@wilson2017big: 
+"In fact, the methods used to analyze large statistical data sets are themselves multiple, rather than singular. The type and context of the data govern the choices of the type of relevant analysis (for example, regression, significance testing, network analysis, frequency domain analysis, edge detection, decomposition, deconvolution, or machine learning using e.g., artificial neural nets). What is more, in traditional (regression) analyses, although algorithms can be written to extract patterns, the researcher or programmer constructing the algorithm must have imagined the pattern to be possible; and while advances in machine learning mean that algorithms can discover as well as illustrate patterns, the data on which they operate need to be understood in detail if spurious patterns are to avoided. In the following, we consider the case of automated analyses of electronic trace data left by students engaged in formal learning — so-called learning analytics — in an attempt to illustrate how the nature of data in a particular big data context, the intentions behind gathering and analyzing the data, and the appropriate analysis methods, all merit careful consideration."
+
+
 ## Business
 
 -- where the hype (and bullshit comes form)

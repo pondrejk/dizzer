@@ -7,7 +7,7 @@ Defining Big Data
 
 ## Ontological characteristics (*big* stands for *fast* and *exhaustive*)
 
-Despite the lively interest triggered by the subject in recent years, the explanation of the term *big data* remains hazy and there is no widely accepted definition to the date. Perhaps the most successful effort in this matter is a taxonomy by @kitchin2014data (refined in @kitchin2016makes) that summarizes the key properties attributed to big data. Kitchin critically assesses these properties and goes on to assign them relative importance in distinguishing big from "small" data. He also takes care to separate the concept in itself from accompanying social phenomena, hence he speaks of *ontological* characteristics.
+Despite the lively interest triggered by the subject in recent years, the explanation of the term *big data* [^1] remains hazy and there is no widely accepted definition to the date. Perhaps the most successful effort in this matter is a taxonomy by @kitchin2014data (refined in @kitchin2016makes) that summarizes the key properties attributed to big data. Kitchin critically assesses these properties and goes on to assign them relative importance in distinguishing big from "small" data. He also takes care to separate the concept in itself from accompanying social phenomena, hence he speaks of *ontological* characteristics.
 
 This provides a useful starting point for our thinking of big data from the cartographic standpoint, so let us list the ontological characteristics including some Kitchin's comments:
 
@@ -31,7 +31,7 @@ The term big data was fist used in context of dealing with massive datasets in m
 
 **Vs and keywords**
 
-The Kitchin's taxonomy mentioned in the previous section is based on a review of older definitions, starting with the often-cited alliteration of three Vs (standing for *volume*, *velocity*, and *variety*) by @laney20013d. The notion of *exhaustivity* was added by @mayer2013big, concepts of *resolution* and *indexicality* came from @dodge2005codes, @boyda2012critical adds *relationality*, and the qualities of *extensionality* and *scalability* were taken from @marz2015big (in earlier 2012 MEAP Edition -- how to cite? footnote?).
+The Kitchin's taxonomy mentioned in the previous section is based on a review of older definitions, starting with the often-cited alliteration of three Vs (standing for *volume*, *velocity*, and *variety*) by @laney20013d. The notion of *exhaustivity* was added by @mayer2013big, concepts of *resolution* and *indexicality* came from @dodge2005codes, @boyd2012critical adds *relationality*, and the qualities of *extensionality* and *scalability* were taken from @marz2015big (in earlier 2012 MEAP Edition -- how to cite? footnote?).
 
 Other properties attributed to big data include *veracity* (the data can be messy, noisy and contain uncertainty and error) and *value* (many insights can be extracted and the data can be repurposed) both brought forward by @marr2014big, and also *variability* (meaning of data is shifting in relation to the context in which they are generated) identified by David Hopkins in relation to text analysis (@brunnelli2011will).
 
@@ -41,15 +41,15 @@ Laney's 3 Vs were brought into commercial management-speak and became a slogan f
 
 Several authors understand big data mainly as a management issue, which is probably due to the fact that managing big data is hard. The computational difficulties of storing and processing a dataset on a single machine act as a measure. One example for all is @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” 
 
-The problem with such definitions is determining exactly what size is "too big to fit". The computational power of hardware accessible for personal use is constantly increasing (by the Moore's law), not to mention the technical infrastructure accessible to large enterprises and governmental organizations (datacenter construction is steadily growing and is expected to double the current capacity in 2021 @statista2018data).
+The problem with such definitions is determining exactly what size is "too big to fit". The computational power of hardware accessible for personal use is constantly increasing (by the Moore's law [^2]), not to mention the technical infrastructure accessible to large enterprises and governmental organizations (datacenter construction is steadily growing and is expected to almost double the current capacity in 2021 @statista2018data, @networking2018cisco).
 
-At the same time, new technologies emerge to address the issue -- virtualization of storage, networking, and memory together with distributed database storage make it possible to rent computational infrastructure from "cloud" providers (such as Amazon Web Services or Google Cloud Engine), or to delegate workloads previously carried out by the operating system to remote platforms (e.g Heroku or Red Hat Opensift). Other innovations take place in data processing algorithms (map-reduce fuelling Hadoop,resilient distributed dataset (??) behind Apache Spark), and in database design (a whole range of No-SQL and Post-SQL databases). An attempt to sum up the current technical "landscape" of big date is provided in Appendix 1.
+At the same time, new technologies emerge to address the issue -- virtualization of storage, networking, and memory make it possible to rent computational infrastructure from "cloud" providers, or to delegate workloads previously carried out by the operating system to remote platforms [^3]. Other innovations take place in data processing algorithms, analytic engines, and in database design (a whole range of No-SQL databases as well as enablement of distributed processing in traditional databases) [^4]. Some attempts to summarize technical solutions for big data can be found in @paakkonen2015reference, or @jin2015significance.
 
 As we can see, the "too big to fit" definitions are highly dependent on the resources currently available, plus we need to take into account future improvements that are hard to predict. That being said, understanding the subject as *data that prevent local offline processing on common desktop in reasonable time* is a useful shorthand for judging big from "small" data. The threshold between local (offline) and remote (cloud-dependent) processing exists even though it is a blurry and a dynamic one. As the latter may be more and more accessible in the future, it can be best advised to consider the scalability of any data-processing workflows early on. In other words, any workflow designed as a potential big data process will likely have an advantage, as design limitations may prove to be overcome harder than the infrastructure ones. 
 
-**Definitions by example**
+**Definitions by example** (example quantities)
 
-A very common account on big data goes along the lines of "I will give you some numbers and you will get what I mean". Such writing may not provide an exact understanding of the concept, but can put us into context about the scales we are moving at. Doubtlessly the mass of retained data is growing, as @mcnulty2014understanding put it, 90% of all data ever created was generated in the past 2 years (in 2014). A notable attempt to estimate the World's overall data generation as a whole between 1986 and 2007 by @hilbert2011world mentions that more then 300 exabytes of stored data existed in 2007 (for methodology of the reckoning see @hilbert2012measure). The key insight is the growing domination of digital technologies accounting for the majority of the annual growth after year 2000. More recent accounts report on machines potentially capable of reporting brontobytes of data (1 brontobyte = 1 000 000 000 exabytes) (@bort2014there).
+A very common account on big data goes along the lines of "I will give you some numbers and you will get what I mean". Such writing may not provide an exact understanding of the concept, but can put us into context about the scales we are moving at. Doubtlessly the mass of retained data is growing, as @mcnulty2014understanding put it, 90% of all data ever created was generated in the past 2 years (in 2014). A notable attempt to estimate the World's overall data generation as a whole between 1986 and 2007 by @hilbert2011world mentions that more then 300 exabytes (1 exabyte = 1 000 000 000 gigabytes) of stored data existed in 2007 (for methodology of the reckoning see @hilbert2012measure). The key insight is the growing domination of digital technologies accounting for the majority of the annual growth after year 2000. More recent accounts report on machines potentially capable of reporting brontobytes of data (1 brontobyte = 1 000 000 000 exabytes) (@bort2014there).
 
 Increasing the storage capacity itself does not speak of any qualitative change of in what is stored, therefore some archives could indeed be described as big piles of small data. Under certain circumstances, new quality can arise from increased quantity, for example an array of static images projected at a sufficient frame rate creates an @norvig2011unreasonable, the remaining question is when this change of essence arises, and if and how it is the case of big data.
 
@@ -83,12 +83,30 @@ Handling, process-based, holistic:
 
 @baldassarre2016think
 
+@boyd2012critical define big data as: a cultural, technological, and scholarly phenomenon that rests on the interplay of:
+- Technology: maximizing computation power and algorithmic accuracy to gather, analyze, link, and compare large data sets.
+- Analysis: drawing on large data sets to identify patterns in order to make economic, social, technical, and legal claims.
+- Mythology: the widespread belief that large data sets offer a higher form of intelligence and knowledge that can generate insights that were previously impossible, with the aura of truth, objectivity, and accuracy.
+
+
+Rejecting the view of big data as a singular phenomenon, big data as a non-specific convering term -- @helles2013making: "Data are made in a process involving multiple social agents — communicators, service providers, communication researchers, commercial stakeholders, government authorities, international regulators, and more. Data are made for a variety of scholarly and applied purposes ... And data are processed and employed in a whole range of everyday and institutional contexts."
+
+Expectation vary on context, example of learning analytics -- @wilson2017big: "In this paper, we have used three comparisons to draw out ways in which a particular and currently popular use of big data — learning analytics — differs from other big data contexts. We have tried to highlight the lessons for learning analytics that emerge from such explicit comparisons.
+
+    First, the comparison with big data in the physical sciences highlighted the difference between intentional and incidental data collection; the need for robust theoretical underpinnings to measurements that rely on proxies rather than direct observation; the further need for robust theoretical underpinnings to explain or predict the presence and absence of correlations between different variables; and the dangers of comparing the infinitely differentiated interactions between students and learning resources with the endlessly repeatable interactions between fundamentally identical particles.
+
+    Second, the comparison with big data in business intelligence highlighted the ethical issues around collecting data when users have no choice to opt out and do not give explicit or informed consent; issues around who business intelligence algorithms such as recommender systems are intended to benefit; the question of whether recommender systems are reliable (and if they are not, might they end up recommending behavior that is in fact detrimental to students); and questions of whether the digital trace data used in Learning Analytics are actually traces of learning at all.
+
+    Third, the comparison with big data in public health highlighted the possible elision between the levels of population and individual; and the question of whether analytics are best used to change the behavior of consumers (students) or the conditions in which they find themselves.
+"
+
+
 **As a social phenomenon** (here also sceptical views)
 *we are as good as we can measure*
 
 Often times, big data is described indirectly by the impacts, real or imagined, it has on the society.
 
-Concluding with the societal impact. For some authors, the debate on perfect definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the typical hype cycle (see Gartner repors 2017, 2016 etc.). Even though the technological industry is largely fasion-driven, its societal impacts are real (even though unevenly distributed...). And just because something is hyped, it does not mean we can or should ignore it (see @jagadish2015big, also for debunking some common myths about big data).
+Concluding with the societal impact. For some authors, the debate on perfect definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the typical hype cycle (see Gartner repors 2017, 2016 etc.) [^5]. Even though the technological industry is largely fasion-driven, its societal impacts are real (even though unevenly distributed...). And just because something is hyped, it does not mean we can or should ignore it (see @jagadish2015big, also for debunking some common myths about big data).
 
 To mayer2013big big data stands for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, is important the societal impacts that are likely to stay even when the big data hype is over. About such impacts is the following chapter.
 
@@ -100,14 +118,21 @@ GDPR
 
 # An aside on geospatial big data
 
-@lee2015geospatial
-
-
-@li2016geospatial
+field-specific definitions of big data: 
+Crampton, 2015; Lewis and Westlund, 2015; Ovadia, 2013; Shin and Choi, 2015; Wamba, et al., 2015
+governance (@crampton2015collect), journalism (@lewis2015big), ecology (@shin2015ecological), social sciences (ovadia2013role), or business administration (wamba2015big).
 
 how to contextualize bd within geograpy -- maybe to the next section on science:
 @graham2013geography
 @kitchin2013big
+
+Geospatial big data as a subset of big data. 
+
+@lee2015geospatial
+@li2016geospatial
+
+A potential to geocode big data to become available to geospatial analysis.
+
 
 
 # zaver a oslí mostík do dalsej kapitoly
@@ -126,12 +151,12 @@ TODOs:
 
 ## Footnotes
 
--- Big Data vs big data, data in plural or singular?
--- Moore's law
+[^1] Big Data vs big data, data in plural or singular? 
+[^2] Moore's law -- explanation, critique (this idea must die)
+[^3] *Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house (@rouse2018cloud). The cloud models include providing infrastructure, platform or appliation as a service; main vendors of public cloud solutions are Amazon Web Services, Google Cloud Platform or Microsoft Azure.
+[^4] Processing and analytical frameworks designed for big data inclued Apache Hadoop, Apache Spark, or Apache Flink. No-SQL databases use a collumn, graph, document, key-value, or multi-model solution as an alternative to tradional reltional database design. 
+
 -- Gartner's hype cycle
--- map-reduce
--- how spark works 
--- no-sql vs post-sql
 -- scalability
 
 ## Sources
