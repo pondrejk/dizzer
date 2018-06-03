@@ -53,6 +53,9 @@ A very common account on big data goes along the lines of "I will give you some 
 
 Increasing the storage capacity itself does not speak of any qualitative change of in what is stored, therefore some archives could indeed be described as big piles of small data. Under certain circumstances, new quality can arise from increased quantity, for example an array of static images projected at a sufficient frame rate creates an @norvig2011unreasonable, the remaining question is when this change of essence arises, and if and how it is the case of big data.
 
+![Storage capacity](imgs/img-storage-capacity.pngimg-storage-capacity.png)
+**Fig.** Comparison of the World's estimated data storage capacity between years 1968 and 2007 (modified after @hilbert2011world) and the expected storage capacity of large scale data centers in the period from 2016 to 2021 (modified after @networking2018cisco).
+
 Rather than putting up to a gargantuan task of counting the mass of all possible data items, authors point out the available statistics of large companies (e.g. @kambatla2014trends, @mcnulty2014understanding, @marr2014big and others). For example, Facebook was said to process 10 billion messages, 4.5 billion button clicks and 350 million picture uploads each day (@marr2014big). It goes without saying these numbers are outdated am probably outgrown today. Other companies prominently mentioned in context of big data are Google, Wallmart, or Amazon. This is justified, as these companies also have put user/customer data analytics to the core of their businesses, fuelling the progress in the field. Social media, web search and browsing data, on-line or off-line shopping patterns, but also mobile devices, sensors and large scientific projects are mostly named as generators of big data.
 
 **Metaphoric acconuts**
@@ -132,7 +135,6 @@ Geospatial big data as a subset of big data.
 @li2016geospatial
 
 A potential to geocode big data to become available to geospatial analysis.
-
 
 
 # zaver a oslí mostík do dalsej kapitoly
