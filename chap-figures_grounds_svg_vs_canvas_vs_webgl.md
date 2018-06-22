@@ -62,3 +62,19 @@ pros:
 cons:
 - raster
 - programmer's experience
+
+
+Visualisation strategies
+-------------------------
+
+1. how to aggreate
+2. pusing a theme to the base
+3. how not to aggregate
+
+-- one approach, get a timeline, historical dataset, treat it like it was a datastream and test your visualisateon assumptions
+-- scnd approach -- emulate data
+
+Iteraction strategies
+----------------------
+Andrejenko's view of tasks
+-- how to support them in bd environment

@@ -60,8 +60,18 @@ While Online Analytic Processing (OLAP) workloads can readily be expressed as a 
 --data dwarfs? -- @shah2010data data processing kernels (meaning workflow) --  possible to define also some visualisation related kernels like this?
 -- porovnanie -- rast computing power (... law), vs. rast poctu dat, vs, rast kognitivnej kapacity
 
+# types of spatial event streams (previous chapter?)
+-- how to represent "samples" (tiem intervals) of such event streams in data
 
 # spatial mocking service ...
+-- emulating properties of spatial event streams
+-- starting from properties
+-- starting from an imput dataset (speculating about future scenarios -- how to visualize multiple scenarios)
+
+# training the system using enulated dateastreams
+-- can app be trained to classify datastreams (step 1), to recognize their parameters (step 2), to separate some cmbined regularities in the datastream (like gamlan music, or Fourier decomposition)
+-- system coud pick basic visualisation based on parameters (recommendation system -- here are n possible methods for you, based on qualitative/quantitative data...)
+-- some geostatistical measures of a datastream, how to represent...
 
 # technical stuff ... see also chapter figures-ground
 .. proper report after a prototype is done
