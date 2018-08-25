@@ -1,0 +1,11 @@
+first attempt:
+
+pandoc -V geometry:margin=1.5in chap-definitions.md -o paper.doc --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --latex-engine=xelatex
+
+-- set margins, fonts (Noticia Text 12, Fira sans for diagrams), indentation, paper size? (B4?) -- all should be done via reference doc like this:
+
+pandoc chap-definitions.md -o paper.docx --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --latex-engine=xelatex --reference-doc=reference.docx
+
+todos: 
+-- pdf fails with  LaTeX Error: File `mathspec.sty' not found.
+-- check bookdown https://bookdown.org/yihui/bookdown/new-session.html
