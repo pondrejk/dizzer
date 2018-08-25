@@ -6,6 +6,9 @@ pandoc -V geometry:margin=1.5in chap-definitions.md -o paper.doc --bibliography=
 
 pandoc chap-definitions.md -o paper.docx --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --latex-engine=xelatex --reference-doc=reference.docx
 
+combine muliple sources
+pandoc -s input1.md input2.md input3.md -o output.html
+
 todos: 
--- pdf fails with  LaTeX Error: File `mathspec.sty' not found.
--- check bookdown https://bookdown.org/yihui/bookdown/new-session.html
+-- pdf fails with  LaTeX Error: File `mathspec.sty' not found. -- # done: fixed using sudo dnf install "tex(mathspec.sty)" 
+-- check bookdown https://bookdown.org/yihui/bookdown/new-session.html -- done: good for gitbooks, and connecting several files, also supports footnotes, no export to docx, questionable pdf styling..., revisit in pre-publish phase

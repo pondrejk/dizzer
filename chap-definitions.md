@@ -1,8 +1,10 @@
 # Defining Big Data
 
-> *Small data are slow and sampled. Big Data are quick and n=all.* @kitchin2016makes
 
-> *This chapter searches for defining properties of big data, focusing on characteristics with possible implications for cartographic practice. Review of related works outlines the main attitudes towards grasping the concept.*
+> *Small data are slow and sampled. Big Data are quick and n=all.*
+> @kitchin2016makes
+
+*This chapter searches for defining properties of big data, focusing on characteristics with possible implications for cartographic practice. Review of related works outlines the main attitudes towards grasping the concept.*
 
 ## Ontological characteristics (*big* standing for *fast* and *exhaustive*)
 
@@ -159,7 +161,7 @@ TODOs:
 -- also an appendix of graphical depiction of seven axes along witch selected datasets differ from "small data". **!!!** -- inspiration: <http://searchcloudcomputing.techtarget.com/definition/big-data-Big-Data> also read and proces also read and process. @rouse2014big
 -- appendix on platforms: hadoop - map&reduce, spark and alternative dbs -- see: figure 16 and review from @paakkonen2015reference, see also @jin2015significance
 
-## Footnotes
+## Notes
 
 [^1] Big Data vs big data, data in plural or singular? 
 [^2] Moore's law -- explanation, critique (this idea must die)
