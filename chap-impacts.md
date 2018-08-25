@@ -104,4 +104,21 @@ Local Data: Learning to Look at Big Data as Aggregates
 Data are local: made by people and their dutiful machines, at a time, in a place, with the instruments at hand, using limited resources, to reach disciplined audiences. Although they are reliably transferred across digital communication networks, everywhere data remain marked by local artifacts: traces of the conditions and values that are particular to their origins. Even big data—a term that valorizes the scale and perceived autonomy of today’s data practices—are no more than aggregations of local knowledge, grounded in and inseparable from their social and material beginnings. This paper argues that we should learn to look at big data as data aggregates: collections of local data with varied and discordant infrastructural ties. In other words, if we are to fully understand the opportunities and pitfalls of big data, we must begin to see both the forest and the trees. 
 
 
+----
 
+*we are as good as we can measure* -- tabula pred cernom citacia
+
+---
+@lupton2015managing -- self-tracking and quantified self
+
+--- 
+právo a GDPR
+
+---
+
+@gandomi2015beyond – list of risks in bd-based predictive analytics: heterogenity, noise accumulation, spurious correlations, incidental endogeneity  -- Beyond the hype: Big data 
+concepts, methods, and analytics
+
+------------
+
+@baldassarre2016think -- simple overall desc, good expl of **data science**

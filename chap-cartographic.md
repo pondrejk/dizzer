@@ -180,6 +180,14 @@ Some show parallelism, some depict motion -- in such case "viewers must interpol
 
 -- on confections: "...confection is an assembly of many visual events, selected (...) from various Streams of Story {quote from Rhushdie -- Haroun and the sea of stories}, than brought together and juxtaposed on the still flatland of paper. By means of multiplicity of image-events, confections illustrate an argument, show and enforce visual comparisons, combine the real and imagined and tell us yet another story."
 
+-- Also mentioning tufte quoting whasshisname author comparing life as a stream of stories. dataviz can roll-back the time variously tinker with data representations thus bypassing the need to use metaphors and verbal descriptions.
+
+another tufte sparklines @tufte2006beautiful
+---------------
+https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR
+
+A sparkline, as defined by Tufte, is “a small intense, simple, word-sized graphic with 
+typographic resolution. Sparklines ... can be everywhere a word or number can be: embedded in a sentence, table, headline, map, spreadsheet, graphic.”
 
 opseorafia vs kinematografia
 ----------------------------

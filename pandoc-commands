@@ -9,6 +9,13 @@ pandoc chap-definitions.md -o paper.docx --bibliography=../Biblio/cartogis.bib -
 combine muliple sources
 pandoc -s input1.md input2.md input3.md -o output.html
 
+use extensions, or alternative formats
+pandoc -f markdown+extension
+-- but some do not output to docx, previous md to md is needed, e.g. for smart, auto_identifiers, etc.
+--for inline notes:
+
+pandoc -f markdown+inline_notes chap-definitions.md -o paper.docx --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --latex-engine=xelatex --reference-doc=reference.docx
+
 todos: 
 -- pdf fails with  LaTeX Error: File `mathspec.sty' not found. -- # done: fixed using sudo dnf install "tex(mathspec.sty)" 
 -- check bookdown https://bookdown.org/yihui/bookdown/new-session.html -- done: good for gitbooks, and connecting several files, also supports footnotes, no export to docx, questionable pdf styling..., revisit in pre-publish phase
