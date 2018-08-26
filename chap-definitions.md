@@ -21,7 +21,7 @@ This provides a useful starting point for our thinking of big data from the cart
 * **Relationality** – containing common fields that enable the conjoining of different datasets
 * **Extensionality and scalability** – flexibility of data generation, possibility to add or change new fields easily, possibility to rapidly expand in size
 
-The above parameters, their relative importance, as well as their cartographic implications, will be discussed more in depth in chapter 3, but straight from the start it is important to mention two open questions that for many people make attempts to define big data vague at best, sometimes to the point of questioning the existence of the phenomenon itself.
+The above parameters, their relative importance, as well as their cartographic implications, will be discussed more in depth later, but straight from the start it is important to mention two open questions that for many people make attempts to define big data vague at best, sometimes to the point of questioning the existence of the phenomenon itself.
 
 First, there are no quantitative thresholds that would define exactly how large the "big" volume is, how fast the "big" velocity is, and so on. Some properties would even be hard to describe in quantitative terms (for example extensionality). Other properties sound too general or vague to act as a sound defining parameter (scalability). What is more, one could extend the properties ad absurdum, for example *variety* could refer to differences in structure, origin, quality, or any other property of a dataset. Such depth of parameters and sub-parameters does not add to the overall comparability of datasets, especially when we consider that data-generation procedures may be unique to certain domains and not found in others. Finally, many datasets lack metadata detailed enough to allow to judge all mentioned properties. It is possible that these issues will clear out with time, but parameter thresholds may as well remain blurry and ever in flux.
 
@@ -107,11 +107,11 @@ From the cartographer's standpoint, aspects of visual art can be inspiring (grap
 
 ### Holistic and process-oriented accounts
 
-Multifaceted phenomena tend to provoke descriptions that contain words like "system" or "process". Somewhere behind that lies an idea that a whole more than a sum of it's parts ^[who coined this?]. This is certainly true in some cases (e.g. Earth's energy circulation) but questionable in others (bd?). Naturally, listing such holistic accounts will include topics already mentioned, so pardon some repetition in this section.
+Multifaceted phenomena tend to provoke descriptions that contain words like "system" or "process". Somewhere behind that lies an idea that a whole more than a sum of its parts^[This is true for systems that express *synergy* or *emergent* behavior. Over the years, *systems theory* has been used to describe many natural and man-made phenomena in many fields, including geography and cartography.]. Experts from different fields notice aspects of phenomena that are close to their priorities, interdisciplinary definitions combine such  views. Naturally, listing holistic accounts will include topics already mentioned, so pardon some repetition in this section.
 
-@murthy2014big prepared a taxonomy comprised of:
+@murthy2014big prepared a taxonomy of big data comprised of:
 
--  *data* – with various levels of temporal latency and structure 
+- *data* – with various levels of temporal latency and structure 
 - *compute infrastructure* – batch or streaming
 - *storage infrastructure* – sql, nosql or newsql
 - *analysis* – supervised, semisupervised, unsupervised or re-enforcement machine learning
@@ -124,29 +124,13 @@ On the other hand, @boyd2012critical define big data as a cultural, technologica
 - *analysis* – drawing on large data sets to identify patterns in order to make economic, social, technical, and legal claims
 - *mythology* – the widespread belief that large data sets offer a higher form of intelligence and knowledge that can generate insights that were previously impossible, with the aura of truth, objectivity, and accuracy
  
+As the two taxonomies above illustrate, there are many ways to slice a cake. The fate of overreaching definitions is being too intricate to explain the phenomena crisply, yet never complete as there is always a point of view that hasn't been included. So here we arrive at a trade-off between preciseness of a definition and its practicality.
 
-
-Though systemic thinking is not bad as such, it's usefulness..., have a fate of being overly complicated and yet never complete. There are too many ways to slice a cake...
-
-Rejecting the view of big data as a singular phenomenon, big data as a non-specific convering term – @helles2013making: "Data are made in a process involving multiple social agents — communicators, service providers, communication researchers, commercial stakeholders, government authorities, international regulators, and more. Data are made for a variety of scholarly and applied purposes ... And data are processed and employed in a whole range of everyday and institutional contexts."
-
-Expectation vary on context, example of learning analytics – @wilson2017big: "In this paper, we have used three comparisons to draw out ways in which a particular and currently popular use of big data — learning analytics — differs from other big data contexts. We have tried to highlight the lessons for learning analytics that emerge from such explicit comparisons.
-
-    First, the comparison with big data in the physical sciences highlighted the difference between intentional and incidental data collection; the need for robust theoretical underpinnings to measurements that rely on proxies rather than direct observation; the further need for robust theoretical underpinnings to explain or predict the presence and absence of correlations between different variables; and the dangers of comparing the infinitely differentiated interactions between students and learning resources with the endlessly repeatable interactions between fundamentally identical particles.
-
-    Second, the comparison with big data in business intelligence highlighted the ethical issues around collecting data when users have no choice to opt out and do not give explicit or informed consent; issues around who business intelligence algorithms such as recommender systems are intended to benefit; the question of whether recommender systems are reliable (and if they are not, might they end up recommending behavior that is in fact detrimental to students); and questions of whether the digital trace data used in Learning Analytics are actually traces of learning at all.
-
-    Third, the comparison with big data in public health highlighted the possible elision between the levels of population and individual; and the question of whether analytics are best used to change the behavior of consumers (students) or the conditions in which they find themselves.
-"
+One way out from this is simply rejecting the view of big data as a singular phenomenon. Big data is a non-specific covering term that could mean different things to different people. As @helles2013making observes, "[d]ata are made in a process involving multiple social agents — communicators, service providers, communication researchers, commercial stakeholders, government authorities, international regulators, and more. Data are made for a variety of scholarly and applied purposes [...]. And data are processed and employed in a whole range of everyday and institutional contexts."
 
 ## Spatial properties of big data
 
-Apart from the overreaching definitions mentioned above, there as also been field-specific efforts to contextualize big data: 
-Crampton, 2015; Lewis and Westlund, 2015; Ovadia, 2013; Shin and Choi, 2015; Wamba, et al., 2015
-governance (@crampton2015collect), journalism (@lewis2015big), ecology (@shin2015ecological), social sciences (ovadia2013role), or business administration (wamba2015big) and doubtlessly many others I'm not aware of.
-
-education Kabakchieva, D., & Stefanova, K. (2015). Big Data Approach and Dimensions for Educational Industry. Economic
-Alternatives, (4), pp. 47-59.
+Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance (@crampton2015collect), journalism (@lewis2015big), ecology (@shin2015ecological), social sciences (ovadia2013role), or business administration (wamba2015big), learning analytics (@wilson2017big), education (kabakchieva2015big) and doubtlessly many others.
 
 how to contextualize bd within geograpy – maybe to the next section on science:
 @graham2013geography
@@ -193,7 +177,7 @@ TODOs:
 
 
 [^2] Moore's law – explanation, critique (this idea must die)
-[^3] *Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house (@rouse2018cloud). The cloud models include providing infrastructure, platform or appliation as a service; main vendors of public cloud solutions are Amazon Web Services, Google Cloud Platform or Microsoft Azure.
+[^3] *Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house (@rouse2018cloud). The cloud models include providing infrastructure, platform or application as a service; main vendors of public cloud solutions are Amazon Web Services, Google Cloud Platform or Microsoft Azure.
 [^4] Processing and analytical frameworks designed for big data inclued Apache Hadoop, Apache Spark, or Apache Flink. No-SQL databases use a collumn, graph, document, key-value, or multi-model solution as an alternative to tradional reltional database design. 
 [^5] 1 exabyte = 1 000 000 000 gigabytes
 [^6] 1 brontobyte = 1 000 000 000 exabytes) 
