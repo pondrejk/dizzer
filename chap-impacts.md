@@ -135,3 +135,23 @@ concepts, methods, and analytics
 
     Third, the comparison with big data in public health highlighted the possible elision between the levels of population and individual; and the question of whether analytics are best used to change the behavior of consumers (students) or the conditions in which they find themselves.
 
+-----------
+
+(see @jagadish2015big, also for debunking some common myths about big data).
+
+-----
+
+my dogfood:
+
+To those with resources, technical facilities (that emerged in recent years) allow storing data for future reuse even thought the utilization may be unclear at the moment of storing. There is an underlying hope that we can make sense of those data in the future. Data holders seek ways to monetize the information. BD are an attribute of interconnected society where individuals using ubiquitous technologies (web services, and mobile devices) create bigger and bigger digital footprints.
+
+----------
+@press2014big
+
+some definitions:
+
+(11) The belief that the more data you have the more insights and answers will rise automatically from the pool of ones and zeros.
+
+(12) A new attitude by businesses, non-profits, government agencies, and individuals that combining data from multiple sources could lead to better decisions.
+
+I like the last two. #11 is a warning against blindly collecting more data for the sake of collecting more data (see NSA). #12 is an acknowledgment that storing data in “data silos” has been the key obstacle to getting the data to work for us, to improve our work and lives. It’s all about attitude, not technologies or quantities.
