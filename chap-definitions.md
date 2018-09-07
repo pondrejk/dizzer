@@ -46,9 +46,9 @@ Laney's 3 Vs were brought into commercial management-speak and became a slogan f
 
 Several authors understand big data mainly as a management issue, which is probably due to the fact that handling large datasets is challenging. Hence, the computational difficulties of storing and processing a dataset on a single machine often act as a defining measure. One example for all is @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” 
 
-The problem with such definitions is determining exactly what size is "too big to fit". The computational power of hardware accessible for personal use is constantly increasing (by the Moore's law ^[Moore's law – explanation, critique (this idea must die)]), not to mention the technical infrastructure accessible to large enterprises and governmental organizations (datacenter construction is steadily growing and is expected to almost double the current capacity in 2021 @statista2018data, @networking2018cisco).
+The problem with such definitions is determining exactly what size is "too big to fit". The computational power of hardware accessible for personal use is constantly increasing ^[Gordon Moore's 1965 paper (reprint @moore2006cramming) stated that the number of transistors on integrated circuits will double every two years. The prediction has proven accurate for several decades and became known as *Moores's law*, a very popular analogy of advance of the digital age. The pace has slowed down with smaller transistors suggesting that the prediction is reaching its technological limit, though the opinions here vary. The overuse of the idea as a synonym of progress has been criticized as too simplistic @kreye2015moores ], not to mention the technical infrastructure accessible to large enterprises and governmental organizations (datacenter construction is steadily growing and is expected to almost double the current capacity in 2021 @statista2018data, @networking2018cisco).
 
-At the same time, new technologies emerge to address the issue – virtualization of storage, networking, and memory make it possible to rent computational infrastructure from "cloud" providers, or to delegate workloads previously carried out by the operating system to remote platforms ^[*Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house (@rouse2018cloud). The cloud models include providing infrastructure, platform or application as a service; main vendors of public cloud solutions are Amazon Web Services, Google Cloud Platform or Microsoft Azure.]. Other innovations take place in data processing algorithms, analytic engines, and in database design (a whole range of No-SQL databases as well as enablement of distributed processing in traditional databases) ^[Processing and analytical frameworks designed for big data inclued Apache Hadoop, Apache Spark, or Apache Flink. No-SQL databases use a collumn, graph, document, key-value, or multi-model solution as an alternative to tradional reltional database design.]. Some attempts to summarize technical solutions for big data can be found in @paakkonen2015reference, or @jin2015significance.
+At the same time, new technologies emerge to address the issue – virtualization of storage, networking, and memory make it possible to rent computational infrastructure from "cloud" providers, or to delegate workloads previously carried out by the operating system to remote platforms ^[*Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house (@rouse2018cloud). The cloud models include providing infrastructure, platform or application as a service; main vendors of public cloud solutions are Amazon Web Services, Google Cloud Platform or Microsoft Azure.]. Other innovations take place in data processing algorithms, analytic engines, and in database design (a whole range of No-SQL databases as well as enablement of distributed processing in traditional databases) ^[Processing and analytical frameworks designed for big data include Apache Hadoop, Apache Spark, or Apache Flink. No-SQL databases use a column, graph, document, key-value, or multi-model solution as an alternative to traditional relational database design.]. Some attempts to summarize technical solutions for big data can be found in @paakkonen2015reference, or @jin2015significance.
 
 As we can see, the "too big to fit" definitions are highly dependent on the resources currently available, plus we need to take into account future improvements that are hard to predict. That being said, understanding the subject as *data that prevent local offline processing on common desktop in reasonable time* is a useful shorthand for judging big from "small" data. The threshold between local (offline) and remote (cloud-dependent) processing exists even though it is a blurry and a dynamic one. As the latter may be more and more accessible in the future, it can be best advised to consider the scalability of any data-processing workflows early on. In other words, any workflow designed as a potential big data process will likely have an advantage, as design limitations may prove to be overcome harder than the technical ones. 
 
@@ -123,6 +123,30 @@ Geospatial big data as a subset of big data.
 A potential to geocode big data to become available to geospatial analysis.
 
 Cartography (here represented by ICA) is no exception. ... Manifestos, etc... 
+
+Classical dichotomies still hold
+
+Vector / Raster
+or better conceptually 
+Discrete / Field
+
+Point / Lines / Polygons / Tessalerations / Interpolations ...
+Nominal / Ordinal / Interval /... every textbook has it
+
+More on in a separate 
+
+Spatial data bound to be represented, the form is a big deal in gis
+Generaliastion, analysis, geostatistics..., data respresentations in GIS (event the whole data model)
+-- a canon of proved algorithms, how would they scale... 
+
+GIS data aggergation venture -- addning indexicallity by spatialization
+
+Spatialization...
+
+All to big of a topic for this chapter, gis project to be rethinked again, but proved itself to be capable of adopting new stuff and evolving with it.
+
+In some other chapter do: GIS and cartography (partners in crime) facing big data -- Each with a different Sets of Challenges -- carto (see manifests) / gis -- think thourgh
+
 
 ## Assessing impacts and opportunities rather than seeking definitions
 
