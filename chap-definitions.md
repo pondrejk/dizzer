@@ -86,7 +86,7 @@ From the cartographer's standpoint, aspects of visual art can be inspiring (grap
 
 ### Holistic and process-oriented accounts
 
-Multifaceted phenomena tend to provoke descriptions that contain words like "system" or "process". Somewhere behind that lies an idea that a whole more than a sum of its parts^[This is true for systems that express *synergy* or *emergent behavior*. Over the years, *systems theory* has been used to describe many natural and man-made phenomena in many fields, including geography and cartography.]. Experts from different fields notice aspects of phenomena that are close to their priorities, interdisciplinary definitions combine such  views. Naturally, listing holistic accounts will include topics already mentioned, so pardon some repetition in this section.
+Multifaceted phenomena tend to provoke descriptions that contain words like "system" or "process". Somewhere behind that lies an idea that a whole is more than a sum of its parts^[This is true for systems that express *synergy* or *emergent behavior*. Over the years, *systems theory* has been used to describe many natural and man-made phenomena in many fields, including geography and cartography.]. Experts from different fields notice aspects of phenomena that are close to their research interests and priorities, interdisciplinary definitions then combine such views. Naturally, listing holistic accounts will include topics already mentioned, therefore pardon some repetition in this section.
 
 @murthy2014big prepared a taxonomy of big data comprised of:
 
