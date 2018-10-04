@@ -177,3 +177,41 @@ All intentionally-created systems have a set of things the designers consider pa
 Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
 
 In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
+
+
+
+Geo specific speculations
+--------------------------
+
+2 fold, cartography and geoinformatics
+
+GIS and cartography (partners in crime) facing big data -- Each with a different Sets of Challenges.
+
+# Cartography
+
+Sum up the manifesto here
+
+Cognitive side, human perceptual responses... (not to overstate as I don't do it in this work). 
+
+Ford's quote: "If I asked people what they want, they would ask for a faster horse" (find exact.). Similarly, we can test the cognitive efficiency of the visualisation methods that already exist, and users would prefer the methods they know. Cartography's quest (in my opinion) is to extend the arsenal of visualisation methods. As we will see further, interaction and animation pose new challenges to cartographic visualisation, with possibly multiplied opportunities for method combinations and innovations for data exploration and possibly knowledge generation. Further, plenty of tricks from the rich history of cartographic practice did not make it to web mapping toolbox. Recent emerging technology owing much to the gaming industry promise to bring web cartography to the flexibility of the pen and paper ^[or brush, engraving tool etc.] of pre-digital cartographer. Only now the shifted role of cartographer would be in enabling data to paint the picture for us.  Much of the rest of this thesis will be exploring this truly exciting prospect.
+
+# GIS
+
+Not within the scope of the thesis (and within author's powers) to consider all directions and areas where geoinformation science may be impacted by big data. 
+
+GIT has a solid foundation of data-related concepts to build on. We shouldn't expect that the ideas like  (vector data model, spatial autocorellation, etc. list more properly) could be discarded by the fact that lots of data will be coming in faster to geoinformation systems. 
+
+However, existing concepts should be (as a first step reviewed) in the light of new requirements. 
+
+Review of the cannon of proved gis algorithms (see @xiao2015gis) in terms of scalability, how they deal with increased data load, is there a potential work in real time. TODO -- look at the algorithm complexity theory, could this be done for gis algorithms.
+
+Trends, possibly trading off speed for precision, (e.g. the approximate db queries...). Maybe some trends of integrating with hadoop, spark, scala, kafka... etc.
+
+Role of a data integrator with space as a unique integrating concept. 
+
+GIS data aggergation venture -- addning indexicallity by spatialization
+
+Spatialization .. ad hoc addition of spatial parametes to data. Real time possibilities of geocoding services? (how they actually work)
+
+GIS project to be rethinked again, but proved itself to be capable of adopting new stuff and evolving with it.
+

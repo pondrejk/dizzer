@@ -109,11 +109,15 @@ One way out from this is simply rejecting the view of big data as a singular phe
 
 ## Spatial properties of big data
 
-Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance (@crampton2015collect), journalism (@lewis2015big), ecology (@shin2015ecological), social sciences (ovadia2013role), or business administration (wamba2015big), learning analytics (@wilson2017big), education (kabakchieva2015big) and doubtlessly many others.
+Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance (@crampton2015collect), journalism (@lewis2015big), ecology (@shin2015ecological), social sciences (ovadia2013role), business administration (wamba2015big), learning analytics (@wilson2017big), education (kabakchieva2015big) and doubtlessly many others.
+
 
 how to contextualize bd within geography – maybe to the next section on science:
+
 @graham2013geography
 @kitchin2013big
+
+-- Here only previous works, and data definitions, next chapter -- my freestyle
 
 Geospatial big data as a subset of big data. 
 
@@ -137,24 +141,19 @@ More on in a separate
 
 Spatial data bound to be represented, the form is a big deal in gis
 Generaliastion, analysis, geostatistics..., data respresentations in GIS (event the whole data model)
--- a canon of proved algorithms, how would they scale... 
 
-GIS data aggergation venture -- addning indexicallity by spatialization
+Spatial imagery -- truly big data with strong relevance in geosciences. @jiang2017spatial
 
-Spatialization...
+In the next chapter, where we look at at the impact of big data on science in general, we also offer our speculation on how the roles of cartography and GIS may be transformed by the data deluge.
 
-All to big of a topic for this chapter, gis project to be rethinked again, but proved itself to be capable of adopting new stuff and evolving with it.
-
-In some other chapter do: GIS and cartography (partners in crime) facing big data -- Each with a different Sets of Challenges -- carto (see manifests) / gis -- think thourgh
 
 
 ## Assessing impacts and opportunities rather than seeking definitions
 
-Often times, big data are described indirectly by the impacts, real or imagined, it has on the society. For some authors, the debate on definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the infamous hype cycle ^[Hype cycles describe how expectations from emerging technologies evolve with time. Stages in the cycle are:  *innovation trigger*, *peak of inflated expectations*, *trough of disillusionment*, *slope of enlightenment*, and *plateau of productivity*. The expected duration of cycle differs per technology, and some technologies may never reach productivity. Hype cycles are an invention of consultancy Gartner, that issues regular reports @gartner2018]. Many ideas in the IT industry exist under changing or concurrent names, and big data has indeed a lot in common with terms such as *data mining*, *business intelligence* or *visual analytics* to name just a few. But we should not forget that even though the technological industry is largely fashion-driven, its societal impacts are real, though sometimes unevenly distributed. 
+Often times, big data are described indirectly by the impacts, real or imagined, they have on the society. For some authors, the debate on definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the infamous hype cycle ^[Hype cycles describe how expectations from emerging technologies evolve with time. Stages in the cycle are:  *innovation trigger*, *peak of inflated expectations*, *trough of disillusionment*, *slope of enlightenment*, and *plateau of productivity*. The expected duration of cycle differs per technology, and some technologies may never reach productivity in the foreseeable future. Hype cycles are a construction of consultancy Gartner that issues regular reports @gartner2018]. Many ideas in the IT industry exist under changing or concurrent names, and big data has indeed a lot in common with concepts such as *data mining*, *business intelligence* or *visual analytics* to name just a few. But we should not forget that even though the technological industry is largely fashion-driven, its societal impacts are real, though sometimes unevenly distributed. 
 
-The definition of big data is elusive perhaps also because the majority of involved actors,as they are positioned in the business world, is more focused on building productive big data ventures, without much conceptual attention to the subject in itself. Then of course, the underlying technologies become a subject of marketing which often uses inflated overstatements based on expectations rather than reality. So far there is no settled consensus around Big Data definition in the academia either, but as @kitchin2016makes predicts, the "genus" of big data will probably be further delineated and its various "species" identified. The question is if the then such an umbrella term will be necessary. Anyways, the lack of common ground in understanding what big data is (illustrated by this chapter) may be a good predictor of the term's future relevance. Problems with definition is exactly what leads @davenport2014big to "predict a relatively short life span for this unfortunate term.” 
+The definition of big data is elusive perhaps also because the majority of involved actors, as they are positioned in the business world, is more focused on building productive big data ventures, without much conceptual attention to the subject in itself. Then of course, the underlying technologies become a subject of marketing which often uses inflated overstatements based on expectations rather than reality. So far there is no settled consensus around big data definition in the academia either, but as @kitchin2016makes predicts, the "genus" of big data will probably be further delineated and its various "species" identified. The question is if then such an umbrella term will be necessary. Anyways, the lack of common ground in understanding what big data is (illustrated by this chapter) may be a good predictor of the term's future relevance. Problems with definition is exactly what leads @davenport2014big to "predict a relatively short life span for this unfortunate term.” 
 
-To @mayer2013big big data stands for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, the important lies in the real-life impacts that are likely to stay even when the big data hype is over. Even if we dismiss big data as a buzz-word, 
-the fact is that more digital information gets created and it can be linked more easily, which has many implications on the way we live. Together with that there are changing attitudes to putting data to work. Before we move to describing the challenges and opportunities big data pose to cartography, we dedicate the following chapter to some societal and scientific impacts of the phenomenon, as they can provide a motivation for cartography to take part in addressing those issues. 
+To @mayer2013big big data stands for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, the importance lies in the real-life impacts that are likely to stay even when the big data hype is over. Even if we dismiss big data as a buzz-word, the fact is that more digital information gets created and it can be linked more easily, which has many implications on the way we live. Together with that there are changing attitudes to putting data to work. Before we move to describing the challenges and opportunities big data pose to cartography, we dedicate the following chapter to some societal and scientific impacts of the phenomenon, as they can provide a motivation for cartography to take part in addressing those issues. 
 
 ## Sources
