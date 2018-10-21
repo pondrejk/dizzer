@@ -215,3 +215,23 @@ Spatialization .. ad hoc addition of spatial parametes to data. Real time possib
 
 GIS project to be rethinked again, but proved itself to be capable of adopting new stuff and evolving with it.
 
+
+@jiang2017spatial
+-----------------
+
+from toc:
+- What is spatial Big Data
+- Spaial and spatiotemporal BD Science
+
+
+@li2016geospatial
+-----------------
+- challenges in big data
+
+shekhar2014benchmarking
+------------------------
+- performance tests? -- proposed potential metrics
+
+gis algorithms review:
+--------------------
+voronoi - @sharifzadeh2009approximate

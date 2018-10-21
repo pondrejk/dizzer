@@ -38,16 +38,20 @@ In this section we briefly review the writing of authors striving to define big 
 
 Kitchin's taxonomy mentioned in the previous section is based on a review of older definitions, starting with the often-cited three Vs (standing for *volume*, *velocity*, and *variety*) by @laney20013d. The notion of *exhaustivity* was added by @mayer2013big, concepts of *resolution* and *indexicality* came from @dodge2005codes, @boyd2012critical adds *relationality*, and the qualities of *extensionality* and *scalability* were taken from @marz2012big.
 
-Other properties attributed to big data include *veracity* (data can be messy, noisy and contain uncertainty and error) and *value* (many insights can be extracted, data can be repurposed), both brought forward by @marr2014big. Moreover, *variability* (the meaning obtainable from data is shifting in relation to the context in which they are generated) was identified by David Hopkins in relation to text analysis (@brunnelli2011will).
+Other properties attributed to big data include *veracity* (data can be messy, noisy and contain uncertainty and error) and *value* (many insights can be extracted, data can be repurposed), both brought forward by @marr2014big. Moreover, *variability* (the meaning obtainable from data is shifting in relation to the context in which they are generated) was identified by David Hopkins in relation to text analysis (@brunnelli2011will). @li2016geospatial name also *visibility* (efficient access to data via cloud storage and computing) and more curiously *visualistation* as big data properties. Here it is questionable if subject (data) can be defined by the tools used to handle it (supporting infrastructure and visual information products).
+
+Suthaharan (2014) even argued that 3Vs cannot support early detection of big data characteristics for its classification and proposed 3Cs: cardinality, continuity, and complexity. @suthaharan2014big
 
 Laney's 3 Vs were brought into commercial management-speak and became a slogan further powering the hype of big data. Nevertheless, it inspired a number of other authors to extend it quite creatively. For example @uprichard2013focus lists other v-words to be considered, both in positive (*versatility*, *virtuosity*, *vibrancy*...) and negative (*valueless*, *vampire-like*, *violating*...) light. @marr2014big describes five Vs of big data, @van20133v sees seven Vs, @boellstorff2015introduction propose three Rs and @lupton2015thirteen even uses thirteen p-words to describe the subject. As @kitchin2016makes notes, these additional v-words and new p-words are often descriptive of a broad set of issues associated with big data, rather than characterising the ontological traits of data themselves.
 
 ### A challenge for technical infrastructure
 
-Several authors understand big data mainly as a management issue, which is probably due to the fact that handling large datasets is challenging. Hence, the computational difficulties of storing and processing a dataset on a single machine often act as a defining measure. One example for all is @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” 
+Several authors understand big data mainly as a management issue, which is probably due to the fact that handling large datasets is challenging. Hence, the computational difficulties of storing and processing a dataset on a single machine often act as a defining measure. For instance @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” Or similarly @shekhar2012spatial states 
+that “the size, variety and update rate of datasets exceed the capacity of commonly used spatial computing and spatial database technologies to learn,  manage, and process the data with reasonable effort”. 
 
-The problem with such definitions is determining exactly what size is "too big to fit". The computational power of hardware accessible for personal use is constantly increasing ^[Gordon Moore's 1965 paper (reprint @moore2006cramming) stated that the number of transistors on integrated circuits will double every two years. The prediction has proven accurate for several decades and became known as *Moores's law*, a very popular analogy of advance of the digital age. The pace has slowed down with smaller transistors suggesting that the prediction is reaching its technological limit, though the opinions here vary. The overuse of the idea as a synonym of progress has been criticized as too simplistic @kreye2015moores ], not to mention the technical infrastructure accessible to large enterprises and governmental organizations (datacenter construction is steadily growing and is expected to almost double the current capacity in 2021 @statista2018data, @networking2018cisco).
+The problem with such definitions is determining exactly what size is "too big to fit" and what is the "reasonable effort". The computational power of hardware accessible for personal use is constantly increasing ^[Gordon Moore's 1965 paper (reprint @moore2006cramming) stated that the number of transistors on integrated circuits will double every two years. The prediction has proven accurate for several decades and became known as *Moores's law*, a very popular analogy of advance of the digital age. The pace has slowed down with smaller transistors suggesting that the prediction is reaching its technological limit, though the opinions here vary. The overuse of the idea as a synonym of progress has been criticized as too simplistic @kreye2015moores ], not to mention the technical infrastructure accessible to large enterprises and governmental organizations (datacenter construction is steadily growing and is expected to almost double the current capacity in 2021 @statista2018data, @networking2018cisco).
 
+*TODO* @demchenko2014defining
 At the same time, new technologies emerge to address the issue – virtualization of storage, networking, and memory make it possible to rent computational infrastructure from "cloud" providers, or to delegate workloads previously carried out by the operating system to remote platforms ^[*Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house (@rouse2018cloud). The cloud models include providing infrastructure, platform or application as a service; main vendors of public cloud solutions are Amazon Web Services, Google Cloud Platform or Microsoft Azure.]. Other innovations take place in data processing algorithms, analytic engines, and in database design (a whole range of No-SQL databases as well as enablement of distributed processing in traditional databases) ^[Processing and analytical frameworks designed for big data include Apache Hadoop, Apache Spark, or Apache Flink. No-SQL databases use a column, graph, document, key-value, or multi-model solution as an alternative to traditional relational database design.]. Some attempts to summarize technical solutions for big data can be found in @paakkonen2015reference, or @jin2015significance.
 
 As we can see, the "too big to fit" definitions are highly dependent on the resources currently available, plus we need to take into account future improvements that are hard to predict. That being said, understanding the subject as *data that prevent local offline processing on common desktop in reasonable time* is a useful shorthand for judging big from "small" data. The threshold between local (offline) and remote (cloud-dependent) processing exists even though it is a blurry and a dynamic one. As the latter may be more and more accessible in the future, it can be best advised to consider the scalability of any data-processing workflows early on. In other words, any workflow designed as a potential big data process will likely have an advantage, as design limitations may prove to be overcome harder than the technical ones. 
@@ -109,13 +113,22 @@ One way out from this is simply rejecting the view of big data as a singular phe
 
 ## Spatial properties of big data
 
-Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance (@crampton2015collect), journalism (@lewis2015big), ecology (@shin2015ecological), social sciences (ovadia2013role), business administration (wamba2015big), learning analytics (@wilson2017big), education (kabakchieva2015big) and doubtlessly many others.
+Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance (@crampton2015collect), journalism (@lewis2015big), ecology (@shin2015ecological), social sciences (ovadia2013role), business administration (wamba2015big), urban studies (@thakuriah2017big), learning analytics (@wilson2017big), education (kabakchieva2015big), health informatics (@herland2014review) and doubtlessly many others. Autors here consider existing data procesing and analytical practices in their respective fields in light of possibilities created by big data advances. Some expect forthcoming changes, such as enrichment in avaliable methods (e.g. anaylsing social networks in epidemiology), others analyze the adjustablility of currently used algorithms to conditions of higher data load. With some generalization, the overall mood of these works seems to be welcoming big data as a be possible extension of their toolbox, though doubting that the core scientific methods could be deeply altered by it.
 
-
-how to contextualize bd within geography – maybe to the next section on science:
+To name Geography in specific:
 
 @graham2013geography
 @kitchin2013big
+
+Wihin here are pre-existing definitions and classifications data is and how it should be classified (clinincal data...), spatial data is different...(risque) as a connecting feature.
+
+
+
+
+In conext of 
+Those field-specific accounts rarely add to the ganeral defiinitions of big data, 
+
+GIS is specific with its focus on data spatial properties
 
 -- Here only previous works, and data definitions, next chapter -- my freestyle
 
@@ -123,6 +136,16 @@ Geospatial big data as a subset of big data.
 
 @lee2015geospatial
 @li2016geospatial
+--------
+
+According to the arguable phrase “80% of data is geographic” (see discussions in Morais (2012) @morais2012phrase ), much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. Geospatial data describe objects and things with relation to geographic space, often with location coordinates in a spatial referencing system.
+
+@suthaharan2014big
+
+
+Inherent intent to visualize data.
+Vector Data: atribute and geometry. Attributes can be big-data-fied more easily than geometries (is it even possible?).
+
 
 A potential to geocode big data to become available to geospatial analysis.
 
@@ -137,18 +160,40 @@ Discrete / Field
 Point / Lines / Polygons / Tessalerations / Interpolations ...
 Nominal / Ordinal / Interval /... every textbook has it
 
+shekhar2014benchmarking -- traditional vs emerging spatial bd 
+
 More on in a separate 
 
 Spatial data bound to be represented, the form is a big deal in gis
 Generaliastion, analysis, geostatistics..., data respresentations in GIS (event the whole data model)
 
+not a subject of this thesis
 Spatial imagery -- truly big data with strong relevance in geosciences. @jiang2017spatial
+-- improvements in global monitoring systems (check terminology)
+-- higher quality number of pixels, greater time frequency and number of spectral levels (examples )
 
 In the next chapter, where we look at at the impact of big data on science in general, we also offer our speculation on how the roles of cartography and GIS may be transformed by the data deluge.
 
 
-
 ## Assessing impacts and opportunities rather than seeking definitions
+
+By plowing through the related literature, one can witness a couple of confusing phenomana in big data definitions:
+
+- mixing characteristics of the subject (raw material - stored information) with properties of technologies used to process it (storage, analytics and visualisation, etc.). It is not completely clear even if this is a fallacy or not. Real world analogies may not be helpful, for example the properties of gold are idnependent of the tools used to mine it, on the other hand the digital data are inseparable from the technical infrastructure around it. *That being said it is in my opinion useful to separate asset from the ecosystem* 
+
+gartner:
+
+Big data is high-volume, high-velocity and/or high-variety information assets that demand cost-effective, innovative forms of information processing that enable enhanced insight, decision making, and process automation. 
+
+vs. modification by @olshannikova2015visualizing
+
+Big Data is a tech - nology  to  process  high-volume,  high-velocity,  high-variety  data  or  data-sets  to  extract  intended data value and ensure high veracity of original data and obtained information that demand cost-effective, innovative forms of data and information processing (analyt - ics) for enhanced insight, decision making, and processes control.
+ 
+The possible solution: BD: -- in narrow terms: asset, fuel, raw material, vs more broadly the whole ecosystem arround it. (this thesis will use the narrow sense of term)
+
+- in many cases, it is not completely clear if b-d definitions aim to describe a currently observable phenomenon, or rather a goal for a system which is being built, vision of how it should work once it is done.
+
+
 
 Often times, big data are described indirectly by the impacts, real or imagined, they have on the society. For some authors, the debate on definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the infamous hype cycle ^[Hype cycles describe how expectations from emerging technologies evolve with time. Stages in the cycle are:  *innovation trigger*, *peak of inflated expectations*, *trough of disillusionment*, *slope of enlightenment*, and *plateau of productivity*. The expected duration of cycle differs per technology, and some technologies may never reach productivity in the foreseeable future. Hype cycles are a construction of consultancy Gartner that issues regular reports @gartner2018]. Many ideas in the IT industry exist under changing or concurrent names, and big data has indeed a lot in common with concepts such as *data mining*, *business intelligence* or *visual analytics* to name just a few. But we should not forget that even though the technological industry is largely fashion-driven, its societal impacts are real, though sometimes unevenly distributed. 
 
