@@ -32,7 +32,7 @@ Aware of these problems, @kitchin2016makes argues that *velocity* and *exhaustiv
 
 ## Other ways of understanding big data
 
-In this section we briefly review the writing of authors striving to define big data. The term itself was fist used in context of dealing with massive datasets in mid-1990s by John Mashey (@diebold2012personal), but the heaviest circulation of the term in scientific and popular media takes place only in recent years. From the breadth of works, several tendencies can be identified, providing more or less illuminating interpretations of the subject (for an alternative summary of definitions see @gandomi2015beyond, for bibliometric analysis of related scientific literature see @nobre2017scientific).
+In this section we briefly review the writing of authors seeking to define big data. The term itself was fist used in context of dealing with massive datasets in mid-1990s by John Mashey (@diebold2012personal), but the heaviest circulation of the term in scientific and popular media takes place only in recent years. From the breadth of works, several tendencies can be identified, providing more or less illuminating interpretations of the subject (for an alternative summary of definitions see @gandomi2015beyond, for bibliometric analysis of related scientific literature see @nobre2017scientific).
 
 ### Vs and keywords
 
@@ -40,21 +40,30 @@ Kitchin's taxonomy mentioned in the previous section is based on a review of old
 
 Other properties attributed to big data include *veracity* (data can be messy, noisy and contain uncertainty and error) and *value* (many insights can be extracted, data can be repurposed), both brought forward by @marr2014big. Moreover, *variability* (the meaning obtainable from data is shifting in relation to the context in which they are generated) was identified by David Hopkins in relation to text analysis (@brunnelli2011will). @li2016geospatial name also *visibility* (efficient access to data via cloud storage and computing) and more curiously *visualistation* as big data properties. Here it is questionable if subject (data) can be defined by the tools used to handle it (supporting infrastructure and visual information products).
 
-Suthaharan (2014) even argued that 3Vs cannot support early detection of big data characteristics for its classification and proposed 3Cs: cardinality, continuity, and complexity. @suthaharan2014big
+@suthaharan2014big, dealing with a task of early recognition of big data characteristics in computer network traffic, argues that three Vs do not support such early detection in continuous data streems. Instead he proposes three Cs: *cardinality* (number of records), *continuity* (meaning both representation of data by continuous functions, and continuous growth of size with time), and *complexity* (combination of three parameters: large varieties of data types, high dimensionality, and high speed of processing). One must ask why authors seek to propose parameters in triples, even at the cost of occluding addidional propeties as sub-parameters. Possible answer might be that such triples allow to create three-dimensional parameter spaces or "cubes" where we can place datasets to create neat visualiasations. Humor aside, @suthaharan2014big's approach is interesting in observing the rate of change in parameters in real time.
 
 Laney's 3 Vs were brought into commercial management-speak and became a slogan further powering the hype of big data. Nevertheless, it inspired a number of other authors to extend it quite creatively. For example @uprichard2013focus lists other v-words to be considered, both in positive (*versatility*, *virtuosity*, *vibrancy*...) and negative (*valueless*, *vampire-like*, *violating*...) light. @marr2014big describes five Vs of big data, @van20133v sees seven Vs, @boellstorff2015introduction propose three Rs and @lupton2015thirteen even uses thirteen p-words to describe the subject. As @kitchin2016makes notes, these additional v-words and new p-words are often descriptive of a broad set of issues associated with big data, rather than characterising the ontological traits of data themselves.
 
 ### A challenge for technical infrastructure
 
-Several authors understand big data mainly as a management issue, which is probably due to the fact that handling large datasets is challenging. Hence, the computational difficulties of storing and processing a dataset on a single machine often act as a defining measure. For instance @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” Or similarly @shekhar2012spatial states 
-that “the size, variety and update rate of datasets exceed the capacity of commonly used spatial computing and spatial database technologies to learn,  manage, and process the data with reasonable effort”. 
+Several authors understand big data mainly as a management issue, which is probably due to the fact that handling large datasets is challenging. Hence, the computational difficulties of storing and processing a dataset on a single machine often act as a defining measure. For instance @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” Or similarly @shekhar2012spatial states that “the size, variety and update rate of datasets exceed the capacity of commonly used spatial computing and spatial database technologies to learn, manage, and process the data with reasonable effort”. 
 
 The problem with such definitions is determining exactly what size is "too big to fit" and what is the "reasonable effort". The computational power of hardware accessible for personal use is constantly increasing ^[Gordon Moore's 1965 paper (reprint @moore2006cramming) stated that the number of transistors on integrated circuits will double every two years. The prediction has proven accurate for several decades and became known as *Moores's law*, a very popular analogy of advance of the digital age. The pace has slowed down with smaller transistors suggesting that the prediction is reaching its technological limit, though the opinions here vary. The overuse of the idea as a synonym of progress has been criticized as too simplistic @kreye2015moores ], not to mention the technical infrastructure accessible to large enterprises and governmental organizations (datacenter construction is steadily growing and is expected to almost double the current capacity in 2021 @statista2018data, @networking2018cisco).
 
-*TODO* @demchenko2014defining
 At the same time, new technologies emerge to address the issue – virtualization of storage, networking, and memory make it possible to rent computational infrastructure from "cloud" providers, or to delegate workloads previously carried out by the operating system to remote platforms ^[*Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house (@rouse2018cloud). The cloud models include providing infrastructure, platform or application as a service; main vendors of public cloud solutions are Amazon Web Services, Google Cloud Platform or Microsoft Azure.]. Other innovations take place in data processing algorithms, analytic engines, and in database design (a whole range of No-SQL databases as well as enablement of distributed processing in traditional databases) ^[Processing and analytical frameworks designed for big data include Apache Hadoop, Apache Spark, or Apache Flink. No-SQL databases use a column, graph, document, key-value, or multi-model solution as an alternative to traditional relational database design.]. Some attempts to summarize technical solutions for big data can be found in @paakkonen2015reference, or @jin2015significance.
 
 As we can see, the "too big to fit" definitions are highly dependent on the resources currently available, plus we need to take into account future improvements that are hard to predict. That being said, understanding the subject as *data that prevent local offline processing on common desktop in reasonable time* is a useful shorthand for judging big from "small" data. The threshold between local (offline) and remote (cloud-dependent) processing exists even though it is a blurry and a dynamic one. As the latter may be more and more accessible in the future, it can be best advised to consider the scalability of any data-processing workflows early on. In other words, any workflow designed as a potential big data process will likely have an advantage, as design limitations may prove to be overcome harder than the technical ones. 
+
+One point of confusion for readers of big data related literature that often reoccurs is mixing the characteristics of the subject (stored information) with properties of technologies used to process it (storage, analytics, visualisation, etc.). It is debatable if this is a fallacy, depending on to what degree we consider digital data independent from the technical infrastructure around it^[Real world analogies may not be helpful here: for example the properties of gold are independent of the tools used to mine it. On the other hand, many forms of interaction with digital data are inseparable from the technical infrastructure.]. To illustrate the difference, compare the following two definitions. Fist by @gartner2018what:
+
+> Big data is high-volume, high-velocity and/or high-variety information assets that demand cost-effective, innovative forms of information processing that enable enhanced insight, decision making, and process automation. 
+
+The second by @gantz2011extracting defines big data as:
+
+> A new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data by enabling high-velocity capture, discovery, and/or analysis.
+
+The understanding of big data as an asset prevails, though the second type portraying big data as an ecosystem is not uncommon (e.g. @demchenko2014defining, @olshannikova2015visualizing). Eventually, this division may lead to dual understanding of big data in "narrow" (fuel, raw material) and "broad" (ecosystem, architecture, framework) sense. A good example of broader thinking is @demchenko2014defining that proposes a "Big Data Architecture Framework" comprised of big data infrastructure, big data analytics, data structures and models, big data lifecycle management, and big data security^[This is close to holistic definitions discussed later in this chapter, though these tend to be less confined in technology realm and mixing in procedural aspects and wider societal implications.]. Demchenko also expects a shift from current host/service centric IT infrastructure towards data centric operational models and protocols.
+
 
 ### Showing example sources and quantities
 
@@ -138,6 +147,10 @@ Geospatial big data as a subset of big data.
 @li2016geospatial
 --------
 
+
+GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise unjoinable datasets.
+
+
 According to the arguable phrase “80% of data is geographic” (see discussions in Morais (2012) @morais2012phrase ), much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. Geospatial data describe objects and things with relation to geographic space, often with location coordinates in a spatial referencing system.
 
 @suthaharan2014big
@@ -176,22 +189,6 @@ In the next chapter, where we look at at the impact of big data on science in ge
 
 
 ## Assessing impacts and opportunities rather than seeking definitions
-
-By plowing through the related literature, one can witness a couple of confusing phenomana in big data definitions:
-
-- mixing characteristics of the subject (raw material - stored information) with properties of technologies used to process it (storage, analytics and visualisation, etc.). It is not completely clear even if this is a fallacy or not. Real world analogies may not be helpful, for example the properties of gold are idnependent of the tools used to mine it, on the other hand the digital data are inseparable from the technical infrastructure around it. *That being said it is in my opinion useful to separate asset from the ecosystem* 
-
-gartner:
-
-Big data is high-volume, high-velocity and/or high-variety information assets that demand cost-effective, innovative forms of information processing that enable enhanced insight, decision making, and process automation. 
-
-vs. modification by @olshannikova2015visualizing
-
-Big Data is a tech - nology  to  process  high-volume,  high-velocity,  high-variety  data  or  data-sets  to  extract  intended data value and ensure high veracity of original data and obtained information that demand cost-effective, innovative forms of data and information processing (analyt - ics) for enhanced insight, decision making, and processes control.
- 
-The possible solution: BD: -- in narrow terms: asset, fuel, raw material, vs more broadly the whole ecosystem arround it. (this thesis will use the narrow sense of term)
-
-- in many cases, it is not completely clear if b-d definitions aim to describe a currently observable phenomenon, or rather a goal for a system which is being built, vision of how it should work once it is done.
 
 
 
