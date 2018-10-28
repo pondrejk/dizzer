@@ -236,3 +236,26 @@ gis algorithms review:
 --------------------
 voronoi - @sharifzadeh2009approximate
 
+
+temporal gis
+------------
+TODO research
+
+some cartograms?
+----------------
+
+absolute vs relative views of space and time -- useful?
+----
+from andrienko:
+The possibility of treating space and time both as referrers and as attrib-
+utes is reflected in the reasoning concerning the absolute and relative
+views of space and time (Peuquet 1994, 2002, Chrisman 1997). According
+to the absolute view, space and time exist independently of objects and
+form a framework, or a container, where objects are placed. According to
+the relative view, both space and time are properties attached to objects
+such as roads, rivers, and census tracts.
+
+^
+peuquet1994s
+peuquet2002representations
+peuquet2008multi

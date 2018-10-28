@@ -122,7 +122,7 @@ One way out from this is simply rejecting the view of big data as a singular phe
 
 ## Spatial properties of big data
 
-Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance (@crampton2015collect), journalism (@lewis2015big), ecology (@shin2015ecological), social sciences (ovadia2013role), business administration (wamba2015big), urban studies (@thakuriah2017big), learning analytics (@wilson2017big), education (kabakchieva2015big), health informatics (@herland2014review) and doubtlessly many others. Autors here consider existing data procesing and analytical practices in their respective fields in light of possibilities created by big data advances. Some expect forthcoming changes, such as enrichment in avaliable methods (e.g. anaylsing social networks in epidemiology), others analyze the adjustablility of currently used algorithms to conditions of higher data load. With some generalization, the overall mood of these works seems to be welcoming big data as a be possible extension of their toolbox, though doubting that the core scientific methods could be deeply altered by it.
+Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance [@crampton2015collect], journalism [@lewis2015big], ecology [@shin2015ecological], social sciences [@ovadia2013role], business administration [wamba2015big], urban studies [@thakuriah2017big], learning analytics [@wilson2017big], education [@kabakchieva2015big], health informatics [@herland2014review] and doubtlessly many others. Autors here consider existing data procesing and analytical practices in their respective fields in light of possibilities created by big data advances. Some expect forthcoming changes, such as enrichment in avaliable methods (e.g. anaylsing social networks in epidemiology), others analyze the adjustablility of currently used algorithms to conditions of higher data load. With some generalization, the overall mood of these works seems to be welcoming big data as a be possible extension of their toolbox, though doubting that the core scientific methods could be deeply altered by it.
 
 To name Geography in specific:
 
@@ -139,6 +139,8 @@ Those field-specific accounts rarely add to the ganeral defiinitions of big data
 
 GIS is specific with its focus on data spatial properties
 
+Cartography and Geographic information science are the fields closest to this thesis's specialisation, and having specific and elaborate notions of data in general. Let us breifly review those notions before moving on to how the discplines contended with the adjective "big".
+
 -- Here only previous works, and data definitions, next chapter -- my freestyle
 
 Geospatial big data as a subset of big data. 
@@ -148,7 +150,7 @@ Geospatial big data as a subset of big data.
 --------
 
 
-GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise unjoinable datasets.
+GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise un-joinable datasets.
 
 
 According to the arguable phrase “80% of data is geographic” (see discussions in Morais (2012) @morais2012phrase ), much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. Geospatial data describe objects and things with relation to geographic space, often with location coordinates in a spatial referencing system.
@@ -163,6 +165,9 @@ Vector Data: atribute and geometry. Attributes can be big-data-fied more easily 
 A potential to geocode big data to become available to geospatial analysis.
 
 Cartography (here represented by ICA) is no exception. ... Manifestos, etc... 
+
+1. Overview of understanding data in general :
+2. Geospatial big data
 
 Classical dichotomies still hold
 
@@ -186,6 +191,51 @@ Spatial imagery -- truly big data with strong relevance in geosciences. @jiang20
 -- higher quality number of pixels, greater time frequency and number of spectral levels (examples )
 
 In the next chapter, where we look at at the impact of big data on science in general, we also offer our speculation on how the roles of cartography and GIS may be transformed by the data deluge.
+
+@andrienko2006exploratory
+------------
+
+- Functional View of Data Structure:
+
+References -- combinations of dataset referrers 
+referrers (referential components )-- mostly: location, time, population (independent variables), providing context
+
+Characteristics -- dependent variables
+
+"The notion of a function in mathematics is a very convenient metaphor for
+reasoning about data. A function is a relation between two or more vari-
+ables such that the values of one variable are dependent on, determined by,
+or correspond to values of the other variables, its arguments. In algebra
+and set theory, functions are often called “many-to-one” mappings. This
+means that, for each combination of values of the arguments, there is no
+more than one corresponding value of the dependent variable. In general,
+there is no presumption that the variables must be numeric; a function may
+be defined for sets of arbitrary nature.
+We consider a dataset as a correspondence between referential and char-
+acteristic components (referrers and attributes) such that for each combina-
+tion of values of the referential components there is no more than one
+combination of values of the attributes. Hence, a dataset is a function that
+has the referrers as arguments and has the dependent variable constructed
+from the attributes such that the value domain of this variable consists of
+all possible combinations of values of the attributes. This function will be
+called the data function in what follows."
+
+----
+Other approaches by andrienko:
+
+**In cartography and geoinformatics, data about spatial phenomena are tradi-
+tionally divided into spatial (geographic) and non-spatial information, the
+latter being also called “thematic” information or “attributes”.
+
+The temporal aspect of a phenomenon includes the existence of various objects
+at different time moments, and changes in their properties (spatial and
+thematic) and relationships over time.**
+
+Basic division traditional - spatial / thematic, increasingly considering time, influencing both parts. Data model (object model) (TODO cite or specify better) supports separating those aspects -- better supports recording temporal changes in rows rather than changes in spatial properties. (more like version-controlled database updates rather than a part of a dataself itself). There are exceptions (network data, new stuff from esri for point data...)
+
+andrienko: offers a more general framework...
+
+"spatially referenced data" - georeferecncing and geocoding as metods of creating spatial element in otherwise non-spatial datasets.
 
 
 ## Assessing impacts and opportunities rather than seeking definitions
