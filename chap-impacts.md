@@ -267,3 +267,35 @@ other gis stuff
 - data quality
 - metadata
 ...
+
+
+@barnes2013big
+---------------
+Giving examples of 3 problems with big data:
+-- data vs knowledge, @silver2012signal "most
+of the data is just noise, as most of the universe is
+filled with empty space" 
+-- reduction to numerical information
+-- abandining interpretation: "the numbers are the
+story, shorn of the need of any interpretation, shorn
+of the need of even assigning causation. Chris
+Anderson, in his 2008 editorial, says, ‘with enough
+data, the numbers speak for themselves’."
+-- big data - conservative project: 
+"The last point is that big data as a project is inher- ently conservative. By utilizing the numbers as they are given big data is stuck with what is rather than what should be."
+
+@goodchild2013quality
+----
+proposes for data quality: "Three methods of quality improvement and assurance are proposed. Only the third is sufficiently robust and rapid, especially in time-critical situations." 
+Hardening Big Data:
+-- observations in big data can be mutually reinforcing. "Theprinciple is often expressed as Linus’s
+Law (Raymond, 1999), which originated in software
+development, and is in essence the statement ‘The
+larger the review group, the faster and more effective
+the  convergence"
+-- quality control of big data is sometimes
+addressed by social hierarchies (orgs like wikipedia, or communities like in open source dev....)
+-- here is the possibility of automated
+assessment and synthesis, which is the only effective
+way of achieving the velocity advantages of big data
+withoutsacrificingvolume

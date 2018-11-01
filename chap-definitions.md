@@ -96,6 +96,23 @@ We will discuss cartographic tools later, here we can mention artistic rendering
  
 From the cartographer's standpoint, aspects of visual art can be inspiring (graphic quality, employment of computation and rendering software, creative uses of interaction and animation), though artistic means are often too different to be transposed. Without referring back to the source phenomenon, data-driven art becomes unrecognizable from the so called *generative art* that uses random numbers rather than any existing information (though generative approaches and data-mocking may prove some use for web cartography). 
 
+@gorman2013danger as a meme
+
+This paper began discussing aspects of big data as a
+technologic meme. Exploring how big data has
+evolved points to its perceived emergence as an
+episteme. What began as an evolution in computation
+has morphed in popular culture to be a field of sci-
+ence. Those who work with big data are even referred
+to as ‘data scientists’. The reductionist methods of
+understanding reality in big data produce new knowl-
+edge and methods for the control of reality. Yet it is
+not a reality that reflects the larger society but instead
+the small minority contributing content.
+
+@graham2013geography as a paradigm
+
+Perhaps big datacould bedefined asrepresenting a broader computa-tional paradigm in research and practice, in whichautomated algorithmic analysis supplants domainexpertise.
 
 ### Holistic and process-oriented accounts
 
@@ -120,14 +137,23 @@ As the two taxonomies above illustrate, there are many ways to slice a cake. The
 
 One way out from this is simply rejecting the view of big data as a singular phenomenon. Big data is a non-specific covering term that could mean different things to different people. As @helles2013making observes, "[d]ata are made in a process involving multiple social agents — communicators, service providers, communication researchers, commercial stakeholders, government authorities, international regulators, and more. Data are made for a variety of scholarly and applied purposes [...]. And data are processed and employed in a whole range of everyday and institutional contexts."
 
-## Spatial properties of big data
+We can conclude the section on holistic approaches with a historical view that rarely taken in commentaries on the nature of big data, probably because the percieved novelty of the concept, ignoring that it did not spring out of the void but builds on pre-exiting concepts. 
+
+neomania -- a love of modern for it's own sake (taleb2012antifragile). Though I would argue that it is not the case of big data, there is lot of reinventing or better relabeling existing inventions (book on innovations -- fialova, nepamatam nazov) 
+
+definitions embedded "now", not considering history and development of concepts.
+@barnes2013big:
+
+> Big data has been made possible because of the particular conjuncture of different elements, each with their own history, coming together at this our present moment. But precisely because these different elements have a history, the issues, problems and questions that were there in their earlier incarnation can remain even in the new form.
+
+
+## Spatial properties of big data (or spatial sciences grasping big data...)
 
 Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance [@crampton2015collect], journalism [@lewis2015big], ecology [@shin2015ecological], social sciences [@ovadia2013role], business administration [wamba2015big], urban studies [@thakuriah2017big], learning analytics [@wilson2017big], education [@kabakchieva2015big], health informatics [@herland2014review] and doubtlessly many others. Autors here consider existing data procesing and analytical practices in their respective fields in light of possibilities created by big data advances. Some expect forthcoming changes, such as enrichment in avaliable methods (e.g. anaylsing social networks in epidemiology), others analyze the adjustablility of currently used algorithms to conditions of higher data load. With some generalization, the overall mood of these works seems to be welcoming big data as a be possible extension of their toolbox, though doubting that the core scientific methods could be deeply altered by it.
 
-To name Geography in specific:
+Witin Geography, @kitchin2013big highligts possible opportunities, challenges and risks posed by big data, encouriging geographers to engage in big data related case studies. He also lays some groundwork for definitions, he later developed into ontolgical charcteristics cited at the beginnign of this chapter^[Kithchin is also one of the founders of The Journal of Big Data founded in *year* -- verify]. gonzalez2013big understands big data predominantly as a rich set of observations of intricate and nested social life that can improve theories of human geography, for example by exposing diversity that would otherwise get unnoticed in scientific models of reality. 
+@barnes2013big reminds us of quantitative revolution in geography (starting from 1950's) that has been criticized on many grounds, and that some of the problems discussed than "continue to apply to the *über* version of the quantitative revolution that is big data". Barnes also interestingly stresses that one needs to reconstruct the history of elements conjuring up big data to fully understand the concept. For @goodchild2013quality geographic science provides a distinct context for discussion about what kinds of science that might be supported by big data, and we need to investigate the extent to which big data can be made hard—the potential for rigorous quality control and generalizability. Goodchild (big vs small data) also makes an observation that "instead of relying on the data producer to clean and synthesize, in the world of big data these functions are largely passed to the user". We could go on further with geogragphy related notions see @thatcher2018thinking.
 
-@graham2013geography
-@kitchin2013big
 
 Wihin here are pre-existing definitions and classifications data is and how it should be classified (clinincal data...), spatial data is different...(risque) as a connecting feature.
 
