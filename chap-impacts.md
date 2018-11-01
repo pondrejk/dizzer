@@ -259,3 +259,11 @@ such as roads, rivers, and census tracts.
 peuquet1994s
 peuquet2002representations
 peuquet2008multi
+
+other gis stuff
+---------------
+
+- cognitive
+- data quality
+- metadata
+...

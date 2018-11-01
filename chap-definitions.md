@@ -132,8 +132,6 @@ To name Geography in specific:
 Wihin here are pre-existing definitions and classifications data is and how it should be classified (clinincal data...), spatial data is different...(risque) as a connecting feature.
 
 
-
-
 In conext of 
 Those field-specific accounts rarely add to the ganeral defiinitions of big data, 
 
@@ -150,10 +148,10 @@ Geospatial big data as a subset of big data.
 --------
 
 
-GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise un-joinable datasets.
+GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise un-joinable datasets. 
 
 
-According to the arguable phrase “80% of data is geographic” (see discussions in Morais (2012) @morais2012phrase ), much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. Geospatial data describe objects and things with relation to geographic space, often with location coordinates in a spatial referencing system.
+Much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. Geospatial data describe objects and things with relation to geographic space, often with location coordinates in a spatial referencing system.
 
 @suthaharan2014big
 
@@ -223,6 +221,8 @@ called the data function in what follows."
 ----
 Other approaches by andrienko:
 
+- 
+
 **In cartography and geoinformatics, data about spatial phenomena are tradi-
 tionally divided into spatial (geographic) and non-spatial information, the
 latter being also called “thematic” information or “attributes”.
@@ -236,6 +236,131 @@ Basic division traditional - spatial / thematic, increasingly considering time, 
 andrienko: offers a more general framework...
 
 "spatially referenced data" - georeferecncing and geocoding as metods of creating spatial element in otherwise non-spatial datasets.
+
+-
+ordering, distances between elements and continuity (discrete(smooth/abrupt)/continuous)
+
+**It is clear that any continuous reference set may be discretised in many
+different ways. For example, a two-dimensional geographical space (terri-
+tory) may be divided into administrative units of various levels (countries,
+provinces or states, communes or counties, etc.) or into regular cells, with
+an arbitrary choice of the cell size and the origin of the grid. For time,
+there is a customary division down to seconds; however, it may be more
+meaningful to use coarser divisions such as hours, days, weeks, months, or
+even centuries**
+
+**Since the granularity level for dividing a set of references into subsets
+may be chosen arbitrarily, it is possible to characterise one and the same
+phenomenon with different levels of detail. Moreover, if a method for de-
+riving attribute values for larger subsets from values for smaller subsets or
+individual elements is defined, it is possible to vary the level of detail on
+which the phenomenon is considered. This corresponds to the notion of
+“drilling” in data analysis, which is defined as a technique for navigating
+through levels of data granularity or detail. The term “drill up” or “roll up”
+means increasing the level of abstraction, and “drill down” means descend-
+ing to finer granularity and more detail.**
+
+data cube vs big data
+**Again, our view is close to the ideas related to the concept of the data
+cube mentioned earlier. In the literature explaining this concept (Gray et al.
+1998, Stolte et al. 2002), it is stated that the dimensions of a data cube may
+have a hierarchical (or, more generally, a lattice) structure. For example, a
+dimension specifying locations may consist of several levels such as coun-
+try, state, and county. A temporal dimension may involve days, weeks,
+months, quarters, and years. The main value of data cubes is the possibility
+to look at data on different levels of detail by means of ascending and de-
+scending alon these hierarchies and thus varying the degree of data ag-
+gregation.**
+
+**completeness, uncerainty and its representation"**
+
+- other approaches
+
+**In cartography and geoinformatics, it is usual to consider spatial, temporal,
+and thematic aspects of data (phenomena) separately. Phenomena are clas-
+sified into points, lines, areas, and volumes according to their spatial prop-
+erties (Slocum 1999). Another typology of spatial phenomena is based on
+two orthogonal dimensions: spatial continuity and spatial (in)dependence
+(MacEachren 1995, Slocum 1999). Phenomena are characterised as dis-
+crete or continuous according to the first of these dimensions. Discrete
+phenomena occur at isolated locations, while continuous phenomena occur
+everywhere. Phenomena may be classified as smooth (adjacent locations
+are not independent) or abrupt (adjacent locations are independent) ac-
+cording to the second dimension. Smooth phenomena change in a gradual
+fashion, while abrupt phenomena change suddenly. “For instance, rainfall
+and sales tax rates for states are both continuous in nature, but the former
+is smooth, while the latter is abrupt (varying at state boundaries)” (Slocum
+1999, p. 18).**
+
+**In the GIS literature, data properties are considered mostly from the per-
+spective of how the data are represented in a GIS. There are two basic ap-
+proaches to the representation of data about spatial phenomena: object-
+based and location-based (Peuquet 1994, Chrisman 1997). The object-
+based approach arranges all information, both spatial (coordinates) and
+non-spatial, as attributes of geographic objects, or features. This corre-
+sponds to the vector model of data representation. In the GIS area, it is
+conventional to distinguish between point, line, and area (or polygon) fea-
+tures. Features are organised into themes, or layers. In addition to the
+point, line, and area types, some authors consider networks consisting of
+connected lines as a special type of spatial data (see, for example, Verbyla
+(2002)). In the location-based approach, all information is stored relative
+to specific locations. Each location is associated with a list of objects oc-
+curring in it, and values of thematic attributes. This approach corresponds
+to the raster model, which divides a territory into multiple building blocks
+of the same size and shape called “grid cells” or “pixels”, which are filled
+with measured attribute values.
+
+It seems apparent that the vector data model can represent discrete phe-
+nomena better, while the raster model is more suitable for continuous phe-
+nomena. In reality, however, there is no strict correspondence between the32
+spatial continuity of a phenomenon and the representational model used.
+Thus, data about a continuous phenomenon may refer to sample locations
+represented as point features (e.g. air temperature measurements at differ-
+ent weather stations) or to districts of a territorial division represented as
+polygons (e.g. population density by municipalities). Peuquet argues that
+the location-based and object-based approaches are complementary rather
+than contradictory: some tasks can be done better on the basis of the for-
+mer approach, whereas for other tasks the latter approach is more suitable.
+Hence, it is beneficial to combine these two approaches (Peuquet 1994).
+Actually, transformation from vector to raster a representations is often used in data analysis.**
+
+**Time itself can be treated in two different ways: as a linear continuum
+and as a repeating cycle linked to the earth’s daily rotation or annual revo-
+lution (MacEachren 1995). Data can be recorded, retrieved, and processed
+at different temporal precisions, such as seconds, hours, days, or centuries.**
+
+My note: something about spatial scales, a bit of coordinate systems (?), and a generalisation (ask karst) as a means of adjusting spatial data to given scale levels.
+
+**Attributes (i.e. thematic components of spatially referenced data) are
+typically distinguished according to the levels of measurement introduced
+by Stevens (1946): nominal, ordinal, interval, and ratio. Often the catego-
+ries “interval” and “ratio” are united into a single category “quantitative”,
+or “numeric” (Bertin 1967/1983, MacEachren 1995). The traditional no-
+tion of levels of measurement can be expressed in terms of the mathemati-
+cal properties of sets. The nominal level corresponds to a set without or-
+dering or distances, the ordinal level – to a set with linear ordering but
+without distances, and the interval and ratio levels – to linearly ordered
+sets with distances. The difference between the latter two levels is that a
+“true zero” element exists in a set characterised by the ratio level of meas-
+urement, i.e. an element that is always the first in the order. For example,
+in the set of possible population numbers, 0 is the “true zero” because
+there cannot be a population number less than 0.**
+
+**Jung (1995) suggests a yet more detailed classification of numeric vari-
+ables:
+x Amounts: Absolute quantities
+x Measurements: Absolute numbers representing results of measurements
+(e.g. distance). Along with these measurements, the corresponding units
+must be specified
+x Aggregated values: Amounts or measurements summarised by areas.
+Such variables are always implicitly dependent on the area
+x Proportional values, normalised by division by a fixed value
+x Densities: Amounts or aggregated amounts divided by corresponding
+areas. As a result, densities do not depend on the area
+x Coordinates that specify position in some coordinate system, e.g. on the
+time axis.** @jung1995knowledge
+
+Some stuff not to mention in depth, some of them reviseted (metadata, data quality, 3D, cognitive research, political cartography).
 
 
 ## Assessing impacts and opportunities rather than seeking definitions
