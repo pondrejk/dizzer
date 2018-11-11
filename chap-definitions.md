@@ -91,11 +91,6 @@ Metaphors rely on a notion of analogy between two dissimilar things, but can als
 
 As @lupton2013swimming notes, by far the most commonly employed rhetorical descriptions of big data are those related to water or liquidity, suggesting both positive and negative connotations. For example @manyika2013open argues for unlocking data sources to become "liquid" in a sense of open and free-flowing, at the same time keeping privacy concerns in mind – what is liquid is also susceptible to unwanted leaks.
 
-Of course, big data descriptions are not limited to verbal form, visual means can be much more expressive and informative – not a surprising claim to be found in a thesis on visual analytics.
-We will discuss cartographic tools later, here we can mention artistic renderings that employ more free-form visual analogies. We should distinguish pursuits like *information visualisation* that are close to graphic design (for good overview see klanten2010data or @lima2011visual) from artistic projects that use data as a raw material and don't aim to convey information or comfort to general user's cognitive expectations (like some projects at @creative2018).
- 
-From the cartographer's standpoint, aspects of visual art can be inspiring (graphic quality, employment of computation and rendering software, creative uses of interaction and animation), though artistic means are often too different to be transposed. Without referring back to the source phenomenon, data-driven art becomes unrecognizable from the so called *generative art* that uses random numbers rather than any existing information (though generative approaches and data-mocking may prove some use for web cartography). 
-
 @gorman2013danger as a meme
 
 This paper began discussing aspects of big data as a
@@ -114,9 +109,16 @@ the small minority contributing content.
 
 Perhaps big datacould bedefined asrepresenting a broader computa-tional paradigm in research and practice, in whichautomated algorithmic analysis supplants domainexpertise.
 
+
+Of course, big data descriptions are not limited to verbal form, visual means can be much more expressive and informative – not a surprising claim to be found in a thesis on visual analytics.
+We will discuss cartographic tools later, here we can mention artistic renderings that employ more free-form visual analogies. We should distinguish pursuits like *information visualisation* that are close to graphic design (for good overview see klanten2010data or @lima2011visual) from artistic projects that use data as a raw material and don't aim to convey information or comfort to general user's cognitive expectations (like some projects at @creative2018).
+ 
+From the cartographer's standpoint, aspects of visual art can be inspiring (graphic quality, employment of computation and rendering software, creative uses of interaction and animation), though artistic means are often too different to be transposed. Without referring back to the source phenomenon, data-driven art becomes unrecognizable from the so called *generative art* that uses random numbers rather than any existing information (though generative approaches and data-mocking may prove some use for web cartography). 
+
+
 ### Holistic and process-oriented accounts
 
-Multifaceted phenomena tend to provoke descriptions that contain words like "system" or "process". Somewhere behind that lies an idea that a whole is more than a sum of its parts^[This is true for systems that express *synergy* or *emergent behavior*. Over the years, *systems theory* has been used to describe many natural and man-made phenomena in many fields, including geography and cartography.]. Experts from different fields notice aspects of phenomena that are close to their research interests and priorities, interdisciplinary definitions then combine such views. Naturally, listing holistic accounts will include topics already mentioned, therefore pardon some repetition in this section.
+Multifaceted phenomena tend to provoke descriptions that contain words like "system" or "process". Somewhere behind that lies an idea that a whole is more than a sum of its parts^[This is true for systems that express *synergy* or *emergent behavior*. Over the years, *systems theory* has been used to describe many natural and man-made phenomena in many fields, including geography and cartography.]. Experts of different specializations notice aspects of phenomena that are close to their research interests and priorities, interdisciplinary definitions then combine such views. Naturally, listing holistic accounts will include topics already mentioned, therefore pardon some repetition in this section.
 
 @murthy2014big prepared a taxonomy of big data comprised of:
 
@@ -149,254 +151,78 @@ definitions embedded "now", not considering history and development of concepts.
 
 ## Spatial properties of big data (or spatial sciences grasping big data...)
 
-Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance [@crampton2015collect], journalism [@lewis2015big], ecology [@shin2015ecological], social sciences [@ovadia2013role], business administration [wamba2015big], urban studies [@thakuriah2017big], learning analytics [@wilson2017big], education [@kabakchieva2015big], health informatics [@herland2014review] and doubtlessly many others. Autors here consider existing data procesing and analytical practices in their respective fields in light of possibilities created by big data advances. Some expect forthcoming changes, such as enrichment in avaliable methods (e.g. anaylsing social networks in epidemiology), others analyze the adjustablility of currently used algorithms to conditions of higher data load. With some generalization, the overall mood of these works seems to be welcoming big data as a be possible extension of their toolbox, though doubting that the core scientific methods could be deeply altered by it.
+Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance [@crampton2015collect], journalism [@lewis2015big], ecology [@shin2015ecological], social sciences [@ovadia2013role], business administration [wamba2015big], urban studies [@thakuriah2017big], learning analytics [@wilson2017big], education [@kabakchieva2015big], health informatics [@herland2014review] and doubtlessly many others. Autors here consider existing data processing and analytical practices in their respective disciplines in light of possibilities created by big data advances. Some expect forthcoming changes, such as enrichment in available methods (e.g. analysing social networks in epidemiology), others analyze the adjustability of currently used processes to conditions of higher data load. With some generalization, the overall mood of these works seems to be welcoming big data as a be possible extension of their toolbox, though doubting that the core scientific methods could be deeply altered by it.
 
-Witin Geography, @kitchin2013big highligts possible opportunities, challenges and risks posed by big data, encouriging geographers to engage in big data related case studies. He also lays some groundwork for definitions, he later developed into ontolgical charcteristics cited at the beginnign of this chapter^[Kithchin is also one of the founders of The Journal of Big Data founded in *year* -- verify]. gonzalez2013big understands big data predominantly as a rich set of observations of intricate and nested social life that can improve theories of human geography, for example by exposing diversity that would otherwise get unnoticed in scientific models of reality. 
-@barnes2013big reminds us of quantitative revolution in geography (starting from 1950's) that has been criticized on many grounds, and that some of the problems discussed than "continue to apply to the *über* version of the quantitative revolution that is big data". Barnes also interestingly stresses that one needs to reconstruct the history of elements conjuring up big data to fully understand the concept. For @goodchild2013quality geographic science provides a distinct context for discussion about what kinds of science that might be supported by big data, and we need to investigate the extent to which big data can be made hard—the potential for rigorous quality control and generalizability. Goodchild (big vs small data) also makes an observation that "instead of relying on the data producer to clean and synthesize, in the world of big data these functions are largely passed to the user". We could go on further with geogragphy related notions see @thatcher2018thinking.
+Within geography, @kitchin2013big highlights possible opportunities, challenges and risks posed by big data, encouraging geographers to engage in big data related case studies. He also lays some groundwork for definitions, he later developed into ontological characteristics cited at the beginning of this chapter^[Kithchin is also one of the founders of The Journal of Big Data founded in *year* -- verify]. gonzalez2013big understands big data predominantly as a rich set of observations of intricate and nested social life that can improve theories of human geography, for example by exposing diversity that would otherwise go unnoticed in scientific models of reality. @barnes2013big reminds us of the so called *quantitative revolution* in geography (starting from 1950's) that besides bringing many good to the discipline has also been criticized on many grounds. That some of the problems discussed then, Barnes argues, "continue to apply to the *über* version of the quantitative revolution that is big data". Barnes also stresses that one needs to reconstruct the history of elements conjuring up big data to fully understand the concept. For @goodchild2013quality geography provides a distinct context for discussion about what kinds of science might be supported by big data. He is also concerned with the potential for building rigorous quality control and generalizability into big data operations, because so far "instead of relying on the data producer to clean and synthesize, in the world of big data these functions are largely passed to the user". We could go on much further with how geographic thought internalizes big data, those interested in the topic may refer to @thatcher2018thinking.
+
+Cartography and geographic information science are the disciplines closest to the specialisation of this thesis, both having developed specific and elaborate notions of data in general. We believe scientists and practitioners from these fields can make unique contributions to the way big data is understood and utilized, given their focus on the space as a unifying factor and with visualisation and visual analysis being at the core of their practice. For these reasons, we will first take an aside to briefly outline how cartography and geoinformatics conceptualize spatial data, before moving on to how the disciplines contended with the adjective "big". Consider the following points:
+
+* Data describing spatial phenomena used in GIS are traditionally divided into *spatial* nad *non-spatial* (thematic, attribute) components. Spatial component holds information on location and geographic extent of an entity and can be thought of as a "geometry" that can be visualized on a map or used for spatial analysis (spatial querying, overlay algebra, network analysis, etc.). Attribute information can be used to set visual parameters of geometries on a map in order to observe variability of a phenomenon across the area of interest (spatial pattern). @andrienko2006exploratory offer more general view of data as correspondence between referential and characteristic components. Referential components (or referrers) are described as independent variables -- mostly employed referrers are *location*, *time* and *population*. Referrer or a combination of referrers provides context and unique identification for dependent variables -- attributes.
+
+* Literature distinguishes two approaches of representing the spatial component of data in GIS: *object-based* and *location-based* (@peuquet1994s). The object-based approach arranges spatial and non-spatial information into discrete geographic objects (features). In the location-based approach, attribute information is stored relative to specific locations. With this approach, a territory is divided into same-size elements that represent locations to assign attributes to. Object-based approach is manifested in *vector data model*, location-based approach corresponds to *raster data model*. In vector data model objects have either point, line or polygon representation. Objects are usually grouped into layers of same theme and geometry type. In raster data model, representation is defined by the size of the element (almost always being a rectangular pixel). Raster model suits better for displaying spatially continuous phenomena, whereas vector model seems to be more appropriate for discrete objects, though reverse situation is not uncommon and transformation between models is a frequent practice.  
+
+* Attributes are typically distinguished according to the levels of measurement introduced by @stevens1946: *nominal* (named variables), *ordinal* (allow ordering), *interval* (allow measuring difference), and *ratio* (having natural zero). @jung1995knowledge proposed an alternative classification more tailored to spatial data handling: *amounts* (absolute quantities), *measurements* (quantities requiring units of measurement), *aggregated values* (amounts or measurements summarized by area), *proportional values* (normalised by a fixed value), *densities* (divided by corresponding area), *coordinates* (position in some coordinate system). 
+
+* The temporal aspect of a phenomenon includes the existence of various objects at different time moments, and changes in their properties (spatial and thematic) and relationships over time (@andrienko2006exploratory). Including the temporal aspect into the data model is problematic as it is treated separately from spatial and attribute components though having influence on both. For the attribute part, the time changes can be stored by adding table rows with new values. However changes in the spatial component are not easily stored, which complicates linking the past forms of geometries with corresponding past values of attributes^[This is most pressing when handling spatial data in discrete files (e.g. in Shapefile or GeoJSON formats). Using versioning systems like Git that has become incredibly popular for handling software source code and text files is not suitable for spatial data files as these often exceed repository size limits (though alternatives attemting to solve this exist -- **geogig** <http://geogig.org/>). Handling spatial data within relational database (in GIS world it is predominantly PostgreSQL wit spatial extension PostGIS) makes spatial data versioning somewhat easier (**TODO** -- check db versioning)]. There are exception in literature (**TODO cite**), incorporating flexible time changes into GIS data model remains a challenge for spatialization of big-data.
+
+* scales .. (**TODO**)
+-**Since the granularity level for dividing a set of references into subsets
+-may be chosen arbitrarily, it is possible to characterise one and the same
+-phenomenon with different levels of detail. Moreover, if a method for de-
+-riving attribute values for larger subsets from values for smaller subsets or
+-individual elements is defined, it is possible to vary the level of detail on
+-which the phenomenon is considered. This corresponds to the notion of
+-“drilling” in data analysis, which is defined as a technique for navigating
+-through levels of data granularity or detail. The term “drill up” or “roll up”
+-means increasing the level of abstraction, and “drill down” means descend-
+-ing to finer granularity and more detail.**
+-
+-data cube vs big data
+-**Again, our view is close to the ideas related to the concept of the data
+-cube mentioned earlier. In the literature explaining this concept (Gray et al.
+-1998, Stolte et al. 2002), it is stated that the dimensions of a data cube may
+-have a hierarchical (or, more generally, a lattice) structure. For example, a
+-dimension specifying locations may consist of several levels such as coun-
+-try, state, and county. A temporal dimension may involve days, weeks,
+-months, quarters, and years. The main value of data cubes is the possibility
+-to look at data on different levels of detail by means of ascending and de-
+-scending alon these hierarchies and thus varying the degree of data ag-
+-gregation.**
 
 
-Wihin here are pre-existing definitions and classifications data is and how it should be classified (clinincal data...), spatial data is different...(risque) as a connecting feature.
+The above summary is simplistic and there are many topics not included.
+- Granularity, scales and generalizaiton,
+- Completeness, uncerainty and its representation"
+- Some stuff not to mention in depth, some of them revisited (metadata, data quality, 3D, cognitive research, political cartography).
+- spatial analysis, geostatistics..., data respresentations in GIS (event the whole data model)
+not a subject of this thesis
+Spatial imagery -- truly big data with strong relevance in geosciences. @jiang2017spatial
+-- improvements in global monitoring systems (check terminology)
+-- higher quality number of pixels, greater time frequency and number of spectral levels (examples )
 
 
-In conext of 
-Those field-specific accounts rarely add to the ganeral defiinitions of big data, 
+GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise un-joinable datasets. Much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. Geospatial data describe objects and things with relation to geographic space, often with location coordinates in a spatial referencing system.
 
-GIS is specific with its focus on data spatial properties
+A potential to geocode big data to become available to geospatial analysis.
 
-Cartography and Geographic information science are the fields closest to this thesis's specialisation, and having specific and elaborate notions of data in general. Let us breifly review those notions before moving on to how the discplines contended with the adjective "big".
-
--- Here only previous works, and data definitions, next chapter -- my freestyle
+shekhar2014benchmarking -- traditional vs emerging spatial bd 
 
 Geospatial big data as a subset of big data. 
 
 @lee2015geospatial
 @li2016geospatial
 --------
-
-
-GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise un-joinable datasets. 
-
-
-Much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. Geospatial data describe objects and things with relation to geographic space, often with location coordinates in a spatial referencing system.
-
 @suthaharan2014big
 
 
-Inherent intent to visualize data.
-Vector Data: atribute and geometry. Attributes can be big-data-fied more easily than geometries (is it even possible?).
-
-
-A potential to geocode big data to become available to geospatial analysis.
-
-Cartography (here represented by ICA) is no exception. ... Manifestos, etc... 
-
-1. Overview of understanding data in general :
-2. Geospatial big data
-
-Classical dichotomies still hold
-
-Vector / Raster
-or better conceptually 
-Discrete / Field
-
-Point / Lines / Polygons / Tessalerations / Interpolations ...
-Nominal / Ordinal / Interval /... every textbook has it
-
-shekhar2014benchmarking -- traditional vs emerging spatial bd 
-
-More on in a separate 
-
-Spatial data bound to be represented, the form is a big deal in gis
-Generaliastion, analysis, geostatistics..., data respresentations in GIS (event the whole data model)
-
-not a subject of this thesis
-Spatial imagery -- truly big data with strong relevance in geosciences. @jiang2017spatial
--- improvements in global monitoring systems (check terminology)
--- higher quality number of pixels, greater time frequency and number of spectral levels (examples )
-
 In the next chapter, where we look at at the impact of big data on science in general, we also offer our speculation on how the roles of cartography and GIS may be transformed by the data deluge.
-
-@andrienko2006exploratory
-------------
-
-- Functional View of Data Structure:
-
-References -- combinations of dataset referrers 
-referrers (referential components )-- mostly: location, time, population (independent variables), providing context
-
-Characteristics -- dependent variables
-
-"The notion of a function in mathematics is a very convenient metaphor for
-reasoning about data. A function is a relation between two or more vari-
-ables such that the values of one variable are dependent on, determined by,
-or correspond to values of the other variables, its arguments. In algebra
-and set theory, functions are often called “many-to-one” mappings. This
-means that, for each combination of values of the arguments, there is no
-more than one corresponding value of the dependent variable. In general,
-there is no presumption that the variables must be numeric; a function may
-be defined for sets of arbitrary nature.
-We consider a dataset as a correspondence between referential and char-
-acteristic components (referrers and attributes) such that for each combina-
-tion of values of the referential components there is no more than one
-combination of values of the attributes. Hence, a dataset is a function that
-has the referrers as arguments and has the dependent variable constructed
-from the attributes such that the value domain of this variable consists of
-all possible combinations of values of the attributes. This function will be
-called the data function in what follows."
-
-----
-Other approaches by andrienko:
-
-- 
-
-**In cartography and geoinformatics, data about spatial phenomena are tradi-
-tionally divided into spatial (geographic) and non-spatial information, the
-latter being also called “thematic” information or “attributes”.
-
-The temporal aspect of a phenomenon includes the existence of various objects
-at different time moments, and changes in their properties (spatial and
-thematic) and relationships over time.**
-
-Basic division traditional - spatial / thematic, increasingly considering time, influencing both parts. Data model (object model) (TODO cite or specify better) supports separating those aspects -- better supports recording temporal changes in rows rather than changes in spatial properties. (more like version-controlled database updates rather than a part of a dataself itself). There are exceptions (network data, new stuff from esri for point data...)
-
-andrienko: offers a more general framework...
-
-"spatially referenced data" - georeferecncing and geocoding as metods of creating spatial element in otherwise non-spatial datasets.
-
--
-ordering, distances between elements and continuity (discrete(smooth/abrupt)/continuous)
-
-**It is clear that any continuous reference set may be discretised in many
-different ways. For example, a two-dimensional geographical space (terri-
-tory) may be divided into administrative units of various levels (countries,
-provinces or states, communes or counties, etc.) or into regular cells, with
-an arbitrary choice of the cell size and the origin of the grid. For time,
-there is a customary division down to seconds; however, it may be more
-meaningful to use coarser divisions such as hours, days, weeks, months, or
-even centuries**
-
-**Since the granularity level for dividing a set of references into subsets
-may be chosen arbitrarily, it is possible to characterise one and the same
-phenomenon with different levels of detail. Moreover, if a method for de-
-riving attribute values for larger subsets from values for smaller subsets or
-individual elements is defined, it is possible to vary the level of detail on
-which the phenomenon is considered. This corresponds to the notion of
-“drilling” in data analysis, which is defined as a technique for navigating
-through levels of data granularity or detail. The term “drill up” or “roll up”
-means increasing the level of abstraction, and “drill down” means descend-
-ing to finer granularity and more detail.**
-
-data cube vs big data
-**Again, our view is close to the ideas related to the concept of the data
-cube mentioned earlier. In the literature explaining this concept (Gray et al.
-1998, Stolte et al. 2002), it is stated that the dimensions of a data cube may
-have a hierarchical (or, more generally, a lattice) structure. For example, a
-dimension specifying locations may consist of several levels such as coun-
-try, state, and county. A temporal dimension may involve days, weeks,
-months, quarters, and years. The main value of data cubes is the possibility
-to look at data on different levels of detail by means of ascending and de-
-scending alon these hierarchies and thus varying the degree of data ag-
-gregation.**
-
-**completeness, uncerainty and its representation"**
-
-- other approaches
-
-**In cartography and geoinformatics, it is usual to consider spatial, temporal,
-and thematic aspects of data (phenomena) separately. Phenomena are clas-
-sified into points, lines, areas, and volumes according to their spatial prop-
-erties (Slocum 1999). Another typology of spatial phenomena is based on
-two orthogonal dimensions: spatial continuity and spatial (in)dependence
-(MacEachren 1995, Slocum 1999). Phenomena are characterised as dis-
-crete or continuous according to the first of these dimensions. Discrete
-phenomena occur at isolated locations, while continuous phenomena occur
-everywhere. Phenomena may be classified as smooth (adjacent locations
-are not independent) or abrupt (adjacent locations are independent) ac-
-cording to the second dimension. Smooth phenomena change in a gradual
-fashion, while abrupt phenomena change suddenly. “For instance, rainfall
-and sales tax rates for states are both continuous in nature, but the former
-is smooth, while the latter is abrupt (varying at state boundaries)” (Slocum
-1999, p. 18).**
-
-**In the GIS literature, data properties are considered mostly from the per-
-spective of how the data are represented in a GIS. There are two basic ap-
-proaches to the representation of data about spatial phenomena: object-
-based and location-based (Peuquet 1994, Chrisman 1997). The object-
-based approach arranges all information, both spatial (coordinates) and
-non-spatial, as attributes of geographic objects, or features. This corre-
-sponds to the vector model of data representation. In the GIS area, it is
-conventional to distinguish between point, line, and area (or polygon) fea-
-tures. Features are organised into themes, or layers. In addition to the
-point, line, and area types, some authors consider networks consisting of
-connected lines as a special type of spatial data (see, for example, Verbyla
-(2002)). In the location-based approach, all information is stored relative
-to specific locations. Each location is associated with a list of objects oc-
-curring in it, and values of thematic attributes. This approach corresponds
-to the raster model, which divides a territory into multiple building blocks
-of the same size and shape called “grid cells” or “pixels”, which are filled
-with measured attribute values.
-
-It seems apparent that the vector data model can represent discrete phe-
-nomena better, while the raster model is more suitable for continuous phe-
-nomena. In reality, however, there is no strict correspondence between the32
-spatial continuity of a phenomenon and the representational model used.
-Thus, data about a continuous phenomenon may refer to sample locations
-represented as point features (e.g. air temperature measurements at differ-
-ent weather stations) or to districts of a territorial division represented as
-polygons (e.g. population density by municipalities). Peuquet argues that
-the location-based and object-based approaches are complementary rather
-than contradictory: some tasks can be done better on the basis of the for-
-mer approach, whereas for other tasks the latter approach is more suitable.
-Hence, it is beneficial to combine these two approaches (Peuquet 1994).
-Actually, transformation from vector to raster a representations is often used in data analysis.**
-
-**Time itself can be treated in two different ways: as a linear continuum
-and as a repeating cycle linked to the earth’s daily rotation or annual revo-
-lution (MacEachren 1995). Data can be recorded, retrieved, and processed
-at different temporal precisions, such as seconds, hours, days, or centuries.**
-
-My note: something about spatial scales, a bit of coordinate systems (?), and a generalisation (ask karst) as a means of adjusting spatial data to given scale levels.
-
-**Attributes (i.e. thematic components of spatially referenced data) are
-typically distinguished according to the levels of measurement introduced
-by Stevens (1946): nominal, ordinal, interval, and ratio. Often the catego-
-ries “interval” and “ratio” are united into a single category “quantitative”,
-or “numeric” (Bertin 1967/1983, MacEachren 1995). The traditional no-
-tion of levels of measurement can be expressed in terms of the mathemati-
-cal properties of sets. The nominal level corresponds to a set without or-
-dering or distances, the ordinal level – to a set with linear ordering but
-without distances, and the interval and ratio levels – to linearly ordered
-sets with distances. The difference between the latter two levels is that a
-“true zero” element exists in a set characterised by the ratio level of meas-
-urement, i.e. an element that is always the first in the order. For example,
-in the set of possible population numbers, 0 is the “true zero” because
-there cannot be a population number less than 0.**
-
-**Jung (1995) suggests a yet more detailed classification of numeric vari-
-ables:
-x Amounts: Absolute quantities
-x Measurements: Absolute numbers representing results of measurements
-(e.g. distance). Along with these measurements, the corresponding units
-must be specified
-x Aggregated values: Amounts or measurements summarised by areas.
-Such variables are always implicitly dependent on the area
-x Proportional values, normalised by division by a fixed value
-x Densities: Amounts or aggregated amounts divided by corresponding
-areas. As a result, densities do not depend on the area
-x Coordinates that specify position in some coordinate system, e.g. on the
-time axis.** @jung1995knowledge
-
-Some stuff not to mention in depth, some of them reviseted (metadata, data quality, 3D, cognitive research, political cartography).
-
 
 ## Assessing impacts and opportunities rather than seeking definitions
 
+Often times big data are described indirectly by the impacts, real or imagined, they have on the society. For some authors, the debate on definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the infamous hype cycle ^[Hype cycles describe how expectations from emerging technologies evolve with time. Stages in the cycle are:  *innovation trigger*, *peak of inflated expectations*, *trough of disillusionment*, *slope of enlightenment*, and *plateau of productivity*. The expected duration of cycle differs per technology, and some technologies may never reach productivity in the foreseeable future. Hype cycles are a construction of consultancy Gartner that issues regular reports @gartner2018]. Many ideas in the IT industry exist under changing or concurrent names, and big data has indeed a lot in common with concepts such as *data mining*, *business intelligence* or *visual analytics* to name just a few. But we should not forget that even though the technological industry is largely fashion-driven, its societal impacts are real, though sometimes unevenly distributed. 
 
+The definition of big data is elusive perhaps also because the majority of involved actors, being positioned in the business world, is more focused on building productive big data ventures without much conceptual attention to the subject in itself. Then of course, the underlying technologies become a subject of marketing which often uses inflated overstatements based on expectations rather than reality. So far there is no settled consensus around big data definition in the academia either, but as @kitchin2016makes predicts, the "genus" of big data will probably be further delineated and its various "species" identified. The question is if then such an umbrella term will be necessary. Anyways, the lack of common ground in understanding what big data is (illustrated by this chapter) may be a good predictor of the term's future relevance. Problems with definition is exactly what leads @davenport2014big to "predict a relatively short life span for this unfortunate term.” 
 
-Often times, big data are described indirectly by the impacts, real or imagined, they have on the society. For some authors, the debate on definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the infamous hype cycle ^[Hype cycles describe how expectations from emerging technologies evolve with time. Stages in the cycle are:  *innovation trigger*, *peak of inflated expectations*, *trough of disillusionment*, *slope of enlightenment*, and *plateau of productivity*. The expected duration of cycle differs per technology, and some technologies may never reach productivity in the foreseeable future. Hype cycles are a construction of consultancy Gartner that issues regular reports @gartner2018]. Many ideas in the IT industry exist under changing or concurrent names, and big data has indeed a lot in common with concepts such as *data mining*, *business intelligence* or *visual analytics* to name just a few. But we should not forget that even though the technological industry is largely fashion-driven, its societal impacts are real, though sometimes unevenly distributed. 
-
-The definition of big data is elusive perhaps also because the majority of involved actors, as they are positioned in the business world, is more focused on building productive big data ventures, without much conceptual attention to the subject in itself. Then of course, the underlying technologies become a subject of marketing which often uses inflated overstatements based on expectations rather than reality. So far there is no settled consensus around big data definition in the academia either, but as @kitchin2016makes predicts, the "genus" of big data will probably be further delineated and its various "species" identified. The question is if then such an umbrella term will be necessary. Anyways, the lack of common ground in understanding what big data is (illustrated by this chapter) may be a good predictor of the term's future relevance. Problems with definition is exactly what leads @davenport2014big to "predict a relatively short life span for this unfortunate term.” 
-
-To @mayer2013big big data stands for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, the importance lies in the real-life impacts that are likely to stay even when the big data hype is over. Even if we dismiss big data as a buzz-word, the fact is that more digital information gets created and it can be linked more easily, which has many implications on the way we live. Together with that there are changing attitudes to putting data to work. Before we move to describing the challenges and opportunities big data pose to cartography, we dedicate the following chapter to some societal and scientific impacts of the phenomenon, as they can provide a motivation for cartography to take part in addressing those issues. 
+To @mayer2013big big data stands for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, the importance lies in the real-life impacts that are likely to stay even when the big data hype is over. Even if we dismiss the term as a buzz-word, the fact is that more digital information gets created and can be linked more easily, which has many implications on the way we live. Together with that there are changing attitudes to putting data to work. Before we move to describing the challenges and opportunities big data pose to cartography, we dedicate the following chapter to some societal and scientific impacts of the phenomenon, as they can provide a motivation for cartography to take part in addressing those issues. 
 
 ## Sources
