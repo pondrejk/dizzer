@@ -149,13 +149,15 @@ definitions embedded "now", not considering history and development of concepts.
 > Big data has been made possible because of the particular conjuncture of different elements, each with their own history, coming together at this our present moment. But precisely because these different elements have a history, the issues, problems and questions that were there in their earlier incarnation can remain even in the new form.
 
 
-## Spatial properties of big data (or spatial sciences grasping big data...)
+## Spatial properties of big data
 
 Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance [@crampton2015collect], journalism [@lewis2015big], ecology [@shin2015ecological], social sciences [@ovadia2013role], business administration [wamba2015big], urban studies [@thakuriah2017big], learning analytics [@wilson2017big], education [@kabakchieva2015big], health informatics [@herland2014review] and doubtlessly many others. Autors here consider existing data processing and analytical practices in their respective disciplines in light of possibilities created by big data advances. Some expect forthcoming changes, such as enrichment in available methods (e.g. analysing social networks in epidemiology), others analyze the adjustability of currently used processes to conditions of higher data load. With some generalization, the overall mood of these works seems to be welcoming big data as a be possible extension of their toolbox, though doubting that the core scientific methods could be deeply altered by it.
 
 Within geography, @kitchin2013big highlights possible opportunities, challenges and risks posed by big data, encouraging geographers to engage in big data related case studies. He also lays some groundwork for definitions, he later developed into ontological characteristics cited at the beginning of this chapter^[Kithchin is also one of the founders of The Journal of Big Data founded in *year* -- verify]. gonzalez2013big understands big data predominantly as a rich set of observations of intricate and nested social life that can improve theories of human geography, for example by exposing diversity that would otherwise go unnoticed in scientific models of reality. @barnes2013big reminds us of the so called *quantitative revolution* in geography (starting from 1950's) that besides bringing many good to the discipline has also been criticized on many grounds. That some of the problems discussed then, Barnes argues, "continue to apply to the *über* version of the quantitative revolution that is big data". Barnes also stresses that one needs to reconstruct the history of elements conjuring up big data to fully understand the concept. For @goodchild2013quality geography provides a distinct context for discussion about what kinds of science might be supported by big data. He is also concerned with the potential for building rigorous quality control and generalizability into big data operations, because so far "instead of relying on the data producer to clean and synthesize, in the world of big data these functions are largely passed to the user". We could go on much further with how geographic thought internalizes big data, those interested in the topic may refer to @thatcher2018thinking.
 
-Cartography and geographic information science are the disciplines closest to the specialisation of this thesis, both having developed specific and elaborate notions of data in general. We believe scientists and practitioners from these fields can make unique contributions to the way big data is understood and utilized, given their focus on the space as a unifying factor and with visualisation and visual analysis being at the core of their practice. For these reasons, we will first take an aside to briefly outline how cartography and geoinformatics conceptualize spatial data, before moving on to how the disciplines contended with the adjective "big". Consider the following points:
+GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise un-joinable datasets. Much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. **TODO -- combine with the next para?** 
+
+Cartography and geographic information science are the disciplines closest to the specialisation of this thesis, both having developed specific and elaborate notions of data in general. We believe scientists and practitioners from these fields can make unique contributions to the way big data is understood and utilized, given their focus on the space as a unifying factor and with visualisation and visual analysis being at the core of their practice. For these reasons, we will first take an aside to briefly outline how cartography and geoinformatics conceptualize spatial data, before moving on to how the disciplines contended with the adjective big. We consider the following points important:
 
 * Data describing spatial phenomena used in GIS are traditionally divided into *spatial* nad *non-spatial* (thematic, attribute) components. Spatial component holds information on location and geographic extent of an entity and can be thought of as a "geometry" that can be visualized on a map or used for spatial analysis (spatial querying, overlay algebra, network analysis, etc.). Attribute information can be used to set visual parameters of geometries on a map in order to observe variability of a phenomenon across the area of interest (spatial pattern). @andrienko2006exploratory offer more general view of data as correspondence between referential and characteristic components. Referential components (or referrers) are described as independent variables -- mostly employed referrers are *location*, *time* and *population*. Referrer or a combination of referrers provides context and unique identification for dependent variables -- attributes.
 
@@ -165,49 +167,14 @@ Cartography and geographic information science are the disciplines closest to th
 
 * The temporal aspect of a phenomenon includes the existence of various objects at different time moments, and changes in their properties (spatial and thematic) and relationships over time (@andrienko2006exploratory). Including the temporal aspect into the data model is problematic as it is treated separately from spatial and attribute components though having influence on both. For the attribute part, the time changes can be stored by adding table rows with new values. However changes in the spatial component are not easily stored, which complicates linking the past forms of geometries with corresponding past values of attributes^[This is most pressing when handling spatial data in discrete files (e.g. in Shapefile or GeoJSON formats). Using versioning systems like Git that has become incredibly popular for handling software source code and text files is not suitable for spatial data files as these often exceed repository size limits (though alternatives attemting to solve this exist -- **geogig** <http://geogig.org/>). Handling spatial data within relational database (in GIS world it is predominantly PostgreSQL wit spatial extension PostGIS) makes spatial data versioning somewhat easier (**TODO** -- check db versioning)]. There are exception in literature (**TODO cite**), incorporating flexible time changes into GIS data model remains a challenge for spatialization of big-data.
 
-* scales .. (**TODO**)
--**Since the granularity level for dividing a set of references into subsets
--may be chosen arbitrarily, it is possible to characterise one and the same
--phenomenon with different levels of detail. Moreover, if a method for de-
--riving attribute values for larger subsets from values for smaller subsets or
--individual elements is defined, it is possible to vary the level of detail on
--which the phenomenon is considered. This corresponds to the notion of
--“drilling” in data analysis, which is defined as a technique for navigating
--through levels of data granularity or detail. The term “drill up” or “roll up”
--means increasing the level of abstraction, and “drill down” means descend-
--ing to finer granularity and more detail.**
--
--data cube vs big data
--**Again, our view is close to the ideas related to the concept of the data
--cube mentioned earlier. In the literature explaining this concept (Gray et al.
--1998, Stolte et al. 2002), it is stated that the dimensions of a data cube may
--have a hierarchical (or, more generally, a lattice) structure. For example, a
--dimension specifying locations may consist of several levels such as coun-
--try, state, and county. A temporal dimension may involve days, weeks,
--months, quarters, and years. The main value of data cubes is the possibility
--to look at data on different levels of detail by means of ascending and de-
--scending alon these hierarchies and thus varying the degree of data ag-
--gregation.**
+* Spatial component of data may be displayed at various scales. The scale along with the purpose of the map influences the level of comprehensable detail in displayed geometry. Cartographic generalisation is the process of adjusting the adjusting the map geometry to the spatial scale in which the area is display (**TODO najst nejaku kloudnu karst citaciu?**). This goes beyond mere simplification, as factors as highlighting the important, maintaining the object relationships and preserving the aesthetic quality come to play. To users of digital interfaces the dynamic change of scale comes naturally, the generalization is however hard to automate as it (at its best) involves complex reasoning and considerations of object relationships that span through the strict topic-based separation of layers common in spatial datasets (for more on efforts in automated generalisation see for example @burghardt2016abstracting). The same phenomenon can be studied at various levels of detail even without changing the scale of the map. Some spatial datasets, such as municipal units, exhibit the nesting property that allows to vary the granularity of the spatial pattern ^[Wich by itself can cause a range of problems like MAUP -- explain and cite].
+
+The above summary is inevitably simplistic and there are many other research areas in cartographiy and GIS that are relevant to big data efforts. Some will be touched on late in the thesis, others are unfortunately out of its scope. One such case for all is *spatial imagery* that is an example of truly big (improvements in global monitoring systems bring about data with unprecedented spatial, temporal and spectral resolutions ^[**TODO** examples?]) data source that is inherently spatial.
 
 
-The above summary is simplistic and there are many topics not included.
-- Granularity, scales and generalizaiton,
-- Completeness, uncerainty and its representation"
-- Some stuff not to mention in depth, some of them revisited (metadata, data quality, 3D, cognitive research, political cartography).
-- spatial analysis, geostatistics..., data respresentations in GIS (event the whole data model)
-not a subject of this thesis
 Spatial imagery -- truly big data with strong relevance in geosciences. @jiang2017spatial
--- improvements in global monitoring systems (check terminology)
--- higher quality number of pixels, greater time frequency and number of spectral levels (examples )
-
-
-GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise un-joinable datasets. Much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. Geospatial data describe objects and things with relation to geographic space, often with location coordinates in a spatial referencing system.
-
-A potential to geocode big data to become available to geospatial analysis.
 
 shekhar2014benchmarking -- traditional vs emerging spatial bd 
-
-Geospatial big data as a subset of big data. 
 
 @lee2015geospatial
 @li2016geospatial

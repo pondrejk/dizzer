@@ -268,6 +268,12 @@ other gis stuff
 - metadata
 ...
 
+moved from the definitions part:
+
+- Completeness, uncerainty and its representation"
+- Some stuff not to mention in depth, some of them revisited (metadata, data quality, 3D, cognitive research, political cartography).
+- spatial analysis, geostatistics...,
+
 
 @barnes2013big
 ---------------
