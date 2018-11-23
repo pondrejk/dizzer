@@ -95,6 +95,12 @@ Catherine D’Ignazio
 
 Creative Data Literacy: Bridging the Gap Between the Data Haves and Have-nots
 
+
+@wilmott2016small 
+---------------
+**TODO** It is precisely to this question of what data mean to ordinary people on the street that Wilmott speaks to in her ethnography of embodied spatial experiences of locative media in the historical and geographical con- texts of Sydney and Hong Kong. She presents multiple narratives that capture the ways in which Big Data is not only something that is located in space, but something that simultan-eously actively locates
+
+
 Communities are swimming in data—demographic data, participation data, government data, social media data—but very few understand what to do with it. Though governments and foundations are creating open data portals and corporations are creating APIs, these rarely focus on use, usability, building community or creating impact. So although there is an explosion of data, there is a significant lag in data literacy at the scale of communities and individuals. This creates a situation of data-haves and have-nots. But there are emerging technocultural practices that combine participation, creativity, and context to connect data to everyday life. These include citizen science, data journalism, novel public engagement in government processes, and participatory data art. This talk surveys these practices both lovingly and critically, including their premises, aspirations and the challenges to creating citizens that are truly empowered with data.
 
 Yanni Loukissas
@@ -224,10 +230,6 @@ from toc:
 - Spaial and spatiotemporal BD Science
 
 
-@li2016geospatial
------------------
-- challenges in big data
-
 shekhar2014benchmarking
 ------------------------
 - performance tests? -- proposed potential metrics
@@ -305,3 +307,41 @@ addressed by social hierarchies (orgs like wikipedia, or communities like in ope
 assessment and synthesis, which is the only effective
 way of achieving the velocity advantages of big data
 withoutsacrificingvolume
+
+@jiang2017spatial
+----------------
+good stuff on GIS challenges with spatial big data
+
+
+@yao2018big
+-------------
+
+With the development of computer science technology and the evolution of computing model, GIS architecture and application mode are changed constantly. From desktop GIS (1960s) to the Web GIS (1980s), and the distributed GIS (1990s), to the cloud GIS (2010s), it is well known that the development of GIS is greatly influenced by computer science technology (Yang, Raskin, Goodchild, & Gahegan, 2010 Yang, C., Raskin, R., Goodchild, M., & Gahegan, M. (2010). Geospatial cyberinfrastructure: Past, present and future. Computers, Environment and Urban Systems, 34(4), 264–277. doi:10.1016/j.compenvurbsys.2010.04.001 [Google Scholar]), and also lags behind it simultaneously. Needless to say, driven by the wave of big data, GIS has also entered a new era, big data GIS (Li & Li, 2014 Li, Q., & Li, D. (2014). Big data GIS. Wuhan Daxue Xuebao (Xinxi Kexue Ban)/Geomatics and Information Science of Wuhan University, 39(6), 641–646. doi:10.13203/j.whugis20140150 [Google Scholar]), 
+
+
+reactons of ICA and OGC
+--------------
+@purss2016ogc
+
+Discrete Global Grid Systems (DGGS), a new OGC standard, is to meet the  needs  for  global  sampling,  storage,  modeling,  processing,  analysis,  and  visualization  (Purss, Gibb, Samavati, Peterson, & Ben, 2016).
+
+INSPIRE?
+
+
+global challenges from  lee2015geospatial
+-----------------
+M. Marien, Global challenges for humanity, http://www.millennium-project.org/ millennium/challenges.html , accessed: 2014-08-30.
+
+Geospatial big data or simply spatial big data are societal op- portunities [11,12] . The Millennium Project identified 15 global challenges that the human kind is facing as in Fig. 3 [13]. Many of them can benefit from geospatial big data. Shashi Shekhar [14] @shekhar2012spatial, a renowned computer scientist, says that the seven challenges are related to geospatial big data, as indicated by boxes in the figure.
+
+@lee2015geospatial
+
+For interactive analytics, we have identified two main components: complex event processing (CEP) and spatial online analytical processing (SOLAP). Complex
+event processing (CEP) is event processing that involves multiple data streams to infer events or patterns that imply more complex situations.
+Spatial OLAP is a visual platform for analyzing spatio-temporal data quickly and easily as well as for exploring the data in a 79 Fig. 8. The Movebank service. multi-dimensional way with aggregation levels being available on cartographic displays and in tabular and diagram displays. The concept of Spatial OLAP, which tries to combine geographic in- formation systems (GIS) and OLAP, was invented in late 1990’s. Spatial olap not really functional for big data backend. 
+-- though they identify these two topics as challenges, their imo better contribution is outlining the capabilities of spatial bd system:
+3 layers: Geospatial big data integration and management, Geospatial big data analytics (batch or intercative), and, Geospatial big data service platform.
+
+li2016geospatial
+-------------
+!!! good and rich

@@ -71,6 +71,8 @@ A very common description of big data goes along the lines of "I will give you s
 
 Increasing the storage capacity itself does not speak of any qualitative change in what is stored, therefore some archives could indeed be described as big piles of small data. Under certain circumstances, new quality can arise from increased quantity, for example as @norvig2011unreasonable points out, an array of static images projected at a sufficient frame rate creates an illusion of movement also known as film. Multiplication of an old medium creates a new one. The remaining question is under what conditions this change of essence arises, and if such thing occurs or will occur in case of big data.
 
+**TODO** more is less vs more is different
+
 ![**Fig.1** Comparison of the World's estimated data storage capacity between years 1968 and 2007 (modified after @hilbert2011world) and the expected storage capacity of large scale data centers in the period from 2016 to 2021 (modified after @networking2018cisco)](imgs/img-storage-capacity.png)
 
 Rather than putting up to a gargantuan task of counting the mass of all existing data items, authors use the available statistics related to operations of large companies (@kambatla2014trends, @mcnulty2014understanding, @marr2014big and others). For example, Facebook was said to process 10 billion messages, 4.5 billion button clicks and 350 million picture uploads each day (@marr2014big). It goes without saying these numbers are outdated and certainly outgrown today. Other companies prominently mentioned in context of big data are Google, Wallmart, or Amazon. This connection is justified, as these companies have put user (or customer) data analytics to the core of their businesses, thus supporting the progress in the field. Social media, web search and browsing data, on-line or off-line shopping patterns, but also mobile devices, sensors and large scientific projects are mostly named as generators of big data.
@@ -153,7 +155,13 @@ definitions embedded "now", not considering history and development of concepts.
 
 Apart from the general definitions mentioned above, there have also been field-specific efforts to contextualize big data. The fields include governance [@crampton2015collect], journalism [@lewis2015big], ecology [@shin2015ecological], social sciences [@ovadia2013role], business administration [wamba2015big], urban studies [@thakuriah2017big], learning analytics [@wilson2017big], education [@kabakchieva2015big], health informatics [@herland2014review] and doubtlessly many others. Autors here consider existing data processing and analytical practices in their respective disciplines in light of possibilities created by big data advances. Some expect forthcoming changes, such as enrichment in available methods (e.g. analysing social networks in epidemiology), others analyze the adjustability of currently used processes to conditions of higher data load. With some generalization, the overall mood of these works seems to be welcoming big data as a be possible extension of their toolbox, though doubting that the core scientific methods could be deeply altered by it.
 
+Usually using one or more of aforementioned approaches, mamely definition by *keywors*, *constaints*, *examples*, *metaphores* or *wholes* (find a better word for complex including infra process and people, *ecosystem*?)
+
 Within geography, @kitchin2013big highlights possible opportunities, challenges and risks posed by big data, encouraging geographers to engage in big data related case studies. He also lays some groundwork for definitions, he later developed into ontological characteristics cited at the beginning of this chapter^[Kithchin is also one of the founders of The Journal of Big Data founded in *year* -- verify]. gonzalez2013big understands big data predominantly as a rich set of observations of intricate and nested social life that can improve theories of human geography, for example by exposing diversity that would otherwise go unnoticed in scientific models of reality. @barnes2013big reminds us of the so called *quantitative revolution* in geography (starting from 1950's) that besides bringing many good to the discipline has also been criticized on many grounds. That some of the problems discussed then, Barnes argues, "continue to apply to the *über* version of the quantitative revolution that is big data". Barnes also stresses that one needs to reconstruct the history of elements conjuring up big data to fully understand the concept. For @goodchild2013quality geography provides a distinct context for discussion about what kinds of science might be supported by big data. He is also concerned with the potential for building rigorous quality control and generalizability into big data operations, because so far "instead of relying on the data producer to clean and synthesize, in the world of big data these functions are largely passed to the user". We could go on much further with how geographic thought internalizes big data, those interested in the topic may refer to @thatcher2018thinking.
+
+Interseting reversion in @straube2016stacked, digital infrastructures help us map the world around us, but also can be mapped themselves, as they have diverse inherent spatialites of their own, as @straube2016stacked shows in his case study on the development of the Git version system.
+
+What is spatial big data, is it a subset or an extension of bd? First it is good to recapitulate how spatial disciplines understand data, then explore how these concepts might be altered.
 
 GIS practitioners like to say that 80% of all data is geographic, and even though such claim is hard to prove (see @morais2012phrase for discussion and @hahmann201180 for validation attempt), few would doubt that spatial reference can unlock some additional value at a minimum as a platform for combining otherwise un-joinable datasets. Much of the data in the world can be geo-referenced, which indicates the importance of geospatial big data handling. **TODO -- combine with the next para?** 
 
@@ -169,20 +177,41 @@ Cartography and geographic information science are the disciplines closest to th
 
 * Spatial component of data may be displayed at various scales. The scale along with the purpose of the map influences the level of comprehensable detail in displayed geometry. Cartographic generalisation is the process of adjusting the adjusting the map geometry to the spatial scale in which the area is display (**TODO najst nejaku kloudnu karst citaciu?**). This goes beyond mere simplification, as factors as highlighting the important, maintaining the object relationships and preserving the aesthetic quality come to play. To users of digital interfaces the dynamic change of scale comes naturally, the generalization is however hard to automate as it (at its best) involves complex reasoning and considerations of object relationships that span through the strict topic-based separation of layers common in spatial datasets (for more on efforts in automated generalisation see for example @burghardt2016abstracting). The same phenomenon can be studied at various levels of detail even without changing the scale of the map. Some spatial datasets, such as municipal units, exhibit the nesting property that allows to vary the granularity of the spatial pattern ^[Wich by itself can cause a range of problems like MAUP -- explain and cite].
 
-The above summary is inevitably simplistic and there are many other research areas in cartographiy and GIS that are relevant to big data efforts. Some will be touched on late in the thesis, others are unfortunately out of its scope. One such case for all is *spatial imagery* that is an example of truly big (improvements in global monitoring systems bring about data with unprecedented spatial, temporal and spectral resolutions ^[**TODO** examples?]) data source that is inherently spatial.
+The above summary is inevitably simplistic and there are many other research areas in cartographiy and GIS that are relevant to big data efforts. Some will be touched on later in the thesis, others are unfortunately out of its scope. One such case for all is *spatial imagery* that is an example of truly big (improvements in global monitoring systems bring about data with unprecedented spatial, temporal and spectral resolutions ^[**TODO** examples?]) data source that is inherently spatial.
+
+In light of big data advent, autors form spatial fields consider what difference does it make to conceptualize a specifically *spatial* big data as opposed to big data per se. This early critique condamned the limitations of analyzing geotagged social media content (labeled as "burger cartographies" see @crampton2013beyond and @shelton2017spatialities), which as @leszczynski2016introduction note, covers just a limited facet of the data productions, presences, and practices that fall under spatial big data.
+
+For @jiang2017spatial, spatial big data refer to georeferenced data whose volume, velocity, and variety exceed the capacity of current spatial computing platforms. (They combine defintions by V-words and computional difficulties, and later go on with definitions by example).
+
+@yao2018big focus on a subgroup of big spatial vector data (BSVD), and provide a comprehensive survey of techniques used to manage such data.
+
+According to the characteristics and sources of spatial data, as the Figure 1 shows, we summarize the GIS data as five categories, namely remote sensing data, surveying and mapping large data, location-based data, social network data, and Internet of Things data. Usually, there is a certain intersection between these categories.
+
+BSVD management: storage and organization > spatial indexing > processing methods > applications. *Big spatial vector data model*, and *distributed spatial index for BSVD*. In short, @yao2018big adjusting the vector data model for distributed storage impacts how the data is indexed^[on spatial indexing] and queried for analysis and visualisation.
 
 
-Spatial imagery -- truly big data with strong relevance in geosciences. @jiang2017spatial
+@shekhar2014benchmarking -- in context of transportation topic distinguishes traditional vs emerging spatial bd.
 
-shekhar2014benchmarking -- traditional vs emerging spatial bd 
 
-@lee2015geospatial
-@li2016geospatial
+@lee2015geospatial -- definition by constraints and by example. more in next chapter.
+
+@li2016geospatial -- on of the most rich and multifacetted accounts .. next chapter, recognize the vagueness in definitions, 
+
+focusing on sources they see in Volunteered Geographic Information (VGI) ^[explain what it is in gis, crouwdsourcing. Questionable if social media data are really "volunteered". How avare are the social media users of giving thir data], and data from geo-sensor networks (with extended understanding of what sensor is, including CCTV and mobile devices). Summarizes on issues related to quality assessment, as bd properties challenge current error propagation methods. Noticed the importance of parellel processing of datastreams and the advantages functional programming languages offer here - (my note on what func prog is advantages and disatvantages, most gis-savvy being scala atm. -- more on this? @mintchev2014user).
+
+on VGI -- Whereas until recently, authoritative data sets were dominating in topographic domain (OSM), these new data types extend and enrich geographic data in terms of thematic variation and by the  fact that it is more user-centric. The latter is especially true for VGI collected by social media (@sester2014integrating).
+
+
+@jiang2018spatial -- **next**
+
 --------
 @suthaharan2014big
 
+@van2014spatial focuses on the Internet of Things concept [explain] as a main future source of big data (here usderstood as a sum of sources from "Smart" devices). Devices are treated as Smart Objects and geospatial technologies are considered a binding principle that would eventually help to facilitate the rise of Smart City (another buzzword to explain). 
 
 In the next chapter, where we look at at the impact of big data on science in general, we also offer our speculation on how the roles of cartography and GIS may be transformed by the data deluge.
+
+
 
 ## Assessing impacts and opportunities rather than seeking definitions
 
