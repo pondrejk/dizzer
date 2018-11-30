@@ -189,9 +189,9 @@ According to the characteristics and sources of spatial data, as the Figure 1 sh
 
 BSVD management: storage and organization > spatial indexing > processing methods > applications. *Big spatial vector data model*, and *distributed spatial index for BSVD*. In short, @yao2018big adjusting the vector data model for distributed storage impacts how the data is indexed^[on spatial indexing] and queried for analysis and visualisation.
 
+@shekhar2012spatial -- in context of transportation topic distinguishes traditional (meaning line graphs, topological vector data representing transportation infrastructure) vs emerging spatial bd. ( meaning mostly sensor and positional data from large number of vehicles -- they call it *Spatio-Temporal Engine Measurement Data*)
 
-@shekhar2014benchmarking -- in context of transportation topic distinguishes traditional vs emerging spatial bd.
-
+@shekhar2014benchmarking calls for performance testing of existing and new technique to assess proper comparision. -- in vebratim: "Newer algorithms may emerge as new SBD becomes available, creating the need for a flexible architecture to rapidly integrate new datasets and associated algorithms. To quantify the performance of these new algorithms, new benchmarks are needed that focus on these spatial big datasets to ensure proper comparisons across techniques."
 
 @lee2015geospatial -- definition by constraints and by example. more in next chapter.
 
@@ -202,12 +202,21 @@ focusing on sources they see in Volunteered Geographic Information (VGI) ^[expla
 on VGI -- Whereas until recently, authoritative data sets were dominating in topographic domain (OSM), these new data types extend and enrich geographic data in terms of thematic variation and by the  fact that it is more user-centric. The latter is especially true for VGI collected by social media (@sester2014integrating).
 
 
-@jiang2018spatial -- **next**
+@jiang2018spatial
+Paradigm shifts:
+- scaling law vs tobler law -- complementary but the first (ideology) should be dominant (became it's universal and global)
+- euclidean vs fractal (natural) geometry @jiang2016fractal
+- gaussian vs paretian statistics -- the first is better for things with more or less simmilar sizes, the latter is based on the notion of far more smalls than larges. -- new classification scheme -- head/tail breaks @jiang2013head, @jiang2016head
+- data quality vs data character -- data quality overemphasized in gis, illustrated on a cartoon vs photo of Kim, in gis he identifies character with topology
+- mechanistic thinking (Descartes) vs organic thinking  -- @alexander2002nature -- idea of a living structure. (explanation of alexander's ideas see @waguespack2010thriving), e.g. natural cities -- objectively defined from a massive number of geographical locations (def. in @jiang2015evolution, such as social media locations -- role of Big Data), so its more a bottom-up emergence rather than a top down demarcation (like administartive units). (* a side note: mention how alternative sources can be used to correct official models -- like phone operator data to correct population models*)
 
 --------
 @suthaharan2014big
 
 @van2014spatial focuses on the Internet of Things concept [explain] as a main future source of big data (here usderstood as a sum of sources from "Smart" devices). Devices are treated as Smart Objects and geospatial technologies are considered a binding principle that would eventually help to facilitate the rise of Smart City (another buzzword to explain). 
+
+
+My summary -- As we have seen in this aside, even though geospatial authors rarely diverge from the main approaches when defining what big data means to them, they actually actually do it at a more specialized by providing suggestions on how to change the data models and the associated processes at the core of their disciplines. *Assessing and altering data models and algorithms, creating new ones**.
 
 In the next chapter, where we look at at the impact of big data on science in general, we also offer our speculation on how the roles of cartography and GIS may be transformed by the data deluge.
 
