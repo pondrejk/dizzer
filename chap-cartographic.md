@@ -323,3 +323,12 @@ Large scale and long term require simplification. ...when high-dimensional syste
 Phase space, in. geography e.g. Melton -- four dimensional phase space of drainage basin properties...
 Structure vs agency: The spatially distributed feedback between the form (structure) and process (agency) is therfore a broadly relevant conceptual framework for analysis of the dynamics of the systems...
 Agent based modelling -- Regions are essentially aggregates - of smaller entities, of common characteristics -  which in turn are are 'constructed' by the Lagrangian behaviour of the individuals within them. Places are therefore emergent properties of large-sample individual behaviour in 4-D space-time.
+
+
+classification schemes
+-----------------------
+see @jiang .. 4 citations
+jiang https://www.researchgate.net/publication/311509530_Why_should_scaling_be_the_first_law_of_geography
+head/tails breaks -- alternative to natural breaks for classification 
+3rd definition of fractal -- 1st Koch - geometric, 2nd - Mandelbrot statistical, 3rd - pareto distribution recurses at least in two scales, or with ht-index greater than three
+
