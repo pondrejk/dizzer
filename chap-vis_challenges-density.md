@@ -12,6 +12,8 @@ This destinction is naturally dependent on frames of reference, for example obje
 
 TODO: image three types of objects in a timespace cube 
 
+Events seem as least data-rich though the analytic potential stems from a high number of events.
+
 Intro on difficulties
 data -> technological filter -> coginitive filter -> idea/decision
 
@@ -23,14 +25,37 @@ cognitive filter -- not all can be processed, how to define and check automatica
 TODO: image - joke: big data scatterplot, etc.
 
 
-# Congestions
+# Congestions + Data reduction methods
+
+## Avoiding aggregation
+
+- resolving conflicts -- long tradition in cartography, but how scalable and automatable? Spatial displacement techniques (non-cartographical) -- jittering @trutschl2003intelligently, topological distortion @keim2010generalized -- expanding (like cartogram for scatterplots)
+- minification of symbols + downplaying or reducing the backgroud
+- pixel-orientation -- maximizing screen utilization @keim2000designing 
+- spatial distortions -- cartograms -- affects other spatial layers -- common distortion rule is needed to make sense for all layers -- population?
+- alpha blending -- transparency (pros and cons)
+
+Other stuff to check:
+@janetzko2018pixel
+
+## Aggregation 
 
 density vs. attribute visualisation
 - implanation - classification techniques: classical, new: yiang - fractal breaks, bayesian surprise, uncertainty-adjusted scales
-- shape, position, other options for multiple vis -- indiemaps article, other tesalleration
+- shape, position, other options for multiple vis -- indiemaps article, other tesallerations
+
+Shape: two prominents ways: hexagonal and rectangular grid
+- hexagonal
+- rectangular - can make pyramids for hierarchical aggregation, better fit for scaled down bi-visualisation
+
+liu2013immens
+---
+
+Scalability of visual encodings
+
 
 mulitple attributes
 figure vs. ground - comparison with spatial context
 
 
-
+# parameters of binned visualisation
