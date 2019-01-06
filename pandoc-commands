@@ -1,10 +1,10 @@
 first attempt:
 
-pandoc -V geometry:margin=1.5in chap-definitions.md -o paper.doc --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --latex-engine=xelatex
+pandoc -V geometry:margin=1.5in chap-definitions.md -o paper.doc --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --pdf-engine=xelatex
 
 -- set margins, fonts (Noticia Text 12, Fira sans for diagrams), indentation, paper size? (B4?) -- all should be done via reference doc like this:
 
-pandoc chap-definitions.md -o paper.docx --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --latex-engine=xelatex --reference-doc=reference.docx
+pandoc chap-definitions.md -o paper.docx --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --pdf-engine=xelatex --reference-doc=reference.docx
 
 combine muliple sources
 pandoc -s input1.md input2.md input3.md -o output.html
@@ -14,7 +14,7 @@ pandoc -f markdown+extension
 -- but some do not output to docx, previous md to md is needed, e.g. for smart, auto_identifiers, etc.
 --for inline notes:
 
-pandoc -f markdown+inline_notes chap-definitions.md -o build/paper.docx --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --latex-engine=xelatex --reference-doc=reference.docx
+pandoc -f markdown+inline_notes chap-definitions.md -o build/paper.docx --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --pdf-engine=xelatex --reference-doc=reference.docx
 
 todos: 
 -- pdf fails with  LaTeX Error: File `mathspec.sty' not found. -- # done: fixed using sudo dnf install "tex(mathspec.sty)" 

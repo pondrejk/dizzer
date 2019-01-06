@@ -10,20 +10,23 @@ Point spatial data are not a homogenous group -- there are three types of point 
 
 This destinction is naturally dependent on frames of reference, for example objects seen as stationary in shorter observation perionds can become mere events if timeframe is significantly extended. Similarly if events can be reimagined as moving objects with discrete presece across observation timeframe, for example when social media "tweets" dislocated in space and time poit to a single moving source device. 
 
-TODO: image three types of objects in a timespace cube 
+![**Fig.** Three types of point spatial objects in a timespace cube. Stations, actors and events generate diffierent atribute histories.](imgs/bd-diagrams-joke.png)
+  
+From the above images events seem as least data-rich though the analytic potential stems from their acummulated high number. Clusters of goreferenced point events are at the core of social media analysis.  
 
-Events seem as least data-rich though the analytic potential stems from a high number of events.
 
-Intro on difficulties
+## Intro on difficulties
+-- some survey on visualisation pipelines @moreland2013survey
+-- my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) -- technological may be diminishing, but cognitive will still pose limitations. Machine learning could bypass the need for cognitive limitations (what kinds of task are mlearnable, also what are the tasks/questions that can be meaningfully answered? -> via negativa), how the design of ineractions could help with cognitive limitations
+
 data -> technological filter -> coginitive filter -> idea/decision
 
-TODO: image - dataflow via those filters 
+TODO: image - dataflow via those filters (later).
 
 processing difficulties ... technological filter - screen resolution limits, infrastructure limits -- not all datapoints can be shown.
 cognitive filter -- not all can be processed, how to define and check automatically? 
 
-TODO: image - joke: big data scatterplot, etc.
-
+![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on human perceptual limits, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
 
 # Congestions + Data reduction methods
 
@@ -45,14 +48,21 @@ density vs. attribute visualisation
 - shape, position, other options for multiple vis -- indiemaps article, other tesallerations
 
 Shape: two prominents ways: hexagonal and rectangular grid
-- hexagonal
-- rectangular - can make pyramids for hierarchical aggregation, better fit for scaled down bi-visualisation
+- hexagonal -- centroids in hexagonal binning form a triangular grid, so an individual hexagon has the same distance from all it's neighbours (why is that good? not th case of rectangular grid).
+- rectangular -- can create pyramids for hierarchical aggregation, that is a higher level shape can fully contain shapes of lower level wihch is not a case for hexagons. Rectangular shapes are also better fit for proportional scaling in two dimensions (width and height) which unlocks potential for displlaying an additional vable.
 
 liu2013immens
 ---
 
-Scalability of visual encodings
+*Scalability of visual encodings* (how visualized) vs *interactive scalability* (how interaction works) -- both should be limited by the chosen resolution of visualized data not the number of records.
 
+Aggregation methods:
+- bridge to previous chapters regarding sampling: bd analytics may no longer require it, though visualisation needs it (unfortunately?)
+
+## Tasks
+- anderienko
+- notes from hierarchical aggregation paper
+- inmems papaer -- interactive scalability for panning, zooming, brushing and linking.
 
 mulitple attributes
 figure vs. ground - comparison with spatial context
