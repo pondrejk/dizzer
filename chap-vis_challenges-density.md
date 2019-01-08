@@ -70,22 +70,35 @@ A straightforward way to evaluate the sampling design is comparing distribution 
 
 Spatial sampling differs from regular sampling, often breaks i.i.d. (independent and identically distributed) assumption, see @wang2012review for review of spatial sampling.
 
-Sampling has many uses to speed up analysis, when avoiding assessing the entire population is feasible. Advances of big data infrastructure reduce the need for sampling out of necessity. Not only a data reduction technique, but often (esp. in spatial sciences) a data collecting convenience (collecting data at discrete locations and interpolating). Also resampling techniques (bootstrap, jacknife, off-by-one ... others) are useful for testing and validating spatial models, Bootstrap is better for distribution estimation, jacknife is superior for variance estimation  @chun2013spatial.
+Sampling has many uses to speed up analysis, when avoiding assessing the entire population is feasible. Advances of big data infrastructure reduce the need for sampling out of necessity. Not only a data reduction technique, but often (esp. in spatial sciences) a data collecting convenience (collecting data at discrete locations and interpolating). Also resampling techniques (bootstrap, jacknife, off-by-one ... others) are useful for testing and validating spatial models, Bootstrap is better for distribution estimation, jacknife is superior for variance estimation  @chun2013spatial. See @kleiner2013general for evaluation of the bootstrap techniques from the performance standpoint.
 
 Elaborate sampling methods require specific dimensions are chosen ahead of time, requiring prior knowledge and often costly pre-processing (@liu2013immens). Moreover, in vast datasets the reduction would have to be too significant. Sampling to ease point cloud visualisation doesn't seem as an adequate approach.
 
-b.) binned aggregation
+b.) binned aggregation -- Binning aggregates data and visualizes density by counting the number of data points falling into each bin. (TODO terminology from the generalizaiton pov)
 
-c.) model-based abstraction
+c.) model-based abstraction - describing data in terms of mathematical models or statistical summaries. -- basically meaning interpolation techniques in spatial world
 
-d.) hybrid reduction methods
+d.) hybrid reduction methods -- combinations, eg. binning with displayed outliers in dataset as well as binned density (@novotny2006outlier use it in parallel coordinate plots), no reason not to apply in bins.
+-- research on combining sampling and aggregation: BlinkDB -- builds fast approximate queries a multi-dimensional and multi-resolution stratified samples and computes aggregates over this reduced data. BlinkDB -- queries with bounded errors and bounded response times @agarwal2013blinkdb
+-- online aggregation -- showing continuously updating aggregates and confidence intervals in response to a stream of samples -- hellerstein1997online, fisher2012trust
 
 ###Designing binned plots 
+
+Why binned plots?
+-- conveys to both global patterns (densities) as well as local features (e.g outliers)
+-- multiple levels of resolution via varying cell size
+
+
 ###Interaction with binned plots
+
+### Point aggregation
+-- mostly don't like it -- difference between current applications and what should be acheived
+-- loss of orientation between zoom levels -- smoother transition of collapsing/grouping ponts -- show paths/traces? 
+-- point aggregation -- basically sampling with information on how many points are represented ...
 
 ## Tasks
 - anderienko
-- notes from hierarchical aggregation paper
+- notes from hierarchical aggregation paper @elmqvist2010hierarchical
 - inmems papaer -- interactive scalability for panning, zooming, brushing and linking.
 
 mulitple attributes
@@ -93,3 +106,8 @@ figure vs. ground - comparison with spatial context
 
 
 # parameters of binned visualisation
+
+
+# more
+https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
+

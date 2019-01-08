@@ -31,7 +31,6 @@ Video on visiulal variables in animation and more research in this topic -- mac 
 -- important for combinint with other sources
 
 @wickham2013bin
-@elmqvist2010hierarchical
 
 -- how scalable cartographic techniques are? -- how to measure it
 
