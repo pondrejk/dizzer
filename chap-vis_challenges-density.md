@@ -38,6 +38,26 @@ cognitive filter -- not all can be processed, how to define and check automatica
 - spatial distortions -- cartograms -- affects other spatial layers -- common distortion rule is needed to make sense for all layers -- population?
 - filtering and sampling (below)
 - alpha blending -- transparency (pros and cons)
+- resigning on spatial presentaton: visualisaton of 1D event streams (using coordinated views: linking/brushing)
+- 3rd dimension -- interaction and exploration of a time-space cube
+
+
+@correll2017surprise:
+
+One  approach  to  event  visualization  is  to  visualize  individual
+streams  of  event  density  [@beard2008framework (no access, probably some coordinated views for explor. analysis),  @krstajic2011cloudlines -- multiple time series, density estimation in text streams].   While  streams  of  1D  event  den-
+sity data are useful,  they require careful layout and sorting in order
+to illustrate spatial patterns. Where both the temporal and spatial com-
+ponents of the event data are important, other approaches seek to vi-
+sualize the “space-time cube” [@bach2014review -- see for review of timespace cube approaches] directly, mapping events to points in
+3D space [@gatalsky2004interactive -- just an description of an implementato of some 3D cube observer, @tominski20053d -- time-space cube inspired catographic symbols (pencil/helix icons) observable in the 3D space].  For many cases, we find this approach unsatisfac-
+tory; projection and occlusion issues require interaction and 3D spatial
+reasoning in order to discover patterns of interest. 
+
+A more common approach  is  to  visualize  spatial  events  using  thematic  maps  (for  in-
+stance, choropleth or heat maps), and use animation, juxtaposition, or explicit differencing to compare temporal patterns [19] (but, see Now- ell et al. [36] for examples where change blindness renders temporal
+patterns difficult to see)
+
 
 Other stuff to check:
 @janetzko2018pixel
@@ -54,7 +74,7 @@ Shape: two prominents ways: hexagonal and rectangular grid
 -- also triangular is possible -- TODO see inspi_imgs for comparison
 -- some literature with discussion: @unwin2006graphics -- compare 3 schemes, @carr1987scatterplot hexbins -- reduced bias in density estimation, but @scott2015multivariate -- showing marginal differences  
 
-liu2013immens
+liu2013immens (done)
 ---
 
 *Scalability of visual encodings* (how visualized) vs *interactive scalability* (how interaction works) -- both should be limited by the chosen resolution of visualized data not the number of records.
@@ -100,7 +120,11 @@ Why binned plots?
 -- point aggregation -- basically sampling with information on how many points are represented ...
 
 ## Tasks
-- anderienko
+* anderienko on tasks: (andrienko2003exploratory, and andrienko2006exploratory -- TODO revisit and compare how these accounts differ -- probably apply above)
+- ultra brief @andrienko2003exploratory: 
+Analytical tasks ivolving event data can be characterized at some combination of *what* + *when* + *where* 
+To support these tasks, event visualisation must, at a minimum, *illustrate spatial patterns*, and, if a temporal axis is present, *afford navigation or summariaztion through time*.
+
 - notes from hierarchical aggregation paper @elmqvist2010hierarchical
 - inmems papaer -- interactive scalability for panning, zooming, brushing and linking.
 
@@ -122,6 +146,11 @@ Y comes betw 0 and 1, x is the data value
 # more
 https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
 
+@correll2017surprise
+Biases in thematic maps:
+- base rate bias
+- sampling error bias
+- renormalization bias
 
 # app -- binning playgound
 -- timeline to simulate movement

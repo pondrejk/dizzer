@@ -64,6 +64,7 @@ cons:
 - programmer's experience
 - what can be done with pixi.js, why are game programming libraries good or bad for creating inteactive maps (e.g. bad: too focused on redndering pre-created raster images..., limitations of pixi v4 particle container (explained in Medium blog on global fishing watch))
 
+
 ### explanation of CPU vs GPU rendering
 -- image in appendix
 

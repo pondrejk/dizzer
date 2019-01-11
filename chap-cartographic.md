@@ -277,6 +277,7 @@ notes from pelekis2004literature
 
 maceachren2004maps
 -------------------
+-- check mindtrees? probably out of my scope
 
 notes from berlin paper on historical spatial data
 --------------------
@@ -331,3 +332,9 @@ jiang https://www.researchgate.net/publication/311509530_Why_should_scaling_be_t
 head/tails breaks -- alternative to natural breaks for classification 
 3rd definition of fractal -- 1st Koch - geometric, 2nd - Mandelbrot statistical, 3rd - pareto distribution recurses at least in two scales, or with ht-index greater than three
 
+
+andrienko2006exploratory
+------------------------
+
+andrienko2003exploratory
+------------------------
