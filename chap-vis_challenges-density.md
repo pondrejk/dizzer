@@ -51,6 +51,8 @@ density vs. attribute visualisation
 Shape: two prominents ways: hexagonal and rectangular grid
 - hexagonal -- centroids in hexagonal binning form a triangular grid, so an individual hexagon has the same distance from all it's neighbours (why is that good? not th case of rectangular grid).
 - rectangular -- can create pyramids for hierarchical aggregation, that is a higher level shape can fully contain shapes of lower level wihch is not a case for hexagons. Rectangular shapes are also better fit for proportional scaling in two dimensions (width and height) which unlocks potential for displlaying an additional vable.
+-- also triangular is possible -- TODO see inspi_imgs for comparison
+-- some literature with discussion: @unwin2006graphics -- compare 3 schemes, @carr1987scatterplot hexbins -- reduced bias in density estimation, but @scott2015multivariate -- showing marginal differences  
 
 liu2013immens
 ---
@@ -87,6 +89,7 @@ d.) hybrid reduction methods -- combinations, eg. binning with displayed outlier
 Why binned plots?
 -- conveys to both global patterns (densities) as well as local features (e.g outliers)
 -- multiple levels of resolution via varying cell size
+-- they refrain from using additional visual variables such as texture or size as they believe it can interfere with interpretation (I don't). Mulitdimensional displys can solve it -- coordinated views, trellis plots ++ brushing and linking
 
 
 ###Interaction with binned plots
@@ -107,7 +110,34 @@ figure vs. ground - comparison with spatial context
 
 # parameters of binned visualisation
 
+Cell sizes: staisticians proposed several heurisics to select bin sizes -- applicability to big data unclear (some explanation and critique on Sturges in @hyndman1995problem): Struges's formula @sturges1926choice, Scott's reference rule @scott1979optimal 
+Color encodings --density can be encoded to hue, luminance or opacity
+
+@liu2013immens use frumula for hue intensity in bins: y = alpha + ((x - xmin)y/xmax-xmin)(1-alpha)
+Y comes betw 0 and 1, x is the data value
+-- what other libraries use?
+
+
 
 # more
 https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
+
+
+# app -- binning playgound
+-- timeline to simulate movement
+-- bins / hexagons
+-- varying size of bin -- some statistics for size selection
+-- moving the bin around area
+-- couple/decouple bin resize with map zoom
+-- various color shemes -- for density
+-- usage of transparency
+
+-- multidimensional:
+-- using relative size, in squares use two size changes
+-- inscribe proportional circles (both), squares -- only rectangular grid
+
+-- more dimentions:
+-- inscribe marimekko charts / pie charts - split charts for 2 densities
+-- hachures over bins ...
+-- outlier in bins, etc...
 
