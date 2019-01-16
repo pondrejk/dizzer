@@ -54,10 +54,6 @@ sualize the “space-time cube” [@bach2014review -- see for review of timespac
 tory; projection and occlusion issues require interaction and 3D spatial
 reasoning in order to discover patterns of interest. 
 
-A more common approach  is  to  visualize  spatial  events  using  thematic  maps  (for  in-
-stance, choropleth or heat maps), and use animation, juxtaposition, or explicit differencing to compare temporal patterns [19] (but, see Now- ell et al. [36] for examples where change blindness renders temporal
-patterns difficult to see)
-
 
 Other stuff to check:
 @janetzko2018pixel
@@ -169,4 +165,4 @@ Biases in thematic maps:
 -- inscribe marimekko charts / pie charts - split charts for 2 densities
 -- hachures over bins ...
 -- outlier in bins, etc...
-
+-- try selfhosted mapbox for 3D view? -- or check uber glsl wrapper
