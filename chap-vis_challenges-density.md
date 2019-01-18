@@ -70,6 +70,33 @@ Shape: two prominents ways: hexagonal and rectangular grid
 -- also triangular is possible -- TODO see inspi_imgs for comparison
 -- some literature with discussion: @unwin2006graphics -- compare 3 schemes, @carr1987scatterplot hexbins -- reduced bias in density estimation, but @scott2015multivariate -- showing marginal differences  
 
+from https://www.meccanismocomplesso.org/en/hexagonal-binning/?fbclid=IwAR2IDJGQGed1rtLsoe0M_NVHqxZp6rdGfvUD370ccaO7_XsJmG989JqjQbQ
+
+'''
+The most evident is that hexagons are more similar to circle than square. This translates in more efficient data aggregation around the bin center. This can be seen by looking at some particular properties of hexagons and, especially, of the hexagonal tessellation.
+
+Hexagon is the polygon with the maximum number of sides for a regular tessellation of a 2D plane.
+
+This makes the hexagonal binning the most efficient and compact division of 2D data space.
+hexibins-patterns
+
+Fig.6: the hexagonal tessellation
+
+In fact, although you can create many pattern using two or more types of polygons,  this is not possible if you are using the same polygon if this has more than 6 sides. Only triangles, squares and hexagon can create them.
+
+    In an hexagonal binning, adjacent hexagons shares edge borders and not only vertex borders.
+
+Instead in square and triangular binning, triangles and square share only a vertex border with some adjacent.
+hexbins-patterns2
+
+Fig:7. sharings of the borders in different tessellations
+
+Considering polygons with equal area, the more similar to a circle this polygon is, the closer to the center the border points are (especially vertices).
+
+Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles.
+'''
+
+
 liu2013immens (done)
 ---
 
@@ -166,3 +193,14 @@ Biases in thematic maps:
 -- hachures over bins ...
 -- outlier in bins, etc...
 -- try selfhosted mapbox for 3D view? -- or check uber glsl wrapper
+ 
+ A friendly introduction to Bayes Theorem and Hidden Markov Models
+-----------------------------------------------------------------
+<https://www.youtube.com/watch?v=kqSzLo9fenk>
+
+example of hidden markov model
+-- from one variable (persons mood) we infer the other "hidden" variable (weather)
+-- we have to have some training dataset of previous runs of both variables from which we calculate transition probabilities (change from one state to another in the hidden var, e.g. from sunny weather to rainy) and emisshin probabilities (probability of a state in hiiden var causing state in other var -- e.g. sunny weather makes me happy in 80% of cases)
+-- bayes theorem -- calculating the probability of a state in hidden var based on -- prior probability (percentage of sunny days in training set) + emission probabilties + state of known variable --- this calcualtes posterior porbability of a state of hidden var
+
+-- also we can calculate the transition in hidden var based on transition of known var -- this gets more complicated in longer sets -- viterbi algoritm simolifies by storing just the most probable path throughout the run
