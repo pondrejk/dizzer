@@ -60,14 +60,18 @@ Other stuff to check:
 
 ## Aggregation 
 
-density vs. attribute visualisation
-- implanation - classification techniques: classical, new: yiang - fractal breaks, bayesian surprise, uncertainty-adjusted scales
-- shape, position, other options for multiple vis -- indiemaps article, other tesallerations
+Cartographic generalization model by McMaster and Shea (?) recognizes the following types of aggreation -- TODO
 
-Shape: two prominents ways: hexagonal and rectangular grid
+The type of priary interest for us is the one using the equal-shape tesallerations. This type appears to be most flexible as data are aggragated to the standardized shape that is defined *ex ante* and therefore not dependent on the character of aggregated data. Unlike (e.g. interpolation methods, heatmaps, etc.) the referential geometry does not adjust to the changed data, which makes the computation performace quite scalable and predictable across higher data loads.
+
+When it comes to the shape of the referential geometry, we can chose from three types of tessaleration that completely divide space into units of same regular shape^[In fact there are x complete (currently known) shapes that produce complete tessaleration, but only regular convex shapes are interesting for cartographic use.]: square, hexagonal and triangular shapes.
+
+--- ease of creation
+Square grid is the simplest division of space.
+
 - hexagonal -- centroids in hexagonal binning form a triangular grid, so an individual hexagon has the same distance from all it's neighbours (why is that good? not th case of rectangular grid).
 - rectangular -- can create pyramids for hierarchical aggregation, that is a higher level shape can fully contain shapes of lower level wihch is not a case for hexagons. Rectangular shapes are also better fit for proportional scaling in two dimensions (width and height) which unlocks potential for displlaying an additional vable.
--- also triangular is possible -- TODO see inspi_imgs for comparison
+
 -- some literature with discussion: @unwin2006graphics -- compare 3 schemes, @carr1987scatterplot hexbins -- reduced bias in density estimation, but @scott2015multivariate -- showing marginal differences  
 
 from https://www.meccanismocomplesso.org/en/hexagonal-binning/?fbclid=IwAR2IDJGQGed1rtLsoe0M_NVHqxZp6rdGfvUD370ccaO7_XsJmG989JqjQbQ
@@ -96,6 +100,9 @@ Considering polygons with equal area, the more similar to a circle this polygon 
 Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles.
 '''
 
+## density vs. attribute visualisation
+- implanation - classification techniques: classical, new: yiang - fractal breaks, bayesian surprise, uncertainty-adjusted scales
+- shape, position, other options for multiple vis -- indiemaps article, other tesallerations
 
 liu2013immens (done)
 ---
