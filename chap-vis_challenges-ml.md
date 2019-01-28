@@ -6,6 +6,9 @@
 
 In both ways, visualisation literacy is important: (on vis literacy: @boy2014principled, @pandey2015deceptive).
 
+Machine learning could bypass the need to address cognitive limitations (what kinds of task are mlearnable, also what are the tasks/questions that can be meaningfully answered? -> via negativa, non-predictive view of the world), how the design of ineractions could help with cognitive limitations. 
+
+-- also misunderstanding, weaponization, etc.
 
 @moritz2019formalizing
 ----------------------
@@ -46,3 +49,16 @@ think about this (still from constraints paper):
 -- to consider:
 
 With sufficient data, it may even be possible to go beyond learning weights and attempt to learn preference rules themselves. The AI community uses inductive logic programming methods to infer logic programs from databases of positive and negative examples @quinlan1990learning. To learn from noisy data (common in the visualization domain!), we could combine inductive logic programming with statistical models such as Markov logic networks.  For example, Law et al.’s ILASP (Inductive Learning of Answer Set Programs) (@law2014inductive) is a logic-based learning system that can learn preferences in answer set programs. To understand differences in preferences represented by two or more distinct data sources, we can use multi-objective (Pareto) optimization in ASP to enumerate designs that map the trade-off frontier.
+
+
+# Interaction and beyond
+
+what questions to ask
+
+- cartographic concepts applicable in UI design and vice versa (TODO some reading on UX)
+-- visual weight, negative space, generalization of ui components 
+
+- tighter coupling of intra and extracomposition
+-- legend 
+-- do some design and usability reading (don't make me think, check some books on product design...) <https://www.fastcompany.com/1292961/30-most-important-books-product-designers>
+-- user personas, user stories...

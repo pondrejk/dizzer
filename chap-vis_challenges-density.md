@@ -1,23 +1,33 @@
 # Dealing with density
 
-The vast majority of what is presently understood as spatial big data has point spatial reference. This prevalence comes as natural if we consider that the "datapoint" location is described basically as a coordinate pair -- two digits that can be easily stored in standard database systems witout the need to concern topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production. For this reason we will almost exclusively focus on visualisation issues related to point data^[We'll use point data as a shorthand for data with point spatial reference.]. This doesn't mean that those point locations can't or shouldn't be transformed to other kinds of representation -- as we'll see further, for massive datasats there's not much other choice.
+The vast majority of what is presently understood as spatial big data has point spatial reference. This prevalence comes as natural if we consider that the "datapoint" location is described basically as a coordinate pair -- two digits that can be easily stored in standard database systems witout the need to concern topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production. For this reason, and due to the scope limits of this thesis, we will almost exclusively focus on visualisation issues related to point data^[We'll use point data as a shorthand for data with point spatial reference.]. This doesn't mean that those point locations can't or shouldn't be transformed to other kinds of representation if needed or necessary. As we'll see later, with high data load there is often no other choice than to aggregate datapoints to a spatial representation of higher dimension.
 
-Point spatial data are not a homogenous group -- there are three types of point data objects of interest, for convenience we can nickname them as *sensors*, *agents* and *events*. These three classes are differntiated by their bahaviour in space and time, more precisely by how dynamic is their *existence*, *location* and *attributes*.
+Point spatial data are not a homogenous group -- there are three types of point data objects of interest, for convenience we can name them as *stations*, *agents* and *events*. These three classes are differntiated by their bahaviour in space and time, more precisely by how dynamic their *existence*, *location* and *attributes* are:
 
-- stationary objects (codename "sensors") have static position and presence, meaning that they don't move and they don't usually dissapear during the course of observation in short or medium timespans. What is dynamic is a set of attributes attached to the object -- in big data world these attributes can come as a continuous datastreams. Basic example is a weather station.
+- stationary objects (codename "stations") have static position and presence, meaning that they don't move and they don't usually dissapear during the course of observation. What is dynamic is the set of attributes attached to the object -- in big data world these attributes can come as a continuous datastreams. Basic example is a weather station.
 - moving objects (codename "agents") move around, so their position changes during observation, also their existence can be dynamic, meaning they can enter or exit the area of interest. Various kinds of dynamic attributes can be attached. We can reconstruct the history of movement of these objects, which  particulary invites conversion to linear representation. Examples are vehicles or pedestrians carying GPS devices. 
 - episodic objects (codename "evnets") have presence limited to a specific point in space and time. As they are short-lived, we can say that position and associated attributes are static. Prominent example are data collected from social networks. 
 
-This destinction is naturally dependent on frames of reference, for example objects seen as stationary in shorter observation perionds can become mere events if timeframe is significantly extended. Similarly if events can be reimagined as moving objects with discrete presece across observation timeframe, for example when social media "tweets" dislocated in space and time poit to a single moving source device. 
+This destinction is naturally dependent on frames of reference, for example objects seen as stationary in shorter observation perionds can become mere events if timeframe is significantly extended. Similarly, some events can be reimagined as moving objects with discrete presence across observation timeframe, for example if social media events dislocated in space and time are traced back to a single moving source device. 
 
 ![**Fig.** Three types of point spatial objects in a timespace cube. Stations, actors and events generate diffierent atribute histories.](imgs/bd-diagrams-joke.png)
   
-From the above images events seem as least data-rich though the analytic potential stems from their acummulated high number. Clusters of goreferenced point events are at the core of social media analysis.  
+From this classification, events seem to be least data-rich, but the analytic potential here stems from their acummulated high number. Clusters of goreferenced point events are at the core of spatial analysis based on social media.
 
 
 ## Intro on difficulties
+
+How to process high number of data points be it stations, agents or event, and why is it hard from the cartographic point of view? If we stick to the traditional underatading of visualisaton as "using visual tools to facilitate insight and support decision making of human recipients"(TODO find proper definition)(later we will speculate about possible shifts in that definition), then human cognitive capabilites are the main limiting factor. There are also other limitations that take action in earlier stages of a generalized visualisation pipeline (see fig). One thing to be aware of when high amounts of data are processed through the visualisaton and the perfomance and scalability are of concern is that the simplification (aggregation, reduction, etc.) in the visual end product enfroced by human cognitive capabilites should also propagate back down the pipeline to make the whole process more effective. Simply said, there is no need to retreive every datapoint individually if (a) we cannot render it (screen barrier) and (b) we cannot comperhend it (visual barrier).  
+
+For cartographer this means a fairly new situation, that is the cartographic decisions made at the last stage in pipeline have impact on the performance of this pipeline. In other words not all callenges across the pipeline are visualisation/cartographic challenges -- those come usually at the end, but the cartographic stage cannot be separated from the whole pipeline as it stems from it and has impact on the prevous stages. Cartographer has to consider his decisions outward to reader but also backward to the previous stages of the pipeline. So far little has been done to asses cartogphic methods from the point of view of the data-processing scalabilit, though in the era of dynamic source data, cartographers need to expand their awareness to that direction.
+
+So far we were mentioned just the presentation role of cartography, the interaction poses another set of challenges for the pipeline, though not all are cartograpic. For exploratory tools to support hypothesis generation, we should consider which tasks should be supported by interaction... (TODO) think through later...
+
+If we circle back to types of point data, they are not equally difficult from the cartograhic view. Not all data processing challenges translate to cartographic challenges. Cartographic difficulties stem mainly from changes in position...? Stations, even if producing big data level loads of attributes are not so difficult cartographically if having low number and density, or better to say, it is nothing new for cartograhers...
+
 -- some survey on visualisation pipelines @moreland2013survey
--- my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) -- technological may be diminishing, but cognitive will still pose limitations. Machine learning could bypass the need for cognitive limitations (what kinds of task are mlearnable, also what are the tasks/questions that can be meaningfully answered? -> via negativa), how the design of ineractions could help with cognitive limitations
+-- my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) -- technological limitations may be more flexible to deal with, but also visual capabilites evolve with higher exposition to various interfaces. On the other hand cognitive abilites may be varied per user persona... 
+
 
 data -> technological filter -> coginitive filter -> idea/decision
 
@@ -26,11 +36,26 @@ TODO: image - dataflow via those filters (later).
 processing difficulties ... technological filter - screen resolution limits, infrastructure limits -- not all datapoints can be shown.
 cognitive filter -- not all can be processed, how to define and check automatically? 
 
+In the following sections, whe will focus on two kinds of cartographic difficulties that arrise from processing heavy load of big data, namely dealing with density and dealing with change.
+
+The visual problem posed by high density of point data is easy to imagine (for example from fig...). Some basc data visualisation methods may be immune to this (barcharts, pie charts), but positional types of visualisation like scatterplots and maps are hit heavily by this.
+
 ![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on human perceptual limits, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
 
 # Congestions + Data reduction methods
 
 ## Avoiding aggregation
+
+Visual conflicts of diplayed symbology is nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigaing the issue without the need to aggragate. 
+
+Adjusting symbology properties is possibly simplest first solution. Conflicts in the map field are largely caused by conflicting symbology rather than conflicting location. For point features more than for others the sybology naturally covers up more space than the real spatial extent of the penomenon, think of thematic map methods such as propotional symbol maps. Classical techniques to deal with it range form adjusting symbol scales to reduce overlays, setting the drawing order (smallest symbols on the top) to make all symbols visible to symbol displacement possibly with leading lines pointing to correct location (all automatable to a degree quite well) sometimes combined also with downplaying the basemap to reduce the conflict with spatial context.
+
+TODO (image?)
+
+Often the visually problematic areas do not span through the entire map field as suggested by the fig... Rather there are some clusters of concentrated symbols with high overlay and the rest of the field is distinguishable without treatment. Static (paper) maps deal with such clusters by inseting another fmap field with higher zoom level focused on the problematic area (which is a practice that could be imho applied also in web maps). For dynamic (web) mapping we are not confined by a fixed scale, therefor we can zoom in at the areas of interest. This might suggest that cartograher shoul leave such clusters without treatment, even though they are unreadable at the general resolution scale they suggest that there is something interesting going on it such areas ans invite user to zoom in.
+
+In thematic cartography we are interested not only in displayin where individual objects are located but also we want to observe the associated attribute to study the spatial pattern. Highly concentrated areas...
+
 
 - resolving conflicts -- long tradition in cartography, but how scalable and automatable? Spatial displacement techniques (non-cartographical) -- jittering @trutschl2003intelligently, topological distortion @keim2010generalized -- expanding (like cartogram for scatterplots)
 - minification of symbols + downplaying or reducing the backgroud
