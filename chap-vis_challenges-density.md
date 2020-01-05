@@ -236,6 +236,8 @@ example of hidden markov model
 -- also we can calculate the transition in hidden var based on transition of known var -- this gets more complicated in longer sets -- *Viterbi algoritm* simplifies by storing just the most probable path throughout the run
 
 
+
+
 figure-ground
 -------------
 density/overlay vs spatial context
