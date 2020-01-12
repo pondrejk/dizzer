@@ -1,3 +1,25 @@
+# title?
+
+This chapter will look more closely on the classification of (point) spatial big data. more details on the propeties.
+
+Then we will outline the overall theory of spatio-temporal knowledge discovery
+
+Then we will aside into how cartography can support ^
+(inspiration from manifestos -- also extend later when there are actually some results)
+
+Then we will discuss some recent objections to the idea of insight generation (or rather of the fashion in which data is interpreted). And see how the cartography can fit to the circumstances portrayed by thes objections. 
+
+
+# Spatial big data classification
+
+Spatial big data that will be subject of this thesis can be in light of GIS data model (see section 1.3) described as vector poit data. Point spatial reference is by far the most common raw material comming to the start of the visualisation pipeline. (Easy to store in db or in plain csv files, easy to derive from addresses by geolocation, in line with the how the sources work -- pings from cellphones, and social media tagging). 
+
+Apart from 
+
+
+
+
+
 # General questions
 (notes on cartographic manifestos on Big Data)
 
