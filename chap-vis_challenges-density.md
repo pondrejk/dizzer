@@ -1,21 +1,8 @@
 # Dealing with density
 
-The vast majority of what is presently understood as spatial big data has point spatial reference. This prevalence comes as natural if we consider that the "datapoint" location is described basically as a coordinate pair -- two digits that can be easily stored in standard database systems witout the need to concern topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production. For this reason, and due to the scope limits of this thesis, we will almost exclusively focus on visualisation issues related to point data^[We'll use point data as a shorthand for data with point spatial reference.]. This doesn't mean that those point locations can't or shouldn't be transformed to other kinds of representation if needed or necessary. As we'll see later, with high data load there is often no other choice than to aggregate datapoints to a spatial representation of higher dimension.
-
-Point spatial data are not a homogenous group -- there are three types of point data objects of interest, for convenience we can name them as *stations*, *agents* and *events*. These three classes are differntiated by their bahaviour in space and time, more precisely by how dynamic their *existence*, *location* and *attributes* are:
-
-- stationary objects (codename "stations") have static position and presence, meaning that they don't move and they don't usually dissapear during the course of observation. What is dynamic is the set of attributes attached to the object -- in big data world these attributes can come as a continuous datastreams. Basic example is a weather station.
-- moving objects (codename "agents") move around, so their position changes during observation, also their existence can be dynamic, meaning they can enter or exit the area of interest. Various kinds of dynamic attributes can be attached. We can reconstruct the history of movement of these objects, which  particulary invites conversion to linear representation. Examples are vehicles or pedestrians carying GPS devices. 
-- episodic objects (codename "evnets") have presence limited to a specific point in space and time. As they are short-lived, we can say that position and associated attributes are static. Prominent example are data collected from social networks. 
-
-This destinction is naturally dependent on frames of reference, for example objects seen as stationary in shorter observation perionds can become mere events if timeframe is significantly extended. Similarly, some events can be reimagined as moving objects with discrete presence across observation timeframe, for example if social media events dislocated in space and time are traced back to a single moving source device. 
-
-![**Fig.** Three types of point spatial objects in a timespace cube. Stations, actors and events generate diffierent atribute histories.](imgs/bd-diagrams-joke.png)
-  
-From this classification, events seem to be least data-rich, but the analytic potential here stems from their acummulated high number. Clusters of goreferenced point events are at the core of spatial analysis based on social media.
-
-
 ## Intro on difficulties
+
+As we hav seen in the previous chapter, objects, agents and events with point spatial reference is by far the most common raw material comming to the start of the visualisation pipeline for spatial big data.
 
 How to process high number of data points be it stations, agents or event, and why is it hard from the cartographic point of view? If we stick to the traditional underatading of visualisaton as "using visual tools to facilitate insight and support decision making of human recipients"(TODO find proper definition)(later we will speculate about possible shifts in that definition), then human cognitive capabilites are the main limiting factor. There are also other limitations that take action in earlier stages of a generalized visualisation pipeline (see fig). One thing to be aware of when high amounts of data are processed through the visualisaton and the perfomance and scalability are of concern is that the simplification (aggregation, reduction, etc.) in the visual end product enfroced by human cognitive capabilites should also propagate back down the pipeline to make the whole process more effective. Simply said, there is no need to retreive every datapoint individually if (a) we cannot render it (screen barrier) and (b) we cannot comperhend it (visual barrier).  
 
