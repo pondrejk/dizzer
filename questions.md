@@ -1,26 +1,22 @@
 # title?
 
-This chapter will look more closely on the classification of (point) spatial big data. more details on the propeties.
-
-Then we will outline the overall theory of spatio-temporal knowledge discovery
-
-Then we will aside into how cartography can support ^
-(inspiration from manifestos -- also extend later when there are actually some results)
-
-Then we will discuss some recent objections to the idea of insight generation (or rather of the fashion in which data is interpreted). And see how the cartography can fit to the circumstances portrayed by thes objections. 
+This chapter will look more closely on the properties of data with point spatial reference that count for the majority of spatial big data.
+Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. Then we will discuss some recent objections to the idea of insight generation (or rather of the fashion in which data is interpreted) and speculate on how cartographic practice could fit to such objections. 
 
 
 # Spatial big data classification
 
-The vast majority of what is presently understood as spatial big data has point spatial reference. This prevalence comes as natural if we consider that the "data point" location is described basically as a coordinate pair -- two digits that can be easily stored in standard database systems witout the need to concern topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production. For this reason, and due to the scope limits of this thesis, we will almost exclusively focus on visualisation issues related to point data^[We'll use point data as a shorthand for data with point spatial reference.]. This doesn't mean that those point locations can't or shouldn't be transformed to other kinds of representation if needed or necessary. As we'll see later, with high data load there is often no other choice than to aggregate datapoints to a spatial representation of higher dimension.
+The vast majority of what is presently understood as spatial big data has point spatial reference. This prevalence comes naturally if we realize that the "data point" location is described basically as a coordinate pair -- two digits that can be easily stored in standard database systems without the need to observe topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production. For this reason, and due to the scope limits of this thesis, we will almost exclusively focus on visualisation issues related to point data^[We'll use the term *point data* as a shorthand for "data with point spatial reference".].
 
-Point spatial data are not a homogenous group -- there are three classes differntiated by their bahaviour in space and time, more pecisely by the by how dynamic their *existence*, *location* and *attributes* are in time of observation. These properties are determined largely by the source of data, so for convenience we can nickname the three types of data as *stations*, *agents* and *events*:
+Point spatial data are not a homogeneous group. We can describe three classes representing three kinds o objects differentiated by their behaviour in space and time, more precisely by the by how dynamic their *existence*, *location* and *attributes* are over the course of observation. These properties are determined largely by the source of data, so for convenience we can nickname the three types as *stations*, *agents* and *events*:
 
-- stationary objects (codename "stations") have static position and presence, meaning that they don't move and they don't usually dissapear during the course of observation. What is dynamic is the set of attributes attached to the object -- in big data world these attributes can come as a continuous streams of data. Basic examples include weather stations, traffic cameras, and any kind of stationary sensors.
-- moving objects (codename "agents") move around, so their position changes during observation, also their existence can be dynamic, meaning they can enter or exit the area of interest. Various kinds of dynamic attributes can be attached. We can reconstruct the history of movement of these objects, which  particulary invites conversion to linear representation. Examples are vehicles or pedestrians carying GPS devices. 
-- episodic objects (codename "evnets") have presence limited to a specific point in space and time. As they are short-lived, we can say that position and associated attributes are static. Prime example are data collected from social networks. 
+- stationary objects (*stations*) have static position and existence, meaning that they don't move or disappear during observation. What is dynamic is the set of attributes attached to the object -- in big data world these attributes can come as a continuously updated streams. Basic examples include weather stations, traffic cameras, and any kind of stationary sensors.
+- moving objects (*agents*) move around, so their position changes during observation, also their existence can be dynamic, meaning they can enter or exit the area of interest. Various kinds of dynamic attributes can be attached. We can reconstruct the history of movement of these objects, which invites conversion to linear representation. Examples are vehicles or pedestrians carrying GPS devices and sensors. 
+- episodic objects (*events*) have existence limited to a specific point in space and time. As they are short-lived, we can say that position and associated attributes are static. Prime example are data collected from social networks. 
 
-This destinction is naturally dependent on frames of reference, for example objects seen as stationary in shorter observation perionds can become mere events if timeframe is significantly extended. For example the existence of a building usually spans over a long time period, though if we consider it from the perspective a millenuium it will become just a glimpse (see https://waitbutwhy.com/2013/08/putting-time-in-perspective.html). Geographers would note that also the location of environmental features doesn't hold over time (think of a meandering riverbed or a vulcanic landscape). For big data, the expected utilization time doesn't come any near the numan lifespan, actually it is deemed to be as short as possible with up-to-date comming in, and also the spatial demarcation for these point data is almost exclusively in urban build environments. So it such short time frame it safe to assume that stations are physically present in the environment while events are mainly records of something happening at the given location (be it physically expressed (I was at a restaurant) or not (I was shopping online while waitng at the bus stop)). Some events can be reimagined as moving objects with discrete presence across observation timeframe, for example if social media events dislocated in space and time are traced back to a single moving source device. 
+Think of this distinction as a convenience model fit for the majority of big data related use cases that expect short time frame for data utilization. Technically speaking, the difference between stations and events is dependent on the frame of reference, as objects seen as stationary in shorter observation periods can become mere events if the observation time frame is significantly extended. The existence of a building usually spans over a long time period, though if we stretch the perspective to a century or a millennium, most buildings will become mere glimpses existing a tiny fraction of time (see https://waitbutwhy.com/2013/08/putting-time-in-perspective.html). Geographers would note that also the location of seemingly static environmental features doesn't hold over time (think of a meandering riverbed or a volcanic landscape). Judging by the real data samples we can say that stations are usually physically present in the environment while events are mainly records of something that happened at the given location, either physically expressed in the environment and observable by onlookers (I was at a restaurant) or not (I was shopping online while waiting at the bus stop). 
+
+Also, some events can be reimagined as moving objects with discrete presence across observation time frame, for example if social media events dislocated in space and time are traced back to a single moving source device. 
 
 ![**Fig.** Three types of point spatial objects in a timespace cube. Stations, actors and events generate diffierent atribute histories.](imgs/img-cube.png)
 
@@ -29,7 +25,7 @@ station  continuous                                            | continuous or d
 agent    continuous or discrete (can reappear)                 | continuous or discrette   | dynamic
 event    discrete                                              | discrete                  | static
 
-In the above image and a table we assume that the attribute collection is happpening continuously for stations and agents, this doesn't have to mean that the atrributes are collected at any given point of time. The temporal scale has also its granularity and the recording of events either has a regular time interval or is event based. Depending on the type of phenomenon being recorded the station can record 'no data' for the attribute, or even record just in the case of an event. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but it's data collection is episodic -- a photo is taken just when a speeding vehicle drives by). The model with three types we introduced strictly differentiates between existence of the object and the act of recording data by the object, which is useful in most cases.
+In the above image and a table we assume that the attribute collection is happening continuously for stations and agents, this doesn't have to mean that the attributes are collected at any given point of time. The temporal scale has also its granularity and the recording of events either has a regular time interval or is event based. Depending on the type of phenomenon being recorded the station can record 'no data' for the attribute, or even record just in the case of an event. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but it's data collection is episodic -- a photo is taken just when a speeding vehicle drives by). The model with three types we introduced strictly differentiates between existence of the object and the act of recording data by the object, which is useful in most cases.
 
 From this classification, events seem to be least data-rich, but the analytic potential here stems from their acummulated high number. Clusters of goreferenced point events are at the core of spatial analysis based on data from mobile devices. (https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html). 
 
@@ -98,6 +94,8 @@ Designers of exploratory interfaces could give greater thought to what questions
 dynamic data examples:
 Global fishing watch
 
+See also: https://www.researchgate.net/publication/236993632_Illuminating_the_Path_An_RD_Agenda_for_Visual_Analytics 
+
 # General questions
 
 (notes on cartographic manifestos on Big Data)
@@ -114,36 +112,6 @@ Problematizing UX research, problems of cognitive testing (verification crisis i
 5. What is entirely specific and unique in map design apropriating the above inspirations?
 
 
-## Geospatial knowledge discovery 
-(what it even is, what questions can an interactive map answer and how this evolves with big data)
-Miller in Geocomputation. 
-
-Spatial, temporal and mobile objects data:
-
-Spatial relations: set-oriented (intersection, union, difference and complement), topological (connectivity, interior, exterior, boundary), directional (cardinal (to the west), object-centered (behind the factory), ego-centric (on yor left)) and metric (euclidean, network-based distance).
-
-Temporal relations -- measures of coincidence -- 13 possible temporal relations between two time intervals -- meets, equals, starts, finishes...()
-Time -- linear, cyclical (natural cylces), branching time (several possible futures).
-
-Moving object -- movement properties based on time scale: moment, interval-based, episodic, global (andrejenkoviny)
-Temporal and spatial granularity, MAUP ... tiez Andrejenko...
-
-Exploring .. time-space cubes -- slicing and dicing, roll-up, drill down -- movement in hierarchy.
-
-Spatio-temporal associations:
-association rule: X => Y (s%c%), coocurrence of objects, support (percent of the whole database) and confidence (percent of coocurrence)
-STARs (spatio temporal association rules) -- see Verhein and Chawla (2008) @verhein2008mining
-
-Sequence mining -- search based on three parametes: duration of the sequence, event window (hyperparameter, treshold for temporal coincidence), interval between events
-
-Periodic pattern mining -- full periodic patters, partial pp, cyclic or periodic association rules (Han and Kamber 2012) @han2006data -- see chapters 6 and 7
-
-Visual analytics ... definitions:
-Visual analytics is the science of data-driven reasoning facilitated by interactive visual interfaces to data management and analysis techniques (Thomas and Cook 2004). @thomas2005illuminating
-Visual analytics is more than just information visualisation: while visualisation provides insights into data, visual analytics provides insights into how we *process* data during exploration and analysis. (Keim et al 2008) @keim2008visual
-Visual analytics of spatio-temporal data uses links together data-mining techiques in visual interface with map as a central metaphor (Guo).
-
-
 # Recent objections to geospatial knowledge discovery
 
 What is the role of cartography if:
@@ -158,7 +126,6 @@ Dear Mapbox,
 
 Brno (zoomlevel 7) quadkey: 12021233312
 Brno greater vicinity (zoomlevel 9) quadkey: 120212333
-
 
 Subject: Sample of Mapbox Traffic Data for research purposes
 
