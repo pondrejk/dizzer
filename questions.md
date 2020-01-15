@@ -39,6 +39,42 @@ Let's look deeper at the concept of spatio-temporal knowledge discovery, that is
 
 # Spatio-temporal knowledge discovery
 
+The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discover* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio).
+
+In this section we will briefly discusses techniques for exploring spatio-temporal data, with emphasis on practices that would benefit from enhanced cartographic visualisation.
+
+On the general level we can query *spatial* and *temporal* properties for all theree types of point objects mentioned above. In addintion, moving objects have specific set of properties.
+
+Major classes of spatial realtions are *set-oriented* (union, difference, intersecton, complement, etc.), *topological* (connectivity, interior, exterior, boundary relationships), *directional* (cardinal, object-centered, ego-centered directons) and *metric* (e.g. Euclidean or network-based distance) relations (@worboys2004gis). 
+
+1. Spatial relations are at the very basis of map-reading for orientation clues, but are also vital for interpreting thematic information. 
+We check these relations between the dominant topics (e.g. weather maps of precipitation and pressure zones) or between the topic and the topographical base (). 
+Point spatial data of large extent complicate obsrvng such relations, and we rarely as about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. Naturally, the data source can dictate some spatial relationships (such as cars being on the roads). 
+
+As we are dealing mosty with point data clouds in two dimensional space it is worth to say that topological relations between such sets are more complex than with polygonal features and can be elaborated into 16 actual relations (9 if reduced to spatial regions relevant in GIS .. see table 2 in https://www.researchgate.net/publication/276959705_Point_Set_Topological_Spatial_Relations note -- could be drawn?) in two dimensional space (@egenhofer1991point).
+
+Geostatistics as an extension of the basic spatial relations more fit to point clouds (what is the intersection of two point clouds?). TODO elaborate more. Point: geostatistical analysis could inform the visualisation-related decisions e.g. when doing aggregaiton.
+^ Spatial metrics that look at the dataset in isolation -- its spatial properties
+
+2. Temporal relations -- mrssure of coincidence, 13 possivle relations between two intervals (@allen1984towards -- note: make a picture). Linear conceptialization of time can be supported with cyclical and branching time (if-then scenarios). 
+Finding cyclic properties in dataset and comparing these cyclic properties via *periodic pattern mining*
+
+3. Moving objects have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory) properties (@laube2007movement, andrienko2008basic). 
+
+On conept hieraries -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations .. changes in level of hierarchical aggregation is reffered to as *roll-up* or *drill-down* (@elmqvist2010hierarchical). 
+
+On space-time cubes -- is a useful concept for imagining the relations between spatial, temporal and non-spatial dimensions (@guo2006visualization). Even though our spatial imagination is limited by 3-dimensionality of our everyday experience, data cubes allows us to assing visual clue to otherwise abstract database queries such as slicing and dicing. On the other hand intracting with the cube itself feels not user friendly, so intractive UIs typically use maps as slices of the cube -- so the spatial metaphor is always coherent timewise (true? maybe traces are an exception). 
+
+Unused potential of s-t cubes becomes clear when considered together with searching for cyclical time patterns in spatial subsets (collumns of a cube) or when spatially correlating two phenomena with time delay (comparing slices).
+
+Association rule mining -- searning for conditions ocurring together frequently: x => y (s%,c%). x,y - conditions, s,c -- levels of support and confidence. parl > school (4%, 55%) -- 55 percent of parks are near schools, for 2% of items in the database (@han2011data).
+Space time association rules -- describing how objects move among a set of regions over time (@verhein2008mining) -- rules for identifying high-traffic regions etc.
+
+Sequence mining -- seraching for patterns in time and other sequences. Similar to association rules, searching for events occuring frequently together: 3 parameters: *duration* of time sequence, *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio).
+
+Periodic pattern mining (type of sequence mining) searches for recurrent patterns, that include: *full periodic patterns*, *partial periodic p.* (e.g. just on mondays), *cyclic or periodic association rules* -- associate events that occur periodically together (@han2011data).
+Finding such patterns in movement data -- conceptual framework @bleisch2014mining
+
 # The role of cartography
 
 Cartography has a long traditon of making big data sets comprehensible for our visual minds. Beautiul and authoritative maps in school atlases explaining the formtion of air masses affecting world's climate, or the positions of ocean streams have an air of definitiveness but were build upon a loads of messy data. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps was by no mans real-time but allowed for fine tunnning all aspects of a map (from the appropriate method to visualise the ...TODO insert topic... to making the street connections visually pleasing). Analog map making allowed for perfectionism.
@@ -47,7 +83,14 @@ For digital cartography, it took a long time to come any closer to the visual qu
 
 In other words, cartographer needs to design the map well, but also design it well for the data he din't see yet, and desing interactions and the map's behavior under various (countable but vast) number of states induced by these interactions. A hard task. 
 
-The atlas maps mentioned above surved for presentation of knowledge, were confirmatory. Digital cartography allowed for exploratory cartography (or more precisely moved the exploratory part in the visualisation pipeline from before map creation to after, and from the map author to the map user). Visual analytics based on spatial data (TODO definitions) provide interfaces to process and visualise date. On the one hand it allows users to mine novel infomation, on the other hand it leaves him to create his own narration about, prone to owevhelming visual clutter, misinterpration, false correlations, lack of engagement and guidenance on where to start. Data manipulation interface, a window to the database is useful for those who know what questions they want to ask. Hypothesis formation support that these tools aim to provide is a property that is hard to measure (hard to prove it works, hard to compare which interface is better).
+The atlas maps mentioned above surved for presentation of knowledge, were confirmatory. Digital cartography allowed for exploratory cartography (or more precisely moved the exploratory part in the visualisation pipeline from before map creation to after, and from the map author to the map user). Visual analytics based on spatial data (definitions below) provide interfaces to process and visualise data. On the one hand it allows users to mine novel infomation, on the other hand it leaves him to create his own narration about, prone to owevhelming visual clutter, misinterpration, false correlations, lack of engagement and guidenance on where to start. Data manipulation interface, a window to the database is useful for those who know what questions they want to ask. Hypothesis formation support that these tools aim to provide is a property that is hard to measure (hard to prove it works, hard to compare which interface is better).
+
+*Visual analytics* is a science of data-driven reasoning facilitated by interactive visual interfaces to data management and analysis techniques (@thomas2005illuminating). Not just insight to data, also insight to how we process data (@keim2008visual).
+*VA for spatio-temporal data* includes interlinked techniques in interfaces with map as a central metaphor (@guo2006visualization)
+
+User is left with a spiffy-looking front-end to a database, with no sense of narrative or framework for interpretation. Simmilar situation occuring in business analytic dashboards proliferating in enterprises that fail to make sense to users, or worse simulate insight with vaguely understood and hardly interpretable metrics.
+
+Consither this somewhrere <http://norvig.com/experiment-design.html>
 
 Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces with some hinting, notifying which findings make sense and which not. 
 Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data.
