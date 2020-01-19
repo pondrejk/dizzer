@@ -3,7 +3,6 @@
 This chapter will look more closely on the properties of data with point spatial reference that count for the majority of spatial big data.
 Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. Then we will discuss some recent objections to the idea of insight generation (or rather of the fashion in which data is interpreted) and speculate on how cartographic practice could fit to such objections. 
 
-
 # Spatial big data classification
 
 The vast majority of what is presently understood as spatial big data has point spatial reference. This prevalence comes naturally if we realize that the "data point" location is described basically as a coordinate pair -- two digits that can be easily stored in standard database systems without the need to observe topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production. For this reason, and due to the scope limits of this thesis, we will almost exclusively focus on visualisation issues related to point data^[We'll use the term *point data* as a shorthand for "data with point spatial reference".].
@@ -14,9 +13,9 @@ Point spatial data are not a homogeneous group. We can describe three classes re
 - moving objects (*agents*) move around, so their position changes during observation, also their existence can be dynamic, meaning they can enter or exit the area of interest. Various kinds of dynamic attributes can be attached. We can reconstruct the history of movement of these objects, which invites conversion to linear representation. Examples are vehicles or pedestrians carrying GPS devices and sensors. 
 - episodic objects (*events*) have existence limited to a specific point in space and time. As they are short-lived, we can say that position and associated attributes are static. Prime example are data collected from social networks. 
 
-Think of this distinction as a convenience model fit for the majority of big data related use cases that expect short time frame for data utilization. Technically speaking, the difference between stations and events is dependent on the frame of reference, as objects seen as stationary in shorter observation periods can become mere events if the observation time frame is significantly extended. The existence of a building usually spans over a long time period, though if we stretch the perspective to a century or a millennium, most buildings will become mere glimpses existing a tiny fraction of time (see https://waitbutwhy.com/2013/08/putting-time-in-perspective.html). Geographers would note that also the location of seemingly static environmental features doesn't hold over time (think of a meandering riverbed or a volcanic landscape). Judging by the real data samples we can say that stations are usually physically present in the environment while events are mainly records of something that happened at the given location, either physically expressed in the environment and observable by onlookers (I was at a restaurant) or not (I was shopping online while waiting at the bus stop). 
+Think of this distinction as a convenience model fit for the majority of big data related use cases that expect short time frame for data utilization. Technically speaking, the difference between stations and events is dependent on the frame of reference, as objects seen as stationary in shorter observation periods can become mere events if the observation time frame is significantly extended. The existence of a building usually spans over a long time period, though if we stretch the perspective to a century or a millennium, most buildings will become mere glimpses existing a tiny fraction of time^[see https://waitbutwhy.com/2013/08/putting-time-in-perspective.html for an excelent visualisation of perspectives changing with time frame]. Geographers would note that also the location of seemingly static environmental features doesn't hold over time (think of a meandering riverbed or a volcanic landscape). So again, longer time frame changes out assumption of static location.
 
-Also, some events can be reimagined as moving objects with discrete presence across observation time frame, for example if social media events dislocated in space and time are traced back to a single moving source device. 
+Furthermore, the spatial extent of the observed area and hence the scale of the map influences the distinction between moving and stationary objects -- if the movement is too limited to be recognized at a given scale, we can model it as a stationary object. Also, some events can be reimagined as moving objects with discrete presence across observation time frame, for example if social media events dislocated in space and time are traced back to a single moving source device^[For example herer https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html]. But let's not problematize any further, with most big data sources being temporally and spatially limited (to real time and urban environment)^[Again, as an exception from the rule, some impressive global data projects: global fishing watch..., tracking ships...], the distinction to stations, agents and events would suffice. Judging by the real data samples we can say that stations are usually physically present in the environment while events are mainly records of something that happened at the given location, either physically expressed in the environment and observable by onlookers (I was at a restaurant) or not (I was shopping online while waiting at the bus stop). 
 
 ![**Fig.** Three types of point spatial objects in a timespace cube. Stations, actors and events generate diffierent atribute histories.](imgs/img-cube.png)
 
@@ -25,9 +24,9 @@ station  continuous                                            | continuous or d
 agent    continuous or discrete (can reappear)                 | continuous or discrette   | dynamic
 event    discrete                                              | discrete                  | static
 
-In the above image and a table we assume that the attribute collection is happening continuously for stations and agents, this doesn't have to mean that the attributes are collected at any given point of time. The temporal scale has also its granularity and the recording of events either has a regular time interval or is event based. Depending on the type of phenomenon being recorded the station can record 'no data' for the attribute, or even record just in the case of an event. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but it's data collection is episodic -- a photo is taken just when a speeding vehicle drives by). The model with three types we introduced strictly differentiates between existence of the object and the act of recording data by the object, which is useful in most cases.
+In the above image and a table we assume that the attribute collection is happening continuously for stations and agents. This does not mean that the attributes have to be collected continuously at all times. Some sensors can record at a regular time interval or only in case of an event. The data output can then contain several 'no data' records or even no records at all if the event did not happen. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but some part of its data collection is episodic -- a photo is taken just when a speeding vehicle drives by. The classification introduced above differentiates between the existence of an object and the act of recording data by the object. Here we assume that the sensor's presence without recording has also some analytical potential as it proves the absence of event, while with no sensor in place we cannot say if the event did take place or not. 
 
-From this classification, events seem to be least data-rich, but the analytic potential here stems from their acummulated high number. Clusters of goreferenced point events are at the core of spatial analysis based on data from mobile devices. (https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html). 
+Compared to stations and agents, events with episodic presence seem to be the least data-rich, but their analytic potential arises from high number being accumulated. Clusters of georeferenced point events, a.k.a. point clouds are at the core of spatial analysis based on data from mobile devices. (mapbox blog example) 
 
 The gaps in data collection and the absence of abrupt changes hints how to optimize data storage from such sources. Storage optimizations are not within the scope of this thesis, but they can pose a certain lesson for cartographic visual analysis. For cartographers, the resource whose utilization needs to be optimized is a map plane, that can only holds a certain visual load to remain useful. The graphic fill is an aspect that can enhance the knowledge discovery at the end of the visualisation pipeline (more about it in the practical part of thesis).
 
@@ -35,7 +34,16 @@ Let's look deeper at the concept of spatio-temporal knowledge discovery, that is
 
 # Spatio-temporal knowledge discovery
 
+We want our maps to be useful (TODO: world trough the macroscope -- essay on carto or geo?) and that doesn't change with new tools and data sources incoming. What changes often is terminology that often seems to have a life in itself, disentangled from the destinies of the described concepts.
+
 The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discover* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio).
+
+  map reading       --> knowledge discovery <--   data mining
+(human algorithms)                               (computation algorithms)
+
+Fig best from both worlds (adopted from andrienko TODO -- see the actual paper)
+
+note.: map reading could be replaced with somethnig else (cognitive abilites), knowledge discovery could be visual analytics. Map reading I put there as a remainder of paper maps (still useful, no longer dominant). The gradient is about who does the work -- from the right interpretation is done by a human, from the left by algorithm (kinda). Knowledge disco is map reading with robot assistants.
 
 In this section we will briefly discusses techniques for exploring spatio-temporal data, with emphasis on practices that would benefit from enhanced cartographic visualisation.
 
@@ -117,7 +125,14 @@ Problematizing UX research, problems of cognitive testing (verification crisis i
 What is the role of cartography if:
 
 1. It is not humans that make the decision (harrari, mayer-zukier)
-2. Beyond the rational naivity about the models (taleb) -- prediction is not a goal, unpredictable events... risk mgmt...
+2. Beyond the rational naivety about the models (taleb) -- prediction is not a goal, unpredictable events... risk mgmt...
+
+data mining --> machine learning --> automated actions
+-- no human interpretation, no need for insight? role of carto?
+
+First do we event want to get there, best of both worlds is maybe better approach (TODO cite Thiel, also on Keeping up with machines, article on not replacing human labor) 
+Second, hard vs easy problems -- ai can now do only "easy", will "hard" ever be possible? (general AI -- TODO cite Pinker)
+-- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? Also the difference between AI in place of cartographers (which map-making tasks can be automated -- probably those tedious ones -- digitalization) and AI for cartographers (what can we now do better? Tooling and process improvements)
 
 
 Mail pre Mapbox:
