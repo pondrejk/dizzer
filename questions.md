@@ -92,9 +92,13 @@ In this model, *state* is an environmental condition and *event* is a change of 
 
 @el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attains some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the causes reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay. (TODO: Example, fish, signall, make up something). For @bleisch2014mining spatio-temporal collocation is a requirement for causation to occur: "In order for one spatial event to cause another, those events must share at least one point in space and time. Similarly, a state can only allow causation of ivents in its spatiotemporal vicinity". 
 
+Wheter we accept the effect delays as real or illusionary (caused by lack of causal granularit), finding the causal relationship can be an interesting program for cartography to support, some notes to develop furhter?:
+- finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend some the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
+- Another approach is in looking for some general similarities between two sets of shapshots (spatial patterns) -- if there is some similarity ocurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern -- how to search for delay in just a sub area?
+- Temporal but not spatial collocation -- is map a good tool for displaying this (rather a graph)
+- What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
+- How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
 
-
-Delays in cause and effects can be illusory -- 3 kinds of granularity: spatial, temporal and causal.
 
 Spatio-temporal co-location is a prerequisite for causal relationships. (assumption in bleisch2014mining) --
 my note: at least one is necessary -- ability of dynamic maps to find these collocations and link them to causation to be assesd.
