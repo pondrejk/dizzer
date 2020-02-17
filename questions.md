@@ -76,10 +76,29 @@ Space time association rules -- describing how objects move among a set of regio
 Sequence mining -- seraching for patterns in time and other sequences. Similar to association rules, searching for events occuring frequently together: 3 parameters: *duration* of time sequence, *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio).
 
 Periodic pattern mining (type of sequence mining) searches for recurrent patterns, that include: *full periodic patterns*, *partial periodic p.* (e.g. just on mondays), *cyclic or periodic association rules* -- associate events that occur periodically together (@han2011data).
-Finding such patterns in movement data -- conceptual framework @bleisch2014mining
 
-@bleisch2014mining -- ontological base for causal and causal-like relationships. Events (= changes in state) can be caused just by other events, states are affected of enable events.
+In conceptual framework for finding *candidate* causal relationships in movement pattern @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described:
+
+- *Spatial granularity*
+- *Temporal granularity*
+- *Causal granularity*
+
+
+Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch2014mining distinguish between the trigger that apparently causes the event and the environmental conditions that have to be fulfilled for the effect to occur. The onthological model for causation is then shown on figure:
+
+TODO: Image -- event/states
+
+In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* cauation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. Example -- fish, TODO make up your own... 
+
+@el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attains some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the causes reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay. (TODO: Example, fish, signall, make up something). For @bleisch2014mining spatio-temporal collocation is a requirement for causation to occur: "In order for one spatial event to cause another, those events must share at least one point in space and time. Similarly, a state can only allow causation of ivents in its spatiotemporal vicinity". 
+
+
+
 Delays in cause and effects can be illusory -- 3 kinds of granularity: spatial, temporal and causal.
+
+Spatio-temporal co-location is a prerequisite for causal relationships. (assumption in bleisch2014mining) --
+my note: at least one is necessary -- ability of dynamic maps to find these collocations and link them to causation to be assesd.
+
  
 
 That is what kinds of questions can our interactive maps help to ask?
@@ -108,6 +127,15 @@ dynamic data examples:
 Global fishing watch
 
 See also: https://www.researchgate.net/publication/236993632_Illuminating_the_Path_An_RD_Agenda_for_Visual_Analytics 
+
+
+**Two issues** (contradicting) tendencies arising from cartography moving to (digital/interactive/web) form. A change of medium used to disseminate cartographic products. 
+
+a.) Cartogaphic quality of web maps are not yet on par with the (best) examples of static maps and atlases (regardles of the date production -- even though maps and atlases age in the sense of content, cartographic metods used in them often remain inspirational and valid, so for cartographer old map products doesn't have to be outdated). This might be a side effect of non-cartographically aware people producing maps (either amateur cartographer acessing easy to use tools, or people comming from graphic design backgrounds bringing 'creative' changes) ^[This is not intended to belittle such activities, as the eyesoreness of some maps is a little tax for democratization of mapping tools. In fact, efforts to help citizen cartographers have been made by more experienced practicioners, most notably in Wood, -- TODO cituj tu ich prirucku]. Another possible cause is that the web mapping frameworks tend to provide just an opinionated set of visualisation options (TODO: picture of the google map's point sign) and cartographers lack the skills to customize or extend these visualisation toolkits. Little to say that some of the classical cartographic techniques are quite demanding when transfered to variable-scaled enviroment. For exaple, the symbol collsions that needed to be resolved just once (as if that was not enough) have to be treated (perhaps algoritmically) in all zoomlevels. (TODO: examples of such methods in pictures -- call it "craftsmen" side of cartography) Cartographers who want to venture to raising the quality of web maps are then forced to dive into frond-end web development^[The situation is improving with rise of web-gl based mapping platforms such as Mapbox and CartoDB, which provide map design environments resembling the visualisation tiers of desktop GIS].  
+
+b.) Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transfering a visual artifact from one medium to the other. Such transfer is not the same as if the visualisation was designed for the new medium from scratch as there are realized or unrealized ideas of how things should be done transrered from the practices required by the old medium. This was apparent for example the grid-like organization transferred from printed newspapers to web news portats initally and still lives there though responsivity required by small-screen devices pushed its rethinking. Simmilar case in cartography is the dichotomy between the topographic base and the tematic overlay. A good mental excercise for cartographers would be imagining map interaction unattached from any medium -- what would we design if anything was possible? 
+
+Causal relationships vs. epiphenomena. -- see Taleb 198-200. (Maps helping to tell?)
 
 # General questions
 
