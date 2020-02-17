@@ -77,12 +77,7 @@ Sequence mining -- seraching for patterns in time and other sequences. Similar t
 
 Periodic pattern mining (type of sequence mining) searches for recurrent patterns, that include: *full periodic patterns*, *partial periodic p.* (e.g. just on mondays), *cyclic or periodic association rules* -- associate events that occur periodically together (@han2011data).
 
-In conceptual framework for finding *candidate* causal relationships in movement pattern @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described:
-
-- *Spatial granularity*
-- *Temporal granularity*
-- *Causal granularity*
-
+In conceptual framework for finding *candidate* causal relationships in movement pattern @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described: *spatial*, *temporal*, and *causal*. While the first two are defined by the the smallest spatial and temporal units, causal granularity is given by the kinds of events observed. Spatial and tempral granularities can be easily reduced to "see the bigger picture" (by changing the spatial scale -- zooming out, or extending the range of observation), causal granularity is defined by the data collection design. As such, it affects mainly the inferences from the map rather the map reading tasks as such.
 
 Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch2014mining distinguish between the trigger that apparently causes the event and the environmental conditions that have to be fulfilled for the effect to occur. The onthological model for causation is then shown on figure:
 
@@ -90,22 +85,21 @@ TODO: Image -- event/states
 
 In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* cauation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. Example -- fish, TODO make up your own... 
 
-@el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attains some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the causes reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay. (TODO: Example, fish, signall, make up something). For @bleisch2014mining spatio-temporal collocation is a requirement for causation to occur: "In order for one spatial event to cause another, those events must share at least one point in space and time. Similarly, a state can only allow causation of ivents in its spatiotemporal vicinity". 
+@el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attain some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the cause reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay. (TODO: Example, fish, signall, make up something). For @bleisch2014mining spatio-temporal collocation is a requirement for causation to occur: "In order for one spatial event to cause another, those events must share at least one point in space and time. Similarly, a state can only allow causation of events in its spatiotemporal vicinity". 
 
-Wheter we accept the effect delays as real or illusionary (caused by lack of causal granularit), finding the causal relationship can be an interesting program for cartography to support, some notes to develop furhter?:
-- finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend some the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
+Wheter we accept the effect delays as real or illusionary (caused by lack of causal granularity), finding the causal relationship can be an interesting program for cartography to support, some notes to develop furhter:
+- finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
 - Another approach is in looking for some general similarities between two sets of shapshots (spatial patterns) -- if there is some similarity ocurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern -- how to search for delay in just a sub area?
-- Temporal but not spatial collocation -- is map a good tool for displaying this (rather a graph)
+- Temporal but not spatial collocation -- is map a good tool for displaying this (rather a bar chart?)
 - What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
 - How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
+- overall, the ability of dynamic maps to find these collocations and link them to causation is to be assesd, but how? :)
 
+Here some technical description of spatiotemporal pattern mining **association rule mining**, (what are the defficiencies of encoding environment parameters to database compared to visual exploration). 
 
-Spatio-temporal co-location is a prerequisite for causal relationships. (assumption in bleisch2014mining) --
-my note: at least one is necessary -- ability of dynamic maps to find these collocations and link them to causation to be assesd.
+Explain frequencies and per-event support and confidence?
 
- 
-
-That is what kinds of questions can our interactive maps help to ask?
+Here: more on circular and cummulative causation. (Is there anything maps can do here?).
 
 # The role of cartography
 
