@@ -40,7 +40,7 @@ The term *data mining* is often used to describe exploring databases using low-l
   map reading       --> knowledge discovery <--   data mining
 (human algorithms)                               (computation algorithms)
 
-Fig. best from both worlds (adopted from andrienko TODO -- see the actual paper)
+Fig. best from both worlds (Wording can be different, for example @keim2008visual lists on the "machine" side: statistical analysis, data management, data mining, compression and filtering; on the "human" side: cognition, perception, visual intelligence, decision making theory, information design; and in the "middle": human-centered computing, semantics-base approaches, graphics and rendering, and information visulaisation). TODO: rethink the image 
 
 note.: map reading could be replaced with somethnig else (cognitive abilites), knowledge discovery could be visual analytics. Map reading I put there as a remainder of paper maps (still useful, no longer dominant). The gradient is about who does the work -- from the right interpretation is done by a human, from the left by algorithm (kinda). Knowledge disco is map reading with robot assistants.
 
@@ -81,11 +81,13 @@ In conceptual framework for finding *candidate* causal relationships in movement
 
 Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch2014mining distinguish between the trigger that apparently causes the event and the environmental conditions that have to be fulfilled for the effect to occur. The onthological model for causation is then shown on figure:
 
-TODO: Image -- event/states
+TODO: Image -- event/states (from galton -- general image, verbal description for with specific examples. Some mappable example?)
 
 In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* cauation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. Example -- fish, TODO make up your own... 
 
 @el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attain some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the cause reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay. (TODO: Example, fish, signall, make up something). For @bleisch2014mining spatio-temporal collocation is a requirement for causation to occur: "In order for one spatial event to cause another, those events must share at least one point in space and time. Similarly, a state can only allow causation of events in its spatiotemporal vicinity". 
+
+TODO -- images, mapping apparent causation in space, time, both, or none
 
 Wheter we accept the effect delays as real or illusionary (caused by lack of causal granularity), finding the causal relationship can be an interesting program for cartography to support, some notes to develop furhter:
 - finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
@@ -100,6 +102,9 @@ Here some technical description of spatiotemporal pattern mining **association r
 Explain frequencies and per-event support and confidence?
 
 Here: more on circular and cummulative causation. (Is there anything maps can do here?).
+
+TODO: adopt the sensemaking loop: The sense-making loop for Visual Analytics based on the simple model ofvisualization by Wijk (@van2005value) (described in @keim2008visual) 
+
 
 # The role of cartography
 
