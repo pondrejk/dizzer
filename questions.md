@@ -1,4 +1,5 @@
 # title?
+# TODO chapter audit -- chap-cartograpic -- split and merge here
 
 This chapter will look more closely on the properties of data with point spatial reference that count for the majority of spatial big data.
 Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. Then we will discuss some recent objections to the idea of insight generation (or rather of the fashion in which data is interpreted) and speculate on how cartographic practice could fit to such objections. 

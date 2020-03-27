@@ -1,0 +1,46 @@
+select
+  brno_150.id,
+  brno_150.wkb_geometry,
+  round(grid_averages_150.children),
+  grid_averages_150.culture,
+  grid_averages_150.health,
+  grid_averages_150.church,
+  grid_averages_150.parks, 
+  grid_averages_150.social,
+  grid_averages_150.sport, 
+  grid_averages_150.transport,
+  grid_averages_150.crime, 
+  grid_averages_150.prices,
+  grid_averages_150.noise
+from
+  brno_150, grid_averages_150
+where
+  brno_150.id = grid_averages_150.ogc_fid
+
+
+
+create table
+  grid_averages_150
+as
+select
+  brno_tmp6.ogc_fid,
+  avg(grid_2018.children) as children,
+  avg(grid_2018.culture) as culture,
+  avg(grid_2018.health) as health,
+  avg(grid_2018.church) as church,
+  avg(grid_2018.parks) as parks,
+  avg(grid_2018.social) as social,
+  avg(grid_2018.sport) as sport,
+  avg(grid_2018.transport) as transport,
+  avg(grid_2018.crime) as crime,
+  avg(grid_2018.prices) as prices,
+  avg(grid_2018.noise) as noise,
+  count(*) as count
+from
+  brno_tmp6
+join
+  grid_2018
+on
+  st_intersects(grid_2018.wkb_geometry, brno_tmp6.wkb_geometry)
+group by
+  brno_tmp6.ogc_fid
