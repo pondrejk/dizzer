@@ -1,6 +1,8 @@
 # title?
 # TODO chapter audit -- chap-cartograpic -- split and merge here, also chap-impacts
 
+*Technology is the answer, but what was the question?* Cedric Price
+
 This chapter will look more closely on the properties of data with point spatial reference that count for the majority of spatial big data.
 Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. Then we will discuss some recent objections to the idea of insight generation (or rather of the fashion in which data is interpreted) and speculate on how cartographic practice could fit to such objections. 
 
@@ -170,28 +172,3 @@ data mining --> machine learning --> automated actions
 First do we event want to get there, best of both worlds is maybe better approach (TODO cite Thiel, also on Keeping up with machines, article on not replacing human labor) 
 Second, hard vs easy problems -- ai can now do only "easy", will "hard" ever be possible? (general AI -- TODO cite Pinker)
 -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? Also the difference between AI in place of cartographers (which map-making tasks can be automated -- probably those tedious ones -- digitalization) and AI for cartographers (what can we now do better? Tooling and process improvements)
-
-
-Mail pre Mapbox:
-
-Dear Mapbox,
-
-Brno (zoomlevel 7) quadkey: 12021233312
-Brno greater vicinity (zoomlevel 9) quadkey: 120212333
-
-Subject: Sample of Mapbox Traffic Data for research purposes
-
-Dear Mapbox,
-
-My name is Peter Ondrejka, I am a PhD student of cartography at Masaryk University in Brno, Czech Republic. I am also a huge fan of Mapbox, I really enjoy both the map design and development experience, impressive work with that! Most recently I used Mapbox within the ElWar mapping project (available at https://mapdat.uni.lu/).
-
-In my dissertation I explore methods for visual investigation of spatial big data sets. The goal is designing interfaces to help finding spatial and temporal regularities and correlations in data. 
-
-With that in mind, I would like to ask about the possibility of obtaining a sample of Mapbox Traffic Data for the area of Brno, Czech Republic (quadkey: 12021233312). Even though Czech Republic is not listed as a supported country, I hope that some coverage exists here. The sample does not need to be up to date, I would use it solely for the demonstartaion of cartographic techniques within the dissertation. I am prepared to declare that it won't be used for any other purpose.  
-
-Would it be possible to obtain such a sample?
-
-Thank you,
-Best regards
-
-Peter Ondrejka
