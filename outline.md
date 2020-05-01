@@ -6,24 +6,30 @@ Introduction
 Defining Big Data
 - Ontological charcteristics of BD
 - Other accounts on BD
+- Spatial big data in general
+- Some Impacts of Data Abundance
+  - on science, society, business, etc.
 
-Some Impacts of Data Abundance
-- on science, society, business, etc.
-
-Cartographic theory vs. BD
+Making sense of Big Data
 - Spatial attributes of BD
-- Tackling velocity, extensionality and scalability
-- Tackling volume and exhaustivity
-- Tackling resolution, indexicality and ratioality
+- Visual analytics and knowledge discovery 
+- Cartographic agenda
+- Objections
 
-Cartographic system for BD visualization
-- Aims and properties
-- Functionality
-- Technical aspects, frotend/backend tooling
-- Usability aspects, analytic features, interaction
+Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
+- avoiding aggregation
+- study of hexbin aggregation
+- an aside on UX, dealing with density in ux controls
+- an aside on web graphics technologies, vector tiles and mapbox
+- a discussion of figure vs groud
+- Case study - urban recommendation system
 
-Case study 1
+Dealing with velocity:
+- time depictions in cartography
+- Case study - traffic trough the pandemic
 
-Case study 2
+Future trajectories:
+- ml? mocking
+
 
 Discussion & Conclusion
