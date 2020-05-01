@@ -1,10 +1,13 @@
-# title?
+# Cartoraphic insight 
+# Visual exploration 
+# Understanding spatial big data
+# Making sense of spatial big data 
+
 # TODO chapter audit -- chap-cartograpic -- split and merge here, also chap-impacts
 
 *Technology is the answer, but what was the question?* Cedric Price
 
-This chapter will look more closely on the properties of data with point spatial reference that count for the majority of spatial big data.
-Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. Then we will discuss some recent objections to the idea of insight generation (or rather of the fashion in which data is interpreted) and speculate on how cartographic practice could fit to such objections. 
+*This chapter will look more closely on the properties of data with point spatial reference that count for the majority of spatial big data. Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. We will also discuss some objections to the idea of insight generation (or rather of certain naive ways in which data is interpreted) and speculate on how cartographic practice could overcome such risks.*
 
 # Spatial big data classification: stations, events, and agents
 
@@ -172,3 +175,5 @@ data mining --> machine learning --> automated actions
 First do we event want to get there, best of both worlds is maybe better approach (TODO cite Thiel, also on Keeping up with machines, article on not replacing human labor) 
 Second, hard vs easy problems -- ai can now do only "easy", will "hard" ever be possible? (general AI -- TODO cite Pinker)
 -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? Also the difference between AI in place of cartographers (which map-making tasks can be automated -- probably those tedious ones -- digitalization) and AI for cartographers (what can we now do better? Tooling and process improvements)
+
+# Conclusion: BD are fast and n=all so we need to quickly make sense of it or quickly establish there is no sense present.
