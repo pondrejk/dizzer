@@ -10,3 +10,9 @@ https://datavizproject.com/
 TODO -- check ^ for timespace taxonomies, operations ... etc, (maybe for appendix)
 
 Beware of change blindness -- @nowell2001change
+
+mocking 
+--------
+ -- one approach, get a timeline, historical dataset, treat it like it was a datastream and test your visualisateon assumptions
+-- secnd approach -- emulate data
+
