@@ -53,3 +53,14 @@ think about this (still from constraints paper):
 
 With sufficient data, it may even be possible to go beyond learning weights and attempt to learn preference rules themselves. The AI community uses inductive logic programming methods to infer logic programs from databases of positive and negative examples @quinlan1990learning. To learn from noisy data (common in the visualization domain!), we could combine inductive logic programming with statistical models such as Markov logic networks.  For example, Law et al.’s ILASP (Inductive Learning of Answer Set Programs) (@law2014inductive) is a logic-based learning system that can learn preferences in answer set programs. To understand differences in preferences represented by two or more distinct data sources, we can use multi-objective (Pareto) optimization in ASP to enumerate designs that map the trade-off frontier.
 
+
+# ml for unstructured data
+-- unstructured: majority of world's data, messages, social media conversations, photos, sensor data, video or voice recordings...
+-- machine learning thechiques to extract information from unstructured data, classify them etc. -- but a long way to go, and requires well-defined small questions (e.g. spam filter)
+-- data quality -- how to determine, sometimes impossible, so relying on statistics
+-- how to combine structured and unstructured data in meaningful way
+-- spatial aspect of data could be used to narrow down the mess points with several variables -- for the purpose of mapping, that would focus more on spatial extent and progression of data events than on the actual data points (but you could compare e.g. the differences of extent for various data sources...)
+-- could we infer data quality from spatial proximity of other events??? -- some account from Goodchild about this? Na PřF niečo také hovoril
+
+@mcnulty2014understanding . "What’s crucial to understanding Big Data is the messy, noisy nature of it, and the amount of work that goes in to producing an accurate dataset before analysis can even begin."
+
