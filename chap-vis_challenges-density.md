@@ -185,8 +185,18 @@ Color encodings --density can be encoded to hue, luminance or opacity
 Y comes betw 0 and 1, x is the data value
 -- what other libraries use?
 
-# more
-https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
+notes from @tufte1985visual
+----------
+
+data-ink ratio: data-ink non erasable core of the graphic that presents data information.
+`data-ink / total ink on graphic` = proportion of ink used to convey non-redundant information -- the number we want to maximize (within reason)
+
+another tufte sparklines @tufte2006beautiful
+---------------
+https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR
+
+A sparkline, as defined by Tufte, is “a small intense, simple, word-sized graphic with 
+typographic resolution. Sparklines ... can be everywhere a word or number can be: embedded in a sentence, table, headline, map, spreadsheet, graphic.”
 
 @correll2017surprise
 Biases in thematic maps:
@@ -248,6 +258,14 @@ https://codeburst.io/the-challenges-of-responsive-web-design-9d64971921fb
 - strategies for density reduction in controls
 - combining functions (legend and histogram and brushing control) - (využiť návrh na baptisteries, legendy aj timeline z toho proposalu )
 
+# Visual storytelling vs dashboards
+Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern. 
+
+What is the audience - some notes from the field:
+https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-after-data-journalism-3c68861b7f4c
+
+# more
+https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
 
 
 # Comparison of rendering technologies
