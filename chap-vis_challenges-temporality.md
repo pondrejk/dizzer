@@ -64,6 +64,11 @@ Some show parallelism, some depict motion -- in such case "viewers must interpol
 -- Dataviz can roll-back the time variously tinker with data representations thus bypassing the need to use metaphors and verbal descriptions.
 
 
+taxonomy of temporal events
+---------------------------
+To define the possibilities of visualisation of time, a taxonomy of temporal events is needed. From the perspective of location, three types of changes can be proposed - appearance or disappearance, mutation, and movement [20] @blok2005dynamic. From the perspective of the temporal domain, it is possible to distinguish moment, sequence, duration, pace, and frequency. Single events can also interact with each other and occur or partially overlay within the same space or/and time.
+
+
 
 @ott2001time
 ------------
@@ -129,5 +134,25 @@ during
 
 notes from pelekis2004literature 
 ---------------------------------
+
+space time cubes and dimensionality
+---------------------------------
+@richards2004individuals
+
+Space-time cube -- maybe a simplistic view of time, but also a rich source for interpreting the world as we normally experience it.
+
+Dimensionality -- x-y-z-t, speaking of "absolute" space is doubtfull, althought instristically time and space may be absoulute, they are always measured in some arbitrary and subjective coordinate systems. 
+
+Euler vs Langrange -- Eulerian approach: making observations at fixed spaital locations (time series, etc.), which are used to infer the time-space structure of the phenomenon under investigation. Lagrangian representation: a finite unit is tacked along its course -- coordinate frame is static and dynamic phenomena are measured relative to iths course as it moves through the space (buoy).
+
+Collapse of dimensionality (e.g. transformation from 3D to 2D) can lead to loosing information, decreasing reliability.
+
+(And even the) brain has a difficulty coping with systems whose 4-D evolution destroys much of the evidence of their prior states...
+
+Large scale and long term require simplification. ...when high-dimensional system behaviour can be well described, it may be possible to identify consistent low-dimensional behavior patterns that can be represented more simply without direct reference to the underlying 4-D process.
+
+Phase space, in. geography e.g. Melton -- four dimensional phase space of drainage basin properties...
+Structure vs agency: The spatially distributed feedback between the form (structure) and process (agency) is therfore a broadly relevant conceptual framework for analysis of the dynamics of the systems...
+Agent based modelling -- Regions are essentially aggregates - of smaller entities, of common characteristics -  which in turn are are 'constructed' by the Lagrangian behaviour of the individuals within them. Places are therefore emergent properties of large-sample individual behaviour in 4-D space-time.
 
 
