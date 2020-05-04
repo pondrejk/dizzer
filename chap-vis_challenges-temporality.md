@@ -156,3 +156,19 @@ Structure vs agency: The spatially distributed feedback between the form (struct
 Agent based modelling -- Regions are essentially aggregates - of smaller entities, of common characteristics -  which in turn are are 'constructed' by the Lagrangian behaviour of the individuals within them. Places are therefore emergent properties of large-sample individual behaviour in 4-D space-time.
 
 
+absolute vs relative views of space and time -- useful?
+----
+from andrienko:
+The possibility of treating space and time both as referrers and as attrib-
+utes is reflected in the reasoning concerning the absolute and relative
+views of space and time (Peuquet 1994, 2002, Chrisman 1997). According
+to the absolute view, space and time exist independently of objects and
+form a framework, or a container, where objects are placed. According to
+the relative view, both space and time are properties attached to objects
+such as roads, rivers, and census tracts.
+
+^
+peuquet1994s
+peuquet2002representations
+peuquet2008multi
+

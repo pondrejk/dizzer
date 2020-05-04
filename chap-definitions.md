@@ -77,6 +77,8 @@ Increasing the storage capacity itself does not speak of any qualitative change 
 
 Rather than putting up to a gargantuan task of counting the mass of all existing data items, authors use the available statistics related to operations of large companies (@kambatla2014trends, @mcnulty2014understanding, @marr2014big and others). For example, Facebook was said to process 10 billion messages, 4.5 billion button clicks and 350 million picture uploads each day [@marr2014big]. It goes without saying these numbers are outdated and certainly outgrown today. Other companies prominently mentioned in context of big data are Google, Wallmart, or Amazon. This connection is justified, as these companies have put user (or customer) data analytics to the core of their businesses, thus supporting the progress in the field. Social media, web search and browsing data, online or offline shopping patterns, but also mobile devices, sensors and large scientific projects are mostly named as generators of big data.
 
+Another quantity that is surely of interest is market value that is, according to estimates, potentially huge if big data fulfills its potential. @mcnulty2014understanding (actually McKinsey <http://www.mckinsey.com/industries/healthcare-systems-and-services/our-insights/the-big-data-revolution-in-us-health-care> -- TODO cite correctly) reports on promise in reduced health care costs of 12 to 17% thanks to emerging big data related initiatives in USA health care. On the other hand, use of poor data is also estimated to have vast impacts on business, mainly in form of unrealized opportunities (? @mcnulty2014understanding). The third financial aspect is then the costs incured by creating and maintaining big data itself, it is sound to remind that among many others, big data also has the potential to cost unlimited amounts of money" @fischer2015why.
+
 The type of data source is another potential classification property. Authors distinct "traditional" ways of collecting data from the new, technology-powered sources. The definition of big data then comes as simple as data coming from these new sources. The United Nations Economic Commission for Europe proposed a taxonomy that recognizes three main sources of big data (@unce2013):
 
 - *Social Networks (human-sourced information)* – this information is the record of human experiences
@@ -177,6 +179,16 @@ Effects of varying time, space, and attribute resolution on displayed informatio
 - Variety - mapping like databases works better with structured data, though it is not a requirement as long as the spatial reference is valid. There is though a great space in cartography in incorporating unstructured data, for example in adjusting metadata profiles (from linnean hierarchical classification to tagging), or in determining data quality from spatial context. Cartography could find ways how to combine structured and unstructured data in meaningful way 
 - Velocity & Exhaustivity - will be dealt with in chapers 4 and 5, but mainly span across a large set of topics internal to cartography. Velocity is mainly concerned with rate of visualization update and time span of depicted topic. In maps data of several publishing dates and timespans can coexist, while cartography is ideal for depicting timespace regularities and relationships within and between datasets. Exhaustivity then projects into longtime problem of graphic fill and tailoring cartographic visualisation to our congnitive abilities.
 
+// TODO future for spatial bd? 
+With the development of computer science technology and the evolution of computing model, GIS architecture and application mode are changed constantly. From desktop GIS (1960s) to the Web GIS (1980s), and the distributed GIS (1990s), to the cloud GIS (2010s), it is well known that the development of GIS is greatly influenced by computer science technology (Yang, Raskin, Goodchild, & Gahegan, 2010 Yang, C., Raskin, R., Goodchild, M., & Gahegan, M. (2010). Geospatial cyberinfrastructure: Past, present and future. Computers, Environment and Urban Systems, 34(4), 264–277. doi:10.1016/j.compenvurbsys.2010.04.001 [Google Scholar]), and also lags behind it simultaneously. Needless to say, driven by the wave of big data, GIS has also entered a new era, big data GIS (Li & Li, 2014 Li, Q., & Li, D. (2014). Big data GIS. Wuhan Daxue Xuebao (Xinxi Kexue Ban)/Geomatics and Information Science of Wuhan University, 39(6), 641–646. doi:10.13203/j.whugis20140150 [Google Scholar]), 
+
+Not within the scope of the thesis (and within author's powers) to consider all directions and areas where geoinformation science may be impacted by big data. 
+
+Trends, possibly trading off speed for precision, (e.g. the approximate db queries...). Maybe some trends of integrating with hadoop, spark, scala, kafka... etc.
+Role of a data integrator with space as a unique integrating concept. 
+GIS project to be rethinked again, but proved itself to be capable of adopting new stuff and evolving with it.
+
+
 
 ## 1.4 Assessing impacts and opportunities rather than seeking definitions
 
@@ -184,9 +196,92 @@ Often times big data are described indirectly by the impacts (real or imagined) 
 
 *TODO: sub-chapter here on impacts on science, business, etc."
 
+or more topic-based structure? from promise and peril of BD (cite directly)
+-----------------------------------------------------
+-- How to Make Sense of Big Data?
+     -- Data Correlation or Scientific Models?
+     -- How Should Theories be Crafted in an Age of Big Data?
+     -- Visualization as a Sense-Making Tool
+     -- Bias-Free Interpretation of Big Data?
+     -- Is More Actually Less?
+     -- Correlations, Causality and Strategic Decision-making
+-- How Should Big Data Abuses be Addressed?
+     --Regulation, Contracts or Other Approaches?
+
+
+# Post-theory and hypothesis-less science & Correlation is enough?
+
+@anderson2008end: "where massive amounts of data and applied mathematics replace every other tool that might be brought to bear ... Who knows why people do what they do? The point is they do, and we can track it and measure it with unprecedented fidelity. With enough data, the numbers speak for themselves."
+
+@barnes2013big
+---------------
+Giving examples of 3 problems with big data:
+-- data vs knowledge, @silver2012signal "most
+of the data is just noise, as most of the universe is
+filled with empty space" 
+-- reduction to numerical information
+-- abandining interpretation: "the numbers are the
+story, shorn of the need of any interpretation, shorn
+of the need of even assigning causation. Chris
+Anderson, in his 2008 editorial, says, ‘with enough
+data, the numbers speak for themselves’."
+-- big data - conservative project: 
+"The last point is that big data as a project is inher- ently conservative. By utilizing the numbers as they are given big data is stuck with what is rather than what should be."
+
+
+--------------
+
+@wilson2017big: 
+
+"In this paper, we have used three comparisons to draw out ways in which a particular and currently popular use of big data — learning analytics — differs from other big data contexts. We have tried to highlight the lessons for learning analytics that emerge from such explicit comparisons.
+
+    First, the comparison with big data in the physical sciences highlighted the difference between intentional and incidental data collection; the need for robust theoretical underpinnings to measurements that rely on proxies rather than direct observation; the further need for robust theoretical underpinnings to explain or predict the presence and absence of correlations between different variables; and the dangers of comparing the infinitely differentiated interactions between students and learning resources with the endlessly repeatable interactions between fundamentally identical particles.
+
+    Second, the comparison with big data in business intelligence highlighted the ethical issues around collecting data when users have no choice to opt out and do not give explicit or informed consent; issues around who business intelligence algorithms such as recommender systems are intended to benefit; the question of whether recommender systems are reliable (and if they are not, might they end up recommending behavior that is in fact detrimental to students); and questions of whether the digital trace data used in Learning Analytics are actually traces of learning at all.
+
+    Third, the comparison with big data in public health highlighted the possible elision between the levels of population and individual; and the question of whether analytics are best used to change the behavior of consumers (students) or the conditions in which they find themselves.
+
+@gandomi2015beyond – list of risks in bd-based predictive analytics: heterogenity, noise accumulation, spurious correlations, incidental endogeneity  -- Beyond the hype: Big data 
+concepts, methods, and analytics
+
+
+
+
+# Ethic/Legal/... Remedies. Towards big data literacy (data-awareness). New digital divides.
+
+-- abuse at amazon -- @head2014worse
+-- the world needs fixing, not disrupting: in <https://deardesignstudent.com/8-reasons-to-turn-down-that-startup-job-1f82a00ade34>
+-- <https://medium.com/@freddiedeboer/the-three-hot-trends-in-silicon-valley-horseshit-95cc5a85e8a4>
+
+from presentations at information+ 2016
+----------
+Catherine D’Ignazio 
+Creative Data Literacy: Bridging the Gap Between the Data Haves and Have-nots
+
+@wilmott2016small 
+---------------
+
+Communities are swimming in data—demographic data, participation data, government data, social media data—but very few understand what to do with it. Though governments and foundations are creating open data portals and corporations are creating APIs, these rarely focus on use, usability, building community or creating impact. So although there is an explosion of data, there is a significant lag in data literacy at the scale of communities and individuals. This creates a situation of data-haves and have-nots. But there are emerging technocultural practices that combine participation, creativity, and context to connect data to everyday life. These include citizen science, data journalism, novel public engagement in government processes, and participatory data art. This talk surveys these practices both lovingly and critically, including their premises, aspirations and the challenges to creating citizens that are truly empowered with data.
+
+
+#Here be some summary of the chapter, something crisp on what is possibly timeless on these piles
 
 The definition of big data is elusive perhaps also because the majority of involved actors, being positioned in the business world, is more focused on building productive big data ventures without much conceptual attention to the subject in itself. Then of course, the underlying technologies become a subject of marketing which often uses inflated overstatements based on expectations rather than reality. So far there is no settled consensus around big data definition in the academia either, but as @kitchin2016makes predict, the "genus" of big data will probably be further delineated and its various "species" identified. The question is if then such an umbrella term will be necessary. Anyways, the lack of common ground in understanding what big data is (illustrated by this chapter) may be a good predictor of the term's future relevance. Problems with definition is exactly what leads @davenport2014big to predict "a relatively short life span for this unfortunate term”. On the other hand, the number of researchers and practitioners willing to invest their time in big data related endeavours is relatively high^[*Jounal of Big Data*, *Big Data Research*, *International Journal of Data Science and Analytics*, *Big Data & Society*, *Big Data Analytics*, *Big Data* are examples of scientific journals tracking cross-disciplinary efforts in the field.], which sheds some positive light on the future vitality of the discipline.
 
 To @mayer2013big big data stand for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, the importance lies in the real-life impacts that are likely to stay even when the big data hype is over. Even if we dismiss the term as a buzz-word, the fact is that more digital information gets created and can be linked more easily, which has many implications on the way we live. Together with that there are changing attitudes to putting data to work. In the next chapter, we will look at some economic, societal and scientific impacts of big data, as they can provide a motivation for cartography to take part in addressing the related issues. We will also offer some speculation on how the roles of cartography and GIS may be transformed by the data deluge.
+
+-------
+Todo incorporate this to the conclusion:@press2014big
+
+some definitions:
+
+(11) The belief that the more data you have the more insights and answers will rise automatically from the pool of ones and zeros.
+
+(12) A new attitude by businesses, non-profits, government agencies, and individuals that combining data from multiple sources could lead to better decisions.
+
+I like the last two. #11 is a warning against blindly collecting more data for the sake of collecting more data (see NSA). #12 is an acknowledgment that storing data in “data silos” has been the key obstacle to getting the data to work for us, to improve our work and lives. It’s all about attitude, not technologies or quantities.
+
+
+
 
 ## Sources

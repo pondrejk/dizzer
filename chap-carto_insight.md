@@ -144,6 +144,9 @@ a.) Cartogaphic quality of web maps are not yet on par with the (best) examples 
 
 b.) Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transfering a visual artifact from one medium to the other. Such transfer is not the same as if the visualisation was designed for the new medium from scratch as there are realized or unrealized ideas of how things should be done transrered from the practices required by the old medium. This was apparent for example the grid-like organization transferred from printed newspapers to web news portats initally and still lives there though responsivity required by small-screen devices pushed its rethinking. Simmilar case in cartography is the dichotomy between the topographic base and the tematic overlay. A good mental excercise for cartographers would be imagining map interaction unattached from any medium -- what would we design if anything was possible? 
 
+Ford's quote: "If I asked people what they want, they would ask for a faster horse" (find exact.). Similarly, we can test the cognitive efficiency of the visualisation methods that already exist, and users would prefer the methods they know. Cartography's quest (in my opinion) is to extend the arsenal of visualisation methods. As we will see further, interaction and animation pose new challenges to cartographic visualisation, with possibly multiplied opportunities for method combinations and innovations for data exploration and possibly knowledge generation. Further, plenty of tricks from the rich history of cartographic practice did not make it to web mapping toolbox. Recent emerging technology owing much to the gaming industry promise to bring web cartography to the flexibility of the pen and paper ^[or brush, engraving tool etc.] of pre-digital cartographer. Only now the shifted role of cartographer would be in enabling data to paint the picture for us.  Much of the rest of this thesis will be exploring this truly exciting prospect.
+
+
 notes from @tufte1998visual
 ---------------
 
@@ -154,6 +157,30 @@ notes from @tufte1998visual
 2. Making quantitative comparisons
 3. Considering alternative explanations and contrary cases
 4. Assesment of possible errors in the numbers reported in graphics
+
+
+@jiang2017spatial
+----------------
+good stuff on GIS challenges with spatial big data
+from toc:
+- What is spatial Big Data
+- Spaial and spatiotemporal BD Science
+
+
+@lee2015geospatial
+
+For interactive analytics, we have identified two main components: complex event processing (CEP) and spatial online analytical processing (SOLAP). Complex
+event processing (CEP) is event processing that involves multiple data streams to infer events or patterns that imply more complex situations.
+Spatial OLAP is a visual platform for analyzing spatio-temporal data quickly and easily as well as for exploring the data in a 79 Fig. 8. The Movebank service. multi-dimensional way with aggregation levels being available on cartographic displays and in tabular and diagram displays. The concept of Spatial OLAP, which tries to combine geographic in- formation systems (GIS) and OLAP, was invented in late 1990’s. Spatial olap not really functional for big data backend. 
+-- though they identify these two topics as challenges, their imo better contribution is outlining the capabilities of spatial bd system:
+3 layers: Geospatial big data integration and management, Geospatial big data analytics (batch or intercative), and, Geospatial big data service platform.
+
+global challenges from  lee2015geospatial
+-----------------
+M. Marien, Global challenges for humanity, http://www.millennium-project.org/ millennium/challenges.html , accessed: 2014-08-30.
+
+Geospatial big data or simply spatial big data are societal op- portunities [11,12] . The Millennium Project identified 15 global challenges that the human kind is facing as in Fig. 3 [13]. Many of them can benefit from geospatial big data. Shashi Shekhar [14] @shekhar2012spatial, a renowned computer scientist, says that the seven challenges are related to geospatial big data, as indicated by boxes in the figure.
+
 
 
 # uncertainty and data quality
@@ -169,6 +196,21 @@ Hunter [15] @hunter1999managing defines two general possibilities. The first one
 @kubivcek2012uncertainty
 @kinkeldey2014assess
 
+@goodchild2013quality
+----
+proposes for data quality: "Three methods of quality improvement and assurance are proposed. Only the third is sufficiently robust and rapid, especially in time-critical situations." 
+Hardening Big Data:
+-- observations in big data can be mutually reinforcing. "Theprinciple is often expressed as Linus’s
+Law (Raymond, 1999), which originated in software
+development, and is in essence the statement ‘The
+larger the review group, the faster and more effective
+the  convergence"
+-- quality control of big data is sometimes
+addressed by social hierarchies (orgs like wikipedia, or communities like in open source dev....)
+-- here is the possibility of automated
+assessment and synthesis, which is the only effective
+way of achieving the velocity advantages of big data
+withoutsacrificingvolume
 
 
 # General questions
@@ -203,6 +245,29 @@ Second, hard vs easy problems -- ai can now do only "easy", will "hard" ever be 
 
 
 Causal relationships vs. epiphenomena. -- see Taleb 198-200. (Maps helping to tell?)
+
+# vis for humans, machines do not need it
+-- the societal responsibility of designers (first things first movement?, something for data visualists), and cartographers (harley, wood, crampton, -- radical cartography (Paglen?))
+
+# weaponized design
+@diehm2018weaponised
+
+Weaponised design – a process that allows for harm of users within the defined bounds of a designed system – is faciliated by designers who are oblivious to the politics of digital infrastructure or consider their design practice output to be apolitical.
+
+This is weaponised design: electronic systems whose designs either do not account for abusive application or whose user experiences directly empower attackers.
+
+As platforms became more commodified – especially through mobile touch mediums – UX designers have progressively become more reliant on existing work, creating a feedback loop that promotes playfulness, obviousness and assumed trust at the expense of user safety.
+
+A user story is “a very high-level definition of a requirement, containing just enough information so that the developers can produce a reasonable estimate of the effort to implement it". (definition from @ambler2014user)
+
+When designing for the digital world, user stories ultimately determine what is or is not an acceptable area of human variation. The practice empowers designers and engineers to communicate via a common problem-focused language. But practicing design that views users through a politically-naive lens leaves practitioners blind to the potential weaponisation of their design. User-storied design abstracts an individual user from a person of lived experience to a collection of designer-defined generalisations. 
+
+All intentionally-created systems have a set of things the designers consider part of the scope of what the system manages, but any nontrivial system has a broader set of impacts. Often, emergence takes the form of externalities — changes that impact people or domains beyond the designed scope of the system. @henriksenin2016frastructural 
+
+Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
+
+In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
+
 
 # Conclusion
 BD are fast and n=all so we need to quickly make sense of it or quickly establish there is no sense present.

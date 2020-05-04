@@ -13,6 +13,10 @@ Machine learning could bypass the need to address cognitive limitations (what ki
 
 -- also misunderstanding, weaponization, etc.
 
+@wilson2017big: 
+"In fact, the methods used to analyze large statistical data sets are themselves multiple, rather than singular. The type and context of the data govern the choices of the type of relevant analysis (for example, regression, significance testing, network analysis, frequency domain analysis, edge detection, decomposition, deconvolution, or machine learning using e.g., artificial neural nets). What is more, in traditional (regression) analyses, although algorithms can be written to extract patterns, the researcher or programmer constructing the algorithm must have imagined the pattern to be possible; and while advances in machine learning mean that algorithms can discover as well as illustrate patterns, the data on which they operate need to be understood in detail if spurious patterns are to avoided. In the following, we consider the case of automated analyses of electronic trace data left by students engaged in formal learning — so-called learning analytics — in an attempt to illustrate how the nature of data in a particular big data context, the intentions behind gathering and analyzing the data, and the appropriate analysis methods, all merit careful consideration."
+
+
 @moritz2019formalizing
 ----------------------
 

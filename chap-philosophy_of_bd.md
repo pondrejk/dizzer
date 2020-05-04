@@ -94,7 +94,7 @@ eagle2006reality
 
 pietsch2015aspects
 -------------------
-With respect to the nove lty of data - intensive science , I draw an analogy to exploratory as opposed to theory - directed experimentation.
+With respect to the novelty of data-intensive science, I draw an analogy to exploratory as opposed to theory-directed experimentation.
 
 siegfried2013big
 -----------------
