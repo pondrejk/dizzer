@@ -64,7 +64,7 @@ The second by @gantz2011extracting defines big data as:
 
 *A new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data by enabling high-velocity capture, discovery, and/or analysis.*
 
-The understanding of big data as an asset prevails, though the second type portraying big data as an ecosystem is not uncommon (e.g. @demchenko2014defining or @olshannikova2015visualizing). Eventually, this division may lead to dual understanding of big data in narrow sense as a fuel or raw material and in broad sense as am ecosystem, architecture, or  framework. A good example of broader thinking is @demchenko2014defining that proposes a "Big Data Architecture Framework" comprised of big data infrastructure, big data analytics, data structures and models, big data lifecycle management, and big data security.^[This is close to holistic definitions discussed later in this chapter, though these tend to be less confined in technology realm and mixing in procedural aspects and wider societal implications.] 
+The understanding of big data as an asset prevails, though the second type portraying big data as an ecosystem is not uncommon (e.g. @demchenko2014defining or @olshannikova2015visualizing). Eventually, this division may lead to dual understanding of big data in narrow sense as a fuel or raw material and in broad sense as an ecosystem, architecture, or  framework. A good example of broader thinking is @demchenko2014defining that proposes a "Big Data Architecture Framework" comprised of big data infrastructure, big data analytics, data structures and models, big data lifecycle management, and big data security.^[This is close to holistic definitions discussed later in this chapter, though these tend to be less confined in technology realm and mixing in procedural aspects and wider societal implications.] 
 
 
 ### 1.2.3 Showing example sources and quantities
@@ -91,7 +91,11 @@ Data sources labeled as big differ from traditional sources such as surveys and 
 
 Metaphors rely on a notion of analogy between two dissimilar things, but can also become independent verbal objects, aesthetically appealing but not overly revealing. Despite that, we should not ignore metaphoric accounts as they contribute to the mythology surrounding big data that reflects what many people expect. 
 
-@puschmann2014big identified two prevailing ways of imagining the subject: big data seen as a *natural force* to be controlled and as a *resource* to be consumed. The utilitarian mindset comparing digital world to excavation of valuable minerals in far from new (think of "data mining" or more recently "cryptocurrency mining") but it is tempting pursue to this analogy further. For example, how to estimate the ratio of valuable information to "debris", and shouldn't such estimation be done before any data "mining" endeavour? The value of real-world analogies may be in provoking some common-sense reasoning often missing in proclamations of digital visionaries.
+@puschmann2014big identified two prevailing ways of imagining the subject: big data seen as a *natural force* to be controlled and as a *resource* to be consumed. 
+
+The utilitarian mindset comparing digital world to excavation of valuable minerals in far from new (think of "data mining" or more recently "cryptocurrency mining") but it is tempting pursue to this analogy further. For example, how to estimate the ratio of valuable information to "debris", and shouldn't such estimation be done before any data "mining" endeavour? The value of real-world analogies may be in provoking some common-sense reasoning often missing in wannabe-visionary proclamations. 
+
+For example mayer2013big: "Data was no longer regarded as static or stale, whose usefulness was finished once he purpose for which it was collected was achieved [...]. Rather, data became a raw material of business, a vital econimic input, used to create a new form of econimic value. Every single dataset is likely to have some intristic, hidden, not yet unearthed value...". So what is yet to be unearthed is not the data itself but new way of using it.
 
 As @lupton2013swimming notes, by far the most commonly employed rhetorical descriptions of big data are those related to water or liquidity, suggesting both positive and negative connotations. For example @manyika2013open argues for unlocking data sources to become "liquid" in a sense of open and free-flowing, at the same time keeping privacy concerns in mind – what is liquid is also susceptible to unwanted leaks.
 
@@ -102,7 +106,8 @@ Of course, big data descriptions are not limited to verbal form, visual means ca
 
 ### 1.2.5 Holistic accounts
 
-Multifaceted phenomena tend to provoke descriptions that narrowly focus on specific components, ignoring other parts as well as relationships between them. Experts of different specializations notice aspects of phenomena that are close to their research interests and priorities, cross-disciplinary definitions then try to combine these views to paint the full picture. Somewhere behind that lies the idea that a whole is more than a sum of its parts, which is true particularly for systems that express *synergy* or *emergent behavior*. It is not clear if we can fittingly describe big data as such a system, though it is assumed that big data can help to gain understanding of such systems. Naturally, listing holistic accounts will include topics already mentioned, therefore pardon some repetition in this section.
+Multifaceted phenomena tend to provoke descriptions that narrowly focus on specific components, ignoring other parts as well as relationships between them. Experts of different specializations notice aspects of phenomena that are close to their research interests and priorities, cross-disciplinary definitions then try to combine these views to paint the full picture. 
+Naturally, listing holistic accounts will include topics already mentioned, therefore pardon some repetition in this section.
 
 For instance @murthy2014big prepared a taxonomy of big data comprised of:
 
@@ -194,22 +199,53 @@ GIS project to be rethinked again, but proved itself to be capable of adopting n
 
 Often times big data are described indirectly by the impacts (real or imagined) they have on the society. For some authors, the debate on the definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that become part of the infamous hype cycle ^[Hype cycles describe how expectations from emerging technologies evolve with time. Stages in the cycle are:  *innovation trigger*, *peak of inflated expectations*, *trough of disillusionment*, *slope of enlightenment*, and *plateau of productivity*. The expected duration of cycle differs per technology, and some technologies may never reach productivity in the foreseeable future. Hype cycles are a construction of the Gartner consultancy that issues regular reports, see for example @gartner2018]. Many ideas in the IT industry exist under changing or concurrent names, and big data have indeed a lot in common with concepts such as *data mining*, *business intelligence* or *visual analytics* to name just a few. But we should not forget that even though the technological industry is largely fashion-driven, its societal impacts are real, though maybe unevenly distributed. 
 
-*TODO: sub-chapter here on impacts on science, business, etc."
+It is beyond the scope of this thesis to consult all these impacts in detail (for such discussions see "promise and peril" or mayer2013big), though the picture of big data wouldn't be complete without touching on the mostly discussed topics as they influence scientific inference and knowledge-based decision making, the areas cartography always aimed to support. Mostly discussed topics are:
 
-or more topic-based structure? from promise and peril of BD (cite directly)
------------------------------------------------------
--- How to Make Sense of Big Data?
-     -- Data Correlation or Scientific Models?
-     -- How Should Theories be Crafted in an Age of Big Data?
-     -- Visualization as a Sense-Making Tool
-     -- Bias-Free Interpretation of Big Data?
-     -- Is More Actually Less?
-     -- Correlations, Causality and Strategic Decision-making
--- How Should Big Data Abuses be Addressed?
-     --Regulation, Contracts or Other Approaches?
+a) correlation vs causation or more broadly the need of theory vs purely data driven inference
+b) bias-free interpretation of big data
+c) how should big data abuses be addressed and emerging digital divides
 
 
-# Post-theory and hypothesis-less science & Correlation is enough?
+
+a) Scientific reflection on big data revolved mainly about if automating reasearch changes the definition of knowledge. The anticipated mindset changes voiced mayer2013big can be summarized as folows. Reduced need for sampling with accessibility of n=all datasets, loosened requirements for exacticude as minimizing sampling errors would leave room for more relaxed standard for measurement error. Most controversly, moving away from the search of causality is anticipated: "big data is about *what* not *why*." Multi factor correlation with large data enables us to make decision even if we do not understand the mechanism behind the relationsip. 
+
+...we can accept some messiness in return for scale.  Of course the data can’t be completely incorrect, but we’re willing to sacrifice a bit of accuracy in return for knowing the general trend. Big data transforms figures into something more probabilistic than precise.
+
+...clean taxonomies are being replaced by mechanisms that are messier but also eminently more flexible and adaptable to aworld that evolves and chages. (example flickr tags)
+
+Knowledge progressed through this hypothesis-driven trial and error. And it did so slowly, as our individual and collective biases clouded what hypotheses we developed, how we applied them, and thus what proxies we picked.
+
+No longer do we necessarily require a valid substantive hypothesis about a phenomenon to begin to understand our world. (taleb -- we never needed that)
+
+There is another difference, which is just starting to gain inrportance. Before big data, partly because of inadequate computing power, most correlational analysis using large data sets was limited to looking for linear relationships. In reality, of course, many relationships are far more complex. With more sophisticated analyses, we can identify non-linear relationships among data.
+
+
+b) Bigger Data are Not Always Better Data. Claims to Objectivity and Accuracy of science are often Misleading -- theres always need for some interpretation.
+
+c)  Just Because it is Accessible Doesn’t Make it Ethical. Limited Access to Big Data Creates New Digital Divides.
+- controll and accessibility to users own data - can be something like that forced to be made public domain?
+
+@mayer2013big
+
+IMPLICATIONS
+
+-- three types of bd companies: that have data, that have skills, and that have ideas -- over time the importance of data holder will increase
+-- subject area experts will not die out, but will have to accept results of bd correlations
+-- shift to data-driven decisions  (now many people base their decisions on a combination of facts, reflections and guesswork)
+-- individual may gain more power over their data and sell them (maybe through som intermediaries e.g. <https://mydex.org/>, <https://idcubed.org/>)
+
+RISKS
+
+-- penalties based on propensities (like minority report)
+-- strategies for privacy doesnt work in bd world:
+-- individual notice and consent -- done only for the original use of data, not unforseen secondary uses
+-- anonymizations -- bd facilitates re-identification from other sources (example of "anonymized" netflix user data -- users reidentified e.g. by comparing with imdb scores)
+-- big data predictions are hard to challenge -- no causation, though allow for more individual based predictions, rather than group victimization
+
+CONTROL
+
+-- responding to risks, more topics for lawyers -- data holder is responsible for uses of data no matter the consent
+
 
 @anderson2008end: "where massive amounts of data and applied mathematics replace every other tool that might be brought to bear ... Who knows why people do what they do? The point is they do, and we can track it and measure it with unprecedented fidelity. With enough data, the numbers speak for themselves."
 
@@ -228,6 +264,40 @@ data, the numbers speak for themselves’."
 -- big data - conservative project: 
 "The last point is that big data as a project is inher- ently conservative. By utilizing the numbers as they are given big data is stuck with what is rather than what should be."
 
+@swan2015philosophy
+-------------------
+
+Philosophy of information, concerns around:
+
+**Method**:
+-- possible fallacies (more is better, big data = smart data)
+-- is there still a need for hypothesis? Science could become theory-free without pre-specified hypothesis (and assumptions) guiding the research, or hyptheses generated or changed in progress of research. But could be too unguided and lead to nothing. See @pietsch2015aspects
+-- causality -- problems beyond direct causal relation of one cause producing one effect
+
+**Tools**:
+-- technoscience -- technology-driven science conducted in technological milieu
+-- lock-step evolution of science and technology, changing rapidly
+-- the focus is on the ongoing enabling capacity of phenomena, not their behaviour in one fixed situation (hypothesis-less pattern observations in a way?)
+
+**Concepts**
+-- **representation** -- big data have no inherent holistic form directly accessible to humans, always has to be accessed via representation that captures the underlying phenenomenon.
+-- repticity (representational authenticity) -- the degree to which the representation corresponds to the represented (onthology) as well as how to measure this correspondence (episthemology)
+
+Philosophy of big data:
+-- Kant: perception without conception is blind, and conception without perception is empty
+-- different kinds of blindness in big data: conceptual and perceptual
+-- Any mode of interacting with big data is representation and not necessarily reality.
+
+Big Data and complexity science:
+-- optimisitc: overreaching predictive mathematical frameworks for complex systems @west2013big
+-- pesimistic: map-territory modelling problem -- the reality gap is so big that data howerver big might not be relevant @siegfried2013big
+
+
+uprichard2013focus
+---------------------
+
+"If we are creating a mess by generating so many haystacks of big data that we are losing all the needles, then we need to figure out a different kind of way of doing things, as we cannot sew new cloth without any needles. Whatever else we make of the ‘big data’ hype, it cannot and must not be the path we take to answer all our big global problems. On the contrary, it is great for small questions, but may not so good for big social questions."
+
 
 --------------
 
@@ -243,6 +313,21 @@ data, the numbers speak for themselves’."
 
 @gandomi2015beyond – list of risks in bd-based predictive analytics: heterogenity, noise accumulation, spurious correlations, incidental endogeneity  -- Beyond the hype: Big data 
 concepts, methods, and analytics
+
+
+## on complex systems
+Somewhere behind that lies the idea that a whole is more than a sum of its parts, which is true particularly for systems that express *synergy* or *emergent behavior*. It is not clear if we can fittingly describe big data as such a system, though it is assumed that big data can help to gain understanding of such systems.
+
+west2013big
+------------
+
+Our traditional approaches to these problems (big global issues) are often qualitative and disjointed and lead to unintended consequences. To bring scientific rigor to the challenges of our time, we need to develop a deeper understanding of complexity itself.
+
+What makes a “complex system” so vexing is that its collective characteristics cannot easily be predicted from underlying components: the whole is greater than, and often significantly different from, the sum of its parts. A city is much more than its buildings and people. Our bodies are more than the totality of our cells. This quality, is called **emergent behavior**
+
+The trouble is, we don't have a unified, conceptual framework for addressing questions of complexity. We don't know what kind of data we need, nor how much, or what critical questions we should be asking. “Big data” without a “big theory” to go with it loses much of its potency and usefulness, potentially generating new unintended consequences.
+
+What are the underlying principles that transcend the extraordinary diversity and historical contingency and interconnectivity of financial markets, populations, ecosystems, war and conflict, pandemics and cancer? An overarching predictive, mathematical framework for complex systems would, in principle, incorporate the dynamics and organization of any complex system in a quantitative, computable framework.
 
 
 
