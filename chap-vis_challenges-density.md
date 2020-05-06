@@ -31,6 +31,10 @@ The visual problem posed by high density of point data is easy to imagine (for e
 
 # Congestions + Data reduction methods
 
+Why data reduction is necessary:
+- quote Taleb about crossing the street and lots of info
+- quote Dawkins on dimensionality reduction
+
 ## Avoiding aggregation
 
 Visual conflicts of diplayed symbology is nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigaing the issue without the need to aggragate. 

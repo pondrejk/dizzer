@@ -3,7 +3,6 @@
 # Understanding spatial big data
 # Making sense of spatial big data 
 
-# TODO chapter audit -- chap-cartograpic -- split and merge here, also chap-impacts
 
 *Technology is the answer, but what was the question?* Cedric Price
 
@@ -211,6 +210,27 @@ addressed by social hierarchies (orgs like wikipedia, or communities like in ope
 assessment and synthesis, which is the only effective
 way of achieving the velocity advantages of big data
 withoutsacrificingvolume
+
+
+# BD discussions from bollier2010promise
+**Visualization as a Sense-Making Tool**
+-- Stensrud agreed that visualization of Big Data gives you a way “to find things that you had no theory about and no statistical models to identify, but with visualization it jumps right out at you and says, ‘This is bizarre.’ ”
+-- Or as Lise Getoor, Associate Professor in the Department of Computer Science at the University of Maryland, articulated, visualizations allows researchers to “ ‘explore the space of models’ in more expansive ways.  They can combine large data sets with statistical analysis and new types of computational resources to use various form functions in a systematic way and explore a wider space.”
+-- Kim Taipale of the Center for Advanced Studies in Science and
+Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
+-- "“You need to make sure the pattern that you think is there, is actually there,” said Andersen.  “Otherwise, the problem gets worse the bigger your data is—and we don’t have any idea how to handle that in visualization because there is a very, very thin layer of truth on the data, because of tricks of the eye about whether what you see is actually there.  The only way that we can solve this problem right now is to protect ourselves with a model.”"
+--If you’re trying to predict the weather in New England from looking at the weather patterns in California, you’ll have a problem.  That’s why you need the whole system.  You’re not going to need every molecule in that system; you might be able to deal with every weather station, or some degree of aggregation that’s going to make the analysis a lot easier. Hal Varian, Chief Economist at Google
+-- Bill Stensrud took issue with this approach as a general rule:  “If you know what questions you’re asking of the data, you may be able to work with a 2 percent sample of the whole data set.  But if you don’t know what questions you’re asking, reducing it down to 2 percent means that you discard all the noise that could be important information.  What you really want to be doing is looking at the whole data set in ways that tell you things and answers questions that you’re not asking.”
+-- For Joi Ito, the Chief Executive Officer of Creative Commons, the
+search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers.
+
+When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
+
+“Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
+
+-- Many innovative uses of Big Data could be called “now-casting,”
+said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
+--  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
 
 
 # General questions
