@@ -247,6 +247,9 @@ The trouble is, we don't have a unified, conceptual framework for addressing que
 
 What are the underlying principles that transcend the extraordinary diversity and historical contingency and interconnectivity of financial markets, populations, ecosystems, war and conflict, pandemics and cancer? An overarching predictive, mathematical framework for complex systems would, in principle, incorporate the dynamics and organization of any complex system in a quantitative, computable framework.
 
+<https://arxiv.org/abs/1308.1479> @fan2014challenges
+"In fact, the arrival of Big Data should compel scientists to cope with the fact that nature itself is the ultimate Big Data database. Old style science coped with nature’s complexities by seeking the underlying simplicities in the sparse data acquired by experiments. But Big Data forces scientists to confront the entire repertoire of nature’s nuances and all their complexities."
+
 Oslí mostik:
 Rapidly changing lock-step evolution of science and technology, changing rapidly, though there is a strong reflection and self-correcting mechanisms inherent to science (cite: <Troubling Trends in Machine Learning Scholarship>,  <http://approximatelycorrect.com/2018/07/10/troubling-trends-in-machine-learning-scholarship/?fbclid=IwAR00qG7TEckENxdttNrijNXK-Xj7ldfon8zarBhE6W3z-QQfHSf7kkd8qqM>, <Warning Signs in Experimental Design and Interpretation> <http://norvig.com/experiment-design.html?fbclid=IwAR2qLYeQ2iY5gwMr1WfzMGA-3w2UbDTF3r6PmGqDhyvwiw7FzvqkpByROIw>). In broader society we also need a reflection and reaction to emerging issues that big data help to fuel.
 
