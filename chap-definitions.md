@@ -184,7 +184,7 @@ The potential role of cartography will be examined in more detail later in the t
 It is not within the scope of this thesis (and within the author's powers) to consider all directions and areas where cartography and geoinformation science may be impacted by big data. The whole project of GIS might need to to be rethinked again, but this is not unprecedented. rom desktop GIS (1960s) to the Web GIS (1980s), and the distributed GIS (1990s), to the cloud GIS (2010s), it is well known that the development of GIS is greatly influenced by computer science technology (@yang2010geospatial). Another turn in GIS might come as a response to big data.
 
 
-## 1.4 Assessing impacts and opportunities rather than seeking definitions
+## 1.4 Assessing impacts, threats and opportunities rather than seeking definitions
 
 Often times big data are described indirectly by the impacts (real or imagined) they have on the society. For some authors, the debate on the definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that became part of the notorios hype cycle ^[Hype cycles describe how expectations from emerging technologies evolve with time. Stages in the cycle are:  *innovation trigger*, *peak of inflated expectations*, *trough of disillusionment*, *slope of enlightenment*, and *plateau of productivity*. The expected duration of cycle differs per technology, and some technologies may never reach productivity in the foreseeable future. Hype cycles are a construction of the Gartner consultancy that issues regular reports, see for example @gartner2018]. Many ideas in the IT industry exist under changing or concurrent names, and big data have indeed a lot in common with concepts such as *data mining*, *business intelligence* or *visual analytics* to name just a few. But we should not forget that even though the technological industry is largely fashion-driven, its societal impacts are real, though maybe unevenly distributed. 
 
@@ -211,61 +211,17 @@ The proposition of theory-free science using powerfull exploratory potential of 
           
 Apart from possible fallacies (like more is better, big data = smart data), there is a philosophical concern of *representational authenticity* (@swan2015philosophy) -- the degree to which the representation (in this case big data) corresponds to the represented (onthology) as well as how to measure this correspondence (episthemology). Any mode of interacting with big data is representation and not necessarily reality, and the reality gap may be so big that data howerver big might not be relevant (@siegfried2013big). In words of uprichard2013focus: "If we are creating a mess by generating so many haystacks of big data that we are losing all the needles, then we need to figure out a different kind of way of doing things, as we cannot sew new cloth without any needles. Whatever else we make of the ‘big data’ hype, it cannot and must not be the path we take to answer all our big global problems. On the contrary, it is great for small questions, but may not so good for big social questions."
 
-The critcal accounts however do not negate big data as a tool, rather they dismiss the shallow reflection of its usage. As a good outcome, such discussions can strip bare our conceptual gaps and turn our attention to the right direction. Big data can then be aimed to support an optimistic goal, for example in view of @west2013big: *overreaching predictive mathematical frameworks for complex systems*. Big global issues in ecology, pandemics or financial markets tend to show signs of a complex system^[Complex system's collective characteristics cannot easily be predicted from underlying components: the whole is greater than, and often significantly different from, the sum of its parts. A city is much more than its buildings and people. Our bodies are more than the totality of our cells. This quality, is called *emergent behavior*. @west2013big]. "The trouble is, we don't have a unified, conceptual framework for addressing questions of complexity. We don't know what kind of data we need, nor how much, or what critical questions we should be asking. 'Big data' without a 'big theory' to go with it loses much of its potency and usefulness, potentially generating new unintended consequences" (@west2013big).
-One final quote on optimistic agenda: "In fact, the arrival of Big Data should compel scientists to cope with the fact that nature itself is the ultimate Big Data database. Old style science coped with nature’s complexities by seeking the underlying simplicities in the sparse data acquired by experiments. But Big Data forces scientists to confront the entire repertoire of nature’s nuances and all their complexities" (@fan2014challenges).
+The critcal accounts however do not negate big data as a tool, rather they dismiss the shallow reflection of its usage. As a good outcome, such discussions can strip bare our conceptual gaps and turn our attention to the right direction. Big data can then be aimed to support an optimistic goal, for example in view of @west2013big: *overreaching predictive mathematical frameworks for complex systems*. Big global issues in ecology, pandemics or financial markets tend to show signs of a complex system^[Complex system's collective characteristics cannot easily be predicted from underlying components: the whole is greater than, and often significantly different from, the sum of its parts. A city is much more than its buildings and people. Our bodies are more than the totality of our cells. This quality, is called *emergent behavior*. @west2013big]. "The trouble is, we don't have a unified, conceptual framework for addressing questions of complexity. We don't know what kind of data we need, nor how much, or what critical questions we should be asking. 'Big data' without a 'big theory' to go with it loses much of its potency and usefulness, potentially generating new unintended consequences" (@west2013big). One final quote on optimistic agenda: "[...] the arrival of Big Data should compel scientists to cope with the fact that nature itself is the ultimate Big Data database. Old style science coped with nature’s complexities by seeking the underlying simplicities in the sparse data acquired by experiments. But Big Data forces scientists to confront the entire repertoire of nature’s nuances and all their complexities" (@fan2014challenges).
 
-The afrmentioned discussions point to lock-step evolution of science and technology, and most importanlty, to strong reflection and self-correcting mechanisms inherent to science that usually set in motion when innovation is accompanied with some troubling signsi^[For other examples of such reflections see @lipton2018troubling, @norvig2012warning]. In broader society we also need such a reflection new realities created by big data.
+The afrmentioned discussions point to lock-step evolution of science and technology, and most importanlty, to strong reflection and self-correcting mechanisms inherent to science that usually set in motion when innovation is accompanied with some troubling signals^[For other examples of such reflections see @lipton2018troubling, @norvig2012warning]. In broader society we also need such a reflection of new realities created by big data and the accompanying ethical issues.
 
+First set of issues revolves around collecting data when users have no choice to opt out and do not give explicit or informed consent. Even with informed consent, there is no visibility into the secondary uses that the collected date will cater to, to what additional sources it will be combine with, what analytical engines will be applied, and what third parties will the data be resold to. At the time of writing, the legislation to address these issues is catching up^[Legislation varies around the world, for European Union, the General Data Protection Regulation (GDPR), which governs how personal data of individuals in the EU may be processed and transferred came into being in 2018. For overview of digital privacy rules see <https://europa.eu/youreurope/citizens/consumers/internet-telecoms/data-protection-online-privacy/index_en.htm>. ], but it is unsurprising that it lags behind the new kinds of abuse stemming from the extending scope of personal information that can be collected.
 
-# Ethic/Legal/... Remedies. Towards big data literacy (data-awareness). New digital divides.
+Anonnymization may no longer work as combining digital traces from several sources allows for re-identification of an individual. Anoter topic is the ability of user to access the data collected about him, either to use it for his own self-analysis, or to issue its removal (tough how to verify this has actually happened?). In an alternative vision of big data economics, individuals may gain power to sell their data themselves of through intermediaries and sell them.
 
--- abuse at amazon -- @head2014worse
+Penalties based on propensities -- that is a short description of a concern that with increased surveilience and predictive analytics there will be a possibility to issue preventive penalties for offences that did not happen yet solely based on individual's observed tendencies (similarly to the movie the Minority report) (@mayer2013big). It is a fact that the technical infrastructure for close personal scrutiny and behaviour enforcing has been already implemented at the scale of a plant (@head2014worse) as well as country (most (in)famously in China). At the time of this writing, the global pandemics of COVID-19 provided consent for public scrutiny at unprecedented levels, and it is yet to see for us how things will evolve afterwards.
 
--- According to Jacques Bughin of McKinsey and Company, the real
-insight is that Big Data has the potential to discover new laws of macrobehaviors totally overlooked with the paucity of data of the past. Although social influence is and remains large, a new type of market power behavior has emerged, one that is not necessarily firm driven, but consumer driven.
-
-
-@wilson2017big: 
-    Second, the comparison with big data in business intelligence highlighted the ethical issues around collecting data when users have no choice to opt out and do not give explicit or informed consent; issues around who business intelligence algorithms such as recommender systems are intended to benefit; the question of whether recommender systems are reliable (and if they are not, might they end up recommending behavior that is in fact detrimental to students); and questions of whether the digital trace data used in Learning Analytics are actually traces of learning at all.
-
-c)  Just Because it is Accessible Doesn’t Make it Ethical. Limited Access to Big Data Creates New Digital Divides.
-- controll and accessibility to users own data - can be something like that forced to be made public domain?
-
-- TODO ohen je dobry sluha ale zly pan - zakomponovat sledovanie obyvatelstva v Cine a covidove opatrenia
-- fake news, propaganda, vsetko enablovane masivnym online zberom dat
-
-@mayer2013big
-
-IMPLICATIONS
-
--- three types of bd companies: that have data, that have skills, and that have ideas -- over time the importance of data holder will increase
--- subject area experts will not die out, but will have to accept results of bd correlations
--- shift to data-driven decisions  (now many people base their decisions on a combination of facts, reflections and guesswork)
--- individual may gain more power over their data and sell them (maybe through som intermediaries e.g. <https://mydex.org/>, <https://idcubed.org/>)
-
-RISKS
-
--- penalties based on propensities (like minority report)
--- strategies for privacy doesnt work in bd world:
--- individual notice and consent -- done only for the original use of data, not unforseen secondary uses
--- anonymizations -- bd facilitates re-identification from other sources (example of "anonymized" netflix user data -- users reidentified e.g. by comparing with imdb scores)
--- big data predictions are hard to challenge -- no causation, though allow for more individual based predictions, rather than group victimization
-
-CONTROL
-
--- responding to risks, more topics for lawyers -- data holder is responsible for uses of data no matter the consent
-from presentations at information+ 2016
-----------
-Catherine D’Ignazio 
-Creative Data Literacy: Bridging the Gap Between the Data Haves and Have-nots
-
-@wilmott2016small 
----------------
-
-Communities are swimming in data—demographic data, participation data, government data, social media data—but very few understand what to do with it. Though governments and foundations are creating open data portals and corporations are creating APIs, these rarely focus on use, usability, building community or creating impact. So although there is an explosion of data, there is a significant lag in data literacy at the scale of communities and individuals. This creates a situation of data-haves and have-nots. But there are emerging technocultural practices that combine participation, creativity, and context to connect data to everyday life. These include citizen science, data journalism, novel public engagement in government processes, and participatory data art. This talk surveys these practices both lovingly and critically, including their premises, aspirations and the challenges to creating citizens that are truly empowered with data.
-
-
-#Here be some summary of the chapter, something crisp on what is possibly timeless on these piles
+Social media has created a new platform that apart from all good created unexpected avenues for illicit actions, sometimes at a scale that can shake up a state. Fake news, troll farms, data breaches used to manipulated election results are all examples of the weaponization of the platform. Data literacy is then one of the prerequisites for defence against malicions effects on one side and to make the most of the data availability on the other. In words of @d2017creative: "[...] although there is an explosion of data, there is a significant lag in data literacy at the scale of communities and individuals. This creates a situation of data-haves and have-nots. But there are emerging technocultural practices that combine participation, creativity, and context to connect data to everyday life. These include citizen science, data journalism, novel public engagement in government processes, and participatory data art." 
 
 Looking at the peak BD excitement around 2014 from the perspective, the hype now thransfered to deep learning that gets inflated nowdays. Leaving the shiniest spotlight does not mean the end of existence, the item is just deflated to its just place in the state of things. BD and ML are can not really function without each other, processing algorithm quality does not withstand poor data quality and same goes for visual presetnation.
 
