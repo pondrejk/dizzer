@@ -35,10 +35,12 @@ Compared to stations and agents, events with episodic presence seem to be the le
 
 The gaps in data collection and the absence of abrupt changes hints how to optimize data storage from such sources. Even though storage optimization techniques are not within the scope of this thesis, they can pose a certain lesson for cartographic visual analysis. For cartographers, the utilized resource is a space within the map plane, that can only hold a certain amount of graphic elements to remain useful. The graphic fill reduction (or better optimizaiton) is an aspect that can enhance the knowledge discovery at the end of the visualisation pipeline (more about it in the practical part of thesis on aggregation).
 
+TODO -- revisit when case studies are done and connect it better with the actual data used
+
 
 # Spatio-temporal knowledge discovery
 
-People engaged in data-related practices are mostly motivated by an expectation that their work can help to provide some 'insight' into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. One particular kind of such insight seeking is hidden behind the term spatio-temporal knowledge discovery.
+People engaged in data-related practices are mostly motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. One particular kind of such insight seeking is hidden behind the term spatio-temporal knowledge discovery.
 
 The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discovery* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). Computation is seen as an extension of human force rather than its replacement and the aim is to marry the best of both worlds. This is reconciled with the (current) capabilities of IT as there are tasks that are very easy for computers and hard for humans (e.g. calculate "odmocnina z divne cislo") and vice-versa (e.g. recognize a cat on a picture).
 
@@ -56,10 +58,10 @@ On the general level we can query *spatial* and *temporal* properties for all th
 Major classes of spatial realtions are *set-oriented* (union, difference, intersecton, complement, etc.), *topological* (connectivity, interior, exterior, boundary relationships), *directional* (cardinal, object-centered, ego-centered directons) and *metric* (e.g. Euclidean or network-based distance) relations (@worboys2004gis). 
 
 1. Spatial relations are at the very basis of map-reading for orientation clues, but are also vital for interpreting thematic information. 
-We check these relations between the dominant topics (e.g. weather maps of precipitation and pressure zones) or between the topic and the topographical base (). 
-Point spatial data of large extent complicate obsrvng such relations, and we rarely as about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. Naturally, the data source can dictate some spatial relationships (such as cars being on the roads). 
+We check these relations between the dominant topics (e.g. weather maps of precipitation and pressure zones) or between the topic and the topographical base (TODO right term). 
+Point spatial data of large extent complicate obsrvng such relations, and we rarely ask about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. Naturally, the data source can dictate some spatial relationships (such as cars being on the roads). 
 
-As we are dealing mosty with point data clouds in two dimensional space it is worth to say that topological relations between such sets are more complex than with polygonal features and can be elaborated into 16 actual relations (9 if reduced to spatial regions relevant in GIS .. see table 2 in https://www.researchgate.net/publication/276959705_Point_Set_Topological_Spatial_Relations note -- could be drawn?) in two dimensional space (@egenhofer1991point).
+As we are dealing mosty with point data clouds in two dimensional space it is worth to say that topological relations between such sets are more complex than with polygonal features and can be elaborated into 16 actual relations (9 if reduced to spatial regions relevant in GIS .. see table 2 in https://www.researchgate.net/publication/276959705_Point_Set_Topological_Spatial_Relations note -- could be drawn?) in two dimensional space (@egenhofer1991point). TODO -- translate table 2 into human language 
 
 Geostatistics as an extension of the basic spatial relations more fit to point clouds (what is the intersection of two point clouds?). TODO elaborate more. Point: geostatistical analysis could inform the visualisation-related decisions e.g. when doing aggregaiton.
 ^ Spatial metrics that look at the dataset in isolation -- its spatial properties
@@ -73,9 +75,9 @@ On conept hieraries -- hierarchies can exist in spatial (state > province > disc
 
 On space-time cubes -- is a useful concept for imagining the relations between spatial, temporal and non-spatial dimensions (@guo2006visualization). Even though our spatial imagination is limited by 3-dimensionality of our everyday experience, data cubes allows us to assing visual clue to otherwise abstract database queries such as slicing and dicing. On the other hand intracting with the cube itself feels not user friendly, so intractive UIs typically use maps as slices of the cube -- so the spatial metaphor is always coherent timewise (true? maybe traces are an exception). 
 
-Unused potential of s-t cubes becomes clear when considered together with searching for cyclical time patterns in spatial subsets (collumns of a cube) or when spatially correlating two phenomena with time delay (comparing slices).
+Unused potential of s-t cubes becomes clear when considered together with searching for cyclical time patterns in spatial subsets (collumns of a cube) or when spatially correlating two phenomena with time delay (comparing slices). (TODO some picture of cubes to make it more clear)
 
-Association rule mining -- searning for conditions ocurring together frequently: x => y (s%,c%). x,y - conditions, s,c -- levels of support and confidence. parl > school (4%, 55%) -- 55 percent of parks are near schools, for 2% of items in the database (@han2011data).
+**Association rule mining**-- searning for conditions ocurring together frequently: x => y (s%,c%). x,y - conditions, s,c -- levels of support and confidence. parl > school (4%, 55%) -- 55 percent of parks are near schools, for 2% of items in the database (@han2011data).
 Space time association rules -- describing how objects move among a set of regions over time (@verhein2008mining) -- rules for identifying high-traffic regions etc.
 
 Sequence mining -- seraching for patterns in time and other sequences. Similar to association rules, searching for events occuring frequently together: 3 parameters: *duration* of time sequence, *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio).
@@ -88,7 +90,7 @@ Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch
 
 TODO: Image -- event/states (from galton -- general image, verbal description for with specific examples. Some mappable example?)
 
-In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* cauation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. Example -- fish, TODO make up your own... 
+In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* cauation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. Example -- fish, TODO make up your own from urban environment
 
 @el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attain some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the cause reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay. (TODO: Example, fish, signall, make up something). For @bleisch2014mining spatio-temporal collocation is a requirement for causation to occur: "In order for one spatial event to cause another, those events must share at least one point in space and time. Similarly, a state can only allow causation of events in its spatiotemporal vicinity". 
 
