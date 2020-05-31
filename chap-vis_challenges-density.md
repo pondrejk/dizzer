@@ -349,3 +349,17 @@ Strategies:
 
 
 # Case Study: Urban recommendation system
+
+notes:
+
+-- sdf icons required for recolorable icons,
+notes: https://github.com/mapbox/mapbox-gl-style-spec/issues/97
+https://halisavakis.com/my-take-on-shaders-ui-sdf-icon-shader/
+https://habr.com/en/post/215905/
+https://github.com/elastic/kibana/issues/39715
+
+https://weekly-geekly.github.io/articles/215905/index.html
+
+- nakoniec som nepouzil -- normalne prefarbene svg
+------
+- aleterntativa -- iba high wedge pre vsetky kategorie ale zmeny opacity...
