@@ -127,7 +127,6 @@ The atlas maps mentioned above surved for presentation of knowledge, were confir
 
 User is left with a spiffy-looking front-end to a database, with no sense of narrative or framework for interpretation. Simmilar situation occuring in business analytic dashboards proliferating in enterprises that fail to make sense to users, or worse simulate insight with vaguely understood and hardly interpretable metrics.
 
-Consither this somewhrere <http://norvig.com/experiment-design.html>
 
 Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces with some hinting, notifying which findings make sense and which not. 
 Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data.
@@ -161,6 +160,19 @@ Problematizing UX research, problems of cognitive testing (verification crisis i
 
 5. What is entirely specific and unique in map design apropriating the above inspirations?
 
+
+# Collaboration in Visual Analytics
+
+Research on interactive maps and visual analytics far too often omits the social aspects of creating analytic applicaions, given that collaboration between diverse actors is often necessary for successfully designing such applicatons and furthermore these apps are often aimed to foster cross-disciplinary collaboration. Theoretical accont of design process seem to assume it as a conversation of a single, somewhat mythical, cartographer (or full-stack designer-developer depening on field) with no less mysterious averaged user persona. No doubt that single-person projects do exist and generalists deserve respect for them, though for larger projects, cartographer becomes a member of a larger team that creates a whole new reality for the production process.
+
+papers exploring the topic
+@heer2008design
+----
+-- todo: information visualisation reference model -- just in text, stress the collab points in transformation phases (data transformations, visual mappings, and view transformations)
+-- design considerations for collaborative va-- table 1 -- put to appendix?
+
+@walny2019data
+-- TODO stages of dataviz picture, challenges, rationale
 
 # Recent objections to geospatial knowledge discovery
 
