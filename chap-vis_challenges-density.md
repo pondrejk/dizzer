@@ -359,6 +359,7 @@ https://habr.com/en/post/215905/
 https://github.com/elastic/kibana/issues/39715
 
 https://github.com/mapbox/mapbox-gl-js/issues/1817#issuecomment-497446984 (workaroud to enable coloring by editing the sprite's json)
+-- sprite editing via api
 
 https://weekly-geekly.github.io/articles/215905/index.html
 
