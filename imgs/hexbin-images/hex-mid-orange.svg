@@ -18,11 +18,11 @@
    viewBox="0 0 30.2891 26.2305"
    enable-background="new 0 0 30.2891 26.2305"
    xml:space="preserve"
-   sodipodi:docname="hex-mid.svg"
+   sodipodi:docname="hex-mid-orange.svg"
    inkscape:version="0.92.4 (unknown)"><metadata
    id="metadata244"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
    id="defs242" /><sodipodi:namedview
    pagecolor="#ffffff"
    bordercolor="#666666"
@@ -37,8 +37,8 @@
    id="namedview240"
    showgrid="false"
    inkscape:zoom="25.447811"
-   inkscape:cx="12.960434"
-   inkscape:cy="13.569644"
+   inkscape:cx="4.2956416"
+   inkscape:cy="13.491052"
    inkscape:window-x="0"
    inkscape:window-y="27"
    inkscape:window-maximized="1"
@@ -513,7 +513,7 @@
    fill="none" />
 
 <path
-   style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+   style="fill:#ff7f2a;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
    d="M 18.138308,18.275391 19.2905,26.063 l 3.292,-0.0625 1.6665,-2.729 z"
    id="path1094"
    inkscape:connector-curvature="0" /></svg>
