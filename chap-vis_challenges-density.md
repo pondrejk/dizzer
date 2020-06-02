@@ -354,11 +354,23 @@ notes:
 
 -- sdf icons required for recolorable icons,
 notes: https://github.com/mapbox/mapbox-gl-style-spec/issues/97
-https://halisavakis.com/my-take-on-shaders-ui-sdf-icon-shader/
+https://halisavakis.com/my-take-on-shaders-ui-sdf-icon-shader/ (creating in pdf)
 https://habr.com/en/post/215905/
 https://github.com/elastic/kibana/issues/39715
 
+https://github.com/mapbox/mapbox-gl-js/issues/1817#issuecomment-497446984 (workaroud to enable coloring by editing the sprite's json)
+
 https://weekly-geekly.github.io/articles/215905/index.html
+
+-- problems -- how to create, how to tell if it was created?
+-- how to upload -- studio doesn't support it
+-- only single-color icons
+
+-- pros: can define color dynamically
+-- can set halo
+-- solution add programmatically as one time import:
+https://stackoverflow.com/a/53998098
+
 
 - nakoniec som nepouzil -- normalne prefarbene svg
 ------
