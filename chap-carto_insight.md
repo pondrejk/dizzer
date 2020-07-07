@@ -40,7 +40,7 @@ TODO -- revisit when case studies are done and connect it better with the actual
 
 # Spatio-temporal knowledge discovery
 
-People engaged in data-related practices are mostly motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. One particular kind of such insight seeking is hidden behind the term spatio-temporal knowledge discovery.
+People engaged in data-related practices are mostly motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. One particular kind of such insight seeking is hidden behind the term spatio-temporal knowledge discovery. TODO -- connection to the next paragraph
 
 The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discovery* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). Computation is seen as an extension of human force rather than its replacement and the aim is to marry the best of both worlds. This is reconciled with the (current) capabilities of IT as there are tasks that are very easy for computers and hard for humans (e.g. calculate "odmocnina z divne cislo") and vice-versa (e.g. recognize a cat on a picture).
 
@@ -234,10 +234,16 @@ When you do that kind of analysis on, say, terrorist networks, you have to under
 said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
 --  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
 
+# Big data -- agenda for cartography TODO
+-- create appendices from agenda papers
+-- notes from paper
+
+# Collaboraton in practice 
+-- notes from papers TODO
+-- cartographers in multidisciplinary teams -- handoff event
 
 # General questions
 
-(notes on cartographic manifestos on Big Data)
 
 1. What inspiraton can interactive web cartography take from the heritage of pre-digital mapping? What was lost in transition to digital? Are there methods and practices from tradition that could be used but aren't (because cartographers usually aren't software developers, and software developers are usually unaware of old map stocks). Danger: the perceived mantinels of the new technologies limit us in imaginig what we could do (e.g. what visualisation possibilities are provided by APIs like Leaflet).
 
