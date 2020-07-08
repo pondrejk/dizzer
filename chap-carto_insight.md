@@ -242,6 +242,19 @@ said Varian. This term refers to the use of real-time data to describe contempor
 -- notes from papers TODO
 -- cartographers in multidisciplinary teams -- handoff event
 
+Research on interactive maps and visual analytics far too often omits the social aspects of creating analytic applicaions, given that collaboration between diverse actors is often necessary for successfully designing such applicatons and furthermore these apps are often aimed to foster cross-disciplinary collaboration. Theoretical accont of design process seem to assume it as a conversation of a single, somewhat mythical, cartographer (or full-stack designer-developer depening on field) with no less mysterious averaged user persona. No doubt that single-person projects do exist and generalists deserve respect for them, though for larger projects, cartographer becomes a member of a larger team that creates a whole new reality for the production process.
+ 
+ papers exploring the topic
+ @heer2008design
+ ----
+ -- todo: information visualisation reference model -- just in text, stress the collab points in transformation phases (data transformations, visual mappings, and view transformations)
+ -- design considerations for collaborative va-- table 1 -- put to appendix?
+ 
+ @walny2019data
+ -- TODO stages of dataviz picture, challenges, rationale
+ 
+
+
 # General questions
 
 
