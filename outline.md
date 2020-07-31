@@ -29,7 +29,15 @@ Dealing with velocity:
 - Case study - traffic trough the pandemic
 
 Future trajectories:
-- ml? mocking
-
+- testing, ml? mocking
 
 Discussion & Conclusion
+
+Appendices
+
+- Case study outlines:
+-- data sources and transformations
+-- app architecture (react redux mapbox)
+-- user interface design
+-- interesting findings 
+-- possible extensions

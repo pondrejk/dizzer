@@ -40,7 +40,7 @@ TODO -- revisit when case studies are done and connect it better with the actual
 
 # Spatio-temporal knowledge discovery
 
-People engaged in data-related practices are mostly motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. One particular kind of such insight seeking is hidden behind the term spatio-temporal knowledge discovery. TODO -- connection to the next paragraph
+People engaged in data-related practices are mostly motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. One particular kind of such insight seeking is called *spatio-temporal knowledge discovery*. TODO -- connection to the next paragraph
 
 The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discovery* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). Computation is seen as an extension of human force rather than its replacement and the aim is to marry the best of both worlds. This is reconciled with the (current) capabilities of IT as there are tasks that are very easy for computers and hard for humans (e.g. calculate "odmocnina z divne cislo") and vice-versa (e.g. recognize a cat on a picture).
 
