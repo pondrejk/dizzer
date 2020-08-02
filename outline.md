@@ -26,6 +26,7 @@ Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
 
 Dealing with velocity:
 - time depictions in cartography
+- an aside on UX, using interaction and feedback in ux controls
 - Case study - traffic trough the pandemic
 
 Future trajectories:

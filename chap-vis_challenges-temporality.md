@@ -131,7 +131,6 @@ during
 ............
   .......
 
-
 notes from pelekis2004literature 
 ---------------------------------
 
@@ -176,4 +175,15 @@ such as roads, rivers, and census tracts.
 peuquet1994s
 peuquet2002representations
 peuquet2008multi
+
+
+# Case Study: Pandemics traffic exploration
+
+## 1. data sources and transformations
+## 2. app architecture (react redux mapbox)
+## 3. user interface design
+## 4. interesting findings
+- what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
+## 5. possible extensions
+
 

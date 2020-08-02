@@ -174,6 +174,7 @@ Analytical tasks ivolving event data can be characterized at some combination of
 To support these tasks, event visualisation must, at a minimum, *illustrate spatial patterns*, and, if a temporal axis is present, *afford navigation or summariaztion through time*.
 
 - notes from hierarchical aggregation paper @elmqvist2010hierarchical
+On conept hiercharies -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations .. changes in level of hierarchical aggregation is reffered to as *roll-up* or *drill-down* (@elmqvist2010hierarchical).
 - inmems papaer -- interactive scalability for panning, zooming, brushing and linking.
 
 mulitple attributes

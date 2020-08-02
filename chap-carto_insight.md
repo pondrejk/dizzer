@@ -1,8 +1,8 @@
 Making sense of spatial big data 
 --------------------------------
 
-*Technology is the answer, but what was the question?* 
-Cedric Price
+> *Technology is the answer, but what was the question?* 
+> Cedric Price
 
 *This chapter looks more closely on the properties of data with point spatial reference that count for the majority of spatial big data. Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. We will also discuss some objections to the idea of insight generation (or rather of certain naive ways in which data is interpreted) and speculate on how cartographic practice could overcome such risks.*
 
@@ -42,10 +42,10 @@ In this section we will briefly discuss techniques for exploring spatio-temporal
 People engaged in data-related practices are motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. Such insight seeking is the crux of the concepts such as *data mining*, *spatio-temporal knowledge discovery* and *visual analytycs* that we will explore furhter.
 
 The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discovery* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). Computation is seen as an extension of human force rather than its replacement and the aim is to merry the best of both worlds. This is reconciled with the (current) capabilities of IT as there are tasks that are very easy to do for computers and very hard hard for humans (e.g. calculate square root of 567789898) and vice-versa (e.g. recognize a cat on a picture TODO -- maybe obsolete example). *Visual analytics*, the science of analytical reasoning supported by interactive visual interfaces (@thomas2005illuminating), then zooms in at the interaction frontier between human and computer.
-
+n
 Let us search the man-machine continuum in the field of digital cartography. Here, the human cognitive abilities are applied to seek patterns, explore spatial context or make decisions, while computational aspects include data management and processing. Now, the computation heavy algoritms like optimal route calculation already step in to unburden humans from some decision-making so the destinction is obviously getting more fluid (see the disucssion at the end of the chapter on how the continuum might evolve and how it could affect cartography). For now, just note that cartography operates as an interface at the human side.
 
-![**Fig.** Knowledge discovery as the best from both worlds (the actual wording could be different, for example @keim2008visual lists on the "machine" side: statistical analysis, data management, data mining, compression and filtering; on the "human" side: cognition, perception, visual intelligence, decision making theory, information design; and in the "middle": human-centered computing, semantics-base approaches, graphics and rendering, and information visulaisation). Knowledge disco is map reading with robot assistants.](imgs/imgs/man-machine-continuum.png)
+![**Fig.** Knowledge discovery as the best from both worlds (the actual wording could be different, for example @keim2008visual lists on the "machine" side: statistical analysis, data management, data mining, compression and filtering; on the "human" side: cognition, perception, visual intelligence, decision making theory, information design; and in the "middle": human-centered computing, semantics-base approaches, graphics and rendering, and information visulaisation). Knowledge disco is map reading with robot assistants.](imgs/man-machine-continuum.png)
 
 To develop further on the kinds of interaction with spatial data, we can explore the concept of *spatial* and *temporal* queries. On the general level we can search for spatial and temporal relations in all theree types of point objects mentioned above. In addintion, moving objects can genrate specific relations not innate to stations and events:
 
@@ -55,14 +55,26 @@ Point spatial data of large extent complicate obsrvng such relations, and we rar
 
 As we are dealing mosty with point data clouds in two dimensional space it is worth to say that topological relations between such sets are more complex than with polygonal features and can be elaborated into 16 actual relations (9 if reduced to spatial regions relevant in GIS .. see table 2 in https://www.researchgate.net/publication/276959705_Point_Set_Topological_Spatial_Relations note -- could be drawn?) in two dimensional space (@egenhofer1991point). TODO -- translate table 2 into human language 
 
-2. **Temporal relations** -- mrssure of coincidence, 13 possivle relations between two intervals (@allen1984towards -- note: make a picture). Linear conceptialization of time can be supported with cyclical and branching time (if-then scenarios). 
-Finding cyclic properties in dataset and comparing these cyclic properties via *periodic pattern mining*
+A and B are disjoint
+A and B touch
+A equals B
+A is inside of B or B contains A
+A is covered by B or B covers A
+A contains B or B is inside of A
+A covers B or B is covered by A
+A and B overlap with disjoint boundaries
+A and B overlap with intersecting boundaries
 
-3. **Moving objects** have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory) properties (@laube2007movement, andrienko2008basic). 
 
----
+2. **Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data colection of any entity can be either continous or discrete in time, it is therefore useful to distinguish between time point and interval when investigating temporal relations (see figures). Linear conceptialization of time can be supported with cyclical and branching time, there can be discrepances between the temporality of base map and the thematic overlay, or between the time interval of existence and representations. We'll untangle these complexities in chapter 5.
 
-On conept hiercharies -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations .. changes in level of hierarchical aggregation is reffered to as *roll-up* or *drill-down* (@elmqvist2010hierarchical). 
+![**Fig.** Temporal relations between time points. Adopted from @aigner2011visualization. ](imgs/time-relationships-1.png)
+![**Fig.** Temporal relations between time point and time interval. Adopted from @aigner2011visualization. ](imgs/time-relationships-2.png)
+![**Fig.** Temporal relations between two time intervals. Adopted from @aigner2011visualization. ](imgs/time-relationships-3.png)
+
+3. **Moving objects** have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). Use for individual navigation vs overall pattern search.
+
+Havig described the fundamental spatio-temporal relations in big data sets, we can turn towards some methods to uncover them. We'll start the tour with methods form the data mining side of the man-machine continuum, to eventually move to the map reading side.
 
 **Association rule mining**-- searning for conditions ocurring together frequently: x => y (s%,c%). x,y - conditions, s,c -- levels of support and confidence. parl > school (4%, 55%) -- 55 percent of parks are near schools, for 2% of items in the database (@han2011data).
 Space time association rules -- describing how objects move among a set of regions over time (@verhein2008mining) -- rules for identifying high-traffic regions etc.
