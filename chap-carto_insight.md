@@ -1,12 +1,10 @@
-# Cartoraphic insight 
-# Visual exploration 
-# Understanding spatial big data
-# Making sense of spatial big data 
+Making sense of spatial big data 
+--------------------------------
 
+*Technology is the answer, but what was the question?* 
+Cedric Price
 
-*Technology is the answer, but what was the question?* Cedric Price
-
-*This chapter will look more closely on the properties of data with point spatial reference that count for the majority of spatial big data. Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. We will also discuss some objections to the idea of insight generation (or rather of certain naive ways in which data is interpreted) and speculate on how cartographic practice could overcome such risks.*
+*This chapter looks more closely on the properties of data with point spatial reference that count for the majority of spatial big data. Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. We will also discuss some objections to the idea of insight generation (or rather of certain naive ways in which data is interpreted) and speculate on how cartographic practice could overcome such risks.*
 
 # Spatial big data classification: stations, events, and agents
 
@@ -37,45 +35,34 @@ The gaps in data collection and the absence of abrupt changes hints how to optim
 
 TODO -- revisit when case studies are done and connect it better with the actual data used
 
-
-# Spatio-temporal knowledge discovery
-
-People engaged in data-related practices are mostly motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. One particular kind of such insight seeking is called *spatio-temporal knowledge discovery*. TODO -- connection to the next paragraph
-
-The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discovery* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). Computation is seen as an extension of human force rather than its replacement and the aim is to marry the best of both worlds. This is reconciled with the (current) capabilities of IT as there are tasks that are very easy for computers and hard for humans (e.g. calculate "odmocnina z divne cislo") and vice-versa (e.g. recognize a cat on a picture).
-
-  map reading       --> knowledge discovery <--   data mining
-(human algorithms)                               (computation algorithms)
-
-Fig. best from both worlds (Wording can be different, for example @keim2008visual lists on the "machine" side: statistical analysis, data management, data mining, compression and filtering; on the "human" side: cognition, perception, visual intelligence, decision making theory, information design; and in the "middle": human-centered computing, semantics-base approaches, graphics and rendering, and information visulaisation). TODO: rethink the image 
-
-note.: map reading could be replaced with somethnig else (cognitive abilites), knowledge discovery could be visual analytics. Map reading I put there as a remainder of paper maps (still useful, no longer dominant). The gradient is about who does the work -- from the right interpretation is done by a human, from the left by algorithm (kinda). Knowledge disco is map reading with robot assistants.
+# Spatio-temporal knowledge discovery and visual analytics
 
 In this section we will briefly discuss techniques for exploring spatio-temporal data, with emphasis on practices that would benefit from enhanced cartographic visualisation.
 
-On the general level we can query *spatial* and *temporal* properties for all theree types of point objects mentioned above. In addintion, moving objects have specific set of properties.
+People engaged in data-related practices are motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. Such insight seeking is the crux of the concepts such as *data mining*, *spatio-temporal knowledge discovery* and *visual analytycs* that we will explore furhter.
 
-Major classes of spatial realtions are *set-oriented* (union, difference, intersecton, complement, etc.), *topological* (connectivity, interior, exterior, boundary relationships), *directional* (cardinal, object-centered, ego-centered directons) and *metric* (e.g. Euclidean or network-based distance) relations (@worboys2004gis). 
+The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discovery* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). Computation is seen as an extension of human force rather than its replacement and the aim is to merry the best of both worlds. This is reconciled with the (current) capabilities of IT as there are tasks that are very easy to do for computers and very hard hard for humans (e.g. calculate square root of 567789898) and vice-versa (e.g. recognize a cat on a picture TODO -- maybe obsolete example). *Visual analytics*, the science of analytical reasoning supported by interactive visual interfaces (@thomas2005illuminating), then zooms in at the interaction frontier between human and computer.
 
-1. Spatial relations are at the very basis of map-reading for orientation clues, but are also vital for interpreting thematic information. 
-We check these relations between the dominant topics (e.g. weather maps of precipitation and pressure zones) or between the topic and the topographical base (TODO right term). 
-Point spatial data of large extent complicate obsrvng such relations, and we rarely ask about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. Naturally, the data source can dictate some spatial relationships (such as cars being on the roads). 
+Let us search the man-machine continuum in the field of digital cartography. Here, the human cognitive abilities are applied to seek patterns, explore spatial context or make decisions, while computational aspects include data management and processing. Now, the computation heavy algoritms like optimal route calculation already step in to unburden humans from some decision-making so the destinction is obviously getting more fluid (see the disucssion at the end of the chapter on how the continuum might evolve and how it could affect cartography). For now, just note that cartography operates as an interface at the human side.
+
+![**Fig.** Knowledge discovery as the best from both worlds (the actual wording could be different, for example @keim2008visual lists on the "machine" side: statistical analysis, data management, data mining, compression and filtering; on the "human" side: cognition, perception, visual intelligence, decision making theory, information design; and in the "middle": human-centered computing, semantics-base approaches, graphics and rendering, and information visulaisation). Knowledge disco is map reading with robot assistants.](imgs/imgs/man-machine-continuum.png)
+
+To develop further on the kinds of interaction with spatial data, we can explore the concept of *spatial* and *temporal* queries. On the general level we can search for spatial and temporal relations in all theree types of point objects mentioned above. In addintion, moving objects can genrate specific relations not innate to stations and events:
+
+1. **Spatial relations** are at the very basis of map-reading for orientation clues, but are also vital for interpreting thematic information. We percieve these relations between the dominant themes (e.g. in weather maps of precipitation and atmospheric pressure zones) or between the theme and the topographical base map. The major classes of spatial realtions are: *set-oriented* (union, difference, intersecton, complement, etc.), *topological* (connectivity, interior, exterior, boundary relationships), *directional* (cardinal, object-centered, ego-centered directons) and *metric* (e.g. Euclidean or network-based distance) relations (@worboys2004gis). 
+
+Point spatial data of large extent complicate obsrvng such relations, and we rarely ask about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. The nature of some data sources can dictate some spatial relationships (such as vehicles being spatially bound the road network), but in many cases the density of point cloud obscures the base map and precludes reading of attribute variablity within the set.
 
 As we are dealing mosty with point data clouds in two dimensional space it is worth to say that topological relations between such sets are more complex than with polygonal features and can be elaborated into 16 actual relations (9 if reduced to spatial regions relevant in GIS .. see table 2 in https://www.researchgate.net/publication/276959705_Point_Set_Topological_Spatial_Relations note -- could be drawn?) in two dimensional space (@egenhofer1991point). TODO -- translate table 2 into human language 
 
-Geostatistics as an extension of the basic spatial relations more fit to point clouds (what is the intersection of two point clouds?). TODO elaborate more. Point: geostatistical analysis could inform the visualisation-related decisions e.g. when doing aggregaiton.
-^ Spatial metrics that look at the dataset in isolation -- its spatial properties
-
-2. Temporal relations -- mrssure of coincidence, 13 possivle relations between two intervals (@allen1984towards -- note: make a picture). Linear conceptialization of time can be supported with cyclical and branching time (if-then scenarios). 
+2. **Temporal relations** -- mrssure of coincidence, 13 possivle relations between two intervals (@allen1984towards -- note: make a picture). Linear conceptialization of time can be supported with cyclical and branching time (if-then scenarios). 
 Finding cyclic properties in dataset and comparing these cyclic properties via *periodic pattern mining*
 
-3. Moving objects have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory) properties (@laube2007movement, andrienko2008basic). 
+3. **Moving objects** have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory) properties (@laube2007movement, andrienko2008basic). 
 
-On conept hieraries -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations .. changes in level of hierarchical aggregation is reffered to as *roll-up* or *drill-down* (@elmqvist2010hierarchical). 
+---
 
-On space-time cubes -- is a useful concept for imagining the relations between spatial, temporal and non-spatial dimensions (@guo2006visualization). Even though our spatial imagination is limited by 3-dimensionality of our everyday experience, data cubes allows us to assing visual clue to otherwise abstract database queries such as slicing and dicing. On the other hand intracting with the cube itself feels not user friendly, so intractive UIs typically use maps as slices of the cube -- so the spatial metaphor is always coherent timewise (true? maybe traces are an exception). 
-
-Unused potential of s-t cubes becomes clear when considered together with searching for cyclical time patterns in spatial subsets (collumns of a cube) or when spatially correlating two phenomena with time delay (comparing slices). (TODO some picture of cubes to make it more clear)
+On conept hiercharies -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations .. changes in level of hierarchical aggregation is reffered to as *roll-up* or *drill-down* (@elmqvist2010hierarchical). 
 
 **Association rule mining**-- searning for conditions ocurring together frequently: x => y (s%,c%). x,y - conditions, s,c -- levels of support and confidence. parl > school (4%, 55%) -- 55 percent of parks are near schools, for 2% of items in the database (@han2011data).
 Space time association rules -- describing how objects move among a set of regions over time (@verhein2008mining) -- rules for identifying high-traffic regions etc.
@@ -114,6 +101,11 @@ TODO: adopt the sensemaking loop: The sense-making loop for Visual Analytics bas
 
 
 # The role of cartography
+
+### existing research agendas
+### challenges of medium transition -- alternation of rules from static age, explorative cartography -- less is more? general problem areas (end of chapter?)
+### on collaboration with other teac
+
 
 Cartography has a long tradition of making big data sets comprehensible for our visual minds. Beautiful and authoritative maps in school atlases explaining the formation of air masses affecting world's climate, or the positions of ocean streams have an air of definitiveness but were build upon a loads of messy data. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps was by no mans real-time but allowed for fine tunnning all aspects of a map (from the appropriate method to visualise the ...TODO insert topic... to making the street connections visually pleasing). Analog map making allowed for perfectionism.
 
@@ -276,6 +268,15 @@ What is the role of cartography if:
 
 1. It is not humans that make the decision (harrari, mayer-zukier)
 2. Beyond the rational naivety about the models (taleb) -- prediction is not a goal, unpredictable events... risk mgmt...
+
+Add 1:
+- If human is dropped out of the equation, will we need visual 
+- man has checking, and qa function
+- man can direct search to speed up computations (interface needed)
+- algorithms can have biases
+- at least a proven communication tool (to pass on the results of computation to human, tailored to human cognitive capabilites)
+
+- Add human cognition: not uniform (makes sense to look at otliers rather than the general populations, -- tailoring for elderly, disabled, visually impaired), evolves with media usage (some abilties strengthen, some weaken) 
 
 data mining --> machine learning --> automated actions
 -- no human interpretation, no need for insight? role of carto?
