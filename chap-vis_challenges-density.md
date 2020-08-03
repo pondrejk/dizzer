@@ -74,6 +74,10 @@ reasoning in order to discover patterns of interest.
 Other stuff to check:
 @janetzko2018pixel
 
+@keim2008visual -- original way to deal with display density --  get bigger screen (aka powerwall)
+-- also see fig3 Varying degree of pixel overlap depending on screen resolution
+-- basically a kind of cartogram solution
+
 ## Aggregation 
 
 !Todo -- isn't this denying the base property of BD (no aggregation?). No. It is visual aggregation at the end of the visualisation pipeline -- has many advantages: choosing the aggragation properties (not dictated by data provider), combinig data sources into aggragation ...

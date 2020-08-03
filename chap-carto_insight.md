@@ -82,31 +82,48 @@ x => y (s%,c%).
 
 Where:
 x,y -- conditions, together forming an *itemset*
-s,c -- levels of support and confidence. Suport and confidence are basic rule performance measures, support being the measure of how often the itemset occurs in the whole database and confidence being the proportion of x being a memeber of an itemset. 
+s,c -- levels of support and confidence. Suport and confidence are basic rule performance measures, support being the measure of how often the itemset occurs in the whole database and confidence being the proportion of x being a memeber of an itemset x => y. 
 
-For example: *park => school (4%, 55%)* meanins that 55 percent of parks are near schools, for 4% of items in the database (@han2011data). The measures of support and cofidence allow to set tresholds for significantly frequent coocurrence.
+For example: *park => school (4%, 55%)* means that 55 percent of parks are near schools, for 4% of items in the database (@han2011data). The measures of support and cofidence allow us to set tresholds for significantly frequent coocurrence.
 
-*Spatio-temporal association rules* extend associtation rules to describe how objects move among a set of regions over time (@verhein2008mining). Inocorporation of spatiality into assotiation rules takes form of a simple binary condition telling if the items coocurred in the same region or not.
+*Spatio-temporal association rules* extend associtation rules to describe how objects move among a set of regions over time (@verhein2008mining). Inocorporation of spatiality into assotiation rules takes form of a simple binary condition telling if the items coocurred in the same predefined sets of regions or not.
 
-*Sequence mining* is seraching for patterns in time and other sequences. Similarly to to association rules, we search for events occuring frequently together by considering three parameters: the *duration* of time a sequence, the *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio). These parameters allow us to turn the temporal relations between two items into binary parameter telling if the items coocurred (that is whent the time interval fits into the the event window). 
+*Sequence mining* is seraching for patterns in time and other sequences. Similarly to to association rules, we search for events occuring frequently together by considering three parameters: the *duration* of time a sequence, the *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio). These parameters allow us to turn the temporal relations between two items into binary parameter telling if the items coocurred (that is when the time interval fits into the the event window). 
 
 *Periodic pattern mining* is a type of sequence mining that searches for recurrent patterns in time sequences. Such patterns can be: *full periodic patterns*, *partial periodic patterns* (e.g. just on mondays), and *cyclic or periodic association rules* that associate events that occur periodically together (@han2011data).
 
-Considering the breadth of posible spatial and temporal relations described earlier, the conceptualization of spatial and temporal coocurrence in the association rules may seem rather simplistic. Basically it is reduced to a yes/no parameter. Moreover, moving from the level of individual database entities towards assessing relations between compound entities such as spatial point clusters seems tho be out of the scope of these methods. Of course, the way spatiality is inscribed into association rules could be made more sophisticated, though with inevitable implicatons for mining performance. With large datasets, mining even the simple rules forces us to consider performance. (maybe develop to say here simple visual comparison is cheaper, at least for clusters).
+Considering the breadth of posible spatial and temporal relations described earlier, the conceptualization of spatial and temporal coocurrence in the association rules may seem rather simplistic. Basically it is reduced to a yes/no parameter. Moreover, moving from the level of individual database entities towards assessing relations between compound entities such as spatial point clusters seems tho be out of the scope of these methods. Of course, the way spatiality is inscribed into association rules could be made more sophisticated, though with inevitable implicatons for mining performance. With large datasets, mining even the simple rules forces us to consider performance. (maybe develop to say here simple visual comparison is cheaper, at least for clusters). 
 
-In conceptual framework for finding *candidate* causal relationships in movement patterns @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described: *spatial*, *temporal*, and *causal*. While the first two are defined by the the smallest spatial and temporal units, causal granularity is given by the kinds of events observed. Spatial and tempral granularities can be easily reduced to "see the bigger picture" (by changing the spatial scale -- zooming out, or extending the range of observation), causal granularity is defined by the data collection design. As such, it affects mainly the inferences from the map rather the map reading tasks as such.
+At this point we can step back from mining algorithms to invite some human interpretation and to consider what conclusions we can actually draw from spatial and temporal co-ocurrence of events. The usual assumption is that such coocurrence can point to some form of causality. Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch2014mining distinguish between the trigger that apparently causes the event and the environmental conditions that have to be fulfilled for the effect to occur.
 
-Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch2014mining distinguish between the trigger that apparently causes the event and the environmental conditions that have to be fulfilled for the effect to occur. The onthological model for causation is then shown on figure:
+![**Fig** Ontological model of causation, adopted from @galton2012states](imgs/img-states-events.png)
 
-TODO: Image -- event/states (from galton -- general image, verbal description for with specific examples. Some mappable example?)
+In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* cauation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. TODO example
 
-In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* cauation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. Example -- fish, TODO make up your own from urban environment
+In conceptual framework for finding *candidate* causal relationships in movement patterns @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described: *spatial*, *temporal*, and *causal*. While the first two are defined by the the smallest spatial and temporal units, causal granularity is given by the kinds of events observed. Spatial and tempral granularities can be easily reduced to "see the bigger picture" (by changing the spatial scale, or extending the time range of observation), but causal granularity is more firmly defined by the data collection design. As such, it affects mainly the inferences from the map rather the map reading tasks as such. (čo som tymto myslel?)
 
 @el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attain some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the cause reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay. (TODO: Example, fish, signall, make up something). For @bleisch2014mining spatio-temporal collocation is a requirement for causation to occur: "In order for one spatial event to cause another, those events must share at least one point in space and time. Similarly, a state can only allow causation of events in its spatiotemporal vicinity". 
 
-TODO -- images, mapping apparent causation in space, time, both, or none
+TODO -- images, mapping apparent causation in space, time, both, or none. Fish movement, traffic jams, something from donn:w:ela meadows?
 
-Wheter we accept the effect delays as real or illusionary (caused by lack of causal granularity), finding the causal relationship can be an interesting program for cartography to support, some notes to develop furhter:
+Wheter we accept the effect delays as real or illusionary (caused by lack of causal granularity) might be more of an academic question, tracing down the potential causal link between start and end events can yield predictive potential even when the intermediary causal chain remains undiscovered. 
+
+Discussing the interpretation of spatiotemporal coocurence we have moved on the man-machine continuum towards the human end. At this point, visualisation becomes important as an interface between the user and the data.  One of the general models describing how knowledge discovery proceeds via inference and interaction a sense-making loop (fig).
+
+![**Fig** The sense-making loop for Visual Analytics, adopted from @van2005value. User can intercatively manipulate the visulaisation to gain understanding of both the data and the representation itself.](imgs/img-sense-making-loop.png)
+
+Visual analytics is a step-up from visualisaton as an alternative way of observing a database, towards making also the way of processing
+data and information transparent for an analytic discourse. Keim2008visual in their introductory paper say the goal of visual analytics is the creation of tools and techniques to enable people to:
+– Synthesize information and derive insight from massive, dynamic, ambigu-
+ous, and often conflicting data.
+– Detect the expected and discover the unexpected.
+– Provide timely, defensible, and understandable assessments.
+– Communicate assessment effectively for action.
+
+This is turly a long way from low-level search for coocurrences, though it is not clear how should these grand goals materialize in practice.Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Coginition, Human-Computer interaction) and idetnify a range of application and technical challenges. 
+
+To conclude this section, we can compare and possibly unite dm approaches with human interpretation...
+
 - finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
 - Another approach is in looking for some general similarities between two sets of shapshots (spatial patterns) -- if there is some similarity ocurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern -- how to search for delay in just a sub area?
 - Temporal but not spatial collocation -- is map a good tool for displaying this (rather a bar chart?)
@@ -114,14 +131,15 @@ Wheter we accept the effect delays as real or illusionary (caused by lack of cau
 - How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
 - overall, the ability of dynamic maps to find these collocations and link them to causation is to be assesd, but how? :)
 
-Here some technical description of spatiotemporal pattern mining **association rule mining**, (what are the defficiencies of encoding environment parameters to database compared to visual exploration). 
-
-Explain frequencies and per-event support and confidence?
-
 Here: more on circular and cummulative causation. (Is there anything maps can do here?).
 
-TODO: adopt the sensemaking loop: The sense-making loop for Visual Analytics based on the simple model ofvisualization by Wijk (@van2005value) (described in @keim2008visual) 
-
+TODO pros and cons of visual vs algorithmic pattern finding:
+alg:
+- hard to inscribe spatiality a and temporality, need to model coocurence beforehand, trial and error for changing the model
+- search algorithms performace heavy
+human:
+- ablity to easily gain and overview of clusters beyond individual database entities
+how to join alg + human?
 
 # The role of cartography
 
@@ -138,7 +156,6 @@ In other words, cartographer needs to design the map well, but also design it we
 
 The atlas maps mentioned above surved for presentation of knowledge, were confirmatory. Digital cartography allowed for exploratory cartography (or more precisely moved the exploratory part in the visualisation pipeline from before map creation to after, and from the map author to the map user). Visual analytics based on spatial data (definitions below) provide interfaces to process and visualise data. On the one hand it allows users to mine novel infomation, on the other hand it leaves him to create his own narration about, prone to owevhelming visual clutter, misinterpration, false correlations, lack of engagement and guidenance on where to start. Data manipulation interface, a window to the database is useful for those who know what questions they want to ask. Hypothesis formation support that these tools aim to provide is a property that is hard to measure (hard to prove it works, hard to compare which interface is better).
 
-*Visual analytics* is a science of data-driven reasoning facilitated by interactive visual interfaces to data management and analysis techniques (@thomas2005illuminating). Not just insight to data, also insight to how we process data (@keim2008visual).
 *VA for spatio-temporal data* includes interlinked techniques in interfaces with map as a central metaphor (@guo2006visualization)
 
 User is left with a spiffy-looking front-end to a database, with no sense of narrative or framework for interpretation. Simmilar situation occuring in business analytic dashboards proliferating in enterprises that fail to make sense to users, or worse simulate insight with vaguely understood and hardly interpretable metrics.
@@ -252,6 +269,7 @@ said Varian. This term refers to the use of real-time data to describe contempor
 # Big data -- agenda for cartography TODO
 -- create appendices from agenda papers
 -- notes from paper
+
 
 # Collaboraton in practice 
 -- notes from papers TODO
