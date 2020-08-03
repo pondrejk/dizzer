@@ -74,16 +74,27 @@ A and B overlap with intersecting boundaries
 
 3. **Moving objects** have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). Use for individual navigation vs overall pattern search.
 
-Havig described the fundamental spatio-temporal relations in big data sets, we can turn towards some methods to uncover them. We'll start the tour with methods form the data mining side of the man-machine continuum, to eventually move to the map reading side.
+Havig described the fundamental spatio-temporal relations in big data sets, we can turn towards some methods to uncover them. We'll start the tour with not at all exhaustive tour of methods form the data mining side of the man-machine continuum, to eventually move towards the map reading side.
 
-**Association rule mining**-- searning for conditions ocurring together frequently: x => y (s%,c%). x,y - conditions, s,c -- levels of support and confidence. parl > school (4%, 55%) -- 55 percent of parks are near schools, for 2% of items in the database (@han2011data).
-Space time association rules -- describing how objects move among a set of regions over time (@verhein2008mining) -- rules for identifying high-traffic regions etc.
+**Association rule mining** is searning in databases for conditions ocurring together frequently: 
 
-Sequence mining -- seraching for patterns in time and other sequences. Similar to association rules, searching for events occuring frequently together: 3 parameters: *duration* of time sequence, *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio).
+x => y (s%,c%). 
 
-Periodic pattern mining (type of sequence mining) searches for recurrent patterns, that include: *full periodic patterns*, *partial periodic p.* (e.g. just on mondays), *cyclic or periodic association rules* -- associate events that occur periodically together (@han2011data).
+Where:
+x,y -- conditions, together forming an *itemset*
+s,c -- levels of support and confidence. Suport and confidence are basic rule performance measures, support being the measure of how often the itemset occurs in the whole database and confidence being the proportion of x being a memeber of an itemset. 
 
-In conceptual framework for finding *candidate* causal relationships in movement pattern @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described: *spatial*, *temporal*, and *causal*. While the first two are defined by the the smallest spatial and temporal units, causal granularity is given by the kinds of events observed. Spatial and tempral granularities can be easily reduced to "see the bigger picture" (by changing the spatial scale -- zooming out, or extending the range of observation), causal granularity is defined by the data collection design. As such, it affects mainly the inferences from the map rather the map reading tasks as such.
+For example: *park => school (4%, 55%)* meanins that 55 percent of parks are near schools, for 4% of items in the database (@han2011data). The measures of support and cofidence allow to set tresholds for significantly frequent coocurrence.
+
+*Spatio-temporal association rules* extend associtation rules to describe how objects move among a set of regions over time (@verhein2008mining). Inocorporation of spatiality into assotiation rules takes form of a simple binary condition telling if the items coocurred in the same region or not.
+
+*Sequence mining* is seraching for patterns in time and other sequences. Similarly to to association rules, we search for events occuring frequently together by considering three parameters: the *duration* of time a sequence, the *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio). These parameters allow us to turn the temporal relations between two items into binary parameter telling if the items coocurred (that is whent the time interval fits into the the event window). 
+
+*Periodic pattern mining* is a type of sequence mining that searches for recurrent patterns in time sequences. Such patterns can be: *full periodic patterns*, *partial periodic patterns* (e.g. just on mondays), and *cyclic or periodic association rules* that associate events that occur periodically together (@han2011data).
+
+Considering the breadth of posible spatial and temporal relations described earlier, the conceptualization of spatial and temporal coocurrence in the association rules may seem rather simplistic. Basically it is reduced to a yes/no parameter. Moreover, moving from the level of individual database entities towards assessing relations between compound entities such as spatial point clusters seems tho be out of the scope of these methods. Of course, the way spatiality is inscribed into association rules could be made more sophisticated, though with inevitable implicatons for mining performance. With large datasets, mining even the simple rules forces us to consider performance. (maybe develop to say here simple visual comparison is cheaper, at least for clusters).
+
+In conceptual framework for finding *candidate* causal relationships in movement patterns @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described: *spatial*, *temporal*, and *causal*. While the first two are defined by the the smallest spatial and temporal units, causal granularity is given by the kinds of events observed. Spatial and tempral granularities can be easily reduced to "see the bigger picture" (by changing the spatial scale -- zooming out, or extending the range of observation), causal granularity is defined by the data collection design. As such, it affects mainly the inferences from the map rather the map reading tasks as such.
 
 Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch2014mining distinguish between the trigger that apparently causes the event and the environmental conditions that have to be fulfilled for the effect to occur. The onthological model for causation is then shown on figure:
 
