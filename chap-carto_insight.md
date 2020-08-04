@@ -272,22 +272,36 @@ said Varian. This term refers to the use of real-time data to describe contempor
 
 
 # Collaboraton in practice 
--- notes from papers TODO
--- cartographers in multidisciplinary teams -- handoff event
 
-Research on interactive maps and visual analytics far too often omits the social aspects of creating analytic applicaions, given that collaboration between diverse actors is often necessary for successfully designing such applicatons and furthermore these apps are often aimed to foster cross-disciplinary collaboration. Theoretical accont of design process seem to assume it as a conversation of a single, somewhat mythical, cartographer (or full-stack designer-developer depening on field) with no less mysterious averaged user persona. No doubt that single-person projects do exist and generalists deserve respect for them, though for larger projects, cartographer becomes a member of a larger team that creates a whole new reality for the production process.
+Having described the ontological models of causation ans sensemaking as well as visions for the future of cartographic researc, we can now take an aside to dwell a bit on the nitty-gritty realities of map making in practice. Practical aspects of the profession are often overlooked in literature, as well as the fact that cartographer often needs to operate within a greater team. The smoothness of collaboration within a team is then a determining factor of the team's productivity. 
+
+There is a (somewhat mythical) notion of “full-stack” visualization designer-developer capable of conducting the full broad range of tasks needed for a visulaisation project (@gray2012data). Though some such individuals do exist (possibly working on applications for PhD projects or small customers), it is clear that cartographer can take only so much of other roles (data analyst, UX designer, frontend developer, database administrator...) before getting on thin ice. Real-life visulaisation projects often include a range of team members or even teams with dissjoint skillsets. The question then arises on how to modularize the work. One possible model of decomosition is the information visualisation reference model (**Fig**).
+
+
+![**Fig** Information visualization reference model. Adopted from @heer2008design](imgs/infoviz-reference-model.png)
+
+Here the collaboration points lie at the transitions between the stages.
+@heer2008design
+
+Physical and temporal separation of teams and institutional and disciplinary divides lead to early-stage partitioning of tasks both in the *design* (data profilation, ideation, mockup creation and prototyping) and *development* (implementation, testing, deployment and maintenance) phase (@walny2019data). Such compartmentalizaton is not unique to dataviz projects, it could match any web development project.
+
+![**Fig** Stages of data visualization development process. Adopted from @walny2019data](imgs/stages-of-dataviz-development-process.png)
+
+@walny2019data formalize stages of data visualisation process based on experience with several assignments (Fig.). This is an itrative process where the division of labor gives rise to *handoff* events, when one team passes work products and requirements to the next team. Particularly the handoff between the design and development team is where issues can arise to affect the end result. Speaking from the postion of design team @walny2019data articulate several key challenges that affect the success of the handoff and in turn the smoothness of the whole project:
+
+
+
+
+
+
+-- notes from papers TODO
+
  
  papers exploring the topic
  @heer2008design
  ----
- -- todo: information visualisation reference model -- just in text, stress the collab points in transformation phases (data transformations, visual mappings, and view transformations)
  -- design considerations for collaborative va-- table 1 -- put to appendix?
  
- @walny2019data
- -- TODO stages of dataviz picture, challenges, rationale
- 
-
-
 # General questions
 
 
