@@ -270,7 +270,6 @@ said Varian. This term refers to the use of real-time data to describe contempor
 -- create appendices from agenda papers
 -- notes from paper
 
-
 # Collaboraton in practice 
 
 Having described the ontological models of causation ans sensemaking as well as visions for the future of cartographic researc, we can now take an aside to dwell a bit on the nitty-gritty realities of map making in practice. Practical aspects of the profession are often overlooked in literature, as well as the fact that cartographer often needs to operate within a greater team. The smoothness of collaboration within a team is then a determining factor of the team's productivity. 
@@ -289,19 +288,16 @@ Physical and temporal separation of teams and institutional and disciplinary div
 
 @walny2019data formalize stages of data visualisation process based on experience with several assignments (Fig.). This is an itrative process where the division of labor gives rise to *handoff* events, when one team passes work products and requirements to the next team. Particularly the handoff between the design and development team is where issues can arise to affect the end result. Speaking from the postion of design team @walny2019data articulate several key challenges that affect the success of the handoff and in turn the smoothness of the whole project:
 
+- Adapting to data changes -- changes in input data can have cascading effects throughout the stages of the process. Some breakages are inevitable, for example API alterations, and fixing them is a part of project maintenance. It is advisable to have data transformations automated as much as possible, it is likely there will be a need to reiterate them. In this sense, the scipts and the processing toolchain developed during the project can be more valuable to creators than its outputs.
+- Anticipating edge cases -- though this is incredibly hard for real-time data inputs, best effort should be made to at least forsee the application states resutling from the user intercations, such as filtering, changes of scale, etc. 
+- Understanding technical challenges -- knowledge of technical constraints helps to produce feasible design ideas. Development teams' constraints tend to differ form the design team, they include cross-browser compatibility, future code maintainablity. In some areas these can overlap e.g. in accessability considerations or performance optimization 
+- Articulating data-dependent interactions -- prototyping interactions such as linking and brushing using conventional graphic tools is challenging, not to speak about articulaiting of animations and transitions between views. (either learn to code, or await a tool to support this specific wireframing)
+- Communicating data mappings --  this is a concern when delivering static mockups for development team, the mapping between data and the interface controls may not be obvious, especially when the chomplexity of data does not allow to exemplify all possible views in mockups. Annotations within mockups are a way to mitigate this.
+- Preserving data mapping integrity across iterations -- tracking implementation adherence to the design, finding errors, as well as chcking if change requests from previous iterations got implemented is solely a matter of visual inspection and therefore prone to error. (this could be fixed by automated testing, though not always feasible for all projects, more for long-running projects/products)
+
+These challenges were formulated based on project experience with relatively static historical data inputs, which underlines why dynamic geovisualistaion of real-time data is hard: much of the advice would be impossible to follow (?). ...some conclusion to these practical issues
 
 
-
-
-
--- notes from papers TODO
-
- 
- papers exploring the topic
- @heer2008design
- ----
- -- design considerations for collaborative va-- table 1 -- put to appendix?
- 
 # General questions
 
 
