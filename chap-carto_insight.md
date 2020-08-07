@@ -1,12 +1,12 @@
-Making sense of spatial big data 
---------------------------------
+# 2 Making sense of spatial big data 
 
 > *Technology is the answer, but what was the question?* 
+
 > Cedric Price
 
 *This chapter looks more closely on the properties of data with point spatial reference that count for the majority of spatial big data. Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. We will also discuss some objections to the idea of insight generation (or rather of certain naive ways in which data is interpreted) and speculate on how cartographic practice could overcome such risks.*
 
-# Spatial big data classification: stations, events, and agents
+## 2.1 Spatial big data classification: stations, events, and agents
 
 The vast majority of what is presently understood as spatial big data has point spatial reference. This prevalence comes naturally if we realize that the "data point" location is described basically as a coordinate pair -- two digits that can be easily stored in standard database systems without the need to observe topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production. For this reason, and due to the scope limits of this thesis, we will almost exclusively focus on visualisation issues related to point data^[We'll use the term *point data* as a shorthand for "data with point spatial reference".].
 
@@ -22,10 +22,13 @@ Furthermore, the spatial extent of the observed area and hence the scale of the 
 
 ![**Fig.** Three types of point spatial objects in a timespace cube. Stations, actors and events generate diffierent atribute histories.](imgs/img-cube.png)
 
-         existnece (records of spatial and temporal reference) | attribute collection      | location  
-station  continuous                                            | continuous or discrete    | static
-agent    continuous or discrete (can reappear)                 | continuous or discrette   | dynamic
-event    discrete                                              | discrete                  | static
+**Tab1** Properties of point spatial objects
+
+| type of object | existence (records of spatial and temporal reference)  | attribute collection   | location |
+|----------------|--------------------------------------------------------|------------------------|----------|
+| station        | continuous                                             | continuous or discrete | static   |
+| agent          | continuous or discrete (can reappear)                  | continuous or discrete | dynamic  |
+| event          | discrete                                               | discrete               | static   |
 
 In the above image and a table we assume that the attribute collection is happening continuously for stations and agents. This does not mean that the attributes have to be collected continuously at all times. Some sensors can record at a regular time interval or only in case of an event. The data output can then contain several "no data" records or even no records at all if the event did not happen. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but some part of its data collection is episodic -- a photo is taken just when a speeding vehicle drives by. The classification introduced above differentiates between the existence of an object and the act of recording data by the object. We assume that the sensor's presence without recording has also some analytical potential as it proves the absence of event, while with no sensor in place we cannot say if the event did take place or not. 
 
@@ -35,7 +38,7 @@ The gaps in data collection and the absence of abrupt changes hints how to optim
 
 TODO -- revisit when case studies are done and connect it better with the actual data used
 
-# Spatio-temporal knowledge discovery and visual analytics
+## 2.2 Spatio-temporal knowledge discovery and visual analytics
 
 In this section we will briefly discuss techniques for exploring spatio-temporal data, with emphasis on practices that would benefit from enhanced cartographic visualisation.
 
@@ -49,7 +52,7 @@ We can draw the humman-machine continuum in the field of digital cartography as 
 
 To develop further on the kinds of interaction with spatial data, we can explore the concept of *spatial* and *temporal* queries. On the general level we can search for spatial and temporal relations in all theree types of point objects mentioned in the first section. In addintion, moving agents can genrate specific relations not innate to stations and events.
 
-1. **Spatial relations** are at the very basis of map reading for orientation clues, but are also vital for interpreting thematic information. We percieve these relations between the dominant themes (e.g. in weather maps of precipitation and atmospheric pressure zones) or between the theme and the topographical base map. The major classes of spatial realtions are: *set-oriented* (union, difference, intersecton, complement, etc.), *topological* (connectivity, interior, exterior, boundary), *directional* (cardinal, object-centered, ego-centered directons) and *metric* (e.g. Euclidean or network-based distance) (@worboys2004gis). 
+**Spatial relations** are at the very basis of map reading for orientation clues, but are also vital for interpreting thematic information. We percieve these relations between the dominant themes (e.g. in weather maps of precipitation and atmospheric pressure zones) or between the theme and the topographical base map. The major classes of spatial realtions are: *set-oriented* (union, difference, intersecton, complement, etc.), *topological* (connectivity, interior, exterior, boundary), *directional* (cardinal, object-centered, ego-centered directons) and *metric* (e.g. Euclidean or network-based distance) (@worboys2004gis). 
 
 Point spatial data of large extent complicate observng such relations. We rarely ask about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. The nature of some data sources can dictate some spatial relationships (such as vehicles being spatially bound the road network), but in many cases the density of point cloud obscures the base map and precludes reading of attribute variablity within the set.
 
@@ -59,7 +62,7 @@ Spatial relations between point clouds in 3D are a subject of extensive research
 
 TODO maybe some cluster shape measures from geostatistics?.
 
-2. **Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data colection of any entity can be either continous or discrete in time, it is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations (see figures). Linear conceptialization of time can be supported with cyclical and branching time, there can be discrepances between the temporality of base map and the thematic overlay, or between the time interval of existence and representations. We'll untangle these complexities in chapter 5.
+**Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data colection of any entity can be either continous or discrete in time, it is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations (see figures). Linear conceptialization of time can be supported with cyclical and branching time, there can be discrepances between the temporality of base map and the thematic overlay, or between the time interval of existence and representations. We'll untangle these complexities in chapter 5.
 
 ![**Fig.** Temporal relations between time points. Adopted from @aigner2011visualization. ](imgs/time-relationships-1.png)
 
@@ -73,7 +76,7 @@ Havig described the fundamental spatio-temporal relations in big data sets, we c
 
 Several data mining concepts are of interest. **Association rule mining** is searning in databases for conditions ocurring together frequently: 
 
-> *x => y (s%,c%)*
+ *x => y (s%,c%)*
 
 Where *x,y* are conditions, together forming an *itemset* and *s,c* are levels of support and confidence. Suport and confidence are basic rule performance measures, support being the measure of how often the itemset occurs in the whole database and confidence being the proportion of x being a memeber of an itemset x => y. For example: *park => school (4%, 55%)* means that 55 percent of parks are near schools, for 4% of items in the database (@han2011data). The measures of support and cofidence allow us to set tresholds for significantly frequent co-ocurrence.
 
