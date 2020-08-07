@@ -41,97 +41,74 @@ In this section we will briefly discuss techniques for exploring spatio-temporal
 
 People engaged in data-related practices are motivated by an expectation that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise untelling piles of data. Such insight seeking is the crux of the concepts such as *data mining*, *spatio-temporal knowledge discovery* and *visual analytycs* that we will explore furhter.
 
-The term *data mining* is often used to describe exploring databases using low-level algorithm to find patterns. *Knowledge discovery* is then described as a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). Computation is seen as an extension of human force rather than its replacement and the aim is to merry the best of both worlds. This is reconciled with the (current) capabilities of IT as there are tasks that are very easy to do for computers and very hard hard for humans (e.g. calculate square root of 567789898) and vice-versa (e.g. recognize a cat on a picture TODO -- maybe obsolete example). *Visual analytics*, the science of analytical reasoning supported by interactive visual interfaces (@thomas2005illuminating), then zooms in at the interaction frontier between human and computer.
-n
-Let us search the man-machine continuum in the field of digital cartography. Here, the human cognitive abilities are applied to seek patterns, explore spatial context or make decisions, while computational aspects include data management and processing. Now, the computation heavy algoritms like optimal route calculation already step in to unburden humans from some decision-making so the destinction is obviously getting more fluid (see the disucssion at the end of the chapter on how the continuum might evolve and how it could affect cartography). For now, just note that cartography operates as an interface at the human side.
+*Data mining* is exploring databases using low-level algorithms to find patterns. *Knowledge discovery* is then a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). In the knowledge discovery process, computation is seen as an extension of human force rather than its replacement, therefore the goal is to marry the best of both worlds. This is reconciled with the (current) capabilities of information technologies: there are tasks that are very simple for computers and very hard for humans (e.g. calculate the square root of 567789898) and vice-versa (e.g. recognize a cat on a picture TODO -- maybe obsolete example). *Visual analytics*, the science of analytical reasoning supported by interactive visual interfaces (@thomas2005illuminating), then zooms in at the interaction frontier between human and computer in order to find the best tools for visual interaction between the two. If we imagine a continuum ranging from "work done purely in human brain" towards "work done by machines", knowledge discovery places itsefl somewhere in the middle. 
 
-![**Fig.** Knowledge discovery as the best from both worlds (the actual wording could be different, for example @keim2008visual lists on the "machine" side: statistical analysis, data management, data mining, compression and filtering; on the "human" side: cognition, perception, visual intelligence, decision making theory, information design; and in the "middle": human-centered computing, semantics-base approaches, graphics and rendering, and information visulaisation). Knowledge disco is map reading with robot assistants.](imgs/man-machine-continuum.png)
+![**Fig.** Human-machine continuun, knowledge discovery as the best from both worlds (the actual wording could be different, for example @keim2008visual lists on the "machine" side: statistical analysis, data management, data mining, compression and filtering; on the "human" side: cognition, perception, visual intelligence, decision making theory, information design; and in the "middle": human-centered computing, semantics-base approaches, graphics and rendering, and information visulaisation). With emphasis on cartography, I summarize the human cognitive tasks as "map reading".](imgs/man-machine-continuum.png)
 
-To develop further on the kinds of interaction with spatial data, we can explore the concept of *spatial* and *temporal* queries. On the general level we can search for spatial and temporal relations in all theree types of point objects mentioned above. In addintion, moving objects can genrate specific relations not innate to stations and events:
+We can draw the humman-machine continuum in the field of digital cartography as well. Here, the human cognitive abilities are applied to seek patterns, explore spatial context or make decisions, while computational aspects include data management and processing. Now, the computation heavy algoritms like optimal route calculation already step in to unburden humans from some decision-making so the destinction shouldn't be taken as something rigid (TODO see the disucssion at the end of the chapter on how the continuum might evolve and how it could affect cartography). For now, just note that cartography operates as an interface at the human side. Some authors go on to define *visual analytics for spatio-temporal data* as interlinked techniques in interfaces with map as a central metaphor (@guo2006visualization). We can think of it as map reading with robot assistants.
 
-1. **Spatial relations** are at the very basis of map-reading for orientation clues, but are also vital for interpreting thematic information. We percieve these relations between the dominant themes (e.g. in weather maps of precipitation and atmospheric pressure zones) or between the theme and the topographical base map. The major classes of spatial realtions are: *set-oriented* (union, difference, intersecton, complement, etc.), *topological* (connectivity, interior, exterior, boundary relationships), *directional* (cardinal, object-centered, ego-centered directons) and *metric* (e.g. Euclidean or network-based distance) relations (@worboys2004gis). 
+To develop further on the kinds of interaction with spatial data, we can explore the concept of *spatial* and *temporal* queries. On the general level we can search for spatial and temporal relations in all theree types of point objects mentioned in the first section. In addintion, moving agents can genrate specific relations not innate to stations and events.
 
-Point spatial data of large extent complicate obsrvng such relations, and we rarely ask about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. The nature of some data sources can dictate some spatial relationships (such as vehicles being spatially bound the road network), but in many cases the density of point cloud obscures the base map and precludes reading of attribute variablity within the set.
+1. **Spatial relations** are at the very basis of map reading for orientation clues, but are also vital for interpreting thematic information. We percieve these relations between the dominant themes (e.g. in weather maps of precipitation and atmospheric pressure zones) or between the theme and the topographical base map. The major classes of spatial realtions are: *set-oriented* (union, difference, intersecton, complement, etc.), *topological* (connectivity, interior, exterior, boundary), *directional* (cardinal, object-centered, ego-centered directons) and *metric* (e.g. Euclidean or network-based distance) (@worboys2004gis). 
 
-As we are dealing mosty with point data clouds in two dimensional space it is worth to say that topological relations between such sets are more complex than with polygonal features and can be elaborated into 16 actual relations (9 if reduced to spatial regions relevant in GIS .. see table 2 in https://www.researchgate.net/publication/276959705_Point_Set_Topological_Spatial_Relations note -- could be drawn?) in two dimensional space (@egenhofer1991point). TODO -- translate table 2 into human language 
+Point spatial data of large extent complicate observng such relations. We rarely ask about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. The nature of some data sources can dictate some spatial relationships (such as vehicles being spatially bound the road network), but in many cases the density of point cloud obscures the base map and precludes reading of attribute variablity within the set.
 
-A and B are disjoint
-A and B touch
-A equals B
-A is inside of B or B contains A
-A is covered by B or B covers A
-A contains B or B is inside of A
-A covers B or B is covered by A
-A and B overlap with disjoint boundaries
-A and B overlap with intersecting boundaries
+As we are dealing mosty with point data clusters in two dimensional space it is worth to say that spatial relations between such sets are harder to conceptualize than it is with polygonal features. @egenhofer1991point describe 16 actual relations (9 if reduced to spatial regions relevant in GIS) in two dimensional space. Hovewer, in their approach @egenhofer1991point define the point sets by their exterior boundry and then effectively treat them as polygons. But delineating the exterior boundry is a challenge in itself, for example when dealing with smooth transitions in point density at the border, or with outliers. Any line would be in a sense an inaccurate approximation.
 
+Spatial relations between point clouds in 3D are a subject of extensive research (e.g tran2017extracting or chen2019deep) however, the motivation is object identificaton. In this lines of research the point cloud is a monicker for distinct solid objects in the real space, not an object of research in intself. For cartography, the point sets already come with some assigned attributes, so there is no need to extract them. Point sets are more unruly in the wild, more like mulitihole toruses, and saying anything meaninful about relations of such things is increasingly hard. (TODO illustrate this difficulty, double check the paragraph)
 
-2. **Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data colection of any entity can be either continous or discrete in time, it is therefore useful to distinguish between time point and interval when investigating temporal relations (see figures). Linear conceptialization of time can be supported with cyclical and branching time, there can be discrepances between the temporality of base map and the thematic overlay, or between the time interval of existence and representations. We'll untangle these complexities in chapter 5.
+TODO maybe some cluster shape measures from geostatistics?.
+
+2. **Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data colection of any entity can be either continous or discrete in time, it is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations (see figures). Linear conceptialization of time can be supported with cyclical and branching time, there can be discrepances between the temporality of base map and the thematic overlay, or between the time interval of existence and representations. We'll untangle these complexities in chapter 5.
 
 ![**Fig.** Temporal relations between time points. Adopted from @aigner2011visualization. ](imgs/time-relationships-1.png)
+
 ![**Fig.** Temporal relations between time point and time interval. Adopted from @aigner2011visualization. ](imgs/time-relationships-2.png)
+
 ![**Fig.** Temporal relations between two time intervals. Adopted from @aigner2011visualization. ](imgs/time-relationships-3.png)
 
-3. **Moving objects** have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). Use for individual navigation vs overall pattern search.
+3. **Moving objects** have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
 
-Havig described the fundamental spatio-temporal relations in big data sets, we can turn towards some methods to uncover them. We'll start the tour with not at all exhaustive tour of methods form the data mining side of the man-machine continuum, to eventually move towards the map reading side.
+Havig described the fundamental spatio-temporal relations in big data sets, we can briefly describe some of the methods to uncover them. Recalling the human-machine continuum at Fig., we will start at the machine side with methods from the data mining group to eventually move towards the human side.
 
-**Association rule mining** is searning in databases for conditions ocurring together frequently: 
+Several data mining concepts are of interest. **Association rule mining** is searning in databases for conditions ocurring together frequently: 
 
-x => y (s%,c%). 
+> *x => y (s%,c%)*
 
-Where:
-x,y -- conditions, together forming an *itemset*
-s,c -- levels of support and confidence. Suport and confidence are basic rule performance measures, support being the measure of how often the itemset occurs in the whole database and confidence being the proportion of x being a memeber of an itemset x => y. 
-
-For example: *park => school (4%, 55%)* means that 55 percent of parks are near schools, for 4% of items in the database (@han2011data). The measures of support and cofidence allow us to set tresholds for significantly frequent coocurrence.
+Where *x,y* are conditions, together forming an *itemset* and *s,c* are levels of support and confidence. Suport and confidence are basic rule performance measures, support being the measure of how often the itemset occurs in the whole database and confidence being the proportion of x being a memeber of an itemset x => y. For example: *park => school (4%, 55%)* means that 55 percent of parks are near schools, for 4% of items in the database (@han2011data). The measures of support and cofidence allow us to set tresholds for significantly frequent co-ocurrence.
 
 *Spatio-temporal association rules* extend associtation rules to describe how objects move among a set of regions over time (@verhein2008mining). Inocorporation of spatiality into assotiation rules takes form of a simple binary condition telling if the items coocurred in the same predefined sets of regions or not.
 
-*Sequence mining* is seraching for patterns in time and other sequences. Similarly to to association rules, we search for events occuring frequently together by considering three parameters: the *duration* of time a sequence, the *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio). These parameters allow us to turn the temporal relations between two items into binary parameter telling if the items coocurred (that is when the time interval fits into the the event window). 
+*Sequence mining* is seraching for patterns in time and other sequences. Similarly to association rules, we search for events occuring frequently together by considering three parameters: the *duration* of the whole sequence, the *event window* (time-horizon for considering events as temporally coincident) and the *time interval* between events (@miller2015spatio). These parameters allow us to turn the temporal relations between two items into binary parameter telling if the items co-ocurred (that is when the time interval fits into the the event window). 
 
 *Periodic pattern mining* is a type of sequence mining that searches for recurrent patterns in time sequences. Such patterns can be: *full periodic patterns*, *partial periodic patterns* (e.g. just on mondays), and *cyclic or periodic association rules* that associate events that occur periodically together (@han2011data).
 
-Considering the breadth of posible spatial and temporal relations described earlier, the conceptualization of spatial and temporal coocurrence in the association rules may seem rather simplistic. Basically it is reduced to a yes/no parameter. Moreover, moving from the level of individual database entities towards assessing relations between compound entities such as spatial point clusters seems tho be out of the scope of these methods. Of course, the way spatiality is inscribed into association rules could be made more sophisticated, though with inevitable implicatons for mining performance. With large datasets, mining even the simple rules forces us to consider performance. (maybe develop to say here simple visual comparison is cheaper, at least for clusters). 
+Considering the breadth of posible spatial and temporal relations described earlier, the conceptualization of spatial and temporal coocurrence in the association rules may seem rather simplistic. Basically it is reduced to a yes/no parameter. Moreover, moving from the level of individual database entries towards assessing relations between compound entities such as spatial point clusters seems to be out of the scope of these methods. Of course, the way spatiality is inscribed into association rules could be made more sophisticated, though with inevitable implicatons for mining performance. With large datasets, mining even the simple rules forces us to consider performance. ( TODO maybe develop to say here simple visual comparison is cheaper, at least for clusters). 
 
 At this point we can step back from mining algorithms to invite some human interpretation and to consider what conclusions we can actually draw from spatial and temporal co-ocurrence of events. The usual assumption is that such coocurrence can point to some form of causality. Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch2014mining distinguish between the trigger that apparently causes the event and the environmental conditions that have to be fulfilled for the effect to occur.
 
 ![**Fig** Ontological model of causation, adopted from @galton2012states](imgs/img-states-events.png)
 
-In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* cauation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. TODO example
+In this model, *state* is an environmental condition and *event* is a change of state. Events are caused only by other events, while states only affect causation by allowing events to cause other events. Events *initiate* and *treminate* states, while states *allow* causation. The *initiate*, *terminate* and *allow* relationships are then dubbed *causal-like* to distinguish them from the event-to-event causation. TODO example
 
-In conceptual framework for finding *candidate* causal relationships in movement patterns @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described: *spatial*, *temporal*, and *causal*. While the first two are defined by the the smallest spatial and temporal units, causal granularity is given by the kinds of events observed. Spatial and tempral granularities can be easily reduced to "see the bigger picture" (by changing the spatial scale, or extending the time range of observation), but causal granularity is more firmly defined by the data collection design. As such, it affects mainly the inferences from the map rather the map reading tasks as such. (čo som tymto myslel?)
+In conceptual framework for finding *candidate* causal relationships in movement patterns @bleisch2014mining distinguish between three kinds of granularity at which the phenomena can be described: *spatial*, *temporal*, and *causal*. While the first two are defined by the the smallest spatial and temporal units, causal granularity is given by the kinds of events observed. Spatial and tempral granularities can be easily reduced to "see the bigger picture" (by changing the spatial scale, or extending the time range of observation), but causal granularity is more firmly defined by the data collection design. 
 
-@el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attain some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the cause reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay. (TODO: Example, fish, signall, make up something). For @bleisch2014mining spatio-temporal collocation is a requirement for causation to occur: "In order for one spatial event to cause another, those events must share at least one point in space and time. Similarly, a state can only allow causation of events in its spatiotemporal vicinity". 
+@el2002spatio note that alghough the general expectation would be that the effect occurs immediately after the cause, some delay between the effect and the cause can occur, possibly because the cause must attain some intensity treshold to trigger the event or because the effect and cause are spatially separated and it takes time until the influence of the cause reaches the location where it takes effect. @bleisch2014mining suggest that these apparent delays result from lower causal granularity of observation, i.e. there is some intermediary chain of effect and cause that happens during the delay but it is not recorded by the observation. (TODO: Example, fish, signall, make up something). Wheter we accept the effect delays as real or illusionary might be more of an academic question, tracing down the potential causal link between start and end events can yield predictive potential even when the intermediary causal chain remains undiscovered. 
 
-TODO -- images, mapping apparent causation in space, time, both, or none. Fish movement, traffic jams, something from donn:w:ela meadows?
-
-Wheter we accept the effect delays as real or illusionary (caused by lack of causal granularity) might be more of an academic question, tracing down the potential causal link between start and end events can yield predictive potential even when the intermediary causal chain remains undiscovered. 
-
-Discussing the interpretation of spatiotemporal coocurence we have moved on the man-machine continuum towards the human end. At this point, visualisation becomes important as an interface between the user and the data.  One of the general models describing how knowledge discovery proceeds via inference and interaction a sense-making loop (fig).
+Discussing the interpretation of spatiotemporal co-ocurence we have moved on the human-machine continuum towards the human end. At this point, visualisation becomes important as an interface between the user and the data. One of the general models describing how knowledge discovery proceeds via inference and interaction is the sense-making loop (fig).
 
 ![**Fig** The sense-making loop for Visual Analytics, adopted from @van2005value. User can intercatively manipulate the visulaisation to gain understanding of both the data and the representation itself.](imgs/img-sense-making-loop.png)
 
-Visual analytics is a step-up from visualisaton as an alternative way of observing a database, towards making also the way of processing
-data and information transparent for an analytic discourse. Keim2008visual in their introductory paper say the goal of visual analytics is the creation of tools and techniques to enable people to:
-– Synthesize information and derive insight from massive, dynamic, ambigu-
-ous, and often conflicting data.
-– Detect the expected and discover the unexpected.
-– Provide timely, defensible, and understandable assessments.
-– Communicate assessment effectively for action.
+Visual analytics extends the concept of visualisaton: not only it provides a visual interface to the database, but also makes the data processing piplines transparent for an analytic discourse. Keim2008visual in their introductory paper say the goal of visual analytics is the creation of tools and techniques to enable people to:
 
-This is turly a long way from low-level search for coocurrences, though it is not clear how should these grand goals materialize in practice.Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Coginition, Human-Computer interaction) and idetnify a range of application and technical challenges. 
+– Synthesize information and derive insight from massive, dynamic, ambiguous, and often conflicting data
+– Detect the expected and discover the unexpected
+– Provide timely, defensible, and understandable assessments
+– Communicate assessment effectively for action
 
-To conclude this section, we can compare and possibly unite dm approaches with human interpretation...
+This is turly a long way from the low-level search for coocurrences, though it is not clear how should these grand goals materialize in practice.Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Coginition, Human-Computer interaction) and idetnify a range of application and technical challenges. 
 
-- finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
-- Another approach is in looking for some general similarities between two sets of shapshots (spatial patterns) -- if there is some similarity ocurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern -- how to search for delay in just a sub area?
-- Temporal but not spatial collocation -- is map a good tool for displaying this (rather a bar chart?)
-- What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
-- How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
-- overall, the ability of dynamic maps to find these collocations and link them to causation is to be assesd, but how? :)
-
-Here: more on circular and cummulative causation. (Is there anything maps can do here?).
+To conclude this section, we can compare the data mining approaches with human interpretation...
 
 TODO pros and cons of visual vs algorithmic pattern finding:
 alg:
@@ -141,14 +118,28 @@ human:
 - ablity to easily gain and overview of clusters beyond individual database entities
 how to join alg + human?
 
+Causation-related questions for cartography (TDOO process)
+
+- finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
+- Another approach is in looking for some general similarities between two sets of shapshots (spatial patterns) -- if there is some similarity ocurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern -- how to search for delay in just a sub area?
+- Temporal but not spatial collocation -- is map a good tool for displaying this (rather a bar chart?)
+- What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
+- How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
+- overall, the ability of dynamic maps to find these collocations and link them to causation is to be assesd, but how? :)
+
+
 # The role of cartography
+
+- challenges in finding causal relationships
+- challenges stemming from the medium shift
+- challenges in processing big data
 
 ### existing research agendas
 ### challenges of medium transition -- alternation of rules from static age, explorative cartography -- less is more? general problem areas (end of chapter?)
-### on collaboration with other teac
+### on collaboration with other teams
 
 
-Cartography has a long tradition of making big data sets comprehensible for our visual minds. Beautiful and authoritative maps in school atlases explaining the formation of air masses affecting world's climate, or the positions of ocean streams have an air of definitiveness but were build upon a loads of messy data. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps was by no mans real-time but allowed for fine tunnning all aspects of a map (from the appropriate method to visualise the ...TODO insert topic... to making the street connections visually pleasing). Analog map making allowed for perfectionism.
+Cartography has a long tradition of making data sets comprehensible to our visual minds. Beautiful and authoritative maps in school atlases explaining the formation of air masses affecting world's climate, or the positions of ocean streams have an air of definitiveness but were build upon a loads of messy data. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps was by no mans real-time but allowed for fine tunnning all aspects of a map (from the appropriate method to visualise the ...TODO insert topic... to making the street connections visually pleasing). Analog map making allowed for perfectionism.
 
 For digital cartography, it took a long time to come any closer to the visual quality of the best atlas works. There is still some unmined potential towards the graphic excellence in web mapping^(I will use therms digital cartography, web and interactive maps interchangebely) (though there are tools to get us there -- see later). Web mapping has though the obvious advatage of allowing interaction -- so the user can zoom, pan, change, filter and combine the displayed data. The second big advatage is allowning for displaying data real-time as the data source is updated. This is feature is used maybe surprisingly less then expected, not all interactive maps are dynamiclly updated, which is ok if the topic is historic (like medieval monasteries in France or 1991 election results in Yugoslavia). But this thesis focuses on interactive map interfaces based on dynamically updated data, which poses a new set of challenges on a poor cartographer. Not only does he need to ensure cartographic excellence in the map field (excellent map provides answers, helps to ask queations, supports understanding in an engaging way), but also to pertain this excelence for the changing data and user-induced modifications.
 
@@ -341,6 +332,9 @@ Causal relationships vs. epiphenomena. -- see Taleb 198-200. (Maps helping to te
 
 # vis for humans, machines do not need it
 -- the societal responsibility of designers (first things first movement?, something for data visualists), and cartographers (harley, wood, crampton, -- radical cartography (Paglen?))
+
+@meadows2008thinking
+Donnela meadows on systems with delay -- good for describing systems with already known structure (man-made), maybe use something on complex systems
 
 # weaponized design
 @diehm2018weaponised
