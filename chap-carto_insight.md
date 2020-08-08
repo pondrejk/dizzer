@@ -147,20 +147,33 @@ The atlas maps mentioned above served for presentation of knowledge, were confir
 
 The ability to interact with the map view can surely be empowering for the user, passing on the sensation of exploration. Ont the other hand, things can go the wrong as it is hard to create an imersive experience that would be immediately understandable to the newcommer. User is then left to her own devices,  without any stated framework for interpretation she needs to create her own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered,  untorubled with the dangers of fostering misinterpration. Lack of guidenance on where to start results in poor engagement with the application, that is quickly aboandoned. That is if abandoning is possible and user is not forced to work with the applicaton as part of the job. Simmilar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. (TODO -- visual analytics as a device of naive rationalism, elaborate later)
 
-Data manipulation interface, a window to the database is useful for those who know what questions they want to ask. So what kind of inference should an interactive map support? 
+Interactive map as a data manipulation interface is useful for those who know what questions they want to ask. So what kind of inference should an interactive map support? We should start simple, with basic quantitative questions. A big advantage of interactive maps over print is that we can display the exact quantities on demand (e.g. with some pop-up action bound to cursor hover action) and do not rely on the viewer's ability to infer quantities form the legend (especially if categorized to some interval scale). The ability to answer simple queries shouldn't be left in vain, because as @tufte1998visual warns: "when scietifiec images become dequantified, the language of analysis may drift toward credulous descriptions of form, pattern and configuration [...] rather than answer to questions *How many? How often? Where? How much? At what rate?*".
 
-notes from @tufte1998visual
----------------
+We can say that these queations are at the basic level of map reading. bertin1983semiology distinguishes three reading levels for the thematic map, and at each level questions are introduced:
+- *elementary level* -- questions introduced by a single element of the component and resulting in a single correspondence (What is the level of unemployment in th s district?)
+- *intermediate level* -- questions introduced by a group of elements or categories of resulting in a group of correspondences (What are the five most populous disticts in the region?)
+- *overall or global level* -- questions introduced by the whole component (What are the spatiotemporal trends of traffic in this city?)
 
--- on perils of dequantification of statistical images: "...when scietifiec images become dequantified, the language of analysis may drift toward credulous descriptions of form, pattern and configuration .. rather than answer to questions *How many? How often? Where? How much? At what rate?*".
+It is obvious that even a simple map has a potential to introduce countless possible combinations of questions at various levels. Although the importance of allowing for elementary-level questions, in thematic cartography we are often interested mainly in the global level of reading. Often times, just to *see* the overall level is a relevation, the kind of macroscope view unique to maps. But what else we can do with the overall patterns?
 
--- on John Snow's map and method, it was good because of 4 points:
+
+As we'll see in the next chapter, showing the basic quantities with cartographic means becomes more challenging with multiparametric visuialisation, especially if we want to support both elementary and global levels of reading for individual topics.
+
+Narration as a workaround for cartographic rules -- legibility, etc. Static map must adhere to the cartographic rules. In intercative maps (both presentational and exploratory) the argument is as follows: application doesn't need to be cartographically legit in all of it's states provided that it shows a path from the messy state to the cartographically treated state.
+
+Overlays are solved lazyly: point clusters vs. offsets and insets
+
+Are there any examples of cartographic visualisation succesfully supporting the analytical reasoning? Maybe the most frequent answer of this question would be the celebrated map of the cholera outbreak in London 1855 by John Snow, that helped to identify the source of the epidemy in a polluted water pump. This feat is lauded for launching spatial eipdemiology and for bringing the thematic cartography to the fore (@clarke2015map). But what exactly made the Snow's method worth following? @tufte1998visual notes four key points:
+
 1. Placing data in appropriate context for assesing cause and effect
 2. Making quantitative comparisons
 3. Considering alternative explanations and contrary cases
 4. Assesment of possible errors in the numbers reported in graphics
 
+TODO: elaborate ^ We can make this a moto also for current exploratory maps.
+
 Hypothesis formation support that these tools aim to provide is however a property that is hard to measure: it is hard to prove the interface works, it is hard to compare solution to establish which interface is better.
+
 
 Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas -- see below on weaponization of design).
 
