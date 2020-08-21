@@ -75,7 +75,7 @@ TODO maybe some cluster shape measures from geostatistics?.
 **Relations specific to moving objects** -- moving objects have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
 
 
-### 2.2.2 From data mining to human interpretaton 
+### 2.2.2 From data mining to visualisation for human interpretaton 
 
 Havig described the fundamental spatio-temporal relations in big data sets, we can briefly describe some of the methods to uncover them. Recalling the human-machine continuum at Fig., we will start at the machine side with methods from the data mining group to eventually move towards the human side.
 
@@ -114,62 +114,26 @@ Visual analytics extends the concept of visualisaton: not only it provides a vis
 – Provide timely, defensible, and understandable assessments
 – Communicate assessment effectively for action
 
-This is turly a long way from the low-level search for coocurrences, though it is not clear how should these grand goals materialize in practice.Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Coginition, Human-Computer interaction) and idetnify a range of application and technical challenges. 
+This is turly a long way from the low-level search for coocurrences, though it is not clear how should these grand goals materialize in practice. Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Coginition, Human-Computer interaction) and idetnify a range of application and technical challenges. 
 
-Talking about the human interpretation we can surely adress a wide range of use cases and motivations regarding to data. User roles (TODO move to cartographic part?), weaponization, uncovering secrets... entepreneurial approach. Large scale optimizations, smart city concepts etc. Let us not bloat here. 
-Paying attention to the cognitive part of information processing (differences between users, influence of learining from the app,..)
-
-The tour of the approches lets us appreciated the prospect of gaining the best of both worlds, that is to support human analytical efforts with algorithmic power to do the heavy lifting around data manipulation. We have seen that inscribing
- spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, a coocurence needs to be defined beforehand and model is changed via trial and error at best. Search algorithms can be performace heavy so some coorination with human observer that is able to easily gain and overview of clusters beyond individual database entities. (TODO brush this up) We now move to digital cartography that has the potential to dynamicall support 
-cognitive tasks with range of methods, from simple visual clues to yes unemployed algorithmic assistance (TODO develop more).
- -- more on map based inference in the next section
-
-
-```
-# BD discussions from bollier2010promise
-**Visualization as a Sense-Making Tool**
-
--- Stensrud agreed that visualization of Big Data gives you a way “to find things that you had no theory about and no statistical models to identify, but with visualization it jumps right out at you and says, ‘This is bizarre.’ ”
--- Or as Lise Getoor, Associate Professor in the Department of Computer Science at the University of Maryland, articulated, visualizations allows researchers to “ ‘explore the space of models’ in more expansive ways.  They can combine large data sets with statistical analysis and new types of computational resources to use various form functions in a systematic way and explore a wider space.”
-
--- Kim Taipale of the Center for Advanced Studies in Science and
-Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
-
--- "“You need to make sure the pattern that you think is there, is actually there,” said Andersen.  “Otherwise, the problem gets worse the bigger your data is—and we don’t have any idea how to handle that in visualization because there is a very, very thin layer of truth on the data, because of tricks of the eye about whether what you see is actually there.  The only way that we can solve this problem right now is to protect ourselves with a model.”"
-
-
--- Bill Stensrud took issue with this approach as a general rule:  “If you know what questions you’re asking of the data, you may be able to work with a 2 percent sample of the whole data set.  But if you don’t know what questions you’re asking, reducing it down to 2 percent means that you discard all the noise that could be important information.  What you really want to be doing is looking at the whole data set in ways that tell you things and answers questions that you’re not asking.”
-
--- For Joi Ito, the Chief Executive Officer of Creative Commons, the
-search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers.
-When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
-“Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
-
--- Many innovative uses of Big Data could be called “now-casting,”
-said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
-
---  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
-```
-
+The tour of the approches lets us appreciate the prospect of gaining the best of both worlds, that is to support human analytical efforts with algorithmic power doing the heavy lifting around data manipulation. We have seen that inscribing spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, the coocurence we want to search for needs to be defined beforehand. Search algorithms can be performace heavy so some coorination with human observer that is able to easily gain an overview of clusters beyond individual database entities. Visualization and visual analytics provide this exploratory potential, especially for big data in situation where we don't yet know what questions we want to ask. Visualisation as a sense-making tool gives us a way to find things that we had no theory about and no statistical models to identify and to explore the space of models in more expansive ways (@bollier2010promise). Digital cartography has the potential to dynamically support cognitive tasks in described fashion, be it with simple visual higlihting, or with algorithmic assistance yet to be designed.
 
 
 ## 2.3 The role of cartography
 
 Cartography has a long tradition of making data comprehensible to our visual minds. Beautiful and authoritative maps in school atlases explaining the formation of air masses or the positions of ocean streams give off and impression of definitiveness but were build upon a generalization of data from loads of observatios. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps was nowhere near "real-time" but allowed for fine tuning of all aspects of a map: from carefully shading the outlines of water bodies to making the street connections visually pleasing. Map making allowed for perfectionism, and the resulting maps remain beloved by collectors long after their 'utilitarian' function is gone.
 
-For digital cartography^(Here and further we will use the term digital cartography as a shorthand refering to dynamic maps allowing user interacation, consumed almost exclusively throuhgh the web, viewed on screens of various sizes) it took a long time to come any closer to the visual quality of the best works in cartography in print. Arguably, there is still some unfulfilled potential in getting towards graphic excellence in web mapping, though recent improvements in available tools open possibilities for improvment, but also risks of uniformity. Digital maps have the obvious advatage of allowing interaction -- user can zoom, pan, change, filter and combine the displayed data. The second big advatage is the possibility to update the displayed data real-time as the data source is updated. Many digital maps are not dynamically updated, simply because the topic does not require an update (e.g. medieval monasteries in France or 1991 election results in Yugoslavia). But interactive maps based on dynamically updated data pose a whole new set of challenges for authors. Not only does he need to ensure cartographic quality in the map field (excellent map provides answers, helps to ask queations, supports understanding in an engaging way), but also to pertain this excelence for the changing data and user-induced modifications. The range of possible future states of the application is only to be guessed. In other words, the task is to design the map well for previously unseen data.
+For digital cartography^(Here and further we will use the term digital cartography as a shorthand refering to dynamic maps allowing user interacation, consumed almost exclusively throuhgh the web, viewed on screens of various sizes) it took a long time to come any closer to the visual quality of the best works in cartography in print. Arguably, there is still some unfulfilled potential in getting towards graphic excellence in web mapping, though recent improvements in available tools open possibilities for improvment, but also risks of uniformity. Digital maps have the obvious advatage of allowing interaction -- user can zoom, pan, change, filter and combine the displayed data. The second big advatage is the possibility to update the displayed data real-time as the data source is updated. Sure, many digital maps are not dynamically updated, simply because the topic does not require it (e.g. medieval monasteries in France or 1991 election results in Yugoslavia). But interactive maps based on dynamically updated data are interesting as they pose a whole new set of challenges on authors. Ensuring cartographic quality in the map field now means desitgning for yet unseen changes in data also with user-induced modifications in mind. 
 
-School atlases served for presentation of knowledge, were confirmatory. Digital cartography allowed for exploratory cartography to emerge, or more precisely, moved the exploration part down the process pipeline from *before* to *after*  map publication, and from the cartographer/author to the map user. Visual analytics based on spatial data provide interfaces to manipulate and visualize data, rather to pick from the predesigned visualisation modes. This has implications for both the cartographer who is confronted with new roles to stand for and with new problems to attend to and for the user, who might get a little overwhelmed.
+School atlases served for presentation of knowledge, were confirmatory. Digital cartography allowed for exploratory mode of map reading to emerge, or more precisely, moved the exploration part down the process pipeline from *before* to *after*  map publication, and from the cartographer/author to the map user. Visual analytics based on spatial data provide interfaces to manipulate and visualize data, or better to say to pick from the predesigned visualisation modes. This has implications for both the cartographer and the user.
 
-The ability to interact with the map view can surely be empowering for the user, passing on the sensation of exploration. Ont the other hand, things can go the wrong as it is hard to create an imersive experience that would be immediately understandable to the newcommer. User is then left to her own devices,  without any stated framework for interpretation she needs to create her own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered,  untorubled with the dangers of fostering misinterpration. Lack of guidenance on where to start results in poor engagement with the application, that is quickly aboandoned. That is if abandoning is possible and user is not forced to work with the applicaton as part of the job. Simmilar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. (TODO -- visual analytics as a device of naive rationalism, elaborate later) -- cele divne
+The ability to interact with the map view can surely be empowering for the user, being passing on the sensation of exploration. On the other hand, things can go the wrong as it is very hard to create an imersive experience that would be immediately understandable to the newcommer. Exploratory map applications indtend for general public can leave users overwhelmed with the amount of possible interaction points. Left to her own devices, without any stated framework for interpretation users need to create her own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untorubled with the dangers of fostering misinterpration. Lack of guidenance on where to start results in poor engagement with the application, that is quickly aboandoned. With applications for specialized audience, this can be mitigated by learning as users are forced to work with the applicaton as part of their job. Simmilar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
 
-amount of hand-holding?
-(move to one of the questions)
-Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas -- see below on weaponization of design).
+(TODO mostík)
 
 # Map reading and interpretation
 
-Interactive map as a data manipulation interface is useful for those who know what questions they want to ask. So what kind of inference should an interactive map support? We should start simple, with basic quantitative questions. A big advantage of interactive maps over print is that we can display the exact quantities on demand (e.g. with some pop-up window bound to cursor hover action) and not rely on the viewer's ability to infer quantities form the legend (especially if categorized to some interval scale). The ability to answer simple quantitative queries shouldn't be left in vain, because as @tufte1998visual warns: "when scietifiec images become dequantified, the language of analysis may drift toward credulous descriptions of form, pattern and configuration [...] rather than answer to questions *How many? How often? Where? How much? At what rate?*".
+Interactive map as a data manipulation interface is useful for those who know what questions they want to ask, but also for those who want to find out what they might be asking. So what kind of inference should an interactive map support? We should start simple, with basic quantitative questions. A big advantage of interactive maps over print is that we can display the exact quantities on demand (e.g. with some pop-up window bound to cursor hover action) and not rely on the viewer's ability to infer quantities form the legend (especially if categorized to some interval scale). The ability to answer simple quantitative queries shouldn't be left in vain, because as @tufte1998visual warns: "when scietifiec images become dequantified, the language of analysis may drift toward credulous descriptions of form, pattern and configuration [...] rather than answer to questions *How many? How often? Where? How much? At what rate?*".
 
 We can say that these queations are at the basic level of map reading. bertin1983semiology distinguishes three reading levels for the thematic map, and at each level, different sorts of questions can be asked:
 - *elementary level* -- questions introduced by a single element of the visualisatin (What is the level of unemployment in this district?)
@@ -178,7 +142,7 @@ We can say that these queations are at the basic level of map reading. bertin198
 
 It is obvious that even a simple map has a potential to introduce countless possible combinations of questions at various levels. Although the importance of allowing for elementary-level questions, in thematic cartography we are often interested mainly in the global level of reading. Often times, just to *see* the overall level is a relevation, the kind of overreaching macroscope perspective unique to maps. But what else we can do with the overall patterns?
 
-As we'll see in the next chapter, showing the basic quantities with cartographic means becomes more challenging with multiparametric visuialisation, especially if we want to support both elementary and global levels of reading for individual topics.
+As we'll see in the next chapter, showing the basic quantities with cartographic means becomes more challenging with multiparametric visualisation, especially if we want to support both elementary and global levels of reading for individual topics.
 
 Are there any examples of cartographic visualisation succesfully supporting the analytical reasoning? Maybe the most frequent answer of this question would be the celebrated map of the cholera outbreak in London 1855 by John Snow, that helped to identify the source of the epidemy in a polluted water pump. This feat is lauded for launching spatial eipdemiology and for bringing the thematic cartography to the fore (@clarke2015map). But what exactly made the Snow's method worth following? @tufte1998visual notes four key points:
 
@@ -196,6 +160,28 @@ Hypothesis formation support that these tools aim to provide is however a proper
 TODO - other visualisation-related issues:
 - don't know what questions I want to ask
 - looking for ouliers
+
+Problems with pattern interpretation around big data.
+
+# BD discussions from bollier2010promise
+(@bollier2010promise
+-- For Joi Ito, the Chief Executive Officer of Creative Commons, the
+search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers.
+When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
+
+“Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
+(@bollier2010promise
+-- Many innovative uses of Big Data could be called “now-casting,”
+said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
+
+--  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
+```
+
+Talking about the human interpretation we can surely adress a wide range of use cases and motivations regarding to data. User roles (TODO move to cartographic part?), weaponization, uncovering secrets... entepreneurial approach. Large scale optimizations, smart city concepts etc. Let us not bloat here. 
+
+Paying attention to the cognitive part of information processing (differences between users, influence of learining from the app,..)
+-- Kim Taipale of the Center for Advanced Studies in Science and
+Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
 
 
 
@@ -254,9 +240,18 @@ Problematizing UX research, problems of cognitive testing (verification crisis i
 Inspirations from product design (praktika lens, beat machines), photography (Muybridge and Marey), cinematography, video (youtube, other video services :P)
 - Also dealing with dynamic data more of a problem of intracomposition but extracomposition affected too (different scales, etc.) 
 
+amount of hand-holding?
+(move to one of the questions)
+Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas -- see below on weaponization of design).
+
+
 **4. How to extend the spatio-temporal analysis faculty in digital maps.**
+
+The range of possible future states of the application is only to be guessed. In other words, the task is to design the map well for previously unseen data.
+
 - challenges in finding causal relationships
 - challenges in processing big data
+
 Causation-related questions for cartography (TDOO )
 - finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
 - Another approach is in looking for some general similarities between two sets of shapshots (spatial patterns) -- if there is some similarity ocurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern -- how to search for delay in just a sub area?
@@ -318,6 +313,20 @@ First do we event want to get there, best of both worlds is maybe better approac
 Second, hard vs easy problems -- ai can now do only "easy", will "hard" ever be possible? (general AI -- TODO cite Pinker)
 -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? Also the difference between AI in place of cartographers (which map-making tasks can be automated -- probably those tedious ones -- digitalization) and AI for cartographers (what can we now do better? Tooling and process improvements)
 
+@thompson2020computational:
+Deep learning’s recent history has been one of achievement: from triumphing
+over humans in the game of Go to world-leading performance in image recog-
+nition, voice recognition, translation, and other tasks. But this progress has
+come with a voracious appetite for computing power. This article reports on
+the computational demands of Deep Learning applications in five prominent
+application areas and shows that progress in all five is strongly reliant on in-
+creases in computing power. Extrapolating forward this reliance reveals that
+progress along current lines is rapidly becoming economically, technically, and
+environmentally unsustainable. Thus, continued progress in these applications
+will require dramatically more computationally-efficient methods, which will
+either have to come from changes to deep learning or from moving to other
+machine learning methods.
+-----
 
 Causal relationships vs. epiphenomena. -- see Taleb 198-200. (Maps helping to tell?)
 
@@ -326,6 +335,14 @@ Causal relationships vs. epiphenomena. -- see Taleb 198-200. (Maps helping to te
 
 @meadows2008thinking
 Donnela meadows on systems with delay -- good for describing systems with already known structure (man-made), maybe use something on complex systems
+
+Excellent map provides answers, helps to ask queations and supports understanding in an engaging way. It is perfectly OK if the conveyed message is a lack of pattern, lack of reagularity or inability to rasonably identify correlation.
+
+It is always possible to say when not to use the map.  @robinson2017geospatial
+
+
+
+-----
 
 # weaponized design
 @diehm2018weaponised
@@ -345,6 +362,9 @@ All intentionally-created systems have a set of things the designers consider pa
 Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
 
 In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
+
+```
+
 
 
 # Conclusion

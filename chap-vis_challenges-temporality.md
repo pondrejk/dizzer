@@ -40,6 +40,14 @@ opseorafia vs kinematografia
 @weibel1996kurt v preklade @vcihak2013ponorna -- "Muybridgea následovali ti umělci kterí se zajímali o pohyb, dynamiku, montá6 a imitaci reálného života; Mareye ti, kterím záležalo na vidění, přerušní a konstrukci filmové reality. Kinematografie nakonec využila aparátem poskytnutou iluzi pohybu aby film postavila do služeb literatury, divadla a opery. Opseografie chce naproti tomu film rozvíjet dále jako outonomní umění a udělat z něj umění vidění (vnímání)."
 
 
+@bollier2010promise
+--------------------
+-- Many innovative uses of Big Data could be called “now-casting,”
+said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
+
+--  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen."
+
+
 Thoughts on time in infovis
 ---------------------------
 @kriglestein2014pep
