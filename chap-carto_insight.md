@@ -74,6 +74,7 @@ TODO maybe some cluster shape measures from geostatistics?.
 
 **Relations specific to moving objects** -- moving objects have a specific set of properties comming from the combination of their spatiotemporal circumstances. These can be *instantenious* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to extenal event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
 
+
 ### 2.2.2 From data mining to human interpretaton 
 
 Havig described the fundamental spatio-temporal relations in big data sets, we can briefly describe some of the methods to uncover them. Recalling the human-machine continuum at Fig., we will start at the machine side with methods from the data mining group to eventually move towards the human side.
@@ -123,14 +124,33 @@ The tour of the approches lets us appreciated the prospect of gaining the best o
 cognitive tasks with range of methods, from simple visual clues to yes unemployed algorithmic assistance (TODO develop more).
  -- more on map based inference in the next section
 
-Causation-related questions for cartography (TDOO )
 
-- finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
-- Another approach is in looking for some general similarities between two sets of shapshots (spatial patterns) -- if there is some similarity ocurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern -- how to search for delay in just a sub area?
-- Temporal but not spatial collocation -- is map a good tool for displaying this (rather a bar chart? Yes e.g moving air masses -- we infer the future state in place from the state in past elsewhere)
-- What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
-- How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
-- overall, the ability of dynamic maps to find these collocations and link them to causation is to be assesd, but how? :)
+```
+# BD discussions from bollier2010promise
+**Visualization as a Sense-Making Tool**
+
+-- Stensrud agreed that visualization of Big Data gives you a way “to find things that you had no theory about and no statistical models to identify, but with visualization it jumps right out at you and says, ‘This is bizarre.’ ”
+-- Or as Lise Getoor, Associate Professor in the Department of Computer Science at the University of Maryland, articulated, visualizations allows researchers to “ ‘explore the space of models’ in more expansive ways.  They can combine large data sets with statistical analysis and new types of computational resources to use various form functions in a systematic way and explore a wider space.”
+
+-- Kim Taipale of the Center for Advanced Studies in Science and
+Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
+
+-- "“You need to make sure the pattern that you think is there, is actually there,” said Andersen.  “Otherwise, the problem gets worse the bigger your data is—and we don’t have any idea how to handle that in visualization because there is a very, very thin layer of truth on the data, because of tricks of the eye about whether what you see is actually there.  The only way that we can solve this problem right now is to protect ourselves with a model.”"
+
+
+-- Bill Stensrud took issue with this approach as a general rule:  “If you know what questions you’re asking of the data, you may be able to work with a 2 percent sample of the whole data set.  But if you don’t know what questions you’re asking, reducing it down to 2 percent means that you discard all the noise that could be important information.  What you really want to be doing is looking at the whole data set in ways that tell you things and answers questions that you’re not asking.”
+
+-- For Joi Ito, the Chief Executive Officer of Creative Commons, the
+search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers.
+When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
+“Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
+
+-- Many innovative uses of Big Data could be called “now-casting,”
+said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
+
+--  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
+```
+
 
 
 ## 2.3 The role of cartography
@@ -177,6 +197,8 @@ TODO - other visualisation-related issues:
 - don't know what questions I want to ask
 - looking for ouliers
 
+
+
 ###  2.3.1 What next? Research challenges 
 
 Researchers in cartography and geovisualistaion see big data as an opportunity and also as a certain call to action. The research agenda for geospatial big data and cartography layed down in @robinson2017geospatial shows the general interest of moving the field toward fullfilling its potential to make maps that "pique interest, are tacitly understandable and are relevant to our society". It is certainly reassuring that the community is aware that new sources of data "stretch the limits of what and how we map". Building on this, @robinson2017geospatial list several large-scale and long-term research challenges to face cartography in relation to big data as well as some short-term research oportunities for more concentrated investiagation (see appendix A for the overview). Even though some points seem vague and repetative, and the imprint of the individual ICA commisions is clearly wisible, the agenda states some trully inspirative problems to tackle. In relation with the scope to this thesis we can highlight the following challenges for cartography:
@@ -197,98 +219,77 @@ Before hopping on the wagon of augmeted reality and immersive experieces (that m
 
 - Challenges stemming from the medium shift
 
-**Two issues** (contradicting) tendencies arising from cartography moving to (digital/interactive/web) form. A change of medium used to disseminate cartographic products. 
-
-a.) Cartogaphic quality of web maps are not yet on par with the (best) examples of static maps and atlases (regardles of the date production -- even though maps and atlases age in the sense of content, cartographic metods used in them often remain inspirational and valid, so for cartographer old map products doesn't have to be outdated). This might be a side effect of non-cartographically aware people producing maps (either amateur cartographer acessing easy to use tools, or people comming from graphic design backgrounds bringing 'creative' changes) ^[This is not intended to belittle such activities, as the eyesoreness of some maps is a little tax for democratization of mapping tools. In fact, efforts to help citizen cartographers have been made by more experienced practicioners, most notably in Wood, -- TODO cituj tu ich prirucku]. Another possible cause is that the web mapping frameworks tend to provide just an opinionated set of visualisation options (TODO: picture of the google map's point sign) and cartographers lack the skills to customize or extend these visualisation toolkits. Little to say that some of the classical cartographic techniques are quite demanding when transfered to variable-scaled enviroment. For exaple, the symbol collsions that needed to be resolved just once (as if that was not enough) have to be treated (perhaps algoritmically) in all zoomlevels. (TODO: examples of such methods in pictures -- call it "craftsmen" side of cartography) Cartographers who want to venture to raising the quality of web maps are then forced to dive into frond-end web development^[The situation is improving with rise of web-gl based mapping platforms such as Mapbox and CartoDB, which provide map design environments resembling the visualisation tiers of desktop GIS].  
-
 Desktop GIS mapping -- strugging to tranfer to web (basically fron-end development, which is also always in flux), maybe in the future desktop tools will suport generation of web map interfaces, but wouldn't count on it. Interface as a part of cartographic experience.
 
 TODO maybe look at the state of the art (opiniation/freedom) - leaflet, openlayers, mapbox, cartodb, arcgis online, self-hosted mapbox alternative...
 
-b.) Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transfering a visual artifact from one medium to the other. Such transfer is not the same as if the visualisation was designed for the new medium from scratch as there are realized or unrealized ideas of how things should be done transrered from the practices required by the old medium. This was apparent for example the grid-like organization transferred from printed newspapers to web news portats initally and still lives there though responsivity required by small-screen devices pushed its rethinking. Simmilar case in cartography is the dichotomy between the topographic base and the tematic overlay. A good mental excercise for cartographers would be imagining map interaction unattached from any medium -- what would we design if anything was possible? 
+Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transfering a visual artifact from one medium to the other. Such transfer is not the same as if the visualisation was designed for the new medium from scratch as there are realized or unrealized ideas of how things should be done transrered from the practices required by the old medium. This was apparent for example the grid-like organization transferred from printed newspapers to web news portats initally and still lives there though responsivity required by small-screen devices pushed its rethinking. Simmilar case in cartography is the dichotomy between the topographic base and the tematic overlay. A good mental excercise for cartographers would be imagining map interaction unattached from any medium -- what would we design if anything was possible? 
 
 Ford's quote: "If I asked people what they want, they would ask for a faster horse" (find exact.). Similarly, we can test the cognitive efficiency of the visualisation methods that already exist, and users would prefer the methods they know. Cartography's quest (in my opinion) is to extend the arsenal of visualisation and interaction methods. As we will see further, interaction and animation pose new challenges to cartographic visualisation, with possibly multiplied opportunities for method combinations and innovations for data exploration and possibly knowledge generation. Further, plenty of tricks from the rich history of cartographic practice did not make it to web mapping toolbox. 
 
 Recent emerging technology owing much to the gaming industry promise to bring web cartography to the flexibility of the pen and paper ^[or brush, engraving tool etc.] of pre-digital cartographer. Only now the shifted role of cartographer would be in enabling data to paint the picture for us.  Much of the rest of this thesis will be exploring this truly exciting prospect.
 
--------
+Limits of old media. Danger: processes of old media are transfered to new media, leaving possibilities in new tools unexplored.
+
+e.g. 
+
 Narration as a workaround for cartographic rules -- legibility, etc. Static map must adhere to the cartographic rules. In intercative maps (both presentational and exploratory) the argument is as follows: application doesn't need to be cartographically legit in all of it's states provided that it shows a path from the messy state to the cartographically treated state.
+
+
+2. *What inspiraton can interactive web cartography take from the heritage of pre-digital mapping?* 
+
+Cartogaphic quality of web maps are not yet on par with the (best) examples of static maps and atlases (regardles of the date production -- even though maps and atlases age in the sense of content, cartographic metods used in them often remain inspirational and valid, so for cartographer old map products doesn't have to be outdated). This might be a side effect of non-cartographically aware people producing maps (either amateur cartographer acessing easy to use tools, or people comming from graphic design backgrounds bringing 'creative' changes) ^[This is not intended to belittle such activities, as the eyesoreness of some maps is a little tax for democratization of mapping tools. In fact, efforts to help citizen cartographers have been made by more experienced practicioners, most notably in Wood, -- TODO cituj tu ich prirucku]. Another possible cause is that the web mapping frameworks tend to provide just an opinionated set of visualisation options (TODO: picture of the google map's point sign) and cartographers lack the skills to customize or extend these visualisation toolkits. Little to say that some of the classical cartographic techniques are quite demanding when transfered to variable-scaled enviroment. For exaple, the symbol collsions that needed to be resolved just once (as if that was not enough) have to be treated (perhaps algoritmically) in all zoomlevels. (TODO: examples of such methods in pictures -- call it "craftsmen" side of cartography) Cartographers who want to venture to raising the quality of web maps are then forced to dive into frond-end web development^[The situation is improving with rise of web-gl based mapping platforms such as Mapbox and CartoDB, which provide map design environments resembling the visualisation tiers of desktop GIS].  
+
+
+This question is complementary to the previous one and also arises from the conditions of the medium shift.
+What was lost in transition to digital? Are there methods and practices from tradition that could be used but aren't (because cartographers usually aren't software developers, and software developers are usually unaware of old map stocks). Danger: the perceived mantinels of the new technologies limit us in imaginig what we could do (e.g. what visualisation possibilities are provided by APIs like Leaflet).
 
 Overlays are solved lazyly: point clusters vs. offsets and insets
 dynamic data examples:
 Global fishing watch - https://globalfishingwatch.org/map/
 
+** 3. Cartography and UX, designing an interactive map is also designing ways to interact with data**
+Saving space: coupling legends with controls.
+Problematizing UX research, problems of cognitive testing (verification crisis in psychology) vs. A/B testing,  (data on tile usage from big providers)
+Inspirations from product design (praktika lens, beat machines), photography (Muybridge and Marey), cinematography, video (youtube, other video services :P)
+- Also dealing with dynamic data more of a problem of intracomposition but extracomposition affected too (different scales, etc.) 
 
-### challenges in finding causal relationships
-### challenges in processing big data
-### 5 questions - summary
-
-
-# BD discussions from bollier2010promise
-**Visualization as a Sense-Making Tool**
-
--- Stensrud agreed that visualization of Big Data gives you a way “to find things that you had no theory about and no statistical models to identify, but with visualization it jumps right out at you and says, ‘This is bizarre.’ ”
--- Or as Lise Getoor, Associate Professor in the Department of Computer Science at the University of Maryland, articulated, visualizations allows researchers to “ ‘explore the space of models’ in more expansive ways.  They can combine large data sets with statistical analysis and new types of computational resources to use various form functions in a systematic way and explore a wider space.”
-
--- Kim Taipale of the Center for Advanced Studies in Science and
-Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
-
--- "“You need to make sure the pattern that you think is there, is actually there,” said Andersen.  “Otherwise, the problem gets worse the bigger your data is—and we don’t have any idea how to handle that in visualization because there is a very, very thin layer of truth on the data, because of tricks of the eye about whether what you see is actually there.  The only way that we can solve this problem right now is to protect ourselves with a model.”"
-
-
--- Bill Stensrud took issue with this approach as a general rule:  “If you know what questions you’re asking of the data, you may be able to work with a 2 percent sample of the whole data set.  But if you don’t know what questions you’re asking, reducing it down to 2 percent means that you discard all the noise that could be important information.  What you really want to be doing is looking at the whole data set in ways that tell you things and answers questions that you’re not asking.”
-
--- For Joi Ito, the Chief Executive Officer of Creative Commons, the
-search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers.
-When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
-“Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
-
--- Many innovative uses of Big Data could be called “now-casting,”
-said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
-
---  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
+**4. How to extend the spatio-temporal analysis faculty in digital maps.**
+- challenges in finding causal relationships
+- challenges in processing big data
+Causation-related questions for cartography (TDOO )
+- finding spatio-temporal co-location that would suport causation hypotheseis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cummulative data within two choroplets can smooth the volatilites in favor of the overall tendency). 
+- Another approach is in looking for some general similarities between two sets of shapshots (spatial patterns) -- if there is some similarity ocurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern -- how to search for delay in just a sub area?
+- Temporal but not spatial collocation -- is map a good tool for displaying this (rather a bar chart? Yes e.g moving air masses -- we infer the future state in place from the state in past elsewhere)
+- What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
+- How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
+- overall, the ability of dynamic maps to find these collocations and link them to causation is to be assesd, but how? :)
 
 
 ### 2.3.2  Challenges in collaborative practice
 
 Having described the ontological models of causation ans sensemaking as well as visions for the future of cartographic research, we can now take an aside to dwell a bit on the nitty-gritty realities of map making in practice. Practical aspects of the profession are often overlooked in literature, as well as the fact that cartographer often needs to operate within a greater team. The smoothness of collaboration within a team is then a determining factor of the team's productivity. 
 
-There is a (somewhat mythical) notion of “full-stack” visualization designer-developer capable of conducting the full broad range of tasks needed for a visulaisation project (@gray2012data). Though some such individuals do exist (possibly working on applications for PhD projects or small customers), it is clear that cartographer can take only so much of other roles (data analyst, UX designer, front-end developer, database administrator...) before getting on thin ice. Real-life visulaisation projects often include a range of team members or even teams with dissjoint skillsets. The question then arises on how to modularize the work. One possible model of decomosition is the information visualisation reference model (**Fig**).
-
+There is a (somewhat mythical) notion of “full-stack” visualization designer-developer capable of conducting the full broad range of tasks needed for a visulaisation project (@gray2012data). Though some such individuals do exist (possibly working on small applications for PhD projects or small customers), it is clear that cartographer can take only so much of additional roles (data analyst, UX designer, front-end developer, database administrator...) before getting on thin ice. Real-life visulaisation projects often include a range of team members or even teams with dissjoint skillsets. The question then arises on how to modularize the work. One possible model of decomosition is the information visualisation reference model (**Fig**).
 
 ![**Fig** Information visualization reference model. Adopted from @heer2008design](imgs/infoviz-reference-model.png)
 
-Here the collaboration points lie at the transitions between the stages.
-@heer2008design
-
-Physical and temporal separation of teams and institutional and disciplinary divides lead to early-stage partitioning of tasks both in the *design* (data profilation, ideation, mockup creation and prototyping) and *development* (implementation, testing, deployment and maintenance) phase (@walny2019data). Such compartmentalizaton is not unique to dataviz projects, it could match any web development project.
+In this model the collaboration points lie at the transitions between the stages and involve decsions on data management, visualisation and analytical capabilities (@heer2008design).  Physical and temporal separation of teams and institutional and disciplinary divides lead to early-stage partitioning of tasks both in the *design* (data profilation, ideation, mockup creation and prototyping) and *development* (implementation, testing, deployment and maintenance) phase (@walny2019data). Such compartmentalizaton is not unique to dataviz projects, it could match any web development project.
 
 ![**Fig** Stages of data visualization development process. Adopted from @walny2019data](imgs/stages-of-dataviz-development-process.png)
 
 @walny2019data formalize stages of data visualisation process based on experience with several assignments (Fig.). This is an itrative process where the division of labor gives rise to *handoff* events, when one team passes work products and requirements to the next team. Particularly the handoff between the design and development team is where issues can arise to affect the end result. Speaking from the postion of design team @walny2019data articulate several key challenges that affect the success of the handoff and in turn the smoothness of the whole project:
 
-* *Adapting to data changes* -- changes in input data can have cascading effects throughout the stages of the process. Some breakages are inevitable, for example API alterations, and fixing them is a part of project maintenance. It is advisable to have data transformations automated as much as possible, it is likely there will be a need to reiterate them. In this sense, the scipts and the processing toolchain developed during the project can be more valuable to creators than its outputs.
-* *Anticipating edge cases* -- though this is incredibly hard for real-time data inputs, best effort should be made to at least forsee the application states resutling from the user intercations, such as filtering, changes of scale, etc. 
-* *Understanding technical challenges* -- knowledge of technical constraints helps to produce feasible design ideas. Development teams' constraints tend to differ form the design team, they include cross-browser compatibility, future code maintainablity. In some areas these can overlap e.g. in accessability considerations or performance optimization 
-* *Articulating data-dependent interactions* -- prototyping interactions such as linking and brushing using conventional graphic tools is challenging, not to speak about articulaiting of animations and transitions between views. (either learn to code, or await a tool to support this specific wireframing)
-* *Communicating data mappings* --  this is a concern when delivering static mockups for development team, the mapping between data and the interface controls may not be obvious, especially when the chomplexity of data does not allow to exemplify all possible views in mockups. Annotations within mockups are a way to mitigate this.
-* *Preserving data mapping integrity across iterations* -- tracking implementation adherence to the design, finding errors, as well as chcking if change requests from previous iterations got implemented is solely a matter of visual inspection and therefore prone to error. (this could be fixed by automated testing, though not always feasible for all projects, more for long-running projects/products)
+* *Adapting to data changes* -- changes in input data can have cascading effects throughout the stages of the process. Some breakages are inevitable, for example API alterations, and fixing them is a part of project maintenance. It is advisable to have data transformations automated to the largest extent possible, as it is highly likely there will be a need to reiterate them. In this sense, the scipts and the processing toolchain developed during the project can be more valuable to creators than its outputs.
+* *Anticipating edge cases* -- though this is incredibly hard for real-time data inputs, best effort should be made to forsee at least the main application states resutling from the user intercations, such as filtering, changes of scale, etc. 
+* *Understanding technical challenges* -- knowledge of technical constraints helps to produce feasible design ideas. Development team's concerns differ form the design team, they include cross-browser compatibility or future code maintainablity. In some areas the goals can overlap, for example in accessability considerations or performance optimization 
+* *Articulating data-dependent interactions* -- prototyping interactions such as linking and brushing using conventional graphic tools is challenging, not to speak about articulaiting of animations and transitions between views. There are wireframing tools that try to address this, though misunderstandings still occur. 
+* *Communicating data mappings* -- this is a concern when delivering static mockups for the development team. The mapping between data and the interface controls may not be obvious, especially when the chomplexity of data does not allow to exemplify all possible views in mockups. Annotations within mockups are a way to mitigate this.
+* *Preserving data mapping integrity across iterations* -- tracking implementation adherence to the design, finding errors, as well as chcking if change requests from previous iterations got implemented is solely a matter of visual inspection and therefore prone to error. This can be fixed by automated testing, though it is not feasible for all types of projects, and even if implemented, the test coverage can rarely reach 100%.
 
-These challenges were formulated based on project experience with relatively static historical data inputs, which underlines why dynamic geovisualistaion of real-time data is hard: much of the advice would be impossible to follow (?). ...some conclusion to these practical issues
+These challenges were formulated based on project experience with relatively static historical data inputs, which underlines why dynamic geovisualistaion of real-time data is hard: much of the advice is almost impossible to follow for volatile real-time data inflow. TODO -- something more
 
 
-# General questions
-
-1. What inspiraton can interactive web cartography take from the heritage of pre-digital mapping? What was lost in transition to digital? Are there methods and practices from tradition that could be used but aren't (because cartographers usually aren't software developers, and software developers are usually unaware of old map stocks). Danger: the perceived mantinels of the new technologies limit us in imaginig what we could do (e.g. what visualisation possibilities are provided by APIs like Leaflet).
-
-2. limits of old media. Danger: processes of old media are transfered to new media, leaving possibilities in new tools unexplored.
-
-3. Cartography and UX, designing an interactive map is also designing ways to interact with data. Saving space: coupling legends with controls.
-Problematizing UX research, problems of cognitive testing (verification crisis in psychology) vs. A/B testing,  (data on tile usage from big providers)
-
-4. Inspirations from product design (praktika lens, beat machines), photography (Muybridge and Marey), cinematography, video (youtube, other video services :P)
-
-5. What is entirely specific and unique in map design apropriating the above inspirations?
 
 
 # Recent objections to geospatial knowledge discovery
