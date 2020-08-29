@@ -166,7 +166,7 @@ Problems with pattern interpretation around big data.
 # BD discussions from bollier2010promise
 (@bollier2010promise
 -- For Joi Ito, the Chief Executive Officer of Creative Commons, the
-search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers.
+search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers
 When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
 
 “Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
@@ -194,7 +194,96 @@ Researchers in cartography and geovisualistaion see big data as an opportunity a
 - *Create maps and map-oriented interfaces that prompt attention to important changes in dynamic geospatial big data sources* -- We will need to work with global changes, local changes and combinations across scales. In addition, if we display every possible change at once, then the graphical displays become cluttered. Creating summaries of change may be the solution, but we do not yet know how to select important patterns and generalize to something that a user can understand.
 - *Leverage what we know about map animation and interactive cartography to construct visual solutions for dynamic sources of geospatial big data* --  Conventional solutions for interactive mapping, animated mapping or geovisual analytics can be used for representing big data. However, because of the high velocity characteristic of big data, it is necessary to develop solutions that can automate map design decisions to support interactive design solutions that respond (or potentially precede based on modelled outcomes) as the data changes.
 
-Research agendas are 10 000 ft view, interesting points can also be found in @thomas2005illuminating. (TODO -- process for other chapters?) See also: https://www.researchgate.net/publication/236993632_Illuminating_the_Path_An_RD_Agenda_for_Visual_Analytics 
+@thomas2005illuminating also provide a set of recommendations for research and development agenda for visual analytics.
+
+@thomas2005illuminating
+------
+
+An emerging discipline progresses through four stages. It starts as a craft and is practiced by skilled artisans using heuristic methods. Later, researchers formulate scientific principles and theories to gain insights about the processes. Eventually, engineers refine these principles and insights to determine production rules. Finally, the technology becomes widely available. The challenge is to move from craft to science to engineering to systems that can be widely deployed. -- my commentary: Cartography, being a universisty study field had arguably crossed the four stages in the past, though with interactive mapping it could benefit from retruning to the craft stages as the tools and possibilites for mapping changed profoundly.
+
+Cognitive scientists have studied visual representations and the larger class of external aids to cognition. An external aid to cognition is an artifact that helps us reason about the world.
+
+A first step in developing principles for visual representations is to understand how
+they enable cognition [Card, 1999; Norman, 1993]. Some basic principles for devel-
+oping effective depictions include the following (adapted from [Norman, 1993]):
+
+• Appropriateness Principle – The visual representation should provide neither
+more nor less information than that needed for the task at hand. Additional
+information may be distracting and makes the task more difficult.
+• Naturalness Principle – Experiential cognition is most effective when the
+properties of the visual representation most closely match the information
+being represented. This principle supports the idea that new visual metaphors
+are only useful for representing information when they match the user’s cog-
+nitive model of the information. Purely artificial visual metaphors can actually
+hinder understanding.
+• Matching Principle – Representations of information are most effective
+when they match the task to be performed by the user. Effective visual repre-
+sentations should present affordances suggestive of the appropriate action.
+Another prominent cognitive scientist has suggested the following two basic prin-
+ciples [Tversky et al., 2002]:
+• Principle of Congruence – The structure and content of a visualization
+should correspond to the structure and content of the desired mental repre-
+sentation. In other words, the visual representation should represent the
+important concepts in the domain of interest.
+• Principle of Apprehension - The structure and content of a
+
+The subjects of mental representations and reasoning are the main focus of cog-
+nitive science, so the principles for depicting information must be based on research
+in cognitive science. The apprehension principle underlies the importance of research
+in perception. These meta-principles underscore that the biggest challenge in choos-
+ing a visual representation is to find the right one (not just any one) for the reasoning
+task at hand. -- naive scientism? lecturing birds how to fly...
+
+
+TODO -- science of interaction just as a preview for next chapters:
+Too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
+Then, R&D should be focused on expanding the repertoire of interaction techniques that can fill those gaps in the design space.
+
+Maybe to the end?
+However, there are inherent human tendencies that analysts must recognize and
+overcome. Interaction techniques must be developed that support an analytic dis-
+course and help compensate for human limitations, including:
+• *Information overload in complex situations*. Techniques are needed to
+help analysts simplify their cognitive load without compromising the analyst’s
+effectiveness and to help compensate for faulty memory.
+• *Overcoming biases*. Biases affect the way data are interpreted. Biases about
+the reliability of different sources may lead people to discount information
+from sources that aren’t considered reliable. People often see what they expect
+to see and tend to ignore evidence that is contradictory to a preferred theory.
+If they form a preliminary judgment too early in the analytical process, they
+may hold firm to it long after the evidence invalidates it [Heuer, 1999].
+• *Satisficing*. People settle for a “good enough” answer, sometimes stopping
+their analytical process before they identify critical information that would
+lead them to a different conclusion [Heuer, 1999].
+New interaction techniques are needed to support the user in evaluating evidence,
+challenging assumptions, and finding alternatives. Analytical environments should
+support the user in identifying and understanding all relevant information to reach
+a solid conclusion rapidly. The tools we create need to establish a correct balance
+between structure and intuition.
+
+New visual paradigms:
+- Organizing Large Collections of Information
+- Reasoning about Space and Time
+- Abstraction – Changing to the Appropriate Representation
+- Integrating Powerful Analysis Tools with Visualization
+
+TODO pros and cons of visual analytics vs data mining:
+
+Unfortunately, data transformation approaches, by themselves, are insufficient to provide the required insights. Visual analytics couples these computational capa- bilities with a human decision maker. The hybrid system is more powerful than either the machine or the analyst working alone.
+
+Many possible data transformations may be applicable to a particular problem, but it is not necessarily clear which ones will be of most value in facilitating insight. Visual analytics offers advantages to the user because it provides visual cues that can help the analyst formulate a set of viable models. Also, because visual analytics is qualitative as well as quantitative, there are no assumptions of exact parameters and well-defined boundaries between what is interesting and what is not. A priori criteria of significance may be manipulated based on the judgment of the analyst. The weak- nesses of visual analytics are that there are often infinite possibilities in terms of mappings and views, and there is a high potential for information overload in dense information fields. 
+
+Many analytic packages support multiple visual representations and computa- tional techniques, although generally each will emphasize one over the other. For example, plots are routinely used to confirm analysis and sampling, and clustering algorithms are often used for data reduction prior to visual exploration. The prob- lem is that the communication between the two forms of analysis is often a thin, one-directional channel.
+
+
+role of cartoman:
+Creating effective visualization representations is a labor-intensive process that
+requires a solid understanding of the visualization pipeline, characteristics of the
+data to be displayed, and the tasks to be performed by the analyst. Current visualiza-
+tion software generally has been written in environments where at least some of this
+necessary information was missing.
+
+--------
 
 In addition to the aforementioned agendas, we conclude this section with formulating a number of low-level challenges that we feel are not widely discussed. This thesis does not have the ambition to imagine all paths cartography could take, so we subsequently pose several questions related to the practice of map making that would inform the rest of content of this thesis. A mini-agenda for adjusting mapmaking to post 2020 cirumstances, if you please. As we have seen many times in history of innovation, progress is often hampered by the mental roadblock we don't even realize we have.
 (here merge challenges with questions?)
@@ -371,4 +460,8 @@ In particular, security research and user experience design have significant pra
 BD are fast and n=all so we need to quickly make sense of it or quickly establish there is no sense present.
 
 @van20133v on visulaisation: "Visualizing might not be the most technologically difficult part; it sure is the most challenging part. Telling a complex story in a graph is very difficult but also extremely crucial. Luckily there are more and more big data startups appearing that focus on this aspect and in the end, visualizations will make the difference. One of them is future this will be the direction to go, where **visualizations help organisations answer questions they did not know to ask."**
+
+“Discovery consists of seeing what everybody has seen
+and thinking what nobody has thought.”
+—Albert von Szent-Gyorgyi (1893–1986)
 

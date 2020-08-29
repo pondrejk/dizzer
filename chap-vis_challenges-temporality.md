@@ -195,3 +195,55 @@ peuquet2008multi
 ## 5. possible extensions
 
 
+
+@thomas2005illuminating
+----------
+
+Navigation and other problems that involve reasoning about space are well studied; however, reasoning
+about sequence of events is not as well understood.
+
+Levels of interaction: human time constants
+
+Analysis of human time constants for human-computer interaction was initially discussed by Card et al. [1983], considered from a cognitive science point of view by Newell [1990], and discussed from an information visualization point of view by Card et al. [1999]. Newell describes four bands of time scales for human action (biologi- cal, cognitive, rational, and social) ranging from 100 microseconds to months. For purposes of a science of interaction for analytical reasoning, the two bands of greatest focus are Newell’s cognitive (100 milliseconds to 10 seconds) and rational (minutes to hours) bands. Card describes three distinct bands within Newell’s cognitive band. Note that these time constants represent approximate time ranges. That is, when we say ~100 milliseconds, we mean somewhere in the range of 50 to 300 milliseconds. 
+
+~100 milliseconds. Card refers to this as the perceptual fusion time constant, while Newell refers to it as the deliberate act time constant. This time constant is the rate necessary to produce the perception of a smooth animation. In animation, 10 frames per second equates to 100 milliseconds per frame. In interaction design, this time constant is the rate necessary to create the perception of an immediate response. Users expect to see an immediate response when they move a dynamic query slider [Ahlberg, 1994]. Likewise, as users brush over items of interest, they expect to see immediate corresponding highlighting of the linked items [Cleveland, 1999]. This time constant is also important because minimum human motor response time is around 250 milliseconds.
+
+~1 second. Card refers to this as the unprepared response time, while Newell refers
+to it as the operation time. For our purposes, this constant represents the necessary rate
+of response to simple user actions. For example, clicking a web link should produce
+the display of the next web page within 1 second to be effective. If the response might
+take more time, it is important to provide some kind of feedback in the 1-second
+timeframe to reassure the user that something is happening. This time constant is also
+important for interactive animation, like user-initiated transition animations (tran-
+sitions from one complex structure to another or one viewpoint to another). It has
+been demonstrated that providing a 1-second transition animation can reduce user
+task performance time compared to providing no transition animation [Robertson
+et al., 2002].
+
+~10 seconds. Both Card and Newell refer to this as the unit task time. This is
+the time within which users expect more complex user-initiated activities to com-
+plete (e.g., a complex search). Again, if an activity of this kind will take more than
+10 seconds to complete, it is important to provide the user with feedback within this
+10-second timeframe.
+
+~100 seconds (minutes to hours). This is referred to as the rational band. Higher-
+level reasoning processes, including the analytic reasoning and human-information
+discourse processes described in Chapter 2, take place in this band. Interaction tech-
+niques in this timeframe rely heavily on complex cognitive processing and are greatly
+affected by attentional resource demands such as interruptions and shifts in focus.
+These techniques are the least well understood and developed.
+
+Develop visual representations and new analysis techniques for streaming
+data, including data collected by sensors. Develop visual analytic techniques
+that detect and show changes in the streams and that integrate with predictive
+modeling tools.
+
+The research challenge is to create a new class of visualizations for streaming data.
+Three significant problems must be addressed for streaming data visualizations:
+1. Provide situational awareness for data streams.
+2. Show changes in the state of the system and help users identify when the
+changes are significant.
+3. Fuse various types of information to provide an integrated view of the
+information.
+Visual representations by themselves are insufficient to answer many analytic
+questions and must integrat
