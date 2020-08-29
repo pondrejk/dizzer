@@ -349,6 +349,18 @@ data abstraction vs visual abstraction
 There are two interrelated issues in dealing with abstraction. The first is the development of an analytic capability to transform data from one representation to another. Selecting relevant information, filtering out unneeded information, performing calculations, sorting, and clustering are all components of data abstraction. Second is the development of techniques for visual abstraction. Visual abstraction involves developing effective representations for different types of information. Visual abstraction also involves the control of emphasis and level of detail. Different representations of the same object may be needed at different levels of detail, depending on the importance of that object for the given task. Secondary visual attributes can also be used to connote additional attributes that are important in reasoning,
 such as the quality of the data or the confidence in the assessment.
 
+
+Develop visual representation methods for complex information that provide
+the appropriate level of abstraction.
+Research is necessary to:
+• Identify alternative visual representations of data that best support different
+analytical tasks
+• Develop transformation methods that allow the user to move among alter-
+native visual representations to facilitate exploration and discovery
+• Provide level of emphasis and detail appropriate to the user’s data and task.
+
+
+
 # Figures and grounds 
 ---------------------
 

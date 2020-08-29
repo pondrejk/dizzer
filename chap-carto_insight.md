@@ -116,7 +116,13 @@ Visual analytics extends the concept of visualisaton: not only it provides a vis
 
 This is turly a long way from the low-level search for coocurrences, though it is not clear how should these grand goals materialize in practice. Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Coginition, Human-Computer interaction) and idetnify a range of application and technical challenges. 
 
-The tour of the approches lets us appreciate the prospect of gaining the best of both worlds, that is to support human analytical efforts with algorithmic power doing the heavy lifting around data manipulation. We have seen that inscribing spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, the coocurence we want to search for needs to be defined beforehand. Search algorithms can be performace heavy so some coorination with human observer that is able to easily gain an overview of clusters beyond individual database entities. Visualization and visual analytics provide this exploratory potential, especially for big data in situation where we don't yet know what questions we want to ask. Visualisation as a sense-making tool gives us a way to find things that we had no theory about and no statistical models to identify and to explore the space of models in more expansive ways (@bollier2010promise). Digital cartography has the potential to dynamically support cognitive tasks in described fashion, be it with simple visual higlihting, or with algorithmic assistance yet to be designed.
+The breif tour we just went trough lets us appreciate the prospect of gaining the best of both worlds, that is to support human analytical efforts with algorithmic power doing the heavy lifting around data manipulation. We have seen that inscribing spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, the coocurence we want to search for needs to be defined beforehand, so in many cases the data mining and transformation is insufficient to provide the required insight. Search algorithms can be performace heavy so some coorination with human observer that is able to easily gain an overview of clusters beyond individual database entities. Visualization and visual analytics provide this exploratory potential, especially for big data in situation where we don't yet know what questions we want to ask. Visualisation as a sense-making tool gives us a way to find things that we had no theory about and no statistical models to identify and to explore the space of models in more expansive ways (@bollier2010promise). Many possible data transformations may be applicable to a particular problem, but it is not necessarily clear which ones will be of most value in facilitating insight. Also, because visual analytics is qualitative as well as quantitative, there are no assumptions of exact parameters and well-defined boundaries between what is interesting and what is not. A priori criteria of significance may be manipulated based on the judgment of the analyst (@thomas2005illuminating).
+
+Back to the machine to make addtional queries and transformations to support a hypotesis or model outcomes.
+
+The hybrid system is more powerful than either the machine or the analyst working alone.
+
+Digital cartography has the potential to dynamically support cognitive tasks in described fashion, be it with simple visual higlihting, or with algorithmic assistance yet to be designed.
 
 
 ## 2.3 The role of cartography
@@ -184,7 +190,6 @@ Paying attention to the cognitive part of information processing (differences be
 Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
 
 
-
 ###  2.3.1 What next? Research challenges 
 
 Researchers in cartography and geovisualistaion see big data as an opportunity and also as a certain call to action. The research agenda for geospatial big data and cartography layed down in @robinson2017geospatial shows the general interest of moving the field toward fullfilling its potential to make maps that "pique interest, are tacitly understandable and are relevant to our society". It is certainly reassuring that the community is aware that new sources of data "stretch the limits of what and how we map". Building on this, @robinson2017geospatial list several large-scale and long-term research challenges to face cartography in relation to big data as well as some short-term research oportunities for more concentrated investiagation (see appendix A for the overview). Even though some points seem vague and repetative, and the imprint of the individual ICA commisions is clearly wisible, the agenda states some trully inspirative problems to tackle. In relation with the scope to this thesis we can highlight the following challenges for cartography:
@@ -194,7 +199,12 @@ Researchers in cartography and geovisualistaion see big data as an opportunity a
 - *Create maps and map-oriented interfaces that prompt attention to important changes in dynamic geospatial big data sources* -- We will need to work with global changes, local changes and combinations across scales. In addition, if we display every possible change at once, then the graphical displays become cluttered. Creating summaries of change may be the solution, but we do not yet know how to select important patterns and generalize to something that a user can understand.
 - *Leverage what we know about map animation and interactive cartography to construct visual solutions for dynamic sources of geospatial big data* --  Conventional solutions for interactive mapping, animated mapping or geovisual analytics can be used for representing big data. However, because of the high velocity characteristic of big data, it is necessary to develop solutions that can automate map design decisions to support interactive design solutions that respond (or potentially precede based on modelled outcomes) as the data changes.
 
-@thomas2005illuminating also provide a set of recommendations for research and development agenda for visual analytics.
+@thomas2005illuminating also provide a set of recommendations for research and development agenda for visual analytics. Particularly resonating with goals of this thesis is their account on new visual paradigms, that include:
+- Organizing Large Collections of Information
+- Reasoning about Space and Time
+- Abstraction – Changing to the Appropriate Representation
+- Integrating Powerful Analysis Tools with Visualization
+
 
 @thomas2005illuminating
 ------
@@ -239,41 +249,8 @@ TODO -- science of interaction just as a preview for next chapters:
 Too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
 Then, R&D should be focused on expanding the repertoire of interaction techniques that can fill those gaps in the design space.
 
-Maybe to the end?
-However, there are inherent human tendencies that analysts must recognize and
-overcome. Interaction techniques must be developed that support an analytic dis-
-course and help compensate for human limitations, including:
-• *Information overload in complex situations*. Techniques are needed to
-help analysts simplify their cognitive load without compromising the analyst’s
-effectiveness and to help compensate for faulty memory.
-• *Overcoming biases*. Biases affect the way data are interpreted. Biases about
-the reliability of different sources may lead people to discount information
-from sources that aren’t considered reliable. People often see what they expect
-to see and tend to ignore evidence that is contradictory to a preferred theory.
-If they form a preliminary judgment too early in the analytical process, they
-may hold firm to it long after the evidence invalidates it [Heuer, 1999].
-• *Satisficing*. People settle for a “good enough” answer, sometimes stopping
-their analytical process before they identify critical information that would
-lead them to a different conclusion [Heuer, 1999].
-New interaction techniques are needed to support the user in evaluating evidence,
-challenging assumptions, and finding alternatives. Analytical environments should
-support the user in identifying and understanding all relevant information to reach
-a solid conclusion rapidly. The tools we create need to establish a correct balance
-between structure and intuition.
 
-New visual paradigms:
-- Organizing Large Collections of Information
-- Reasoning about Space and Time
-- Abstraction – Changing to the Appropriate Representation
-- Integrating Powerful Analysis Tools with Visualization
 
-TODO pros and cons of visual analytics vs data mining:
-
-Unfortunately, data transformation approaches, by themselves, are insufficient to provide the required insights. Visual analytics couples these computational capa- bilities with a human decision maker. The hybrid system is more powerful than either the machine or the analyst working alone.
-
-Many possible data transformations may be applicable to a particular problem, but it is not necessarily clear which ones will be of most value in facilitating insight. Visual analytics offers advantages to the user because it provides visual cues that can help the analyst formulate a set of viable models. Also, because visual analytics is qualitative as well as quantitative, there are no assumptions of exact parameters and well-defined boundaries between what is interesting and what is not. A priori criteria of significance may be manipulated based on the judgment of the analyst. The weak- nesses of visual analytics are that there are often infinite possibilities in terms of mappings and views, and there is a high potential for information overload in dense information fields. 
-
-Many analytic packages support multiple visual representations and computa- tional techniques, although generally each will emphasize one over the other. For example, plots are routinely used to confirm analysis and sampling, and clustering algorithms are often used for data reduction prior to visual exploration. The prob- lem is that the communication between the two forms of analysis is often a thin, one-directional channel.
 
 
 role of cartoman:
@@ -374,9 +351,7 @@ In this model the collaboration points lie at the transitions between the stages
 These challenges were formulated based on project experience with relatively static historical data inputs, which underlines why dynamic geovisualistaion of real-time data is hard: much of the advice is almost impossible to follow for volatile real-time data inflow. TODO -- something more
 
 
-
-
-# Recent objections to geospatial knowledge discovery
+## 3 Recent objections to geospatial knowledge discovery
 
 What is the role of cartography if:
 
@@ -386,12 +361,37 @@ spatial modelling
 (naive rationalism) - risky inference, risky prediction, harmful intrusions to complex
 Pseudo-insights? Embracing what we canno't know (via negativa) 
 
+### Non-human decsion makers
+
 Add 1:
-- If human is dropped out of the equation, will we need visual 
+- If human is dropped out of the equation, will we need visual analytics
 - man has checking, and qa function
 - man can direct search to speed up computations (interface needed)
 - algorithms can have biases
 - at least a proven communication tool (to pass on the results of computation to human, tailored to human cognitive capabilites)
+
+We would mostly welcome automatization of many tedious tasks, and in realm of decision-making and orientation by the map we already do. AI Inference could go around some well known limitations of human analysts such as information overload in complex situations, inherent and unrecognized biases or tendency to settle for convenient anwers (satisficing) (@thomas2005illuminating)
+
+. Techniques are needed to
+help analysts simplify their cognitive load without compromising the analyst’s
+effectiveness and to help compensate for faulty memory.
+
+• *Overcoming biases*. Biases affect the way data are interpreted. Biases about
+the reliability of different sources may lead people to discount information
+from sources that aren’t considered reliable. People often see what they expect
+to see and tend to ignore evidence that is contradictory to a preferred theory.
+If they form a preliminary judgment too early in the analytical process, they
+may hold firm to it long after the evidence invalidates it [Heuer, 1999].
+
+• *Satisficing*. People settle for a “good enough” answer, sometimes stopping
+their analytical process before they identify critical information that would
+lead them to a different conclusion [Heuer, 1999].
+New interaction techniques are needed to support the user in evaluating evidence,
+challenging assumptions, and finding alternatives. Analytical environments should
+support the user in identifying and understanding all relevant information to reach
+a solid conclusion rapidly. The tools we create need to establish a correct balance
+between structure and intuition.
+
 
 - Add human cognition: not uniform (makes sense to look at otliers rather than the general populations, -- tailoring for elderly, disabled, visually impaired), evolves with media usage (some abilties strengthen, some weaken) 
 
@@ -415,7 +415,14 @@ environmentally unsustainable. Thus, continued progress in these applications
 will require dramatically more computationally-efficient methods, which will
 either have to come from changes to deep learning or from moving to other
 machine learning methods.
------
+
+TODO - revisit after reading @shane2019you
+Issues -- human biases can get incorporated
+
+
+
+
+### 3.2 Dangers of naive rationalism
 
 Causal relationships vs. epiphenomena. -- see Taleb 198-200. (Maps helping to tell?)
 
