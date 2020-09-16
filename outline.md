@@ -17,8 +17,9 @@ Making sense of Big Data
 - Objections
 
 Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
-- avoiding aggregation
+- avoiding aggregation (data vs visual aggregation)
 - study of hexbin aggregation
+- optionally: dimensionality reduction, autoencoders for spatial data
 - an aside on UX, dealing with density in ux controls
 - an aside on web graphics technologies, vector tiles and mapbox
 - a discussion of figure vs groud
