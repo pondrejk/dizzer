@@ -1,9 +1,14 @@
 # Dealing with temporality
 
-visualisation overviews (don't go to detail, just mention):
+visualisation overviews (don't go to detail, just mention): basically more or less organized lists of what tools are available:
+
 @muller2003visualization
 @andrienko2003exploratory
-https://datavizproject.com/
+https://datavizproject.com/  (organization by: Family Input Function Shape)
+https://www.data-to-viz.com/ (tree structure)
+http://geo.janmiklin.cz/metody-tematicke-kartografie-navrh-hierarchicke-klasifikace/ (more cartography-realed, hierarchical classification of thematic cartography methods)
+
+
 @dykes2003seeking -- visualisation challenges
 
 @bach2014review -- space-time cubes https://hal.inria.fr/hal-01006140/document -- see e.g Khronos projector --  video time-space cube... 
@@ -14,7 +19,12 @@ Beware of change blindness -- @nowell2001change
 mocking 
 --------
  -- one approach, get a timeline, historical dataset, treat it like it was a datastream and test your visualisateon assumptions
--- secnd approach -- emulate data
+-- secnd approach -- create synthetic data
+
+synthetic datasets -- a science of its own:
+------------------
+journalist article -- why useful: https://news.mit.edu/2020/real-promise-synthetic-data-1016
+opensource tools (check out, use?): synthetic data vault https://sdv.dev/
 
 value of real time, value of comparison with older states
 -------------
