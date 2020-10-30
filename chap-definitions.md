@@ -85,6 +85,9 @@ The type of data source is another potential classification property. Authors di
 - *Traditional Business systems (process-mediated data)* – these processes record and monitor business events of interest
 - *IoT (machine-generated data)*^[Internet of Things (IoT) can be described as a vision of a network of devices, vehicles and home appliances that can connect, interact and exchange data. Similarly to big data, there are manifold definitions of the concept, for overview see @atzori2010internet] – information is derived from sensors and machines used to measure and record the events and situations in the physical world
 
+TODO -- newer forcasts from 2020 (More than 59 zettabytes (ZB)), and how COVID-19 contributes to it
+https://www.idc.com/getdoc.jsp?containerId=prUS46286020
+
 Data sources labeled as big differ from traditional sources such as surveys and official administrative statistics – @florescu2014will and @kitchin2015opportunities closely examine those differences as well as the potential for big data to extend the official statistics. Interesting point is that volume is not actually distinctive as governmental offices tend to store large amounts as well. What makes the difference is that classical data sources have statistical products and by-products specified beforehand, big data tend to be reused beyond the original intent. On the other hand, big data sources tend to be volatile and unstructured, therefore their representativeness is harder (if possible) to assess.
 
 ### 1.2.4 Metaphoric accounts
