@@ -167,6 +167,15 @@ TODO - other visualisation-related issues:
 - don't know what questions I want to ask
 - looking for ouliers
 
+TODO -- proti interpretácii (niekam zahrnúť??) -- https://www.kinecko.com/proti-interpretacii/?fbclid=IwAR2Ms83cZyRofIbDOqhucPID9Qt9aOQyRKFExdxcb9_zhcKndrgPYNN53LQ (Susan Sontag) @sontag1994against -- niečo v tom zmysle aj o pozorovaní reprezentácie (mapy) spôsobom akým pozorujeme prírodu -- bez automatických hľadaní príčinných súvislostí medzi javmi. (možno odkaz na Kahneman kapitola o statistical thinking? -- Jak tu zaváži kartografia?) @kahneman2011thinking
+
+TODO -- building engagement -- uloha kartografa -- najrv vzbudit zaujem -- nejaka inspiraci av good practices dizajnových studii orientovaných na komunikáciu. Jak komunikovať jasne a pritom nie prvoplánovo (na druhej strane objem inoformácii v marketingu je neporovnatelne nizsi a cielom je skor vyvolat emocie -- ale netreba tieto postupy podcenovat) 
+-- k engagementu diagramy z algorithms in art
+TODO -- procedurálne diadramy z designu (dual diamond diagram) -- to je vlastne zoom in na návrhovú zložku v kolaboracných diagramoch nižsie (zdôrazniť cyklickosť procesu).
+-- iné príklady -- user roles, user stories. Nezačínať od dát ale od používateľov
+-- protiargument: weaponization of design
+
+
 Problems with pattern interpretation around big data.
 
 # BD discussions from bollier2010promise
@@ -309,6 +318,9 @@ Inspirations from product design (praktika lens, beat machines), photography (Mu
 amount of hand-holding?
 (move to one of the questions)
 Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas -- see below on weaponization of design).
+
+TODO: 
+- discussion of presentational vs exploratory cartography -- or better on building interfaces to support one of them. -- exploaratory interfaces seen loftier, most comercial assigmnents are presentational -- in fact the threshold between presentatonal and exploratory capabilites is something that needs to be considered. 
 
 
 **4. How to extend the spatio-temporal analysis faculty in digital maps.**
