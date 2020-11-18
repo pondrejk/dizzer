@@ -135,7 +135,7 @@ School atlases served for presentation of knowledge, were confirmatory. Digital 
 
 The ability to interact with the map view can surely be empowering for the user, being passing on the sensation of exploration. On the other hand, things can go the wrong as it is very hard to create an imersive experience that would be immediately understandable to the newcommer. Exploratory map applications indtend for general public can leave users overwhelmed with the amount of possible interaction points. Left to her own devices, without any stated framework for interpretation users need to create her own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untorubled with the dangers of fostering misinterpration. Lack of guidenance on where to start results in poor engagement with the application, that is quickly aboandoned. With applications for specialized audience, this can be mitigated by learning as users are forced to work with the applicaton as part of their job. Simmilar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
 
-(TODO mostík)
+ mostík)
 
 # Map reading and interpretation
 

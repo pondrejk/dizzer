@@ -8,6 +8,7 @@ pandoc chap-definitions.md -o paper.docx --bibliography=../Biblio/cartogis.bib -
 
 combine muliple sources
 pandoc -s input1.md input2.md input3.md -o output.html
+-- doesnt work good -- better first combine mds -- create makefile for it?
 
 use extensions, or alternative formats
 pandoc -f markdown+extension

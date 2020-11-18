@@ -1,22 +1,34 @@
 Outline
 ---------
 
-Introduction
+# Introduction
 
-Defining Big Data
-- Ontological charcteristics of BD
-- Other accounts on BD
-- Spatial big data in general
-- Some Impacts of Data Abundance
-  - on science, society, business, etc.
+# Defining Big Data
+- Ontological characteristics
+- Other ways of understanding big data
+  - Vs and keywords
+  - A challenge for technical infrastructure
+  - Showing example sources and quantities
+  - Metaphoric accounts
+  - Holistic accouts
+- Spatial big data 
+- Assessing impacts, threats and opportunities
 
-Making sense of Big Data
-- Spatial attributes of BD
-- Visual analytics and knowledge discovery 
-- Cartographic agenda
+# Making sense of Big Data
+- Spatial big data classification: stations, events, and agents
+- Spatio-temporal knowledge discovery and visual analytics 
+  - Spatio-temporal relations 
+  - From data mining to visualisation for human interpretaton 
+- The role of cartography
+  - Map reading and interpretation
+  - What next? Research challenges
+  - How next? Challenges in collaborative practice
 - Objections
+  - Misinterpretation
+  - Non-human decision makers
 
-Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
+
+# Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
 - avoiding aggregation (data vs visual aggregation)
 - study of hexbin aggregation
 - optionally: dimensionality reduction, autoencoders for spatial data
@@ -25,17 +37,17 @@ Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
 - a discussion of figure vs groud
 - Case study - urban recommendation system
 
-Dealing with velocity:
+# Dealing with velocity:
 - time depictions in cartography
 - an aside on UX, using interaction and feedback in ux controls
 - Case study - traffic trough the pandemic
 
-Future trajectories:
+# Future trajectories:
 - testing, ml? mocking
 
-Discussion & Conclusion
+# Discussion & Conclusion
 
-Appendices
+# Appendices
 
 - Case study outlines:
 -- data sources and transformations

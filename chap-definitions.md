@@ -7,7 +7,7 @@
 
 *This chapter searches for defining properties of big data, focusing on characteristics with possible implications for cartographic practice. Review of related works outlines the main attitudes towards grasping the concept.*
 
-## 1.1 Ontological characteristics ("big" standing for "fast" and "exhaustive")
+## 1.1 Ontological characteristics
 
 Despite the lively interest triggered by the subject, the explanation of the term *big data* ^[Throughout the text we will treat the term as plural, without capitalization. Although there are strong arguments for "data" as singular (@widman2014when, @nunberg2013data, for counterargument emphasizing the plurality of big data see @wilson2017big) and some authors do capitalize, we chose to match with the majority of big data related literature. This does not apply to direct citations where we preserve the original author's formulation.] remains hazy and there is no widely accepted definition to the date. Perhaps the most systematic effort in this matter by @kitchin2014data (refined in @kitchin2016makes) summarizes the key properties attributed to big data. Kitchin critically evaluates these properties and goes on to assign them a relative importance in distinguishing big from "small" data. He also takes care to separate the concept in itself from accompanying social phenomena, hence he speaks of *ontological* characteristics.
 
@@ -187,7 +187,7 @@ The potential role of cartography will be examined in more detail later in the t
 It is not within the scope of this thesis (and within the author's powers) to consider all directions and areas where cartography and geoinformation science may be impacted by big data. The whole project of GIS might need to to be rethinked again, but this is not unprecedented. rom desktop GIS (1960s) to the Web GIS (1980s), and the distributed GIS (1990s), to the cloud GIS (2010s), it is well known that the development of GIS is greatly influenced by computer science technology (@yang2010geospatial). Another turn in GIS might come as a response to big data.
 
 
-## 1.4 Assessing impacts, threats and opportunities rather than seeking definitions
+## 1.4 Assessing impacts, threats and opportunities
 
 Often times big data are described indirectly by the impacts (real or imagined) they have on the society. For some authors, the debate on the definition of big data may be dismissed as unproductive. The popularity of the term itself may diminish like many other new technologies that became part of the notorios hype cycle ^[Hype cycles describe how expectations from emerging technologies evolve with time. Stages in the cycle are:  *innovation trigger*, *peak of inflated expectations*, *trough of disillusionment*, *slope of enlightenment*, and *plateau of productivity*. The expected duration of cycle differs per technology, and some technologies may never reach productivity in the foreseeable future. Hype cycles are a construction of the Gartner consultancy that issues regular reports, see for example @gartner2018]. Many ideas in the IT industry exist under changing or concurrent names, and big data have indeed a lot in common with concepts such as *data mining*, *business intelligence* or *visual analytics* to name just a few. But we should not forget that even though the technological industry is largely fashion-driven, its societal impacts are real, though maybe unevenly distributed. 
 
@@ -243,6 +243,10 @@ some definitions:
 
 I like the last two. #11 is a warning against blindly collecting more data for the sake of collecting more data (see NSA). #12 is an acknowledgment that storing data in “data silos” has been the key obstacle to getting the data to work for us, to improve our work and lives. It’s all about attitude, not technologies or quantities.
 
+https://dennikn.sk/1462667/milan-sutovec-zostavil-encyklopediu-politicke-slovensko-dnesnu-politiku-vnima-ako-svet-chromych-kacerov/?ref=in
+Pôvodne v ňom bolo viac či menej hesiel?
+
+Hej, bolo ich asi 1240, bolo to nerealisticky nafúknuté, a vlastne spočiatku ani nebolo jasné, o čom presne to celé chce byť. Ale s tým mám akademickú skúsenosť, že predstavy a tézy sa upresňujú a zahusťujú počas práce, že téma takpovediac kryštalizuje – len treba začať robiť. 
 
 
 
