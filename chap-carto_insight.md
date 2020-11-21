@@ -362,24 +362,68 @@ In this model the collaboration points lie at the transitions between the stages
 
 These challenges were formulated based on project experience with relatively static historical data inputs, which underlines why dynamic geovisualistaion of real-time data is hard: much of the advice is almost impossible to follow for volatile real-time data inflow. TODO -- something more
 
+TODO: restructure all below:
+## Objections and Resposnses
 
-## 3 Recent objections to geospatial knowledge discovery
+Not surprisingly, data visualisation is seen as a good tool for achieving a desirable goal in most of the literature, this thesis included. But there are some objections that target naive justificaton of visualisation practice or it's future viability. Here we outline some of the objections and possible responses to them as they may shed light on possible tracks of future evolution of cartography.
+
+---------
+
+*Obj1*: By reducing the complex system into comprehensable chunks, data visualisation invites unwarranted interventions that may produce disasterous effects.
+
+- secnond order effects (taleb)
+- impossibility of prediction of rare events (taleb)
+- nature as complex system cascading effects (zizek) -- nature melts into air and what to do about it 
+- why systems surprise us (meadows)
+- system theory itself as a dangerous simplification (harvey) environment vs culture
+
+Mapping complex systems? Beyond the rational naivety about the models (taleb) -- prediction is not a goal, unpredictable events... risk mgmt...
+spatial modelling 
+(naive rationalism) - risky inference, risky prediction, harmful intrusions to complex
+Pseudo-insights?
+
+*response*: 
+- incorporate rather than hide the complexity, uncertainty
+- implement model evaluation tools to maps where possible (e.g. visual e)
+- cartography as a unique argument to support arguments 
+- maps for risk management - embracing what we cann't know (via negativa) 
+- maps for antifragility (convexity) detection, barbell venturing to seek unlimited payoff (taleb) -- more of a side project
+
+----------
+
+*Obj2*: Human misinterpretation, false correlations, biases and limits of knowledge.
+
+- epiphenomena vs correlation (taleb)
+- statistical thinking is unintuitive (kahneman) 
+- limits of comprehension (dennett)
+
+*response*:
+- not all biases are actually biases (taleb)
+- how comprehesnsion is built -- support it (dennett)
+- maps for generating questions, spotting interesting phenomena, building enegagement
+
+-----------
+
+*Obj3*: For future: due to above, let's remove human decision making
+- it is not humans that make the decision (harrari, mayer-zukier)
+
+*response*:
+- technology is not ready (*pinker*, *shane*), maybe never will (computational limits, need for new paradigm)
+- visulaisation needed for human arbiters, to understand machien reasoning.
+
+--------------
+
 
 What is the role of cartography if:
 
-1. It is not humans that make the decision (harrari, mayer-zukier)
-2. Mapping complex systems? Beyond the rational naivety about the models (taleb) -- prediction is not a goal, unpredictable events... risk mgmt...
-spatial modelling 
-(naive rationalism) - risky inference, risky prediction, harmful intrusions to complex
-Pseudo-insights? Embracing what we canno't know (via negativa) 
 
 ### Non-human decsion makers
 
 Add 1:
 - If human is dropped out of the equation, will we need visual analytics
-- man has checking, and qa function
+- man for checking, and qa function
 - man can direct search to speed up computations (interface needed)
-- algorithms can have biases
+- algorithms can have biases too
 - at least a proven communication tool (to pass on the results of computation to human, tailored to human cognitive capabilites)
 
 We would mostly welcome automatization of many tedious tasks, and in realm of decision-making and orientation by the map we already do. AI Inference could go around some well known limitations of human analysts such as information overload in complex situations, inherent and unrecognized biases or tendency to settle for convenient anwers (satisficing) (@thomas2005illuminating)

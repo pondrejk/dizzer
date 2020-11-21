@@ -43,7 +43,9 @@ Outline
 - Case study - traffic trough the pandemic
 
 # Future trajectories:
-- testing, ml? mocking
+- ideas form sw testing in cartography, visual testing neeeded
+- mocking data, preparing fake data with right properties for systems prototyping
+- ML - first to take on manual tasks, then for map design related tasks?
 
 # Discussion & Conclusion
 
