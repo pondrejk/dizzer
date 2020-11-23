@@ -11,7 +11,6 @@
 The vast majority of what is presently understood as spatial big data has point spatial reference. This prevalence comes naturally if we realize that the "data point" location is described basically as a coordinate pair -- two digits that can be easily stored in standard database systems without the need to observe topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production. For this reason, and due to the scope limits of this thesis, we will almost exclusively focus on visualisation issues related to point data^[We'll use the term *point data* as a shorthand for "data with point spatial reference".].
 
 Point spatial data are not a homogeneous group. We can describe three classes representing three kinds o objects differentiated by their behaviour in space and time, more precisely by the by how dynamic their *existence*, *location* and *attributes* are over the course of observation. These properties are determined largely by the source of data, so for convenience we can nickname the three types as *stations*, *agents* and *events*:
-
 - stationary objects (*stations*) have static position and existence, meaning that they don't move or disappear during observation. What is dynamic is the set of attributes attached to the object -- in big data world these attributes can come as a continuously updated streams. Basic examples include weather stations, traffic cameras, and any kind of stationary sensors.
 - moving objects (*agents*) move around, so their position changes during observation, also their existence can be dynamic, meaning they can enter or exit the area of interest. Various kinds of dynamic attributes can be attached. We can reconstruct the history of movement of these objects, which invites conversion to linear representation. Examples are vehicles or pedestrians carrying GPS devices and sensors. 
 - episodic objects (*events*) have existence limited to a specific point in space and time. As they are short-lived, we can say that position and associated attributes are static. Prime example are data collected from social networks. 
@@ -137,7 +136,7 @@ The ability to interact with the map view can surely be empowering for the user,
 
  mostík)
 
-# Map reading and interpretation
+### Map reading and interpretation
 
 Interactive map as a data manipulation interface is useful for those who know what questions they want to ask, but also for those who want to find out what they might be asking. So what kind of inference should an interactive map support? We should start simple, with basic quantitative questions. A big advantage of interactive maps over print is that we can display the exact quantities on demand (e.g. with some pop-up window bound to cursor hover action) and not rely on the viewer's ability to infer quantities form the legend (especially if categorized to some interval scale). The ability to answer simple quantitative queries shouldn't be left in vain, because as @tufte1998visual warns: "when scietifiec images become dequantified, the language of analysis may drift toward credulous descriptions of form, pattern and configuration [...] rather than answer to questions *How many? How often? Where? How much? At what rate?*".
 
@@ -178,7 +177,7 @@ TODO -- procedurálne diadramy z designu (dual diamond diagram) -- to je vlastne
 
 Problems with pattern interpretation around big data.
 
-# BD discussions from bollier2010promise
+**BD discussions from bollier2010promise** TODO process  
 (@bollier2010promise
 -- For Joi Ito, the Chief Executive Officer of Creative Commons, the
 search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers
@@ -190,7 +189,6 @@ When you do that kind of analysis on, say, terrorist networks, you have to under
 said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
 
 --  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
-```
 
 Talking about the human interpretation we can surely adress a wide range of use cases and motivations regarding to data. User roles (TODO move to cartographic part?), weaponization, uncovering secrets... entepreneurial approach. Large scale optimizations, smart city concepts etc. Let us not bloat here. 
 
@@ -199,7 +197,7 @@ Paying attention to the cognitive part of information processing (differences be
 Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
 
 
-###  2.3.1 What next? Research challenges 
+###  2.3.2 What next? Research challenges 
 
 Researchers in cartography and geovisualistaion see big data as an opportunity and also as a certain call to action. The research agenda for geospatial big data and cartography layed down in @robinson2017geospatial shows the general interest of moving the field toward fullfilling its potential to make maps that "pique interest, are tacitly understandable and are relevant to our society". It is certainly reassuring that the community is aware that new sources of data "stretch the limits of what and how we map". Building on this, @robinson2017geospatial list several large-scale and long-term research challenges to face cartography in relation to big data as well as some short-term research oportunities for more concentrated investiagation (see appendix A for the overview). Even though some points seem vague and repetative, and the imprint of the individual ICA commisions is clearly wisible, the agenda states some trully inspirative problems to tackle. In relation with the scope to this thesis we can highlight the following challenges for cartography:
 
@@ -216,35 +214,33 @@ Researchers in cartography and geovisualistaion see big data as an opportunity a
 
 
 @thomas2005illuminating
-------
 
 An emerging discipline progresses through four stages. It starts as a craft and is practiced by skilled artisans using heuristic methods. Later, researchers formulate scientific principles and theories to gain insights about the processes. Eventually, engineers refine these principles and insights to determine production rules. Finally, the technology becomes widely available. The challenge is to move from craft to science to engineering to systems that can be widely deployed. -- my commentary: Cartography, being a universisty study field had arguably crossed the four stages in the past, though with interactive mapping it could benefit from retruning to the craft stages as the tools and possibilites for mapping changed profoundly.
 
 Cognitive scientists have studied visual representations and the larger class of external aids to cognition. An external aid to cognition is an artifact that helps us reason about the world.
-
 A first step in developing principles for visual representations is to understand how
 they enable cognition [Card, 1999; Norman, 1993]. Some basic principles for devel-
 oping effective depictions include the following (adapted from [Norman, 1993]):
 
-• Appropriateness Principle – The visual representation should provide neither
+* *Appropriateness Principle* – The visual representation should provide neither
 more nor less information than that needed for the task at hand. Additional
 information may be distracting and makes the task more difficult.
-• Naturalness Principle – Experiential cognition is most effective when the
+* *Naturalness Principle* – Experiential cognition is most effective when the
 properties of the visual representation most closely match the information
 being represented. This principle supports the idea that new visual metaphors
 are only useful for representing information when they match the user’s cog-
 nitive model of the information. Purely artificial visual metaphors can actually
 hinder understanding.
-• Matching Principle – Representations of information are most effective
+* Matching Principle – Representations of information are most effective
 when they match the task to be performed by the user. Effective visual repre-
 sentations should present affordances suggestive of the appropriate action.
 Another prominent cognitive scientist has suggested the following two basic prin-
 ciples [Tversky et al., 2002]:
-• Principle of Congruence – The structure and content of a visualization
+* Principle of Congruence – The structure and content of a visualization
 should correspond to the structure and content of the desired mental repre-
 sentation. In other words, the visual representation should represent the
 important concepts in the domain of interest.
-• Principle of Apprehension - The structure and content of a
+* Principle of Apprehension - The structure and content of a
 
 The subjects of mental representations and reasoning are the main focus of cog-
 nitive science, so the principles for depicting information must be based on research
@@ -257,9 +253,6 @@ task at hand. -- naive scientism? lecturing birds how to fly...
 TODO -- science of interaction just as a preview for next chapters:
 Too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
 Then, R&D should be focused on expanding the repertoire of interaction techniques that can fill those gaps in the design space.
-
-
-
 
 
 role of cartoman:
@@ -297,7 +290,7 @@ e.g.
 Narration as a workaround for cartographic rules -- legibility, etc. Static map must adhere to the cartographic rules. In intercative maps (both presentational and exploratory) the argument is as follows: application doesn't need to be cartographically legit in all of it's states provided that it shows a path from the messy state to the cartographically treated state.
 
 
-2. *What inspiraton can interactive web cartography take from the heritage of pre-digital mapping?* 
+2. **What inspiraton can interactive web cartography take from the heritage of pre-digital mapping?** 
 
 Cartogaphic quality of web maps are not yet on par with the (best) examples of static maps and atlases (regardles of the date production -- even though maps and atlases age in the sense of content, cartographic metods used in them often remain inspirational and valid, so for cartographer old map products doesn't have to be outdated). This might be a side effect of non-cartographically aware people producing maps (either amateur cartographer acessing easy to use tools, or people comming from graphic design backgrounds bringing 'creative' changes) ^[This is not intended to belittle such activities, as the eyesoreness of some maps is a little tax for democratization of mapping tools. In fact, efforts to help citizen cartographers have been made by more experienced practicioners, most notably in Wood, -- TODO cituj tu ich prirucku]. Another possible cause is that the web mapping frameworks tend to provide just an opinionated set of visualisation options (TODO: picture of the google map's point sign) and cartographers lack the skills to customize or extend these visualisation toolkits. Little to say that some of the classical cartographic techniques are quite demanding when transfered to variable-scaled enviroment. For exaple, the symbol collsions that needed to be resolved just once (as if that was not enough) have to be treated (perhaps algoritmically) in all zoomlevels. (TODO: examples of such methods in pictures -- call it "craftsmen" side of cartography) Cartographers who want to venture to raising the quality of web maps are then forced to dive into frond-end web development^[The situation is improving with rise of web-gl based mapping platforms such as Mapbox and CartoDB, which provide map design environments resembling the visualisation tiers of desktop GIS].  
 
@@ -309,7 +302,8 @@ Overlays are solved lazyly: point clusters vs. offsets and insets
 dynamic data examples:
 Global fishing watch - https://globalfishingwatch.org/map/
 
-** 3. Cartography and UX, designing an interactive map is also designing ways to interact with data**
+3. **Cartography and UX, designing an interactive map is also designing ways to interact with data**
+
 Saving space: coupling legends with controls.
 Problematizing UX research, problems of cognitive testing (verification crisis in psychology) vs. A/B testing,  (data on tile usage from big providers)
 Inspirations from product design (praktika lens, beat machines), photography (Muybridge and Marey), cinematography, video (youtube, other video services :P)
@@ -323,7 +317,7 @@ TODO:
 - discussion of presentational vs exploratory cartography -- or better on building interfaces to support one of them. -- exploaratory interfaces seen loftier, most comercial assigmnents are presentational -- in fact the threshold between presentatonal and exploratory capabilites is something that needs to be considered. 
 
 
-**4. How to extend the spatio-temporal analysis faculty in digital maps.**
+4. **How to extend the spatio-temporal analysis faculty in digital maps.**
 
 The range of possible future states of the application is only to be guessed. In other words, the task is to design the map well for previously unseen data.
 
@@ -339,7 +333,7 @@ Causation-related questions for cartography (TDOO )
 - overall, the ability of dynamic maps to find these collocations and link them to causation is to be assesd, but how? :)
 
 
-### 2.3.2  Challenges in collaborative practice
+### 2.3.2 Challenges in collaborative practice
 
 Having described the ontological models of causation ans sensemaking as well as visions for the future of cartographic research, we can now take an aside to dwell a bit on the nitty-gritty realities of map making in practice. Practical aspects of the profession are often overlooked in literature, as well as the fact that cartographer often needs to operate within a greater team. The smoothness of collaboration within a team is then a determining factor of the team's productivity. 
 
@@ -363,18 +357,21 @@ In this model the collaboration points lie at the transitions between the stages
 These challenges were formulated based on project experience with relatively static historical data inputs, which underlines why dynamic geovisualistaion of real-time data is hard: much of the advice is almost impossible to follow for volatile real-time data inflow. TODO -- something more
 
 TODO: restructure all below:
-## Objections and Resposnses
 
-Not surprisingly, data visualisation is seen as a good tool for achieving a desirable goal in most of the literature, this thesis included. But there are some objections that target naive justificaton of visualisation practice or it's future viability. Here we outline some of the objections and possible responses to them as they may shed light on possible tracks of future evolution of cartography.
+## 2.4 Objections and Responses
+
+Not surprisingly, data visualisation is seen as a good tool for achieving a desirable goal in most of the literature, this thesis included. But there are some objections that target naive justification of visualisation practice or it's future viability. Here we outline some of the objections and possible responses to them as they may shed light on possible tracks of future evolution of cartography.
 
 ---------
 
-*Obj1*: By reducing the complex system into comprehensable chunks, data visualisation invites unwarranted interventions that may produce disasterous effects.
+### Hiding system complexity (and intervention risks)
 
-- secnond order effects (taleb)
+**Obj1**: By reducing the complex system into comprehensible chunks, data visualisation invites unwarranted interventions that may produce disastrous effects.
+
+- second order effects (taleb)
 - impossibility of prediction of rare events (taleb)
 - nature as complex system cascading effects (zizek) -- nature melts into air and what to do about it 
-- why systems surprise us (meadows)
+- why systems surprise us (meadows) @meadows2008thinking
 - system theory itself as a dangerous simplification (harvey) environment vs culture
 
 Mapping complex systems? Beyond the rational naivety about the models (taleb) -- prediction is not a goal, unpredictable events... risk mgmt...
@@ -382,7 +379,10 @@ spatial modelling
 (naive rationalism) - risky inference, risky prediction, harmful intrusions to complex
 Pseudo-insights?
 
-*response*: 
+@meadows2008thinking
+Donnela meadows on systems with delay -- good for describing systems with already known structure (man-made), maybe use something on complex systems
+
+**response**: 
 - incorporate rather than hide the complexity, uncertainty
 - implement model evaluation tools to maps where possible (e.g. visual e)
 - cartography as a unique argument to support arguments 
@@ -391,44 +391,18 @@ Pseudo-insights?
 
 ----------
 
-*Obj2*: Human misinterpretation, false correlations, biases and limits of knowledge.
+### Misinterpretation
+
+**Obj2**: Human misinterpretation, false correlations, biases and limits of knowledge.
 
 - epiphenomena vs correlation (taleb)
 - statistical thinking is unintuitive (kahneman) 
-- limits of comprehension (dennett)
+- limits of comprehension (dennett) @dennett2017bacteria
 
-*response*:
-- not all biases are actually biases (taleb)
-- how comprehesnsion is built -- support it (dennett)
-- maps for generating questions, spotting interesting phenomena, building enegagement
-
------------
-
-*Obj3*: For future: due to above, let's remove human decision making
-- it is not humans that make the decision (harrari, mayer-zukier)
-
-*response*:
-- technology is not ready (*pinker*, *shane*), maybe never will (computational limits, need for new paradigm)
-- visulaisation needed for human arbiters, to understand machien reasoning.
-
---------------
+Causal relationships vs. epiphenomena. -- see Taleb 198-200. (Maps helping to tell?)
 
 
-What is the role of cartography if:
-
-
-### Non-human decsion makers
-
-Add 1:
-- If human is dropped out of the equation, will we need visual analytics
-- man for checking, and qa function
-- man can direct search to speed up computations (interface needed)
-- algorithms can have biases too
-- at least a proven communication tool (to pass on the results of computation to human, tailored to human cognitive capabilites)
-
-We would mostly welcome automatization of many tedious tasks, and in realm of decision-making and orientation by the map we already do. AI Inference could go around some well known limitations of human analysts such as information overload in complex situations, inherent and unrecognized biases or tendency to settle for convenient anwers (satisficing) (@thomas2005illuminating)
-
-. Techniques are needed to
+. Techniques are needed to (@thomas2005illuminating)
 help analysts simplify their cognitive load without compromising the analyst’s
 effectiveness and to help compensate for faulty memory.
 
@@ -448,13 +422,69 @@ support the user in identifying and understanding all relevant information to re
 a solid conclusion rapidly. The tools we create need to establish a correct balance
 between structure and intuition.
 
+**response**:
+- not all biases are actually biases (taleb)
+- how comprehension is built -- support it (dennett)
+- maps for generating questions, spotting interesting phenomena, building enegagement
 
-- Add human cognition: not uniform (makes sense to look at otliers rather than the general populations, -- tailoring for elderly, disabled, visually impaired), evolves with media usage (some abilties strengthen, some weaken) 
+
+-- the societal responsibility of designers (first things first movement?, something for data visualists), and cartographers (harley, wood, crampton, -- radical cartography (Paglen?)) Designers creating manifestos for social change, being confronted with grudgy realities of their field being used in doubtful practices of attention economy.
+
+-- Add human cognition: not uniform (makes sense to look at otliers rather than the general populations, -- tailoring for elderly, disabled, visually impaired), evolves with media usage (some abilities strengthen, some weaken) 
+
+
+Paraphrased from @dennett2017bacteria
+
+An argument from Cognitive Closure states that as in any other animal, human brain is necessarily limited and there are categories of issues that are simply beyond it, unimaginable and unfathomable. But unlike other animals, humans are equipped add-ons that multiply our cognitive powers. Language provides a medium for pooling knowledge across individuals and even generations. Group comprehension is a work-around to extend the limit.
+
+-- Cartography as a unifying language, map is a one of these extending tools
+
+-----------
+
+### Non-human decision makers
+
+**Obj3**: For future: due to above, let's remove human decision making
+- it is not humans that make the decision (harrari, mayer-zukier)
 
 data mining --> machine learning --> automated actions
--- no human interpretation, no need for insight? role of carto?
+-- no human interpretation, no need for insight?
+
+**response**:
+- technology is not ready (*pinker*, *shane*), maybe never will (computational limits, need for new paradigm)
+- visulaisation needed for human arbiters, to understand machien reasoning.
+
+- If human is dropped out of the equation, will we need visual analytics
+- man for checking, and qa function
+- man can direct search to speed up computations (interface needed)
+- algorithms can have biases too
+- at least a proven communication tool (to pass on the results of computation to human, tailored to human cognitive capabilites) -- and we neend communication for knowledge pooling to extend the threshold of the knowable (Argument from cognitive closure)
+
+
+We would mostly welcome automatization of many tedious tasks, and in realm of decision-making and orientation by the map we already do. AI Inference could go around some well known limitations of human analysts such as information overload in complex situations, inherent and unrecognized biases or tendency to settle for convenient anwers (satisficing) (@thomas2005illuminating)
+
+*briliant drudgery* -- extremely talented people doing extremely repetitve but demanding work (@dennett) -- example early disney animators 
+
+Paraphrased from @dennett2017bacteria
+
+AI without comprehension extracts statistical patterns from what *already happened*. Human imagination and ability to envision realities that are not accessible to us by extrapolating from where we currently are, allows for foresighted design
+
+Strong AI is "possible in principle" but a negligible practical possibility, it would cost too much and not give us anything we need. 
+
+There is fairly sharp boundary between machines that enhance our "peripheral" intellectual powers (memory, calculation) and those that purport to replace the "core" powers (imagination, planning, decision making).
+
+Danger is not in AI usurping us, but rather over-estimating the comprehension of tools.
+
+Design AI to be tools not collaborators.
+
+Best to combine human as discerning, purposeful, foresighted agent to govern the process, but heavy lifting is left to inexorable pattern-finding algorithms in cascades of uncomprehending generate-and-test cycles that refine the search process.
+
+-- Now how to extend to maps
+
+--------------
+
 
 First do we event want to get there, best of both worlds is maybe better approach (TODO cite Thiel, also on Keeping up with machines, article on not replacing human labor) 
+
 Second, hard vs easy problems -- ai can now do only "easy", will "hard" ever be possible? (general AI -- TODO cite Pinker)
 -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? -- here, are problems solvable by maps hard or easy, better: which are hard and which are easy? Also the difference between AI in place of cartographers (which map-making tasks can be automated -- probably those tedious ones -- digitalization) and AI for cartographers (what can we now do better? Tooling and process improvements)
 
@@ -473,20 +503,9 @@ either have to come from changes to deep learning or from moving to other
 machine learning methods.
 
 TODO - revisit after reading @shane2019you
-Issues -- human biases can get incorporated
+Issues -- human biases can get incorporated so AI is not extempt from the failings of its designers
 
-
-
-
-### 3.2 Dangers of naive rationalism
-
-Causal relationships vs. epiphenomena. -- see Taleb 198-200. (Maps helping to tell?)
-
-# vis for humans, machines do not need it
--- the societal responsibility of designers (first things first movement?, something for data visualists), and cartographers (harley, wood, crampton, -- radical cartography (Paglen?))
-
-@meadows2008thinking
-Donnela meadows on systems with delay -- good for describing systems with already known structure (man-made), maybe use something on complex systems
+-----
 
 Excellent map provides answers, helps to ask queations and supports understanding in an engaging way. It is perfectly OK if the conveyed message is a lack of pattern, lack of reagularity or inability to rasonably identify correlation.
 
@@ -496,7 +515,7 @@ It is always possible to say when not to use the map.  @robinson2017geospatial
 
 -----
 
-# weaponized design
+**weaponized design**
 @diehm2018weaponised
 
 Weaponised design – a process that allows for harm of users within the defined bounds of a designed system – is faciliated by designers who are oblivious to the politics of digital infrastructure or consider their design practice output to be apolitical.
