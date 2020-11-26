@@ -198,6 +198,12 @@ peuquet2008multi
 # Case Study: Pandemics traffic exploration
 
 ## 1. data sources and transformations
+
+### out-of-core computation (small tools for big data)
+<https://pythonspeed.com/datascience/>
+
+
+
 ## 2. app architecture (react redux mapbox)
 ## 3. user interface design
 ## 4. interesting findings
