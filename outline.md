@@ -36,6 +36,7 @@ Outline
 - an aside on web graphics technologies, vector tiles and mapbox
 - a discussion of figure vs groud
 - Case study - urban recommendation system
+-- inset map: https://react-leaflet.js.org/docs/example-react-control
 
 # Dealing with velocity:
 - time depictions in cartography
