@@ -309,6 +309,7 @@ cons:
 - what can be done with pixi.js, why are game programming libraries good or bad for creating inteactive maps (e.g. bad: too focused on redndering pre-created raster images..., limitations of pixi v4 particle container (explained in Medium blog on global fishing watch))
 
 https://blog.mapbox.com/how-i-built-a-wind-map-with-webgl-b63022b5537f
+- a trip trough the graphics pipeline
 
 ### explanation of CPU vs GPU rendering
 -- image in appendix
