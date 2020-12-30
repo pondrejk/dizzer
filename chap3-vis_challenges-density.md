@@ -1,6 +1,8 @@
-# Dealing with density
+# Dealing with density in spatial data
 
-## Intro on difficulties
+*This chapter explores the possible solutions to graphical clutter with focus on hexbin aggregation and contextual interaction of map layers. Web rendering technologies that power these solutions are detailed. Chapter concludes with case study report of urban recommendation system for Brno*
+
+## Visualisation challenges of dense spatial data
 
 As we hav seen in the previous chapter, objects, agents and events with point spatial reference is by far the most common raw material comming to the start of the visualisation pipeline for spatial big data.
 

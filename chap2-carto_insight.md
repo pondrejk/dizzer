@@ -4,7 +4,7 @@
 
 > Cedric Price
 
-*This chapter looks more closely on the properties of data with point spatial reference that count for the majority of spatial big data. Then we will outline the tendencies in spatio-temporal knowledge discovery, and we will discuss general ways how cartography can support understanding the world trough the lens of big data. We will also discuss some objections to the idea of insight generation (or rather of certain naive ways in which data is interpreted) and speculate on how cartographic practice could overcome such risks.*
+*This chapter first outlines the types of point spatial data, then explores the methods of spatio-temporal knowledge discovery. The discussion follows on potential ways how cartography can support understanding the world trough the lens of big data. Finally it touches on potetntial future hurdles to the idea of insight generation*
 
 ## 2.1 Spatial big data classification: stations, events, and agents
 
