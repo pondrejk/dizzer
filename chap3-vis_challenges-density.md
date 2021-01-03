@@ -1,14 +1,16 @@
 # Dealing with density in spatial data
 
-*This chapter explores the possible solutions to graphical clutter with focus on hexbin aggregation and contextual interaction of map layers. Web rendering technologies that power these solutions are detailed. Chapter concludes with case study report of urban recommendation system for Brno*
+*This chapter explores the possible solutions to high graphical density in maps with focus on hexbin aggregation and contextual interaction of map layers. Web rendering technologies that power these solutions are described afterwards. Chapter concludes with a case study report of urban recommendation system for the city of Brno.*
 
 ## Visualisation challenges of dense spatial data
 
-As we hav seen in the previous chapter, objects, agents and events with point spatial reference is by far the most common raw material comming to the start of the visualisation pipeline for spatial big data.
+As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference is by far the most common raw material fed to the visualisation pipeline for spatial big data. The *n=all* property of big data then generates a challenge of dealing with high graphic density in maps.
 
-How to process high number of data points be it stations, agents or event, and why is it hard from the cartographic point of view? If we stick to the traditional underatading of visualisaton as "using visual tools to facilitate insight and support decision making of human recipients"(TODO find proper definition)(later we will speculate about possible shifts in that definition), then human cognitive capabilites are the main limiting factor. There are also other limitations that take action in earlier stages of a generalized visualisation pipeline (see fig). One thing to be aware of when high amounts of data are processed through the visualisaton and the perfomance and scalability are of concern is that the simplification (aggregation, reduction, etc.) in the visual end product enfroced by human cognitive capabilites should also propagate back down the pipeline to make the whole process more effective. Simply said, there is no need to retreive every datapoint individually if (a) we cannot render it (screen barrier) and (b) we cannot comperhend it (visual barrier).  
+How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as "using visual tools to facilitate insight and support decision making of human recipients" then human cognitive capabilities are the main guiding factor to adhere to. Naturally, the are variances in graphic literacy across the population not to mention accessibility requirements for various sensory disabilities. There is no doubt that some classes of cartographic errors or visual artefacts are disqualifying for anyone, resolving these lowest common denominators is a prerequisite to resolving the corner cases (if they are ever thought about).   
 
-For cartographer this means a fairly new situation, that is the cartographic decisions made at the last stage in pipeline have impact on the performance of this pipeline. In other words not all callenges across the pipeline are visualisation/cartographic challenges -- those come usually at the end, but the cartographic stage cannot be separated from the whole pipeline as it stems from it and has impact on the prevous stages. Cartographer has to consider his decisions outward to reader but also backward to the previous stages of the pipeline. So far little has been done to asses cartogphic methods from the point of view of the data-processing scalabilit, though in the era of dynamic source data, cartographers need to expand their awareness to that direction.
+There are also other limitations that take action in earlier stages of a generalized visualisation pipeline (see fig?). One thing to be aware of is that the simplification (aggregation, reduction, etc.) in the visual end product enforced by human cognitive capabilities should also propagate back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (visual barrier). This can mean a significant improvement when performance and scalability are of concern.
+
+Hence the cartographic decisions made at the last stage in pipeline have impact on the overall performance of this pipeline. Not all challenges across the pipeline are visualisation/cartographic challenges -- those come usually at the end, but the cartographic stage cannot be separated from the data processing it stems from. Cartographer's decisions have impact outward to the reader but also backward to the previous stages of the pipeline. So far little has been done to asses cartographic methods from the point of view of the data-processing scalability, though in the era of dynamic source data, cartographers need to expand their awareness to that direction.
 
 So far we were mentioned just the presentation role of cartography, the interaction poses another set of challenges for the pipeline, though not all are cartograpic. For exploratory tools to support hypothesis generation, we should consider which tasks should be supported by interaction... (TODO) think through later...
 
@@ -417,6 +419,18 @@ The application allows users to select several parameters and assign weights to 
 The parameters include both attractive and repulsive factors: proximity to schools and nurseries, parks and greenery, places of worship,  healthcare, sport, cultural and social facilities on one side, noise, crime and prices on the other side. The majority of the source layers is taken from the OpenStreetMap database, that allows for easy automated updates via it's API. The input data were harvested for the area of the city including a 5 Km buffer to prevent undesirable interpolation effects on the area borders. The table outlines the input layers with sources.
 
 (TODO table) -- name, group, source, what is incueded (notes), spatial reference
+-- todo -- check the actual data
+
+culture
+health
+church
+parks
+social
+sport
+transport
+crime
+prices
+noise
 
 Sources come with both point and polygon spatial reference. To harmonize the sources into one common spatial format that would allow to apply weights and would allow dynamic re-classification based on scaled we created a 100 m point grid covering the area of Brno (the grid was spread in such a fashion that the spatial coordinates of individual points are rounded -- so that the storage footprint is minimized). The point layers where then used to create distance surfaces using IDW interpolation in QGIS desktop tool. Data from these interpolations where then combined with existing zonal layers (noise, crime, property prices) to generate input for the attribute table of the point grid. This was done using the standard spatial join feature in QGIS (illustrated on fig). In the resulting point grid, each point contains an attribute containing a distance from the given point to a nearest facility of interest, or the given index for some layers (crime, noise...). Furthermore, these attributes have been normalized to fit into 0-1 scale across the city area.
 
@@ -457,7 +471,6 @@ controls:
 
 Type 3 ? -- square or triangle grid, better smooth appearance? 
 
-
 ## 4. Notable findings
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
@@ -491,5 +504,7 @@ https://stackoverflow.com/a/53998098
 
 
 - nakoniec som nepouzil -- normalne prefarbene svg
+
 ------
-- aleterntativa -- iba high wedge pre vsetky kategorie ale zmeny opacity...
+- aleterntativa -- iba high wedge pre vsetky kategorie ale zmeny opacity... to nie
+- zmeny sirky, alebo odsadenie od stredu
