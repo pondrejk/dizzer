@@ -12,9 +12,10 @@ There are also other limitations that take action in earlier stages of a general
 
 Hence the cartographic decisions made at the last stage in pipeline have impact on the overall performance of this pipeline. Not all challenges across the pipeline are visualisation/cartographic challenges -- those come usually at the end, but the cartographic stage cannot be separated from the data processing it stems from. Cartographer's decisions have impact outward to the reader but also backward to the previous stages of the pipeline. So far little has been done to asses cartographic methods from the point of view of the data-processing scalability, though in the era of dynamic source data, cartographers need to expand their awareness to that direction.
 
+(TODO verify towards diagrams in section 2 -- visualisation pipeline (technical? organizational? describing process of creation? or describing a final working system? ))
+
 So far we were mentioned just the presentation role of cartography, the interaction poses another set of challenges for the pipeline, though not all are cartograpic. For exploratory tools to support hypothesis generation, we should consider which tasks should be supported by interaction... (TODO) think through later...
 
-If we circle back to types of point data, they are not equally difficult from the cartograhic view. Not all data processing challenges translate to cartographic challenges. Cartographic difficulties stem mainly from changes in position...? Stations, even if producing big data level loads of attributes are not so difficult cartographically if having low number and density, or better to say, it is nothing new for cartograhers...
 
 -- some survey on visualisation pipelines @moreland2013survey
 -- my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) -- technological limitations may be more flexible to deal with, but also visual capabilites evolve with higher exposition to various interfaces. On the other hand cognitive abilites may be varied per user persona... 
@@ -24,14 +25,20 @@ data -> technological filter -> coginitive filter -> idea/decision
 
 TODO: image - dataflow via those filters (later).
 
+
 processing difficulties ... technological filter - screen resolution limits, infrastructure limits -- not all datapoints can be shown.
 cognitive filter -- not all can be processed, how to define and check automatically? 
+
+but maybe better scheme for the shifting role of cartography:
+data -> cartographic immagination -> technologic reapropriation/innovation 
 
 In the following sections, whe will focus on two kinds of cartographic difficulties that arrise from processing heavy load of big data, namely dealing with density and dealing with change.
 
 The visual problem posed by high density of point data is easy to imagine (for example from fig...). Some basc data visualisation methods may be immune to this (barcharts, pie charts), but positional types of visualisation like scatterplots and maps are hit heavily by this.
 
 ![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on human perceptual limits, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
+
+Similarly not all types of data are hit heavily on the cartographic visualisation side. If we circle back to types of point data, they are not equally difficult from the cartograhic view. Not all data processing challenges translate to cartographic challenges. Cartographic difficulties stem mainly from changes in position...? Stations, even if producing big data level loads of attributes are not so difficult cartographically if having low number and density, or better to say, it is nothing new for cartograhers...
 
 # Congestions + Data reduction methods
 
@@ -433,6 +440,8 @@ prices
 noise
 
 Sources come with both point and polygon spatial reference. To harmonize the sources into one common spatial format that would allow to apply weights and would allow dynamic re-classification based on scaled we created a 100 m point grid covering the area of Brno (the grid was spread in such a fashion that the spatial coordinates of individual points are rounded -- so that the storage footprint is minimized). The point layers where then used to create distance surfaces using IDW interpolation in QGIS desktop tool. Data from these interpolations where then combined with existing zonal layers (noise, crime, property prices) to generate input for the attribute table of the point grid. This was done using the standard spatial join feature in QGIS (illustrated on fig). In the resulting point grid, each point contains an attribute containing a distance from the given point to a nearest facility of interest, or the given index for some layers (crime, noise...). Furthermore, these attributes have been normalized to fit into 0-1 scale across the city area.
+
+![**Fig.** Data preparation process.](imgs/img-cs1-dataprep.png)
 
 This allows for meaningful comparison of data and application of weights. (TODO -- another tables -- what means zero, what means one for various layers). 
 
