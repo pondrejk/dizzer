@@ -16,15 +16,12 @@ Hence the cartographic decisions made at the last stage in pipeline have impact 
 
 So far we were mentioned just the presentation role of cartography, the interaction poses another set of challenges for the pipeline, though not all are cartograpic. For exploratory tools to support hypothesis generation, we should consider which tasks should be supported by interaction... (TODO) think through later...
 
-
 -- some survey on visualisation pipelines @moreland2013survey
 -- my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) -- technological limitations may be more flexible to deal with, but also visual capabilites evolve with higher exposition to various interfaces. On the other hand cognitive abilites may be varied per user persona... 
-
 
 data -> technological filter -> coginitive filter -> idea/decision
 
 TODO: image - dataflow via those filters (later).
-
 
 processing difficulties ... technological filter - screen resolution limits, infrastructure limits -- not all datapoints can be shown.
 cognitive filter -- not all can be processed, how to define and check automatically? 
@@ -40,6 +37,8 @@ The visual problem posed by high density of point data is easy to imagine (for e
 
 Similarly not all types of data are hit heavily on the cartographic visualisation side. If we circle back to types of point data, they are not equally difficult from the cartograhic view. Not all data processing challenges translate to cartographic challenges. Cartographic difficulties stem mainly from changes in position...? Stations, even if producing big data level loads of attributes are not so difficult cartographically if having low number and density, or better to say, it is nothing new for cartograhers...
 
+Visual clutter in maps often comes from interaction of base and topic, application of labels, non of this gets better with dense thematic layer. Multiparametic visulaisation can make things worse or better. Interaction is the way to go brushing and manipulation (like sculpting a shape from a dense block). Some level of engagement is then required from viewer to play with the system long enoug (who has time to do that in the attention economy times?)
+
 # Congestions + Data reduction methods
 
 Why data reduction is necessary:
@@ -48,7 +47,7 @@ Why data reduction is necessary:
 
 ## Avoiding aggregation
 
-Visual conflicts of diplayed symbology is nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigaing the issue without the need to aggragate. 
+Visual conflicts of displayed symbology is nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigaing the issue without the need to aggragate. 
 
 Adjusting symbology properties is possibly simplest first solution. Conflicts in the map field are largely caused by conflicting symbology rather than conflicting location. For point features more than for others the sybology naturally covers up more space than the real spatial extent of the penomenon, think of thematic map methods such as propotional symbol maps. Classical techniques to deal with it range form adjusting symbol scales to reduce overlays, setting the drawing order (smallest symbols on the top) to make all symbols visible to symbol displacement possibly with leading lines pointing to correct location (all automatable to a degree quite well) sometimes combined also with downplaying the basemap to reduce the conflict with spatial context.
 
