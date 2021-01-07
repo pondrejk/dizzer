@@ -47,11 +47,24 @@ Why data reduction is necessary:
 
 ## Avoiding aggregation
 
-Visual conflicts of displayed symbology is nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigaing the issue without the need to aggragate. 
+Visual conflicts of displayed symbology is nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigating the issue without the need to aggregate. 
 
-Adjusting symbology properties is possibly simplest first solution. Conflicts in the map field are largely caused by conflicting symbology rather than conflicting location. For point features more than for others the sybology naturally covers up more space than the real spatial extent of the penomenon, think of thematic map methods such as propotional symbol maps. Classical techniques to deal with it range form adjusting symbol scales to reduce overlays, setting the drawing order (smallest symbols on the top) to make all symbols visible to symbol displacement possibly with leading lines pointing to correct location (all automatable to a degree quite well) sometimes combined also with downplaying the basemap to reduce the conflict with spatial context.
+Adjusting symbology properties is possibly the simplest first solution. Conflicts in the map field are largely caused by conflicting symbology rather than conflicting real spatial extent. For point features more than for others the symbology naturally covers up more space than the real spatial extent of the phenomenon, especially if the symbol size conveys meaning, think proportional symbol maps. Classical techniques to deal with the problem include adjusting, changing or breaking the symbol scale to reduce overlaps, taking care of the drawing order so that the smallest symbols appear on top the larger ones, increasing fill transparency so that the overlapping areas are made explicit, and symbol displacement possibly with leading lines pointing to correct location. These methods have all their cons,  todo name them ...
 
-TODO (image?)
+Now to a seasoned cartographer this surely sounds like a content of an introductory course, though the question is how to automate that, and the automation here is needed for dynamic data sources. How these tools stand in web cartography.
+
+![**Fig.** Describe the crircle overlay options from a to d.](imgs/img-circle-overlays.png)
+
+Leaflet < desktop mapping (ArcGIS (TODO -- find out about what arcinfo can do) < graphical deskop (Adobe Illustrator)
+Leaflet < Mapbox (in some aspects taking a different route -- e.g. scale based styling) < WebGl 
+Web cartography is just too young yet and cartographer need to get their hands dirty with webgl and look around to fields where it is mastered like game development
+
+
+Conflicts in topic and between topics...
+
+Downplaying the basemap to reduce the conflict with spatial context.
+
+TODO (image?) -- plagát od friedmanky na ústave? -- just example
 
 Often the visually problematic areas do not span through the entire map field as suggested by the fig... Rather there are some clusters of concentrated symbols with high overlay and the rest of the field is distinguishable without treatment. Static (paper) maps deal with such clusters by inseting another fmap field with higher zoom level focused on the problematic area (which is a practice that could be imho applied also in web maps). For dynamic (web) mapping we are not confined by a fixed scale, therefor we can zoom in at the areas of interest. This might suggest that cartograher shoul leave such clusters without treatment, even though they are unreadable at the general resolution scale they suggest that there is something interesting going on it such areas ans invite user to zoom in.
 
