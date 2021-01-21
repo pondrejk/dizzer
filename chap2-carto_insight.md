@@ -169,10 +169,19 @@ TODO - other visualisation-related issues:
 TODO -- proti interpretácii (niekam zahrnúť??) -- https://www.kinecko.com/proti-interpretacii/?fbclid=IwAR2Ms83cZyRofIbDOqhucPID9Qt9aOQyRKFExdxcb9_zhcKndrgPYNN53LQ (Susan Sontag) @sontag1994against -- niečo v tom zmysle aj o pozorovaní reprezentácie (mapy) spôsobom akým pozorujeme prírodu -- bez automatických hľadaní príčinných súvislostí medzi javmi. (možno odkaz na Kahneman kapitola o statistical thinking? -- Jak tu zaváži kartografia?) @kahneman2011thinking
 
 TODO -- building engagement -- uloha kartografa -- najrv vzbudit zaujem -- nejaka inspiraci av good practices dizajnových studii orientovaných na komunikáciu. Jak komunikovať jasne a pritom nie prvoplánovo (na druhej strane objem inoformácii v marketingu je neporovnatelne nizsi a cielom je skor vyvolat emocie -- ale netreba tieto postupy podcenovat) 
--- k engagementu diagramy z algorithms in art
+-- k engagementu diagramy z algorithms in art - DONE
+-- este k engagement a interface -- explorable explanations (orig.: Bret Victor)
+http://worrydream.com/ExplorableExplanations/
+(also: his other essays -- ladder of abstraction, learnable programming, a bref rant)
+examples, elaborations:
+https://canvas.uw.edu/courses/1370850/pages/explorable-explanations
+https://github.com/sp4ke/awesome-explorables
+https://explorabl.es/
+
 TODO -- procedurálne diadramy z designu (dual diamond diagram) -- to je vlastne zoom in na návrhovú zložku v kolaboracných diagramoch nižsie (zdôrazniť cyklickosť procesu).
 -- iné príklady -- user roles, user stories. Nezačínať od dát ale od používateľov
 -- protiargument: weaponization of design
+
 
 
 Problems with pattern interpretation around big data.
