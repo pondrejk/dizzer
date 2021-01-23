@@ -61,19 +61,13 @@ The images in fig were created in a desktop vector graphic programme (Adobe Illu
 
 It seems that current cartographers have to split their energy between three types of tools that are each good for some sorts of tasks but fairly deficient in other areas. Desktop graphic software like Adobe Illustrator or Inkscape allows for graphic idea profiling and advanced vector manipulation, desktop GIS tools like QGis or ArcGis provide a whole arsenal of spatial data manipulation tools, and web mapping solutions like Leaflet and Mapbox are great for interactive data presentation and scale-based styling. These tools are not very interoperable and the synthesis is nowhere near^(One brighter example from the web design realm is Figma, a platform that aims to ease the collaboration between web designers and developers). On the other hand, looking at complex graphic experience of games being implemented in WebGL, the examples from fig don't seem as a paramount, so maybe just what is needed is cartographers getting their hands dirty in WebGL development. WebGL truly seems to be a promising platform for connecting (carto)graphic excellence, dynamic spatial data visualisation and user-friendly interaction.
 
-
+Often the visually problematic areas in the thematic layer do not span through the entire map field. Rather there are some clusters of concentrated symbols with high self-overlap incidence and the rest of the field is distinguishable without treatment. Traditional static maps deal with such clusters by insetting another map field in larger scale focused on the problematic area (common for example in socio-economic maps of Poland where the densely inhabited region of Silesia almost always exhibits symbol clutter). Although technically nothing prevents adding insets to dynamic web maps, it is not often seen in practice. For dynamic (web) mapping we are not confined by a fixed scale, therefore we can zoom in at the areas of interest. In such interactive environment leaving congested clusters without treatment might not be a big problem even though they are unreadable at the general resolution scale -- the congestions suggest that there is something interesting going on in the area and invite users to place their focus there. However, as we zoom in we loose sight of the overall pattern, which is another possible opportunity for using inset map, this time for statically displaying the full area of interest as well as dynamically showing the sub-area that is currently displayed in the main view. As we'll see further, modern front-end development frameworks like React that support modularized reusable components that share state provide tools for implementing multiple co-ordinated map views.
 
 * dynamic maps -- changing the order of layers, the symbology to get a glimpse of lower layers, 
 (TODO: here the rule: overview first > exploration second)
 
 Downplaying the basemap to reduce the conflict with spatial context.
-
-* inset
-
-Often the visually problematic areas do not span through the entire map field as suggested by the fig... Rather there are some clusters of concentrated symbols with high overlay and the rest of the field is distinguishable without treatment. Static (paper) maps deal with such clusters by inseting another fmap field with higher zoom level focused on the problematic area (which is a practice that could be imho applied also in web maps). For dynamic (web) mapping we are not confined by a fixed scale, therefor we can zoom in at the areas of interest. This might suggest that cartograher shoul leave such clusters without treatment, even though they are unreadable at the general resolution scale they suggest that there is something interesting going on it such areas ans invite user to zoom in.
-
-In thematic cartography we are interested not only in displayin where individual objects are located but also we want to observe the associated attribute to study the spatial pattern. Highly concentrated areas...
-
+Carto Positron and other, almost bare
 
 - resolving conflicts -- long tradition in cartography, but how scalable and automatable? Spatial displacement techniques (non-cartographical) -- jittering @trutschl2003intelligently, topological distortion @keim2010generalized -- expanding (like cartogram for scatterplots)
 - minification of symbols + downplaying or reducing the backgroud
@@ -113,10 +107,9 @@ TODO -- here be why I hate symbol groups in leaflet and why some amendments don'
 ![**Fig.** Automatic symbol grouping -- this is how geojson data get rendered on GitHub (with help of Mapbox)](imgs/img-github-mapbox-example.png)
 
 
-
 Cartographic generalization model by McMaster and Shea (?) recognizes the following types of aggreation -- TODO
 
-The type of priary interest for us is the one using the equal-shape tesallerations. This type appears to be most flexible as data are aggragated to the standardized shape that is defined *ex ante* and therefore not dependent on the character of aggregated data. Unlike (e.g. interpolation methods, heatmaps, etc.) the referential geometry does not adjust to the changed data, which makes the computation performace quite scalable and predictable across higher data loads.
+The type of primary interest for us is the one using the equal-shape tesallerations. This type appears to be most flexible as data are aggragated to the standardized shape that is defined *ex ante* and therefore not dependent on the character of aggregated data. Unlike (e.g. interpolation methods, heatmaps, etc.) the referential geometry does not adjust to the changed data, which makes the computation performace quite scalable and predictable across higher data loads.
 
 When it comes to the shape of the referential geometry, we can chose from three types of tessaleration that completely divide space into units of same regular shape^[In fact there are x complete (currently known) shapes that produce complete tessaleration, but only regular convex shapes are interesting for cartographic use.]: square, hexagonal and triangular shapes.
 
