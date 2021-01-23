@@ -27,7 +27,6 @@ Outline
   - Misinterpretation
   - Non-human decision makers
 
-
 # Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
 - avoiding aggregation (data vs visual aggregation)
 - study of hexbin aggregation
