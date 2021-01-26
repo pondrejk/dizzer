@@ -320,10 +320,16 @@ pros:
 - accessability of elements trough DOM
 cons:
 - not suitable for large number of elements and animations ()
+SVG charts can typically handle around 1,000 datapoints (@eberhardt2020rendering)
+- retained mode graphics model
+https://en.wikipedia.org/wiki/Retained_mode
 
 ## canvas
 pros:
 cons:
+- immediate mode graphics model. https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics)
+With Canvas you can expect to render around 10,000 datapoints whilst maintaining smooth 60fps interactions. (@eberhardt2020rendering)
+
 
 ## WebGL
 pros:
@@ -333,7 +339,16 @@ cons:
 - programmer's experience
 - what can be done with pixi.js, why are game programming libraries good or bad for creating inteactive maps (e.g. bad: too focused on redndering pre-created raster images..., limitations of pixi v4 particle container (explained in Medium blog on global fishing watch))
 
+If you really do need to render the entire dataset there really is only one option, and that is to make use of your GPU (Graphical Processing Unit), a specialised processor which is specifically designed for high-performance graphics. These processors are most often used for creating highly realistic scenes for computer games, however, there is no reason why they can’t be used to render charts.
+
+WebGL provides a JavaScript API that allows you to create GPU-accelerated graphics. But while the APIs are readily available, the main obstacle to using them is their complexity. The WebGL APIs do not provide any form of abstraction over the underlying shader language.
+https://en.wikipedia.org/wiki/Shading_language
+
+^ (@eberhardt2020rendering)
+
+
 https://blog.mapbox.com/how-i-built-a-wind-map-with-webgl-b63022b5537f
+
 - a trip trough the graphics pipeline
 
 ### explanation of CPU vs GPU rendering
@@ -531,3 +546,7 @@ https://stackoverflow.com/a/53998098
 ------
 - aleterntativa -- iba high wedge pre vsetky kategorie ale zmeny opacity... to nie
 - zmeny sirky, alebo odsadenie od stredu
+
+to research:
+JS streams API
+https://developer.mozilla.org/en-US/docs/Web/API/Streams_API
