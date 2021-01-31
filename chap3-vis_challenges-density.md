@@ -337,7 +337,7 @@ pros:
 cons:
 - raster
 - programmer's experience
-- what can be done with pixi.js, why are game programming libraries good or bad for creating inteactive maps (e.g. bad: too focused on redndering pre-created raster images..., limitations of pixi v4 particle container (explained in Medium blog on global fishing watch))
+- what can be done with pixi.js, why are game programming libraries good or bad for creating inteactive maps (e.g. bad: too focused on redndering pre-created raster images..., limitations of pixi v4 particle container (explained in Medium blog on global fishing watch)) -- escoffier2017how 
 
 If you really do need to render the entire dataset there really is only one option, and that is to make use of your GPU (Graphical Processing Unit), a specialised processor which is specifically designed for high-performance graphics. These processors are most often used for creating highly realistic scenes for computer games, however, there is no reason why they can’t be used to render charts.
 
@@ -346,13 +346,60 @@ https://en.wikipedia.org/wiki/Shading_language
 
 ^ (@eberhardt2020rendering)
 
+@parisi2012webgl - web gl up and running -- get the technical definitions from there
+(opengl vs webgl vs mapbox etc.)
+
+from mapbox windmap blog:
+@agafonkin2017how
+
+OpenGL provides a 2D API for drawing triangles efficiently.
+
+So basically all you do with GL is draw triangles. The difficulty, besides the scary API, comes from the various math and algorithms required to do this. It can also draw dots and basic lines (without smoothing or round joins/caps), but those are rarely used.
+Illustration from Brief Introduction to Shaders Using GLSL
+
+OpenGL provides a special C-like language — GLSL — to write programs that are directly executed by the GPU. Each program is divided into two parts, called shaders — the vertex shader and the fragment shader.
+
+The vertex shader provides the code for converting coordinates. For example, multiplying triangle coordinates by 2 so that our triangle appears twice as big. It will run once for every coordinate we pass to OpenGL when drawing.
+
+The fragment shader provides the code for determining the color of each drawn pixel. You can do a lot of cool math in it, but in the end it comes down to something like “draw the current pixel of the triangle as green”.    
+
+**The fragment shader code execution is massively parallel and heavily hardware-accelerated, so it’s usually many orders of magnitude faster than an equivalent computation on the CPU.**
+
+book of shaders:
+https://thebookofshaders.com/
+@vivo2015book 
+
+TODO ^ Go through this again:
+
+Shaders are also a set of instructions, but the instructions are executed all at once for every single pixel on the screen. That means the code you write has to behave differently depending on the position of the pixel on the screen. Like a type press, your program will work as a function that receives a position and returns a color, and when it's compiled it will run extraordinarily fast.
+
+
+
+shader-school:
+https://github.com/stackgl/shader-school
+(more focused on 3D)
+
+
+
+how mapbox uses it:
+
+helper apis: 4D and pixi
+
+Example using pixi filters with leaflet providers -- some knockout and blur examples -- compare to css filters...
+
 
 https://blog.mapbox.com/how-i-built-a-wind-map-with-webgl-b63022b5537f
 
 - a trip trough the graphics pipeline
 
+TODO: app pixi.js filter overlays on leaflet
+https://github.com/pixijs/pixi-filters    
+
+TODO: try to create the overlays from the picture above in pixi.js
+
 ### explanation of CPU vs GPU rendering
 -- image in appendix
+-- also a sidenote on how to use GPU for other claculations (like python for big data -- there is some library)
 
 
 # UX and interaction (TODO maybe to the next section)
