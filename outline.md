@@ -31,10 +31,11 @@ Outline
 - avoiding aggregation (data vs visual aggregation)
 - study of hexbin aggregation
 - optionally: dimensionality reduction, autoencoders for spatial data
-- an aside on UX, dealing with density in ux controls
-- an aside on web graphics technologies, vector tiles and mapbox
+- an aside on UX, dealing with density in ux controls -- design constraints in web cartography
+- an aside on web graphics technologies, vector tiles and mapbox (and all other webGl based solutions -- name, contrast them)
 - a discussion of figure vs groud
 - Case study - urban recommendation system
+- why react-redux is good (shared state etc., front-end frameworks, (other ways of sharing state) -- urobiť to nejak nadčasovo, spomenut neustále zmeny v tejto oblasti)
 -- inset map: https://react-leaflet.js.org/docs/example-react-control
 
 # Dealing with velocity:
@@ -43,7 +44,7 @@ Outline
 - Case study - traffic trough the pandemic
 
 # Future trajectories:
-- ideas form sw testing in cartography, visual testing neeeded
+- (isqtb) ideas form sw testing in cartography, visual testing neeeded, google analytics?
 - mocking data, preparing fake data with right properties for systems prototyping
 - ML - first to take on manual tasks, then for map design related tasks?
 
