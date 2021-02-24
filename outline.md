@@ -23,7 +23,9 @@ Outline
   - Map reading and interpretation
   - What next? Research challenges
   - How next? Challenges in collaborative practice
+  - Who cares? Building engagement
 - Objections
+  - Hiding system complexity
   - Misinterpretation
   - Non-human decision makers
 
@@ -44,9 +46,9 @@ Outline
 - Case study - traffic trough the pandemic
 
 # Future trajectories:
-- (isqtb) ideas form sw testing in cartography, visual testing neeeded, google analytics?
-- mocking data, preparing fake data with right properties for systems prototyping
-- ML - first to take on manual tasks, then for map design related tasks?
+- (isqtb) ideas form sw testing in cartography, visual testing neeeded, google analytics? testing map-based applications
+- mocking data, preparing fake data with right properties for systems prototyping data emulation 
+- ML - first to take on manual tasks, then for map design related tasks? (down to earth assesment :P)
 
 # Discussion & Conclusion
 

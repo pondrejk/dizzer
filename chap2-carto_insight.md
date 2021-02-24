@@ -90,7 +90,7 @@ Where *x,y* are conditions, together forming an *itemset* and *s,c* are levels o
 
 *Periodic pattern mining* is a type of sequence mining that searches for recurrent patterns in time sequences. Such patterns can be: *full periodic patterns*, *partial periodic patterns* (e.g. just on mondays), and *cyclic or periodic association rules* that associate events that occur periodically together (@han2011data).
 
-Considering the breadth of posible spatial and temporal relations described earlier, the conceptualization of spatial and temporal coocurrence in the association rules may seem rather simplistic. Basically it is reduced to a yes/no parameter. Moreover, moving from the level of individual database entries towards assessing relations between compound entities such as spatial point clusters seems to be out of the scope of these methods. Of course, the way spatiality is inscribed into association rules could be made more sophisticated, though with inevitable implicatons for mining performance. With large datasets, mining even the simple rules forces us to consider performance. ( TODO maybe develop to say here simple visual comparison is cheaper, at least for clusters). 
+Considering the breadth of posible spatial and temporal relations described earlier, the conceptualization of spatial and temporal coocurrence in the association rules may seem rather simplistic. Basically it is reduced to a yes/no parameter. Moreover, moving from the level of individual database entries towards assessing relations between compound entities such as spatial point clusters seems to be out of the scope of these methods. Of course, the way how spatiality is inscribed into association rules could be made more sophisticated, though with inevitable implicatons for mining performance. With large datasets, mining even the simple rules forces us to consider time constraints. For such tasks, a simple visual exploration is more efficient and reliable then basic algorithmic solutions.
 
 At this point we can step back from mining algorithms to invite some human interpretation and to consider what conclusions we can actually draw from spatial and temporal co-ocurrence of events. The usual assumption is that such coocurrence can point to some form of causality. Drawing from approaches by @allen1995qualitative and @galton2012states; @bleisch2014mining distinguish between the trigger that apparently causes the event and the environmental conditions that have to be fulfilled for the effect to occur.
 
@@ -126,15 +126,13 @@ Digital cartography has the potential to dynamically support cognitive tasks in 
 
 ## 2.3 The role of cartography
 
-Cartography has a long tradition of making data comprehensible to our visual minds. Beautiful and authoritative maps in school atlases explaining the formation of air masses or the positions of ocean streams give off and impression of definitiveness but were build upon a generalization of data from loads of observatios. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps was nowhere near "real-time" but allowed for fine tuning of all aspects of a map: from carefully shading the outlines of water bodies to making the street connections visually pleasing. Map making allowed for perfectionism, and the resulting maps remain beloved by collectors long after their 'utilitarian' function is gone.
+Cartography has a long tradition of making data comprehensible to our visual minds. Beautiful and authoritative maps in school atlases explaining the formation of air masses or the positions of ocean streams give off and impression of definitiveness but were build upon a generalization of data from loads of observatios. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps was nowhere near "real-time" but allowed for fine-tuning of all aspects of the map: from carefully shading the outlines of water bodies to making the street connections visually pleasing. This process allowed for perfectionism, and the resulting maps remain beloved by collectors long after their 'utilitarian' function is gone.
 
-For digital cartography^(Here and further we will use the term digital cartography as a shorthand refering to dynamic maps allowing user interacation, consumed almost exclusively throuhgh the web, viewed on screens of various sizes) it took a long time to come any closer to the visual quality of the best works in cartography in print. Arguably, there is still some unfulfilled potential in getting towards graphic excellence in web mapping, though recent improvements in available tools open possibilities for improvment, but also risks of uniformity. Digital maps have the obvious advatage of allowing interaction -- user can zoom, pan, change, filter and combine the displayed data. The second big advatage is the possibility to update the displayed data real-time as the data source is updated. Sure, many digital maps are not dynamically updated, simply because the topic does not require it (e.g. medieval monasteries in France or 1991 election results in Yugoslavia). But interactive maps based on dynamically updated data are interesting as they pose a whole new set of challenges on authors. Ensuring cartographic quality in the map field now means desitgning for yet unseen changes in data also with user-induced modifications in mind. 
+For digital cartography^(Here and further we will use the term digital cartography as a shorthand refering to dynamic maps allowing user interacation, consumed almost exclusively throuhgh the web, viewed on screens of various sizes) it took a long time to come any closer to the visual quality of the best works in cartography in print. Arguably, there is still some unfulfilled potential in getting towards graphic excellence in web mapping, though recent improvements in available tools open new possibilities for innovation, but also risks of uniformity. Digital maps have the obvious advatage of allowing interaction -- user can zoom, pan, change, filter and combine the displayed data. The second big advatage is the possibility to update the displayed data real-time as the data source is updated. Sure, many digital maps are not dynamically updated, simply because the topic does not require it (e.g. medieval monasteries in France or 1991 election results in Yugoslavia). But interactive maps based on dynamically updated data are of special interest as they pose a whole new set of challenges to authors. Ensuring cartographic quality in the map field now means desitgning for yet unseen changes in data also with user-induced modifications in mind.
 
-School atlases served for presentation of knowledge, were confirmatory. Digital cartography allowed for exploratory mode of map reading to emerge, or more precisely, moved the exploration part down the process pipeline from *before* to *after*  map publication, and from the cartographer/author to the map user. Visual analytics based on spatial data provide interfaces to manipulate and visualize data, or better to say to pick from the predesigned visualisation modes. This has implications for both the cartographer and the user.
+School atlases served for presentation of knowledge, were confirmatory. Digital cartography allowed for exploratory mode of map interaction to emerge, or more precisely, moved the data exploration step down the production pipeline from *before* to *after*  map publication, and from the cartographer/author to the map user. Visual analytics based on spatial data provide interfaces to manipulate and visualize informaiton, or better to say to pick from the predesigned visualisation modes. This has implications for both the cartographer and the user.
 
-The ability to interact with the map view can surely be empowering for the user, being passing on the sensation of exploration. On the other hand, things can go the wrong as it is very hard to create an imersive experience that would be immediately understandable to the newcommer. Exploratory map applications indtend for general public can leave users overwhelmed with the amount of possible interaction points. Left to her own devices, without any stated framework for interpretation users need to create her own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untorubled with the dangers of fostering misinterpration. Lack of guidenance on where to start results in poor engagement with the application, that is quickly aboandoned. With applications for specialized audience, this can be mitigated by learning as users are forced to work with the applicaton as part of their job. Simmilar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
-
- mostík)
+The ability to interact with the map-based software application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go the wrong way as it is very hard to create an imersive experience from a complex dataset that would be immediately understandable to the newcommer. Exploratory map applications indtend for general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices, without any stated framework for interpretation users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untorubled with the dangers of fostering misinterpration. Lack of guidenance on where to start results in poor engagement with the application, that is quickly aboandoned. With specialized applications for profesional audience, this can be mitigated by training as users are forced to work with the applicaton as part of their job. Simmilar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
 
 ### Map reading and interpretation
 
@@ -164,23 +162,10 @@ Hypothesis formation support that these tools aim to provide is however a proper
 
 TODO - other visualisation-related issues:
 - don't know what questions I want to ask
-- looking for ouliers
+- looking for ouliers (bet against the consensus and be right)
 
-TODO -- proti interpretácii (niekam zahrnúť??) -- https://www.kinecko.com/proti-interpretacii/?fbclid=IwAR2Ms83cZyRofIbDOqhucPID9Qt9aOQyRKFExdxcb9_zhcKndrgPYNN53LQ (Susan Sontag) @sontag1994against -- niečo v tom zmysle aj o pozorovaní reprezentácie (mapy) spôsobom akým pozorujeme prírodu -- bez automatických hľadaní príčinných súvislostí medzi javmi. (možno odkaz na Kahneman kapitola o statistical thinking? -- Jak tu zaváži kartografia?) @kahneman2011thinking
+TODO -- proti interpretácii (niekam zahrnúť??) -- https://www.kinecko.com/proti-interpretacii/?fbclid=IwAR2Ms83cZyRofIbDOqhucPID9Qt9aOQyRKFExdxcb9_zhcKndrgPYNN53LQ (Susan Sontag) @sontag1994against -- niečo v tom zmysle aj o pozorovaní reprezentácie (mapy) spôsobom akým pozorujeme prírodu -- bez automatických hľadaní príčinných súvislostí medzi javmi. (možno odkaz na Kahneman kapitola o statistical thinking? -- Jak tu zaváži kartografia?) @kahneman2011thinking (pohľad na denný rytmus mestskej dopravy ako pohľad na vlnobitie alebo iný prírodný jav)
 
-TODO -- building engagement -- uloha kartografa -- najrv vzbudit zaujem -- nejaka inspiraci av good practices dizajnových studii orientovaných na komunikáciu. Jak komunikovať jasne a pritom nie prvoplánovo (na druhej strane objem inoformácii v marketingu je neporovnatelne nizsi a cielom je skor vyvolat emocie -- ale netreba tieto postupy podcenovat) 
--- k engagementu diagramy z algorithms in art - DONE
--- este k engagement a interface -- explorable explanations (orig.: Bret Victor)
-http://worrydream.com/ExplorableExplanations/
-(also: his other essays -- ladder of abstraction, learnable programming, a bref rant)
-examples, elaborations:
-https://canvas.uw.edu/courses/1370850/pages/explorable-explanations
-https://github.com/sp4ke/awesome-explorables
-https://explorabl.es/
-
-TODO -- procedurálne diadramy z designu (dual diamond diagram) -- to je vlastne zoom in na návrhovú zložku v kolaboracných diagramoch nižsie (zdôrazniť cyklickosť procesu).
--- iné príklady -- user roles, user stories. Nezačínať od dát ale od používateľov
--- protiargument: weaponization of design
 
 
 
@@ -284,7 +269,7 @@ Before hopping on the wagon of augmeted reality and immersive experieces (that m
 
 Desktop GIS mapping -- strugging to tranfer to web (basically fron-end development, which is also always in flux), maybe in the future desktop tools will suport generation of web map interfaces, but wouldn't count on it. Interface as a part of cartographic experience.
 
-TODO maybe look at the state of the art (opiniation/freedom) - leaflet, openlayers, mapbox, cartodb, arcgis online, self-hosted mapbox alternative...
+TODO maybe look at the state of the art (opiniation/freedom) - leaflet, openlayers, mapbox, cartodb, arcgis online, self-hosted mapbox alternative... (in later chapter, also depends on who does the job -- many creators just use the defaults)
 
 Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transfering a visual artifact from one medium to the other. Such transfer is not the same as if the visualisation was designed for the new medium from scratch as there are realized or unrealized ideas of how things should be done transrered from the practices required by the old medium. This was apparent for example the grid-like organization transferred from printed newspapers to web news portats initally and still lives there though responsivity required by small-screen devices pushed its rethinking. Simmilar case in cartography is the dichotomy between the topographic base and the tematic overlay. A good mental excercise for cartographers would be imagining map interaction unattached from any medium -- what would we design if anything was possible? 
 
@@ -342,11 +327,11 @@ Causation-related questions for cartography (TDOO )
 - overall, the ability of dynamic maps to find these collocations and link them to causation is to be assesd, but how? :)
 
 
-### 2.3.2 Challenges in collaborative practice
+### 2.3.2 How next? Challenges in collaborative practice
 
 Having described the ontological models of causation ans sensemaking as well as visions for the future of cartographic research, we can now take an aside to dwell a bit on the nitty-gritty realities of map making in practice. Practical aspects of the profession are often overlooked in literature, as well as the fact that cartographer often needs to operate within a greater team. The smoothness of collaboration within a team is then a determining factor of the team's productivity. 
 
-There is a (somewhat mythical) notion of “full-stack” visualization designer-developer capable of conducting the full broad range of tasks needed for a visulaisation project (@gray2012data). Though some such individuals do exist (possibly working on small applications for PhD projects or small customers), it is clear that cartographer can take only so much of additional roles (data analyst, UX designer, front-end developer, database administrator...) before getting on thin ice. Real-life visulaisation projects often include a range of team members or even teams with dissjoint skillsets. The question then arises on how to modularize the work. One possible model of decomosition is the information visualisation reference model (**Fig**).
+There is a (somewhat mythical) notion of “full-stack” visualization designer-developer capable of conducting the broad range of tasks needed for a visulaisation project (@gray2012data). Though some such individuals do exist (possibly working on small applications for PhD projects or small customers), it is clear that cartographer can take only so much of additional roles (data analyst, UX designer, front-end developer, database administrator...) before getting on thin ice. Real-life visulaisation projects often include a range of team members or even teams with dissjoint skillsets. The question then arises on how to modularize the work. One possible model of decomosition is the information visualisation reference model (**Fig**).
 
 ![**Fig** Information visualization reference model. Adopted from @heer2008design](imgs/infoviz-reference-model.png)
 
@@ -365,7 +350,42 @@ In this model the collaboration points lie at the transitions between the stages
 
 These challenges were formulated based on project experience with relatively static historical data inputs, which underlines why dynamic geovisualistaion of real-time data is hard: much of the advice is almost impossible to follow for volatile real-time data inflow. TODO -- something more
 
-TODO: restructure all below:
+
+### 2.3.3 Who cares? Building user engagement
+
+TODO -- building engagement -- uloha kartografa -- najrv vzbudit zaujem -- nejaka inspiraci av good practices dizajnových studii orientovaných na komunikáciu. Jak komunikovať jasne a pritom nie prvoplánovo (na druhej strane objem inoformácii v marketingu je neporovnatelne nizsi a cielom je skor vyvolat emocie -- ale netreba tieto postupy podcenovat) 
+-- k engagementu diagramy z algorithms in art - DONE
+-- este k engagement a interface -- explorable explanations (orig.: Bret Victor)
+http://worrydream.com/ExplorableExplanations/
+(also: his other essays -- ladder of abstraction, learnable programming, a bref rant)
+examples, elaborations:
+https://canvas.uw.edu/courses/1370850/pages/explorable-explanations
+https://github.com/sp4ke/awesome-explorables
+https://explorabl.es/
+
+TODO -- procedurálne diadramy z designu (dual diamond diagram) -- to je vlastne zoom in na návrhovú zložku v kolaboracných diagramoch nižsie (zdôrazniť cyklickosť procesu).
+-- iné príklady -- user roles, user stories. Nezačínať od dát ale od používateľov
+-- protiargument: weaponization of design
+
+**weaponized design**
+@diehm2018weaponised
+
+Weaponised design – a process that allows for harm of users within the defined bounds of a designed system – is faciliated by designers who are oblivious to the politics of digital infrastructure or consider their design practice output to be apolitical.
+
+This is weaponised design: electronic systems whose designs either do not account for abusive application or whose user experiences directly empower attackers.
+
+As platforms became more commodified – especially through mobile touch mediums – UX designers have progressively become more reliant on existing work, creating a feedback loop that promotes playfulness, obviousness and assumed trust at the expense of user safety.
+
+A user story is “a very high-level definition of a requirement, containing just enough information so that the developers can produce a reasonable estimate of the effort to implement it". (definition from @ambler2014user)
+
+When designing for the digital world, user stories ultimately determine what is or is not an acceptable area of human variation. The practice empowers designers and engineers to communicate via a common problem-focused language. But practicing design that views users through a politically-naive lens leaves practitioners blind to the potential weaponisation of their design. User-storied design abstracts an individual user from a person of lived experience to a collection of designer-defined generalisations. 
+
+All intentionally-created systems have a set of things the designers consider part of the scope of what the system manages, but any nontrivial system has a broader set of impacts. Often, emergence takes the form of externalities — changes that impact people or domains beyond the designed scope of the system. @henriksenin2016frastructural 
+
+Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
+
+In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
+
 
 ## 2.4 Objections and Responses
 
@@ -400,7 +420,7 @@ Donnela meadows on systems with delay -- good for describing systems with alread
 
 ----------
 
-### Misinterpretation
+### Misinterpretation generators
 
 **Obj2**: Human misinterpretation, false correlations, biases and limits of knowledge.
 
@@ -522,28 +542,6 @@ It is always possible to say when not to use the map.  @robinson2017geospatial
 
 
 
------
-
-**weaponized design**
-@diehm2018weaponised
-
-Weaponised design – a process that allows for harm of users within the defined bounds of a designed system – is faciliated by designers who are oblivious to the politics of digital infrastructure or consider their design practice output to be apolitical.
-
-This is weaponised design: electronic systems whose designs either do not account for abusive application or whose user experiences directly empower attackers.
-
-As platforms became more commodified – especially through mobile touch mediums – UX designers have progressively become more reliant on existing work, creating a feedback loop that promotes playfulness, obviousness and assumed trust at the expense of user safety.
-
-A user story is “a very high-level definition of a requirement, containing just enough information so that the developers can produce a reasonable estimate of the effort to implement it". (definition from @ambler2014user)
-
-When designing for the digital world, user stories ultimately determine what is or is not an acceptable area of human variation. The practice empowers designers and engineers to communicate via a common problem-focused language. But practicing design that views users through a politically-naive lens leaves practitioners blind to the potential weaponisation of their design. User-storied design abstracts an individual user from a person of lived experience to a collection of designer-defined generalisations. 
-
-All intentionally-created systems have a set of things the designers consider part of the scope of what the system manages, but any nontrivial system has a broader set of impacts. Often, emergence takes the form of externalities — changes that impact people or domains beyond the designed scope of the system. @henriksenin2016frastructural 
-
-Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
-
-In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
-
-```
 
 
 

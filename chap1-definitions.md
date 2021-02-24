@@ -233,7 +233,7 @@ The definition of big data is elusive perhaps also because the majority of invol
 To @mayer2013big big data stand for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, the importance lies in the real-life impacts that are likely to stay even when the big data hype is over. Even if we dismiss the term as a buzz-word, the fact is that more digital information gets created and can be linked more easily, which has many implications on the way we live. Together with that there are changing attitudes to putting data to work. In the next chapter, we will look at some economic, societal and scientific impacts of big data, as they can provide a motivation for cartography to take part in addressing the related issues. We will also offer some speculation on how the roles of cartography and GIS may be transformed by the data deluge.
 
 -------
-Todo incorporate this to the conclusion:@press2014big
+TODO incorporate this to the conclusion:@press2014big
 
 some definitions:
 
