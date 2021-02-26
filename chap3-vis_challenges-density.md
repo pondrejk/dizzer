@@ -6,7 +6,35 @@
 
 As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference is by far the most common raw material fed to the visualisation pipeline for spatial big data. The *n=all* property of big data then generates a challenge of dealing with high graphic density in maps.
 
-How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as "using visual tools to facilitate insight and support decision making of human recipients" then human cognitive capabilities are the main guiding factor to adhere to. Naturally, the are variances in graphic literacy across the population not to mention accessibility requirements for various sensory disabilities. There is no doubt that some classes of cartographic errors or visual artefacts are disqualifying for anyone, resolving these lowest common denominators is a prerequisite to resolving the corner cases (if they are ever thought about).   
+How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as "using visual tools to facilitate insight and support decision making of human recipients" then human cognitive capabilities are the main guiding factor to adhere to. Naturally, the are variances in graphic literacy across the population not to mention accessibility requirements for various sensory disabilities. There is no doubt that some classes of cartographic errors or visual artefacts are disqualifying for everybody, resolving these lowest common denominators is a prerequisite to resolving the corner cases (if they are ever thought about) (TODO examples)
+
+One of these common inhibitors is graphic fill.
+
+The visual problem posed by high density of point data is easy to imagine (for example from fig...). 
+
+![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on human perceptual limits, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
+
+### Design constaints
+TODO intro
+
+1. axis of scale
+- the area of the land displayed in the map window
+- dynamic -- overall view plus zoom in
+- predictable meaningful zoom interval (discrete steps in most web mapping platforms), can't be hard set because it is dependent on screen space
+- symbology should react to the scale, ofterwise congestions can arise
+
+2. axis of screen space (responisvity)
+- screen size and aspect ratio determines the working space for the map, zoomlevel for the initial screen size
+- predictable number of variants 
+
+3. axis of data change
+- updating the displayed data as a result of (a) data change or as a result of (b) user interaction
+- (a) may be unpredictable (b) limited number of options but combinations can quickly add up
+- (b) changes in displayed layers, changes in hierarchy (drill down ...)
+- influenced by 1. and 2.
+- screen barrier / visual barrier
+
+### Visualisation pipeline 
 
 There are also other limitations that take action in earlier stages of a generalized visualisation pipeline (see fig?). One thing to be aware of is that the simplification (aggregation, reduction, etc.) in the visual end product enforced by human cognitive capabilities should also propagate back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (visual barrier). This can mean a significant improvement when performance and scalability are of concern.
 
@@ -29,15 +57,11 @@ cognitive filter -- not all can be processed, how to define and check automatica
 but maybe better scheme for the shifting role of cartography:
 data -> cartographic immagination -> technologic reapropriation/innovation 
 
-In the following sections, whe will focus on two kinds of cartographic difficulties that arrise from processing heavy load of big data, namely dealing with density and dealing with change.
-
-The visual problem posed by high density of point data is easy to imagine (for example from fig...). Some basc data visualisation methods may be immune to this (barcharts, pie charts), but positional types of visualisation like scatterplots and maps are hit heavily by this.
-
-![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on human perceptual limits, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
-
+Some basc data visualisation methods may be immune to this (barcharts, pie charts), but positional types of visualisation like scatterplots and maps are hit heavily by this.
 Similarly not all types of data are hit heavily on the cartographic visualisation side. If we circle back to types of point data, they are not equally difficult from the cartograhic view. Not all data processing challenges translate to cartographic challenges. Cartographic difficulties stem mainly from changes in position...? Stations, even if producing big data level loads of attributes are not so difficult cartographically if having low number and density, or better to say, it is nothing new for cartograhers...
 
 Visual clutter in maps often comes from interaction of base and topic, application of labels, non of this gets better with dense thematic layer. Multiparametic visulaisation can make things worse or better. Interaction is the way to go brushing and manipulation (like sculpting a shape from a dense block). Some level of engagement is then required from viewer to play with the system long enoug (who has time to do that in the attention economy times?)
+
 
 # Congestions + Data reduction methods
 
@@ -81,7 +105,7 @@ To minimize the risk of conflict between the base map and the thematic layer, we
 
 @correll2017surprise:
 
-One  approach  to  event  visualization  is  to  visualize  individual
+One approach to  event  visualization  is  to  visualize  individual
 streams  of  event  density  [@beard2008framework (no access, probably some coordinated views for explor. analysis),  @krstajic2011cloudlines -- multiple time series, density estimation in text streams].   While  streams  of  1D  event  den-
 sity data are useful,  they require careful layout and sorting in order
 to illustrate spatial patterns. Where both the temporal and spatial com-
@@ -151,8 +175,10 @@ Thus any point inside a hexagon is closer to the center of any given point in an
 - implanation - classification techniques: classical, new: yiang - fractal breaks, bayesian surprise, uncertainty-adjusted scales
 - shape, position, other options for multiple vis -- indiemaps article, other tesallerations
 
+- optionally: dimensionality reduction, autoencoders for        spatial data
+
+
 liu2013immens (done)
----
 
 *Scalability of visual encodings* (how visualized) vs *interactive scalability* (how interaction works) -- both should be limited by the chosen resolution of visualized data not the number of records.
 
@@ -269,38 +295,6 @@ example of hidden markov model
 -- also we can calculate the transition in hidden var based on transition of known var -- this gets more complicated in longer sets -- *Viterbi algoritm* simplifies by storing just the most probable path throughout the run
 
 
-# on UX, interaction and beyond
----------------------------------
-
-- cartographic concepts applicable in UI design and vice versa (TODO some reading on UX)
--- visual weight, negative space, generalization of ui components 
-
-- tighter coupling of intra and extracomposition
--- legend 
--- do some design and usability reading (don't make me think, check some books on product design...) <https://www.fastcompany.com/1292961/30-most-important-books-product-designers>
--- user personas, user stories...
-
-- Iteraction strategies
-Andrejenko's view of tasks
-
-- responsivity challenges
-https://codeburst.io/the-challenges-of-responsive-web-design-9d64971921fb
-
-- TODO: image 2 kinds of weather roses - wind diagrams (more and less complex), data from slovenská lavínová služba.
-
-- animation and movement: how does it support usability (blog creating usability )
-- strategies for density reduction in controls
-- combining functions (legend and histogram and brushing control) - (využiť návrh na baptisteries, legendy aj timeline z toho proposalu )
-
-# Visual storytelling vs dashboards
-Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern. 
-
-What is the audience - some notes from the field:
-https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-after-data-journalism-3c68861b7f4c
-
-# more
-https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
-
 
 # Comparison of rendering technologies
 --------------------------------------
@@ -401,6 +395,38 @@ TODO: try to create the overlays from the picture above in pixi.js
 -- image in appendix
 -- also a sidenote on how to use GPU for other claculations (like python for big data -- there is some library)
 
+
+# on UX, interaction and beyond
+---------------------------------
+
+- cartographic concepts applicable in UI design and vice versa (TODO some reading on UX)
+-- visual weight, negative space, generalization of ui components 
+
+- tighter coupling of intra and extracomposition
+-- legend 
+-- do some design and usability reading (don't make me think, check some books on product design...) <https://www.fastcompany.com/1292961/30-most-important-books-product-designers>
+-- user personas, user stories...
+
+- Iteraction strategies
+Andrejenko's view of tasks
+
+- responsivity challenges
+https://codeburst.io/the-challenges-of-responsive-web-design-9d64971921fb
+
+- TODO: image 2 kinds of weather roses - wind diagrams (more and less complex), data from slovenská lavínová služba.
+
+- animation and movement: how does it support usability (blog creating usability )
+- strategies for density reduction in controls
+- combining functions (legend and histogram and brushing control) - (využiť návrh na baptisteries, legendy aj timeline z toho proposalu )
+
+# Visual storytelling vs dashboards
+Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern. 
+
+What is the audience - some notes from the field:
+https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-after-data-journalism-3c68861b7f4c
+
+# more
+https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
 
 # UX and interaction (TODO maybe to the next section)
 ----------------------

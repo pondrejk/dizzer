@@ -30,12 +30,16 @@ Outline
   - Non-human decision makers
 
 # Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
-- avoiding aggregation (data vs visual aggregation)
-- study of hexbin aggregation
-- optionally: dimensionality reduction, autoencoders for spatial data
-- an aside on UX, dealing with density in ux controls -- design constraints in web cartography
-- an aside on web graphics technologies, vector tiles and mapbox (and all other webGl based solutions -- name, contrast them)
+- vis challenges:
+  - design constraints
+  - data processing pipelines 
+- density reduction methods
+  - avoiding aggregation (data vs visual aggregation)
+  - study of hexbin aggregation
+- density vs attribute vis
 - a discussion of figure vs groud
+- an aside on web graphics technologies, vector tiles and mapbox (and all other webGl based solutions -- name, contrast them)
+- an aside on UX, dealing with density in ux controls -- design constraints in web cartography
 - Case study - urban recommendation system
 - why react-redux is good (shared state etc., front-end frameworks, (other ways of sharing state) -- urobiť to nejak nadčasovo, spomenut neustále zmeny v tejto oblasti)
 -- inset map: https://react-leaflet.js.org/docs/example-react-control
