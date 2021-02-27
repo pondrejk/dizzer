@@ -1,14 +1,5 @@
 # Dealing with temporality
 
-visualisation overviews (don't go to detail, just mention): basically more or less organized lists of what tools are available:
-
-@muller2003visualization
-@andrienko2003exploratory
-https://datavizproject.com/  (organization by: Family Input Function Shape)
-https://www.data-to-viz.com/ (tree structure)
-http://geo.janmiklin.cz/metody-tematicke-kartografie-navrh-hierarchicke-klasifikace/ (more cartography-realed, hierarchical classification of thematic cartography methods)
-
-
 @dykes2003seeking -- visualisation challenges
 
 @bach2014review -- space-time cubes https://hal.inria.fr/hal-01006140/document -- see e.g Khronos projector --  video time-space cube... 

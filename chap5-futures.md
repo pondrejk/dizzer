@@ -69,6 +69,17 @@ With sufficient data, it may even be possible to go beyond learning weights and 
 @mcnulty2014understanding . "What’s crucial to understanding Big Data is the messy, noisy nature of it, and the amount of work that goes in to producing an accurate dataset before analysis can even begin."
 
 
+# ml for propper method selection
+
+visualisation overviews (don't go to detail, just mention): basically more or less organized lists of what tools are available:
+
+@muller2003visualization
+@andrienko2003exploratory
+https://datavizproject.com/  (organization by: Family Input Function Shape)
+https://www.data-to-viz.com/ (tree structure)
+http://geo.janmiklin.cz/metody-tematicke-kartografie-navrh-hierarchicke-klasifikace/ (more cartography-realed, hierarchical classification of thematic cartography methods)
+
+
 # Testing map based applications
 
 # Data emulation for map based apps
