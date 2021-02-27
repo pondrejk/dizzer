@@ -176,22 +176,6 @@ peuquet2002representations
 peuquet2008multi
 
 
-# Case Study: Pandemics traffic exploration
-
-## 1. data sources and transformations
-
-### out-of-core computation (small tools for big data)
-<https://pythonspeed.com/datascience/>
-
-
-
-## 2. app architecture (react redux mapbox)
-## 3. user interface design
-## 4. interesting findings
-- what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
-## 5. possible extensions
-
-
 
 @thomas2005illuminating
 ----------
@@ -244,3 +228,31 @@ changes are significant.
 information.
 Visual representations by themselves are insufficient to answer many analytic
 questions and must integrat
+
+
+
+# Case Study: Pandemics traffic exploration
+
+## 1. data sources and transformations
+
+- description of initial data source from mapbox
+<https://docs.mapbox.com/traffic-data/overview/data/>
+
+# typical file content
+In their uncompressed form, each CSV file contains one line per road segment: segment_identifier,speed_1,speed_2,…,speed_2016
+ - segment_identifier: Either a comma-separated pair of OpenStreetMap node IDs or an OpenLR string.
+ - speed_1,speed_2,…,speed_2016: *2,016* comma-separated integer speeds in kilometers per hour, starting at 0:00 Sunday in the file’s time zone. Each value shows the usual speed during a five-minute period of a typical week within that road segment.
+ 
+
+
+### out-of-core computation (small tools for big data)
+<https://pythonspeed.com/datascience/>
+
+
+## 2. app architecture (describe database solution and other options)
+## 3. user interface design
+## 4. interesting findings
+- what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
+## 5. possible extensions
+
+
