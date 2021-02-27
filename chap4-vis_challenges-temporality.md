@@ -16,16 +16,6 @@ TODO -- check ^ for timespace taxonomies, operations ... etc, (maybe for appendi
 
 Beware of change blindness -- @nowell2001change
 
-mocking 
---------
- -- one approach, get a timeline, historical dataset, treat it like it was a datastream and test your visualisateon assumptions
--- secnd approach -- create synthetic data
-
-synthetic datasets -- a science of its own:
-------------------
-journalist article -- why useful: https://news.mit.edu/2020/real-promise-synthetic-data-1016
-opensource tools (check out, use?): synthetic data vault https://sdv.dev/
-
 value of real time, value of comparison with older states
 -------------
 Parallel to family photography -- value rises with time

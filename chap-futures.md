@@ -68,3 +68,17 @@ With sufficient data, it may even be possible to go beyond learning weights and 
 
 @mcnulty2014understanding . "What’s crucial to understanding Big Data is the messy, noisy nature of it, and the amount of work that goes in to producing an accurate dataset before analysis can even begin."
 
+
+# Testing map based applications
+
+# Data emulation for map based apps
+
+mocking
+--------
+ -- one approach, get a timeline, historical dataset, treat it like it was a datastream and         test your visualisateon assumptions
+-- secnd approach -- create synthetic data
+
+synthetic datasets -- a science of its own:
+------------------
+journalist article -- why useful: https://news.mit.edu/2020/real-promise-synthetic-data-1016
+opensource tools (check out, use?): synthetic data vault https://sdv.dev/
