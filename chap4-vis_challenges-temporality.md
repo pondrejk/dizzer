@@ -245,8 +245,25 @@ In their uncompressed form, each CSV file contains one line per road segment: se
  
 
 
+
 ### out-of-core computation (small tools for big data)
-<https://pythonspeed.com/datascience/>
+
+- quick notes on manifesto
+https://smallbigdata.github.io/manifesto.html
+https://pythonspeed.com/memory/ -- mainly section on Data management techniques -- first estimaton, then basic techniques
+
+https://pythonspeed.com/articles/estimating-memory-usage/
+https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
+
+- code changes (not our case)
+- compression 
+- chunking, indexing with sqlite 
+- parallelism -- dask
+- *inset* gpu utilization (coda??)
+- reading from disk mmap() vs. Zarr/HDF5
+
+
+
 
 
 ## 2. app architecture (describe database solution and other options)
