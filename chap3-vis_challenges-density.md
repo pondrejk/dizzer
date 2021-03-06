@@ -6,16 +6,24 @@
 
 As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference is by far the most common raw material fed to the visualisation pipeline for spatial big data. The *n=all* property of big data then generates a challenge of dealing with high graphic density in maps.
 
-How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as "using visual tools to facilitate insight and support decision making of human recipients" then human cognitive capabilities are the main guiding factor to adhere to. Naturally, the are variances in graphic literacy across the population not to mention accessibility requirements for various sensory disabilities. There is no doubt that some classes of cartographic errors or visual artefacts are disqualifying for everybody, resolving these lowest common denominators is a prerequisite to resolving the corner cases (if they are ever thought about) (TODO examples)
+How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as "using visual tools to facilitate insight and support decision making of human recipients" then human cognitive capabilities are the main guiding factor to adhere to. There are variances in graphic literacy across the population not to mention accessibility requirements for various sensory conditions and disabilities, but to even strart resolving these issues, we need first focus on legibility as the primary requiremnt that affects every recipient.
+
+Legibility in maps enables readers to separate signs from eachother and to distinguish steps of visual variables.
+@bertin1983semiology names three parameters that determine legibility: *graphic density*, *angular separation* and *retinal separation*.
 
 One of these common inhibitors is graphic fill.
+
 
 The visual problem posed by high density of point data is easy to imagine (for example from fig...). 
 
 ![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on human perceptual limits, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
 
 ### Design constaints
-TODO intro
+
+Let us consider the parameters that determine the graphic density for digital maps. The graphic density may vary along three scales (fig):
+
+![**Fig.** Three axes that influence the graphic density in map based web applications.](imgs/img-design_constraings.png)
+
 
 1. axis of scale
 - the area of the land displayed in the map window
@@ -27,12 +35,18 @@ TODO intro
 - screen size and aspect ratio determines the working space for the map, zoomlevel for the initial screen size
 - predictable number of variants 
 
+In Bertin's time, the available extent for the map was determined early in the production process in the choice of the page format an then remained constant. Digital cartographers now cannot rely on 
+
 3. axis of data change
 - updating the displayed data as a result of (a) data change or as a result of (b) user interaction
 - (a) may be unpredictable (b) limited number of options but combinations can quickly add up
 - (b) changes in displayed layers, changes in hierarchy (drill down ...)
 - influenced by 1. and 2.
 - screen barrier / visual barrier
+
+
+The fourth unspoken constraint is the axis of cartographer's ability, as the failure to adjust symbolization to say scale changes can create illegibility even in cases when the screen space is sufficient and the data load is moderate.
+
 
 ### Visualisation pipeline 
 
@@ -398,6 +412,17 @@ TODO: try to create the overlays from the picture above in pixi.js
 
 # on UX, interaction and beyond
 ---------------------------------
+
+Controls are inevitable, need to be legible same as the map view. Moreover, users need to be able to intuitively grasp how they work (TODO norman -- affordances, and signifiesrs.)
+
+They both contribute and are affected by the graphic fill. Contribute, as they need to share the same screen space with the map view (side note -- specialized hardware controls exist, but usable only regular access for stable interfaces -- TODO, there are devices used to control graphic programsi (like photoshop) with knobs and sliders, custom interfaces of online maps are out of scope, but maybe some day to day professionals interacting with maps could use them.) and sometimes has to compete for it, affected because the variability of data translates to variability of symbolizations which then complicates the legend and controls.
+
+
+How many affordances are viable? (Map controls coupled with legend need to signify both the meaning of the map symbol as well as the affordance -- in practice the signification of affordance is often hidden, and we often rely on users to find it out -- e.g. by cursor change...)
+
+Looking at UI controls with a prism of design constraints described in chapter (TODO), all three axes affect the UX as well, thogh the screen space is naturally the most significant factor (fig).
+
+![**Fig.** Screen space is the constraint with the greatest influence on the design of map controls.](imgs/img-design_constraings-ux.png)
 
 - cartographic concepts applicable in UI design and vice versa (TODO some reading on UX)
 -- visual weight, negative space, generalization of ui components 

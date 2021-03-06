@@ -263,10 +263,14 @@ https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
 - reading from disk mmap() vs. Zarr/HDF5
 
 
-
-
-
 ## 2. app architecture (describe database solution and other options)
+
+- timescaledb?
+- influxdb?
+- geomesa?
+- geotrellis?
+
+
 ## 3. user interface design
 ## 4. interesting findings
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
