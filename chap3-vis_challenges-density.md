@@ -6,49 +6,37 @@
 
 As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference is by far the most common raw material fed to the visualisation pipeline for spatial big data. The *n=all* property of big data then generates a challenge of dealing with high graphic density in maps.
 
-How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as "using visual tools to facilitate insight and support decision making of human recipients" then human cognitive capabilities are the main guiding factor to adhere to. There are variances in graphic literacy across the population not to mention accessibility requirements for various sensory conditions and disabilities, but to even strart resolving these issues, we need first focus on legibility as the primary requiremnt that affects every recipient.
+How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as "using visual tools to facilitate insight and support decision making of human recipients" then human cognitive capabilities are the main guiding factor to adhere to. There are variances in graphic literacy across the population, not to mention accessibility requirements for various sensory conditions and disabilities, but to even start resolving these issues, we need first focus on the *legibility* as the primary requirement of every recipient.
 
-Legibility in maps enables readers to separate signs from eachother and to distinguish steps of visual variables.
-@bertin1983semiology names three parameters that determine legibility: *graphic density*, *angular separation* and *retinal separation*.
+Legibility in maps enables readers to separate signs from each other and to distinguish steps of visual variables.
+@bertin1983semiology names three parameters that determine legibility in information graphics: *graphic density*, *angular separation* and *retinal separation*. Graphic density is a number of marks per cm2, angular and retinal separation describe the perceptible differentiantion in angles (e.g. to compare shapes or segments in line charts) and in visual variables (like hue or size). The joke charts in fig illustrate the visual problem posed by the high graphic density caused by high data load. Unlike angular and retinal separation that to a high degree result from the author's choice of symbolization, the graphic density is largely determined by parameters out of the influence of the mapmaker. In the next section we will look closer on what these are.
 
-One of these common inhibitors is graphic fill.
+![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on the limits of graphics, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
 
-
-The visual problem posed by high density of point data is easy to imagine (for example from fig...). 
-
-![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on human perceptual limits, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
-
-### Design constaints
+### Design constraints
 
 Let us consider the parameters that determine the graphic density for digital maps. The graphic density may vary along three scales (fig):
 
 ![**Fig.** Three axes that influence the graphic density in map based web applications.](imgs/img-design_constraings.png)
 
+1. *Axis of scale* determines the land area displayed in the map view. Unlike print, web map interfaces support dynamic change of scale (zoom in and out) and focus (panning). This is a great capability for exploring data and can help to mitigate some congestion issues, but also complicates cartographic design as the chosen symbolization should work on every scale level. This requires dynamic adjustment of symbology, for example if point symbol size is kept constant across scales (default in many web mapping libraries) a larger point cluster can become illegible due to overlaps in larger scales. However, plain linear size adjustment can lead to empty-looking maps if the symbol size gets too small in larger scales. For the majority of projects, there is a range of meaningful scales. Until recently, web mapping libraries supported only limited number of discrete zoom levels (from 0 to 19, a limitation dictated by tiled raster base map sources), so there was a limited predictable range of zoom levels that cartographer needed to consider for a project. Vector tiles allow for fractional levels so the zoom experience is smoother, therefore it is now more efficient to define a scale based function for symbology adjustment rather designing for specific steps. This all is further complicated by dynamic screen space.
 
-1. axis of scale
-- the area of the land displayed in the map window
-- dynamic -- overall view plus zoom in
-- predictable meaningful zoom interval (discrete steps in most web mapping platforms), can't be hard set because it is dependent on screen space
-- symbology should react to the scale, ofterwise congestions can arise
+2. *Axis of screen space* determines how the map view reacts to varying screen sizes. The standard requirement for modern websites is *responsivity*, which means the site should adjust the browsing experience to reflect the size and capabilities of the viewing device (desktop, tablet, or mobile nowdays, whatever comes next in the future). For many map based web application, responsivity to small mobile screens is not pursued as the resulting experience is suboptimal, though this niche is certainly worth exploring in the field of thematic cartography, mainly because the proportion of mobile-first users is likely to rise. 
+In mobile browsers, there is an option to "view desktop version" to get at least some usability on unresponsive sites.
 
-2. axis of screen space (responisvity)
-- screen size and aspect ratio determines the working space for the map, zoomlevel for the initial screen size
-- predictable number of variants 
+In responsive web map, the screen size and aspect ratio influences the size and shape of the map window which in turn needs to be reflected in the initial zoom level. It is generally advisable to adhere to the visual information seeking mantra "Overview first, zoom and filter, then details-on-demand" (@shneiderman2003eyes), for thematic maps we naturally expect to see the whole extent of the area of interest to see the general spatial pattern first. To provide the initial overview consistently across devices, the responsive map application needs not only to adjust the map div element size but also to calculate the correct initial zoom level to fit the area of interest to that div. Fractional zoom levels are a huge help in this, because the differences in whole number zoom levels often led to insufficient fit.
 
-In Bertin's time, the available extent for the map was determined early in the production process in the choice of the page format an then remained constant. Digital cartographers now cannot rely on 
+TODO image for this?
 
-3. axis of data change
-- updating the displayed data as a result of (a) data change or as a result of (b) user interaction
-- (a) may be unpredictable (b) limited number of options but combinations can quickly add up
-- (b) changes in displayed layers, changes in hierarchy (drill down ...)
-- influenced by 1. and 2.
-- screen barrier / visual barrier
+3. *Axis of data change* describes how application reacts to changes in displayed data. These changes can be far more complex than in case of previous two axes as the number of possible data layers, configurations within them and interrelations between them is countless. The changes may be triggered by user interaction or in case of continuous data streams by changes in data itself. The user-induced changes include changing the visibility of data layers, changing visual variables, adjusting the temporal scale, or changing the aggregation level (drill-down and roll-up actions, see elmqvist2010hierarchical). The range of supported interactions is defined by application authors, but the actual outcomes of these interactions can be quite surprising, especially if applied on dynamic data. Real time visualisation then brings true unpredictability to the design process (blindfolded cartography)(cite https://www.youtube.com/watch?v=e_00WVa3GJA) and has implications on data processing pipelines and on abstractions in data and visual space (see next section).
 
+The fourth unspoken constraint is the axis of cartographer's ability, as the failure to adjust symbolization to say scale changes can create illegibility even in cases when the screen space is sufficient and the data load is moderate. Choice of symbolization can greatly support angular an retinal separation and also battle graphic fill. The three aforementioned axes are in fact inseparable and all combined define how effective will the map based application be in different situations. Defining the space of possibilities and then implementing the application behaviour accordingly requires lot of imagination, effort and testing.
 
-The fourth unspoken constraint is the axis of cartographer's ability, as the failure to adjust symbolization to say scale changes can create illegibility even in cases when the screen space is sufficient and the data load is moderate.
-
+The axis of data change is the one that is mostly affected by the big data properties. Let us consider the data processing pipelines.
 
 ### Visualisation pipeline 
+
+data space / visual space
 
 There are also other limitations that take action in earlier stages of a generalized visualisation pipeline (see fig?). One thing to be aware of is that the simplification (aggregation, reduction, etc.) in the visual end product enforced by human cognitive capabilities should also propagate back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (visual barrier). This can mean a significant improvement when performance and scalability are of concern.
 
@@ -138,6 +126,14 @@ Other stuff to check:
 -- basically a kind of cartogram solution
 
 ## Aggregation 
+
+
+elmqvist2010hierarchical
+
+aggregation can happen in data / visual  space
+Design guidelines: ...see blue notebook
+
+
 
 !Todo -- isn't this denying the base property of BD (no aggregation?). No. It is visual aggregation at the end of the visualisation pipeline -- has many advantages: choosing the aggragation properties (not dictated by data provider), combinig data sources into aggragation ...
 
