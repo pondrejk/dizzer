@@ -133,6 +133,8 @@ elmqvist2010hierarchical
 aggregation can happen in data / visual  space
 Design guidelines: ...see blue notebook
 
+- notes from hierarchical aggregation paper @elmqvist2010hierarchical
+On conept hiercharies -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations 
 
 
 !Todo -- isn't this denying the base property of BD (no aggregation?). No. It is visual aggregation at the end of the visualisation pipeline -- has many advantages: choosing the aggragation properties (not dictated by data provider), combinig data sources into aggragation ...
@@ -238,9 +240,6 @@ Why binned plots?
 Analytical tasks ivolving event data can be characterized at some combination of *what* + *when* + *where* 
 To support these tasks, event visualisation must, at a minimum, *illustrate spatial patterns*, and, if a temporal axis is present, *afford navigation or summariaztion through time*.
 
-- notes from hierarchical aggregation paper @elmqvist2010hierarchical
-On conept hiercharies -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations .. changes in level of hierarchical aggregation is reffered to as *roll-up* or *drill-down* (@elmqvist2010hierarchical).
-- inmems papaer -- interactive scalability for panning, zooming, brushing and linking.
 
 mulitple attributes
 figure vs. ground - comparison with spatial context
