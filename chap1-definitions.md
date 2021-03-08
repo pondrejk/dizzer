@@ -232,22 +232,4 @@ The definition of big data is elusive perhaps also because the majority of invol
 
 To @mayer2013big big data stand for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, the importance lies in the real-life impacts that are likely to stay even when the big data hype is over. Even if we dismiss the term as a buzz-word, the fact is that more digital information gets created and can be linked more easily, which has many implications on the way we live. Together with that there are changing attitudes to putting data to work. In the next chapter, we will look at some economic, societal and scientific impacts of big data, as they can provide a motivation for cartography to take part in addressing the related issues. We will also offer some speculation on how the roles of cartography and GIS may be transformed by the data deluge.
 
--------
-TODO incorporate this to the conclusion:@press2014big
-
-some definitions:
-
-(11) The belief that the more data you have the more insights and answers will rise automatically from the pool of ones and zeros.
-
-(12) A new attitude by businesses, non-profits, government agencies, and individuals that combining data from multiple sources could lead to better decisions.
-
-I like the last two. #11 is a warning against blindly collecting more data for the sake of collecting more data (see NSA). #12 is an acknowledgment that storing data in “data silos” has been the key obstacle to getting the data to work for us, to improve our work and lives. It’s all about attitude, not technologies or quantities.
-
-https://dennikn.sk/1462667/milan-sutovec-zostavil-encyklopediu-politicke-slovensko-dnesnu-politiku-vnima-ako-svet-chromych-kacerov/?ref=in
-Pôvodne v ňom bolo viac či menej hesiel?
-
-Hej, bolo ich asi 1240, bolo to nerealisticky nafúknuté, a vlastne spočiatku ani nebolo jasné, o čom presne to celé chce byť. Ale s tým mám akademickú skúsenosť, že predstavy a tézy sa upresňujú a zahusťujú počas práce, že téma takpovediac kryštalizuje — len treba začať robiť. 
-
-
-
 ## Sources
