@@ -87,11 +87,10 @@ The type of data source is another classification property. Authors distinct "tr
 
 Data sources labeled as big differ from traditional sources such as surveys and official administrative statistics — @florescu2014will and @kitchin2015opportunities closely examine those differences as well as the potential for big data to extend the official statistics. Interesting point is that volume is not actually distinctive as governmental offices tend to store large amounts as well. What makes the difference is that classical data sources have statistical products and by-products specified beforehand, big data tend to be reused beyond the original intent. On the other hand, big data sources tend to be volatile and unstructured, therefore their representativeness is harder (if possible) to assess.
 
-TODO -- newer forcasts from 2020 (More than 59 zettabytes (ZB)), and how COVID-19 contributes to it
-https://www.idc.com/getdoc.jsp?containerId=prUS46286020
+The estimation in the fig1 couldn't have predicted the spread of COVID-19 pandemic. According to International Data Corporation (IDC), more than 59 zettabytes (ZB) were to be created, captured, copied, and consumed around the world in 2020. The COVID-19 pandemic contributed to this figure by causing an abrupt increase in the number of work from home employees and changing the mix of data being created to a richer set of data that includes video communication and a tangible increase in the consumption of downloaded and streamed video. IDC also measures the amount of data created and consumed in the world each year. The ratio of unique data (created and captured) to replicated data (copied and consumed) is roughly 1:9, and it is expected to move to 1:10 by 2024. This trend is also fuelled by increased consumption of replicated data due to COVID-19 pandemic. [@idc2020global]
 
 
-### 1.2.4 Metaphoric accounts
+### 1.2.4 Metaphors
 
 Metaphors rely on a notion of analogy between two dissimilar things, but can also become independent verbal objects, aesthetically appealing but not overly revealing. Despite that, we should not ignore metaphoric accounts as they contribute to the mythology surrounding big data that reflects what many people expect. 
 
