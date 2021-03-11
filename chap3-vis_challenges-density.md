@@ -187,7 +187,6 @@ Thus any point inside a hexagon is closer to the center of any given point in an
 - implanation - classification techniques: classical, new: yiang - fractal breaks, bayesian surprise, uncertainty-adjusted scales
 - shape, position, other options for multiple vis -- indiemaps article, other tesallerations
 
-- optionally: dimensionality reduction, autoencoders for        spatial data
 
 
 liu2013immens (done)
@@ -317,6 +316,10 @@ What technology (or combination of technologies) is suitable for cartographic vi
 - graphic -- browser to GPU continuum (see Dominikus Baur) 
 - history see @williams2012learning, chapter on HTML5 drawing APIs
 
+TODO some image on the positioning of the three in some conceptual space
+
+CSS animations are usually faster than JS animations (because they collaborate with browser)
+
 ## SVG
 pros:
 - vector
@@ -327,14 +330,42 @@ SVG charts can typically handle around 1,000 datapoints (@eberhardt2020rendering
 - retained mode graphics model
 https://en.wikipedia.org/wiki/Retained_mode
 
+- creates dom elements -- you can attach events to the objects, animaition and data driven rendering can crash browser
+- more elements more slow
+- browser has to recalculate stuff -- 2 phases: reflow/repaint
+- e.g. getting width of element triggers reflow
+- optimization: detach() dom element, do stuff on them and append() -- just 2 reflows and repaints 
+
+Dynamic graphics: svg - retina out of the box (only vector), css dom integration, static svg (10000 elements) animated (1000) -- dominikus baur (testing site)
+
+
 ## canvas
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+
 pros:
 cons:
 - immediate mode graphics model. https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics)
 With Canvas you can expect to render around 10,000 datapoints whilst maintaining smooth 60fps interactions. (@eberhardt2020rendering)
+- defined API
+- immediate mode (declarative programming), keeps track of objects + rendering
+- rendering loop - process input > update gnu > render > time (some callback)
+- to the browser canvas looks like an image -- so you can tie an event handler only to the whole element -- to place elemets you have to encode elements or do color picking (encode elements in invisible colors)
+- faster than svg but not much though
 
+leaflet supports custom data as svg by default or as a canvas overlay
 
 ## WebGL
+
+api: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
+
+- works with textures
+- GL shadeing language -- access pixels and vertices the graphics card works with 
+- C-based, complex, js wrappers - three.js (for 3D), pixi.js (for 2D games) replicates some svg functionality
+- lang - operator overloading
+- built-in types for graphics
+- vec4 constructors - vector.xyz (vector shader), vector.rgb (fragment shader)
+js > (api - array of floats GLSL) > Vertex shader (transforming points) > fragment shader (setting color for each pixel) > GPU
+
 pros:
 - speed - uses client's GPU
 cons:
@@ -376,15 +407,72 @@ TODO ^ Go through this again:
 
 Shaders are also a set of instructions, but the instructions are executed all at once for every single pixel on the screen. That means the code you write has to behave differently depending on the position of the pixel on the screen. Like a type press, your program will work as a function that receives a position and returns a color, and when it's compiled it will run extraordinarily fast.
 
-
-
 shader-school:
 https://github.com/stackgl/shader-school
 (more focused on 3D)
 
+https://bocoup.com/blog/exploring-new-technologies-for-making-maps-part-two-two-fragment-shaders-and-a-mouse
+There are two kinds of shaders, vertex shaders, which act on points of geometry; and fragment shaders, which operate on pixels (or fragments in WebGL speak). What makes them fast, and also difficult to write, is that the shader program is run for every pixel (or vertex) being rendered in parallel. However running in parallel means that each pixel doesn’t really know what’s going on with the other pixels.
+
+The other thing that makes them fast is they run on specialized hardware, the GPU or graphics processing unit on your computer. However, this means that they are separated from the CPU and memory that we usually program with. Thus once running they are a bit harder to interact with than we might be used to.
+
+    Vertex Shaders: These are given the geometry being rendered (lets say a polygon or a cube) and can change the coordinates of points (vertices) that make up the geometry. This can be used to transform, scale, or otherwise mutate a shape.
+    Fragment Shaders: These are given the fragments (pixels) that are going to be rendered to the screen for each piece of geometry. The fragment shader’s job is to assign a color to this pixel. You can do this in multiple passes to create effects such as light, shadow and material properties. This is the shader type we will focus on in this post.
+
+webgl coordinates
+// (0,1)----(1,1)
+//   |--------|
+//   |--------|
+//   |--------|
+// (0,0)----(1,0)
+- svg and canvas api strart with 0.0 in top left
+
+This brings me to another tip I picked up when writing these. Since these shader programs run on the GPU, we can’t just write things to the console to debug things (e.g. if you wanted to write out some property of the pixel currently being processed). Instead you want to find a way to express your test or debugging condition in terms of color. Here is a pattern I used a lot to understand the coordinate space, or debug things that weren’t showing up in the right place
 
 
-how mapbox uses it:
+REGL (only desc if I decide to use it)
+
+# MapboxGL
+- smooth transitions, no discrete scale points, 3D, scale based filters...
+- some size limitations on vector tiles
+- filtering (several syntax types) - also some preformance limits
+- new hard problems (mapbox gl) rather than old hard problems (scaling DB)
+- renderer library separate frem tile storage, additional renedering features -- tilt, smooth zoom... etc
+- styling reference (filters, styling rules, fonts, data referents)
+
+- in browser data analysis (geojson -- size limited, postgis -- complex) -- vector tiles help here...? 
+- analysis problems are similar to rendering problems
+
+# Vector tiles 
+motivation: fast data delivery, leveraging desktop gpu, scale server-side rendering
+- separates rendering from the data storage, rendering now comes at the very end of the pipeline
+- mapnik can consume and produce tiles (data + stylesheets + config(extents, zoomlevels)) (also tippecanoe) ? mapnik creates raster or also vector tiels?
+- rendering on the client side
+- rendering on the fly
+- smaller storage, demands on client
+- good for basemaps and also for thematic interactive overlays, also allows for better entanglement of thematic and basemap 
+- vector tiles can hold data, especially useful for thematic interactive layers, can represent complex data layers and hold the source attributes
+- same addressing system as in raster tiles
+- compact and fast to parse
+- composing -- combine multiple tiles sources, if tiles match, just concatenate the protobuffs
+
+-- structure (describe in more detail?) -- layers, feature, attributes and geometries (how encoded -- protobuff)
+-- specificaton https://github.com/mapbox/vector-tile-spec/tree/master/2.1
+https://docs.mapbox.com/vector-tiles/specification/
+
+TODO image -- how GPU rendering works
+TODO image -- rendering pipeline
+
+
+- comparison (vector vs raster tile) -- some table?
+https://bachasoftware.com/what-is-tile-and-differentiate-between-raster-tile-and-vector-tile/
+https://www.maptiler.com/news/2019/02/what-are-vector-tiles-and-why-you-should-care/
+benchmarks
+https://www.giscloud.com/blog/realtime-map-tile-rendering-benchmark-rasters-vs-vectors/
+
+
+# Raster tiles:
+- stored on the server -- served to the browser on request from the web mapping library -- limiting if you need to recreate layers frequently + retina displays (still a problem?, why this was a problem)
 
 helper apis: 4D and pixi
 
@@ -447,6 +535,10 @@ https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-aft
 
 # more
 https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
+
+# scrollytelling
+https://medium.com/nightingale/from-storytelling-to-scrollytelling-a-short-introduction-and-beyond-fbda32066964
+https://webflow.com/blog/scrollytelling-guide?fbclid=IwAR3yRP5GAYtrHgNcN_njPk-5HwW3_ppH6sloQpna5CpxEmOm5qjQCoXBeoY
 
 # UX and interaction (TODO maybe to the next section)
 ----------------------
@@ -568,6 +660,11 @@ Sources come with both point and polygon spatial reference. To harmonize the sou
 This allows for meaningful comparison of data and application of weights. (TODO -- another tables -- what means zero, what means one for various layers). 
 
 TODO -- how weights are applied
+
+3rd section -- some dimensionality reduction
+- only if used -- PCA vs t-SNE, autoencoders for spatial data
+https://lvdmaaten.github.io/tsne/
+https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding
 
 
 ## 2. App architecture (react redux mapbox)
