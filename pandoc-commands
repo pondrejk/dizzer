@@ -1,3 +1,7 @@
+THIS:
+pandoc -f markdown+inline_notes chap1-definitions.md -o build/chap1-definitions.docx --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --pdf-engine=xelatex --reference-doc=reference-b5.docx
+
+
 first attempt:
 
 pandoc -V geometry:margin=1.5in chap-definitions.md -o paper.doc --bibliography=../Biblio/cartogis.bib --csl=../Biblio/csl/apa-5th-edition.csl --pdf-engine=xelatex
