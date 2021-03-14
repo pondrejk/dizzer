@@ -383,6 +383,31 @@ https://en.wikipedia.org/wiki/Shading_language
 @parisi2012webgl - web gl up and running -- get the technical definitions from there
 (opengl vs webgl vs mapbox etc.)
 
+The basic concepts of interactive graphics haven’t changed much over the past several years. Implementations, however, are continually evolving, especially due to the recent proliferation of devices and operating systems. Bedrock among these changing tides has been OpenGL. Originally developed in the late 1980s, OpenGL has been an industry-standard API for a very long time, having endured competitive threats from Microsoft DirectX to emerge as the undisputed standard for programming 3D graphics.But not all OpenGLs are the same. The characteristics of various platforms, including desktop computers, set-top televisions, smartphones, and tablets, are so divergent that different  editions  of  OpenGL  had  to  be  developed.  OpenGL  ES  (for  “embedded  sys­tems”) is the version of OpenGL developed to run on small devices such as set-top TVs and smartphones. Perhaps unforeseen at the time of its development, it turns out that OpenGL ES forms the ideal core for WebGL. It is small and lean, which means that not only is it (relatively) straightforward to implement in a browser, but it makes it much more likely that the developers of the different browsers implement it consistently, and that  a  WebGL  application  written  for  one  browser  will  work  identically  in  another  browser.
+
+There is one last topic before we conclude our exploration of 3D graphics: shaders. In order to render the final image for a mesh, a developer must define exactly how vertices, transforms, materials, lights, and the camera interact with one another to create that image. This is done using shaders. A shader (also known as a programmable shader) is a chunk of program code that implements algorithms to get the pixels for a mesh onto the screen. Shaders are typically defined in a high-level C-like language and compiled into code usable by the graphics processing unit (GPU). Most modern computers come equipped with a GPU, a processor separate from the CPU that is dedicated to rendering 3D graphics.
+
+Unlike many graphics systems, where shaders are an optional and/or advanced feature, WebGL requires shaders. You heard me right: when you program in WebGL, you must define shaders or your graphics won’t show up on the screen. WebGL implementations assume the presence of a GPU. The GPU understands vertices, textures, and little else; it has no concept of material, light, or transform. The translation between those high-level inputs and what the GPU puts on the screen is done by the shader, and the shader is created by the developer.
+
+In order to render WebGL into a page, an application must, at a minimum, perform the following steps:1.Create a canvas element.2.Obtain a drawing context for the canvas.3.Initialize the viewport.4.Create one or more buffers containing the data to be rendered (typically vertices).5.Create one or more matrices to define the transformation from vertex buffers to screen space.6.Create one or more shaders to implement the drawing algorithm.7.Initialize the shaders with parameters.8.Draw
+
+WebGL drawing is done with primitives—types of objects to draw such as triangle sets (arrays of triangles), triangle strips (described shortly), points, and lines. Primitives use arrays  of  data, called buffers, which define the positions of the vertices to be drawn.
+(A triangle strip is a rendering primitive that defines a sequence of triangles using the first three vertices for the first triangle, and each subsequent vertex in combination with the previous two for subsequent triangles.)
+
+A shader is typically composed of two parts: the vertex shader and the fragment shad­er (also known as the pixel shader). The vertex shader is responsible for transforming the coordinates of the object into 2D display space; the fragment shader is responsible for generating the final color output of each pixel for the transformed vertices, based on inputs such as color, texture, lighting, and material values. In our simple example, the vertex shader combines the modelViewMatrix and projectionMatrix values to create the final, transformed vertex for each input, and the fragment shader simply outputs a hardcoded white color.
+
+Javascript wrappers (three.js, pixi.js) -- object orientation, interaction support:w::
+Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL. 
+
+The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet.
+
+^VM = Javascript engine (https://en.wikipedia.org/wiki/JavaScript_engine)
+
+https://www.khronos.org/webgl/
+
+WebGL is a cross-platform, royalty-free web standard for a low-level 3D graphics API based on OpenGL ES, exposed to ECMAScript via the HTML5 Canvas element. Developers familiar with OpenGL ES 2.0 will recognize WebGL as a Shader-based API using GLSL, with constructs that are semantically similar to those of the underlying OpenGL ES API. It stays very close to the OpenGL ES specification, with some concessions made for what developers expect out of memory-managed languages such as JavaScript. WebGL 1.0 exposes the OpenGL ES 2.0 feature set; WebGL 2.0 exposes the OpenGL ES 3.0 API.
+
+
 from mapbox windmap blog:
 @agafonkin2017how
 
@@ -398,6 +423,12 @@ The vertex shader provides the code for converting coordinates. For example, mul
 The fragment shader provides the code for determining the color of each drawn pixel. You can do a lot of cool math in it, but in the end it comes down to something like “draw the current pixel of the triangle as green”.    
 
 **The fragment shader code execution is massively parallel and heavily hardware-accelerated, so it’s usually many orders of magnitude faster than an equivalent computation on the CPU.**
+
+TODO: explain the drawing of triangles?
+
+https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
+picture in section: https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
+Drawing an Object with the WebGL Graphics Pipeline
 
 book of shaders:
 https://thebookofshaders.com/
@@ -428,6 +459,7 @@ webgl coordinates
 - svg and canvas api strart with 0.0 in top left
 
 This brings me to another tip I picked up when writing these. Since these shader programs run on the GPU, we can’t just write things to the console to debug things (e.g. if you wanted to write out some property of the pixel currently being processed). Instead you want to find a way to express your test or debugging condition in terms of color. Here is a pattern I used a lot to understand the coordinate space, or debug things that weren’t showing up in the right place
+
 
 
 REGL (only desc if I decide to use it)
