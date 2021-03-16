@@ -411,7 +411,7 @@ WebGL is a cross-platform, royalty-free web standard for a low-level 3D graphics
 from mapbox windmap blog:
 @agafonkin2017how
 
-OpenGL provides a 2D API for drawing triangles efficiently.
+OpenGL provides a 2D API for drawing triangles efficiently. (mostly triangles but you can do other stuff right?)
 
 So basically all you do with GL is draw triangles. The difficulty, besides the scary API, comes from the various math and algorithms required to do this. It can also draw dots and basic lines (without smoothing or round joins/caps), but those are rarely used.
 Illustration from Brief Introduction to Shaders Using GLSL
@@ -429,6 +429,10 @@ TODO: explain the drawing of triangles?
 https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
 picture in section: https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
 Drawing an Object with the WebGL Graphics Pipeline
+
+
+TODO -- how to import bitmaps (spritesheet) and svg to webgl canvas?
+TODO -- describe alternative solutions to all webgl libraries like mapbox (leaflet with webgl overlay)
 
 book of shaders:
 https://thebookofshaders.com/
@@ -529,6 +533,14 @@ TODO: try to create the overlays from the picture above in pixi.js
 ---------------------------------
 
 Controls are inevitable, need to be legible same as the map view. Moreover, users need to be able to intuitively grasp how they work (TODO norman -- affordances, and signifiesrs.)
+
+Dan Norman -- affordances and signifiers being confused terms in regular use (norman2013design) 
+affordance (realtionship between objects and users, what is possible)
+signifiers (tells users about what is possible -- it is important to design them)
+
+Dan Norman -- complexity (norman2016living)
+Living with complexity: Complexity is inevitable (asking for simplicity is in fact asking for understandability, simple looking things can actually be quite confusing)
+
 
 They both contribute and are affected by the graphic fill. Contribute, as they need to share the same screen space with the map view (side note -- specialized hardware controls exist, but usable only regular access for stable interfaces -- TODO, there are devices used to control graphic programsi (like photoshop) with knobs and sliders, custom interfaces of online maps are out of scope, but maybe some day to day professionals interacting with maps could use them.) and sometimes has to compete for it, affected because the variability of data translates to variability of symbolizations which then complicates the legend and controls.
 
