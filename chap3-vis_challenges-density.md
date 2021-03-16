@@ -424,11 +424,78 @@ The fragment shader provides the code for determining the color of each drawn pi
 
 **The fragment shader code execution is massively parallel and heavily hardware-accelerated, so it’s usually many orders of magnitude faster than an equivalent computation on the CPU.**
 
-TODO: explain the drawing of triangles?
+TODO: image 1 from here (coordinates + elements)
+https://www.creativebloq.com/javascript/get-started-webgl-draw-square-7112981  
 
+The first thing that you need to understand is how the screen is represented in WebGL. It is a 3D space, spanning between -1 and 1 on the x, y, and z axis. By default this z axis is not used, but you are interested in 3D graphics, so you’ll want to enable it right away.
+
+
+TODO image 2 (graphics pipeline)
 https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
 picture in section: https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
 Drawing an Object with the WebGL Graphics Pipeline
+
+http://fragmentbuffer.com/gpu-performance-for-game-artists/
+
+For the purposes of this article, here are the important parts of the GPU pipeline from top to bottom:
+
+1)    Input Assembly. The GPU reads the vertex and index buffers from memory, determines how the vertices are connected to form triangles, and feeds the rest of the pipeline.
+
+2.)  Vertex Shading. The vertex shader gets executed once for every vertex in the mesh, running on a single vertex at a time. Its main purpose is to transform the vertex, taking its position and using the current camera and viewport settings to calculate where it will end up on the screen.
+
+    Now that you’ve given the vertices to the GPU, you tell the GPU what logic to use when placing the vertices onto the screen. This step will be used to apply our matrix transformations. The GPU is very good at multiplying a lot of 4x4 matrices, so we’ll put that ability to good use.
+
+3)    Rasterization. Once the vertex shader has been run on each vertex of a triangle and the GPU knows where it will appear on screen, the triangle is rasterized – converted into a collection of individual pixels. Per-vertex values – UV coordinates, vertex color, normal, etc. – are interpolated across the triangle’s pixels. So if one vertex of a triangle has a black vertex color and another has white, a pixel rasterized in the middle of the two will get the interpolated vertex color grey.
+
+4)    Pixel Shading. Each rasterized pixel is then run through the pixel shader (although technically at this stage it’s not yet a pixel but ‘fragment’, which is why you’ll see the pixel shader sometimes called a fragment shader). This gives the pixel a color by combining material properties, textures, lights, and other parameters in the programmed way to get a particular look. Since there are so many pixels (a 1080p render target has over two million) and each one needs to be shaded at least once, the pixel shader is usually where the GPU spends a lot of its time.
+
+5)   Render Target Output. Finally the pixel is written to the render target – but not before undergoing some tests to make sure it’s valid. For example in normal rendering you want closer objects to appear in front of farther objects; the depth test can reject pixels that are further away than the pixel already in the render target. But if the pixel passes all the tests (depth, alpha, stencil etc.), it gets written to the render target in memory.
+
+**Depth tests:**
+The most important element for a WebGL application is the WebGL context. You can access it with gl = canvas.getContext('webgl'), or use 'experimental-webgl' as a fallback, in case the currently used browser doesn’t support all WebGL features yet. The canvas we referred to is the DOM element of the canvas we want to draw on. The context contains many things, among which is the default framebuffer.
+
+You could loosely describe a framebuffer as any buffer (object) that you can draw on. By default, the default framebuffer stores the color for each pixel of the canvas that the WebGL context is bound to. As described in the previous section, when we draw on the framebuffer, each pixel is located between -1 and 1 on the x and y axis. Something we also mentioned is the fact that, by default, WebGL doesn’t use the z axis. That functionality can be enabled by running gl.enable(gl.DEPTH_TEST). Great, but what is a depth test?
+
+Enabling the depth test allows a pixel to store both color and depth. The depth is the z coordinate of that pixel. After you draw to a pixel at a certain depth z, to update the color of that pixel, you need to draw at a z position that is closer to the camera. Otherwise, the draw attempt will be ignored. This allows for the illusion of 3D, since drawing objects that are behind other objects will cause those objects to be occluded by objects in front of them.
+
+**VBOs**
+Vertex Buffer Objects
+
+The first thing you need to do is define the vertices that you want to draw. You can do that by describing them via vectors in 3D space. After that, you want to move that data into the GPU RAM, by creating a new Vertex Buffer Object (VBO).
+
+A Buffer Object in general is an object that stores an array of memory chunks on the GPU. It being a VBO just denotes what the GPU can use the memory for. Most of the time, Buffer Objects you create will be VBOs.
+
+You can fill the VBO by taking all N vertices that we have and creating an array of floats with 3N elements for the vertex position and vertex normal VBOs, and 2N for the texture coordinates VBO. Each group of three floats, or two floats for UV coordinates, represents individual coordinates of a vertex. Then we pass these arrays to the GPU, and our vertices are ready for the rest of the pipeline.
+
+Since the data is now on the GPU RAM, you can delete it from the general purpose RAM. That is, unless you want to later on modify it, and upload it again. Each modification needs to be followed by an upload, since modifications in our JS arrays don’t apply to VBOs in the actual GPU RAM.
+
+**no garbage collection**
+Vertex Buffer Objects
+
+The first thing you need to do is define the vertices that you want to draw. You can do that by describing them via vectors in 3D space. After that, you want to move that data into the GPU RAM, by creating a new Vertex Buffer Object (VBO).
+
+A Buffer Object in general is an object that stores an array of memory chunks on the GPU. It being a VBO just denotes what the GPU can use the memory for. Most of the time, Buffer Objects you create will be VBOs.
+
+You can fill the VBO by taking all N vertices that we have and creating an array of floats with 3N elements for the vertex position and vertex normal VBOs, and 2N for the texture coordinates VBO. Each group of three floats, or two floats for UV coordinates, represents individual coordinates of a vertex. Then we pass these arrays to the GPU, and our vertices are ready for the rest of the pipeline.
+
+Since the data is now on the GPU RAM, you can delete it from the general purpose RAM. That is, unless you want to later on modify it, and upload it again. Each modification needs to be followed by an upload, since modifications in our JS arrays don’t apply to VBOs in the actual GPU RAM.
+
+There are three types of variables that go in and out of a vertex shader, and all of them serve a specific use:
+
+    attribute — These are inputs that hold specific properties of a vertex. Previously, we described the position of a vertex as an attribute, in the form of a three-element vector. You can look at attributes as values that describe one vertex.
+    uniform — These are inputs that are the same for every vertex within the same rendering call. Let’s say that we want to be able to move our model around, by defining a transformation matrix. You can use a uniform variable to describe that. You can point to resources on the GPU as well, like textures. You can look at uniforms as values that describe a model, or a part of a model.
+    varying — These are outputs that we pass to the fragment shader. Since there are potentially thousands of pixels for a triangle of vertices, each pixel will receive an interpolated value for this variable, depending on the position. So if one vertex sends 500 as an output, and another one 100, a pixel that is in the middle between them will receive 300 as an input for that variable. You can look at varyings as values that describe surfaces between vertices.
+
+You can also see that here we can perform matrix transformations extremely easily. GLSL is specifically made for this kind of work. The output position is calculated by multiplying the projection, view, and model matrix and applying it onto the position. The output normal is just transformed to the world space. We’ll explain later why we’ve stopped there with the normal transformations. 
+
+A fragment shader is the step after rasterization in the graphics pipeline. It generates color, depth, and other data for every pixel of the object that is being painted.
+
+The principles behind implementing fragment shaders are very similar to vertex shaders. There are three major differences, though:
+
+    There are no more varying outputs, and attribute inputs have been replaced with varying inputs. We have just moved on in our pipeline, and things that are the output in the vertex shader are now inputs in the fragment shader.
+    Our only output now is gl_FragColor, which is a vec4. The elements represent red, green, blue, and alpha (RGBA), respectively, with variables in the 0 to 1 range. You should keep alpha at 1, unless you’re doing transparency. Transparency is a fairly advanced concept though, so we’ll stick to opaque objects.
+    At the beginning of the fragment shader, you need to set the float precision, which is important for interpolations. In almost all cases, just stick to the lines from the following shader.
+
 
 
 TODO -- how to import bitmaps (spritesheet) and svg to webgl canvas?
