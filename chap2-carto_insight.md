@@ -367,6 +367,15 @@ TODO -- procedurálne diadramy z designu (dual diamond diagram) -- to je vlastne
 -- iné príklady -- user roles, user stories. Nezačínať od dát ale od používateľov
 -- protiargument: weaponization of design
 
+** flow concept
+relationship between skill and the difficulty of the task 
+TODO diagrams -- and where in frustration - flow - bored continuum your app lies.
+https://en.wikipedia.org/wiki/Flow_(psychology)
+@csikszentmihalyi1997flow
+
+maybe more for the UX section in ch 3 ?
+https://uxdesign.cc/7-steps-to-achieving-flow-in-ux-design-7ef28adb0de2
+
 **weaponized design**
 @diehm2018weaponised
 
