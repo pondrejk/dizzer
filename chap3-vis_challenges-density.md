@@ -372,6 +372,11 @@ cons:
 
 If you really do need to render the entire dataset there really is only one option, and that is to make use of your GPU (Graphical Processing Unit), a specialised processor which is specifically designed for high-performance graphics. These processors are most often used for creating highly realistic scenes for computer games, however, there is no reason why they can’t be used to render charts.
 
+
+![**Fig.** An attempt to summarize the most important components of a WebGL rendered image. A triangle is the base graphic primitive more complex graphics build on. The frame buffer delimits the operating space and coordinate system. Vertices A,B,C hold coordinates and color (besides other data), the triangle fill is interpolated from vertices. The close-up circle shows the fragments (pixels) that make up the overall images. Both vertices and fragments can be directly manipulated in LSL.](imgs/img-webgl-elements2.png)
+
+![**Fig.** A simplified diagram of the GPU rendering pipeline, description in the text.](imgs/img-graphic-pipeline.png)
+
 WebGL provides a JavaScript API that allows you to create GPU-accelerated graphics. But while the APIs are readily available, the main obstacle to using them is their complexity. The WebGL APIs do not provide any form of abstraction over the underlying shader language.
 https://en.wikipedia.org/wiki/Shading_language
 
