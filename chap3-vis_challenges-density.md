@@ -307,18 +307,15 @@ example of hidden markov model
 # Comparison of rendering technologies
 --------------------------------------
 
-How is the cartographic design influenced by the rendering technology applied? 
-What technology (or combination of technologies) is suitable for cartographic visualization of dynamic data sets?
+How is the cartographic design influenced by the rendering technology applied? What technology (or combination of technologies) is suitable for cartographic visualization of dynamic data sets? First we describe 3 options the current web provides for depicting graphic information, with focus on WebGL with brief description of how it uses the GPU's graphic pipeline (rendering).
+
+Then we briefly discuss how are these technologies are used in mapping libraries. We will look closer at the vector tiles specification in comparison with its predcessor raster tiles.
+
+Then well see what the combination of vector tiles and direct webgl overlays mean for cartographic visualisation.
 
 # SVG vs. Canvas vs. WebGL
 
 - table of parameters (cartographic standpoint)
-- graphic -- browser to GPU continuum (see Dominikus Baur) 
-- history see @williams2012learning, chapter on HTML5 drawing APIs
-
-TODO some image on the positioning of the three in some conceptual space
-
-CSS animations are usually faster than JS animations (because they collaborate with browser)
 
 ## SVG
 pros:
@@ -607,7 +604,6 @@ signifiers (tells users about what is possible -- it is important to design them
 
 Dan Norman -- complexity (norman2016living)
 Living with complexity: Complexity is inevitable (asking for simplicity is in fact asking for understandability, simple looking things can actually be quite confusing)
-
 
 They both contribute and are affected by the graphic fill. Contribute, as they need to share the same screen space with the map view (side note -- specialized hardware controls exist, but usable only regular access for stable interfaces -- TODO, there are devices used to control graphic programsi (like photoshop) with knobs and sliders, custom interfaces of online maps are out of scope, but maybe some day to day professionals interacting with maps could use them.) and sometimes has to compete for it, affected because the variability of data translates to variability of symbolizations which then complicates the legend and controls.
 
