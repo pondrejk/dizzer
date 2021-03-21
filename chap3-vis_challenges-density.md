@@ -21,7 +21,7 @@ Let us consider the parameters that determine the graphic density for digital ma
 
 1. *Axis of scale* determines the land area displayed in the map view. Unlike print, web map interfaces support dynamic change of scale (zoom in and out) and focus (panning). This is a great capability for exploring data and can help to mitigate some congestion issues, but also complicates cartographic design as the chosen symbolization should work on every scale level. This requires dynamic adjustment of symbology, for example if point symbol size is kept constant across scales (default in many web mapping libraries) a larger point cluster can become illegible due to overlaps in larger scales. However, plain linear size adjustment can lead to empty-looking maps if the symbol size gets too small in larger scales. For the majority of projects, there is a range of meaningful scales. Until recently, web mapping libraries supported only limited number of discrete zoom levels (from 0 to 19, a limitation dictated by tiled raster base map sources), so there was a limited predictable range of zoom levels that cartographer needed to consider for a project. Vector tiles allow for fractional levels so the zoom experience is smoother, therefore it is now more efficient to define a scale based function for symbology adjustment rather designing for specific steps. This all is further complicated by dynamic screen space.
 
-2. *Axis of screen space* determines how the map view reacts to varying screen sizes. The standard requirement for modern websites is *responsivity*, which means the site should adjust the browsing experience to reflect the size and capabilities of the viewing device (desktop, tablet, or mobile nowdays, whatever comes next in the future). For many map based web application, responsivity to small mobile screens is not pursued as the resulting experience is suboptimal, though this niche is certainly worth exploring in the field of thematic cartography, mainly because the proportion of mobile-first users is likely to rise. 
+2. *Axis of screen space* determines how the map view reacts to varying screen sizes. The standard requirement for modern websites is *responsivity*, which means the site should adjust the browsing experience to reflect the size and capabilities of the viewing device (desktop, tablet, or mobile nowdays, whatever comes next in the future). For many map based web application, responsivity to small mobile screens is not pursued as the resulting experience is suboptimal, though this niche is certainly worth exploring in the field of thematic cartography, mainly because the proportion of mobile-first users is likely to rise.
 In mobile browsers, there is an option to "view desktop version" to get at least some usability on unresponsive sites.
 
 In responsive web map, the screen size and aspect ratio influences the size and shape of the map window which in turn needs to be reflected in the initial zoom level. It is generally advisable to adhere to the visual information seeking mantra "Overview first, zoom and filter, then details-on-demand" (@shneiderman2003eyes), for thematic maps we naturally expect to see the whole extent of the area of interest to see the general spatial pattern first. To provide the initial overview consistently across devices, the responsive map application needs not only to adjust the map div element size but also to calculate the correct initial zoom level to fit the area of interest to that div. Fractional zoom levels are a huge help in this, because the differences in whole number zoom levels often led to insufficient fit.
@@ -34,7 +34,7 @@ The fourth unspoken constraint is the axis of cartographer's ability, as the fai
 
 The axis of data change is the one that is mostly affected by the big data properties. Let us consider the data processing pipelines.
 
-### Visualisation pipeline 
+### Visualisation pipeline
 
 data space / visual space
 
@@ -47,17 +47,17 @@ Hence the cartographic decisions made at the last stage in pipeline have impact 
 So far we were mentioned just the presentation role of cartography, the interaction poses another set of challenges for the pipeline, though not all are cartograpic. For exploratory tools to support hypothesis generation, we should consider which tasks should be supported by interaction... (TODO) think through later...
 
 -- some survey on visualisation pipelines @moreland2013survey
--- my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) -- technological limitations may be more flexible to deal with, but also visual capabilites evolve with higher exposition to various interfaces. On the other hand cognitive abilites may be varied per user persona... 
+-- my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) -- technological limitations may be more flexible to deal with, but also visual capabilites evolve with higher exposition to various interfaces. On the other hand cognitive abilites may be varied per user persona...
 
 data -> technological filter -> coginitive filter -> idea/decision
 
 TODO: image - dataflow via those filters (later).
 
 processing difficulties ... technological filter - screen resolution limits, infrastructure limits -- not all datapoints can be shown.
-cognitive filter -- not all can be processed, how to define and check automatically? 
+cognitive filter -- not all can be processed, how to define and check automatically?
 
 but maybe better scheme for the shifting role of cartography:
-data -> cartographic immagination -> technologic reapropriation/innovation 
+data -> cartographic immagination -> technologic reapropriation/innovation
 
 Some basc data visualisation methods may be immune to this (barcharts, pie charts), but positional types of visualisation like scatterplots and maps are hit heavily by this.
 Similarly not all types of data are hit heavily on the cartographic visualisation side. If we circle back to types of point data, they are not equally difficult from the cartograhic view. Not all data processing challenges translate to cartographic challenges. Cartographic difficulties stem mainly from changes in position...? Stations, even if producing big data level loads of attributes are not so difficult cartographically if having low number and density, or better to say, it is nothing new for cartograhers...
@@ -73,7 +73,7 @@ Why data reduction is necessary:
 
 ## Avoiding aggregation
 
-Visual conflicts of displayed symbology nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigating the issue without employing aggregation. 
+Visual conflicts of displayed symbology nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigating the issue without employing aggregation.
 
 Adjusting symbology properties is possibly the simplest first solution. Conflicts in the map field are often caused mainly by conflicting symbology rather than location. Especially for point features the symbology covers up more space than the real spatial extent of the phenomenon (which is plain x,y location), even more so if the symbol size conveys meaning, as in proportional symbol maps. Classical techniques to deal with the problem include adjusting the symbol scale to reduce overlaps, taking care of the drawing order so that the smallest symbols appear on top the larger ones, increasing fill transparency so that the overlap situation is explicitly visible, or displacing symbols and adding leading lines pointing to correct location. These methods have all their cons, to name just a few: scale modifications rarely work equally well across the whole map area and a break in scale (e.g. scaling down the largest outliers) works against intuitive inference of relationships from the map; drawing order enforcement fails if two similarly sized objects are close to each other; increased transparency can create distracting visual artefacts, and displacement effectively extends the problematic cluster area plus it is a quite daunting manual task. Needles to say that additional theme layers further complicate the situation as new cross-layer conflicts and overlaps arise. Congested areas in one layer generally preclude seeing trough to what is happening in lower layers.
 
@@ -83,7 +83,7 @@ Now, to a seasoned cartographer this surely sounds like a content of an introduc
 
 ![**Fig.** A simple exploration of handling proportional symbol overlap. (a) The rendering order of symbols is from largest to smallest. This can prevent hidden symbols, but doesn't allow to see the underlying layers. (b) Transparency alone can permit a glimpse trough, but the overlapping parts in the symbology create a distractive visual artefact, also it can be suboptimal for heavily congested areas (the small symbol in the centre is now illegible). (c) Darker outlines ensure all symbols are visible, but also contribute to the visual clutter in the overlapping parts. (d) One might attempt to omit fills altogether but that tends to make the irritation of overlaps even bigger -- the artefacts created by intersections now visually compete with the actual symbols. (e) This is not the variant of *(a)* with white fills, here the fills are blank but overlapping borders are removed, which means the fills act as opaque when clashing with symbols in the same layer (removing the problem in *(d)*) but are fully transparent towards lower layers. From now on we move beyond what is readily available in Leaflet and Mapbox symbolization libraries. (f) Combination of *(b)* and *(e)* can be useful when having fills is important e.g. for added symbolization. Toned down outlines help to identify individual symbols. We can say there are two modes of transparency within one symbol layer: while outlines are self-opaque (not visible in the self-overlapping areas of the symbol layer) the fills are self-transparent (overlaps are shown). Both fills and outlines are transparent towards the lower layers. (g) Variation of *(f)* -- some displacement between the fill and the slightly transparent outline creates an interesting 3D effect. Though this is mainly a toy effect as it is highly dependent on the clean background -- for the small symbols in the center it is not visible. (h)  An example of how *(e)* might work in combination with another symbol layer. (i) A reversal of *(e)* where fills are solid towards lower layers but outlines are fully transparent. The progression of the border in the underlying layer is observable through transparent outlines in the symbol layer. (j)(k)(l) Additional complexity arises from using color scale to visualize an additional data attribute. Both fill and outline can be used to carry color. In theory, there are several possibilities to ensure legibility even for two overlaying bi-parametric symbol layers. The assignment of fill and the outline width determine which layer will seem dominant. In interactive environments the user could be enabled to change symbolization to visually reorder layers while maintaining the overall picture.](imgs/img-circle-overlays.png)
 
-The images in fig were created in a desktop vector graphic programme (Adobe Illustrator). Given the user scope of the software, the creation process was manual, it was basically playing with shapes not linked to any data or coordinate system. Adobe Illustrator features like *flatten transparency* were used to combine multiple layers to create the impression of dual transparency and other effects in pictures (f)--(l) of fig. As such, the process is not translatable to interactive maps based on dynamic data. To our knowing, graphic effects (e)--(l) would not be achievable neither in current web nor desktop mapping platforms. 
+The images in fig were created in a desktop vector graphic programme (Adobe Illustrator). Given the user scope of the software, the creation process was manual, it was basically playing with shapes not linked to any data or coordinate system. Adobe Illustrator features like *flatten transparency* were used to combine multiple layers to create the impression of dual transparency and other effects in pictures (f)--(l) of fig. As such, the process is not translatable to interactive maps based on dynamic data. To our knowing, graphic effects (e)--(l) would not be achievable neither in current web nor desktop mapping platforms.
 
 It seems that current cartographers have to split their energy between three types of tools that are each good for some sorts of tasks but fairly deficient in other areas. Desktop graphic software like Adobe Illustrator or Inkscape allows for graphic idea profiling and advanced vector manipulation, desktop GIS tools like QGis or ArcGis provide a whole arsenal of spatial data manipulation tools, and web mapping solutions like Leaflet and Mapbox are great for interactive data presentation and scale-based styling. These tools are not very interoperable and the synthesis is nowhere near^(One brighter example from the web design realm is Figma, a platform that aims to ease the collaboration between web designers and developers). On the other hand, looking at complex graphic experience of games being implemented in WebGL, the examples from fig don't seem as a paramount, so maybe just what is needed is cartographers getting their hands dirty in WebGL development. WebGL truly seems to be a promising platform for connecting (carto)graphic excellence, dynamic spatial data visualisation and user-friendly interaction.
 
@@ -91,13 +91,13 @@ Often the visually problematic areas in the thematic layer do not span through t
 
 For dynamic (web) mapping we are not confined by a fixed scale, therefore we can zoom in at the areas of interest. In such interactive environment leaving congested clusters without treatment might not be a big problem even though they are unreadable at the general resolution scale -- the congestions suggest that there is something interesting going on in the area and invite users to place their focus there. However, as we zoom in we loose sight of the overall pattern, which is another possible opportunity for using inset map, this time for statically displaying the full area of interest as well as dynamically showing the sub-area that is currently displayed in the main view. As we'll see further, modern front-end development frameworks like React that support modularized reusable components that share state provide tools for implementing multiple co-ordinated map views.
 
-Zooming and panning are interaction modes that for many users basically define what interactive map is. But it is peculiar that beyond these modes we don't see much more dynamic interaction options in web maps. WebGL based tools added the change of orientation and tilt around the z axis but when it comes to interacting with the thematic layer, we are usually left with some selection, filtering and on-hover pop-up bubbles that act as on-demand labels for selected features. Rarely the user is allowed to tamper with the actual symbolization, the linked view interfaces like GeoDa or more recently dashboards like Grafana rely on amassing several visualisation types for displaying various aspects of the same dataset, but the actual cartography in these interfaces is very simple (usually a choropleth). But for interacting with massive dynamically rendered datasets there must be more options for the user to moderate the cognitive load, including change of symbolization, visual weight and order of thematic layers. 
+Zooming and panning are interaction modes that for many users basically define what interactive map is. But it is peculiar that beyond these modes we don't see much more dynamic interaction options in web maps. WebGL based tools added the change of orientation and tilt around the z axis but when it comes to interacting with the thematic layer, we are usually left with some selection, filtering and on-hover pop-up bubbles that act as on-demand labels for selected features. Rarely the user is allowed to tamper with the actual symbolization, the linked view interfaces like GeoDa or more recently dashboards like Grafana rely on amassing several visualisation types for displaying various aspects of the same dataset, but the actual cartography in these interfaces is very simple (usually a choropleth). But for interacting with massive dynamically rendered datasets there must be more options for the user to moderate the cognitive load, including change of symbolization, visual weight and order of thematic layers.
 
-To minimize the risk of conflict between the base map and the thematic layer, web map developers use toned down base maps often stripped down to the bare visual minimum (e.g. Carto Positron is an example of popular base tile layer). But base map is not only a background canvas for thematic layer, in reality the spatial phenomena are in part a product of other spatial relations that constitute the overall environment and we feel there is an unexplored potential to portray this relationship in the interplay of figure and ground in the thematic maps (see further). 
+To minimize the risk of conflict between the base map and the thematic layer, web map developers use toned down base maps often stripped down to the bare visual minimum (e.g. Carto Positron is an example of popular base tile layer). But base map is not only a background canvas for thematic layer, in reality the spatial phenomena are in part a product of other spatial relations that constitute the overall environment and we feel there is an unexplored potential to portray this relationship in the interplay of figure and ground in the thematic maps (see further).
 
 - resolving conflicts -- long tradition in cartography, but how scalable and automatable? Spatial displacement techniques (non-cartographical) -- jittering @trutschl2003intelligently, topological distortion @keim2010generalized -- expanding (like cartogram for scatterplots)
 - minification of symbols + downplaying or reducing the backgroud
-- pixel-orientation -- maximizing screen utilization @keim2000designing 
+- pixel-orientation -- maximizing screen utilization @keim2000designing
 - spatial distortions -- cartograms -- affects other spatial layers -- common distortion rule is needed to make sense for all layers -- population?
 - filtering and sampling (below)
 - alpha blending -- transparency (pros and cons)
@@ -115,7 +115,7 @@ ponents of the event data are important, other approaches seek to vi-
 sualize the “space-time cube” [@bach2014review -- see for review of timespace cube approaches] directly, mapping events to points in
 3D space [@gatalsky2004interactive -- just an description of an implementato of some 3D cube observer, @tominski20053d -- time-space cube inspired catographic symbols (pencil/helix icons) observable in the 3D space].  For many cases, we find this approach unsatisfac-
 tory; projection and occlusion issues require interaction and 3D spatial
-reasoning in order to discover patterns of interest. 
+reasoning in order to discover patterns of interest.
 
 
 Other stuff to check:
@@ -125,7 +125,7 @@ Other stuff to check:
 -- also see fig3 Varying degree of pixel overlap depending on screen resolution
 -- basically a kind of cartogram solution
 
-## Aggregation 
+## Aggregation
 
 
 elmqvist2010hierarchical
@@ -134,7 +134,7 @@ aggregation can happen in data / visual  space
 Design guidelines: ...see blue notebook
 
 - notes from hierarchical aggregation paper @elmqvist2010hierarchical
-On conept hiercharies -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations 
+On conept hiercharies -- hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations
 
 
 !Todo -- isn't this denying the base property of BD (no aggregation?). No. It is visual aggregation at the end of the visualisation pipeline -- has many advantages: choosing the aggragation properties (not dictated by data provider), combinig data sources into aggragation ...
@@ -155,7 +155,7 @@ Square grid is the simplest division of space.
 - hexagonal -- centroids in hexagonal binning form a triangular grid, so an individual hexagon has the same distance from all it's neighbours (why is that good? not th case of rectangular grid).
 - rectangular -- can create pyramids for hierarchical aggregation, that is a higher level shape can fully contain shapes of lower level wihch is not a case for hexagons. Rectangular shapes are also better fit for proportional scaling in two dimensions (width and height) which unlocks potential for displlaying an additional vable.
 
--- some literature with discussion: @unwin2006graphics -- compare 3 schemes, @carr1987scatterplot hexbins -- reduced bias in density estimation, but @scott2015multivariate -- showing marginal differences  
+-- some literature with discussion: @unwin2006graphics -- compare 3 schemes, @carr1987scatterplot hexbins -- reduced bias in density estimation, but @scott2015multivariate -- showing marginal differences
 
 from https://www.meccanismocomplesso.org/en/hexagonal-binning/?fbclid=IwAR2IDJGQGed1rtLsoe0M_NVHqxZp6rdGfvUD370ccaO7_XsJmG989JqjQbQ
 
@@ -199,7 +199,7 @@ Aggregation methods ~= Data reduction methods:
 a.) filtering & sampling: Subset of data is selected to wich we apply visualisation techniques. The key problem of sampling is selecting a subset that is representative of the whole dataset. Several types of sampling were designed to increcase the likelihood that a sample genralizes well to the whole population.
 
 With simple random sampling each point has the same probability of being selected. Members of population are uniquely identified by consecutive positive integers and then pseudo-random number generator is used to select the subset of required size. As no other variables are considered, this technique can produce wildly unrepresentative samples from heterogeneous sets, where important structures or outliers can be omitted.
- 
+
 Systematic random sampling tries to avoid some limitations of the purely random approach to ensure main groups present in the population don't get omitted or oversampled in the subset. A random component is maintained by selecting randomly within the specified groups; the number of elements picked from each group doesn't have to be uniform, as groups can be weighted to preserve the relative importance of groups in the source dataset. Spatial equivalent of this approach is called geographically *stratified* sampling where we divide the area of interest into sub-areas (for example quadrat or hexagonal tessellation) and perform random selection within each cell. This is useful when we want an even coverage of the area of interest in the sample. Furthermore, for spatially uneven populations, we can employ *cluster* sampling, where we pick more samples from certain areas, for example from metropolitan areas -- which is effectively weighting the areas by population. The third class of spatial sampling, *systematic* spatial sampling, that takes samples from evenly distributed locations, is more suited for sampling from continuous data rather than from discrete point clouds that mainly interest us in this chapter.
 
 A straightforward way to evaluate the sampling design is comparing distribution and basic statistics such as mean and variance of population and sample. @chun2013spatial compared random, systematic and stratified sampling on three kinds of simulated trend surfaces: linear (gradual increase from one side to another), quadratic (highest value in the centre gradually lowering radially to the sides) and oscillating (several sinusoidal bumps and pits). According to their findings, stratified spatial sampling generally better preserves mean of the population, systematic spatial sampling performs better at preserving variance.
@@ -218,7 +218,7 @@ d.) hybrid reduction methods -- combinations, eg. binning with displayed outlier
 -- research on combining sampling and aggregation: BlinkDB -- builds fast approximate queries a multi-dimensional and multi-resolution stratified samples and computes aggregates over this reduced data. BlinkDB -- queries with bounded errors and bounded response times @agarwal2013blinkdb
 -- online aggregation -- showing continuously updating aggregates and confidence intervals in response to a stream of samples -- hellerstein1997online, fisher2012trust
 
-###Designing binned plots 
+###Designing binned plots
 
 Why binned plots?
 -- conveys to both global patterns (densities) as well as local features (e.g outliers)
@@ -230,13 +230,13 @@ Why binned plots?
 
 ### Point aggregation
 -- mostly don't like it -- difference between current applications and what should be acheived
--- loss of orientation between zoom levels -- smoother transition of collapsing/grouping ponts -- show paths/traces? 
+-- loss of orientation between zoom levels -- smoother transition of collapsing/grouping ponts -- show paths/traces?
 -- point aggregation -- basically sampling with information on how many points are represented ...
 
 ## Tasks
 * anderienko on tasks: (andrienko2003exploratory, and andrienko2006exploratory -- TODO revisit and compare how these accounts differ -- probably apply above)
-- ultra brief @andrienko2003exploratory: 
-Analytical tasks ivolving event data can be characterized at some combination of *what* + *when* + *where* 
+- ultra brief @andrienko2003exploratory:
+Analytical tasks ivolving event data can be characterized at some combination of *what* + *when* + *where*
 To support these tasks, event visualisation must, at a minimum, *illustrate spatial patterns*, and, if a temporal axis is present, *afford navigation or summariaztion through time*.
 
 
@@ -246,7 +246,7 @@ figure vs. ground - comparison with spatial context
 
 # parameters of binned visualisation
 
-Cell sizes: staisticians proposed several heurisics to select bin sizes -- applicability to big data unclear (some explanation and critique on Sturges in @hyndman1995problem): Struges's formula @sturges1926choice, Scott's reference rule @scott1979optimal 
+Cell sizes: staisticians proposed several heurisics to select bin sizes -- applicability to big data unclear (some explanation and critique on Sturges in @hyndman1995problem): Struges's formula @sturges1926choice, Scott's reference rule @scott1979optimal
 Color encodings --density can be encoded to hue, luminance or opacity
 
 @liu2013immens use frumula for hue intensity in bins: y = alpha + ((x - xmin)y/xmax-xmin)(1-alpha)
@@ -263,7 +263,7 @@ another tufte sparklines @tufte2006beautiful
 ---------------
 https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR
 
-A sparkline, as defined by Tufte, is “a small intense, simple, word-sized graphic with 
+A sparkline, as defined by Tufte, is “a small intense, simple, word-sized graphic with
 typographic resolution. Sparklines ... can be everywhere a word or number can be: embedded in a sentence, table, headline, map, spreadsheet, graphic.”
 
 @correll2017surprise
@@ -290,7 +290,7 @@ Biases in thematic maps:
 -- hachures over bins ...
 -- outlier in bins, etc...
 -- try selfhosted mapbox for 3D view? -- or check uber glsl wrapper
- 
+
  A friendly introduction to Bayes Theorem and Hidden Markov Models
 -----------------------------------------------------------------
 <https://www.youtube.com/watch?v=kqSzLo9fenk>
@@ -308,23 +308,21 @@ example of hidden markov model
 
 How is the cartographic design influenced by the rendering technology applied? What technology (or combination of technologies) is suitable for cartographic visualization of dynamic data sets? In this section we'll describe the tree main technologies the current web development toolbox provides for showing interactive graphic information. We will mostly focus on WebGL with brief description of how it uses the GPU rendering pipeline. Then we will describe how these technologies are employed in web mapping libraries. In that matter, we will look closer at the vector tiles specification in comparison with its predecessor raster tiles. Then we will attempt to summarize what the combination of vector tiles and direct WedGL offers mean for cartographic visualisation of big data.
 
-# SVG vs. Canvas vs. WebGL
-
-TODO - table of parameters (cartographic standpoint)
-
 ## SVG
 
-SVG is a well known and much loved format for displaying two dimensional vector graphics on the web. Since the start of development in 1999 it has become an often used alternative to bitmaps with wide browser support. Unlike the remaining two technologies, SVG is a vector format, which brigs scalability (the acronym stands for Scalable Vector Graphics after all), constant graphic quality across devices, and smaller storage size. The straightforward XML syntax allows for easy integration with JavaScript and CSS, svg files can be easily autogenerated, searched, compressed or indexed by web crawlers. Elements of an SVG graphic exist in the site's DOM which allows for attaching  JavaScript event handlers to sub components of a graphic. This feature makes SVG a good choice for  implementing interactive graphics --  it powers popular web charting library D3.js, also it is a default technology for data overlays in web mapping library Leaflet. 
+SVG is a well known and much loved format for displaying two dimensional vector graphics on the web. Since the start of development in 1999 it has become an often used alternative to bitmaps with wide browser support. Unlike the remaining two technologies, SVG is a vector format, which brigs scalability (the acronym stands for Scalable Vector Graphics after all), constant graphic quality across devices, and smaller storage size. The straightforward XML syntax allows for easy integration with JavaScript and CSS, svg files can be easily autogenerated, searched, compressed or indexed by web crawlers. Elements of an SVG graphic exist in the site's DOM which allows for attaching  JavaScript event handlers to sub components of a graphic. This feature makes SVG a good choice for  implementing interactive graphics -- it powers popular web charting library D3.js, also it is a default technology for data overlays in web mapping library Leaflet.
 
-On the flip side, SVG graphics being a part of the DOM quickly becomes a bottleneck when working with large dynamic data sets or when animation is required. @eberhardt2020rendering reports that SVG charts can typically handle around 1,000 datapoints, @baur2015weighing mentions a maximum limit of 10,000 static elements and 1,000 animated elements^[For a simple benchmarking site to do your own experiments (with caution not to crash your browser), visit <http://dominikus.github.io/stars/>]. 
-There are several ways one can animate SVG graphics, CSS, a handful of JavaScript libraries or the native SMIL animation specification^[See <https://css-tricks.com/weighing-svg-animation-techniques-benchmarks/> for performance comparison].
+On the flip side, SVG graphics being a part of the DOM quickly becomes a bottleneck when working with large dynamic data sets or when animation is required. @eberhardt2020rendering reports that SVG charts can typically handle around 1,000 datapoints, @baur2015weighing mentions a maximum limit of 10,000 static elements and 1,000 animated elements^[For a simple benchmarking site to do your own experiments (with caution not to crash your browser) visit <http://dominikus.github.io/stars/>].
+There are several ways one can animate SVG graphics, CSS, a handful of JavaScript libraries or the native SMIL animation specification^[See <https://css-tricks.com/weighing-svg-animation-techniques-benchmarks/> for performance comparison], However it is clear that SVG performance decreases quickly with growing number of items to display which disqualifies it for visualizing live data streams where we don't know the load beforehand.
 
-cons:
+cons: (TODO include?)
 - retained mode graphics model
 https://en.wikipedia.org/wiki/Retained_mode
 
+## Canvas
 
-## canvas
+  The Canvas API provides a means for drawing graphics via JavaScript and the HTML <canvas> element. Among other things, it can be used for animation, game graphics, data visualization, photo manipulation, and real-time video processing.
+
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 
 pros:
@@ -337,14 +335,21 @@ With Canvas you can expect to render around 10,000 datapoints whilst maintaining
 - to the browser canvas looks like an image -- so you can tie an event handler only to the whole element -- to place elemets you have to encode elements or do color picking (encode elements in invisible colors)
 - faster than svg but not much though
 
+
+It's important to understand that Canvas is for drawing pixels. It doesn't have shapes or vectors. There are no objects to attach event handlers to. It just draws pixels to the screen. As we shall see this is both a strength and a weakness. 
+
+So when should you use Canvas over SVG, CSS or DOM elements? Well, Canvas is lower level than those others so you can have more control over the drawing and use less memory, but at the cost of having to write more code. Use SVG when you have existing shapes that you want to render to the screen, like a map that came out of Adobe Illustrator. Use CSS or DOM animation when you have large static areas that you wish to animate, or if you want to use 3D transforms. For charts, graphs, dynamic diagrams, and of course video games, Canvas is a great choice. And later on we will discuss a few libraries to let you do the more vector / object oriented stuff using Canvas. 
+
+
 leaflet supports custom data as svg by default or as a canvas overlay
+
 
 ## WebGL
 
 api: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
 
 - works with textures
-- GL shadeing language -- access pixels and vertices the graphics card works with 
+- GL shadeing language -- access pixels and vertices the graphics card works with
 - C-based, complex, js wrappers - three.js (for 3D), pixi.js (for 2D games) replicates some svg functionality
 - lang - operator overloading
 - built-in types for graphics
@@ -356,7 +361,7 @@ pros:
 cons:
 - raster
 - programmer's experience
-- what can be done with pixi.js, why are game programming libraries good or bad for creating inteactive maps (e.g. bad: too focused on redndering pre-created raster images..., limitations of pixi v4 particle container (explained in Medium blog on global fishing watch)) -- escoffier2017how 
+- what can be done with pixi.js, why are game programming libraries good or bad for creating inteactive maps (e.g. bad: too focused on redndering pre-created raster images..., limitations of pixi v4 particle container (explained in Medium blog on global fishing watch)) -- escoffier2017how
 
 If you really do need to render the entire dataset there really is only one option, and that is to make use of your GPU (Graphical Processing Unit), a specialised processor which is specifically designed for high-performance graphics. These processors are most often used for creating highly realistic scenes for computer games, however, there is no reason why they can’t be used to render charts.
 
@@ -387,7 +392,7 @@ WebGL drawing is done with primitives—types of objects to draw such as triangl
 A shader is typically composed of two parts: the vertex shader and the fragment shad­er (also known as the pixel shader). The vertex shader is responsible for transforming the coordinates of the object into 2D display space; the fragment shader is responsible for generating the final color output of each pixel for the transformed vertices, based on inputs such as color, texture, lighting, and material values. In our simple example, the vertex shader combines the modelViewMatrix and projectionMatrix values to create the final, transformed vertex for each input, and the fragment shader simply outputs a hardcoded white color.
 
 Javascript wrappers (three.js, pixi.js) -- object orientation, interaction support:w::
-Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL. 
+Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL.
 
 The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet.
 
@@ -410,12 +415,12 @@ OpenGL provides a special C-like language — GLSL — to write programs that ar
 
 The vertex shader provides the code for converting coordinates. For example, multiplying triangle coordinates by 2 so that our triangle appears twice as big. It will run once for every coordinate we pass to OpenGL when drawing.
 
-The fragment shader provides the code for determining the color of each drawn pixel. You can do a lot of cool math in it, but in the end it comes down to something like “draw the current pixel of the triangle as green”.    
+The fragment shader provides the code for determining the color of each drawn pixel. You can do a lot of cool math in it, but in the end it comes down to something like “draw the current pixel of the triangle as green”.
 
 **The fragment shader code execution is massively parallel and heavily hardware-accelerated, so it’s usually many orders of magnitude faster than an equivalent computation on the CPU.**
 
 TODO: image 1 from here (coordinates + elements)
-https://www.creativebloq.com/javascript/get-started-webgl-draw-square-7112981  
+https://www.creativebloq.com/javascript/get-started-webgl-draw-square-7112981
 
 The first thing that you need to understand is how the screen is represented in WebGL. It is a 3D space, spanning between -1 and 1 on the x, y, and z axis. By default this z axis is not used, but you are interested in 3D graphics, so you’ll want to enable it right away.
 
@@ -476,7 +481,7 @@ There are three types of variables that go in and out of a vertex shader, and al
     uniform — These are inputs that are the same for every vertex within the same rendering call. Let’s say that we want to be able to move our model around, by defining a transformation matrix. You can use a uniform variable to describe that. You can point to resources on the GPU as well, like textures. You can look at uniforms as values that describe a model, or a part of a model.
     varying — These are outputs that we pass to the fragment shader. Since there are potentially thousands of pixels for a triangle of vertices, each pixel will receive an interpolated value for this variable, depending on the position. So if one vertex sends 500 as an output, and another one 100, a pixel that is in the middle between them will receive 300 as an input for that variable. You can look at varyings as values that describe surfaces between vertices.
 
-You can also see that here we can perform matrix transformations extremely easily. GLSL is specifically made for this kind of work. The output position is calculated by multiplying the projection, view, and model matrix and applying it onto the position. The output normal is just transformed to the world space. We’ll explain later why we’ve stopped there with the normal transformations. 
+You can also see that here we can perform matrix transformations extremely easily. GLSL is specifically made for this kind of work. The output position is calculated by multiplying the projection, view, and model matrix and applying it onto the position. The output normal is just transformed to the world space. We’ll explain later why we’ve stopped there with the normal transformations.
 
 A fragment shader is the step after rasterization in the graphics pipeline. It generates color, depth, and other data for every pixel of the object that is being painted.
 
@@ -493,7 +498,7 @@ TODO -- describe alternative solutions to all webgl libraries like mapbox (leafl
 
 book of shaders:
 https://thebookofshaders.com/
-@vivo2015book 
+@vivo2015book
 
 TODO ^ Go through this again:
 
@@ -533,17 +538,17 @@ REGL (only desc if I decide to use it)
 - renderer library separate frem tile storage, additional renedering features -- tilt, smooth zoom... etc
 - styling reference (filters, styling rules, fonts, data referents)
 
-- in browser data analysis (geojson -- size limited, postgis -- complex) -- vector tiles help here...? 
+- in browser data analysis (geojson -- size limited, postgis -- complex) -- vector tiles help here...?
 - analysis problems are similar to rendering problems
 
-# Vector tiles 
+# Vector tiles
 motivation: fast data delivery, leveraging desktop gpu, scale server-side rendering
 - separates rendering from the data storage, rendering now comes at the very end of the pipeline
 - mapnik can consume and produce tiles (data + stylesheets + config(extents, zoomlevels)) (also tippecanoe) ? mapnik creates raster or also vector tiels?
 - rendering on the client side
 - rendering on the fly
 - smaller storage, demands on client
-- good for basemaps and also for thematic interactive overlays, also allows for better entanglement of thematic and basemap 
+- good for basemaps and also for thematic interactive overlays, also allows for better entanglement of thematic and basemap
 - vector tiles can hold data, especially useful for thematic interactive layers, can represent complex data layers and hold the source attributes
 - same addressing system as in raster tiles
 - compact and fast to parse
@@ -577,7 +582,7 @@ https://blog.mapbox.com/how-i-built-a-wind-map-with-webgl-b63022b5537f
 - a trip trough the graphics pipeline
 
 TODO: app pixi.js filter overlays on leaflet
-https://github.com/pixijs/pixi-filters    
+https://github.com/pixijs/pixi-filters
 
 TODO: try to create the overlays from the picture above in pixi.js
 
@@ -591,7 +596,7 @@ TODO: try to create the overlays from the picture above in pixi.js
 
 Controls are inevitable, need to be legible same as the map view. Moreover, users need to be able to intuitively grasp how they work (TODO norman -- affordances, and signifiesrs.)
 
-Dan Norman -- affordances and signifiers being confused terms in regular use (norman2013design) 
+Dan Norman -- affordances and signifiers being confused terms in regular use (norman2013design)
 affordance (realtionship between objects and users, what is possible)
 signifiers (tells users about what is possible -- it is important to design them)
 
@@ -607,10 +612,10 @@ Looking at UI controls with a prism of design constraints described in chapter (
 ![**Fig.** Screen space is the constraint with the greatest influence on the design of map controls.](imgs/img-design_constraings-ux.png)
 
 - cartographic concepts applicable in UI design and vice versa (TODO some reading on UX)
--- visual weight, negative space, generalization of ui components 
+-- visual weight, negative space, generalization of ui components
 
 - tighter coupling of intra and extracomposition
--- legend 
+-- legend
 -- do some design and usability reading (don't make me think, check some books on product design...) <https://www.fastcompany.com/1292961/30-most-important-books-product-designers>
 -- user personas, user stories...
 
@@ -636,7 +641,7 @@ https://developer.apple.com/design/human-interface-guidelines/ios/overview/theme
 - combining functions (legend and histogram and brushing control) - (využiť návrh na baptisteries, legendy aj timeline z toho proposalu )
 
 # Visual storytelling vs dashboards
-Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern. 
+Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern.
 
 What is the audience - some notes from the field:
 https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-after-data-journalism-3c68861b7f4c
@@ -660,8 +665,8 @@ Too often in the visual analytic process, researchers tend to focus on visual re
 
 The mantra by Shneiderman [1996] of “Overview first, zoom and filter, details on demand” is well-accepted, but what are the next steps, or additional different steps? -- my note: noisy overview can be a good overview too.
 
-There are at least three ways to look at the science of interaction. 
-* we can look at interaction from the point of view of human time constants. This is an important viewpoint because all interaction is constrained and driven by what the user is cognitively and perceptually capable of doing. (see next chapter) 
+There are at least three ways to look at the science of interaction.
+* we can look at interaction from the point of view of human time constants. This is an important viewpoint because all interaction is constrained and driven by what the user is cognitively and perceptually capable of doing. (see next chapter)
 * we can look at how interaction is used to accomplish tasks such as data manipulation, manipulation of visual mappings, navigation, and dialogue.
 * we can look at the nature of the interaction itself, including the differences between interactions in 2-dimensional (2D) and 3-dimensional (3D) environments and the effects of the devices used for interaction. -- And also across different devices (responsive web design).
 
@@ -695,7 +700,7 @@ native visual representations to facilitate exploration and discovery
 
 
 
-# Figures and grounds 
+# Figures and grounds
 ---------------------
 
 Two tautologic definitions:
@@ -708,19 +713,19 @@ Lets (reiterate) start with the distinction between the topographic and thematic
 
 The starting point for a **topographic map** is a given territory, that is to be interpreted on a blank page/screen. In topographic maps we create a model of the surface, and we want to include all environmental characteristics that we believe to be relevant to the task -- and the task is usually to help with orientation in the given territory. The real alchemy of the topographic practice is to depict all layers without clutter -- the layers must be equally separable/retrievable. This is because we do not know beforehand which features or combination of features will become useful for orientation. Map creates a *taxonomic space* of what is to be known about the territory (let us set aside the power-related difficuties of what is being omitted and who does the selection on who's benefit) and puts these species to relationships. This synthetic aspect is for @wood2010rethinking one of the most important features of the map -- the sign systems (layers) are in constant dialog, allowing us to extract meaning from those relations that would be hardly obtainable without using the map. Here, "the whole is greater than the sum of its parts.” -- Aristotle.
 
-In **thematic maps**, the starting point is is a phenomenon. We want to learn something about it by studying its spatial distribution, by searching spatial correlations with other features, and also by mapping how the internal structure of the phenomenon changes across space. 
+In **thematic maps**, the starting point is is a phenomenon. We want to learn something about it by studying its spatial distribution, by searching spatial correlations with other features, and also by mapping how the internal structure of the phenomenon changes across space.
 
-Find the distinction in bertin... 
+Find the distinction in bertin...
 
-In both cases we overlay comprehensive sign systems (rivers, settlements, mountains...), though what differs is their relative visual prominence: we can say a thematic map is a topographic map that gives asymetric prominence to one layer of interest (though often richly differentiated in its cartographic presentation) and pushing the remaining layers to the role of toned down "base" merely aimed to provide geographical context for the reading of the topic. Sometimes things go as far as the base is reduced to the minimum (often administrative boundaries) or omitted alltogether (in such case the topographic context stems from the distribution of the signs in thematic layer -- from what @wood2010rethinking calls a *tectonc* code of the map). 
+In both cases we overlay comprehensive sign systems (rivers, settlements, mountains...), though what differs is their relative visual prominence: we can say a thematic map is a topographic map that gives asymetric prominence to one layer of interest (though often richly differentiated in its cartographic presentation) and pushing the remaining layers to the role of toned down "base" merely aimed to provide geographical context for the reading of the topic. Sometimes things go as far as the base is reduced to the minimum (often administrative boundaries) or omitted alltogether (in such case the topographic context stems from the distribution of the signs in thematic layer -- from what @wood2010rethinking calls a *tectonc* code of the map).
 
 Let us make an aside about the limitations of the concept of layers (succesfully used in graphic programs such as Illustrator or Photoshop) in cartography. Example of railroads and highways -- when working with raw spatial data in a mapmaking system, say qGIS, we can easily switch the order of layers, however on all intersections the same layer will be the one overlaying/crossing the other -- we can switch the order but we can not treat the intersections differently per instance. So its ether *all* railroads passing over *all* highways or the other way around, but of course in reality both situations are likely. Of course, cartography has its ways to deal with this -- to entangle (mostly line) layers with each other (some more manual than others -- cituj prezentaciu švajčiarov s ich generovanými národnými mapami), but this points us to the fact that layers of the real world are not cleanly separable -- our experience of reality creeps in to remind us we are playing with a model.
 
 So the layers in a topographic map are not merely overlayed, they are entangled, integrated with each other. We can turn the definition around and say the topographic map is woven from a collection of collection of thematic maps.
 
-In Wood's words if the *sign systems are talking to each other* and *each sign system is potentially figure and every sign system is potentially a ground*. The thematic cartography is reducing the dialog, toning down the base layers in favor of the dominant voice of the main layer.   
+In Wood's words if the *sign systems are talking to each other* and *each sign system is potentially figure and every sign system is potentially a ground*. The thematic cartography is reducing the dialog, toning down the base layers in favor of the dominant voice of the main layer.
 
-In thematic maps, the thematic layer *is* overlayed on the base, no entangling is done. For years before we could rather say the topic is overprinted. The alchemy of the thematic cartography is to make the topic in its complexity stand out, and paradoxically this is done by manipulating the base. For example, if we look at subtle palette of 6 colour tones used in Czech ZM maps, it's clear that future thematic overlays were considered (and done, as overprints or web map overlays). There is a clear and solid border between topic and base, partly due to the technical limitations but also given by understanding base as something solid and rather fixed and the topic as abstract, fluid and driven by data with high frequency of change.  
+In thematic maps, the thematic layer *is* overlayed on the base, no entangling is done. For years before we could rather say the topic is overprinted. The alchemy of the thematic cartography is to make the topic in its complexity stand out, and paradoxically this is done by manipulating the base. For example, if we look at subtle palette of 6 colour tones used in Czech ZM maps, it's clear that future thematic overlays were considered (and done, as overprints or web map overlays). There is a clear and solid border between topic and base, partly due to the technical limitations but also given by understanding base as something solid and rather fixed and the topic as abstract, fluid and driven by data with high frequency of change.
 
 The border between the topic and the base has transcended also to modern web cartography. Here, the standard around year 2010 is a base given by some pluggable tile service (predominantly stored remotely and not open to style changes) overlayed by some SVG vector shapes. WMS services are often designed as topographic maps, though there are examples of toned down style fit for a base map.
 
@@ -738,12 +743,12 @@ Strategies:
 The origins for this case study stem from a 2018's demonstration application for a hackathon competition that this author attended. The intent was to develop an urban recommendation system that would help dwelling seekers to identify areas in the Brno city that best match their needs and expectations. The original implementation using Leaflet front end has been fully reworked by the author into Mapbox based application for the purpose of this thesis. Aside from the primary goal of spatial optimization tool, the application aims to demonstrate the ideas presented earlier in this chapter -- the use of hexbin grid and layer entanglement to battle visual clutter, some recommendations for map UI design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed, and comparison of solutions based on Leaflet and Mapbox map rendering libraries is provided.
 
 ## 1. Data sources and transformations
-- data from osm 
-- interpolation to the grid 
+- data from osm
+- interpolation to the grid
 - leaflet + db vs mapbox
-- data for buildings 
+- data for buildings
 
-The application allows users to select several parameters and assign weights to them. Based on the selected parameters and weights a map is rendered dividing the city to areas of high to medium to low desirability. Changes to weights and parameters is reflected in the map as the desirability surface is recalculated on the fly. 
+The application allows users to select several parameters and assign weights to them. Based on the selected parameters and weights a map is rendered dividing the city to areas of high to medium to low desirability. Changes to weights and parameters is reflected in the map as the desirability surface is recalculated on the fly.
 
 The parameters include both attractive and repulsive factors: proximity to schools and nurseries, parks and greenery, places of worship,  healthcare, sport, cultural and social facilities on one side, noise, crime and prices on the other side. The majority of the source layers is taken from the OpenStreetMap database, that allows for easy automated updates via it's API. The input data were harvested for the area of the city including a 5 Km buffer to prevent undesirable interpolation effects on the area borders. The table outlines the input layers with sources.
 
@@ -765,7 +770,7 @@ Sources come with both point and polygon spatial reference. To harmonize the sou
 
 ![**Fig.** Data preparation process.](imgs/img-cs1-dataprep.png)
 
-This allows for meaningful comparison of data and application of weights. (TODO -- another tables -- what means zero, what means one for various layers). 
+This allows for meaningful comparison of data and application of weights. (TODO -- another tables -- what means zero, what means one for various layers).
 
 TODO -- how weights are applied
 
@@ -780,7 +785,7 @@ https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding
 Old version:
 posgres + node on backed -- React + Leaflet + Turf on the frontend
 
-New version 
+New version
 Mapbox for layer storage -- React + Mapbox on the frontend
 
 
@@ -805,7 +810,7 @@ controls:
 - inset map TODO
 - dynamic legend brackets
 
-Type 3 ? -- square or triangle grid, better smooth appearance? 
+Type 3 ? -- square or triangle grid, better smooth appearance?
 
 ## 4. Notable findings
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
