@@ -29,7 +29,7 @@ Outline
   - Misinterpretation
   - Non-human decision makers
 
-# Dealing with volume: (exhaustivity, indexicality, scalability, extensionality)
+# Dealing with density in spatial data
 - vis challenges:
   - design constraints
   - data processing pipelines 
@@ -37,8 +37,8 @@ Outline
   - avoiding aggregation (data vs visual aggregation)
   - study of hexbin aggregation
 - density vs attribute vis
-- a discussion of figure vs groud
 - an aside on web graphics technologies, vector tiles and mapbox (and all other webGl based solutions -- name, contrast them)
+- a discussion of figure vs ground
 - an aside on UX, dealing with density in ux controls -- design constraints in web cartography
 - Case study - urban recommendation system
 - why react-redux is good (shared state etc., front-end frameworks, (other ways of sharing state) -- urobiť to nejak nadčasovo, spomenut neustále zmeny v tejto oblasti)
