@@ -351,10 +351,7 @@ The vertex shader provides the code for converting object coordinates to the 2D 
 
 The fragment shader provides the code for determining the color of each drawn pixel. It is run separately for each pixel (possibly in multiple passes) to generate the final color value based on input data such as color, texture, lighting, and material values.
 
-To understand shaders a bit clearer, let us describe what an application needs to do to render WebGL graphics, a simplified GPU rendering pipeline. The factual base for this section is owed to @parisi2012webgl, @agafonkin2017how, @vivo2015book
-
-https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
-http://fragmentbuffer.com/gpu-performance-for-game-artists/
+To understand shaders a bit clearer, let us describe what an application needs to do to render WebGL graphics, a simplified GPU rendering pipeline. The factual base for this section is owed to @parisi2012webgl, @agafonkin2017how, @vivo2015book, @ademovic20163d, and @oconnor2017gpu.
 
 TODO pipeline
 
