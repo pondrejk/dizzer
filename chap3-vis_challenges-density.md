@@ -330,88 +330,55 @@ WebGL API is based on OpenGL ES. Originally developed in the late 1980s, OpenGL 
 
 Like the Canvas API described above, WebGL uses the HTML5 canvas element as the rendering output, and also belongs to the immediate mode style of graphic APIs. Unlike SVG and Canvas, WebGL employs hardware acceleration on the client machine, which allows for high rendering speed that has been mainly used for powering online gaming, but is also more than suitable for real time visualisation of large datasets. 
 
-  On the other hand, the complexity of the developer experience is seen as the main obstacle (drawing a simple coloured triangle in plane GLSL takes around 40 lines of code). The WebGL JavaScript API does not provide any form of abstraction over the underlying GLSL language (@eberhardt2020rendering). There are wrapper JavaScript libraries that provide some object oriented features (most notably three.js, pixi.js, the latter has even been successfully used for cartographic visualisation in @escoffier2017how), designed predominantly for developing games. But from the cartographic standpoint the greatest improvements lie in the onset of the vector tile model and related WebGL-based mapping libraries headed by Mapbox-gl. But before diving to these advances we need to briefly describe how the GPU renders graphics, and how GLSL allows us to control that process.   
+On the other hand, the complexity of the developer experience is seen as the main obstacle (drawing a simple coloured triangle in plane GLSL takes around 40 lines of code). The WebGL JavaScript API does not provide any form of abstraction over the underlying GLSL language (@eberhardt2020rendering). There are wrapper JavaScript libraries that provide some object oriented features (three.js, pixi.js^[Even though these libraries are primarily intended for game development, they are not without potential fro cartographic visualisation. Three.js provides a toolbox for rendering 3D scenes, pixi.js is focused on creating 2D games by rendering pre-created raster images (sprites) but it has also been successfully used for cartographic visualisation in @escoffier2017how]), designed predominantly for developing games. But from the cartographic standpoint the greatest improvements lie in the onset of the vector tile model and related WebGL-based mapping libraries headed by Mapbox-gl. But before diving to these advances we need to briefly describe how the GPU renders graphics, and how GLSL allows us to control that process.   
 
+??
+Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL. The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet. ^VM = Javascript engine (https://en.wikipedia.org/wiki/JavaScript_engine)
 
-# GLSL and GPU rednering pipeline
+# GLSL and the GPU rednering pipeline
 
-- works with textures
-- GL shadeing language -- access pixels and vertices the graphics card works with
-- C-based, complex, js wrappers - three.js (for 3D), pixi.js (for 2D games) replicates some svg functionality
-- lang - operator overloading
-- built-in types for graphics
-- vec4 constructors - vector.xyz (vector shader), vector.rgb (fragment shader)
-js > (api - array of floats GLSL) > Vertex shader (transforming points) > fragment shader (setting color for each pixel) > GPU
+As we outlined above, WebGL provides a JavaScript API that allows to create and manipulate GLSL constructs (called shaders) that access pixels and vertices the graphics card works with (see Fig). In the simplest terms, the graphics card or GPU decides how to use the pixels on the screen to create the image. GPU is a piece of hardware designed specifically for performing the complex mathematical and geometric calculations that are necessary for graphics rendering, and it does it is a massively parallel manner, which makes the computations many orders of magnitude faster than an equivalent computations performed on the CPU. The GPU understands vertices, textures, and little else; it has no concept of material, light, or transform. The translation between those high-level inputs and what the GPU puts on the screen is done by the shader, and the shader is created by the developer (@parisi2012webgl).
 
-pros:
-- speed - uses client's GPU
-cons:
-- raster
-- programmer's experience
+![**Fig.** An attempt to illustrate the basic WebGL terminology. A triangle is the base graphic primitive from which the more complex graphics are built. TODO -- start with canvas. The frame buffer delimits the operating space and coordinate system. Vertices A,B,C hold coordinates and color (besides other data), the triangle fill is interpolated from vertices. The close-up circle shows the fragments (pixels) that make up the overall images. Both vertices and fragments can be directly manipulated by GLSL.](imgs/img-webgl-elements2.png)
 
+TODO about Shaders first
 
-- what can be done with pixi.js, why are game programming libraries good or bad for creating inteactive maps (e.g. bad: too focused on redndering pre-created raster images..., limitations of pixi v4 particle container (explained in Medium blog on global fishing watch)) -- escoffier2017how
+@parisi2012webgl 
 
+Shaders are pieces of GLSL code that define how vertices, transforms, materials, lights, and the camera interact with one another to create an image. There are two kinds of shaders: *vertex* shader and *fragment* shader.
 
+The vertex shader provides the code for converting object coordinates to the 2D rendering space. It will run once for every coordinate that is passed to WebGL. It can be used to transform, scale, or otherwise mutate a shape.
 
-![**Fig.** An attempt to illustrate the basic WebGL terminology. A triangle is the base graphic primitive from which the more complex graphics are built. The frame buffer delimits the operating space and coordinate system. Vertices A,B,C hold coordinates and color (besides other data), the triangle fill is interpolated from vertices. The close-up circle shows the fragments (pixels) that make up the overall images. Both vertices and fragments can be directly manipulated in LSL.](imgs/img-webgl-elements2.png)
+The fragment shader provides the code for determining the color of each drawn pixel. It is run separately for each pixel (possibly in multiple passes) to generate the final color value based on input data such as color, texture, lighting, and material values.
+
+To understand shaders a bit clearer, let us describe what an application needs to do to render WebGL graphics, a simplified GPU rendering pipeline. The factual base for this section is owed to @parisi2012webgl, @agafonkin2017how, @vivo2015book
+
+https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
+http://fragmentbuffer.com/gpu-performance-for-game-artists/
+
+TODO pipeline
 
 ![**Fig.** A simplified diagram of the GPU rendering pipeline, description in the text.](imgs/img-graphic-pipeline.png)
 
 
-@parisi2012webgl - web gl up and running -- get the technical definitions from there
-(opengl vs webgl vs mapbox etc.)
+
+In order to render WebGL into a page, an application must, at a minimum, perform the following steps:
+1.Create a canvas element.
+2.Obtain a drawing context for the canvas.
+3.Initialize the viewport.
+4.Create one or more buffers containing the data to be rendered (typically vertices).
+5.Create one or more matrices to define the transformation from vertex buffers to screen space.
+6.Create one or more shaders to implement the drawing algorithm.
+7.Initialize the shaders with parameters.
+8.Draw
+
+WebGL drawing is done with primitives—types of objects to draw such as triangle sets (arrays of triangles), triangle strips (described shortly), points, and lines. Primitives use arrays of data, called buffers, which define the positions of the vertices to be drawn.
 
 
-There is one last topic before we conclude our exploration of 3D graphics: shaders. In order to render the final image for a mesh, a developer must define exactly how vertices, transforms, materials, lights, and the camera interact with one another to create that image. This is done using shaders. A shader (also known as a programmable shader) is a chunk of program code that implements algorithms to get the pixels for a mesh onto the screen. Shaders are typically defined in a high-level C-like language and compiled into code usable by the graphics processing unit (GPU). Most modern computers come equipped with a GPU, a processor separate from the CPU that is dedicated to rendering 3D graphics.
-
-Unlike many graphics systems, where shaders are an optional and/or advanced feature, WebGL requires shaders. You heard me right: when you program in WebGL, you must define shaders or your graphics won’t show up on the screen. WebGL implementations assume the presence of a GPU. The GPU understands vertices, textures, and little else; it has no concept of material, light, or transform. The translation between those high-level inputs and what the GPU puts on the screen is done by the shader, and the shader is created by the developer.
-
-In order to render WebGL into a page, an application must, at a minimum, perform the following steps:1.Create a canvas element.2.Obtain a drawing context for the canvas.3.Initialize the viewport.4.Create one or more buffers containing the data to be rendered (typically vertices).5.Create one or more matrices to define the transformation from vertex buffers to screen space.6.Create one or more shaders to implement the drawing algorithm.7.Initialize the shaders with parameters.8.Draw
-
-WebGL drawing is done with primitives—types of objects to draw such as triangle sets (arrays of triangles), triangle strips (described shortly), points, and lines. Primitives use arrays  of  data, called buffers, which define the positions of the vertices to be drawn.
-(A triangle strip is a rendering primitive that defines a sequence of triangles using the first three vertices for the first triangle, and each subsequent vertex in combination with the previous two for subsequent triangles.)
-
-A shader is typically composed of two parts: the vertex shader and the fragment shad­er (also known as the pixel shader). The vertex shader is responsible for transforming the coordinates of the object into 2D display space; the fragment shader is responsible for generating the final color output of each pixel for the transformed vertices, based on inputs such as color, texture, lighting, and material values. In our simple example, the vertex shader combines the modelViewMatrix and projectionMatrix values to create the final, transformed vertex for each input, and the fragment shader simply outputs a hardcoded white color.
-
-Javascript wrappers (three.js, pixi.js) -- object orientation, interaction support:w::
-Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL.
-
-The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet.
-
-^VM = Javascript engine (https://en.wikipedia.org/wiki/JavaScript_engine)
-
-
-
-from mapbox windmap blog:
-@agafonkin2017how
-
-OpenGL provides a 2D API for drawing triangles efficiently. (mostly triangles but you can do other stuff right?)
-
-So basically all you do with GL is draw triangles. The difficulty, besides the scary API, comes from the various math and algorithms required to do this. It can also draw dots and basic lines (without smoothing or round joins/caps), but those are rarely used.
-Illustration from Brief Introduction to Shaders Using GLSL
-
-
-Each program is divided into two parts, called shaders — the vertex shader and the fragment shader.
-
-The vertex shader provides the code for converting coordinates. For example, multiplying triangle coordinates by 2 so that our triangle appears twice as big. It will run once for every coordinate we pass to OpenGL when drawing.
-
-The fragment shader provides the code for determining the color of each drawn pixel. You can do a lot of cool math in it, but in the end it comes down to something like “draw the current pixel of the triangle as green”.
-
-**The fragment shader code execution is massively parallel and heavily hardware-accelerated, so it’s usually many orders of magnitude faster than an equivalent computation on the CPU.**
-
-TODO: image 1 from here (coordinates + elements)
-https://www.creativebloq.com/javascript/get-started-webgl-draw-square-7112981
 
 The first thing that you need to understand is how the screen is represented in WebGL. It is a 3D space, spanning between -1 and 1 on the x, y, and z axis. By default this z axis is not used, but you are interested in 3D graphics, so you’ll want to enable it right away.
 
 
-TODO image 2 (graphics pipeline)
-https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
-picture in section: https://www.toptal.com/javascript/3d-graphics-a-webgl-tutorial
-Drawing an Object with the WebGL Graphics Pipeline
-
-http://fragmentbuffer.com/gpu-performance-for-game-artists/
 
 For the purposes of this article, here are the important parts of the GPU pipeline from top to bottom:
 
@@ -474,42 +441,26 @@ The principles behind implementing fragment shaders are very similar to vertex s
 
 
 
-TODO -- how to import bitmaps (spritesheet) and svg to webgl canvas?
-TODO -- describe alternative solutions to all webgl libraries like mapbox (leaflet with webgl overlay)
 
-book of shaders:
-https://thebookofshaders.com/
-@vivo2015book
 
-TODO ^ Go through this again:
 
-Shaders are also a set of instructions, but the instructions are executed all at once for every single pixel on the screen. That means the code you write has to behave differently depending on the position of the pixel on the screen. Like a type press, your program will work as a function that receives a position and returns a color, and when it's compiled it will run extraordinarily fast.
 
-shader-school:
-https://github.com/stackgl/shader-school
-(more focused on 3D)
+TODO programming difficulties
 
 https://bocoup.com/blog/exploring-new-technologies-for-making-maps-part-two-two-fragment-shaders-and-a-mouse
-There are two kinds of shaders, vertex shaders, which act on points of geometry; and fragment shaders, which operate on pixels (or fragments in WebGL speak). What makes them fast, and also difficult to write, is that the shader program is run for every pixel (or vertex) being rendered in parallel. However running in parallel means that each pixel doesn’t really know what’s going on with the other pixels.
 
 The other thing that makes them fast is they run on specialized hardware, the GPU or graphics processing unit on your computer. However, this means that they are separated from the CPU and memory that we usually program with. Thus once running they are a bit harder to interact with than we might be used to.
 
-    Vertex Shaders: These are given the geometry being rendered (lets say a polygon or a cube) and can change the coordinates of points (vertices) that make up the geometry. This can be used to transform, scale, or otherwise mutate a shape.
-    Fragment Shaders: These are given the fragments (pixels) that are going to be rendered to the screen for each piece of geometry. The fragment shader’s job is to assign a color to this pixel. You can do this in multiple passes to create effects such as light, shadow and material properties. This is the shader type we will focus on in this post.
-
-webgl coordinates
-// (0,1)----(1,1)
-//   |--------|
-//   |--------|
-//   |--------|
-// (0,0)----(1,0)
-- svg and canvas api strart with 0.0 in top left
-
 This brings me to another tip I picked up when writing these. Since these shader programs run on the GPU, we can’t just write things to the console to debug things (e.g. if you wanted to write out some property of the pixel currently being processed). Instead you want to find a way to express your test or debugging condition in terms of color. Here is a pattern I used a lot to understand the coordinate space, or debug things that weren’t showing up in the right place
 
+Shaders are also a set of instructions, but the instructions are executed all at once for every single pixel on the screen. That means the code you write has to behave differently depending on the position of the pixel on the screen. Like a type press, your program will work as a function that receives a position and returns a color, and when it's compiled it will run extraordinarily fast.
 
+There are two kinds of shaders, vertex shaders, which act on points of geometry; and fragment shaders, which operate on pixels (or fragments in WebGL speak). What makes them fast, and also difficult to write, is that the shader program is run for every pixel (or vertex) being rendered in parallel. However running in parallel means that each pixel doesn’t really know what’s going on with the other pixels.
 
-REGL (only desc if I decide to use it)
+TODO -- describe alternative solutions to all webgl libraries like mapbox (leaflet with webgl overlay)
+
+TODO -- how to import bitmaps (spritesheet) and svg to webgl canvas?
+TODO? -- REGL (only desc if I decide to use it) -- maybe in section 4 (implementation part) after also describing react/redux
 
 # MapboxGL
 - smooth transitions, no discrete scale points, 3D, scale based filters...
