@@ -362,29 +362,14 @@ In order to render WebGL into a page, an application must first obtain a drawing
 
 * *Rendering target Output*. Finally the fragment is written to the render target – which is usually a frame buffer (memory object storing values pixels in the canvas). Before that, several validation tests are performed, depth check discards occluded fragments and transparent fragments are blended.
 
-
-TODO programming difficulties
-
-https://bocoup.com/blog/exploring-new-technologies-for-making-maps-part-two-two-fragment-shaders-and-a-mouse
-
-The other thing that makes them fast is they run on specialized hardware, the GPU or graphics processing unit on your computer. However, this means that they are separated from the CPU and memory that we usually program with. Thus once running they are a bit harder to interact with than we might be used to.
-
-This brings me to another tip I picked up when writing these. Since these shader programs run on the GPU, we can’t just write things to the console to debug things (e.g. if you wanted to write out some property of the pixel currently being processed). Instead you want to find a way to express your test or debugging condition in terms of color. Here is a pattern I used a lot to understand the coordinate space, or debug things that weren’t showing up in the right place
-
-Shaders are also a set of instructions, but the instructions are executed all at once for every single pixel on the screen. That means the code you write has to behave differently depending on the position of the pixel on the screen. Like a type press, your program will work as a function that receives a position and returns a color, and when it's compiled it will run extraordinarily fast.
-
-There are two kinds of shaders, vertex shaders, which act on points of geometry; and fragment shaders, which operate on pixels (or fragments in WebGL speak). What makes them fast, and also difficult to write, is that the shader program is run for every pixel (or vertex) being rendered in parallel. However running in parallel means that each pixel doesn’t really know what’s going on with the other pixels.
-
-
-In order to run in parallel every pipe, or thread, has to be independent from every other thread. We say the threads are blind to what the rest of the threads are doing. This restriction implies that all data must flow in the same direction. So it’s impossible to check the result of another thread, modify the input data, or pass the outcome of a thread into another thread. Allowing thread-to-thread communications puts the integrity of the data at risk.
-
-Also the GPU keeps the parallel micro-processor (the pipes) constantly busy; as soon as they get free they receive new information to process. It's impossible for a thread to know what it was doing in the previous moment. It could be drawing a button from the UI of the operating system, then rendering a portion of sky in a game, then displaying the text of an email. Each thread is not just blind but also memoryless. Besides the abstraction required to code a general function that changes the result pixel by pixel depending on its position, the blind and memoryless constraints make shaders not very popular among beginning programmers.
+The fact that shaders are executed on the GPU means that developers cannot rely on console output for testing and debugging as they are used to with programs run on the CPU. Instead they need to find a way to express your test or debugging condition in terms of color that is the only output of shader programs. Moreover, shaders are run for every vertex of fragment in parallel. Running in parallel means that the execution thread "blind" to what other threads are doing. There is no way to check the results of execution in one thread form the other parallel thread or pass data between threads. Also there is no peristent memory that would store of the previous computation results for fragments, so with changes the whole scene is rendered anew.  
+Besides the abstraction required to code a general function that changes the result pixel by pixel depending on its position, the blind and memoryless constraints make shaders not very popular among beginning programmers (@vivo2015book).
 
 
 TODO — describe alternative solutions to all webgl libraries like mapbox (leaflet with webgl overlay)
-
 TODO — how to import bitmaps (spritesheet) and svg to webgl canvas?
 TODO? — REGL (only desc if I decide to use it) — maybe in section 4 (implementation part) after also describing react/redux
+
 
 # MapboxGL
 - smooth transitions, no discrete scale points, 3D, scale based filters...
