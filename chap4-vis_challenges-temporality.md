@@ -229,6 +229,15 @@ information.
 Visual representations by themselves are insufficient to answer many analytic
 questions and must integrat
 
+# A friendly introduction to Bayes Theorem and Hidden Markov Models
+<https://www.youtube.com/watch?v=kqSzLo9fenk>
+
+example of hidden markov model
+— from one variable (persons mood) we infer the other "hidden" variable (weather)
+— we have to have some training dataset of previous runs of both variables from which we calculate transition probabilities (change from one state to another in the hidden var, e.g. from sunny weather to rainy) and emisshin probabilities (probability of a state in hiiden var causing state in other var — e.g. sunny weather makes me happy in 80% of cases)
+— bayes theorem — calculating the probability of a state in hidden var based on — prior probability (percentage of sunny days in training set) + emission probabilties + state of known variable —- this calcualtes posterior porbability of a state of hidden var
+
+— also we can calculate the transition in hidden var based on transition of known var — this gets more complicated in longer sets — *Viterbi algoritm* simplifies by storing just the most probable path throughout the run
 
 
 # Case Study: Pandemics traffic exploration

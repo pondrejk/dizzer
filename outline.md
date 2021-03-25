@@ -30,22 +30,29 @@ Outline
   - Non-human decision makers
 
 # Dealing with density in spatial data
-- vis challenges:
+- Visualisation challenges:
   - design constraints
   - data processing pipelines 
-- density reduction methods
-  - avoiding aggregation (data vs visual aggregation)
+- Density reduction methods
+  - avoiding aggregation (data vs visual aggregation, bad practices)
   - study of hexbin aggregation
-- density vs attribute vis
-- an aside on web graphics technologies, vector tiles and mapbox (and all other webGl based solutions -- name, contrast them)
-- a discussion of figure vs ground
-- an aside on UX, dealing with density in ux controls -- design constraints in web cartography
-- Case study - urban recommendation system
-- why react-redux is good (shared state etc., front-end frameworks, (other ways of sharing state) -- urobiť to nejak nadčasovo, spomenut neustále zmeny v tejto oblasti)
--- inset map: https://react-leaflet.js.org/docs/example-react-control
+- Density vs attribute visualisation
+- Rendering spatial data
+  - SVG, Canvas, WebGL
+  - GLSL and GPU renering pipeline
+  - Tour of vector tiles
+- Figure vs ground
+- Web cartography as a UX problem
+  - design constraints in map UI
+  - dealing with density in ux controls 
+- CASE STUDY - urban recommendation system
+ - PCA/t-SNE
+ - why react-redux is good (shared state etc., front-end frameworks, (other ways of sharing state) -- urobiť to nejak nadčasovo, spomenut neustále zmeny v tejto oblasti - porovnanie: vue, angular, mobx...)
+ - inset map: https://react-leaflet.js.org/docs/example-react-control
 
 # Dealing with velocity:
 - time depictions in cartography
+- Bayes?
 - an aside on UX, using interaction and feedback in ux controls
 - Case study - traffic trough the pandemic
 
