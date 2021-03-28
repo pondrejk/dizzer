@@ -239,6 +239,13 @@ example of hidden markov model
 
 — also we can calculate the transition in hidden var based on transition of known var — this gets more complicated in longer sets — *Viterbi algoritm* simplifies by storing just the most probable path throughout the run
 
+# Bayesian surprise maps
+@correll2017surprise
+Biases in thematic maps:
+- base rate bias
+- sampling error bias
+- renormalization bias
+
 
 # Case Study: Pandemics traffic exploration
 

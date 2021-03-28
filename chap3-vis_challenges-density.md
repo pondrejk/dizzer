@@ -266,11 +266,11 @@ https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR
 A sparkline, as defined by Tufte, is “a small intense, simple, word-sized graphic with
 typographic resolution. Sparklines ... can be everywhere a word or number can be: embedded in a sentence, table, headline, map, spreadsheet, graphic.”
 
-@correll2017surprise
-Biases in thematic maps:
-- base rate bias
-- sampling error bias
-- renormalization bias
+
+**hexbin related library**
+https://observablehq.com/@fil/web-mercator-tile-visibility
+https://github.com/uber/h3-js
+
 
 # app — binning playgound
 — timeline to simulate movement
@@ -355,19 +355,77 @@ TODO? — REGL (only desc if I decide to use it) — maybe in section 4 (impleme
 
 — also a sidenote on how to use GPU for other claculations (like python for big data — there is some library, python coda)
 
-# Tour of Vector Tiles
-
 ??
 Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL. The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet. ^VM = Javascript engine (https://en.wikipedia.org/wiki/JavaScript_engine)
+
+# Tour of Vector Tiles
 
 How is WebGL useful for cartographic visualisation? It is possible to develop spatial interfaces directly using WebGL, but the advances in client rendering has been already utilized in great extent in a format known as Vector tiles.
 
 Vector tiles 
 Yet, with the introduction of client side rendering of vector tiles via GL technologies, the raw geometry data has become useful for a source of information outside of rendering.
 
-Vector tiles build on some concepts inherent to raster tiles that were until recently the main tool for serving spatial information online. In many other aspects the two techonologies are far apart. Let us now briefly describe the raster tiles to be able to compare and contrast later on.
+Vector tiles build on some concepts inherent to raster tiles that were until recently the main tool for serving spatial information online. In many other aspects the two technologies are far apart. Let us now briefly describe the raster tiles to be able to compare and contrast later on.
+
+*Raster tiles*
+
+Traditionally, web maps were based on raster tiles technology. It was a set of squared images placed next to each other, each with a fixed geographical area and scale. Together they were creating the whole world, but only tiles you were actually browsing were shown and the rest was delivered to your browser when you changed the position or zoom.
+
+Tiles stored in a hierarchical manner in a file structure or a database. No optimalization and no context of what is displayed on a tile (a portion of a dataset that contains no features -- e.g. some ocean area is rendered in all zoom levels, the tiles for it are created with the same size as for the content-rich tiles).
+
+Open source engine such as Mapnik, in combination with Tile Cache software can produce raster map tiles out of any spatial data.
+
+OpenStreetMap renders these tiles for client use. There is also render-on-demand. That means when a tile with a specific co-ordinate is not available yet, the server will have to render that image itself. The speed of rendering process will depend on:
+
+- Server configuration – This is necessary for rendering as well as performance tuning for map database.
+- Map database
+
+Storage and time consuming in many cases. Not dynamic .. For example, when assigning language-specific for the map, users have to render another parallel version to do that.
 
 
+To consume raster ties, the client mapping library (say Leaflet.js), based on the viewport size on the page, initial coordinates of the central point and the zoom level, requests the tiles that are needed from external tile server. Individual png images (128 x 128 pixels) are downloaded to cover the scene. Changes in the scene parameters like pan or zoom operations 
+
+
+- stored on the server — served to the browser on request from the web mapping library — limiting if you need to recreate layers frequently + retina displays (still a problem?, why this was a problem)
+- vector database + styling > rasterization + tiling > serving (hierarchical tiles) > on client the library in browser creates a tesselation from the (fixed width 250x250) image tiles and fetches new tiles on zoom and pan events. Fixed tile width means fixed discrete zoom steps. Libraries allow for svg and canvas overlay and that is basically it.
+
+As such the tile layers are served by external providers, and even thought there is a wide selection of variously styled tilelayers (link na overivew -- leaflet provider), the styling is not adjustable on client (apart from CSS filter hacks TODO)
+
+
+how stored:
+where rendering happens:
+dynamic styling:
+
+https://docs.mapbox.com/vector-tiles/reference/
+
+As the name suggests, vector tiles contain vector data instead of the rendered image. They contain geometries and metadata — like road names, place names, house numbers — in a compact, structured format. Vector tiles are rendered only when requested by a client, like a web browser or a mobile app. Rendering happens either in the client (Mapbox GL JS, Mapbox iOS SDK, Mapbox Android SDK) or dynamically on the server (map API). Read the Mapbox Vector Tile Specification to learn more.
+
+Benefits of vector tiles
+
+Vector tiles have two important advantages over fully rendered image tiles:
+- Styling: as vectors, tiles can be styled when requested, allowing for many map styles on global data
+- Size: vector tiles are really small, enabling global high resolution maps, fast map loads, and efficient caching
+
+Mapbox Streets, our global basemap, is entirely made of vector tiles. Any map data you upload with Mapbox Studio is converted into vector tiles before styling.
+
+*Vector tiles*
+- encoding -- protobuff
+- how attributes are encoded
+- geometry encoded per tiles
+- how style is defined
+
+https://docs.mapbox.com/vector-tiles/specification/
+
+To avoid confusion, we need to distinguish between several types of software that is related to creating and operating vector tiles^[For updated list see https://github.com/mapbox/awesome-vector-tiles]: 
+- parsers and generators, applications/CLI tools
+- styling
+- clients
+- servers
+
+    Parsers & generators: libraries that read and/or encode vector tiles, some also have command line utilities
+    Clients: web-based tools that render vector tiles that conform to the specification
+    Applications: browser-based tools for creating and visualizing vector tiles
+    Servers: support rendering and serving up vector tiles (note: the specification doesn't go into how to do this explicitly)
 
 # MapboxGL
 - smooth transitions, no discrete scale points, 3D, scale based filters...
@@ -397,8 +455,6 @@ motivation: fast data delivery, leveraging desktop gpu, scale server-side render
 — specificaton https://github.com/mapbox/vector-tile-spec/tree/master/2.1
 https://docs.mapbox.com/vector-tiles/specification/
 
-TODO image — how GPU rendering works
-TODO image — rendering pipeline
 
 
 - comparison (vector vs raster tile) — some table?
@@ -408,23 +464,32 @@ benchmarks
 https://www.giscloud.com/blog/realtime-map-tile-rendering-benchmark-rasters-vs-vectors/
 
 
-# Raster tiles:
-- stored on the server — served to the browser on request from the web mapping library — limiting if you need to recreate layers frequently + retina displays (still a problem?, why this was a problem)
 
 helper apis: 4D and pixi
 
 Example using pixi filters with leaflet providers — some knockout and blur examples — compare to css filters...
 
 
-https://blog.mapbox.com/how-i-built-a-wind-map-with-webgl-b63022b5537f
-
-- a trip trough the graphics pipeline
 
 TODO: app pixi.js filter overlays on leaflet
 https://github.com/pixijs/pixi-filters
 
 TODO: try to create the overlays from the picture above in pixi.js
 
+Cartographic implications
+- dynamic styling based on view parametes or based on data
+- data within source -- good for styling, tooltips, other users (machine learning?)
+- dynamic ordering of layers
+- 3D features out of the box
+- dynamic generalization (well, simplification)
+- application of data-driven dynamic textures 
+
+problems:
+- how to connect to dynamic data source? Join with db? (just points -- dynamic data overlay straight genreation of tiles within pipeline , )
+- tile size limitation
+- filtering capabilities speed limitations styling large tiles 
+- identification of items spannig through multiple tiles (tippecanoe generates the id that mapbox-gl reconnects -- coordonation of toolchains is required)
+- The map is rendering on the client’s side and requires a bit more powerful hardware. Data are generalized and therefore not suitable for direct edits.
 
 
 # Figures and grounds

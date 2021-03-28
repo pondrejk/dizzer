@@ -1,6 +1,20 @@
 Future trajectories
 -------------------
 
+# future improvements to vector tiles
+- incorporating dynamic data sources
+- CI -- dynamic tile creation pipelines
+- source for ML?
+
+*coordinate conversions within tiles?*
+- no more fucking spherical Mercator https://www.maptiler.com/google-maps-coordinates-tile-bounds-projection/
+
+https://github.com/openlayers/openlayers/issues/11142
+https://observablehq.com/@fil/reprojecting-vector-tiles
+https://observablehq.com/@fil/web-mercator-tile-visibility
+
+
+
 # Machine Learning in map design
 
 2 roles of **recommendation systems** in visualisation:
