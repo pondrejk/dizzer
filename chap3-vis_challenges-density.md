@@ -360,38 +360,28 @@ Each library does things a bit differently, but they share the goal of implement
 
 # Tour of Vector Tiles
 
-How is WebGL useful for cartographic visualisation? It is possible to develop spatial interfaces directly using WebGL, but the advances in client rendering has been already utilized in great extent in a format known as Vector tiles.
-
-Vector tiles 
-Yet, with the introduction of client side rendering of vector tiles via GL technologies, the raw geometry data has become useful for a source of information outside of rendering.
+How is WebGL useful for cartographic visualisation? While it is certainly possible to develop spatial interfaces directly using WebGL scripting, many of the advances in client rendering has been already utilized in a format known as *vector tiles*.
 
 Vector tiles build on some concepts inherent to raster tiles that were until recently the main tool for serving spatial information online. In many other aspects the two technologies are far apart. Let us now briefly describe the raster tiles to be able to compare and contrast later on.
 
 *Raster tiles*
 
-Traditionally, web maps were based on raster tiles technology. It was a set of squared images placed next to each other, each with a fixed geographical area and scale. Together they were creating the whole world, but only tiles you were actually browsing were shown and the rest was delivered to your browser when you changed the position or zoom.
+Traditionally, the large majority web maps were based on raster tiles technology and it is still used very often. The idea of raster tiles is basically to divide the world map 
+into manageable sections (tiles) that can be easily served over the network. In the browser, these tiles are assembled to create a seamless impression of the map for the specified area.    
 
-Tiles stored in a hierarchical manner in a file structure or a database. No optimalization and no context of what is displayed on a tile (a portion of a dataset that contains no features -- e.g. some ocean area is rendered in all zoom levels, the tiles for it are created with the same size as for the content-rich tiles).
+Tiles are squared images (usually PNGs in 256×256 pixel dimensions), each with a fixed geographical area and scale. Each tile is assigned a quadratic key that determines its position in the scale hierarchy, tile coordinates and the zoom level.^[Tile coordinates are based on a hierarchical square net over the Mercator projection. As such, coordinates differ per zoom level: x goes from 0 (left edge 180 °W) to 2<sup>zoom</sup> − 1 (right edge is 180 °E); y goes from 0 (top edge is 85.0511 °N) to 2<sup>zoom</sup> − 1 (bottom edge is 85.0511 °S). The upper and lower bounds are cut off so that the whole world is encoded as one square. To explore these parameters see <https://labs.mapbox.com/what-the-tile/>]. Tiles are stored in a file structure or a database, so that the server can select and serve the needed files upon request.
 
-Open source engine such as Mapnik, in combination with Tile Cache software can produce raster map tiles out of any spatial data.
+To consume raster tiles, the client mapping library (say Leaflet.js), based on initial parameters ( viewport size, initial coordinates of the central point and the zoom level, requests the tiles that are needed from the tile server. User interactions like pan and zoom trigger requests for additional tiles. The tiling keeps the amount of transferred data at bounded and predictable levels. On the flip side, the tiles being plain raster images have no concept of what data they display -- feature rich tiles have the same storage size as the "empty" tiles (e.g. single-color ocean areas). Furthermore, tiles for the feature-empty areas need to be generated for all zoom levels the map supports. 
 
-OpenStreetMap renders these tiles for client use. There is also render-on-demand. That means when a tile with a specific co-ordinate is not available yet, the server will have to render that image itself. The speed of rendering process will depend on:
+There are several tools generate raster tiles form any source spatial data (Mapnik is the most used open source engine to do that). Styling the data and rendering the tiles is the first step in the process, which is not very flexible when there is a need to recreate tiles based on changing data (tile caching servers aim to ease the need for tile recreation TODO true?). Client is merely a consumer of the tiles that are not easily adjustable to client-specific needs, for example translation of labels based on browser locale is not possible unless there is a parallel language-specific version pre-rendered on the server.
 
-- Server configuration – This is necessary for rendering as well as performance tuning for map database.
-- Map database
+From the cartographic point of view, the raster tile technology brings several specifics. Fixed tile size means discrete zoom steps we discussed earlier. The cartographic decisions regarding the map appearance are done at the side of the tile provider. For client-based thematic mapping, the tiles are mainly used as a base map from an external source that is beyond cartographer's control^[That is if we exclude hacking with CSS and Canvas filters like in <http://humangeo.github.io/leaflet-tilefilter/demo.html>]. Mapping libraries natively allow for SVG and Canvas overlays for custom data, the mapmaker's task is to select a base map from wide array of providers^[For continuously updated overview see <https://leaflet-extras.github.io/leaflet-providers/preview/>] that fits the theme with the style and information content and doesn't clash too much with the overlaid data.
 
-Storage and time consuming in many cases. Not dynamic .. For example, when assigning language-specific for the map, users have to render another parallel version to do that.
-
-
-To consume raster ties, the client mapping library (say Leaflet.js), based on the viewport size on the page, initial coordinates of the central point and the zoom level, requests the tiles that are needed from external tile server. Individual png images (128 x 128 pixels) are downloaded to cover the scene. Changes in the scene parameters like pan or zoom operations 
+We will now focus on the advantages of vector tiles, but that is not to say that raster tiles are no longer used or useful. Even though there are no utilization statistics available, with large map providers like Google Maps moving to vector tiles (in larger scales) we can assume that vector tiles are in majority when it comes to page views. That being said, raster tile sources are still demanded and used in many thematic map projects, not to mention legacy implementations. Also, some data sources warrant raster encoding, e.g. aerial photography or scans of heritage maps.
 
 
-- stored on the server — served to the browser on request from the web mapping library — limiting if you need to recreate layers frequently + retina displays (still a problem?, why this was a problem)
-- vector database + styling > rasterization + tiling > serving (hierarchical tiles) > on client the library in browser creates a tesselation from the (fixed width 250x250) image tiles and fetches new tiles on zoom and pan events. Fixed tile width means fixed discrete zoom steps. Libraries allow for svg and canvas overlay and that is basically it.
 
-As such the tile layers are served by external providers, and even thought there is a wide selection of variously styled tilelayers (link na overivew -- leaflet provider), the styling is not adjustable on client (apart from CSS filter hacks TODO)
-
-
+-------------
 how stored:
 where rendering happens:
 dynamic styling:
@@ -407,6 +397,8 @@ Vector tiles have two important advantages over fully rendered image tiles:
 - Size: vector tiles are really small, enabling global high resolution maps, fast map loads, and efficient caching
 
 Mapbox Streets, our global basemap, is entirely made of vector tiles. Any map data you upload with Mapbox Studio is converted into vector tiles before styling.
+
+Yet, with the introduction of client side rendering of vector tiles via GL technologies, the raw geometry data has become useful for a source of information outside of rendering.
 
 *Vector tiles*
 - encoding -- protobuff
@@ -493,7 +485,6 @@ problems:
 
 
 # Figures and grounds
-——————————-
 
 Two tautologic definitions:
 
