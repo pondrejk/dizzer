@@ -17,6 +17,10 @@ https://observablehq.com/@fil/web-mercator-tile-visibility
 
 # Machine Learning in map design
 
+https://2017.stateofthemap.us/program/machine-learning-to-assist-in-map-making.html
+https://2017.stateofthemap.us/program/humans-and-robots-making-maps-together.html
+https://2017.stateofthemap.us/program/use-machine-learning-to-create-building-heights.html
+
 2 roles of **recommendation systems** in visualisation:
 -- recommendation system based on formalized design (cartographic) knowledge, helping to pick appropriate visualisation method for decision making
 -- but when decision making is largely outsourced to machine recommendation system (that does not need visualisations to perform tasks (see task overview in prev chapter)) then the visualisation can be used to understand how the machine decision was made (seeing machines think, e.g. check visualisation of tensor flow networks talk .. cite)

@@ -420,14 +420,41 @@ Other advantages -- various rendering contexts, depends on client implementation
 
 *issues*
 
+https://www.youtube.com/watch?v=savQWL0kq_g
+
 Various schema flavors and software implementations that need to act in accordance enlarges the risk of vendor lock-in.
+
+Schema consists of layer names, attribute names and values, feature selection, other cartographic choices
+- protobuff schema
+- not style definition
+- e.g.:
+https://openmaptiles.org/schema/
+- can I combine 2 schemas in one view?
+
+Not interchangable tile schemas: Thunderforest, Mapbox Streets, OpenMapTiles, Mapzen Tilezen
+- different priorities, different classification of roads that appear at various zoomlevels
+- not one schema for everyting
+- these are for displaying a map, not for analysis
+- need to port style to a different schema
+- no mature standardized tools
+
+Clients and styling: 
+- Mapnik (raster only, styles in mapnik xml or CartoCSS)
+- Tangram (js, C++ versions, styles in tangram scene files)
+- Openlayers, Leaflest (in browser only, OpenLayers supports mapboxgl format)
+- MapboxGL (JS, C++ versions, syles in Mapbox GL JSON)
+
+
+- tiling precludes some types of analysis (where you need to look at adjacent tiles)
+- in context of BD maybe not such a problem as these are mainly point clouds.
 
 The map is rendering on the client’s side and requires a bit more powerful hardware. Data are generalized and therefore not suitable for direct edits
 
-Some size limitations on vector tiles -- TODO find recommendations. Filtering (several syntax types) - also some performance limits. Tile by tile change (known too well from network lags in raster data sources -- missing and delayed tiles) can return with vector tiles with high data load on small machines as vertex buffers are supplied to the GPU tile by tile.
+Some size limitations on vector tiles -- TODO find recommendations. The way the format deals with it (during encoding) may not be optimal -- dropping vertices in abrupt simplification, dropping data points. 
+
+Filtering (several syntax types) - also some performance limits. Tile by tile change (known too well from network lags in raster data sources -- missing and delayed tiles) can return with vector tiles with high data load on small machines as vertex buffers are supplied to the GPU tile by tile.
 
 - how to connect to dynamic data source? Join with db? (just points -- dynamic data overlay straight genreation of tiles within pipeline , )
-- filtering capabilities speed limitations styling large tiles 
 - identification of items spannig through multiple tiles (tippecanoe generates the id that mapbox-gl reconnects -- coordonation of toolchains is required)
 
 
