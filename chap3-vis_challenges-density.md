@@ -457,6 +457,16 @@ Filtering (several syntax types) - also some performance limits. Tile by tile ch
 - how to connect to dynamic data source? Join with db? (just points -- dynamic data overlay straight genreation of tiles within pipeline , )
 - identification of items spannig through multiple tiles (tippecanoe generates the id that mapbox-gl reconnects -- coordonation of toolchains is required)
 
+*standardization is on the way*
+<http://docs.opengeospatial.org/per/>
+OGC Vector Tiles Pilot 2 (VTP2)
+    OGC Vector Tiles Pilot 2: Summary Engineering Report (19-088r2) PDF
+    OGC Vector Tiles Pilot 2: Tile Set Metadata Engineering Report (19-082r1) PDF
+    OGC Vector Tiles Pilot 2: Vector Tiles Filtering Language Engineering Report (19-084) PDF
+
+Thesis on vecctor tiles:
+<https://prism.ucalgary.ca/bitstream/handle/11023/2666/ucalgary_2015_shang_xiaohong.pdf;jsessionid=2B918A8E8B58693A9CF79058F07241AC?sequence=3>
+
 
 # Figures and grounds
 
@@ -652,6 +662,8 @@ posgres + node on backed — React + Leaflet + Turf on the frontend
 
 New version
 Mapbox for layer storage — React + Mapbox on the frontend
+
+Why react-redux? -- modularity and global state management -- useful for web map apps eg. for dynamic legend, inset maps, etc.
 
 
 ## 3. User interface design

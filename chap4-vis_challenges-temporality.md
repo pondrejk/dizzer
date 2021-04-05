@@ -258,8 +258,28 @@ Biases in thematic maps:
 In their uncompressed form, each CSV file contains one line per road segment: segment_identifier,speed_1,speed_2,…,speed_2016
  - segment_identifier: Either a comma-separated pair of OpenStreetMap node IDs or an OpenLR string.
  - speed_1,speed_2,…,speed_2016: *2,016* comma-separated integer speeds in kilometers per hour, starting at 0:00 Sunday in the file’s time zone. Each value shows the usual speed during a five-minute period of a typical week within that road segment.
- 
 
+Files (prague) at large zoomlevel:
+1 086 958 lines (segment pairs)
+2016 rows
+
+
+process so far 
+- get just the first 2 collumns from one traffic files
+- extract unique node IDS from traffic data (form these 2 cols) -- script https://github.com/pondrejk/scripts/blob/master/data/unique-nodes.py
+- find coordinates for unique nodes -- https://github.com/pondrejk/scripts/blob/master/data/get-node-coordinates.py
+- load point coordinates to qgis, get intersection with buffered brno area
+- done Brno-selected_nodes.csv
+brno points length
+38293
+- then find all the segments that contain the said points (form the first 2 colls of the initial file, than deduplicate)
+brno segments length:
+131 257
+
+celkový rozsah dat pro brno
+131257 x 2016 x 14 = :
+
+- now the challenge is to extract the data lines for brno, this time with attributes (2016 cols) -- which means comparing and finding 131257 in 1086958 lines for 14 files.
 
 
 ### out-of-core computation (small tools for big data)
@@ -273,10 +293,42 @@ https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
 
 - code changes (not our case)
 - compression 
-- chunking, indexing with sqlite 
-- parallelism -- dask
+- chunking 
+
+basically map reduce
+So here’s how you can go from code that reads everything at once to code that reads in chunks:
+
+    Separate the code that reads the data from the code that processes the data.
+    Use the new processing function, by mapping it across the results of reading the file chunk-by-chunk.
+    Figure out a reducer function that can combine the processed chunks into a final result.
+
+- indexing with sqlite 
+problem is the limitation to number of collumns (2000 in sqlite), it can be increased by setting a parameter at compile time, though using a custom compiled database makes the related code specific to it and not portable. Other solutions are data warehouses, alternative databases -- TODO check
+
+- parallelism -- dask (even with chunked storage, computation can become a bottleneck)
+
+Dask isn’t a panacea, of course:
+    Parallelism has overhead, it won’t always make things finish faster. And it doesn’t reduce the CPU time, so if you’re already saturating your CPUs it won’t speed things up on wallclock time either.
+    Some tuning is needed. Larger block sizes increase memory use, but up to a point also allow faster processing.
+
+Dask work -- final scrpt combining chunking and parallelization:
+
+
 - *inset* gpu utilization (coda??)
-- reading from disk mmap() vs. Zarr/HDF5
+- reading from disk mmap() vs. Zarr/HDF5 -- doesn't help much
+
+extra: GPU utilizaiton in computation:
+https://www.geeksforgeeks.org/running-python-script-on-gpu/ numba (only NVIDIA GPUs supported)
+- computation heavy solutions https://pytorch.org/docs/stable/notes/cuda.html
+- https://www.tensorflow.org/guide/gpu
+
+### how to encode and decode time based rles to vector tiles
+- rle - will save memory?
+- split to files per week?
+- split spatially to districts?
+- connect to database? (good for additional diagrams)
+- change z axis and camera view
+- 
 
 
 ## 2. app architecture (describe database solution and other options)
@@ -285,6 +337,10 @@ https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
 - influxdb?
 - geomesa?
 - geotrellis?
+
+- pipeline for generating vector tyles from these data?
+- analytical schema for vector tiles used for trafic display?
+
 
 
 ## 3. user interface design
