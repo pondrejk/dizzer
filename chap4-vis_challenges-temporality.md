@@ -312,6 +312,10 @@ Dask isn’t a panacea, of course:
     Some tuning is needed. Larger block sizes increase memory use, but up to a point also allow faster processing.
 
 Dask work -- final scrpt combining chunking and parallelization:
+ https://github.com/pondrejk/scripts/blob/master/data/select-segments-03-dask.py
+
+Runing on i7 8 cores, 30 gb ram, 1 select:
+[########################################] | 100% Completed |  3min 32.8s
 
 
 - *inset* gpu utilization (coda??)
