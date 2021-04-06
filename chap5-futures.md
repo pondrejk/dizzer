@@ -17,6 +17,10 @@ https://observablehq.com/@fil/web-mercator-tile-visibility
 
 # Machine Learning in map design
 
+
+maptiler.com
+-- deep learning for hilshade - zurich univerzita
+
 https://2017.stateofthemap.us/program/machine-learning-to-assist-in-map-making.html
 https://2017.stateofthemap.us/program/humans-and-robots-making-maps-together.html
 https://2017.stateofthemap.us/program/use-machine-learning-to-create-building-heights.html
