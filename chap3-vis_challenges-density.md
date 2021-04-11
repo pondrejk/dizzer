@@ -36,6 +36,10 @@ The axis of data change is the one that is mostly affected by the big data prope
 
 ### Visualisation pipeline
 
+(moved from chap 2)
+The gaps in data collection and the absence of abrupt changes hints how to optimize data storage from big data sources. Even though storage optimization techniques are not within the scope of this thesis, they can pose a certain lesson for cartographic visual analysis. For cartographers, the utilized resource is the space within the map plane that can only hold a certain amount of graphic elements to remain useful. Moderation o the graphic fill is an aspect that can enhance the knowledge discovery at the end of the visualisation pipeline.
+
+
 data space / visual space
 
 There are also other limitations that take action in earlier stages of a generalized visualisation pipeline (see fig?). One thing to be aware of is that the simplification (aggregation, reduction, etc.) in the visual end product enforced by human cognitive capabilities should also propagate back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (visual barrier). This can mean a significant improvement when performance and scalability are of concern.
