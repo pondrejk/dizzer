@@ -75,7 +75,7 @@ Spatial relations between point clusters are harder to conceptualize than it is 
 **Relations specific to moving objects** – moving objects have a specific set of properties based on their spatio-temporal circumstances. These can be *instantaneous* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to external event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
 
 
-### 2.2.2 From data mining to visualisation for human interpretation 
+### 2.2.2 From data mining to visual analytics
 
 Having described the fundamental spatio-temporal relations in big data sets, we can briefly describe some of the methods to uncover them. Recalling the human-machine continuum at Fig., we will start at the machine side with methods from the data mining group to eventually move towards the causality interpretation on the human side.
 
@@ -109,77 +109,77 @@ Discussing the interpretation of spatio-temporal co-occurrence we have moved on 
 
 Visual analytics extends the concept of visualisation: not only it provides a visual interface to the database, but also makes the data processing pipelines transparent for an analytic discourse. Keim2008visual in their introductory paper say the goal of visual analytics is the creation of tools and techniques to enable people to:
 
-– Synthesize information and derive insight from massive, dynamic, ambiguous, and often conflicting data
-– Detect the expected and discover the unexpected
-– Provide timely, defensible, and understandable assessments
-– Communicate assessment effectively for action
+* Synthesize information and derive insight from massive, dynamic, ambiguous, and often conflicting data
+* Detect the expected and discover the unexpected
+* Provide timely, defensible, and understandable assessments
+* Communicate assessment effectively for action
 
 This is truly a long way from the low-level search for co-occurrences, though it is not clear how should these grand goals materialize in practice. Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Cognition, Human-Computer interaction) and identify a range of application and technical challenges. 
 
 The brief tour we just went trough lets us appreciate the prospect of gaining the best of the both worlds -- to support human analytical efforts with algorithmic power doing the heavy lifting around data manipulation. We have seen that inscribing spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, the co-occurrence we want to search for needs to be defined beforehand, so in many cases data mining is insufficient to provide the required insight. Search algorithms can be performance heavy, which invites some coordination with human observer that is able to easily gain an overview of clusters beyond individual database entities. Visualization and visual analytics provide this exploratory potential, especially for big data in situation where we don't yet know what questions we want to ask. Visualisation as a sense-making tool gives us a way to find things that we had no theory about and no statistical models to identify and to explore the space of models in more expansive ways (@bollier2010promise). 
 
-Many possible data transformations may be applicable to a particular problem, but it is not necessarily clear which ones will be of most value in facilitating insight. Also, because visual analytics is qualitative as well as quantitative, there are no assumptions of exact parameters and well-defined boundaries between what is interesting and what is not. A priori criteria of significance may be manipulated based on the judgment of the analyst (@thomas2005illuminating).
-
-Digital cartography has the potential to dynamically support cognitive tasks in a manner of visual analytics, be it with simple visual highlighting, or with other kinds of algorithmic assistance. TODO mostik
+Many possible data transformations may be applicable to a particular problem, but it is not necessarily clear which ones will be of most value in facilitating insight. Also, because visual analytics is qualitative as well as quantitative, there are no assumptions of exact parameters and well-defined boundaries between what is interesting and what is not. A priori criteria of significance may be manipulated based on the judgment of the analyst (@thomas2005illuminating). As we will see next, digital cartography has great potential and means to dynamically support cognitive tasks in the manner of visual analytics.
 
 
 ## 2.3 The role of cartography
 
-Cartography has a long tradition of making data comprehensible to our visual minds. Beautiful and authoritative maps in school atlases explaining the formation of air masses or the positions of ocean streams give off and impression of definitiveness but were build upon a generalization of data from loads of observations. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps was nowhere near "real-time" but allowed for fine-tuning of all aspects of the map: from carefully shading the outlines of water bodies to making the street connections visually pleasing. This process allowed for perfectionism, and the resulting maps remain beloved by collectors long after their 'utilitarian' function is gone.
+Cartography has a long tradition of making data comprehensible to our visual minds. Beautiful and authoritative maps in school atlases explaining for example the formation of air masses or the flows of ocean streams give off an impression of exactitude and definitiveness. But the fact is that these maps are based on data from loads of observations. These data had to be collected, brushed and analyzed for the presence of meaningful patterns, and than visualised in a way that would appeal to human comprehension. The process for creating such maps is nowhere near "real-time" but allows for fine-tuning of all aspects of the map: from carefully shading the outlines of water bodies to making the street connections visually pleasing. This process allows for perfectionism, and the resulting maps remain beloved by collectors long after their 'utilitarian' function is gone.
 
-For digital cartography^(Here and further we will use the term digital cartography as a shorthand referring to dynamic maps allowing user interaction, consumed almost exclusively through the web, viewed on screens of various sizes) it took a long time to come any closer to the visual quality of the best works in cartography in print. Arguably, there is still some unfulfilled potential in getting towards graphic excellence in web mapping, though recent improvements in available tools open new possibilities for innovation, but also risks of uniformity. Digital maps have the obvious advantage of allowing interaction – user can zoom, pan, change, filter and combine the displayed data. The second big advantage is the possibility to update the displayed data real-time as the data source is updated. Sure, many digital maps are not dynamically updated, simply because the topic does not require it (e.g. medieval monasteries in France or 1991 election results in Yugoslavia). But interactive maps based on dynamically updated data are of special interest as they pose a whole new set of challenges to authors. Ensuring cartographic quality in the map field now means designing for yet unseen changes in data also with user-induced modifications in mind.
+For digital cartography^[For brevity, we will use the term *interactive maps* as a shorthand referring to maps based on dynamic data, allowing user interaction, consumed almost exclusively through the web, viewed on screens of various sizes. With the term *digital cartography* we will refer to the theory and practice of creating such maps.] it took a long time to come any closer to the visual quality of the best works of cartography in print. Arguably, there is still some unfulfilled potential in getting towards graphic excellence in web mapping, though recent improvements in available tools open new possibilities for innovation. Digital maps have the obvious advantage of allowing interaction – user can zoom, pan, change, filter and combine the displayed data. The second big advantage is the possibility to update the displayed data real-time as the data source is updated. Sure, many digital maps are not dynamically updated, simply because the theme does not require it (e.g. medieval monasteries in France or 1991 election results in Yugoslavia). But interactive maps based on dynamically updated data are of special interest as they pose a whole new set of challenges to authors. Ensuring cartographic quality now means designing for yet unseen changes in data with user-induced modifications in mind.
 
-School atlases served for presentation of knowledge, were confirmatory. Digital cartography allowed for exploratory mode of map interaction to emerge, or more precisely, moved the data exploration step down the production pipeline from *before* to *after*  map publication, and from the cartographer/author to the map user. Visual analytics based on spatial data provide interfaces to manipulate and visualize information, or better to say to pick from the pre-designed visualisation modes. This has implications for both the cartographer and the user.
+School atlases serve as a presentation of knowledge, are *confirmatory*. Digital cartography allowed for *exploratory* mode of map interaction to emerge, or more precisely, the data exploration step moved from *before* to *after* map publication, and from the cartographer/author to the map user. Visual analytics based on spatial data provides interfaces to manipulate and visualize information, or better to say to pick from the pre-designed visualisation modes. This has implications for both the cartographer and the user.
 
-The ability to interact with the map-based software application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go the wrong way as it is very hard to create an immersive experience from a complex dataset that would be immediately understandable to the newcomer. Exploratory map applications intend for general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices, without any stated framework for interpretation users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untroubled with the dangers of fostering misinterpretation. Lack of guidance on where to start results in poor engagement with the application, that is quickly abandoned. With specialized applications for professional audience, this can be mitigated by training as users are forced to work with the application as part of their job. Similar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
+TODO mostik -- popisat co bude v subsekciach
 
-### Map reading and interpretation
+In the next few sections we will describe what kinds of inference digital cartography aims to support, then...
 
-Interactive map as a data manipulation interface is useful for those who know what questions they want to ask, but also for those who want to find out what they might be asking. So what kind of inference should an interactive map support? We should start simple, with basic quantitative questions. A big advantage of interactive maps over print is that we can display the exact quantities on demand (e.g. with some pop-up window bound to cursor hover action) and not rely on the viewer's ability to infer quantities form the legend (especially if categorized to some interval scale). The ability to answer simple quantitative queries shouldn't be left in vain, because as @tufte1998visual warns: "when scientific images become dequantified, the language of analysis may drift toward credulous descriptions of form, pattern and configuration [...] rather than answer to questions *How many? How often? Where? How much? At what rate?*".
 
-We can say that these questions are at the basic level of map reading. bertin1983semiology distinguishes three reading levels for the thematic map, and at each level, different sorts of questions can be asked:
-- *elementary level* – questions introduced by a single element of the visualisation (What is the level of unemployment in this district?)
-- *intermediate level* – questions introduced by a group of elements or categories in the visualisation (What are the five most populous districts in the region?)
-- *overall or global level* – questions introduced by the whole visualisation (What are the spatiotemporal trends of traffic in this city?)
+TODO put somehwere else? -- 2.3.3?
+The ability to interact with the map-based software application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go the wrong way as it is very hard to create an immersive experience from a complex dataset that would be immediately understandable to the newcomer. Exploratory map applications intended for the general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices and without any stated framework for interpretation, users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untroubled with the dangers of fostering misinterpretation. Lack of guidance on where to start results in poor engagement with the application that is quickly abandoned. With specialized applications for professional audience, this can be mitigated by training, because users are basically forced to work with the application as part of their job. Similar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
 
-It is obvious that even a simple map has a potential to introduce countless possible combinations of questions at various levels. Although the importance of allowing for elementary-level questions, in thematic cartography we are often interested mainly in the global level of reading. Often times, just to *see* the overall level is a revelation, the kind of overreaching macroscope perspective unique to maps. But what else we can do with the overall patterns?
+### 2.3.1 Map reading and interpretation (TODO different title)
 
-As we'll see in the next chapter, showing the basic quantities with cartographic means becomes more challenging with multiparametric visualisation, especially if we want to support both elementary and global levels of reading for individual topics.
+Interactive map as a data manipulation interface is useful for those who know what questions they want to ask, but also for those who want to find out what they might be asking. So what kind of inference should an interactive map support? 
 
-Are there any examples of cartographic visualisation successfully supporting the analytical reasoning? Maybe the most frequent answer of this question would be the celebrated map of the cholera outbreak in London 1855 by John Snow, that helped to identify the source of the epidemics in a polluted water pump. This feat is lauded for launching spatial epidemiology and for bringing the thematic cartography to the fore (@clarke2015map). But what exactly made the Snow's method worth following? @tufte1998visual notes four key points:
+We can start simple, with basic quantitative questions. A big advantage of interactive maps over print is that we can display the exact quantities on demand (e.g. with some pop-up window bound to cursor hover action) and not rely on the viewer's ability to infer quantities form the legend (especially if categorized to some interval scale). The ability to answer simple quantitative queries shouldn't be left in vain, because as @tufte1998visual warns: "when scientific images become dequantified, the language of analysis may drift toward credulous descriptions of form, pattern and configuration [...] rather than answer to questions *How many? How often? Where? How much? At what rate?*".
 
-1. Placing data in appropriate context for assessing cause and effect
-2. Making quantitative comparisons
-3. Considering alternative explanations and contrary cases
-4. Assessment of possible errors in the numbers reported in graphics
 
-TODO: elaborate ^ We can make this a motto also for current exploratory maps.
+We can say that these questions are at the basic level of map reading. bertin1983semiology distinguishes three reading levels for the thematic map, and at each level, different sorts of questions that can be asked:
 
-Hypothesis formation support that these tools aim to provide is however a property that is hard to measure: it is hard to prove the interface works, it is hard to compare solution to establish which interface is better.
+* *elementary level* – questions introduced by a single element of the visualisation (What is the level of unemployment in this district?)
+* *intermediate level* – questions introduced by a group of elements or categories in the visualisation (What are the five most populous districts in the region?)
+* *overall or global level* – questions introduced by the whole visualisation (What are the spatio-temporal trends of traffic in this city?)
 
-^ TODO brush up the line of thought, more about the overall patterns (from paper Illuminating the path...)
+It is obvious that even a simple map has a potential to introduce countless possible combinations of questions at various levels. As we will see in the next chapter, showing the basic quantities gets complicated in the context of big data, when the number of records to be displayed precludes displaying them individually. Another challenge comes with multiparametric visualisation, especially if we want to support both elementary and global levels of reading for individual parameters.
 
-@fisher2017making
-- this is from the creator's point of view -- why are we doing this, what tasks does it support.
+Besides the importance of supporting elementary-level questions, in thematic cartography we are often interested mainly in the global level of reading as it is hardly achievable with non-cartographic means. Often times, just to *see* the overall level is a revelation -- an overreaching macroscope perspective unique to maps. But what else we can do with the overall patterns?
 
-We believe that creating effective visualizations is itself a process of exploration and discovery. A good visualization design requires understanding of four components: Data, Tasks, Stakeholders, and Visualizations.
+Are there any examples of cartographic visualisation successfully supporting the analytical reasoning? Maybe the most frequent answer for this question would be the celebrated map of the cholera outbreak in London 1855 by John Snow that helped to identify the source of the epidemics in a polluted water pump. This feat is lauded for launching spatial epidemiology and for bringing the thematic cartography to the fore (@clarke2015map). But what exactly made the Snow's method worth following? @tufte1998visual notes four features:
 
-Close up on Tasks:
-High-level questions need to be refined into specific, data-driven tasks. An analyst can refine a task by first breaking it down into four specific components. Identifying these components and how they do or do not directly reference the data becomes a template for choosing more specific tasks. The components are:
+* Placing data in appropriate context for assessing cause and effect
+* Making quantitative comparisons
+* Considering alternative explanations and contrary cases
+* Assessment of possible errors in the numbers reported in graphics
 
+These characteristics describe Snow's thought process which both resulted and was guided by the map in the making. Indeed, creating effective visualizations is itself a process of exploration and discovery. Working on an interactive map is an iterative process that often yields new questions about the data that were not asked during the early analysis, and that can be interesting for the end user. 
+
+Modelling what kinds of tasks can be supported by the data is one of the first steps towards a successful visualisation. As @fisher2017making note, high-level questions need to be refined into specific, data-driven tasks. To do this, we can break down the question into four specific components: objects, measures, groupings, and action. 
+
+(TODO: reformulate from the cartographic standpoint)
 - *Objects*: When a task is specific enough, each object will be something that can be represented in or computed from, the data. Fairly often, when the task is at its most specific, an object will correspond to a single row in a database.
 - *Measures*: The outcome variables that will be measured for the objects. In a sufficiently specific task, the measure is either an existing attribute in the dataset or one that can be directly computed from the data. A measure is sometimes aggregated across many items of data. 
 - *Groupings (or partitions)*: Attributes or characteristics of the data that separate the data
 items into groups. In a specific task, partitions are attributes of the objects or can be calculated directly from those attributes. 
 - *Actions*: Words that articulate the specific thing being done with the data, such as compare, identify, characterize, etc. Actions guide the process of choosing appropriate visualizations.
 
-A well-specified task, relative to the underlying data, fulfills
-the following criteria:
+A well-specified task, relative to the underlying data, fulfills the following criteria:
 • Can be computed based on the data
 • Makes specific reference to the attributes of the data
 • Has a traceable path from the high-level abstract questions to a set of concrete, actionable tasks
 
----------
+Back to patterns -- finding correlation (geostatistics) spatial autocorrelation
+Comparison of patterns, there are relationships between layers -- spatial pattern is rarely without tendencies (purely by chance) -- influenced by spatial context
+
 
 TODO - other visualisation-related issues:
 - don't know what questions I want to ask
@@ -225,11 +225,14 @@ Researchers in cartography and geovisualisation see big data as an opportunity a
 - Integrating Powerful Analysis Tools with Visualization
 
 
-@thomas2005illuminating
 
+@thomas2005illuminating
 An emerging discipline progresses through four stages. It starts as a craft and is practiced by skilled artisans using heuristic methods. Later, researchers formulate scientific principles and theories to gain insights about the processes. Eventually, engineers refine these principles and insights to determine production rules. Finally, the technology becomes widely available. The challenge is to move from craft to science to engineering to systems that can be widely deployed. – my commentary: Cartography, being a university study field had arguably crossed the four stages in the past, though with interactive mapping it could benefit from returning to the craft stages as the tools and possibilities for mapping changed profoundly.
 
-Cognitive scientists have studied visual representations and the larger class of external aids to cognition. An external aid to cognition is an artifact that helps us reason about the world.
+@thomas2005illuminating
+Cognitive scientists have studied visual representations and the larger class of external aids to cognition.
+
+An external aid to cognition is an artifact that helps us reason about the world.
 A first step in developing principles for visual representations is to understand how
 they enable cognition [Card, 1999; Norman, 1993]. Some basic principles for developing effective depictions include the following (adapted from [Norman, 1993]):
 
@@ -320,6 +323,9 @@ Causation-related questions for cartography (TDOO )
 
 
 ### 2.3.2 How next? Challenges in collaborative practice
+
+@fisher2017making
+A good visualization design requires understanding of four components: Data, Tasks, Stakeholders, and Visualizations.
 
 Having described the ontological models of causation ans sensemaking as well as visions for the future of cartographic research, we can now take an aside to dwell a bit on the nitty-gritty realities of map making in practice. Practical aspects of the profession are often overlooked in literature, as well as the fact that cartographer often needs to operate within a greater team. The smoothness of collaboration within a team is then a determining factor of the team's productivity. 
 
@@ -471,6 +477,11 @@ An argument from Cognitive Closure states that as in any other animal, human bra
 
 
 TODO – proti interpretácii (niekam zahrnúť??) – https://www.kinecko.com/proti-interpretacii/?fbclid=IwAR2Ms83cZyRofIbDOqhucPID9Qt9aOQyRKFExdxcb9_zhcKndrgPYNN53LQ (Susan Sontag) @sontag1994against – niečo v tom zmysle aj o pozorovaní reprezentácie (mapy) spôsobom akým pozorujeme prírodu – bez automatických hľadaní príčinných súvislostí medzi javmi. (možno odkaz na Kahneman kapitola o statistical thinking? – Jak tu zaváži kartografia?) @kahneman2011thinking (pohľad na denný rytmus mestskej dopravy ako pohľad na vlnobitie alebo iný prírodný jav)
+
+Like in John Snows example,
+There is the hard truth, knowledge and experience produces insight, there are no shortcuts, visualisation is a mediator but that can stimulate and amplify the thought process. But it cannot compensate for the lack of experience and knowledge. 
+
+Expecting to become an expert by looking at a picture is a false promise.
 
 –––––-
 
