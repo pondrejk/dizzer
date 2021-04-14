@@ -137,12 +137,11 @@ In the next few sections we will describe what kinds of inference digital cartog
 TODO put somehwere else? -- 2.3.3?
 The ability to interact with the map-based software application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go the wrong way as it is very hard to create an immersive experience from a complex dataset that would be immediately understandable to the newcomer. Exploratory map applications intended for the general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices and without any stated framework for interpretation, users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untroubled with the dangers of fostering misinterpretation. Lack of guidance on where to start results in poor engagement with the application that is quickly abandoned. With specialized applications for professional audience, this can be mitigated by training, because users are basically forced to work with the application as part of their job. Similar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
 
-### 2.3.1 Map reading and interpretation (TODO different title)
+### 2.3.1 Maps for answering questions, maps for asking them
 
 Interactive map as a data manipulation interface is useful for those who know what questions they want to ask, but also for those who want to find out what they might be asking. So what kind of inference should an interactive map support? 
 
 We can start simple, with basic quantitative questions. A big advantage of interactive maps over print is that we can display the exact quantities on demand (e.g. with some pop-up window bound to cursor hover action) and not rely on the viewer's ability to infer quantities form the legend (especially if categorized to some interval scale). The ability to answer simple quantitative queries shouldn't be left in vain, because as @tufte1998visual warns: "when scientific images become dequantified, the language of analysis may drift toward credulous descriptions of form, pattern and configuration [...] rather than answer to questions *How many? How often? Where? How much? At what rate?*".
-
 
 We can say that these questions are at the basic level of map reading. bertin1983semiology distinguishes three reading levels for the thematic map, and at each level, different sorts of questions that can be asked:
 
@@ -161,80 +160,26 @@ Are there any examples of cartographic visualisation successfully supporting the
 * Considering alternative explanations and contrary cases
 * Assessment of possible errors in the numbers reported in graphics
 
-These characteristics describe Snow's thought process which both resulted and was guided by the map in the making. Indeed, creating effective visualizations is itself a process of exploration and discovery. Working on an interactive map is an iterative process that often yields new questions about the data that were not asked during the early analysis, and that can be interesting for the end user. 
+These characteristics describe Snow's thought process which both resulted in and was guided by the map in the making. Indeed, creating effective visualizations is itself a process of exploration and discovery. Working on an interactive map is an iterative process that often yields new questions about the data that were not asked during the early analysis, which enhances the application for the user's benefit. 
 
-Modelling what kinds of tasks can be supported by the data is one of the first steps towards a successful visualisation. As @fisher2017making note, high-level questions need to be refined into specific, data-driven tasks. To do this, we can break down the question into four specific components: objects, measures, groupings, and action. 
+Modelling what kinds of tasks can be supported by the data is one of the first steps towards a successful visualisation. As @fisher2017making note, high-level questions need to be refined into specific, data-driven tasks. To do this, we can break down the question into four specific components: objects, measures, groupings, and action. Ability to discern those components is a good indicator of weather the task is specific enough and can be computed from data:
 
-(TODO: reformulate from the cartographic standpoint)
-- *Objects*: When a task is specific enough, each object will be something that can be represented in or computed from, the data. Fairly often, when the task is at its most specific, an object will correspond to a single row in a database.
-- *Measures*: The outcome variables that will be measured for the objects. In a sufficiently specific task, the measure is either an existing attribute in the dataset or one that can be directly computed from the data. A measure is sometimes aggregated across many items of data. 
-- *Groupings (or partitions)*: Attributes or characteristics of the data that separate the data
-items into groups. In a specific task, partitions are attributes of the objects or can be calculated directly from those attributes. 
-- *Actions*: Words that articulate the specific thing being done with the data, such as compare, identify, characterize, etc. Actions guide the process of choosing appropriate visualizations.
+- *Objects*: when a task is specific enough, each object will be something that is represented in data.
+- *Measures*: In a sufficiently specific task, the measure is either an existing attribute in the dataset or one that can be directly computed from the data. 
+- *Groupings (or partitions)*: Attributes or characteristics of the data that separate the data items into groups. In a specific task, partitions are attributes of the objects or can be calculated directly from those attributes. 
+- *Actions*: Specific operation being done with the data such as compare, identify, characterize, etc. Actions guide the process of choosing appropriate visualizations.
 
-A well-specified task, relative to the underlying data, fulfills the following criteria:
-• Can be computed based on the data
-• Makes specific reference to the attributes of the data
-• Has a traceable path from the high-level abstract questions to a set of concrete, actionable tasks
+There has to be a traceable path from the high-level abstract questions to a set of concrete, actionable tasks in the map based application, otherwise there may be need for additional data for the questions at hand.
 
-Back to patterns -- finding correlation (geostatistics) spatial autocorrelation
-Comparison of patterns, there are relationships between layers -- spatial pattern is rarely without tendencies (purely by chance) -- influenced by spatial context
+Maps allow basic quantitative questions at the base level, pattern descriptions on higher level. Then we can quantify the pattern descriptions using geostatistics (cite) and we can observe spatial correlations and spatial autocorrelation. 
+
+However pattern and correlations -- might be traps, searching for outliers and deliberate randomness (in business and terrorist networks)
+Modelling faculty --  from elementary, intermediate and overall level questions to the what-if questions? 
 
 
-TODO - other visualisation-related issues:
-- don't know what questions I want to ask
-- looking for ouliers (bet against the consensus and be right)
-
-
-
-Problems with pattern interpretation around big data.
-
-**BD discussions from bollier2010promise** TODO process  
-(@bollier2010promise
-– For Joi Ito, the Chief Executive Officer of Creative Commons, the
-search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers
-When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
-
-“Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
-(@bollier2010promise
-– Many innovative uses of Big Data could be called “now-casting,”
-said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data.
-
-–  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
-
-Talking about the human interpretation we can surely adress a wide range of use cases and motivations regarding to data. User roles (TODO move to cartographic part?), weaponization, uncovering secrets... entepreneurial approach. Large scale optimizations, smart city concepts etc. Let us not bloat here. 
-
-Paying attention to the cognitive part of information processing (differences between users, influence of learining from the app,..)
-– Kim Taipale of the Center for Advanced Studies in Science and
-Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
-
-
-###  2.3.2 What next? Research challenges 
-
-Researchers in cartography and geovisualisation see big data as an opportunity and also as a certain call to action. The research agenda for geospatial big data and cartography laid down in @robinson2017geospatial shows the general interest of moving the field toward fulfilling its potential to make maps that "pique interest, are tacitly understandable and are relevant to our society". It is certainly reassuring that the community is aware that new sources of data "stretch the limits of what and how we map". Building on this, @robinson2017geospatial list several large-scale and long-term research challenges to face cartography in relation to big data as well as some short-term research opportunities for more concentrated investigation (see appendix A for the overview). Even though some of the points seem vague or repetitive, and the influence of the distinct ICA commissions is clearly visible, the agenda states some truly exciting challenges to tackle. In relation with the scope to this thesis we can highlight the following challenges for cartography:
-
-- *Develop visual analytical reasoning systems that can help users add meaning to and organize what they discover form geospatial big data* – we need to move beyond naive exploration and focus attention on tools that help people reason about what they are seeing. Users need to be able to save, annotate and compare their findings as they work on complex problems.
-- *Develop methods that embody the volume of geospatial big data* – we need cartography that can intelligently process and display big data at a size and a format that users can realistically handle. This will require solutions that support coupled analysis and visualisation as big data often need to be analysed before they are visualised (the order is reversed in exploratory visualisation). 
-- *Create maps and map-oriented interfaces that prompt attention to important changes in dynamic geospatial big data sources* – We will need to work with global changes, local changes and combinations across scales. In addition, if we display every possible change at once, then the graphical displays become cluttered. Creating summaries of change may be the solution, but we do not yet know how to select important patterns and generalize to something that a user can understand.
-- *Leverage what we know about map animation and interactive cartography to construct visual solutions for dynamic sources of geospatial big data* –  Conventional solutions for interactive mapping, animated mapping or geovisual analytics can be used for representing big data. However, because of the high velocity characteristic of big data, it is necessary to develop solutions that can automate map design decisions to support interactive design solutions that respond (or potentially precede based on modelled outcomes) as the data changes.
-
-@thomas2005illuminating also provide a set of recommendations for research and development agenda for visual analytics. Particularly resonating with goals of this thesis is their account on new visual paradigms, that include:
-- Organizing Large Collections of Information
-- Reasoning about Space and Time
-- Abstraction – Changing to the Appropriate Representation
-- Integrating Powerful Analysis Tools with Visualization
-
-
-
+(principles for cognitive aids)
 @thomas2005illuminating
-An emerging discipline progresses through four stages. It starts as a craft and is practiced by skilled artisans using heuristic methods. Later, researchers formulate scientific principles and theories to gain insights about the processes. Eventually, engineers refine these principles and insights to determine production rules. Finally, the technology becomes widely available. The challenge is to move from craft to science to engineering to systems that can be widely deployed. – my commentary: Cartography, being a university study field had arguably crossed the four stages in the past, though with interactive mapping it could benefit from returning to the craft stages as the tools and possibilities for mapping changed profoundly.
-
-@thomas2005illuminating
-Cognitive scientists have studied visual representations and the larger class of external aids to cognition.
-
-An external aid to cognition is an artifact that helps us reason about the world.
-A first step in developing principles for visual representations is to understand how
-they enable cognition [Card, 1999; Norman, 1993]. Some basic principles for developing effective depictions include the following (adapted from [Norman, 1993]):
+Cognitive scientists have studied visual representations and the larger class of external aids to cognition. An external aid to cognition is an artifact that helps us reason about the world. A first step in developing principles for visual representations is to understand how they enable cognition [Card, 1999; Norman, 1993]. Some basic principles for developing effective depictions include the following (adapted from [Norman, 1993]):
 
 * *Appropriateness Principle* – The visual representation should provide neither more nor less information than that needed for the task at hand. Additional information may be distracting and makes the task more difficult.
 * *Naturalness Principle* – Experiential cognition is most effective when the properties of the visual representation most closely match the information being represented. This principle supports the idea that new visual metaphors are only useful for representing information when they match the user’s cognitive model of the information. Purely artificial visual metaphors can actually hinder understanding.
@@ -242,43 +187,71 @@ they enable cognition [Card, 1999; Norman, 1993]. Some basic principles for deve
 * *Principle of Congruence* – The structure and content of a visualization should correspond to the structure and content of the desired mental representation. In other words, the visual representation should represent the important concepts in the domain of interest.
 * *Principle of Apprehension* – The structure and content of a The subjects of mental representations and reasoning are the main focus of cognitive science, so the principles for depicting information must be based on research in cognitive science. The apprehension principle underlies the importance of research in perception. These meta-principles underscore that the biggest challenge in choosing a visual representation is to find the right one (not just any one) for the reasoning task at hand. – naive scientism? lecturing birds how to fly...
 
-TODO – science of interaction just as a preview for next chapters:
-Too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
-Then, R&D should be focused on expanding the repertoire of interaction techniques that can fill those gaps in the design space.
+
+# searching for patterns, searching for outliers, spatial modelling (where to put)
+
+Back to patterns -- finding correlation (geostatistics) spatial autocorrelation
+Comparison of patterns, there are relationships between layers -- spatial pattern is rarely without tendencies (purely by chance) -- influenced by spatial context
 
 
-role of cartoman:
-Creating effective visualization representations is a labor-intensive process that requires a solid understanding of the visualization pipeline, characteristics of the data to be displayed, and the tasks to be performed by the analyst. Current visualization software generally has been written in environments where at least some of this necessary information was missing.
+- looking for ouliers (bet against the consensus and be right)
 
-––––
+Problems with pattern interpretation around big data.
 
-In addition to the aforementioned agendas, we conclude this section with formulating a number of low-level challenges that we feel are not widely discussed. This thesis does not have the ambition to imagine all paths cartography could take, so we subsequently pose several questions related to the practice of map making that would inform the rest of content of this thesis. A mini-agenda for adjusting mapmaking to post 2020 circumstances, if you please. As we have seen many times in history of innovation, progress is often hampered by the mental roadblock we don't even realize we have.
-(here merge challenges with questions?)
+**BD discussions from bollier2010promise** TODO process  
+(@bollier2010promise
+– For Joi Ito, the Chief Executive Officer of Creative Commons, the
+search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers
+
+When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
+
+“Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
+
+–  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
+
+Talking about the human interpretation we can surely adress a wide range of use cases and motivations regarding to data. User roles (TODO move to cartographic part?), weaponization, uncovering secrets... entepreneurial approach. Large scale optimizations, smart city concepts etc. Let us not bloat here. 
+
+Paying attention to the cognitive part of information processing (differences between users, influence of learining from the app,..)
+
+
+###  2.3.2 What next? Research challenges 
+
+Researchers in cartography and geovisualisation see big data as an opportunity and also as a certain call to action. The research agenda for geospatial big data and cartography laid down in @robinson2017geospatial shows the general interest of moving the field toward fulfilling its potential to make maps that "pique interest, are tacitly understandable and are relevant to our society". It is certainly reassuring that the community is aware that new sources of data "stretch the limits of what and how we map". Building on this, @robinson2017geospatial list several large-scale and long-term research challenges to face cartography in relation to big data as well as some short-term research opportunities for more concentrated investigation (see appendix A for the overview). Even though some of the points seem vague or repetitive, and the influence of the distinct ICA^[International Cartographic Association] commissions is clearly visible, the agenda states some truly exciting challenges to tackle. In relation with the scope to this thesis we can highlight the following challenges for cartography:
+
+- *Develop visual analytical reasoning systems that can help users add meaning to and organize what they discover form geospatial big data* – we need to move beyond naive exploration and focus attention on tools that help people reason about what they are seeing. Users need to be able to save, annotate and compare their findings as they work on complex problems.
+- *Develop methods that embody the volume of geospatial big data* – we need cartography that can intelligently process and display big data at a size and a format that users can realistically handle. This will require solutions that support coupled analysis and visualisation as big data often need to be analysed before they are visualised (the order is reversed in exploratory visualisation). 
+- *Create maps and map-oriented interfaces that prompt attention to important changes in dynamic geospatial big data sources* – We will need to work with global changes, local changes and combinations across scales. In addition, if we display every possible change at once, then the graphical displays become cluttered. Creating summaries of change may be the solution, but we do not yet know how to select important patterns and generalize to something that a user can understand.
+- *Leverage what we know about map animation and interactive cartography to construct visual solutions for dynamic sources of geospatial big data* –  Conventional solutions for interactive mapping, animated mapping or geovisual analytics can be used for representing big data. However, because of the high velocity characteristic of big data, it is necessary to develop solutions that can automate map design decisions to support interactive design solutions that respond (or potentially precede based on modelled outcomes) as the data changes.
+
+[TODO later link to sections that resonate with the above goals]
+
+As @thomas2005illuminating describes, "an emerging discipline progresses through four stages. It starts as a craft and is practiced by skilled artisans using heuristic methods. Later, researchers formulate scientific principles and theories to gain insights about the processes. Eventually, engineers refine these principles and insights to determine production rules. Finally, the technology becomes widely available. The challenge is to move from craft to science to engineering to systems that can be widely deployed". Cartography, being a university study field had arguably crossed the four stages in the past, though with constant advances in tools for data processing and building interactive applications, the field could benefit from regularly revisiting the craft stages to see how the new tools alter our concepts of mapmaking.
+
+This thesis does not have the ambition to imagine all the paths cartography could take in the future. However, we would like to higlight three overreaching questions we find interesting and not widely discussed at the same time. These questions relate to the practice of digital mapmaking lie in the background of the rest of the content of this thesis, be it in technical or conceptual challenges of big data visualisation. (TODO better wording) -- motivations/meditations/ponder on
+curiosity triggerd, manifestations of frustration
+
+the questions are:
+
 
 **1. Is cartography fully exploiting the digital medium?**
 
-Before hopping on the wagon of augmented reality and immersive experiences (that make a tenth of the population sick) cartographers could consider if they made the most of the previous medium shift. The same graphic technologies that power on the burst of imagination in web games, don't seem to bring much revolutionary changes to design in the map field (3D cartography being a honorary exception). 
+Before hopping on the wagon of augmented reality and immersive experiences (that make a tenth of the population sick) cartographers could consider if they made the most of the previous medium shift. Even in the plain world of screens and regular web traffic there is still a lot to be achieved for cartography. Web is a map friendly platform where map products will be increasingly commonplace.
 
-- Challenges stemming from the medium shift
+Yet from the cartographic perspective, the great portion of thematic maps on the web seems rather underwhelming. Default-style markers for points of interest and numbered marker clusters to "solve" high point densities are just the tip of what could be done. Cartographers should be the first to go beyond the pre-set graphic means. 
 
-Desktop GIS mapping – struggling to transfer to web (basically front-end development, which is also always in flux), maybe in the future desktop tools will supommrt generation of web map interfaces, but wouldn't count on it. Interface as a part of cartographic experience.
+Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transferring a visual artifact from one medium another. Rules and practices that were to a large degree dictated by the old medium  of transmission (print) get involuntary transposed to the new medium that may not require them at all. This was apparent for example in the grid-like organization of the web news pages transferred initially from the printed newspapers design. Are there such taken-for-granted givens that linger meaninglessly in digital cartography?
 
-TODO maybe look at the state of the art (opiniation/freedom) - leaflet, openlayers, mapbox, cartodb, arcgis online, self-hosted mapbox alternative... (in later chapter, also depends on who does the job – many creators just use the defaults)
+There are of course many limitations that are not imaginary, like data interoperability issues and vendor lock-ins. The skill sets needed for data analysis, desktop GIS operation and web development seem painfully detached. But all the problems apart, a good mental exercise for cartographers would be to imagine map creation and interaction detached from any medium – what would we design if anything was possible? 
 
-Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transferring a visual artifact from one medium to the other. Such transfer is not the same as if the visualisation was designed for the new medium from scratch as there are realized or unrealized ideas of how things should be done transferred from the practices required by the old medium. This was apparent for example the grid-like organization transferred from printed newspapers to web news pages initially and still lives there though responsivity required by small-screen devices pushed its rethinking. Similar case in cartography is the dichotomy between the topographic base and the thematic overlay. A good mental exercise for cartographers would be imagining map interaction unattached from any medium – what would we design if anything was possible? 
+In cartographic research, we often test the cognitive efficiency of the visualisation methods that already exist, and users would prefer the methods they know. Cartography's quest to extend the arsenal of visualisation and interaction methods is not completed. As we will see further, interaction and animation pose new challenges to cartographic visualisation, with possibly multiplied opportunities for method combinations and innovations for data exploration and possibly knowledge generation. Further, plenty of tricks from the rich history of cartographic practice did not make it to web mapping toolbox. 
 
-Ford's quote: "If I asked people what they want, they would ask for a faster horse" (find exact.). Similarly, we can test the cognitive efficiency of the visualisation methods that already exist, and users would prefer the methods they know. Cartography's quest (in my opinion) is to extend the arsenal of visualisation and interaction methods. As we will see further, interaction and animation pose new challenges to cartographic visualisation, with possibly multiplied opportunities for method combinations and innovations for data exploration and possibly knowledge generation. Further, plenty of tricks from the rich history of cartographic practice did not make it to web mapping toolbox. 
 
-Recent emerging technology owing much to the gaming industry promise to bring web cartography to the flexibility of the pen and paper ^[or brush, engraving tool etc.] of pre-digital cartographer. Only now the shifted role of cartographer would be in enabling data to paint the picture for us.  Much of the rest of this thesis will be exploring this truly exciting prospect.
+Only now the shifted role of cartographer would be in enabling data to paint the picture for us.
 
-Limits of old media. Danger: processes of old media are transferred to new media, leaving possibilities in new tools unexplored.
-
-e.g. 
-
+(move to ch 3?)
 Narration as a workaround for cartographic rules – legibility, etc. Static map must adhere to the cartographic rules. In interactive maps (both presentational and exploratory) the argument is as follows: application doesn't need to be cartographically legit in all of it's states provided that it shows a path from the messy state to the cartographically treated state.
 
 
-Also embedded devices?
 
 2. **What inspiration can interactive web cartography take from the heritage of pre-digital mapping?** 
 
@@ -306,6 +279,12 @@ TODO:
 - discussion of presentational vs exploratory cartography – or better on building interfaces to support one of them. – exploratory interfaces seen loftier, most commercial assignments are presentational – in fact the threshold between presentational and exploratory capabilities is something that needs to be considered. 
 
 
+@robinson2017geospatial
+TODO – science of interaction just as a preview for next chapters:
+Too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
+Then, R&D should be focused on expanding the repertoire of interaction techniques that can fill those gaps in the design space.
+
+(drop?)
 4. **How to extend the spatio-temporal analysis faculty in digital maps.**
 
 The range of possible future states of the application is only to be guessed. In other words, the task is to design the map well for previously unseen data.
@@ -321,6 +300,7 @@ Causation-related questions for cartography (TDOO )
 - How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
 - overall, the ability of dynamic maps to find these collocations and link them to causation is to be assessed, but how? :)
 
+As we have seen many times in history of innovation, progress is often hampered by the mental roadblock we don't even realize we have.
 
 ### 2.3.2 How next? Challenges in collaborative practice
 
@@ -468,6 +448,8 @@ between structure and intuition.
 
 – Add human cognition: not uniform (makes sense to look at otliers rather than the general populations, – tailoring for elderly, disabled, visually impaired), evolves with media usage (some abilities strengthen, some weaken) 
 
+– Kim Taipale of the Center for Advanced Studies in Science and
+Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
 
 Paraphrased from @dennett2017bacteria
 
