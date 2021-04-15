@@ -129,13 +129,8 @@ For digital cartography^[For brevity, we will use the term *interactive maps* as
 
 School atlases serve as a presentation of knowledge, are *confirmatory*. Digital cartography allowed for *exploratory* mode of map interaction to emerge, or more precisely, the data exploration step moved from *before* to *after* map publication, and from the cartographer/author to the map user. Visual analytics based on spatial data provides interfaces to manipulate and visualize information, or better to say to pick from the pre-designed visualisation modes. This has implications for both the cartographer and the user.
 
-TODO mostik -- popisat co bude v subsekciach
+In the following few sections we will describe what kinds of inference digital cartography aims to support, then we will outline big data related research challenges for cartography, as well as issues of collaboration and user engagement.
 
-In the next few sections we will describe what kinds of inference digital cartography aims to support, then...
-
-
-TODO put somehwere else? -- 2.3.3?
-The ability to interact with the map-based software application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go the wrong way as it is very hard to create an immersive experience from a complex dataset that would be immediately understandable to the newcomer. Exploratory map applications intended for the general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices and without any stated framework for interpretation, users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untroubled with the dangers of fostering misinterpretation. Lack of guidance on where to start results in poor engagement with the application that is quickly abandoned. With specialized applications for professional audience, this can be mitigated by training, because users are basically forced to work with the application as part of their job. Similar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
 
 ### 2.3.1 Maps for answering questions, maps for asking them
 
@@ -169,49 +164,11 @@ Modelling what kinds of tasks can be supported by the data is one of the first s
 - *Groupings (or partitions)*: Attributes or characteristics of the data that separate the data items into groups. In a specific task, partitions are attributes of the objects or can be calculated directly from those attributes. 
 - *Actions*: Specific operation being done with the data such as compare, identify, characterize, etc. Actions guide the process of choosing appropriate visualizations.
 
-There has to be a traceable path from the high-level abstract questions to a set of concrete, actionable tasks in the map based application, otherwise there may be need for additional data for the questions at hand.
+There has to be a traceable path from the high-level abstract questions to a set of concrete, actionable tasks in the map based application, otherwise some additional data may be needed for the questions at hand.
 
-Maps allow basic quantitative questions at the base level, pattern descriptions on higher level. Then we can quantify the pattern descriptions using geostatistics (cite) and we can observe spatial correlations and spatial autocorrelation. 
+Maps allow for basic quantitative questions on the elementary level, pattern descriptions on the global level. There is much we can do to quantify the pattern descriptions using GIS tools and geostatistics and we can observe spatial correlations between datasets. Spatial patterns in the real world are rarely independent from the geographic context, usually there some observable non-random tendency or some visible or quantifiable relationship with other data layers.
 
-However pattern and correlations -- might be traps, searching for outliers and deliberate randomness (in business and terrorist networks)
-Modelling faculty --  from elementary, intermediate and overall level questions to the what-if questions? 
-
-
-(principles for cognitive aids)
-@thomas2005illuminating
-Cognitive scientists have studied visual representations and the larger class of external aids to cognition. An external aid to cognition is an artifact that helps us reason about the world. A first step in developing principles for visual representations is to understand how they enable cognition [Card, 1999; Norman, 1993]. Some basic principles for developing effective depictions include the following (adapted from [Norman, 1993]):
-
-* *Appropriateness Principle* – The visual representation should provide neither more nor less information than that needed for the task at hand. Additional information may be distracting and makes the task more difficult.
-* *Naturalness Principle* – Experiential cognition is most effective when the properties of the visual representation most closely match the information being represented. This principle supports the idea that new visual metaphors are only useful for representing information when they match the user’s cognitive model of the information. Purely artificial visual metaphors can actually hinder understanding.
-* *Matching Principle* – Representations of information are most effective when they match the task to be performed by the user. Effective visual representations should present affordances suggestive of the appropriate action. Another prominent cognitive scientist has suggested the following two basic principles [Tversky et al., 2002]:
-* *Principle of Congruence* – The structure and content of a visualization should correspond to the structure and content of the desired mental representation. In other words, the visual representation should represent the important concepts in the domain of interest.
-* *Principle of Apprehension* – The structure and content of a The subjects of mental representations and reasoning are the main focus of cognitive science, so the principles for depicting information must be based on research in cognitive science. The apprehension principle underlies the importance of research in perception. These meta-principles underscore that the biggest challenge in choosing a visual representation is to find the right one (not just any one) for the reasoning task at hand. – naive scientism? lecturing birds how to fly...
-
-
-# searching for patterns, searching for outliers, spatial modelling (where to put)
-
-Back to patterns -- finding correlation (geostatistics) spatial autocorrelation
-Comparison of patterns, there are relationships between layers -- spatial pattern is rarely without tendencies (purely by chance) -- influenced by spatial context
-
-
-- looking for ouliers (bet against the consensus and be right)
-
-Problems with pattern interpretation around big data.
-
-**BD discussions from bollier2010promise** TODO process  
-(@bollier2010promise
-– For Joi Ito, the Chief Executive Officer of Creative Commons, the
-search for correlations is a trap to be avoided, at least in his capacity of a computer security expert and a venture capitalist.  Ito says he is “always looking for unpredictable things that you can use opportunistically.”  As a venture capitalist, he is looking for the “subversive outlier” whose ideas could have a big upside.  From a security perspective, Ito says he wants to be alert to the unexpected forms of intrusion and deceit, not to the ones whose correlations can be easily discovered using computers
-
-When you do that kind of analysis on, say, terrorist networks, you have to understand that Hezbollah is actively trying to continuously come up with patterns that they think you won’t predict.” “Remember,” said Ito, “the same technology that we’re using to analyze Big Data enables these other actors to become more actively random.  The people who are outliers, who used to sort of behave randomly, now have access to the same tools as the rest of us and are looking at the same data.
-
-“Big Data is about exactly right now , with no historical context that is predictive,” said Ito.  “It’s predictive of a linear thing—but you can use data collection to discover non-linearity as well. ... It’s important not to be obsessed with the old models that come from the old data. It’s more important to be ignorant enough to come up with a new model of the future.”
-
-–  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen.
-
-Talking about the human interpretation we can surely adress a wide range of use cases and motivations regarding to data. User roles (TODO move to cartographic part?), weaponization, uncovering secrets... entepreneurial approach. Large scale optimizations, smart city concepts etc. Let us not bloat here. 
-
-Paying attention to the cognitive part of information processing (differences between users, influence of learining from the app,..)
+However, the search for patterns and correlations is not the full picture of the feasible use cases. Searching for outliers is interesting for ventures looking for a unobvious opportunities. Similarly, finding areas where the mapped phenomenon is absent can point to development potential. Another use case is searching for deliberate randomness when illicit actors attempt to operate in a fashion that is not predictable from large datasets (@bollier2010promise). And then there is a modeling faculty of digital maps that enables what-if questions and comparison of various scenarios. As we have seen, the types of analysis that maps support is broad and each project can yield its own specific kinds of observations, to which we can adjust the custom-made map applications.
 
 
 ###  2.3.2 What next? Research challenges 
@@ -283,6 +240,8 @@ Project examples form @walny2019data show that the above challenges were formula
 
 
 ### 2.3.3 Who cares? Building user engagement
+
+The ability to interact with the map-based software application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go the wrong way as it is very hard to create an immersive experience from a complex dataset that would be immediately understandable to the newcomer. Exploratory map applications intended for the general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices and without any stated framework for interpretation, users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untroubled with the dangers of fostering misinterpretation. Lack of guidance on where to start results in poor engagement with the application that is quickly abandoned. With specialized applications for professional audience, this can be mitigated by training, because users are basically forced to work with the application as part of their job. Similar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
 
 TODO – building engagement – uloha kartografa – najrv vzbudit zaujem – nejaka inspiraci av good practices dizajnových studii orientovaných na komunikáciu. Jak komunikovať jasne a pritom nie prvoplánovo (na druhej strane objem inoformácii v marketingu je neporovnatelne nizsi a cielom je skor vyvolat emocie – ale netreba tieto postupy podcenovat) 
 – k engagementu diagramy z algorithms in art - DONE

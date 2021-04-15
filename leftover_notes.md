@@ -116,3 +116,18 @@ NOW
 -- Analogy: many images fast make a movie. "A movie is fundametally different from a frozen photograph. It's the same with big data: by changing the amount, we change the essence."
 
 -- "Sometimes the constraints that we lice with, and persume, are the same for everything, are really only functions of the scale in which we operate." -- e.g. the main operting law of physics for us is gravity, for insects surface tension. Or nanotechonlogy -- at scale small enoug phyiscal properties change.
+
+
+(principles for cognitive aids)
+-----------
+@thomas2005illuminating
+Cognitive scientists have studied visual representations and the larger class of external aids to cognition. An external aid to cognition is an artifact that helps us reason about the world. A first step in developing principles for visual representations is to understand how they enable cognition [Card, 1999; Norman, 1993]. Some basic principles for developing effective depictions include the following (adapted from [Norman, 1993]):
+
+* *Appropriateness Principle* – The visual representation should provide neither more nor less information than that needed for the task at hand. Additional information may be distracting and makes the task more difficult.
+* *Naturalness Principle* – Experiential cognition is most effective when the properties of the visual representation most closely match the information being represented. This principle supports the idea that new visual metaphors are only useful for representing information when they match the user’s cognitive model of the information. Purely artificial visual metaphors can actually hinder understanding.
+* *Matching Principle* – Representations of information are most effective when they match the task to be performed by the user. Effective visual representations should present affordances suggestive of the appropriate action. Another prominent cognitive scientist has suggested the following two basic principles [Tversky et al., 2002]:
+* *Principle of Congruence* – The structure and content of a visualization should correspond to the structure and content of the desired mental representation. In other words, the visual representation should represent the important concepts in the domain of interest.
+* *Principle of Apprehension* – The structure and content of a The subjects of mental representations and reasoning are the main focus of cognitive science, so the principles for depicting information must be based on research in cognitive science. The apprehension principle underlies the importance of research in perception. These meta-principles underscore that the biggest challenge in choosing a visual representation is to find the right one (not just any one) for the reasoning task at hand. – naive scientism? lecturing birds how to fly...
+
+
+
