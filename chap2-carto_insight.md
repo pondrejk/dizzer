@@ -227,80 +227,36 @@ Researchers in cartography and geovisualisation see big data as an opportunity a
 
 As @thomas2005illuminating describes, "an emerging discipline progresses through four stages. It starts as a craft and is practiced by skilled artisans using heuristic methods. Later, researchers formulate scientific principles and theories to gain insights about the processes. Eventually, engineers refine these principles and insights to determine production rules. Finally, the technology becomes widely available. The challenge is to move from craft to science to engineering to systems that can be widely deployed". Cartography, being a university study field had arguably crossed the four stages in the past, though with constant advances in tools for data processing and building interactive applications, the field could benefit from regularly revisiting the craft stages to see how the new tools alter our concepts of mapmaking.
 
-This thesis does not have the ambition to imagine all the paths cartography could take in the future. However, we would like to higlight three overreaching questions we find interesting and not widely discussed at the same time. These questions relate to the practice of digital mapmaking lie in the background of the rest of the content of this thesis, be it in technical or conceptual challenges of big data visualisation. (TODO better wording) -- motivations/meditations/ponder on
-curiosity triggerd, manifestations of frustration
-
-the questions are:
-
+This thesis does not have the ambition to imagine all the paths cartography could take in the future. However, in addition to mentioned agendas, we would like to highlight three overreaching questions that we feel are not widely discussed within cartography. Much of the work described in the remaining chapters of this thesis is rooted in pondering on the following questions about the practice of digital mapmaking:
 
 **1. Is cartography fully exploiting the digital medium?**
 
-Before hopping on the wagon of augmented reality and immersive experiences (that make a tenth of the population sick) cartographers could consider if they made the most of the previous medium shift. Even in the plain world of screens and regular web traffic there is still a lot to be achieved for cartography. Web is a map friendly platform where map products will be increasingly commonplace.
+Before hopping on the wagon of augmented reality and immersive experiences (that make roughly a tenth of the population sick) cartographers could consider if they made the most of the previous medium shift. Even in the plain world of regular screens and everyday web traffic there is still a lot to be achieved for cartography to be truly useful for everyone.
 
-Yet from the cartographic perspective, the great portion of thematic maps on the web seems rather underwhelming. Default-style markers for points of interest and numbered marker clusters to "solve" high point densities are just the tip of what could be done. Cartographers should be the first to go beyond the pre-set graphic means. 
+Web is inherently a map-friendly platform where map products will be increasingly commonplace. Yet from the cartographic perspective, the great portion of thematic maps on the web seems rather underwhelming. Default-style markers for points of interest and numbered marker clusters to "solve" high point densities are just the tiny portion of what could be done. Cartographers should be the first to go beyond the pre-set graphic means. 
 
-Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transferring a visual artifact from one medium another. Rules and practices that were to a large degree dictated by the old medium  of transmission (print) get involuntary transposed to the new medium that may not require them at all. This was apparent for example in the grid-like organization of the web news pages transferred initially from the printed newspapers design. Are there such taken-for-granted givens that linger meaninglessly in digital cartography?
+Apart from the limitations posed by opinionated mapping frameworks there are also certain mindset limitations that come from transferring a visual artifact from one medium to another. Rules and practices that were to a large degree dictated by the old medium of transmission (print) get involuntary transposed to the new medium that may not require them at all. This was apparent for example in the grid-like organization of the web news pages transferred initially from the design of printed newspapers. Are there such taken-for-granted givens that linger meaninglessly in digital cartography?
 
 There are of course many limitations that are not imaginary, like data interoperability issues and vendor lock-ins. The skill sets needed for data analysis, desktop GIS operation and web development seem painfully detached. But all the problems apart, a good mental exercise for cartographers would be to imagine map creation and interaction detached from any medium – what would we design if anything was possible? 
 
-In cartographic research, we often test the cognitive efficiency of the visualisation methods that already exist, and users would prefer the methods they know. Cartography's quest to extend the arsenal of visualisation and interaction methods is not completed. As we will see further, interaction and animation pose new challenges to cartographic visualisation, with possibly multiplied opportunities for method combinations and innovations for data exploration and possibly knowledge generation. Further, plenty of tricks from the rich history of cartographic practice did not make it to web mapping toolbox. 
+In cartographic research, we often test the cognitive efficiency of the visualisation methods that already exist. This is all good, but we should not assume that the cartography's quest to *extend* the arsenal of visualisation and interaction methods is completed. As we will see further, interaction and increasing data load pose new challenges to cartographic visualisation, with opportunities for creative inclusion and combination of new methods.
 
+**2. What inspiration can digital cartography take from the heritage of pre-digital mapping?** 
 
-Only now the shifted role of cartographer would be in enabling data to paint the picture for us.
+Same as we asked about the preconceptions of the old medium, we can reverse the question and ask if there are any good tricks from the rich history of cartography that did not make it to digital mapping toolbox. What was lost in transition to digital? Even though paper maps and atlases age in the sense of content, cartographic methods used in them often remain inspirational and valid -- the old map products many not be outdated for cartographers.
 
-(move to ch 3?)
-Narration as a workaround for cartographic rules – legibility, etc. Static map must adhere to the cartographic rules. In interactive maps (both presentational and exploratory) the argument is as follows: application doesn't need to be cartographically legit in all of it's states provided that it shows a path from the messy state to the cartographically treated state.
+Some of the classical cartographic techniques may be demanding to implement in the variable scale environment, same other may provide solutions to the visualisation issues like high density displays. Again, we arrive at the problem of opinionated web mapping libraries that are not easy to customize or extend. Cartographers usually aren't software developers, and software developers are usually unaware of old map stocks, but there are already examples of positive trends in collaboration towards richer visualisation in digital maps.
 
+**3. Should cartography focus more on interaction design?**
 
+Creating digital maps is not only about assigning appropriate visualisation type to the data at hand. It also becomes increasingly about designing user interactions with map elements. The ways how the map application enables user actions, the way how map controls and map elements react to user-induced changes, the way how the whole map composition adapts to screen space constraints, this all weaves a complex net of interdependent design decisions that will become an inherent part of digital cartography. What is more, the challenges of high data density affect both map intra-composition as well as extra-composition^[TODO explain these terms?].
 
-2. **What inspiration can interactive web cartography take from the heritage of pre-digital mapping?** 
+As @robinson2017geospatial note, too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
 
-Cartographic quality of web maps are not yet on par with the (best) examples of static maps and atlases (regardless of the date production – even though maps and atlases age in the sense of content, cartographic methods used in them often remain inspirational and valid, so for cartographer old map products doesn't have to be outdated). This might be a side effect of non-cartographically aware people producing maps (either amateur cartographer accessing easy to use tools, or people coming from graphic design backgrounds bringing 'creative' changes) ^[This is not intended to belittle such activities, as the eyesoreness of some maps is a little tax for democratization of mapping tools. In fact, efforts to help citizen cartographers have been made by more experienced practitioners, most notably in Wood, – TODO cituj tu ich prirucku]. Another possible cause is that the web mapping frameworks tend to provide just an opinionated set of visualisation options (TODO: picture of the google map's point sign) and cartographers lack the skills to customize or extend these visualisation toolkits. Little to say that some of the classical cartographic techniques are quite demanding when transferred to variable-scaled environment. For example, the symbol collisions that needed to be resolved just once (as if that was not enough) have to be treated (perhaps algorithmically) in all zoomlevels. (TODO: examples of such methods in pictures – call it "craftsmen" side of cartography) Cartographers who want to venture to raising the quality of web maps are then forced to dive into frond-end web development^[The situation is improving with rise of web-gl based mapping platforms such as Mapbox and CartoDB, which provide map design environments resembling the visualisation tiers of desktop GIS].  
+In the IT industry there is a discipline of UX (user experience) that could provide some inspiration for example in accessibility evaluation, though most of its methods doesn't fit very well to the specifics of interactive maps. At the same time, large web map providers probably collect user interaction data that could power cartographic research if they were accessible.
 
-This question is complementary to the previous one and also arises from the conditions of the medium shift.
-What was lost in transition to digital? Are there methods and practices from tradition that could be used but aren't (because cartographers usually aren't software developers, and software developers are usually unaware of old map stocks). Danger: the perceived barriers of the new technologies limit us in imagining what we could do (e.g. what visualisation possibilities are provided by APIs like Leaflet).
+But we shouldn't limit our sight to software interfaces to get inspiration. There are tons of well designed devices in the physical world that could serve as an example of clever interface design. There is a potential on expanding the repertoire of interaction techniques for digital maps. As mapped themes vary greatly the interactions could be tailor-fit as is often is with visualisations. As we have seen many times in history of innovation, progress is often hampered by mental roadblocks we don't even realize we have.
 
-Overlays are solved lazyly: point clusters vs. offsets and insets
-dynamic data examples:
-Global fishing watch - https://globalfishingwatch.org/map/
-
-3. **Cartography and UX, designing an interactive map is also designing ways to interact with data**
-
-Saving space: coupling legends with controls.
-Problematizing UX research, problems of cognitive testing (verification crisis in psychology) vs. A/B testing,  (data on tile usage from big providers)
-Inspirations from product design (praktika lens, beat machines), photography (Muybridge and Marey), cinematography, video (youtube, other video services :P)
-- Also dealing with dynamic data more of a problem of intracomposition but extracomposition affected too (different scales, etc.) 
-
-Amount of hand-holding?
-(move to one of the questions)
-Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas – see below on weaponization of design).
-
-TODO: 
-- discussion of presentational vs exploratory cartography – or better on building interfaces to support one of them. – exploratory interfaces seen loftier, most commercial assignments are presentational – in fact the threshold between presentational and exploratory capabilities is something that needs to be considered. 
-
-
-@robinson2017geospatial
-TODO – science of interaction just as a preview for next chapters:
-Too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
-Then, R&D should be focused on expanding the repertoire of interaction techniques that can fill those gaps in the design space.
-
-(drop?)
-4. **How to extend the spatio-temporal analysis faculty in digital maps.**
-
-The range of possible future states of the application is only to be guessed. In other words, the task is to design the map well for previously unseen data.
-
-- challenges in finding causal relationships
-- challenges in processing big data
-
-Causation-related questions for cartography (TDOO )
-- finding spatio-temporal co-location that would support causation hypothesis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cumulative data within two choroplets can smooth the volatility in favor of the overall tendency). 
-- Another approach is in looking for some general similarities between two sets of snapshots (spatial patterns) – if there is some similarity occurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern – how to search for delay in just a sub area?
-- Temporal but not spatial collocation – is map a good tool for displaying this (rather a bar chart? Yes e.g moving air masses – we infer the future state in place from the state in past elsewhere)
-- What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
-- How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
-- overall, the ability of dynamic maps to find these collocations and link them to causation is to be assessed, but how? :)
-
-As we have seen many times in history of innovation, progress is often hampered by the mental roadblock we don't even realize we have.
 
 ### 2.3.2 How next? Challenges in collaborative practice
 
@@ -372,6 +328,11 @@ All intentionally-created systems have a set of things the designers consider pa
 Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
 
 In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
+
+
+Amount of hand-holding?
+(move to one of the questions)
+Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas – see below on weaponization of design).
 
 
 ## 2.4 Objections and Responses

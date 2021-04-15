@@ -39,6 +39,18 @@ said Varian. This term refers to the use of real-time data to describe contempor
 --  “To make money, you’ve got to predict two things—what’s going to happen and what people think is going to happen."
 
 
+spatial and temporal correlations
+-----------------------------
+Causation-related questions for cartography 
+- finding spatio-temporal co-location that would support causation hypothesis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cumulative data within two choroplets can smooth the volatility in favor of the overall tendency). 
+- Another approach is in looking for some general similarities between two sets of snapshots (spatial patterns) – if there is some similarity occurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern – how to search for delay in just a sub area?
+- Temporal but not spatial collocation – is map a good tool for displaying this (rather a bar chart? Yes e.g moving air masses – we infer the future state in place from the state in past elsewhere)
+- What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
+- How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
+- overall, the ability of dynamic maps to find these collocations and link them to causation is to be assessed, but how? :)
+
+
+
 Thoughts on time in infovis
 ---------------------------
 @kriglestein2014pep
