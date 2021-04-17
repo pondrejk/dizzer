@@ -241,59 +241,34 @@ Project examples form @walny2019data show that the above challenges were formula
 
 ### 2.3.3 Who cares? Building user engagement
 
-The ability to interact with the map-based software application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go the wrong way as it is very hard to create an immersive experience from a complex dataset that would be immediately understandable to the newcomer. Exploratory map applications intended for the general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices and without any stated framework for interpretation, users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untroubled with the dangers of fostering misinterpretation. Lack of guidance on where to start results in poor engagement with the application that is quickly abandoned. With specialized applications for professional audience, this can be mitigated by training, because users are basically forced to work with the application as part of their job. Similar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a big responsibility on application designers.
+The ability to interact with the map-based application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go wrong as it is very hard to create an immersive experience from a complex dataset that would be immediately understandable to the newcomer. Exploratory map applications intended for the general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices and without any stated framework for interpretation, users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untroubled with dangers of fostering misinterpretation. Lack of guidance on where to start results in poor engagement with the application that is quickly abandoned. With specialized applications for professional audience, this can be mitigated by training, because users are basically forced to work with the application as part of their job. Similar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a challenge to application designers.
 
-TODO – building engagement – uloha kartografa – najrv vzbudit zaujem – nejaka inspiraci av good practices dizajnových studii orientovaných na komunikáciu. Jak komunikovať jasne a pritom nie prvoplánovo (na druhej strane objem inoformácii v marketingu je neporovnatelne nizsi a cielom je skor vyvolat emocie – ale netreba tieto postupy podcenovat) 
-– k engagementu diagramy z algorithms in art - DONE
-– este k engagement a interface – explorable explanations (orig.: Bret Victor)
-http://worrydream.com/ExplorableExplanations/
-(also: his other essays – ladder of abstraction, learnable programming, a bref rant)
-examples, elaborations:
-https://canvas.uw.edu/courses/1370850/pages/explorable-explanations
-https://github.com/sp4ke/awesome-explorables
-https://explorabl.es/
+Building engagement with an application is mainly about sparking curiosity in users. Previously in this chapters we discussed what kinds of questions can interactive maps answer, assuming that there is someone who wants to ask them. But this assumption shouldn't be taken for granted. Adding hints and motivations to map interfaces should get more interest from cartographers, not only because it is a way to make our work resonate in general public but also it provides some options to work around the cognitive difficulties connected with visualizing large amounts of data.
 
-TODO – procedurálne diadramy z designu (dual diamond diagram) – to je vlastne zoom in na návrhovú zložku v kolaboracných diagramoch nižsie (zdôrazniť cyklickosť procesu).
-– iné príklady – user roles, user stories. Nezačínať od dát ale od používateľov
-– protiargument: weaponization of design
+![**Fig.** Various ways of expanding our mental model or the world can trigger pleasure. Adopted from @stanova2016algorithms](imgs/img-knowledge-diagrams-1.png)
 
-** flow concept
-relationship between skill and the difficulty of the task 
-TODO diagrams – and where in frustration - flow - bored continuum your app lies.
-https://en.wikipedia.org/wiki/Flow_(psychology)
-@csikszentmihalyi1997flow
+So how to trigger curiosity? According to @stanova2016algorithms (Fig), to set off the thrill, one needs to first get from the "I don't know that I don't know" zone to the "I don't know and I'm curious" zone. Here we realize that there is something missing in our mental model of the world and we want to discover it. Crossing the border from "I don't know" to "I know" creates pleasure and motivates further exploration (which is crossing back and forth between "I don't know" and "I know"). Note that the "I know" zone doesn't need to correspond to reality -- exploring fictional worlds, gossips or conspiracy theories triggers pleasure just as well.
 
-maybe more for the UX section in ch 3 ?
-https://uxdesign.cc/7-steps-to-achieving-flow-in-ux-design-7ef28adb0de2
+From the cartographic point of view, when we create maps for specialized audience, we target people who already are in the "don't know + curious" zone. But when working for general audience, it is important to think about how to move users to the curious zone to encourage interacting with an application. Sometimes the compulsory education makes the mistake of revealing how something works before making pupils interested in the topic, resulting in low levels of engagement and remembering. The same problem can occur when the user lands straight at a complex web interface with intricate cartographic visualisation.
 
-**weaponized design**
-@diehm2018weaponised
+![**Fig.** Pleasure points usually arise when ambiguity is triggered and when it is resolved. Adopted from @stanova2016algorithms](imgs/img-knowledge-diagrams-1.png)
 
-Weaponised design – a process that allows for harm of users within the defined bounds of a designed system – is facilitated by designers who are oblivious to the politics of digital infrastructure or consider their design practice output to be apolitical.
+The thrills can arise also when crossing the I don't know barrier, that is when the ambiguity is triggered (Fig). The pleasure here comes from the expectation of the potentially upcoming reward -- resolving the ambiguity. However, note that the ambiguity doesn't need to be resolved to set off thrills -- for example, when watching a magic trick we don't get to know how the magician does it but we can entertain ourselves in speculations. Similarly in exploratory cartographic interfaces the stimulation comes from exploring various aspects of the displayed data, fostering our curiosity about the nature of the phenomenon.
 
-This is weaponised design: electronic systems whose designs either do not account for abusive application or whose user experiences directly empower attackers.
+The related concept of *flow* describes the relationship between the skill of the user and the difficulty of the task at hand (@csikszentmihalyi1997flow). Flow is the mental state resulting form the right balance between the task difficulty and the user's skills. The flow channel is rather narrow -- if the difficulty is too high, anxiety arises, if it's too low, user is bored. The task of the interface designer is not to dumb down the displayed content, but also not to create additional roadblocks with incomprehensible interaction modes. 
 
-As platforms became more commodified – especially through mobile touch mediums – UX designers have progressively become more reliant on existing work, creating a feedback loop that promotes playfulness, obviousness and assumed trust at the expense of user safety.
+Shaping the initial experience with an application is sometimes referred to as “user onboarding” (@baur2017death). The onboardiding stage is far too often omitted in information visualisations on the web, though there is no wide consensus on how it should work, the basic aim should be at a minimum a short textual introduction to the presented data and the knowledge around it. Complex interfaces tend to offer an initial tour of controls that usually explains what individual UI elements do, less often it ventures into teaching people how to read and understand the presented visualizations. There are approaches like "scrollytelling" (@amabili2019storytelling) or explorable explanations (@victor2011explorable) that embed interactive visualisations into larger body of text that gradually explains it.
 
-A user story is “a very high-level definition of a requirement, containing just enough information so that the developers can produce a reasonable estimate of the effort to implement it". (definition from @ambler2014user)
+The task is further complicated by the obvious fact that different people have different interests and understanding of the world. In web development, creators try to specify user personas to represent target audience and user stories to list supported user actions. To start modelling from considering users rather than data is certainly an advisable approach. However user stories are often too removed from the real life circumstances to perceive and prevent alternative harmful uses of the system (so called "weaponisation" of design @diehm2018weaponised).
 
-When designing for the digital world, user stories ultimately determine what is or is not an acceptable area of human variation. The practice empowers designers and engineers to communicate via a common problem-focused language. But practicing design that views users through a politically-naive lens leaves practitioners blind to the potential weaponisation of their design. User-storied design abstracts an individual user from a person of lived experience to a collection of designer-defined generalisations. 
-
-All intentionally-created systems have a set of things the designers consider part of the scope of what the system manages, but any nontrivial system has a broader set of impacts. Often, emergence takes the form of externalities — changes that impact people or domains beyond the designed scope of the system. @henriksenin2016frastructural 
-
-Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
-
-In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
-
-
-Amount of hand-holding?
-(move to one of the questions)
-Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas – see below on weaponization of design).
+Tailoring the map interaction to intended users is definitely something digital cartography should aim for. While some customizations are technologically possible (e.g. the dark mode in transportation maps switching on for tunnels or night travel), the topic of accessibility of interactive maps is still fairly unexplored. While there are methods to ensure map is usable for people with color blindness, there is a wide range of vision impairments cartography is largely unprepared to adjust for. 
 
 
 ## 2.4 Objections and Responses
 
-Not surprisingly, data visualisation is seen as a good tool for achieving a desirable goal in most of the literature, this thesis included. But there are some objections that target naive justification of visualisation practice or it's future viability. Here we outline some of the objections and possible responses to them as they may shed light on possible tracks of future evolution of cartography.
+Not surprisingly, data visualisation is seen as a good tool for achieving a desirable goal in most of the literature, this thesis included. But there are also voices raising objections against naive u
+
+that target naive justification of visualisation practice or it's future viability. Here we outline some of the objections and possible responses to them as they may shed light on possible tracks of future evolution of cartography.
 
 ––––-
 
@@ -321,6 +296,26 @@ Donnela meadows on systems with delay – good for describing systems with alrea
 - cartography as a unique argument to support arguments 
 - maps for risk management - embracing what we cann't know (via negativa) 
 - maps for antifragility (convexity) detection, barbell venturing to seek unlimited payoff (taleb) – more of a side project
+
+
+**weaponized design**
+@diehm2018weaponised
+
+Weaponised design – a process that allows for harm of users within the defined bounds of a designed system – is facilitated by designers who are oblivious to the politics of digital infrastructure or consider their design practice output to be apolitical.
+
+This is weaponised design: electronic systems whose designs either do not account for abusive application or whose user experiences directly empower attackers.
+
+As platforms became more commodified – especially through mobile touch mediums – UX designers have progressively become more reliant on existing work, creating a feedback loop that promotes playfulness, obviousness and assumed trust at the expense of user safety.
+
+A user story is “a very high-level definition of a requirement, containing just enough information so that the developers can produce a reasonable estimate of the effort to implement it". (definition from @ambler2014user)
+
+When designing for the digital world, user stories ultimately determine what is or is not an acceptable area of human variation. The practice empowers designers and engineers to communicate via a common problem-focused language. But practicing design that views users through a politically-naive lens leaves practitioners blind to the potential weaponisation of their design. User-storied design abstracts an individual user from a person of lived experience to a collection of designer-defined generalisations. 
+
+All intentionally-created systems have a set of things the designers consider part of the scope of what the system manages, but any nontrivial system has a broader set of impacts. Often, emergence takes the form of externalities — changes that impact people or domains beyond the designed scope of the system. @henriksenin2016frastructural 
+
+Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
+
+In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
 
 –––––
 

@@ -570,12 +570,25 @@ https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#
 https://medium.com/nightingale/from-storytelling-to-scrollytelling-a-short-introduction-and-beyond-fbda32066964
 https://webflow.com/blog/scrollytelling-guide?fbclid=IwAR3yRP5GAYtrHgNcN_njPk-5HwW3_ppH6sloQpna5CpxEmOm5qjQCoXBeoY
 
+arcgis storymaps
+
 Naration is quite underused 
 Narration as a workaround for cartographic rules – legibility, etc. Static map must adhere to the cartographic rules. In interactive maps (both presentational and exploratory) the argument is as follows: application doesn't need to be cartographically legit in all of it's states provided that it shows a path from the messy state to the cartographically treated state.
 
-
 TODO: 
 - discussion of presentational vs exploratory cartography – or better on building interfaces to support one of them. – exploratory interfaces seen loftier, most commercial assignments are presentational – in fact the threshold between presentational and exploratory capabilities is something that needs to be considered. 
+
+Amount of hand-holding?
+(move to one of the questions)
+Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas – see below on weaponization of design).
+
+– este k engagement a interface – explorable explanations (orig.: Bret Victor)
+http://worrydream.com/ExplorableExplanations/
+(also: his other essays – ladder of abstraction, learnable programming, a bref rant)
+examples, elaborations:
+https://canvas.uw.edu/courses/1370850/pages/explorable-explanations
+https://github.com/sp4ke/awesome-explorables
+https://explorabl.es/
 
 
 # UX and interaction (TODO maybe to the next section)
