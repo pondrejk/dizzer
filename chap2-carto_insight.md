@@ -259,65 +259,25 @@ The related concept of *flow* describes the relationship between the skill of th
 
 Shaping the initial experience with an application is sometimes referred to as “user onboarding” (@baur2017death). The onboardiding stage is far too often omitted in information visualisations on the web, though there is no wide consensus on how it should work, the basic aim should be at a minimum a short textual introduction to the presented data and the knowledge around it. Complex interfaces tend to offer an initial tour of controls that usually explains what individual UI elements do, less often it ventures into teaching people how to read and understand the presented visualizations. There are approaches like "scrollytelling" (@amabili2019storytelling) or explorable explanations (@victor2011explorable) that embed interactive visualisations into larger body of text that gradually explains it.
 
-The task is further complicated by the obvious fact that different people have different interests and understanding of the world. In web development, creators try to specify user personas to represent target audience and user stories to list supported user actions. To start modelling from considering users rather than data is certainly an advisable approach. However user stories are often too removed from the real life circumstances to perceive and prevent alternative harmful uses of the system (so called "weaponisation" of design @diehm2018weaponised).
+The task is further complicated by the obvious fact that different people have different interests and understanding of the world. In web development, creators try to specify user personas to represent target audience and user stories to list supported user actions. To start modelling from considering users rather than data is certainly an advisable approach. However user stories are often too removed from the real life circumstances to perceive and prevent abusive uses of the system (so called "weaponisation" of design @diehm2018weaponised).
 
 Tailoring the map interaction to intended users is definitely something digital cartography should aim for. While some customizations are technologically possible (e.g. the dark mode in transportation maps switching on for tunnels or night travel), the topic of accessibility of interactive maps is still fairly unexplored. While there are methods to ensure map is usable for people with color blindness, there is a wide range of vision impairments cartography is largely unprepared to adjust for. 
 
 
 ## 2.4 Objections and Responses
 
-Not surprisingly, data visualisation is seen as a good tool for achieving a desirable goal in most of the literature, this thesis included. But there are also voices raising objections against naive u
+Not surprisingly, data visualisation is seen as a great tool for achieving a desirable goal in most of the literature, this thesis included. But there are also voices raising objections against some naive expectations form data visualisation that may even get harmful with incorporation of big data. Such debates may shed some light on the possible future evolution of digital cartography, so let us briefly outline some of the main objections with possible responses to them.
 
-that target naive justification of visualisation practice or it's future viability. Here we outline some of the objections and possible responses to them as they may shed light on possible tracks of future evolution of cartography.
+**Hiding system complexity**
 
-––––-
+The first objection is related to modelling and visualizing complex systems. By reducing the complex system into comprehensible chunks, data visualisation may encourage confident predictions and estimations that may lead to decisions and interventions with harmful effects. The issue is that the used datasets and models may not include all aspects of reality, but absence of evidence is not evidence of absence. Incomplete models may be used to rationalize decisions, that despite claiming to be data-driven, are actually based on thin legs. This can lead to unpleasant surprises (for example, loosening of pandemic-related restrictions in Czech Republic before Christmas 2020 was based on models that did not expect the presence COVID-19 variant with increased transmissibility, leading to disastrous effects soon afterwards). Visualisation based on a bad model than acts basically as an accomplice, no matter how well crafted it is.
 
-### Hiding system complexity (and intervention risks)
+Apart from missing relevant information in models, there are some aspects of complex systems that render prediction efforts highly problematic. Nonlinear relationships between system parts produce disproportional responses to change in input parameters. The boundaries between system components may be hazy or even imaginary. When the relationships between system components are vaguely understood (which is often the case of complex system), any naive intervention can trigger a chain of cascading second order effects that can accelerate harm (@meadows2008thinking, @taleb2012antifragile). Moreover, extracting trends from historical data offers no preparation for the so called Black Swan events -- large-scale unpredictable and irregular events of massive consequence (@taleb2007black).
 
-**Obj1**: By reducing the complex system into comprehensible chunks, data visualisation invites unwarranted interventions that may produce disastrous effects.
+What can be done in response to these concerns? Models and visualisations could be more explicit about their own limits -- like the properties of used data, statistical assumptions, margins of error, sources of uncertainty and possible other explanations. Incorporation of of uncertainty into visualisations should be done in a way that cannot be easily ignored by the users (@kale2020visual). Visualisations shouldn't simplify the depiction of data if it leads to hiding important aspects of the system. Overall, visualising interdependencies and feedback loops within a complex system poses an interesting challenge for visualisation community and for cartographers as well.
 
-- second order effects (taleb)
-- impossibility of prediction of rare events (taleb)
-- nature as complex system cascading effects (zizek) – nature melts into air and what to do about it 
-- why systems surprise us (meadows) @meadows2008thinking
-- system theory itself as a dangerous simplification (harvey) environment vs culture
+When it comes to reasoning about complex systems, visualisations can support a non-predictive approach that aims more at risk evaluation and moderating  exposure to the possible harm coming from unprecedented events. In relation to man made systems in general, we could strive to make them more akin to natural systems that are not only robust to error, but can also adapt to benefit from certain doses of volatility (so called antifragile systems @taleb2012antifragile). 
 
-Mapping complex systems? Beyond the rational naivety about the models (taleb) – prediction is not a goal, unpredictable events... risk mgmt...
-spatial modelling 
-(naive rationalism) - risky inference, risky prediction, harmful intrusions to complex
-Pseudo-insights?
-
-@meadows2008thinking
-Donnela meadows on systems with delay – good for describing systems with already known structure (man-made), maybe use something on complex systems
-
-**response**: 
-- incorporate rather than hide the complexity, uncertainty
-- implement model evaluation tools to maps where possible (e.g. visual e)
-- cartography as a unique argument to support arguments 
-- maps for risk management - embracing what we cann't know (via negativa) 
-- maps for antifragility (convexity) detection, barbell venturing to seek unlimited payoff (taleb) – more of a side project
-
-
-**weaponized design**
-@diehm2018weaponised
-
-Weaponised design – a process that allows for harm of users within the defined bounds of a designed system – is facilitated by designers who are oblivious to the politics of digital infrastructure or consider their design practice output to be apolitical.
-
-This is weaponised design: electronic systems whose designs either do not account for abusive application or whose user experiences directly empower attackers.
-
-As platforms became more commodified – especially through mobile touch mediums – UX designers have progressively become more reliant on existing work, creating a feedback loop that promotes playfulness, obviousness and assumed trust at the expense of user safety.
-
-A user story is “a very high-level definition of a requirement, containing just enough information so that the developers can produce a reasonable estimate of the effort to implement it". (definition from @ambler2014user)
-
-When designing for the digital world, user stories ultimately determine what is or is not an acceptable area of human variation. The practice empowers designers and engineers to communicate via a common problem-focused language. But practicing design that views users through a politically-naive lens leaves practitioners blind to the potential weaponisation of their design. User-storied design abstracts an individual user from a person of lived experience to a collection of designer-defined generalisations. 
-
-All intentionally-created systems have a set of things the designers consider part of the scope of what the system manages, but any nontrivial system has a broader set of impacts. Often, emergence takes the form of externalities — changes that impact people or domains beyond the designed scope of the system. @henriksenin2016frastructural 
-
-Through inclusion, participatory design extends a design team’s focus beyond the hypothetical or ideal user, considering the interactions between users and other stakeholders over user stories.
-
-In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
-
-–––––
 
 ### Misinterpretation generators
 
