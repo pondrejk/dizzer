@@ -116,7 +116,7 @@ Visual analytics extends the concept of visualisation: not only it provides a vi
 
 This is truly a long way from the low-level search for co-occurrences, though it is not clear how should these grand goals materialize in practice. Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Cognition, Human-Computer interaction) and identify a range of application and technical challenges. 
 
-The brief tour we just went trough lets us appreciate the prospect of gaining the best of the both worlds -- to support human analytical efforts with algorithmic power doing the heavy lifting around data manipulation. We have seen that inscribing spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, the co-occurrence we want to search for needs to be defined beforehand, so in many cases data mining is insufficient to provide the required insight. Search algorithms can be performance heavy, which invites some coordination with human observer that is able to easily gain an overview of clusters beyond individual database entities. Visualization and visual analytics provide this exploratory potential, especially for big data in situation where we don't yet know what questions we want to ask. Visualisation as a sense-making tool gives us a way to find things that we had no theory about and no statistical models to identify and to explore the space of models in more expansive ways (@bollier2010promise). 
+The brief tour we just went trough lets us appreciate the prospect of gaining the best of the both worlds -- to support human analytical efforts with algorithmic power doing the heavy lifting around data manipulation. We have seen that inscribing spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, the co-occurrence we want to search for needs to be defined beforehand, so in many cases data mining is insufficient to provide the required insight. Search algorithms can be performance heavy, which invites some coordination with human observer that is able to easily gain an overview of clusters beyond individual database entities. Visualization and visual analytics provide this exploratory potential, especially for big data in situation where we don't yet know what questions we want to ask. Visualisation as a sense-making tool gives us a way to find things that we had no theory about and no statistical models to identify and to explore the space of models in more expansive ways (@bollier2010promise).
 
 Many possible data transformations may be applicable to a particular problem, but it is not necessarily clear which ones will be of most value in facilitating insight. Also, because visual analytics is qualitative as well as quantitative, there are no assumptions of exact parameters and well-defined boundaries between what is interesting and what is not. A priori criteria of significance may be manipulated based on the judgment of the analyst (@thomas2005illuminating). As we will see next, digital cartography has great potential and means to dynamically support cognitive tasks in the manner of visual analytics.
 
@@ -204,7 +204,7 @@ Same as we asked about the preconceptions of the old medium, we can reverse the 
 
 Some of the classical cartographic techniques may be demanding to implement in the variable scale environment, same other may provide solutions to the visualisation issues like high density displays. Again, we arrive at the problem of opinionated web mapping libraries that are not easy to customize or extend. Cartographers usually aren't software developers, and software developers are usually unaware of old map stocks, but there are already examples of positive trends in collaboration towards richer visualisation in digital maps.
 
-**3. Should cartography focus more on interaction design?**
+**3. Should cartography focus more on the interaction design?**
 
 Creating digital maps is not only about assigning appropriate visualisation type to the data at hand. It also becomes increasingly about designing user interactions with map elements. The ways how the map application enables user actions, the way how map controls and map elements react to user-induced changes, the way how the whole map composition adapts to screen space constraints, this all weaves a complex net of interdependent design decisions that will become an inherent part of digital cartography. What is more, the challenges of high data density affect both map intra-composition as well as extra-composition^[TODO explain these terms?].
 
@@ -270,76 +270,29 @@ Not surprisingly, data visualisation is seen as a great tool for achieving a des
 
 **Hiding system complexity**
 
-The first objection is related to modelling and visualizing complex systems. By reducing the complex system into comprehensible chunks, data visualisation may encourage confident predictions and estimations that may lead to decisions and interventions with harmful effects. The issue is that the used datasets and models may not include all aspects of reality, but absence of evidence is not evidence of absence. Incomplete models may be used to rationalize decisions, that despite claiming to be data-driven, are actually based on thin legs. This can lead to unpleasant surprises (for example, loosening of pandemic-related restrictions in Czech Republic before Christmas 2020 was based on models that did not expect the presence COVID-19 variant with increased transmissibility, leading to disastrous effects soon afterwards). Visualisation based on a bad model than acts basically as an accomplice, no matter how well crafted it is.
+The first objection is related to modelling and visualizing complex systems. By reducing the complex system into comprehensible chunks, data visualisation may encourage confident predictions and estimations that may lead to decisions and interventions with harmful effects. The issue is that the used datasets and models may not include all aspects of reality, but absence of evidence is not evidence of absence. Incomplete models may rationalize decisions that despite claiming to be data-driven, actually stand on thin legs. This can lead to unpleasant surprises (for example, loosening of pandemic-related restrictions in Czech Republic before Christmas 2020 was based on models that did not account for the presence of a COVID-19 variant with increased transmissibility, leading to disastrous effects soon afterwards). Visualisation based on a bad model than acts basically as an accomplice, no matter how well crafted it is.
 
-Apart from missing relevant information in models, there are some aspects of complex systems that render prediction efforts highly problematic. Nonlinear relationships between system parts produce disproportional responses to change in input parameters. The boundaries between system components may be hazy or even imaginary. When the relationships between system components are vaguely understood (which is often the case of complex system), any naive intervention can trigger a chain of cascading second order effects that can accelerate harm (@meadows2008thinking, @taleb2012antifragile). Moreover, extracting trends from historical data offers no preparation for the so called Black Swan events -- large-scale unpredictable and irregular events of massive consequence (@taleb2007black).
+Apart from missing relevant information in models, there are some aspects of complex systems that render prediction efforts highly problematic. Nonlinear relationships between system parts produce disproportional responses to change in input parameters. The boundaries between system components may be hazy or even imaginary. When the relationships between system components are vaguely understood (which is often the case in complex systems), any naive intervention can trigger a chain of cascading second order effects that can accelerate harm (@meadows2008thinking, @taleb2012antifragile). Moreover, extracting trends from historical data offers no preparation for the so called Black Swan events -- large-scale unpredictable and irregular events of massive consequence (@taleb2007black).
 
-What can be done in response to these concerns? Models and visualisations could be more explicit about their own limits -- like the properties of used data, statistical assumptions, margins of error, sources of uncertainty and possible other explanations. Incorporation of of uncertainty into visualisations should be done in a way that cannot be easily ignored by the users (@kale2020visual). Visualisations shouldn't simplify the depiction of data if it leads to hiding important aspects of the system. Overall, visualising interdependencies and feedback loops within a complex system poses an interesting challenge for visualisation community and for cartographers as well.
+What can be done in response to these concerns? Models and visualisations could be more explicit about their own limits -- like the properties of data used, statistical assumptions, margins of error, sources of uncertainty and possible other explanations. Incorporation of uncertainty into visualisations should be done in a way that cannot be easily ignored by the users (@kale2020visual). Visualisations shouldn't simplify the depiction of data if it leads to hiding important aspects of the system. Overall, visualising interdependencies and feedback loops within a complex system poses an interesting challenge for visualisation community and for cartographers as well.
 
-When it comes to reasoning about complex systems, visualisations can support a non-predictive approach that aims more at risk evaluation and moderating  exposure to the possible harm coming from unprecedented events. In relation to man made systems in general, we could strive to make them more akin to natural systems that are not only robust to error, but can also adapt to benefit from certain doses of volatility (so called antifragile systems @taleb2012antifragile). 
+When it comes to reasoning about complex systems, visualisations can support a non-predictive approach that aims more at risk evaluation and moderating  exposure to the possible harm coming from unprecedented events. In relation to man made systems in general, we could strive to make them more akin to natural systems that are not only robust to error, but can also adapt and benefit from certain doses of volatility (so called antifragile systems @taleb2012antifragile). 
 
+**Misinterpretation**
 
-### Misinterpretation generators
+The second objection is related to the first one, but rather than looking at limits of models and visualisations, it is concerned with user's ability to interpret them. It is long known that our intuitive thinking is influenced by biases in many tasks, including assigning probabilities to events, forecasting the future, assessing hypotheses and estimating frequencies (@kahneman2011thinking). There is a long list of cognitive biases that correct the assumption of people being fully rational actors.
 
-**Obj2**: Human misinterpretation, false correlations, biases and limits of knowledge.
+For example, biases about the reliability of different sources may lead us to discount information from sources that we don't associate with (@thomas2005illuminating). When we form a preliminary judgment too early in the analytical process, we may hold firm to it long after the evidence invalidates it. Sometimes we settle for a “good enough” answer, stopping our analytical process before identifying critical information that would lead us to a different conclusion (@heuer1999psychology). We are also challenged to think statistically compared to our abilities to think associatively, metaphorically or causally. Furthermore, there is our overconfidence in what we think we know, and inability to acknowledge the full extent of what we don't know (@kahneman2011thinking). We also underestimate the role of chance in events, we tend to assume causality between events that just happen to occur at the same time (@taleb2012antifragile), and so on, and so on.
 
-- epiphenomena vs correlation (taleb)
-- statistical thinking is unintuitive (kahneman) 
-- limits of comprehension (dennett) @dennett2017bacteria
+To make the matters worse, experts who create visualisations are to susceptible to various biases. The design choices can drive results every bit as much as traditional “data-cleaning” choices. Hence visualization techniques contain embedded judgments (@bollier2010promise). Then there is the "curse of knowledge": the difficulty in imagining what it is like for someone else not to know something you know (@pinker2015sense). On the side of the application designer, it can lead to expecting the user to have same levels of skills and knowledge, but also the same values and views of the world.
 
-Causal relationships vs. epiphenomena. – see Taleb 198-200. (Maps helping to tell?)
+What can be done in response to these concerns? First of all, we might benefit from a more realistic view of the impact of data visualisation. Insight comes from knowledge and experience and no data-driven tool can compensate for the lack of the two. Visualisation is a supporting tool, a mediator that can stimulate and amplify the thought process, but cannot act as a shortcut if no thinking is being done. Expecting to become an expert by looking at a picture is a false promise.
 
+That being said, acknowledging the cognitive biases in the visualisation design process is definitely a right way to go. Visualisation designers have often little information on what judgements are triggered by their work. There is a growing body of research on user interactions with complex visualisation that could help us. Applications could incorporate tools to collect feedback from users, even evaluate usage data to find issues. Overall, judgement biases are systematic errors, therefore to some extent they are predictable, although maybe not preventable. The task is then to explore how to adjust the visual language to inform users that they might be biased.
 
-. Techniques are needed to (@thomas2005illuminating)
-help analysts simplify their cognitive load without compromising the analyst’s
-effectiveness and to help compensate for faulty memory.
-
-• *Overcoming biases*. Biases affect the way data are interpreted. Biases about
-the reliability of different sources may lead people to discount information
-from sources that aren’t considered reliable. People often see what they expect
-to see and tend to ignore evidence that is contradictory to a preferred theory.
-If they form a preliminary judgment too early in the analytical process, they
-may hold firm to it long after the evidence invalidates it [Heuer, 1999].
-
-• *Satisficing*. People settle for a “good enough” answer, sometimes stopping
-their analytical process before they identify critical information that would
-lead them to a different conclusion [Heuer, 1999].
-New interaction techniques are needed to support the user in evaluating evidence,
-challenging assumptions, and finding alternatives. Analytical environments should
-support the user in identifying and understanding all relevant information to reach
-a solid conclusion rapidly. The tools we create need to establish a correct balance
-between structure and intuition.
-
-**response**:
-- not all biases are actually biases (taleb)
-- how comprehension is built – support it (dennett)
-- maps for generating questions, spotting interesting phenomena, building enegagement
+**Non-human decision makers**
 
 
-– the societal responsibility of designers (first things first movement?, something for data visualists), and cartographers (harley, wood, crampton, – radical cartography (Paglen?)) Designers creating manifestos for social change, being confronted with grudgy realities of their field being used in doubtful practices of attention economy.
-
-– Add human cognition: not uniform (makes sense to look at otliers rather than the general populations, – tailoring for elderly, disabled, visually impaired), evolves with media usage (some abilities strengthen, some weaken) 
-
-– Kim Taipale of the Center for Advanced Studies in Science and
-Technology warned that visualization design choices drive results every bit as much as traditional “data-cleaning” choices.  Visualization techniques contain embedded judgments.
-
-Paraphrased from @dennett2017bacteria
-
-An argument from Cognitive Closure states that as in any other animal, human brain is necessarily limited and there are categories of issues that are simply beyond it, unimaginable and unfathomable. But unlike other animals, humans are equipped add-ons that multiply our cognitive powers. Language provides a medium for pooling knowledge across individuals and even generations. Group comprehension is a work-around to extend the limit.
-
-– Cartography as a unifying language, map is a one of these extending tools
-
-
-TODO – proti interpretácii (niekam zahrnúť??) – https://www.kinecko.com/proti-interpretacii/?fbclid=IwAR2Ms83cZyRofIbDOqhucPID9Qt9aOQyRKFExdxcb9_zhcKndrgPYNN53LQ (Susan Sontag) @sontag1994against – niečo v tom zmysle aj o pozorovaní reprezentácie (mapy) spôsobom akým pozorujeme prírodu – bez automatických hľadaní príčinných súvislostí medzi javmi. (možno odkaz na Kahneman kapitola o statistical thinking? – Jak tu zaváži kartografia?) @kahneman2011thinking (pohľad na denný rytmus mestskej dopravy ako pohľad na vlnobitie alebo iný prírodný jav)
-
-Like in John Snows example,
-There is the hard truth, knowledge and experience produces insight, there are no shortcuts, visualisation is a mediator but that can stimulate and amplify the thought process. But it cannot compensate for the lack of experience and knowledge. 
-
-Expecting to become an expert by looking at a picture is a false promise.
-
-–––––-
-
-### Non-human decision makers
 
 **Obj3**: For future: due to above, let's remove human decision making
 - it is not humans that make the decision (harrari, mayer-zukier)
@@ -400,50 +353,7 @@ will require dramatically more computationally-efficient methods, which will
 either have to come from changes to deep learning or from moving to other
 machine learning methods.
 
-TODO - revisit after reading @shane2019you
 Issues – human biases can get incorporated so AI is not extempt from the failings of its designers
 
 
-Excellent map provides answers, helps to ask queations and supports understanding in an engaging way. It is perfectly OK if the conveyed message is a lack of pattern, lack of reagularity or inability to rasonably identify correlation.
-
-It is always possible to say when not to use the map.  @robinson2017geospatial
-
-
-@fisher2017making
-
-Where Visualization Is Useful
-Is visualization the silver bullet to help us make sense of data? Not
-always. There are two questions to consider to help you decide if
-your data analysis problem is a good candidate for a visualization
-solution.
-First, could the analysis tasks be supported with an algorithm? A
-crisp task such as “I want to know the total number of users who
-looked at Seattle” suggests that an algorithm, statistical test, or even
-a table of numbers might be the best way to answer the question. On
-the other hand, “How do users explore the map?” is much fuzzier.
-Fuzzy tasks are great candidates for a visualization solution because
-they require you to look at the data from different angles and per‐
-spectives, and to be able to make decisions and inferences based on
-your own knowledge and understanding.
-The second question to consider is “Is all the necessary information
-contained in the dataset?” If there is information about the problem
-that is not in the dataset which requires an expert to interpret the
-data that is there, then visualization is a great solution. Going back
-to our fuzzy question about exploring a map, we can imagine that it
-is unlikely that there will be an explicit attribute in the data that
-classifies a user’s exploration style. Instead, answering this question
-requires someone to interpret other aspects of the data to bring
-knowledge to bear about what aspects of the data imply an explora‐
-tion style. Again, visualization enables this sort of flexible and user-
-centric analysis.
-
-
-# Conclusion
-BD are fast and n=all so we need to quickly make sense of it or quickly establish there is no sense present.
-
-@van20133v on visulaisation: "Visualizing might not be the most technologically difficult part; it sure is the most challenging part. Telling a complex story in a graph is very difficult but also extremely crucial. Luckily there are more and more big data startups appearing that focus on this aspect and in the end, visualizations will make the difference. One of them is future this will be the direction to go, where **visualizations help organisations answer questions they did not know to ask."**
-
-“Discovery consists of seeing what everybody has seen
-and thinking what nobody has thought.”
-—Albert von Szent-Gyorgyi (1893–1986)
 

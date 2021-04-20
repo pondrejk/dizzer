@@ -150,3 +150,40 @@ Through inclusion, participatory design extends a design team’s focus beyond t
 
 In particular, security research and user experience design have significant practice and goal overlap and this relationship is often antagonistic. Both fields primarily focus on the systems of wide-scale interactions between users and technology, but the goals of the two fields are diametrically opposed; design is to create the best possible experience for a user, security is to create the worst possible experience for an attacker.
 
+@van20133v on visulaisation: "Visualizing might not be the most technologically difficult part; it sure is the most challenging part. Telling a complex story in a graph is very difficult but also extremely crucial. Luckily there are more and more big data startups appearing that focus on this aspect and in the end, visualizations will make the difference. One of them is future this will be the direction to go, where **visualizations help organisations answer questions they did not know to ask."**
+
+“Discovery consists of seeing what everybody has seen
+and thinking what nobody has thought.”
+—Albert von Szent-Gyorgyi (1893–1986)
+
+
+@fisher2017making
+
+Where Visualization Is Useful
+Is visualization the silver bullet to help us make sense of data? Not
+always. There are two questions to consider to help you decide if
+your data analysis problem is a good candidate for a visualization
+solution.
+First, could the analysis tasks be supported with an algorithm? A
+crisp task such as “I want to know the total number of users who
+looked at Seattle” suggests that an algorithm, statistical test, or even
+a table of numbers might be the best way to answer the question. On
+the other hand, “How do users explore the map?” is much fuzzier.
+Fuzzy tasks are great candidates for a visualization solution because
+they require you to look at the data from different angles and per‐
+spectives, and to be able to make decisions and inferences based on
+your own knowledge and understanding.
+
+The second question to consider is “Is all the necessary information
+contained in the dataset?” If there is information about the problem
+that is not in the dataset which requires an expert to interpret the
+data that is there, then visualization is a great solution. Going back
+to our fuzzy question about exploring a map, we can imagine that it
+is unlikely that there will be an explicit attribute in the data that
+classifies a user’s exploration style. Instead, answering this question
+requires someone to interpret other aspects of the data to bring
+knowledge to bear about what aspects of the data imply an explora‐
+tion style. Again, visualization enables this sort of flexible and user-
+centric analysis.
+
+
