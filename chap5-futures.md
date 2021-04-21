@@ -18,6 +18,10 @@ https://observablehq.com/@fil/web-mercator-tile-visibility
 # Machine Learning in map design
 
 
+Hard vs easy problems – ai can now do only "easy", will "hard" ever be possible? (general AI – cite Pinker?)
+
+– here, are problems solvable by maps hard or easy, better: which are hard and which are easy? – here, are problems solvable by maps hard or easy, better: which are hard and which are easy? Also the difference between AI in place of cartographers (which map-making tasks can be automated – probably those tedious ones – digitalization) and AI for cartographers (what can we now do better? Tooling and process improvements)
+
 maptiler.com
 -- deep learning for hilshade - zurich univerzita
 
@@ -100,6 +104,7 @@ visualisation overviews (don't go to detail, just mention): basically more or le
 https://datavizproject.com/  (organization by: Family Input Function Shape)
 https://www.data-to-viz.com/ (tree structure)
 http://geo.janmiklin.cz/metody-tematicke-kartografie-navrh-hierarchicke-klasifikace/ (more cartography-realed, hierarchical classification of thematic cartography methods)
+
 
 
 # Testing map based applications

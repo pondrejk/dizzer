@@ -187,3 +187,15 @@ tion style. Again, visualization enables this sort of flexible and user-
 centric analysis.
 
 
+Paraphrased from @dennett2017bacteria
+
+AI without comprehension extracts statistical patterns from what *already happened*. Human imagination and ability to envision realities that are not accessible to us by extrapolating from where we currently are, allows for foresighted design
+
+Strong AI is "possible in principle" but a negligible practical possibility, it would cost too much and not give us anything we need. 
+
+There is fairly sharp boundary between machines that enhance our "peripheral" intellectual powers (memory, calculation) and those that purport to replace the "core" powers (imagination, planning, decision making).
+
+Design AI to be tools not collaborators.
+
+Best to combine human as discerning, purposeful, foresighted agent to govern the process, but heavy lifting is left to inexorable pattern-finding algorithms in cascades of uncomprehending generate-and-test cycles that refine the search process.
+

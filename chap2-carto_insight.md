@@ -43,7 +43,7 @@ In this section we will briefly discuss techniques for exploring spatio-temporal
 
 The expectation that motivates people engaged in data-related practices is that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise inconceivable piles of data. Such insight seeking is the crux of *data mining*, *spatio-temporal knowledge discovery* and *visual analytics* that we will explore further.
 
-*Data mining* is exploring databases using low-level algorithms to find patterns. *Knowledge discovery* is then a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). In the knowledge discovery process, computation is seen as an extension of human force rather than its replacement -- the goal is to marry the best of the both worlds. This is in line with the (current) capabilities of information technologies: there are tasks that are very simple for computers and very hard for humans (e.g. calculate the square root of 567789898) and vice-versa (basically any task requiring improvisation).
+*Data mining* is exploring databases using low-level algorithms to find patterns. *Knowledge discovery* is then a higher-level extension of data-mining techniques that requires human-level intelligence and domain knowledge to guide the process and interpret the results (@miller2015spatio). In the knowledge discovery process, computation is seen as an extension of human force rather than its replacement — the goal is to marry the best of the both worlds. This is in line with the (current) capabilities of information technologies: there are tasks that are very simple for computers and very hard for humans (e.g. calculate the square root of 567789898) and vice-versa (basically any task requiring imagination and improvisation).
 
 If we imagine a continuum ranging from "work done purely in human brain" towards "work done by machines", knowledge discovery places itself somewhere in the middle. *Visual analytics*, the science of analytical reasoning supported by interactive visual interfaces (@thomas2005illuminating), then zooms in at the human-machine frontier in order to find the best tools for *visual* interaction. 
 
@@ -116,7 +116,7 @@ Visual analytics extends the concept of visualisation: not only it provides a vi
 
 This is truly a long way from the low-level search for co-occurrences, though it is not clear how should these grand goals materialize in practice. Keim2008visual call for broad inter-disciplinary collaboration between related fields (Visualisation, Data Management, Data Analysis, Perception and Cognition, Human-Computer interaction) and identify a range of application and technical challenges. 
 
-The brief tour we just went trough lets us appreciate the prospect of gaining the best of the both worlds -- to support human analytical efforts with algorithmic power doing the heavy lifting around data manipulation. We have seen that inscribing spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, the co-occurrence we want to search for needs to be defined beforehand, so in many cases data mining is insufficient to provide the required insight. Search algorithms can be performance heavy, which invites some coordination with human observer that is able to easily gain an overview of clusters beyond individual database entities. Visualization and visual analytics provide this exploratory potential, especially for big data in situation where we don't yet know what questions we want to ask. Visualisation as a sense-making tool gives us a way to find things that we had no theory about and no statistical models to identify and to explore the space of models in more expansive ways (@bollier2010promise).
+The brief tour we just went trough lets us appreciate the prospect of gaining the best of the both worlds — to support human analytical efforts with algorithmic power doing the heavy lifting around data manipulation. We have seen that inscribing spatiality a and temporality to data mining processes can be both cumbersome and simplistic. Furthermore, the co-occurrence we want to search for needs to be defined beforehand, so in many cases data mining is insufficient to provide the required insight. Search algorithms can be performance heavy, which invites some coordination with human observer that is able to easily gain an overview of clusters beyond individual database entities. Visualization and visual analytics provide this exploratory potential, especially for big data in situation where we don't yet know what questions we want to ask. Visualisation as a sense-making tool gives us a way to find things that we had no theory about and no statistical models to identify and to explore the space of models in more expansive ways (@bollier2010promise).
 
 Many possible data transformations may be applicable to a particular problem, but it is not necessarily clear which ones will be of most value in facilitating insight. Also, because visual analytics is qualitative as well as quantitative, there are no assumptions of exact parameters and well-defined boundaries between what is interesting and what is not. A priori criteria of significance may be manipulated based on the judgment of the analyst (@thomas2005illuminating). As we will see next, digital cartography has great potential and means to dynamically support cognitive tasks in the manner of visual analytics.
 
@@ -146,7 +146,7 @@ We can say that these questions are at the basic level of map reading. bertin198
 
 It is obvious that even a simple map has a potential to introduce countless possible combinations of questions at various levels. As we will see in the next chapter, showing the basic quantities gets complicated in the context of big data, when the number of records to be displayed precludes displaying them individually. Another challenge comes with multiparametric visualisation, especially if we want to support both elementary and global levels of reading for individual parameters.
 
-Besides the importance of supporting elementary-level questions, in thematic cartography we are often interested mainly in the global level of reading as it is hardly achievable with non-cartographic means. Often times, just to *see* the overall level is a revelation -- an overreaching macroscope perspective unique to maps. But what else we can do with the overall patterns?
+Besides the importance of supporting elementary-level questions, in thematic cartography we are often interested mainly in the global level of reading as it is hardly achievable with non-cartographic means. Often times, just to *see* the overall level is a revelation — an overreaching macroscope perspective unique to maps. But what else we can do with the overall patterns?
 
 Are there any examples of cartographic visualisation successfully supporting the analytical reasoning? Maybe the most frequent answer for this question would be the celebrated map of the cholera outbreak in London 1855 by John Snow that helped to identify the source of the epidemics in a polluted water pump. This feat is lauded for launching spatial epidemiology and for bringing the thematic cartography to the fore (@clarke2015map). But what exactly made the Snow's method worth following? @tufte1998visual notes four features:
 
@@ -200,7 +200,7 @@ In cartographic research, we often test the cognitive efficiency of the visualis
 
 **2. What inspiration can digital cartography take from the heritage of pre-digital mapping?** 
 
-Same as we asked about the preconceptions of the old medium, we can reverse the question and ask if there are any good tricks from the rich history of cartography that did not make it to digital mapping toolbox. What was lost in transition to digital? Even though paper maps and atlases age in the sense of content, cartographic methods used in them often remain inspirational and valid -- the old map products many not be outdated for cartographers.
+Same as we asked about the preconceptions of the old medium, we can reverse the question and ask if there are any good tricks from the rich history of cartography that did not make it to digital mapping toolbox. What was lost in transition to digital? Even though paper maps and atlases age in the sense of content, cartographic methods used in them often remain inspirational and valid — the old map products many not be outdated for cartographers.
 
 Some of the classical cartographic techniques may be demanding to implement in the variable scale environment, same other may provide solutions to the visualisation issues like high density displays. Again, we arrive at the problem of opinionated web mapping libraries that are not easy to customize or extend. Cartographers usually aren't software developers, and software developers are usually unaware of old map stocks, but there are already examples of positive trends in collaboration towards richer visualisation in digital maps.
 
@@ -238,7 +238,6 @@ In this model the collaboration points lie at the transitions between the stages
 
 Project examples form @walny2019data show that the above challenges were formulated based on project experience with relatively static data inputs. This underlines why interactive cartographic visualisation of real-time data is hard: much of the advice is hard to impossible to follow when the real-time data inflow is volatile. [TODO link on chapter on data mocking]
 
-
 ### 2.3.3 Who cares? Building user engagement
 
 The ability to interact with the map-based application can surely be empowering for the user, triggering the sensation of exploring the unknown. On the other hand, things can go wrong as it is very hard to create an immersive experience from a complex dataset that would be immediately understandable to the newcomer. Exploratory map applications intended for the general public can leave users overwhelmed with the amount of possible interaction points. Left to their own devices and without any stated framework for interpretation, users need to create their own narration about what is displayed. Visual interfaces are prone to be terrifyingly cluttered, untroubled with dangers of fostering misinterpretation. Lack of guidance on where to start results in poor engagement with the application that is quickly abandoned. With specialized applications for professional audience, this can be mitigated by training, because users are basically forced to work with the application as part of their job. Similar problems occur in business analytic dashboards proliferating in enterprises, which fail to make sense to users, or worse, fake insight with vaguely understood and hardly interpretable metrics. All these caveats pose a challenge to application designers.
@@ -247,15 +246,15 @@ Building engagement with an application is mainly about sparking curiosity in us
 
 ![**Fig.** Various ways of expanding our mental model or the world can trigger pleasure. Adopted from @stanova2016algorithms](imgs/img-knowledge-diagrams-1.png)
 
-So how to trigger curiosity? According to @stanova2016algorithms (Fig), to set off the thrill, one needs to first get from the "I don't know that I don't know" zone to the "I don't know and I'm curious" zone. Here we realize that there is something missing in our mental model of the world and we want to discover it. Crossing the border from "I don't know" to "I know" creates pleasure and motivates further exploration (which is crossing back and forth between "I don't know" and "I know"). Note that the "I know" zone doesn't need to correspond to reality -- exploring fictional worlds, gossips or conspiracy theories triggers pleasure just as well.
+So how to trigger curiosity? According to @stanova2016algorithms (Fig), to set off the thrill, one needs to first get from the "I don't know that I don't know" zone to the "I don't know and I'm curious" zone. Here we realize that there is something missing in our mental model of the world and we want to discover it. Crossing the border from "I don't know" to "I know" creates pleasure and motivates further exploration (which is crossing back and forth between "I don't know" and "I know"). Note that the "I know" zone doesn't need to correspond to reality — exploring fictional worlds, gossips or conspiracy theories triggers pleasure just as well.
 
 From the cartographic point of view, when we create maps for specialized audience, we target people who already are in the "don't know + curious" zone. But when working for general audience, it is important to think about how to move users to the curious zone to encourage interacting with an application. Sometimes the compulsory education makes the mistake of revealing how something works before making pupils interested in the topic, resulting in low levels of engagement and remembering. The same problem can occur when the user lands straight at a complex web interface with intricate cartographic visualisation.
 
 ![**Fig.** Pleasure points usually arise when ambiguity is triggered and when it is resolved. Adopted from @stanova2016algorithms](imgs/img-knowledge-diagrams-1.png)
 
-The thrills can arise also when crossing the I don't know barrier, that is when the ambiguity is triggered (Fig). The pleasure here comes from the expectation of the potentially upcoming reward -- resolving the ambiguity. However, note that the ambiguity doesn't need to be resolved to set off thrills -- for example, when watching a magic trick we don't get to know how the magician does it but we can entertain ourselves in speculations. Similarly in exploratory cartographic interfaces the stimulation comes from exploring various aspects of the displayed data, fostering our curiosity about the nature of the phenomenon.
+The thrills can arise also when crossing the I don't know barrier, that is when the ambiguity is triggered (Fig). The pleasure here comes from the expectation of the potentially upcoming reward — resolving the ambiguity. However, note that the ambiguity doesn't need to be resolved to set off thrills — for example, when watching a magic trick we don't get to know how the magician does it but we can entertain ourselves in speculations. Similarly in exploratory cartographic interfaces the stimulation comes from exploring various aspects of the displayed data, fostering our curiosity about the nature of the phenomenon.
 
-The related concept of *flow* describes the relationship between the skill of the user and the difficulty of the task at hand (@csikszentmihalyi1997flow). Flow is the mental state resulting form the right balance between the task difficulty and the user's skills. The flow channel is rather narrow -- if the difficulty is too high, anxiety arises, if it's too low, user is bored. The task of the interface designer is not to dumb down the displayed content, but also not to create additional roadblocks with incomprehensible interaction modes. 
+The related concept of *flow* describes the relationship between the skill of the user and the difficulty of the task at hand (@csikszentmihalyi1997flow). Flow is the mental state resulting form the right balance between the task difficulty and the user's skills. The flow channel is rather narrow — if the difficulty is too high, anxiety arises, if it's too low, user is bored. The task of the interface designer is not to dumb down the displayed content, but also not to create additional roadblocks with incomprehensible interaction modes. 
 
 Shaping the initial experience with an application is sometimes referred to as “user onboarding” (@baur2017death). The onboardiding stage is far too often omitted in information visualisations on the web, though there is no wide consensus on how it should work, the basic aim should be at a minimum a short textual introduction to the presented data and the knowledge around it. Complex interfaces tend to offer an initial tour of controls that usually explains what individual UI elements do, less often it ventures into teaching people how to read and understand the presented visualizations. There are approaches like "scrollytelling" (@amabili2019storytelling) or explorable explanations (@victor2011explorable) that embed interactive visualisations into larger body of text that gradually explains it.
 
@@ -272,9 +271,9 @@ Not surprisingly, data visualisation is seen as a great tool for achieving a des
 
 The first objection is related to modelling and visualizing complex systems. By reducing the complex system into comprehensible chunks, data visualisation may encourage confident predictions and estimations that may lead to decisions and interventions with harmful effects. The issue is that the used datasets and models may not include all aspects of reality, but absence of evidence is not evidence of absence. Incomplete models may rationalize decisions that despite claiming to be data-driven, actually stand on thin legs. This can lead to unpleasant surprises (for example, loosening of pandemic-related restrictions in Czech Republic before Christmas 2020 was based on models that did not account for the presence of a COVID-19 variant with increased transmissibility, leading to disastrous effects soon afterwards). Visualisation based on a bad model than acts basically as an accomplice, no matter how well crafted it is.
 
-Apart from missing relevant information in models, there are some aspects of complex systems that render prediction efforts highly problematic. Nonlinear relationships between system parts produce disproportional responses to change in input parameters. The boundaries between system components may be hazy or even imaginary. When the relationships between system components are vaguely understood (which is often the case in complex systems), any naive intervention can trigger a chain of cascading second order effects that can accelerate harm (@meadows2008thinking, @taleb2012antifragile). Moreover, extracting trends from historical data offers no preparation for the so called Black Swan events -- large-scale unpredictable and irregular events of massive consequence (@taleb2007black).
+Apart from missing relevant information in models, there are some aspects of complex systems that render prediction efforts highly problematic. Nonlinear relationships between system parts produce disproportional responses to change in input parameters. The boundaries between system components may be hazy or even imaginary. When the relationships between system components are vaguely understood (which is often the case in complex systems), any naive intervention can trigger a chain of cascading second order effects that can accelerate harm (@meadows2008thinking, @taleb2012antifragile). Moreover, extracting trends from historical data offers no preparation for the so called Black Swan events — large-scale unpredictable and irregular events of massive consequence (@taleb2007black).
 
-What can be done in response to these concerns? Models and visualisations could be more explicit about their own limits -- like the properties of data used, statistical assumptions, margins of error, sources of uncertainty and possible other explanations. Incorporation of uncertainty into visualisations should be done in a way that cannot be easily ignored by the users (@kale2020visual). Visualisations shouldn't simplify the depiction of data if it leads to hiding important aspects of the system. Overall, visualising interdependencies and feedback loops within a complex system poses an interesting challenge for visualisation community and for cartographers as well.
+What can be done in response to these concerns? Models and visualisations could be more explicit about their own limits — like the properties of data used, statistical assumptions, margins of error, sources of uncertainty and possible other explanations. Incorporation of uncertainty into visualisations should be done in a way that cannot be easily ignored by the users (@kale2020visual, @correll2018value). Visualisations shouldn't simplify the depiction of data if it leads to hiding important aspects of the system. Overall, visualising interdependencies and feedback loops within a complex system poses an interesting challenge for visualisation community and for cartographers as well.
 
 When it comes to reasoning about complex systems, visualisations can support a non-predictive approach that aims more at risk evaluation and moderating  exposure to the possible harm coming from unprecedented events. In relation to man made systems in general, we could strive to make them more akin to natural systems that are not only robust to error, but can also adapt and benefit from certain doses of volatility (so called antifragile systems @taleb2012antifragile). 
 
@@ -288,72 +287,12 @@ To make the matters worse, experts who create visualisations are to susceptible 
 
 What can be done in response to these concerns? First of all, we might benefit from a more realistic view of the impact of data visualisation. Insight comes from knowledge and experience and no data-driven tool can compensate for the lack of the two. Visualisation is a supporting tool, a mediator that can stimulate and amplify the thought process, but cannot act as a shortcut if no thinking is being done. Expecting to become an expert by looking at a picture is a false promise.
 
-That being said, acknowledging the cognitive biases in the visualisation design process is definitely a right way to go. Visualisation designers have often little information on what judgements are triggered by their work. There is a growing body of research on user interactions with complex visualisation that could help us. Applications could incorporate tools to collect feedback from users, even evaluate usage data to find issues. Overall, judgement biases are systematic errors, therefore to some extent they are predictable, although maybe not preventable. The task is then to explore how to adjust the visual language to inform users that they might be biased.
+That being said, acknowledging the cognitive biases in the visualisation design process is definitely a right way to go. Visualisation designers have often little information on what judgements are triggered by their work. There is a growing body of research on user interactions with complex visualisation that could help us. Applications could incorporate tools to collect feedback from users, even evaluate usage data to find issues. Overall, judgement biases are systematic errors, therefore to some extent they are predictable, although maybe not preventable. The task is then to explore how to adjust the visual language to warn users that they might be biased.
 
 **Non-human decision makers**
 
+The third question is directed more at the future relevance of data visualisation in the face of artificial intelligence (AI). If more and more decisions will be carried out by algorithms the need for visualisations may diminish in many areas where it is deemed crucial nowadays, merely because computers, unlike human analysts, don't need to visualize things to gain insight and understand the problem. 
 
+Having described the range of cognitive biases one might welcome computational assistance, and in many areas we already rely on it, navigation being a prominent example. One the other hand, we can point out the current deficiencies of machine learning algorithms. Contrary to popular beliefs, the technology is not ready to step in for humans for the majority of tasks. Current machine learning is about extracting rules from vast training data sets, which is susceptible to various kinds of issues: sensitivity to gaps and errors in data, confinement to the specifics of training data, or the tendency to take unwanted shortcuts (@shane2019you). Furthermore, it is not certain that some breakthrough in artificial intelligence will come in the foreseeable future, either because its already large appetite for computing power will become economically, technically, and environmentally unsustainable (@thompson2020computational), or because the demand for artificial collaborators will perish — we will simply want to design AI as tools not as collaborators (@dennett2017bacteria).
 
-**Obj3**: For future: due to above, let's remove human decision making
-- it is not humans that make the decision (harrari, mayer-zukier)
-
-data mining –> machine learning –> automated actions
-– no human interpretation, no need for insight?
-
-**response**:
-- technology is not ready (*pinker*, *shane*), maybe never will (computational limits, need for new paradigm)
-- visulaisation needed for human arbiters, to understand machien reasoning.
-
-- If human is dropped out of the equation, will we need visual analytics
-- man for checking, and qa function
-- man can direct search to speed up computations (interface needed)
-- algorithms can have biases too
-- at least a proven communication tool (to pass on the results of computation to human, tailored to human cognitive capabilites) – and we need communication for knowledge pooling to extend the threshold of the knowable (Argument from cognitive closure)
-
-
-We would mostly welcome automatization of many tedious tasks, and in realm of decision-making and orientation by the map we already do. AI Inference could go around some well known limitations of human analysts such as information overload in complex situations, inherent and unrecognized biases or tendency to settle for convenient anwers (satisficing) (@thomas2005illuminating)
-
-*briliant drudgery* – extremely talented people doing extremely repetitive but demanding work (@dennett) – example early disney animators 
-
-Paraphrased from @dennett2017bacteria
-
-AI without comprehension extracts statistical patterns from what *already happened*. Human imagination and ability to envision realities that are not accessible to us by extrapolating from where we currently are, allows for foresighted design
-
-Strong AI is "possible in principle" but a negligible practical possibility, it would cost too much and not give us anything we need. 
-
-There is fairly sharp boundary between machines that enhance our "peripheral" intellectual powers (memory, calculation) and those that purport to replace the "core" powers (imagination, planning, decision making).
-
-Danger is not in AI usurping us, but rather over-estimating the comprehension of tools.
-
-Design AI to be tools not collaborators.
-
-Best to combine human as discerning, purposeful, foresighted agent to govern the process, but heavy lifting is left to inexorable pattern-finding algorithms in cascades of uncomprehending generate-and-test cycles that refine the search process.
-
-– Now how to extend to maps
-
-–––––––
-
-
-First do we event want to get there, best of both worlds is maybe better approach (TODO cite Thiel, also on Keeping up with machines, article on not replacing human labor) 
-
-Second, hard vs easy problems – ai can now do only "easy", will "hard" ever be possible? (general AI – TODO cite Pinker)
-– here, are problems solvable by maps hard or easy, better: which are hard and which are easy? – here, are problems solvable by maps hard or easy, better: which are hard and which are easy? Also the difference between AI in place of cartographers (which map-making tasks can be automated – probably those tedious ones – digitalization) and AI for cartographers (what can we now do better? Tooling and process improvements)
-
-@thompson2020computational:
-Deep learning’s recent history has been one of achievement: from triumphing
-over humans in the game of Go to world-leading performance in image recog-
-nition, voice recognition, translation, and other tasks. But this progress has
-come with a voracious appetite for computing power. This article reports on
-the computational demands of Deep Learning applications in five prominent
-application areas and shows that progress in all five is strongly reliant on in-
-creases in computing power. Extrapolating forward this reliance reveals that
-progress along current lines is rapidly becoming economically, technically, and
-environmentally unsustainable. Thus, continued progress in these applications
-will require dramatically more computationally-efficient methods, which will
-either have to come from changes to deep learning or from moving to other
-machine learning methods.
-
-Issues – human biases can get incorporated so AI is not extempt from the failings of its designers
-
-
-
+In a realistic view, the danger of AI is not in usurping us, but rather in us putting too much confidence into uncomprehending tools. But even if we will get to non-human decision makers, it wouldn't mean a demise of visualisation, contrary, it could open new opportunities for using visual artefacts. First, as a communication interface between humans and machines. Second, as a way to inspect and verify the workings of decision-making algorithms. It is not possible to check upon a black box, nor to negotiate with it, so gaining insight into how and why automated systems arrived at a particular decision may become a new frontier for the data visualisation community.
