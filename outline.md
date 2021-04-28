@@ -3,7 +3,7 @@ Outline
 
 # Introduction
 
-# Defining Big Data
+# Defining big data
 - Ontological characteristics
 - Other ways of understanding big data
   - Vs and keywords
@@ -14,7 +14,7 @@ Outline
 - Spatial big data 
 - Assessing impacts, threats and opportunities
 
-# Making sense of Big Data
+# Making sense of big data
 - Spatial big data classification: stations, events, and agents
 - Spatio-temporal knowledge discovery and visual analytics 
   - Spatio-temporal relations 
@@ -29,7 +29,7 @@ Outline
   - Misinterpretation
   - Non-human decision makers
 
-# Dealing with density in spatial data
+# Dealing with density in spatial big data
 - Visualisation challenges:
   - design constraints
   - data processing pipelines 
@@ -57,9 +57,10 @@ Outline
 - Case study - traffic trough the pandemic
 
 # Future trajectories:
-- (isqtb) ideas form sw testing in cartography, visual testing neeeded, google analytics? testing map-based applications
-- mocking data, preparing fake data with right properties for systems prototyping data emulation 
-- ML - first to take on manual tasks, then for map design related tasks? (down to earth assesment :P)
+- Software testing map-based applications --  (isqtb) ideas form sw testing in cartography, visual testing neeeded, google analytics? 
+- Simulating data load -- mocking data, preparing fake data with right properties for systems prototyping data emulation 
+- Vector tiles standard -- new era of spatial data distribution (contextual imformation in layers)
+- Machine learning -- realistic -- first to take on manual tasks, then for map design related tasks? (down to earth assesment :P)
 
 # Discussion & Conclusion
 
