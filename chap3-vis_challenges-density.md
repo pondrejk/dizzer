@@ -1,22 +1,20 @@
-# Dealing with density in spatial data
+# 3 Dealing with graphic density in spatial big data visualisation
 
 *This chapter explores the possible solutions to high graphical density in maps with focus on hexbin aggregation and contextual interplay of map layers. Web rendering technologies that power these solutions are described afterwards. The chapter concludes with a case study report of urban recommendation system for the city of Brno.*
 
-## Visualisation challenges of dense spatial data
+## 3.1 Visualisation challenges of dense spatial data
 
-As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference form the most common raw material fed to the visualisation pipeline of the spatial big data. The *n=all* property of big data at the input generates a challenge of dealing with high graphic density in maps at the output.
-(TODO better word for vis pipeline, distinguish from graphics pipeline later)
+As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference form the most common raw material fed to the data processing pipeline of spatial big data. The *n=all* property of big data at the input generates a challenge of dealing with high graphic density in maps at the output.
 
-How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as "using visual tools to facilitate insight and support decision making of human recipients", then human cognitive capabilities are the main guiding factor to adhere to. There are variances in graphic literacy across the population, not to mention accessibility requirements for various sensory conditions and disabilities, but to even start resolving these issues, we first need to focus on the *legibility* as the base requirement common to every recipient.
-(TODO neopakujem sa s tou accessiilitou?)
+How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as using visual tools to facilitate insight and support decision making of human recipients, then human cognitive capabilities are the main guiding factor to adhere to. There are variances in graphic literacy across the population, not to mention accessibility requirements for various sensory conditions and disabilities, but to even start addressing those issues, we first need to focus on the *legibility* as the base requirement common to every recipient.
 
 Legibility in maps enables readers to separate signs from each other and to distinguish steps of visual variables. @bertin1983semiology names three parameters that determine legibility in information graphics: *graphic density*, *angular separation* and *retinal separation*. Graphic density is a number of marks per cm2, angular and retinal separation describe the perceptible differentiantion in angles (e.g. to compare shapes or segments in line charts) and in visual variables (like hue or size). The joke charts in fig illustrate the visual problem posed by the high graphic density caused by high data load. Unlike angular and retinal separation that to a high degree result from the author's choice of symbolization, the graphic density is largely determined by parameters that cannot be influenced by the mapmaker. In the next section we will look closer on what these are.
 
 ![**Fig.** Big data scatterplot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on the limits of graphics, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
 
-### Design constraints
+### 3.1.1 Design constraints
 
-Let us consider the parameters that determine the graphic density in digital maps. The graphic density may vary along three scales (fig):
+Let us consider the parameters that determine the graphic density in digital maps. The graphic density may vary along three axes (fig):
 
 ![**Fig.** Three axes that influence the graphic density in map based web applications.](imgs/img-design_constraings.png)
 
@@ -24,17 +22,17 @@ Let us consider the parameters that determine the graphic density in digital map
 
 2. *Axis of screen space* determines how the map view reacts to varying screen sizes. The standard requirement for modern websites is *responsivity*, which means the site should adjust the browsing experience to reflect the size and capabilities of the viewing device (desktop, tablet, or mobile nowadays, plus whatever comes next in the future). For many map based web applications, responsivity to small mobile screens is not pursued as the resulting experience is suboptimal. But this niche is certainly worth exploring in the field of thematic cartography, mainly because the proportion of mobile-first users is likely to rise^[<http://mobilev.is/> aims to collect good examples of data interaction design for small screens].
 
-In a responsive web map, the screen size and aspect ratio influences the size and shape of the map window which in turn needs to be reflected in the initial zoom level. It we want to adhere to the visual information seeking mantra "overview first, zoom and filter, then details-on-demand" (@shneiderman2003eyes), for thematic maps we naturally expect to see the whole extent of the area of interest to see the general spatial pattern first. To provide the initial overview consistently across devices, the responsive map application needs not only to adjust the map div element size but also to calculate the correct initial zoom level to fit the area of interest to that div. Fractional zoom levels are a huge help in this, because the differences in whole number zoom levels often led to insufficient fit.
+In a responsive web map, the screen size and aspect ratio influences the size and shape of the map view which in turn needs to be reflected in the initial map scale (zoom level). The so-called *visual information seeking mantra* states "overview first, zoom and filter, then details-on-demand" (@shneiderman2003eyes), which translates well to digital thematic maps -- we naturally expect to see the whole extent of the mapped area to be able see the general spatial pattern first. However, to provide the initial overview consistently across devices, the responsive map application needs not only to adjust the map view size but also to calculate the correct initial zoom level to fit the area of interest into that view. Fractional zoom levels in mapping libraries are a huge help in this, because the differences in whole number zoom levels often lead to insufficient fit (fig).
 
 TODO image for this?
 
-3. *Axis of data change* describes how application reacts to changes in displayed data. These changes can be far more complex than in case of previous two axes as the number of possible data layers, configurations within them and interrelations between them is countless. The changes may be triggered by user interaction or in case of continuous data streams by changes in data itself. The user-induced changes include changing the visibility of data layers, changing visual variables, adjusting the temporal scale, or changing the aggregation level (drill-down and roll-up actions, see elmqvist2010hierarchical). The range of supported interactions is defined by application authors, but the actual outcomes of these interactions can be quite surprising, especially if applied on dynamic data. Real time visualisation then brings true unpredictability to the design process (blindfolded cartography)(cite https://www.youtube.com/watch?v=e_00WVa3GJA) and has implications on data processing pipelines and on abstractions in data and visual space (see next section).
+3. *Axis of data change* describes how application reacts to changes of displayed data. These changes can be far more complex than in case of the previous two axes as the number of possible data layers, configurations within them and interrelations between them is countless. The changes may be triggered by *user interaction* or in case of continuous data streams by *changes in data itself*. Users can change the visibility of data layers, modify visual variables, adjust the temporal scale, or change the aggregation level (drill-down and roll-up actions elmqvist2010hierarchical). The range of supported interactions is defined by application authors, but the actual outcomes of these interactions can be quite surprising, especially when combined with dynamic data. Real time visualisation then brings true unpredictability to the design process (dubbed "blindfolded cartography" @woodruff2015blindfolded) and has implications on data processing pipelines and on abstractions in data and visual space.
 
-The fourth unspoken constraint is the axis of cartographer's ability, as the failure to adjust symbolization to say scale changes can create illegibility even in cases when the screen space is sufficient and the data load is moderate. Choice of symbolization can greatly support angular an retinal separation and also battle graphic fill. The three aforementioned axes are in fact inseparable and all combined define how effective will the map based application be in different situations. Defining the space of possibilities and then implementing the application behaviour accordingly requires lot of imagination, effort and testing.
+The fourth constraint is the axis of cartographer's ability -- for example, failure to adjust symbolization to scale changes can result in illegibility even in cases when the screen space is sufficient and the data load is moderate. Choice of symbolization can greatly support angular an retinal separation and also battle graphic fill. The three aforementioned axes are in fact inseparable and combined together they determine how effective will the digital map be in different situations. Delineating the space of possibilities and then designing the application's behaviour accordingly requires lot of imagination, effort and testing.
 
 The axis of data change is the one that is mostly affected by the big data properties. Let us consider the data processing pipelines.
 
-### Visualisation pipeline
+### 3.1.2 Data processing pipelines
 
 (moved from chap 2)
 The gaps in data collection and the absence of abrupt changes hints how to optimize data storage from big data sources. Even though storage optimization techniques are not within the scope of this thesis, they can pose a certain lesson for cartographic visual analysis. For cartographers, the utilized resource is the space within the map plane that can only hold a certain amount of graphic elements to remain useful. Moderation o the graphic fill is an aspect that can enhance the knowledge discovery at the end of the visualisation pipeline.
@@ -69,13 +67,13 @@ Similarly not all types of data are hit heavily on the cartographic visualisatio
 Visual clutter in maps often comes from interaction of base and topic, application of labels, non of this gets better with dense thematic layer. Multiparametic visulaisation can make things worse or better. Interaction is the way to go brushing and manipulation (like sculpting a shape from a dense block). Some level of engagement is then required from viewer to play with the system long enoug (who has time to do that in the attention economy times?)
 
 
-# Congestions + Data reduction methods
+# 3.2 Density reduction methods
 
 Why data reduction is necessary:
 - quote Taleb about crossing the street and lots of info
 - quote Dawkins on dimensionality reduction
 
-## Avoiding aggregation
+## 3.2.1 Avoiding aggregation
 
 Visual conflicts of displayed symbology nothing uncommon in thematic cartography and there are several more or less scalable approaches to mitigating the issue without employing aggregation.
 
@@ -129,8 +127,7 @@ Other stuff to check:
 — also see fig3 Varying degree of pixel overlap depending on screen resolution
 — basically a kind of cartogram solution
 
-## Aggregation
-
+## 3.2.2 Study of hexbin aggregation
 
 elmqvist2010hierarchical
 
@@ -222,7 +219,7 @@ d.) hybrid reduction methods — combinations, eg. binning with displayed outlie
 — research on combining sampling and aggregation: BlinkDB — builds fast approximate queries a multi-dimensional and multi-resolution stratified samples and computes aggregates over this reduced data. BlinkDB — queries with bounded errors and bounded response times @agarwal2013blinkdb
 — online aggregation — showing continuously updating aggregates and confidence intervals in response to a stream of samples — hellerstein1997online, fisher2012trust
 
-###Designing binned plots
+### Designing binned plots
 
 Why binned plots?
 — conveys to both global patterns (densities) as well as local features (e.g outliers)
@@ -230,14 +227,14 @@ Why binned plots?
 — they refrain from using additional visual variables such as texture or size as they believe it can interfere with interpretation (I don't). Mulitdimensional displys can solve it — coordinated views, trellis plots ++ brushing and linking
 
 
-###Interaction with binned plots
+### Interaction with binned plots
 
 ### Point aggregation
 — mostly don't like it — difference between current applications and what should be acheived
 — loss of orientation between zoom levels — smoother transition of collapsing/grouping ponts — show paths/traces?
 — point aggregation — basically sampling with information on how many points are represented ...
 
-## Tasks
+### Tasks (drop?)
 * anderienko on tasks: (andrienko2003exploratory, and andrienko2006exploratory — TODO revisit and compare how these accounts differ — probably apply above)
 - ultra brief @andrienko2003exploratory:
 Analytical tasks ivolving event data can be characterized at some combination of *what* + *when* + *where*
@@ -248,7 +245,7 @@ mulitple attributes
 figure vs. ground - comparison with spatial context
 
 
-# parameters of binned visualisation
+### parameters of binned visualisation
 
 Cell sizes: staisticians proposed several heurisics to select bin sizes — applicability to big data unclear (some explanation and critique on Sturges in @hyndman1995problem): Struges's formula @sturges1926choice, Scott's reference rule @scott1979optimal
 Color encodings —density can be encoded to hue, luminance or opacity
@@ -276,7 +273,7 @@ https://observablehq.com/@fil/web-mercator-tile-visibility
 https://github.com/uber/h3-js
 
 
-# app — binning playgound
+### app — binning playgound (no time for this)
 — timeline to simulate movement
 — bins / hexagons
 — varying size of bin — some statistics for size selection
@@ -296,11 +293,11 @@ https://github.com/uber/h3-js
 — try selfhosted mapbox for 3D view? — or check uber glsl wrapper
 
 
-# Rendering Spatial Data  
+# 3.3 Rendering Spatial Data  
 
 How is the cartographic design influenced by the rendering technology employed? What technology (or combination of technologies) is suitable for cartographic visualization of dynamic data sets on the web? In this section we'll describe the tree main technologies the current web development toolbox provides for showing interactive graphic information. We will mostly focus on WebGL with brief description of how it uses the GPU rendering pipeline. Then we will describe how are these technologies baked into web mapping libraries. In that matter, we will look closer at the vector tiles specification in comparison with its raster predecessor. Finally we will attempt to summarize the design possibilites the combination of vector tiles and direct WedGL offers mean for cartographic visualisation of big data.
 
-## SVG, Canvas, WebGL
+## 3.3.1 SVG, Canvas, WebGL
 
 **SVG** is a well known and much loved format for displaying two dimensional vector graphics on the web. Since the start of development in 1999 it has become an often used alternative to bitmaps with wide browser support. Unlike the remaining two technologies, SVG is a vector format, which brigs scalability (the acronym stands for Scalable Vector Graphics after all), constant graphic quality across devices, and smaller storage size. The straightforward XML syntax allows for easy integration with JavaScript and CSS, SVG files can be easily autogenerated, searched, compressed or indexed by web crawlers. SVG is an example of the "retained mode" graphics model, were graphic library constructs a scene from primitives defined by a declarative API and keeps the model of the scene in memory.^[https://en.wikipedia.org/wiki/Retained_mode] Elements of an SVG graphic exist in the site's DOM which allows for attaching JavaScript event handlers to sub components of a graphic. This feature makes SVG a good choice for implementing interactive graphics — it powers popular web charting libraries like D3.js, also it is a default technology for data overlays in web mapping library Leaflet.
 
@@ -321,7 +318,7 @@ Like the Canvas API described above, WebGL uses the HTML5 canvas element as the 
 On the other hand, the complexity of the developer experience is seen as the main obstacle (drawing a simple coloured triangle in plane GLSL takes around 40 lines of code). The WebGL JavaScript API does not provide any form of abstraction over the underlying GLSL language (@eberhardt2020rendering). There are wrapper JavaScript libraries that provide some object oriented features (three.js, pixi.js^[Even though these libraries are primarily intended for game development, they are not without potential fro cartographic visualisation. Three.js provides a toolbox for rendering 3D scenes, pixi.js is focused on creating 2D games by rendering pre-created raster images (sprites) but it has also been successfully used for cartographic visualisation in @escoffier2017how]), designed predominantly for developing games. But from the cartographic standpoint the greatest improvements lie in the onset of the vector tile model and related WebGL-based mapping libraries headed by Mapbox-gl. But before diving to these advances we need to briefly describe how the GPU renders graphics, and how GLSL allows us to control that process.   
 
 
-## GLSL and the GPU rendering pipeline
+## 3.3.2 GLSL and the GPU rendering pipeline
 
 As we outlined above, WebGL provides a JavaScript API that allows to create and manipulate GLSL constructs (called shaders) that access pixels and vertices the graphics card works with (see Fig). In the simplest terms, the graphics card or GPU decides how to use the pixels on the screen to create the image. GPU is a piece of hardware designed specifically for performing the complex mathematical and geometric calculations that are necessary for graphics rendering. These calculations are done in a massively parallel and hardware accelerated manner (math operations are resolved directly by the microchips instead of by software), which makes the computations many orders of magnitude faster than an equivalent computations performed on the CPU. The GPU understands vertices, textures, and little else; it has no concept of material, light, or transform. The translation between those high-level inputs and what the GPU puts on the screen is done by the shader, and the shader is created by the developer (@parisi2012webgl).
 
@@ -362,7 +359,7 @@ TODO? — REGL (only desc if I decide to use it) — maybe in section 4 (impleme
 ??
 Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL. The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet. ^VM = Javascript engine (https://en.wikipedia.org/wiki/JavaScript_engine)
 
-# Tour of Vector Tiles
+## 3.3.3 Tour of Vector Tiles
 
 How is WebGL useful for cartographic visualisation? While it is certainly possible to develop spatial interfaces directly using WebGL scripting, many of the advances in client rendering has been already utilized in a format known as *vector tiles*.
 
@@ -472,7 +469,7 @@ Thesis on vecctor tiles:
 <https://prism.ucalgary.ca/bitstream/handle/11023/2666/ucalgary_2015_shang_xiaohong.pdf;jsessionid=2B918A8E8B58693A9CF79058F07241AC?sequence=3>
 
 
-# Figures and grounds
+# 3.4 Figures and grounds
 
 Two tautologic definitions:
 
@@ -508,7 +505,7 @@ Strategies:
 - simple: pushing theme to the base (underlay)
 - harder: data driven styling based on overlay — overlay algebra that is done without touching the source data (like overprint, of multiexposure shots in photography but really beyond these analogies). It is solely based on web-gl filtering
 
-# on UX, interaction and beyond
+# 3.5 on UX, interaction and beyond
 ————————————————-
 
 Controls are inevitable, need to be legible same as the map view. Moreover, users need to be able to intuitively grasp how they work (TODO norman — affordances, and signifiesrs.)
@@ -557,16 +554,16 @@ https://developer.apple.com/design/human-interface-guidelines/ios/overview/theme
 - strategies for density reduction in controls
 - combining functions (legend and histogram and brushing control) - (využiť návrh na baptisteries, legendy aj timeline z toho proposalu )
 
-# Visual storytelling vs dashboards
+## Visual storytelling vs dashboards (TODO -- I'm not doing it, should be removed or moved to previous chapter?)
 Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern.
 
 What is the audience - some notes from the field:
 https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-after-data-journalism-3c68861b7f4c
 
-# more
+#### more
 https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
 
-# scrollytelling
+#### scrollytelling
 https://medium.com/nightingale/from-storytelling-to-scrollytelling-a-short-introduction-and-beyond-fbda32066964
 https://webflow.com/blog/scrollytelling-guide?fbclid=IwAR3yRP5GAYtrHgNcN_njPk-5HwW3_ppH6sloQpna5CpxEmOm5qjQCoXBeoY
 
@@ -591,7 +588,7 @@ https://github.com/sp4ke/awesome-explorables
 https://explorabl.es/
 
 
-# UX and interaction (TODO maybe to the next section)
+## UX and interaction (TODO maybe to the next section)
 ———————————
 @thomas2005illuminating
 
@@ -638,11 +635,11 @@ native visual representations to facilitate exploration and discovery
 
 
 
-# Case Study: Urban recommendation system
+# 3.6 Case Study: Urban recommendation system
 
 The origins for this case study stem from a 2018's demonstration application for a hackathon competition that this author attended. The intent was to develop an urban recommendation system that would help dwelling seekers to identify areas in the Brno city that best match their needs and expectations. The original implementation using Leaflet front end has been fully reworked by the author into Mapbox based application for the purpose of this thesis. Aside from the primary goal of spatial optimization tool, the application aims to demonstrate the ideas presented earlier in this chapter — the use of hexbin grid and layer entanglement to battle visual clutter, some recommendations for map UI design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed, and comparison of solutions based on Leaflet and Mapbox map rendering libraries is provided.
 
-## 1. Data sources and transformations
+## 3.6.1. Data sources and transformations
 - data from osm
 - interpolation to the grid
 - leaflet + db vs mapbox
@@ -680,7 +677,7 @@ https://lvdmaaten.github.io/tsne/
 https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding
 
 
-## 2. App architecture (react redux mapbox)
+## 3.6.2 App architecture (react redux mapbox)
 
 Old version:
 posgres + node on backed — React + Leaflet + Turf on the frontend
@@ -691,7 +688,7 @@ Mapbox for layer storage — React + Mapbox on the frontend
 Why react-redux? -- modularity and global state management -- useful for web map apps eg. for dynamic legend, inset maps, etc.
 
 
-## 3. User interface design
+## 3.6.3 User interface design
 
 Type 1 - see comopound livability score
 map field:
@@ -714,10 +711,10 @@ controls:
 
 Type 3 ? — square or triangle grid, better smooth appearance?
 
-## 4. Notable findings
+## 3.6.4 Notable findings
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
-## 5. Possible extensions
+## 3.6.5 Possible extensions
 
 Possibility of regular updates to keep the content true to reality.
 Possible Extensions to other cities .. automated data processing pipeline
