@@ -34,29 +34,46 @@ The axis of data change is the one that is mostly affected by the big data prope
 
 ### 3.1.2 Data processing pipelines
 
-(moved from chap 2)
-The gaps in data collection and the absence of abrupt changes hints how to optimize data storage from big data sources. Even though storage optimization techniques are not within the scope of this thesis, they can pose a certain lesson for cartographic visual analysis. For cartographers, the utilized resource is the space within the map plane that can only hold a certain amount of graphic elements to remain useful. Moderation o the graphic fill is an aspect that can enhance the knowledge discovery at the end of the visualisation pipeline.
+Earlier in chapter 2 we presented the information visualisation reference model (TODO fig link) that describes the series of transformations that lead from raw data to actionable views. The actual data transformations, visual mappings and view transformations are different for each project, and are likely to get reevaluated along the course of development. Applications based on dynamic data bring an additional difficulty -- the transformations need to be executed with inflow of new data after the application is already published and used. So the transformation rules need to be designed so that they can react to unprecedented changes in input data properties. If there is a requirement for real-time processing, this needs to happen ideally without any manual intervention of application maintainers. 
+
+Some call it visualsation pipeline ^[not to confuse with the graphics pipeline that describes how computer renders graphics, see later] -- tour 
+The pipeline is then no longer a desciption of the application production process, we can understand it as a description of the working system.
+
+Big data pose a challenge for scaling the data processing infrastructure, which is well understood. Their implications on the visualisation solutions and vice versa are less described.
+
+We find helpful to divide the pipeline into *data space* describing the data collection and transformation and the *visual space* ()
+
+(TODO another image -- data space vs visualisation space -- predel na obrazku infoviz ref model)
+— some survey on visualisation pipelines @moreland2013survey
+
+at the data processing end (...)
 
 
-data space / visual space
+For cartographers, the utilized resource is the space within the map plane that can only hold a certain amount of graphic elements to remain useful. Moderation of the graphic fill is an aspect that can enhance the knowledge discovery at the end of the infoviz pipeline. 
 
-There are also other limitations that take action in earlier stages of a generalized visualisation pipeline (see fig?). One thing to be aware of is that the simplification (aggregation, reduction, etc.) in the visual end product enforced by human cognitive capabilities should also propagate back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (visual barrier). This can mean a significant improvement when performance and scalability are of concern.
+data space 
+
+-- visual space -- limitations by screen space and human capabilites (techonlogic filter (limitations described above), cognitive filter)
+
+-- screen space -- actually a combo of visual parameters -- these are dynamic (se)
+
+The main point: what is happening in the visual space has implications on the data space -- the pipeline should be treated as a whole.
+
+There are also other limitations that take action in earlier stages of a generalized visualisation pipeline. One thing to be aware of is that the simplification (aggregation, reduction, etc.) in the visual end product enforced by human cognitive capabilities should also propagate back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (visual barrier). This can mean a significant improvement when performance and scalability are of concern.
 
 Hence the cartographic decisions made at the last stage in pipeline have impact on the overall performance of this pipeline. Not all challenges across the pipeline are visualisation/cartographic challenges — those come usually at the end, but the cartographic stage cannot be separated from the data processing it stems from. Cartographer's decisions have impact outward to the reader but also backward to the previous stages of the pipeline. So far little has been done to asses cartographic methods from the point of view of the data-processing scalability, though in the era of dynamic source data, cartographers need to expand their awareness to that direction.
 
 (TODO verify towards diagrams in section 2 — visualisation pipeline (technical? organizational? describing process of creation? or describing a final working system? ))
 
-So far we were mentioned just the presentation role of cartography, the interaction poses another set of challenges for the pipeline, though not all are cartograpic. For exploratory tools to support hypothesis generation, we should consider which tasks should be supported by interaction... (TODO) think through later...
 
-— some survey on visualisation pipelines @moreland2013survey
 — my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) — technological limitations may be more flexible to deal with, but also visual capabilites evolve with higher exposition to various interfaces. On the other hand cognitive abilites may be varied per user persona...
 
 data -> technological filter -> coginitive filter -> idea/decision
 
-TODO: image - dataflow via those filters (later).
 
 processing difficulties ... technological filter - screen resolution limits, infrastructure limits — not all datapoints can be shown.
 cognitive filter — not all can be processed, how to define and check automatically?
+
 
 but maybe better scheme for the shifting role of cartography:
 data -> cartographic immagination -> technologic reapropriation/innovation
@@ -64,7 +81,7 @@ data -> cartographic immagination -> technologic reapropriation/innovation
 Some basc data visualisation methods may be immune to this (barcharts, pie charts), but positional types of visualisation like scatterplots and maps are hit heavily by this.
 Similarly not all types of data are hit heavily on the cartographic visualisation side. If we circle back to types of point data, they are not equally difficult from the cartograhic view. Not all data processing challenges translate to cartographic challenges. Cartographic difficulties stem mainly from changes in position...? Stations, even if producing big data level loads of attributes are not so difficult cartographically if having low number and density, or better to say, it is nothing new for cartograhers...
 
-Visual clutter in maps often comes from interaction of base and topic, application of labels, non of this gets better with dense thematic layer. Multiparametic visulaisation can make things worse or better. Interaction is the way to go brushing and manipulation (like sculpting a shape from a dense block). Some level of engagement is then required from viewer to play with the system long enoug (who has time to do that in the attention economy times?)
+Visual clutter in maps often comes from interaction of base and topic, application of labels, none of this gets better with dense thematic layer. Multiparametic visualisation can make things worse or better. Interaction is the way to go brushing and manipulation (like sculpting a shape from a dense block). Some level of engagement is then required from viewer to play with the system long enough (who has time to do that in the attention economy times?)
 
 
 # 3.2 Density reduction methods
