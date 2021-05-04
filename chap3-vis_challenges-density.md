@@ -34,55 +34,19 @@ The axis of data change is the one that is mostly affected by the big data prope
 
 ### 3.1.2 Data processing pipelines
 
-Earlier in chapter 2 we presented the information visualisation reference model (TODO fig link) that describes the series of transformations that lead from raw data to actionable views. The actual data transformations, visual mappings and view transformations are different for each project, and are likely to get reevaluated along the course of development. Applications based on dynamic data bring an additional difficulty -- the transformations need to be executed with inflow of new data after the application is already published and used. So the transformation rules need to be designed so that they can react to unprecedented changes in input data properties. If there is a requirement for real-time processing, this needs to happen ideally without any manual intervention of application maintainers. 
+Earlier in chapter 2 we presented the information visualisation reference model that describes the series of transformations that lead from raw data to actionable views (TODO link). The actual *data transformations*, *visual mappings* and *view transformations* are unique for each project, and are likely to get reevaluated along the course of development. Applications based on dynamic data bring an additional difficulty -- the transformations need to be re-executed with inflow of new data after the application is already published and used. So the transformation rules should be designed so that they can react to unprecedented changes in input data properties. If there is a requirement for real-time processing, this needs to happen ideally without any manual intervention of application maintainers. 
 
-Some call it visualsation pipeline ^[not to confuse with the graphics pipeline that describes how computer renders graphics, see later] -- tour 
-The pipeline is then no longer a desciption of the application production process, we can understand it as a description of the working system.
+The reference model then becomes less of a description of the application production process, rather it describes the data flow through the working system -- the application's data processing pipeline if you will. From the cartographic standpoint, we find it useful to split the pipeline into the *data space* and the *visualisation space* (fig.). The main area of concern for cartographers lies in the visualisation space, in choosing appropriate visualisation methods and graphic variables (visual mappings) and in designing user interaction modes (view transformations).
 
-Big data pose a challenge for scaling the data processing infrastructure, which is well understood. Their implications on the visualisation solutions and vice versa are less described.
+![**Fig.** Splitting the information visualisation reference model into data space and visualisation space](imgs/img-dataviz-models-spaces.png)
 
-We find helpful to divide the pipeline into *data space* describing the data collection and transformation and the *visual space* ()
+This all has to cope with the limitations that come from the characteristics of the viewing environment (the combination of screen space, scale and data density outlined above) and also from the cognitive predispositions that favor certain pairings of data to visualisation method and disqualify others. As we discussed at length in chapter 1, big data pose a challenge for scaling the data processing infrastructure. The issues and solutions in big data processing are well described and understood. However, the implications of big data on the design decisions in the visual space are less researched. Furthermore, what is happening in the visual space should have implications on the data space, there is a large potential in treating the processing pipeline as a whole.
 
-(TODO another image -- data space vs visualisation space -- predel na obrazku infoviz ref model)
-— some survey on visualisation pipelines @moreland2013survey
+For example, any aggregations in the visual end product enforced by human cognitive capabilities should get propagated back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (cognitive barrier). This can mean a significant improvement when performance and scalability are of concern.
 
-at the data processing end (...)
+Hence the cartographic decisions made for the later stages in the processing pipeline have impact on the overall performance of this pipeline. The choice of visualisation and interaction methods has impact outward to the user but also backward to the previous stages of the pipeline. So far little has been done to asses cartographic methods from the point of view of the data-processing scalability, though in the era of dynamic source data, cartographers need to expand their awareness to that direction.
 
-
-For cartographers, the utilized resource is the space within the map plane that can only hold a certain amount of graphic elements to remain useful. Moderation of the graphic fill is an aspect that can enhance the knowledge discovery at the end of the infoviz pipeline. 
-
-data space 
-
--- visual space -- limitations by screen space and human capabilites (techonlogic filter (limitations described above), cognitive filter)
-
--- screen space -- actually a combo of visual parameters -- these are dynamic (se)
-
-The main point: what is happening in the visual space has implications on the data space -- the pipeline should be treated as a whole.
-
-There are also other limitations that take action in earlier stages of a generalized visualisation pipeline. One thing to be aware of is that the simplification (aggregation, reduction, etc.) in the visual end product enforced by human cognitive capabilities should also propagate back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (visual barrier). This can mean a significant improvement when performance and scalability are of concern.
-
-Hence the cartographic decisions made at the last stage in pipeline have impact on the overall performance of this pipeline. Not all challenges across the pipeline are visualisation/cartographic challenges — those come usually at the end, but the cartographic stage cannot be separated from the data processing it stems from. Cartographer's decisions have impact outward to the reader but also backward to the previous stages of the pipeline. So far little has been done to asses cartographic methods from the point of view of the data-processing scalability, though in the era of dynamic source data, cartographers need to expand their awareness to that direction.
-
-(TODO verify towards diagrams in section 2 — visualisation pipeline (technical? organizational? describing process of creation? or describing a final working system? ))
-
-
-— my own vis pipeline simply showing how data reduction occurs and for what reasons (technological reasons / cognitive reasons) — technological limitations may be more flexible to deal with, but also visual capabilites evolve with higher exposition to various interfaces. On the other hand cognitive abilites may be varied per user persona...
-
-data -> technological filter -> coginitive filter -> idea/decision
-
-
-processing difficulties ... technological filter - screen resolution limits, infrastructure limits — not all datapoints can be shown.
-cognitive filter — not all can be processed, how to define and check automatically?
-
-
-but maybe better scheme for the shifting role of cartography:
-data -> cartographic immagination -> technologic reapropriation/innovation
-
-Some basc data visualisation methods may be immune to this (barcharts, pie charts), but positional types of visualisation like scatterplots and maps are hit heavily by this.
-Similarly not all types of data are hit heavily on the cartographic visualisation side. If we circle back to types of point data, they are not equally difficult from the cartograhic view. Not all data processing challenges translate to cartographic challenges. Cartographic difficulties stem mainly from changes in position...? Stations, even if producing big data level loads of attributes are not so difficult cartographically if having low number and density, or better to say, it is nothing new for cartograhers...
-
-Visual clutter in maps often comes from interaction of base and topic, application of labels, none of this gets better with dense thematic layer. Multiparametic visualisation can make things worse or better. Interaction is the way to go brushing and manipulation (like sculpting a shape from a dense block). Some level of engagement is then required from viewer to play with the system long enough (who has time to do that in the attention economy times?)
-
+Not all data processing challenges translate to cartographic challenges. Some basic data visualisation methods are fairly immune to challenges of real time data inflow (e.g. pie charts are not less readable when based on massive number of observations), but positional types of visualisation suffer from graphic density. This can be worsen by a cluttered base layer, labels, or unexpected interaction results. Let us look at some ways of addressing graphic density in dynamic maps. 
 
 # 3.2 Density reduction methods
 
@@ -158,6 +122,7 @@ On conept hiercharies — hierarchies can exist in spatial (state > province > d
 !Todo — isn't this denying the base property of BD (no aggregation?). No. It is visual aggregation at the end of the visualisation pipeline — has many advantages: choosing the aggragation properties (not dictated by data provider), combinig data sources into aggragation ...
 
 TODO — here be why I hate symbol groups in leaflet and why some amendments don't work very well (adamove pluginy)
+
 ![**Fig.** Automatic symbol grouping — this is how geojson data get rendered on GitHub (with help of Mapbox)](imgs/img-github-mapbox-example.png)
 
 
