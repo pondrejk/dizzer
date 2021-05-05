@@ -225,7 +225,7 @@ There is a (somewhat mythical) notion of “full-stack” visualization designer
 
 In this model the collaboration points lie at the transitions between the stages and involve decisions on data management, visualisation and analytical capabilities (@heer2008design). Physical and temporal separation of teams and institutional and disciplinary divides lead to early-stage partitioning of tasks both in the *design* (data profilation, ideation, mockup creation and prototyping) and *development* (implementation, testing, deployment and maintenance) phase (@walny2019data). Such divisions are not unique to data visualisation projects, it could match any web development project.
 
-![**Fig** Stages of data visualization development process. Adopted from @walny2019data](imgs/stages-of-dataviz-development-process.png)
+![**Fig** Stages of data visualization development process. Adopted from @walny2019data](imgs/stages-of-dataviz-development-process2.png)
 
 @walny2019data formalize stages of data visualisation process based on experience with several assignments (Fig.). In the iterative process the division of labor gives rise to *handoff* events, when one team passes work products and requirements to the next team. Particularly the handoff between the design and development team is where issues can arise to affect the end result. Speaking from the position of design team @walny2019data articulate several key challenges that affect the success of the handoff and in turn the smoothness of the whole project:
 
