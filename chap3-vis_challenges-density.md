@@ -59,37 +59,65 @@ Aggregation is a generalization method that groups multiple individual objects a
 
 ## 3.2.1 Variants of spatial aggregation
 
-The variants of spatial aggregation can be differentiated by the type of the *composite shape* that in turn affects how the aggregation supports exploratory analysis, observing spatial patterns and searching correlations with other datasets. By defining the spatial extent to which all the individual objects will be aggregated we can recognize three strategies: data-driven aggregation, arbitrary regular shapes and arbitrary with irregular regions defined by a polygon dataset.
+The variants of spatial aggregation can be differentiated by the type of the *composite shape* that in turn affects how the aggregation supports exploratory analysis, observing spatial patterns and searching correlations with other datasets. By defining the spatial extent to which all the individual objects will be aggregated we can recognize three strategies: data-driven aggregation, binning with arbitrary regular shapes and arbitrary with irregular regions defined by a polygon dataset.
 
 - Data-driven aggregation (clustering) is based on the idea that only objects that are congested need to be aggregated. This results in a map layer that consists of two types of objects -- those representing clusters of points (composite objects) and single point objects. In most point cluster implementations in mapping libraries the composite object is visually differentiated from base objects and the number of aggregated objects is usually indicated by a number.
 
-- The second strategy called spatial binning, divides the space into regularly shaped grid objects so that every point can be assigned to a bin. Triangular, square or hexagonal tiling can be used. In addition to the shape, also a proper bin size has to be considered. If the bins are designed too big relative to the map scale, the pattern of phenomenon can become unrecognizable. On the other side, very small bins can lead to gaps in the grid. TODO -- small bins not a problem 
+- Spatial binning divides the space into regularly shaped grid so that every point can be assigned to a bin. Triangular, square or hexagonal tiling can be used. In addition to the shape, also the proper bin size has to be considered.
 
-- The idea of the third strategy is that the areas of aggregation are defined by a different dataset. An example of this approach is the transition of point dataset of settlements into a choropleth map showing the density for each region. The granularity of the aggregating dataset influences the pattern perception, contrary to the possibilities of binning or clustering, the pattern stays static when zooming in and out in web environment.
+- Aggregation defined by a different dataset is essentially a transformation of point data to arbitrary polygons in order to make a choropleth map. The granularity of the aggregating dataset influences the pattern perception. 
+
+Both point clustering and binning are implemented in client mapping libraries in some form, either natively, via plug-ins or with combination of other libraries^[For example Leaflet implements clusters via the Leaflet.MarkerCluster plugin, hexagonal binning is implementable in combination with D3.js or Three.js libraries.)
+
+From the point of big data visualisation it is important to note how is the aggregation performed -- whether on the client, or via some preprocessing on the server. Recalling our distinction from the img (TODO link) aggregation performed on the client is positioned more in the visual space. It has some advantages -- possibility to show original data along with the aggregates or scale dependent aggregation without reloading the data from the server. Though, with large datasets theses virtues quickly turn to burdens -- with high point density, showing the original points may not aid the map reading and recalculation of aggregates with every zoom change might pose a performance toll on the client. (Note on the smooth zoom...) 
+... server-processing better because...
+
+(TODO Img -- scale dependent processing -- example of clusters)
+
+In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions. Scale dependent binning (TODO some example image) keeps the bin shapes constant relative to the map window -- with zoom changes the number of data points falling into each bin changes, so does the area covered by the individual bin, which both influences the spatial pattern. The size of the bin is the parameter that needs to be specified so that it is granular enough for the desired scale ratio.
+
+The per-scale visualisation changes are also problematic form the cognitive point of view. 
+
+
+
+TODO -- find and list actual implementation),
+
+some extensions and plugins exist to enhance the functionality of marker clusters /TODO link na Adamove pluginy?). 
+
+
+These client implementations expect point data on the input and calculate clusters or bins on the fly based on some (limited) configuration parameters to determine the visualisation. As such, many implementations are scale (ale to asi platí iba pre point clustery)
+
+-- issues of point clustering
+
+-- implementations of hexbin vary, important points to consider:
+- where is the affrefation done -- solely client
+
+
+
+-- reaction to scale and hierarchy
 
 -- how to assign color to the bins (density vs attribute visualisation)
 The composite objects communicate the information via assigned visualization method, for example, the color of hexagons in the grid can display the average price of all aggregated houses in a particular bin. It should be noted, that as this aggregation of thematic information can bring new possibilities of visual analysis, it can also result in improper or misleading value extraction. For example, the chosen middle value may not fit the data distribution or could hide an outlier. 
 
+-- multivar
 Methods of aggregation are predominantly used for displaying single-phenomena datasets, due to the fact that superimposing more phenomenons can be problematic [9]. This can be an issue if the aggregation is used within visual analysis to inspect correlation between two datasets. In that case, an extended method has to be used, where for example one phenomenon is visualized by a central marker and the second by the color of underlying bin or polygon. 
 @carr1992hexagon
 
 elmqvist2010hierarchical
 
-aggregation can happen in data / visual  space
+-- aggregation can happen in data / visual  space
 Design guidelines: ...see blue notebook
 
 - notes from hierarchical aggregation paper @elmqvist2010hierarchical
 On conept hiercharies — hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations
 
-
-!Todo — isn't this denying the base property of BD (no aggregation?). No. It is visual aggregation at the end of the visualisation pipeline — has many advantages: choosing the aggragation properties (not dictated by data provider), combinig data sources into aggragation ...
-
+point clustering vs binning
 TODO — here be why I hate symbol groups in leaflet and why some amendments don't work very well (adamove pluginy)
 
 ![**Fig.** Automatic symbol grouping — this is how geojson data get rendered on GitHub (with help of Mapbox)](imgs/img-github-mapbox-example.png)
 
 
-Cartographic generalization model by McMaster and Shea (?) recognizes the following types of aggreation — TODO
+## 3.2.2 Some aspects of hexbin aggregation
 
 The type of primary interest for us is the one using the equal-shape tesallerations. This type appears to be most flexible as data are aggragated to the standardized shape that is defined *ex ante* and therefore not dependent on the character of aggregated data. Unlike (e.g. interpolation methods, heatmaps, etc.) the referential geometry does not adjust to the changed data, which makes the computation performace quite scalable and predictable across higher data loads.
 
@@ -128,8 +156,6 @@ Considering polygons with equal area, the more similar to a circle this polygon 
 
 Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles.
 '''
-
-## 3.2.2 Some aspects of hexbin aggregation
 
 ## density vs. attribute visualisation
 - implanation - classification techniques: classical, new: yiang - fractal breaks, bayesian surprise, uncertainty-adjusted scales
@@ -183,17 +209,6 @@ Why binned plots?
 — loss of orientation between zoom levels — smoother transition of collapsing/grouping ponts — show paths/traces?
 — point aggregation — basically sampling with information on how many points are represented ...
 
-### Tasks (drop?)
-* anderienko on tasks: (andrienko2003exploratory, and andrienko2006exploratory — TODO revisit and compare how these accounts differ — probably apply above)
-- ultra brief @andrienko2003exploratory:
-Analytical tasks ivolving event data can be characterized at some combination of *what* + *when* + *where*
-To support these tasks, event visualisation must, at a minimum, *illustrate spatial patterns*, and, if a temporal axis is present, *afford navigation or summariaztion through time*.
-
-
-mulitple attributes
-figure vs. ground - comparison with spatial context
-
-
 ### parameters of binned visualisation
 
 Cell sizes: staisticians proposed several heurisics to select bin sizes — applicability to big data unclear (some explanation and critique on Sturges in @hyndman1995problem): Struges's formula @sturges1926choice, Scott's reference rule @scott1979optimal
@@ -242,7 +257,11 @@ https://github.com/uber/h3-js
 — try selfhosted mapbox for 3D view? — or check uber glsl wrapper
 
 
-## 3.2.3 Avoiding aggregation (TODO mozno na koniec)
+-- optimal bin size
+If the bins are designed too big relative to the map scale, the pattern of phenomenon can become unrecognizable. On the other side, very small bins can lead to gaps in the grid. 
+
+
+## 3.2.3 Avoiding aggregation (other methods of graphic fill reduction) 
 
 *Aggregation -- analogy with lossy vs lossless data compression -- lossless preserves more data but depends on the dataset, lossy wipes some information but works on every dataset.*
 
