@@ -76,38 +76,11 @@ In point clusters, the scale dependent processing allows to create just as many 
 
 ![**Fig.** Hexbin aggregation using Leaflet with leaflet-d3 plugin. At too widely different scales the bin size remains constant. Input points are regrouped on with zoom level change on the client.](imgs/img-hex-sizes.png)
 
-The per-scale visualisation changes are also problematic form the cognitive point of view. Changes in spatial pattern cause a loss of orientation between zoom levels. It is not possible to easily trace how the aggregations in some zoom level match to what is displayed in higher or lower zoom levels. For example on fig (TODO above) it is hard to match the clusters between two zoom levels -- their number, size, position and point count changes. Point clusters are especially taxing as they occlude the position of source points, their attribute values as well at the spatial extent of the cluster. Some implementations try to battle this by showing the spatial extent of the cluster on demand^[<https://github.com/Leaflet/Leaflet.markercluster>] or by the ability to expand the cluster to see the values of its members^[<https://github.com/adammertel/Leaflet.MarkerCluster.PlacementStrategies>].
+The per-scale visualisation changes are also problematic form the cognitive point of view. Changes in spatial pattern cause a loss of orientation between zoom levels. It is not possible to easily trace how the aggregations in some zoom level match to what is displayed in higher or lower zoom levels. For example on fig (TODO above) it is hard to match the clusters between two zoom levels -- their number, size, position and point count changes. Point clusters are especially taxing as they occlude the position of source points, their attribute values as well at the spatial extent of the cluster. Some implementations try to battle this by showing the spatial extent of the cluster on demand^[<https://github.com/Leaflet/Leaflet.markercluster>] or by the ability to expand the cluster to see the values of its members^[<https://github.com/adammertel/Leaflet.MarkerCluster.PlacementStrategies>]. Scale dependent hexbins also cause this problem, though they are better at communicating densities within one zoom level.
 
+These client implementations expect point data on the input and calculate clusters or bins on the fly based on some (limited) configuration parameters to determine the visualisation. As we haves seen, there are perceptual arguments for keeping the aggregation constant across the zoom levels -- in case of binning it means keeping the true spatial coverage of the bin consistent across scales -- so that the bin size on the screen adjusts with the zoom level. Such approach aligns well with the demands of big data processing that favor creating the aggregation on the server (most likely in the spatial database) and pass it to the client in some vector form. This way the client doesn't need to load any data points that eventually won't be displayed. Real time data inflow can be processed on the server where all kinds of optimizations can take place (e.g. just updating the bind that actually changed, parallel processing, etc.). 
 
-
-
-These client implementations expect point data on the input and calculate clusters or bins on the fly based on some (limited) configuration parameters to determine the visualisation. As such, many implementations are scale (ale to asi platí iba pre point clustery)
-
--- issues of point clustering
-
--- implementations of hexbin vary, important points to consider:
-- where is the affrefation done -- solely client
-
-
-
--- reaction to scale and hierarchy
-
--- how to assign color to the bins (density vs attribute visualisation)
-The composite objects communicate the information via assigned visualization method, for example, the color of hexagons in the grid can display the average price of all aggregated houses in a particular bin. It should be noted, that as this aggregation of thematic information can bring new possibilities of visual analysis, it can also result in improper or misleading value extraction. For example, the chosen middle value may not fit the data distribution or could hide an outlier. 
-
--- multivar
-Methods of aggregation are predominantly used for displaying single-phenomena datasets, due to the fact that superimposing more phenomenons can be problematic [9]. This can be an issue if the aggregation is used within visual analysis to inspect correlation between two datasets. In that case, an extended method has to be used, where for example one phenomenon is visualized by a central marker and the second by the color of underlying bin or polygon. 
-@carr1992hexagon
-
-elmqvist2010hierarchical
-
--- aggregation can happen in data / visual  space
-Design guidelines: ...see blue notebook
-
-- notes from hierarchical aggregation paper @elmqvist2010hierarchical
-On conept hiercharies — hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations
-
-
+For several reasons mentioned above, we find binning superior to point clustering for visualisation of big data sets both from perceptual and technical standpoint. We also find this method more flexible and extensible from the cartographic point of view. In the following section we will look more closely at some interesting properties of hexagonal mosaics. 
 
 ## 3.2.2 Some aspects of hexbin aggregation
 
@@ -148,6 +121,13 @@ Considering polygons with equal area, the more similar to a circle this polygon 
 
 Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles.
 '''
+
+-- how to assign color to the bins (density vs attribute visualisation)
+The composite objects communicate the information via assigned visualization method, for example, the color of hexagons in the grid can display the average price of all aggregated houses in a particular bin. It should be noted, that as this aggregation of thematic information can bring new possibilities of visual analysis, it can also result in improper or misleading value extraction. For example, the chosen middle value may not fit the data distribution or could hide an outlier. 
+
+-- multivar
+Methods of aggregation are predominantly used for displaying single-phenomena datasets, due to the fact that superimposing more phenomenons can be problematic [9]. This can be an issue if the aggregation is used within visual analysis to inspect correlation between two datasets. In that case, an extended method has to be used, where for example one phenomenon is visualized by a central marker and the second by the color of underlying bin or polygon. 
+@carr1992hexagon
 
 ## density vs. attribute visualisation
 - implanation - classification techniques: classical, new: yiang - fractal breaks, bayesian surprise, uncertainty-adjusted scales
