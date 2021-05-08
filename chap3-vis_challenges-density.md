@@ -56,7 +56,6 @@ The process of controlled reduction of information complexity presented on a map
 
 Aggregation is a generalization method that groups multiple individual objects and forms a new composite object (@egenhofer1992object). There are more possible options how this grouping can be created. We can define the rule how the area for aggregation is selected, how the composite object will be displayed or how the user can interact with this composites. The aggregation method has also its disadvantages and limits that has to be considered.
 
-
 ## 3.2.1 Variants of spatial aggregation
 
 The variants of spatial aggregation can be differentiated by the type of the *composite shape* that in turn affects how the aggregation supports exploratory analysis, observing spatial patterns and searching correlations with other datasets. By defining the spatial extent to which all the individual objects will be aggregated we can recognize three strategies: data-driven aggregation, binning with arbitrary regular shapes and arbitrary with irregular regions defined by a polygon dataset.
@@ -65,24 +64,21 @@ The variants of spatial aggregation can be differentiated by the type of the *co
 
 - Spatial binning divides the space into regularly shaped grid so that every point can be assigned to a bin. Triangular, square or hexagonal tiling can be used. In addition to the shape, also the proper bin size has to be considered.
 
-- Aggregation defined by a different dataset is essentially a transformation of point data to arbitrary polygons in order to make a choropleth map. The granularity of the aggregating dataset influences the pattern perception. 
+- Aggregation defined by a different dataset is essentially a transformation of point data to arbitrary polygons in order to make a choropleth map. The granularity of the aggregating dataset influences the pattern perception.
 
-Both point clustering and binning are implemented in client mapping libraries in some form, either natively, via plug-ins or with combination of other libraries^[For example Leaflet implements clusters via the Leaflet.MarkerCluster plugin, hexagonal binning is implementable in combination with D3.js or Three.js libraries.)
+Both point clustering and binning are implemented in client mapping libraries in some form, either natively, via plug-ins or with combination of other libraries.^[For example Leaflet implements clusters via the Leaflet.MarkerCluster plugin, hexagonal binning is available in combination with D3.js or Turf.js libraries.]
 
-From the point of big data visualisation it is important to note how is the aggregation performed -- whether on the client, or via some preprocessing on the server. Recalling our distinction from the img (TODO link) aggregation performed on the client is positioned more in the visual space. It has some advantages -- possibility to show original data along with the aggregates or scale dependent aggregation without reloading the data from the server. Though, with large datasets theses virtues quickly turn to burdens -- with high point density, showing the original points may not aid the map reading and recalculation of aggregates with every zoom change might pose a performance toll on the client. (Note on the smooth zoom...) 
-... server-processing better because...
+From the point of big data visualisation it is important to note how is the aggregation performed -- whether on the client, or via some preprocessing on the server. Recalling our distinction from the img (TODO link) aggregation performed on the client is positioned more in the visual space. It has some advantages -- possibility to show original data along with the aggregates or scale dependent aggregation without reloading the data from the server. Though, with large datasets theses virtues quickly turn to burdens -- with high point density, showing the original points may not aid the map reading and recalculation of aggregates with every zoom change might pose a performance toll on the client.
 
-(TODO Img -- scale dependent processing -- example of clusters)
+![**Fig.** Automatic marker clustering example in two adjacent zoom levels (reas.cz).](imgs/img-point-clusters.png)
 
-In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions. Scale dependent binning (TODO some example image) keeps the bin shapes constant relative to the map window -- with zoom changes the number of data points falling into each bin changes, so does the area covered by the individual bin, which both influences the spatial pattern. The size of the bin is the parameter that needs to be specified so that it is granular enough for the desired scale ratio.
+In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions. Scale dependent binning (fig) keeps the bin shapes constant relative to the map window -- with zoom changes the number of data points falling into each bin changes, so does the area covered by the individual bin, which both influences the spatial pattern. The size of the bin is the parameter that needs to be specified so that it is granular enough for the desired scale interval. If the bin size is too large, the variance in the spatial pattern is smoothed, if bins are too small several no data gaps can appear (see fig.). With the discrete number of zoom intervals the number of aggregations is limited and small which is a good situation to support caching, on the other hand continuous zoom makes the number of possible aggregations much higher.  
 
-The per-scale visualisation changes are also problematic form the cognitive point of view. 
+![**Fig.** Hexbin aggregation using Leaflet with leaflet-d3 plugin. At too widely different scales the bin size remains constant. Input points are regrouped on with zoom level change on the client.](imgs/img-hex-sizes.png)
+
+The per-scale visualisation changes are also problematic form the cognitive point of view. Changes in spatial pattern cause a loss of orientation between zoom levels. It is not possible to easily trace how the aggregations in some zoom level match to what is displayed in higher or lower zoom levels. For example on fig (TODO above) it is hard to match the clusters between two zoom levels -- their number, size, position and point count changes. Point clusters are especially taxing as they occlude the position of source points, their attribute values as well at the spatial extent of the cluster. Some implementations try to battle this by showing the spatial extent of the cluster on demand^[<https://github.com/Leaflet/Leaflet.markercluster>] or by the ability to expand the cluster to see the values of its members^[<https://github.com/adammertel/Leaflet.MarkerCluster.PlacementStrategies>].
 
 
-
-TODO -- find and list actual implementation),
-
-some extensions and plugins exist to enhance the functionality of marker clusters /TODO link na Adamove pluginy?). 
 
 
 These client implementations expect point data on the input and calculate clusters or bins on the fly based on some (limited) configuration parameters to determine the visualisation. As such, many implementations are scale (ale to asi platí iba pre point clustery)
@@ -111,10 +107,6 @@ Design guidelines: ...see blue notebook
 - notes from hierarchical aggregation paper @elmqvist2010hierarchical
 On conept hiercharies — hierarchies can exist in spatial (state > province > disctrict ...), temporal (month > week > day) and attribute relations
 
-point clustering vs binning
-TODO — here be why I hate symbol groups in leaflet and why some amendments don't work very well (adamove pluginy)
-
-![**Fig.** Automatic symbol grouping — this is how geojson data get rendered on GitHub (with help of Mapbox)](imgs/img-github-mapbox-example.png)
 
 
 ## 3.2.2 Some aspects of hexbin aggregation
@@ -206,7 +198,6 @@ Why binned plots?
 
 ### Point aggregation
 — mostly don't like it — difference between current applications and what should be acheived
-— loss of orientation between zoom levels — smoother transition of collapsing/grouping ponts — show paths/traces?
 — point aggregation — basically sampling with information on how many points are represented ...
 
 ### parameters of binned visualisation
