@@ -84,26 +84,37 @@ For several reasons mentioned above, we find binning superior to point clusterin
 
 ## 3.2.2 Some aspects of hexbin aggregation
 
-The type of primary interest for us is the one using the equal-shape tesallerations. This type appears to be most flexible as data are aggragated to the standardized shape that is defined *ex ante* and therefore not dependent on the character of aggregated data. Unlike (e.g. interpolation methods, heatmaps, etc.) the referential geometry does not adjust to the changed data, which makes the computation performace quite scalable and predictable across higher data loads.
+In terms of big data visualisation we are interested in spatial aggregation to predefined shape that is not dependent on the character of aggregated data. Unlike other methods (clustering, interpolation), the referential geometry does not adjust to the changed data, which makes the computation performance quite scalable and predictable across higher data loads. Using arbitrary shape instead of any existing spatial unit (e.g. administrative districts) then brings flexibility in balancing the feature size and count in the mosaic.
 
-When it comes to the shape of the referential geometry, we can chose from three types of tessaleration that completely divide space into units of same regular shape^[In fact there are x complete (currently known) shapes that produce complete tessaleration, but only regular convex shapes are interesting for cartographic use.]: square, hexagonal and triangular shapes.
+When it comes to the shape of the referential geometry, we can chose from three types of convex shapes that completely divide space into units of same regular shape: square, hexagonal and triangular shapes. In practice, the hexagonal mosaic takes precedence, there are several aspects to why.
 
-—- ease of creation
+![**Fig.** Comparison of selected mosaic shapes to circle.](imgs/bi-shapes-dist-to-edge.png)
+
+The regularity and the closest resemblance to the circle (fig) makes the hexagon the best space filling mosaic, which contains only one type of neighborhood (fig.) Centroids in the hexagonal mosaic form a triangular grid, so an individual hexagon has the same distance from all its neighbours.
+Hexagon is the polygon with the maximum number of sides for a regular tessellation of a 2D plane. This makes the hexagonal binning the most efficient and compact division of 2D data space.
+
+@carr1992hexagon
+
+@birch2007rectangular
+
+![**Fig.** Types of neighbourhood in regular shape mosaics.](imgs/binning-neighbourhoods-3.png)
+
+The vertex type of neighbourhood can cause visual ambiguity about the compactness of the mapped areas.  
+
+—- ease of creation, coordinate system...
 Square grid is the simplest division of space.
 
-- hexagonal — centroids in hexagonal binning form a triangular grid, so an individual hexagon has the same distance from all it's neighbours (why is that good? not th case of rectangular grid).
+
 - rectangular — can create pyramids for hierarchical aggregation, that is a higher level shape can fully contain shapes of lower level wihch is not a case for hexagons. Rectangular shapes are also better fit for proportional scaling in two dimensions (width and height) which unlocks potential for displlaying an additional vable.
 
-— some literature with discussion: @unwin2006graphics — compare 3 schemes, @carr1987scatterplot hexbins — reduced bias in density estimation, but @scott2015multivariate — showing marginal differences
+@carr1987scatterplot hexbins — reduced bias in density estimation, but @scott2015multivariate — showing marginal differences
 
 from https://www.meccanismocomplesso.org/en/hexagonal-binning/?fbclid=IwAR2IDJGQGed1rtLsoe0M_NVHqxZp6rdGfvUD370ccaO7_XsJmG989JqjQbQ
 
 '''
 The most evident is that hexagons are more similar to circle than square. This translates in more efficient data aggregation around the bin center. This can be seen by looking at some particular properties of hexagons and, especially, of the hexagonal tessellation.
 
-Hexagon is the polygon with the maximum number of sides for a regular tessellation of a 2D plane.
 
-This makes the hexagonal binning the most efficient and compact division of 2D data space.
 hexibins-patterns
 
 Fig.6: the hexagonal tessellation
@@ -126,7 +137,9 @@ Thus any point inside a hexagon is closer to the center of any given point in an
 The composite objects communicate the information via assigned visualization method, for example, the color of hexagons in the grid can display the average price of all aggregated houses in a particular bin. It should be noted, that as this aggregation of thematic information can bring new possibilities of visual analysis, it can also result in improper or misleading value extraction. For example, the chosen middle value may not fit the data distribution or could hide an outlier. 
 
 -- multivar
-Methods of aggregation are predominantly used for displaying single-phenomena datasets, due to the fact that superimposing more phenomenons can be problematic [9]. This can be an issue if the aggregation is used within visual analysis to inspect correlation between two datasets. In that case, an extended method has to be used, where for example one phenomenon is visualized by a central marker and the second by the color of underlying bin or polygon. 
+Methods of aggregation are predominantly used for displaying single-phenomena datasets, due to the fact that superimposing more phenomenons can be problematic.
+
+This can be an issue if the aggregation is used within visual analysis to inspect correlation between two datasets. In that case, an extended method has to be used, where for example one phenomenon is visualized by a central marker and the second by the color of underlying bin or polygon. 
 @carr1992hexagon
 
 ## density vs. attribute visualisation
