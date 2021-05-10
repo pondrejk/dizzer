@@ -72,7 +72,14 @@ From the point of big data visualisation it is important to note how is the aggr
 
 ![**Fig.** Automatic marker clustering example in two adjacent zoom levels (reas.cz).](imgs/img-point-clusters.png)
 
-In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions. Scale dependent binning (fig) keeps the bin shapes constant relative to the map window -- with zoom changes the number of data points falling into each bin changes, so does the area covered by the individual bin, which both influences the spatial pattern. The size of the bin is the parameter that needs to be specified so that it is granular enough for the desired scale interval. If the bin size is too large, the variance in the spatial pattern is smoothed, if bins are too small several no data gaps can appear (see fig.). With the discrete number of zoom intervals the number of aggregations is limited and small which is a good situation to support caching, on the other hand continuous zoom makes the number of possible aggregations much higher.  
+In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions.
+
+TODO (img) -- some description how the leaflet binning algorithm works and how it could be improved to incorporate also attribute information along with density (dynamic zone perimeter -- so that unneccesary clusters are not formed, scale dependent and density dependent rules, cluster symbols as pie charts (adamov plugin),  offload count information on some administrative polygons that wouldn't change with scale) sources:
+
+https://blog.mapbox.com/clustering-millions-of-points-on-a-map-with-supercluster-272046ec5c97
+https://regionbound.com/region-aware-marker-clustering-for-maps
+
+Scale dependent binning (fig) keeps the bin shapes constant relative to the map window -- with zoom changes the number of data points falling into each bin changes, so does the area covered by the individual bin, which both influences the spatial pattern. The size of the bin is the parameter that needs to be specified so that it is granular enough for the desired scale interval. If the bin size is too large, the variance in the spatial pattern is smoothed, if bins are too small several no data gaps can appear (see fig.). With the discrete number of zoom intervals the number of aggregations is limited and small which is a good situation to support caching, on the other hand continuous zoom makes the number of possible aggregations much higher.  
 
 ![**Fig.** Hexbin aggregation using Leaflet with leaflet-d3 plugin. At too widely different scales the bin size remains constant. Input points are regrouped on with zoom level change on the client.](imgs/img-hex-sizes.png)
 
