@@ -97,7 +97,7 @@ In terms of big data visualisation we are interested in spatial aggregation to p
 
 When it comes to the shape of the referential geometry, we can chose from three types of convex shapes that completely divide space into units of same regular shape: square, hexagonal and triangular shapes. In practice, the hexagonal mosaic takes precedence, there are several aspects to why.
 
-![**Fig.** Comparison of selected mosaic shapes to circle. Hexagons are closest to the circlw, whoch translates in more efficient data aggregation around the bin center.](imgs/bi-shapes-dist-to-edge.png)
+![**Fig.** Comparison of selected mosaic shapes to circle. Hexagons are closest to the circle, which translates in more efficient data aggregation around the bin center.](imgs/bi-shapes-dist-to-edge.png)
 
 Considering polygons with equal area, the more similar to a circle this polygon is, the closer to the center the border points are (especially vertices -- see fig). Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles. This makes the hexagon the best space filling mosaic, which also contains only one type of neighborhood (fig.) Centroids in the hexagonal mosaic form a triangular grid, so an individual hexagon has the same distance from all its neighbours.Hexagonal mosaic is therefore the most efficient and compact division of two dimensional plane.
 
@@ -107,64 +107,19 @@ The vertex type of neighbourhood can cause visual ambiguity about the compactnes
 
 From the cartographic point of view, there are other aspects of hexagonal grids that are interesting. If the grid is used for collecting spatial samples, it should be projected to the cartographic projection so that each cell really covers equal area. This may become a problem when the grid is used as an un-projected graphic overlaid over a large area influenced by distortions of the cartographic projection (see e.g. hexagons in the image in fig *Hexbin aggregation using Leaflet with leaflet-d3* cover gradually smaller area from south to north especially on the left image -- due to the distortion of Mercator projection).
 
-The assignment of value to the mosaic cell is another topic to consider. The composite objects communicate the information via assigned visualization method. Predominantly, the fill color is used to denote the point count or density within the region. If we are more interested in the attribute variation, we can assign color based on some statistic of member point attributes -- mean, median, variance, etc. Each of these choices come with a toll (like hiding outliers) and should be tailored to the context of the visualisation or user-adjustable. Also any classification method will also have impact on the overall visualisation. Apart from the classical selection (equal interval, Jenks, quantile, logarithmic...) there are also newer promising contributions to the classification problem like *head/tail breaks*(@jiang2018), bayesian weighting (@correll2017surprise) or uncertainty-adjusted scales (@correll2018value).
+The assignment of value to the mosaic cell is another topic to consider. The composite objects communicate the information via assigned visualization method. Predominantly, the fill color is used to denote the point count or density within the region. If we are more interested in the attribute variation, we can assign color based on some statistic of member point attributes -- mean, median, variance, etc. Each of these choices come with a toll (like hiding outliers) and should be tailored to the context of the visualisation or user-adjustable. Also any classification method will also have impact on the overall visualisation. Apart from the classical selection (equal interval, Jenks, quantile, logarithmic...) there are also newer promising contributions to the classification problem like *head/tail breaks*(@jiang2018), bayesian weighting (@correll2017surprise) or uncertainty-adjusted scales (@correll2018value). There is also a possibility to split cells to make them work similarly to pie or stacked charts^[<https://cran.r-project.org/web/packages/hextri/vignettes/hexbin-classes.html>].
 
-Then there are approaches that try to combine the density and attribute visualisation either by employing a bipolar color scale or by placing supplementary signs to the grid^[see e.g. <https://github.com/adammertel/Leaflet.RegularGridCluster>]. If the proportion of various parameters within the cell is of interest, pie charts can be neatly placed to fit the hexagonal grid. This way we can also compare densities of multiple point datasets. Trying to visualize both the density and attribute information of one dataset leaves little room for comparison of multiple datasets, but then the interaction or multiple map views can be employed. Another approach to multiparametric visualisation is in proportionally scaling the grid cells themselves^[<https://geo.rocks/post/hexbins-js-hll/>].
+^Hexbin as a placement grid to include symbol visualisations -- relation to overlays --TODO img some discussion on masking (dasymetric method) -- http://wiki.gis.com/wiki/index.php/Dasymetric_map
 
-Some parameters to consider for for hexagonal mosaics:
+![**Fig.** Dasymetric method, not applicable to most multivariate hexbin visualisation methods](imgs/img-textures-and-buildings.png)
 
-- Cell sizes: If the bins are designed too big relative to the map scale, the pattern of phenomenon can become unrecognizable. On the other side, very small bins can lead to gaps in the grid in some implementations (see fig). Statisticians proposed several heuristics to select bin sizes for to aid sampling (@sturges1926choice, @scott1979optimal, @hyndman1995problem), though for visualisation purposes we usually prefer the finest grid that is technically possible simply because it yields most informative and aesthetically rewarding maps.
+Then there are approaches that try to combine the density and attribute visualisation either by employing a bipolar color scale or by placing supplementary signs to the grid^[see e.g. <https://github.com/adammertel/Leaflet.RegularGridCluster>]. If the proportion of various parameters within the cell is of interest, pie charts can be neatly placed to fit the hexagonal grid. This way we can also compare densities of multiple point datasets. Trying to visualize both the density and attribute information of one dataset leaves little room for comparison of multiple datasets, but then the interaction or multiple map views can be employed. Another approach to multiparametric visualisation is in proportionally scaling the grid cells themselves^[<https://geo.rocks/post/hexbins-js-hll/>]. Also 
 
+Another parameter to consider is the cell size in the hexagonal grid. If the bins are designed too big relative to the map scale, the pattern of phenomenon can become unrecognizable. On the other side, very small bins can lead to gaps in the grid in some implementations (see fig). Statisticians proposed several heuristics to select bin sizes for to aid sampling (@sturges1926choice, @scott1979optimal, @hyndman1995problem), though for visualisation purposes we usually prefer the finest grid that is technically possible simply because it yields most informative and aesthetically rewarding maps.
 
-Color encodings — density can be encoded to hue, luminance or opacity
+There are many other interesting aspects to hexagonal grids that are not directly related to visualisation but may have some applicability in digital maps, for example coordinate systems, coordinate ranges or reflections withing the grid (for more see https://www.redblobgames.com/grids/hexagons/) 
 
-@liu2013immens use frumula for hue intensity in bins: y = alpha + ((x - xmin)y/xmax-xmin)(1-alpha)
-Y comes betw 0 and 1, x is the data value
-— what other libraries use?
-
-notes from @tufte1985visual
-—————
-
-data-ink ratio: data-ink non erasable core of the graphic that presents data information.
-`data-ink / total ink on graphic` = proportion of ink used to convey non-redundant information — the number we want to maximize (within reason)
-
-another tufte sparklines @tufte2006beautiful
-———————-
-https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR
-
-A sparkline, as defined by Tufte, is “a small intense, simple, word-sized graphic with
-typographic resolution. Sparklines ... can be everywhere a word or number can be: embedded in a sentence, table, headline, map, spreadsheet, graphic.”
-
-
-**hexbin related library**
-https://observablehq.com/@fil/web-mercator-tile-visibility
-https://github.com/uber/h3-js
-
-
-### app — binning playgound (no time for this)
-— timeline to simulate movement
-— bins / hexagons
-— varying size of bin — some statistics for size selection
-— moving the bin around area
-— couple/decouple bin resize with map zoom
-— various color shemes — for density
-— usage of transparency
-
-— multidimensional:
-— using relative size, in squares use two size changes
-— inscribe proportional circles (both), squares — only rectangular grid
-
-— more dimentions:
-— inscribe marimekko charts / pie charts - split charts for 2 densities
-— hachures over bins ...
-— outlier in bins, etc...
-— try selfhosted mapbox for 3D view? — or check uber glsl wrapper
-
-
-
-
-
-# If dataflow is too high to suport backend aggregation in real time:
+TODO If dataflow is too high to suport backend aggregation in real time:
 
 — research on combining sampling and aggregation: BlinkDB — builds fast approximate queries a multi-dimensional and multi-resolution stratified samples and computes aggregates over this reduced data. BlinkDB — queries with bounded errors and bounded response times @agarwal2013blinkdb
 
@@ -252,8 +207,7 @@ Besides the abstraction required to code a general function that changes the res
 
 
 TODO — describe alternative solutions to all webgl libraries like mapbox (leaflet with webgl overlay)
-TODO — how to import bitmaps (spritesheet) and svg to webgl canvas? -- how to do it in MapboxGL?
-TODO? — REGL (only desc if I decide to use it) — maybe in section 4 (implementation part) after also describing react/redux
+TODO — how to import bitmaps (spritesheet) and svg to webgl canvas? -- how to do it in MapboxGL? -- library takes care of it -- in pipeline bitmaps can be drawn during vertex shading.
 
 — also a sidenote on how to use GPU for other claculations (like python for big data — there is some library, python coda)
 
@@ -308,7 +262,7 @@ Being a vector file format, tiles can be styled upon request. Separating renderi
 Vector tiles can contain attribute data which elevates the format beyond mere display techonology of the raster tiles. With raw data included, several types of interactions are possible -- from basic pop-up info over points of interest towards advanced querying and filtering for in-browser analysis. Apart from changing feature visibility and layer order there is data driven styling that opens possibilities for thematic cartography. Once tiles are loaded, any user-induced filtering and style changes is executed on client without additional requests to the server (on-the-fly), which may support offline functionality. 
 
 For cartographer, the format and the capabilities of the client libraries opens several new possibilities (some will be discuss in greater detail in the next chapter.):
-- Vector tiles are good for both bas emaps and also for thematic interactive overlays, also allows for better entanglement of the layers as the custom data layer can be put anywhere in the layer hierarchy, not only on the top.
+- Vector tiles are good for both basemaps and also for thematic interactive overlays, also allows for better entanglement of the layers as the custom data layer can be put anywhere in the layer hierarchy, not only on the top.
 - Application of textures -- clever clipping per feature (done in GPU) TODO example screenshot from elwar.
 - The client library supports additional actions like camera tilt or orientation change that were not possible with raster tiles. 
 - Also the smooth continuous zoom is supported as the vector tiles within one zoom level are not fixed in size by raster resolution, so smooth impression can be achieved by scaling tiles between zoom steps. This fixes the problem of initial area extent described in section -- TODO
@@ -317,6 +271,8 @@ For cartographer, the format and the capabilities of the client libraries opens 
 - data within source -- good for styling, tooltips, other users (machine learning?)
 - dynamic ordering of layers
 - dynamic generalization (well, simplification)
+
+![**Fig.** An example on application of bitmaps in mapbox. Bitmap png swatches are applied to polygons based on data driven rulse. Textures are passed to GPU by the library, those are clipped to the polygon bounds in the vertex shading phase -- ture? (elwar.uni.lu).](imgs/img-hatches.png)
 
 Other advantages -- various rendering contexts, depends on client implementation. In this thesis we will focus on web-based but there is a potential for much greater coverage -- cars, IoT devices, or lower fidelity periferals (eg ascii renedering for ebook readers). Most of the cartographic implication we will discuss later are universal across devices.
 
@@ -372,19 +328,17 @@ Thesis on vecctor tiles:
 
 # 3.4 Figures and grounds
 
-Two tautologic definitions:
+As we have hinted in the previous section, vector tiles allow for greater freedom in combining data layers in digital maps. What does this bring to digital cartographers? To answer this question it is useful to take an aside to think about distinctions between topographic and thematic cartography and into how layers. The distinction between the topographic and thematic cartography those arise from different practical motivations that translate into different design implications.
+
+I explore how to create thematic maps from Big data.
 
 "Topographic map is a set of entangled thematic maps"
 "Thematic map is a topographic map with one layer disproportionally enhanced"
 
-In this chapter, and actually in the whole thesis, I explore how to create thematic maps from Big data.
-Lets (reiterate) start with the distinction between the topographic and thematic cartography, as those arise from different practical motivations that translate into different design implications.
 
 The starting point for a **topographic map** is a given territory, that is to be interpreted on a blank page/screen. In topographic maps we create a model of the surface, and we want to include all environmental characteristics that we believe to be relevant to the task — and the task is usually to help with orientation in the given territory. The real alchemy of the topographic practice is to depict all layers without clutter — the layers must be equally separable/retrievable. This is because we do not know beforehand which features or combination of features will become useful for orientation. Map creates a *taxonomic space* of what is to be known about the territory (let us set aside the power-related difficuties of what is being omitted and who does the selection on who's benefit) and puts these species to relationships. This synthetic aspect is for @wood2010rethinking one of the most important features of the map — the sign systems (layers) are in constant dialog, allowing us to extract meaning from those relations that would be hardly obtainable without using the map. Here, "the whole is greater than the sum of its parts.” — Aristotle.
 
 In **thematic maps**, the starting point is is a phenomenon. We want to learn something about it by studying its spatial distribution, by searching spatial correlations with other features, and also by mapping how the internal structure of the phenomenon changes across space.
-
-Find the distinction in bertin...
 
 In both cases we overlay comprehensive sign systems (rivers, settlements, mountains...), though what differs is their relative visual prominence: we can say a thematic map is a topographic map that gives asymetric prominence to one layer of interest (though often richly differentiated in its cartographic presentation) and pushing the remaining layers to the role of toned down "base" merely aimed to provide geographical context for the reading of the topic. Sometimes things go as far as the base is reduced to the minimum (often administrative boundaries) or omitted alltogether (in such case the topographic context stems from the distribution of the signs in thematic layer — from what @wood2010rethinking calls a *tectonc* code of the map).
 
@@ -405,6 +359,8 @@ This means trasferring from the SVG overlay to canvas or webGL. Canvas allows fo
 Strategies:
 - simple: pushing theme to the base (underlay)
 - harder: data driven styling based on overlay — overlay algebra that is done without touching the source data (like overprint, of multiexposure shots in photography but really beyond these analogies). It is solely based on web-gl filtering
+
+-- masking
 
 # 3.5 on UX, interaction and beyond
 ————————————————-
@@ -455,16 +411,19 @@ https://developer.apple.com/design/human-interface-guidelines/ios/overview/theme
 - strategies for density reduction in controls
 - combining functions (legend and histogram and brushing control) - (využiť návrh na baptisteries, legendy aj timeline z toho proposalu )
 
-## Visual storytelling vs dashboards (TODO -- I'm not doing it, should be removed or moved to previous chapter?)
+**Visual storytelling vs dashboards (TODO -- I'm not doing it, should be removed or moved to previous chapter?)**
+
 Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern.
 
 What is the audience - some notes from the field:
 https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-after-data-journalism-3c68861b7f4c
 
-#### more
+more
+
 https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
 
-#### scrollytelling
+scrollytelling
+
 https://medium.com/nightingale/from-storytelling-to-scrollytelling-a-short-introduction-and-beyond-fbda32066964
 https://webflow.com/blog/scrollytelling-guide?fbclid=IwAR3yRP5GAYtrHgNcN_njPk-5HwW3_ppH6sloQpna5CpxEmOm5qjQCoXBeoY
 

@@ -215,3 +215,12 @@ Sampling has many uses to speed up analysis, when avoiding assessing the entire 
 
 Elaborate sampling methods require specific dimensions are chosen ahead of time, requiring prior knowledge and often costly pre-processing (@liu2013immens). Moreover, in vast datasets the reduction would have to be too significant. Sampling to ease point cloud visualisation doesn't seem as an adequate approach.
 
+Sparklines
+
+another tufte sparklines @tufte2006beautiful
+———————-
+https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR
+
+A sparkline, as defined by Tufte, is “a small intense, simple, word-sized graphic with
+typographic resolution. Sparklines ... can be everywhere a word or number can be: embedded in a sentence, table, headline, map, spreadsheet, graphic.”
+
