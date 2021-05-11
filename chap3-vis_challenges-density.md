@@ -89,73 +89,28 @@ These client implementations expect point data on the input and calculate cluste
 
 For several reasons mentioned above, we find binning superior to point clustering for visualisation of big data sets both from perceptual and technical standpoint. We also find this method more flexible and extensible from the cartographic point of view. In the following section we will look more closely at some interesting properties of hexagonal mosaics. 
 
-## 3.2.2 Some aspects of hexbin aggregation
+## 3.2.2 Some aspects of hexagonal aggregation
 
 In terms of big data visualisation we are interested in spatial aggregation to predefined shape that is not dependent on the character of aggregated data. Unlike other methods (clustering, interpolation), the referential geometry does not adjust to the changed data, which makes the computation performance quite scalable and predictable across higher data loads. Using arbitrary shape instead of any existing spatial unit (e.g. administrative districts) then brings flexibility in balancing the feature size and count in the mosaic.
 
 When it comes to the shape of the referential geometry, we can chose from three types of convex shapes that completely divide space into units of same regular shape: square, hexagonal and triangular shapes. In practice, the hexagonal mosaic takes precedence, there are several aspects to why.
 
-![**Fig.** Comparison of selected mosaic shapes to circle.](imgs/bi-shapes-dist-to-edge.png)
+![**Fig.** Comparison of selected mosaic shapes to circle. Hexagons are closest to the circlw, whoch translates in more efficient data aggregation around the bin center.](imgs/bi-shapes-dist-to-edge.png)
 
-The regularity and the closest resemblance to the circle (fig) makes the hexagon the best space filling mosaic, which contains only one type of neighborhood (fig.) Centroids in the hexagonal mosaic form a triangular grid, so an individual hexagon has the same distance from all its neighbours.
-Hexagon is the polygon with the maximum number of sides for a regular tessellation of a 2D plane. This makes the hexagonal binning the most efficient and compact division of 2D data space.
 
-@carr1992hexagon
-
-@birch2007rectangular
+Considering polygons with equal area, the more similar to a circle this polygon is, the closer to the center the border points are (especially vertices -- see fig). Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles. This makes the hexagon the best space filling mosaic, which also contains only one type of neighborhood (fig.) Centroids in the hexagonal mosaic form a triangular grid, so an individual hexagon has the same distance from all its neighbours.Hexagonal mosaic is therefore the most efficient and compact division of two dimensional plane.
 
 ![**Fig.** Types of neighbourhood in regular shape mosaics.](imgs/binning-neighbourhoods-3.png)
 
-The vertex type of neighbourhood can cause visual ambiguity about the compactness of the mapped areas.  
+The vertex type of neighbourhood can cause visual ambiguity about the compactness of the regions in the grid -- edge neighbors of the same value in a rectangular grid may be perceived as members of the same region or as separate entities. In that matter having no vertex neighbourhoods in a grid supports contiguous spatial patterns. Furthermore, the straight orthogonal borders of the rectangular grid form a mesh that may attract more visual attention than the values or the cells. Hexagonal cells, on the other hand, are grouped along three axes rather than two which yields more varied, less  rectilinear shapes. Single type of neighborhood is also efficient for defining nearest neighbourhood when modelling paths in a grid. As a disadvantage, unlike rectangles, hexagonal grids cannot form nested grids of the same shape. Grid hierarchy in hexagons is treated either by using partial hexagons or forming non-hexagonal higher level grids (@sahr2003geodesic). For more thorough comparison of rectangular and hexagonal grids see @birch2007rectangular.
 
-—- ease of creation, coordinate system...
-Square grid is the simplest division of space.
+From the cartographic point of view, there are other aspects of hexagonal grids that are interesting. If the grid is used for collecting spatial samples, it should be projected to the cartographic projection so that each cell really covers equal area. This may become a problem when the grid is used as an un-projected graphic overlaid over a large area influenced by distortions of the cartographic projection (see e.g. hexagons in the image in fig *Hexbin aggregation using Leaflet with leaflet-d3* cover gradually smaller area from south to north especially on the left image -- due to the distortion of Mercator projection).
 
+The assignment of value to the mosaic cell is another topic to consider. The composite objects communicate the information via assigned visualization method. Predominantly, the fill color is used to denote the point count or density within the region. If we are more interested in the attribute variation, we can assign color based on some statistic of member point attributes -- mean, median, variance, etc. Each of these choices come with a toll (like hiding outliers) and should be tailored to the context of the visualisation or user-adjustable. Also any classification method will also have impact on the overall visualisation. Apart from the classical selection (equal interval, Jenks, quantile, logarithmic...) there are also newer promising contributions to the classification problem like *head/tail breaks*(@jiang2018), bayesian weighting (@correll2017surprise) or uncertainty-adjusted scales (@correll2018value).
 
-- rectangular — can create pyramids for hierarchical aggregation, that is a higher level shape can fully contain shapes of lower level wihch is not a case for hexagons. Rectangular shapes are also better fit for proportional scaling in two dimensions (width and height) which unlocks potential for displlaying an additional vable.
-
-@carr1987scatterplot hexbins — reduced bias in density estimation, but @scott2015multivariate — showing marginal differences
-
-from https://www.meccanismocomplesso.org/en/hexagonal-binning/?fbclid=IwAR2IDJGQGed1rtLsoe0M_NVHqxZp6rdGfvUD370ccaO7_XsJmG989JqjQbQ
-
-'''
-The most evident is that hexagons are more similar to circle than square. This translates in more efficient data aggregation around the bin center. This can be seen by looking at some particular properties of hexagons and, especially, of the hexagonal tessellation.
+Then there are approaches that try to combine the density and attribute visualisation either by employing a bipolar color scale or by placing supplementary signs to the grid^[see e.g. <https://github.com/adammertel/Leaflet.RegularGridCluster>]. If the proportion of various parameters within the cell is of interest, pie charts can be neatly placed to fit the hexagonal grid. This way we can also compare densities of multiple point datasets. Trying to visualize both the density and attribute information of one dataset leaves little room for comparison of multiple datasets, but then the interaction or multiple map views can be employed. Another approach to multiparametric visualisation is in proportionally scaling the grid cells themselves^[<https://geo.rocks/post/hexbins-js-hll/>].
 
 
-hexibins-patterns
-
-Fig.6: the hexagonal tessellation
-
-In fact, although you can create many pattern using two or more types of polygons,  this is not possible if you are using the same polygon if this has more than 6 sides. Only triangles, squares and hexagon can create them.
-
-    In an hexagonal binning, adjacent hexagons shares edge borders and not only vertex borders.
-
-Instead in square and triangular binning, triangles and square share only a vertex border with some adjacent.
-hexbins-patterns2
-
-Fig:7. sharings of the borders in different tessellations
-
-Considering polygons with equal area, the more similar to a circle this polygon is, the closer to the center the border points are (especially vertices).
-
-Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles.
-'''
-
--- how to assign color to the bins (density vs attribute visualisation)
-The composite objects communicate the information via assigned visualization method, for example, the color of hexagons in the grid can display the average price of all aggregated houses in a particular bin. It should be noted, that as this aggregation of thematic information can bring new possibilities of visual analysis, it can also result in improper or misleading value extraction. For example, the chosen middle value may not fit the data distribution or could hide an outlier. 
-
--- multivar
-Methods of aggregation are predominantly used for displaying single-phenomena datasets, due to the fact that superimposing more phenomenons can be problematic.
-
-This can be an issue if the aggregation is used within visual analysis to inspect correlation between two datasets. In that case, an extended method has to be used, where for example one phenomenon is visualized by a central marker and the second by the color of underlying bin or polygon. 
-@carr1992hexagon
-
-## density vs. attribute visualisation
-- implanation - classification techniques: classical, new: yiang - fractal breaks, bayesian surprise, uncertainty-adjusted scales
-- shape, position, other options for multiple vis — indiemaps article, other tesallerations
-
-Statistical properties of regular tilings:
-- the hexagon was observed as the most effective one (followed by the square)
-The statistical properties of bivariate histograms with types of tilings - hexbins best but only marginally better than squares @scott1988note
 
 liu2013immens (done)
 
@@ -619,6 +574,8 @@ native visual representations to facilitate exploration and discovery
 
 
 # 3.6 Case Study: Urban recommendation system
+
+Throughout this chapter we took a rather winding path trough various concepts -- data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles and user interface design. In this concluding section, we present a case study that aims to bring the previously described concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
 
 The origins for this case study stem from a 2018's demonstration application for a hackathon competition that this author attended. The intent was to develop an urban recommendation system that would help dwelling seekers to identify areas in the Brno city that best match their needs and expectations. The original implementation using Leaflet front end has been fully reworked by the author into Mapbox based application for the purpose of this thesis. Aside from the primary goal of spatial optimization tool, the application aims to demonstrate the ideas presented earlier in this chapter — the use of hexbin grid and layer entanglement to battle visual clutter, some recommendations for map UI design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed, and comparison of solutions based on Leaflet and Mapbox map rendering libraries is provided.
 
