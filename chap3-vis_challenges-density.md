@@ -74,7 +74,7 @@ From the point of big data visualisation it is important to note how is the aggr
 
 In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions.
 
-TODO (img) -- some description how the leaflet binning algorithm works and how it could be improved to incorporate also attribute information along with density (dynamic zone perimeter -- so that unneccesary clusters are not formed, scale dependent and density dependent rules, cluster symbols as pie charts (adamov plugin),  offload count information on some administrative polygons that wouldn't change with scale) sources:
+TODO (img) -- some description how the leaflet binning algorithm works and how it could be improved to incorporate also attribute information along with density (dynamic zone perimeter -- so that unnecessary clusters are not formed, scale dependent and density dependent rules, cluster symbols as pie charts (adamov plugin),  offload count information on some administrative polygons that wouldn't change with scale) sources:
 
 https://blog.mapbox.com/clustering-millions-of-points-on-a-map-with-supercluster-272046ec5c97
 https://regionbound.com/region-aware-marker-clustering-for-maps
@@ -85,7 +85,9 @@ Scale dependent binning (fig) keeps the bin shapes constant relative to the map 
 
 The per-scale visualisation changes are also problematic form the cognitive point of view. Changes in spatial pattern cause a loss of orientation between zoom levels. It is not possible to easily trace how the aggregations in some zoom level match to what is displayed in higher or lower zoom levels. For example on fig (TODO above) it is hard to match the clusters between two zoom levels -- their number, size, position and point count changes. Point clusters are especially taxing as they occlude the position of source points, their attribute values as well at the spatial extent of the cluster. Some implementations try to battle this by showing the spatial extent of the cluster on demand^[<https://github.com/Leaflet/Leaflet.markercluster>] or by the ability to expand the cluster to see the values of its members^[<https://github.com/adammertel/Leaflet.MarkerCluster.PlacementStrategies>]. Scale dependent hexbins also cause this problem, though they are better at communicating densities within one zoom level.
 
-These client implementations expect point data on the input and calculate clusters or bins on the fly based on some (limited) configuration parameters to determine the visualisation. As we haves seen, there are perceptual arguments for keeping the aggregation constant across the zoom levels -- in case of binning it means keeping the true spatial coverage of the bin consistent across scales -- so that the bin size on the screen adjusts with the zoom level. Such approach aligns well with the demands of big data processing that favor creating the aggregation on the server (most likely in the spatial database) and pass it to the client in some vector form. This way the client doesn't need to load any data points that eventually won't be displayed. Real time data inflow can be processed on the server where all kinds of optimizations can take place (e.g. just updating the bind that actually changed, parallel processing, etc.). 
+These client implementations expect point data on the input and calculate clusters or bins on the fly based on some (limited) configuration parameters to determine the visualisation. As we haves seen, there are perceptual arguments for keeping the aggregation constant across the zoom levels -- in case of binning it means keeping the true spatial coverage of the bin consistent across scales -- so that the bin size on the screen adjusts with the zoom level. Such approach aligns well with the demands of big data processing that favor creating the aggregation on the server (most likely in the spatial database) and pass it to the client in some vector form. This way the client doesn't need to load any data points that eventually won't be displayed. Real time data inflow can be processed on the server where all kinds of optimizations can take place (e.g. just updating the bind that actually changed, parallel processing, etc.). On the other hand, this approach can hit some storage size limits in vector tiles (we will describe soon) as increasingly more data will be included ind higher level ties (TODO img?)
+
+img. -- maintaining the same aggregation level across scales can lead to hitting the recommended tile size constraints in in some vector tile implementations. Note that the higher level tiles (notes ad) contain gradually larger number of cells (+ associated attributes). This may limit the zoom range. Choosing the bin size then becomes an interplay between desired zoom range, size constraints per tile and the number of attributes per tile.
 
 For several reasons mentioned above, we find binning superior to point clustering for visualisation of big data sets both from perceptual and technical standpoint. We also find this method more flexible and extensible from the cartographic point of view. In the following section we will look more closely at some interesting properties of hexagonal mosaics. 
 
@@ -96,7 +98,6 @@ In terms of big data visualisation we are interested in spatial aggregation to p
 When it comes to the shape of the referential geometry, we can chose from three types of convex shapes that completely divide space into units of same regular shape: square, hexagonal and triangular shapes. In practice, the hexagonal mosaic takes precedence, there are several aspects to why.
 
 ![**Fig.** Comparison of selected mosaic shapes to circle. Hexagons are closest to the circlw, whoch translates in more efficient data aggregation around the bin center.](imgs/bi-shapes-dist-to-edge.png)
-
 
 Considering polygons with equal area, the more similar to a circle this polygon is, the closer to the center the border points are (especially vertices -- see fig). Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles. This makes the hexagon the best space filling mosaic, which also contains only one type of neighborhood (fig.) Centroids in the hexagonal mosaic form a triangular grid, so an individual hexagon has the same distance from all its neighbours.Hexagonal mosaic is therefore the most efficient and compact division of two dimensional plane.
 
@@ -110,55 +111,12 @@ The assignment of value to the mosaic cell is another topic to consider. The com
 
 Then there are approaches that try to combine the density and attribute visualisation either by employing a bipolar color scale or by placing supplementary signs to the grid^[see e.g. <https://github.com/adammertel/Leaflet.RegularGridCluster>]. If the proportion of various parameters within the cell is of interest, pie charts can be neatly placed to fit the hexagonal grid. This way we can also compare densities of multiple point datasets. Trying to visualize both the density and attribute information of one dataset leaves little room for comparison of multiple datasets, but then the interaction or multiple map views can be employed. Another approach to multiparametric visualisation is in proportionally scaling the grid cells themselves^[<https://geo.rocks/post/hexbins-js-hll/>].
 
+Some parameters to consider for for hexagonal mosaics:
+
+- Cell sizes: If the bins are designed too big relative to the map scale, the pattern of phenomenon can become unrecognizable. On the other side, very small bins can lead to gaps in the grid in some implementations (see fig). Statisticians proposed several heuristics to select bin sizes for to aid sampling (@sturges1926choice, @scott1979optimal, @hyndman1995problem), though for visualisation purposes we usually prefer the finest grid that is technically possible simply because it yields most informative and aesthetically rewarding maps.
 
 
-liu2013immens (done)
-
-*Scalability of visual encodings* (how visualized) vs *interactive scalability* (how interaction works) — both should be limited by the chosen resolution of visualized data not the number of records.
-
-Aggregation methods ~= Data reduction methods:
-- bridge to previous chapters regarding sampling: bd analytics may no longer require it, though visualisation needs it (unfortunately?)
-
-a.) filtering & sampling: Subset of data is selected to wich we apply visualisation techniques. The key problem of sampling is selecting a subset that is representative of the whole dataset. Several types of sampling were designed to increcase the likelihood that a sample genralizes well to the whole population.
-
-With simple random sampling each point has the same probability of being selected. Members of population are uniquely identified by consecutive positive integers and then pseudo-random number generator is used to select the subset of required size. As no other variables are considered, this technique can produce wildly unrepresentative samples from heterogeneous sets, where important structures or outliers can be omitted.
-
-Systematic random sampling tries to avoid some limitations of the purely random approach to ensure main groups present in the population don't get omitted or oversampled in the subset. A random component is maintained by selecting randomly within the specified groups; the number of elements picked from each group doesn't have to be uniform, as groups can be weighted to preserve the relative importance of groups in the source dataset. Spatial equivalent of this approach is called geographically *stratified* sampling where we divide the area of interest into sub-areas (for example quadrat or hexagonal tessellation) and perform random selection within each cell. This is useful when we want an even coverage of the area of interest in the sample. Furthermore, for spatially uneven populations, we can employ *cluster* sampling, where we pick more samples from certain areas, for example from metropolitan areas — which is effectively weighting the areas by population. The third class of spatial sampling, *systematic* spatial sampling, that takes samples from evenly distributed locations, is more suited for sampling from continuous data rather than from discrete point clouds that mainly interest us in this chapter.
-
-A straightforward way to evaluate the sampling design is comparing distribution and basic statistics such as mean and variance of population and sample. @chun2013spatial compared random, systematic and stratified sampling on three kinds of simulated trend surfaces: linear (gradual increase from one side to another), quadratic (highest value in the centre gradually lowering radially to the sides) and oscillating (several sinusoidal bumps and pits). According to their findings, stratified spatial sampling generally better preserves mean of the population, systematic spatial sampling performs better at preserving variance.
-
-Spatial sampling differs from regular sampling, often breaks i.i.d. (independent and identically distributed) assumption, see @wang2012review for review of spatial sampling.
-
-Sampling has many uses to speed up analysis, when avoiding assessing the entire population is feasible. Advances of big data infrastructure reduce the need for sampling out of necessity. Not only a data reduction technique, but often (esp. in spatial sciences) a data collecting convenience (collecting data at discrete locations and interpolating). Also resampling techniques (bootstrap, jacknife, off-by-one ... others) are useful for testing and validating spatial models, Bootstrap is better for distribution estimation, jacknife is superior for variance estimation  @chun2013spatial. See @kleiner2013general for evaluation of the bootstrap techniques from the performance standpoint.
-
-Elaborate sampling methods require specific dimensions are chosen ahead of time, requiring prior knowledge and often costly pre-processing (@liu2013immens). Moreover, in vast datasets the reduction would have to be too significant. Sampling to ease point cloud visualisation doesn't seem as an adequate approach.
-
-b.) binned aggregation — Binning aggregates data and visualizes density by counting the number of data points falling into each bin. (TODO terminology from the generalizaiton pov)
-
-c.) model-based abstraction - describing data in terms of mathematical models or statistical summaries. — basically meaning interpolation techniques in spatial world
-
-d.) hybrid reduction methods — combinations, eg. binning with displayed outliers in dataset as well as binned density (@novotny2006outlier use it in parallel coordinate plots), no reason not to apply in bins.
-— research on combining sampling and aggregation: BlinkDB — builds fast approximate queries a multi-dimensional and multi-resolution stratified samples and computes aggregates over this reduced data. BlinkDB — queries with bounded errors and bounded response times @agarwal2013blinkdb
-— online aggregation — showing continuously updating aggregates and confidence intervals in response to a stream of samples — hellerstein1997online, fisher2012trust
-
-### Designing binned plots
-
-Why binned plots?
-— conveys to both global patterns (densities) as well as local features (e.g outliers)
-— multiple levels of resolution via varying cell size
-— they refrain from using additional visual variables such as texture or size as they believe it can interfere with interpretation (I don't). Mulitdimensional displys can solve it — coordinated views, trellis plots ++ brushing and linking
-
-
-### Interaction with binned plots
-
-### Point aggregation
-— mostly don't like it — difference between current applications and what should be acheived
-— point aggregation — basically sampling with information on how many points are represented ...
-
-### parameters of binned visualisation
-
-Cell sizes: staisticians proposed several heurisics to select bin sizes — applicability to big data unclear (some explanation and critique on Sturges in @hyndman1995problem): Struges's formula @sturges1926choice, Scott's reference rule @scott1979optimal
-Color encodings —density can be encoded to hue, luminance or opacity
+Color encodings — density can be encoded to hue, luminance or opacity
 
 @liu2013immens use frumula for hue intensity in bins: y = alpha + ((x - xmin)y/xmax-xmin)(1-alpha)
 Y comes betw 0 and 1, x is the data value
@@ -203,9 +161,14 @@ https://github.com/uber/h3-js
 — try selfhosted mapbox for 3D view? — or check uber glsl wrapper
 
 
--- optimal bin size
-If the bins are designed too big relative to the map scale, the pattern of phenomenon can become unrecognizable. On the other side, very small bins can lead to gaps in the grid. 
 
+
+
+# If dataflow is too high to suport backend aggregation in real time:
+
+— research on combining sampling and aggregation: BlinkDB — builds fast approximate queries a multi-dimensional and multi-resolution stratified samples and computes aggregates over this reduced data. BlinkDB — queries with bounded errors and bounded response times @agarwal2013blinkdb
+
+— online aggregation — showing continuously updating aggregates and confidence intervals in response to a stream of samples — hellerstein1997online, fisher2012trust
 
 ## 3.2.3 Other methods of graphic fill reduction (cartographic content clarification) 
 
@@ -570,7 +533,6 @@ analytical tasks
 • Develop transformation methods that allow the user to move among alter-
 native visual representations to facilitate exploration and discovery
 • Provide level of emphasis and detail appropriate to the user’s data and task.
-
 
 
 # 3.6 Case Study: Urban recommendation system
