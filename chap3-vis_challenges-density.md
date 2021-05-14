@@ -46,7 +46,7 @@ Hence the cartographic decisions made for the later stages in the processing pip
 
 Not all data processing challenges translate to cartographic challenges. Some basic data visualisation methods are fairly immune to challenges of real time data inflow (e.g. pie charts are not less readable when based on massive number of observations), but positional types of visualisation suffer from graphic density. This can be worsen by a cluttered base layer, labels, or unexpected interaction results. Let us look at some ways of addressing graphic density in dynamic maps. 
 
-# 3.2 Reducing graphic clutter in digital maps
+## 3.2 Reducing graphic clutter in digital maps
 
 The majority of real-life phenomena is very complex, therefore the amount of presented information needs to be reduced to be able to analyze them by visual means. Consequently, effective visualization should make the displayed phenomenon more comprehensible to viewers without occluding too much input data. Large point datasets tend to generate hardly interpretable congestions covering significant portions of the mapped area, therefore additional processing may be needed to extract the density of point occurrence as well as spatial patterns formed by point attributes.
 
@@ -108,7 +108,7 @@ The vertex type of neighbourhood can cause visual ambiguity about the compactnes
 
 From the cartographic point of view, there are other aspects of hexagonal grids that are interesting. If the grid is used for collecting spatial samples, it should be projected to the cartographic projection so that each cell really covers equal area. This may become a problem when the grid is used as an un-projected graphic overlaid over a large area influenced by distortions of the cartographic projection (see e.g. hexagons in the image in fig *Hexbin aggregation using Leaflet with leaflet-d3* cover gradually smaller area from south to north especially on the left image -- due to the distortion of Mercator projection).
 
-The assignment of value to the mosaic cell is another topic to consider. The composite objects communicate the information via assigned visualization method. Predominantly, the fill color is used to denote the point count or density within the region. If we are more interested in the attribute variation, we can assign color based on some statistic of member point attributes -- mean, median, variance, etc. Each of these choices come with a toll (like hiding outliers) and should be tailored to the context of the visualisation or user-adjustable. Also any classification method will also have impact on the overall visualisation. Apart from the classical selection (equal interval, Jenks, quantile, logarithmic...) there are also newer promising contributions to the classification problem like *head/tail breaks*(@jiang2018), bayesian weighting (@correll2017surprise) or uncertainty-adjusted scales (@correll2018value). There is also a possibility to split cells to make them work similarly to pie or stacked charts^[<https://cran.r-project.org/web/packages/hextri/vignettes/hexbin-classes.html>].
+The assignment of value to the mosaic cell is another topic to consider. The composite objects communicate the information via assigned visualization method. Predominantly, the fill color is used to denote the point count or density within the region. If we are more interested in the attribute variation, we can assign color based on some statistic of member point attributes -- mean, median, variance, etc. Each of these choices come with a toll (like hiding outliers) and should be tailored to the context of the visualisation or user-adjustable. Also any classification method will also have impact on the overall visualisation. Apart from the classical selection (equal interval, Jenks, quantile, logarithmic...) there are also newer promising contributions to the classification problem like *head/tail breaks*(@jiang2018complex), bayesian weighting (@correll2017surprise) or uncertainty-adjusted scales (@correll2018value). There is also a possibility to split cells to make them work similarly to pie or stacked charts^[<https://cran.r-project.org/web/packages/hextri/vignettes/hexbin-classes.html>].
 
 ^Hexbin as a placement grid to include symbol visualisations -- relation to overlays --TODO img some discussion on masking (dasymetric method) -- http://wiki.gis.com/wiki/index.php/Dasymetric_map
 
@@ -151,11 +151,11 @@ Zooming and panning are interaction modes that for many users basically define w
 
 To minimize the risk of conflict between the base map and the thematic layer, web map developers use toned down base maps often stripped down to the bare visual minimum (e.g. Carto Positron is an example of popular base tile layer). But base map is not only a background canvas for thematic layer, in reality the spatial phenomena are in part a product of other spatial relations that constitute the overall environment and we feel there is an unexplored potential to portray this relationship in the interplay of figure and ground in the thematic maps (TODO see further in chapter).
 
-# 3.3 Rendering Spatial Data  
+## 3.3 Rendering Spatial Data  
 
 How is the cartographic design influenced by the rendering technology employed? What technology (or combination of technologies) is suitable for cartographic visualization of dynamic data sets on the web? In this section we will describe the tree main technologies the current web development toolbox provides for showing interactive graphic information. We will mostly focus on WebGL with brief description of how it uses the GPU rendering pipeline. Then we will describe how are these technologies baked into web mapping libraries. In that matter, we will look closer at the vector tiles specification in comparison with its raster predecessor. Finally we will attempt to summarize the design possibilities the combination of vector tiles and direct WedGL offers mean for cartographic visualisation of big data.
 
-## 3.3.1 SVG, Canvas, WebGL
+### 3.3.1 SVG, Canvas, WebGL
 
 **SVG** is a well known and much loved format for displaying two dimensional vector graphics on the web. Since the start of development in 1999 it has become an often used alternative to bitmaps with wide browser support. Unlike the remaining two technologies, SVG is a vector format, which brigs scalability (the acronym stands for Scalable Vector Graphics after all), constant graphic quality across devices, and smaller storage size. The straightforward XML syntax allows for easy integration with JavaScript and CSS, SVG files can be easily autogenerated, searched, compressed or indexed by web crawlers. SVG is an example of the "retained mode" graphics model, were graphic library constructs a scene from primitives defined by a declarative API and keeps the model of the scene in memory.^[https://en.wikipedia.org/wiki/Retained_mode] Elements of an SVG graphic exist in the site's DOM which allows for attaching JavaScript event handlers to sub components of a graphic. This feature makes SVG a good choice for implementing interactive graphics — it powers popular web charting libraries like D3.js, also it is a default technology for data overlays in web mapping library Leaflet.
 
@@ -176,7 +176,7 @@ Like the Canvas API described above, WebGL uses the HTML5 canvas element as the 
 On the other hand, the complexity of the developer experience is seen as the main obstacle (drawing a simple coloured triangle in plane GLSL takes around 40 lines of code). The WebGL JavaScript API does not provide any form of abstraction over the underlying GLSL language (@eberhardt2020rendering). There are wrapper JavaScript libraries that provide some object oriented features (three.js, pixi.js^[Even though these libraries are primarily intended for game development, they are not without potential fro cartographic visualisation. Three.js provides a toolbox for rendering 3D scenes, pixi.js is focused on creating 2D games by rendering pre-created raster images (sprites) but it has also been successfully used for cartographic visualisation in @escoffier2017how]), designed predominantly for developing games. But from the cartographic standpoint the greatest improvements lie in the onset of the vector tile model and related WebGL-based mapping libraries headed by Mapbox-gl. But before diving to these advances we need to briefly describe how the GPU renders graphics, and how GLSL allows us to control that process.   
 
 
-## 3.3.2 GLSL and the GPU rendering pipeline
+### 3.3.2 GLSL and the GPU rendering pipeline
 
 As we outlined above, WebGL provides a JavaScript API that allows to create and manipulate GLSL constructs (called shaders) that access pixels and vertices the graphics card works with (see Fig). In the simplest terms, the graphics card or GPU decides how to use the pixels on the screen to create the image. GPU is a piece of hardware designed specifically for performing the complex mathematical and geometric calculations that are necessary for graphics rendering. These calculations are done in a massively parallel and hardware accelerated manner (math operations are resolved directly by the microchips instead of by software), which makes the computations many orders of magnitude faster than an equivalent computations performed on the CPU. The GPU understands vertices, textures, and little else; it has no concept of material, light, or transform. The translation between those high-level inputs and what the GPU puts on the screen is done by the shader, and the shader is created by the developer (@parisi2012webgl).
 
@@ -216,7 +216,7 @@ TODO — how to import bitmaps (spritesheet) and svg to webgl canvas? -- how to 
 ??
 Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL. The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet. ^VM = Javascript engine (https://en.wikipedia.org/wiki/JavaScript_engine)
 
-## 3.3.3 Tour of Vector Tiles
+### 3.3.3 Tour of Vector Tiles
 
 How is WebGL useful for cartographic visualisation? While it is certainly possible to develop spatial interfaces directly using WebGL scripting, many of the advances in client rendering has been already utilized in a format known as *vector tiles*.
 
@@ -328,7 +328,7 @@ Thesis on vecctor tiles:
 <https://prism.ucalgary.ca/bitstream/handle/11023/2666/ucalgary_2015_shang_xiaohong.pdf;jsessionid=2B918A8E8B58693A9CF79058F07241AC?sequence=3>
 
 
-# 3.4 Figures and grounds
+## 3.4 Figures and grounds
 
 As we have hinted in the previous section, vector tiles allow for greater freedom in combining data layers in digital maps. What does this bring to digital cartographers? To answer this question it is useful to take an aside to think about distinctions between topographic and thematic cartography and into how layers. The distinction between the topographic and thematic cartography those arise from different practical motivations that translate into different design implications.
 
@@ -364,7 +364,7 @@ Strategies:
 
 -- masking
 
-# 3.5 on UX, interaction and beyond
+## 3.5 on UX, interaction and beyond
 ————————————————-
 
 Controls are inevitable, need to be legible same as the map view. Moreover, users need to be able to intuitively grasp how they work (TODO norman — affordances, and signifiesrs.)
@@ -450,7 +450,7 @@ https://github.com/sp4ke/awesome-explorables
 https://explorabl.es/
 
 
-## UX and interaction (TODO maybe to the next section)
+### UX and interaction (TODO maybe to the next section)
 ———————————
 @thomas2005illuminating
 
@@ -496,13 +496,13 @@ native visual representations to facilitate exploration and discovery
 • Provide level of emphasis and detail appropriate to the user’s data and task.
 
 
-# 3.6 Case Study: Urban recommendation system
+## 3.6 Case Study: Urban recommendation system
 
 Throughout this chapter we took a rather winding path trough various concepts -- data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles and user interface design. In this concluding section, we present a case study that aims to bring the previously described concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
 
 The origins for this case study stem from a 2018's demonstration application for a hackathon competition that this author attended. The intent was to develop an urban recommendation system that would help dwelling seekers to identify areas in the Brno city that best match their needs and expectations. The original implementation using Leaflet front end has been fully reworked by the author into Mapbox based application for the purpose of this thesis. Aside from the primary goal of spatial optimization tool, the application aims to demonstrate the ideas presented earlier in this chapter — the use of hexbin grid and layer entanglement to battle visual clutter, some recommendations for map UI design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed, and comparison of solutions based on Leaflet and Mapbox map rendering libraries is provided.
 
-## 3.6.1. Data sources and transformations
+### 3.6.1. Data sources and transformations
 - data from osm
 - interpolation to the grid
 - leaflet + db vs mapbox
@@ -540,7 +540,7 @@ https://lvdmaaten.github.io/tsne/
 https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding
 
 
-## 3.6.2 App architecture (react redux mapbox)
+### 3.6.2 App architecture (react redux mapbox)
 
 Old version:
 posgres + node on backed — React + Leaflet + Turf on the frontend
@@ -551,7 +551,7 @@ Mapbox for layer storage — React + Mapbox on the frontend
 Why react-redux? -- modularity and global state management -- useful for web map apps eg. for dynamic legend, inset maps, etc.
 
 
-## 3.6.3 User interface design
+### 3.6.3 User interface design
 
 Type 1 - see comopound livability score
 map field:
@@ -574,10 +574,10 @@ controls:
 
 Type 3 ? — square or triangle grid, better smooth appearance?
 
-## 3.6.4 Notable findings
+### 3.6.4 Notable findings
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
-## 3.6.5 Possible extensions
+### 3.6.5 Possible extensions
 
 Possibility of regular updates to keep the content true to reality.
 Possible Extensions to other cities .. automated data processing pipeline
