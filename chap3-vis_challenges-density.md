@@ -382,7 +382,7 @@ How many affordances are viable? (Map controls coupled with legend need to signi
 
 Looking at UI controls with a prism of design constraints described in chapter (TODO), all three axes affect the UX as well, thogh the screen space is naturally the most significant factor (fig).
 
-![**Fig.** Screen space is the constraint with the greatest influence on the design of map controls.](imgs/img-design_constraings-ux.png)
+![**Fig.** Screen space is the constraint with the greatest influence on the design of map controls.](imgs/img-design_constraints-ux.png)
 
 - cartographic concepts applicable in UI design and vice versa (TODO some reading on UX)
 — visual weight, negative space, generalization of ui components
