@@ -3,7 +3,7 @@ Outline
 
 # Introduction
 
-# Defining big data
+# Defining big data (35 pgs)
 - Ontological characteristics
 - Other ways of understanding big data
   - Vs and keywords
@@ -14,7 +14,7 @@ Outline
 - Spatial big data 
 - Assessing impacts, threats and opportunities
 
-# Making sense of big data
+# Making sense of big data (35 pgs)
 - Spatial big data classification: stations, events, and agents
 - Spatio-temporal knowledge discovery and visual analytics 
   - Spatio-temporal relations 
@@ -29,7 +29,7 @@ Outline
   - Misinterpretation
   - Non-human decision makers
 
-# Dealing with density in spatial big data
+# Dealing with density in spatial big data (60 pgs)
 - Visualisation challenges:
   - design constraints
   - data processing pipelines 

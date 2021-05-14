@@ -54,7 +54,7 @@ The process of controlled reduction of information complexity presented on a map
 
 Aggregation is a generalization method that groups multiple individual objects and forms a new composite object (@egenhofer1992object). There are more possible options how this grouping can be created. We can define the rule how the area for aggregation is selected, how the composite object will be displayed or how the user can interact with this composites. The aggregation method has also its disadvantages and limits that has to be considered.
 
-## 3.2.1 Variants of spatial aggregation
+### 3.2.1 Variants of spatial aggregation
 
 The variants of spatial aggregation can be differentiated by the type of the *composite shape* that in turn affects how the aggregation supports exploratory analysis, observing spatial patterns and searching correlations with other datasets. By defining the spatial extent to which all the individual objects will be aggregated we can recognize three strategies: data-driven aggregation, binning with arbitrary regular shapes and arbitrary with irregular regions defined by a polygon dataset.
 
@@ -92,7 +92,7 @@ These client implementations expect point data on the input and calculate cluste
 
 For several reasons mentioned above, we find binning superior to point clustering for visualisation of big data sets both from perceptual and technical standpoint. We also find this method more flexible and extensible from the cartographic point of view. In the following section we will look more closely at some interesting properties of hexagonal mosaics. 
 
-## 3.2.2 Some aspects of hexagonal aggregation
+### 3.2.2 Some aspects of hexagonal aggregation
 
 In terms of big data visualisation we are interested in spatial aggregation to predefined shape that is not dependent on the character of aggregated data. Unlike other methods (clustering, interpolation), the referential geometry does not adjust to the changed data, which makes the computation performance quite scalable and predictable across higher data loads. Using arbitrary shape instead of any existing spatial unit (e.g. administrative districts) then brings flexibility in balancing the feature size and count in the mosaic.
 
@@ -126,7 +126,7 @@ TODO If dataflow is too high to suport backend aggregation in real time:
 
 — online aggregation — showing continuously updating aggregates and confidence intervals in response to a stream of samples — hellerstein1997online, fisher2012trust
 
-## 3.2.3 Other methods of graphic fill reduction (cartographic content clarification) 
+### 3.2.3 Other methods of graphic fill reduction (cartographic content clarification) 
 
 Having described the aggregation for addressing congestions within point layers, we must note that there is a whole range of other issues that contribute to the visual clutter and that cannot be easily tackled by mere aggregation. For example visual conflicts of symbology between map layers is nothing uncommon in thematic cartography and there are several strategies we can employ to the rescue. Digital environment makes some things easier and complicates the others. 
 
