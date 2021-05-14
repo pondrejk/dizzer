@@ -5,7 +5,7 @@
 
 > @kitchin2016makes
 
-*This chapter searches for defining properties of big data, focusing on characteristics with possible implications for cartographic practice. Review of related works outlines the main attitudes towards grasping the concept.*
+This chapter searches for defining properties of big data, focusing on characteristics with possible implications for cartographic practice. Review of related works outlines the main attitudes towards grasping the concept.
 
 ## 1.1 Ontological characteristics
 

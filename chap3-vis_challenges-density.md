@@ -1,6 +1,6 @@
 # 3 Dealing with graphic density in spatial big data visualisation
 
-*This chapter explores the possible solutions to high graphical density in maps with focus on hexbin aggregation and contextual interplay of map layers. Web rendering technologies that power these solutions are described afterwards. The chapter concludes with a case study report of urban recommendation system for the city of Brno.*
+This chapter explores the possible solutions to high graphical density in maps with focus on hexbin aggregation and contextual interplay of map layers. Web rendering technologies that power these solutions are described afterwards. The chapter concludes with a case study report of urban recommendation system for the city of Brno.
 
 ## 3.1 Visualisation challenges of dense spatial data
 
