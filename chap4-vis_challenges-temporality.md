@@ -1,4 +1,12 @@
-# Dealing with temporality
+# Dealing with temporal aspect of big data
+
+Aside from graphic density that causes illegibility of map symbolization, another direct impact of big data on cartographic visualisation stems from real-time changes in data. The problems lie not so much in adjusting visualisation to the most recent change but rather in enabling historical analysis and reasoning about the importance of changes in digital map interfaces.
+
+Challenges of dynamic data lie both in the data space -- where it is a question of efficient encoding, storing, transferring and decoding long time series of data, and in the visual spaces -- where we are interested in depicting evolving spatio temporal relations and correlations. Naturally, the nature of temporal-analytic features designed for the map interface have impact on the data processing pipeline. We will touch this matter in discussion of time series encoding for vector tiles. But the majority of this chapter will focus on visualisation and interaction design stressing the temporal aspect of big spatial data. 
+
+The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". We use this approach in the concluding case study about the changes in municipal traffic during the pandemic lock down in the city of Brno.
+
+
 
 @dykes2003seeking -- visualisation challenges
 

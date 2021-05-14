@@ -44,7 +44,7 @@ Outline
 - Figure vs ground
 - Web cartography as a UX problem
   - design constraints in map UI
-  - dealing with density in ux controls 
+  - dealing with density in ux controls -- smaller versions, combining legends and controls 
 - CASE STUDY - urban recommendation system
  - PCA/t-SNE
  - why react-redux is good (shared state etc., front-end frameworks, (other ways of sharing state) -- urobiť to nejak nadčasovo, spomenut neustále zmeny v tejto oblasti - porovnanie: vue, angular, mobx...)
