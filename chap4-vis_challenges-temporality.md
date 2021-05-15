@@ -152,7 +152,18 @@ during
 
 notes from pelekis2004literature 
 
+Temporal relations
+
+![**Fig.** Temporal relations between time points. Adopted from @aigner2011visualization](imgs/time-relationships-1.png)
+
+![**Fig.** Temporal relations between time point and time interval. Adopted from @aigner2011visualization](imgs/time-relationships-2.png)
+
+![**Fig.** Temporal relations between two time intervals. Adopted from @aigner2011visualization](imgs/time-relationships-3.png)
+
+
 Time classifications: linear/cyclical, time points/time intervals, oredered time/branching time
+
+![**Fig.** Linear, branching and cyclical time](imgs/img-time-conceptualizaitons.png)
 
 
 ## 4.3 Spatial and temporal correlations
