@@ -224,3 +224,21 @@ https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR
 A sparkline, as defined by Tufte, is “a small intense, simple, word-sized graphic with
 typographic resolution. Sparklines ... can be everywhere a word or number can be: embedded in a sentence, table, headline, map, spreadsheet, graphic.”
 
+
+# A friendly introduction to Bayes Theorem and Hidden Markov Models
+<https://www.youtube.com/watch?v=kqSzLo9fenk>
+
+example of hidden markov model
+— from one variable (persons mood) we infer the other "hidden" variable (weather)
+— we have to have some training dataset of previous runs of both variables from which we calculate transition probabilities (change from one state to another in the hidden var, e.g. from sunny weather to rainy) and emisshin probabilities (probability of a state in hiiden var causing state in other var — e.g. sunny weather makes me happy in 80% of cases)
+— bayes theorem — calculating the probability of a state in hidden var based on — prior probability (percentage of sunny days in training set) + emission probabilties + state of known variable —- this calcualtes posterior porbability of a state of hidden var
+
+— also we can calculate the transition in hidden var based on transition of known var — this gets more complicated in longer sets — *Viterbi algoritm* simplifies by storing just the most probable path throughout the run
+
+# Bayesian surprise maps
+@correll2017surprise
+Biases in thematic maps:
+- base rate bias
+- sampling error bias
+- renormalization bias
+
