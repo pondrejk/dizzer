@@ -72,9 +72,9 @@ From the point of big data visualisation it is important to note how is the aggr
 
 In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions.
 
-TODO (img) -- some description how the leaflet binning algorithm works and how it could be improved to incorporate also attribute information along with density (dynamic zone perimeter -- so that unnecessary clusters are not formed, scale dependent and density dependent rules, cluster symbols as pie charts (adamov plugin),  offload count information on some administrative polygons that wouldn't change with scale) sources:
+![**Fig.** Illustration of the marker clustering algorithm. One configurable parameter is the radius of the circle zone. ](imgs/img-marker-cluster-alg.png)
 
-![**Fig.** Illustrration of the marker clustering algorithm. One configurabel parameter is the radius of the circle zone. ](imgs/img-marker-cluster-alg.png)
+TODO (img) -- some description how the leaflet binning algorithm works and how it could be improved to incorporate also attribute information along with density (dynamic zone perimeter -- so that unnecessary clusters are not formed, scale dependent and density dependent rules, cluster symbols as pie charts (adamov plugin),  offload count information on some administrative polygons that wouldn't change with scale) sources:
 
 https://blog.mapbox.com/clustering-millions-of-points-on-a-map-with-supercluster-272046ec5c97
 https://regionbound.com/region-aware-marker-clustering-for-maps
@@ -175,7 +175,6 @@ Like the Canvas API described above, WebGL uses the HTML5 canvas element as the 
 
 On the other hand, the complexity of the developer experience is seen as the main obstacle (drawing a simple coloured triangle in plane GLSL takes around 40 lines of code). The WebGL JavaScript API does not provide any form of abstraction over the underlying GLSL language (@eberhardt2020rendering). There are wrapper JavaScript libraries that provide some object oriented features (three.js, pixi.js^[Even though these libraries are primarily intended for game development, they are not without potential fro cartographic visualisation. Three.js provides a toolbox for rendering 3D scenes, pixi.js is focused on creating 2D games by rendering pre-created raster images (sprites) but it has also been successfully used for cartographic visualisation in @escoffier2017how]), designed predominantly for developing games. But from the cartographic standpoint the greatest improvements lie in the onset of the vector tile model and related WebGL-based mapping libraries headed by Mapbox-gl. But before diving to these advances we need to briefly describe how the GPU renders graphics, and how GLSL allows us to control that process.   
 
-
 ### 3.3.2 GLSL and the GPU rendering pipeline
 
 As we outlined above, WebGL provides a JavaScript API that allows to create and manipulate GLSL constructs (called shaders) that access pixels and vertices the graphics card works with (see Fig). In the simplest terms, the graphics card or GPU decides how to use the pixels on the screen to create the image. GPU is a piece of hardware designed specifically for performing the complex mathematical and geometric calculations that are necessary for graphics rendering. These calculations are done in a massively parallel and hardware accelerated manner (math operations are resolved directly by the microchips instead of by software), which makes the computations many orders of magnitude faster than an equivalent computations performed on the CPU. The GPU understands vertices, textures, and little else; it has no concept of material, light, or transform. The translation between those high-level inputs and what the GPU puts on the screen is done by the shader, and the shader is created by the developer (@parisi2012webgl).
@@ -204,7 +203,7 @@ In order to render WebGL into a page, an application must first obtain a drawing
 
 * *Rendering target Output*. Finally the fragment is written to the render target – which is usually a frame buffer (memory object storing values pixels in the canvas). Before that, several validation tests are performed, depth check discards occluded fragments and transparent fragments are blended.
 
-The fact that shaders are executed on the GPU means that developers cannot rely on console output for testing and debugging as they are used to with programs run on the CPU. Instead they need to find a way to express your test or debugging condition in terms of color that is the only output of shader programs. Moreover, shaders are run for every vertex of fragment in parallel. Running in parallel means that the execution thread "blind" to what other threads are doing. There is no way to check the results of execution in one thread form the other parallel thread or pass data between threads. Also there is no peristent memory that would store of the previous computation results for fragments, so with changes the whole scene is rendered anew.  
+The fact that shaders are executed on the GPU means that developers cannot rely on console output for testing and debugging as they are used to with programs run on the CPU. Instead they need to find a way to express your test or debugging condition in terms of color that is the only output of shader programs. Moreover, shaders are run for every vertex of fragment in parallel. Running in parallel means that the execution thread "blind" to what other threads are doing. There is no way to check the results of execution in one thread form the other parallel thread or pass data between threads. Also there is no persitent memory that would store of the previous computation results for fragments, so with changes the whole scene is rendered anew.  
 
 Besides the abstraction required to code a general function that changes the result pixel by pixel depending on its position, the blind and memoryless constraints make shaders not very popular among beginning programmers (@vivo2015book).
 
@@ -330,7 +329,7 @@ Thesis on vecctor tiles:
 
 ## 3.4 Figures and grounds
 
-As we have hinted in the previous section, vector tiles allow for greater freedom in combining data layers in digital maps. What does this bring to digital cartographers? To answer this question it is useful to take an aside to think about distinctions between topographic and thematic cartography and into how layers. The distinction between the topographic and thematic cartography those arise from different practical motivations that translate into different design implications.
+Vector tiles bring new possibilities for combining data layers in digital maps. To see how to best utilize this, let us take an aside to think about distinctions between topographic and thematic cartography.
 
 I explore how to create thematic maps from Big data.
 

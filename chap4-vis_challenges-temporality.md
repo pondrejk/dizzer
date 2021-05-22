@@ -345,6 +345,13 @@ How to encode time series into vector tiles
 
 ### 4.7.3 User interface design
 
+TODO: note on scale levels in mapbox streeets layer (example with live traffic screening)
+
+https://api.mapbox.com/styles/v1/ppeettoo/ck4yfkusp1ejb1cmnpfnwvecc.html?fresh=true&title=view&access_token=pk.eyJ1IjoicHBlZXR0b28iLCJhIjoiY2loN21nMTBuMHQ1YXVta2l6YjJzbHM4YSJ9.cpjhFrPRqzOF037dktUgBw#11.06/49.1846/16.6589
+
+Images: img-live-mb-traffic-1,2,3.png
+
+
 ### 4.7.4 Notable findings
 
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
