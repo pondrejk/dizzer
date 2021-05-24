@@ -342,6 +342,8 @@ How to encode time series into vector tiles
 - pipeline for generating vector tyles from these data?
 - analytical schema for vector tiles used for trafic display?
 
+tegola for tile creation + serving real time from the postgres database?
+https://tegola.io/documentation/getting-started/
 
 ### 4.7.3 User interface design
 
