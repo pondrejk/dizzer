@@ -29,7 +29,7 @@ Outline
   - Misinterpretation
   - Non-human decision makers
 
-# Dealing with density in spatial big data (60 pgs)
+# Mapping big data (50 pgs)
 - Visualisation challenges:
   - design constraints
   - data processing pipelines 
@@ -37,6 +37,7 @@ Outline
   - avoiding aggregation (data vs visual aggregation, bad practices)
   - study of hexbin aggregation
 - Density vs attribute visualisation
+- Temporal density ...
 - Rendering spatial data
   - SVG, Canvas, WebGL
   - GLSL and GPU renering pipeline
@@ -45,16 +46,15 @@ Outline
 - Web cartography as a UX problem
   - design constraints in map UI
   - dealing with density in ux controls -- smaller versions, combining legends and controls 
-- CASE STUDY - urban recommendation system
+
+
+# Case study 1: urban recommendation system 
  - PCA/t-SNE
  - why react-redux is good (shared state etc., front-end frameworks, (other ways of sharing state) -- urobiť to nejak nadčasovo, spomenut neustále zmeny v tejto oblasti - porovnanie: vue, angular, mobx...)
  - inset map: https://react-leaflet.js.org/docs/example-react-control
 
-# Dealing with velocity:
-- time depictions in cartography
-- Bayes?
-- an aside on UX, using interaction and feedback in ux controls
-- Case study - traffic trough the pandemic
+# Case study 2: lockdown traffic
+
 
 # Future trajectories:
 - Software testing map-based applications --  (isqtb) ideas form sw testing in cartography, visual testing neeeded, google analytics? 

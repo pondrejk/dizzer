@@ -36,6 +36,13 @@ In the above image and a table we assume that the attribute collection is happen
 
 Compared to stations and agents, events with episodic presence seem to be the least data-rich, but their analytic potential stems from their large numbers. Clusters of georeferenced point events, a.k.a. point clouds are at the core of spatial analysis based on mobile data.
 
+TODO -- this is not to say that the above is a full aspect of spatial big data, The big data properties can be expressed both in the spatial and attribute sides of spatial data. The point spatial data are interseting because they tend to create clusters of high spatial density which is cartographically chellenging.  
+
+-- Many innovative uses of Big Data could be called “now-casting,” said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data. (which types?)
+@bollier2010promise
+
+But often the spatial aspect of data is spatially not very dense and static (e.g. road network) so mapping it isn't that hard. Big data comes in with high temporal density in attributes (e.g. traffic playing out on the road network) which again produces a cartographic challenge of a differnt kind (more in interaction and exploratory fashion) -- cartographic challenges of high spatial and temoporal density are the topic of the next chapter.
+
 
 ## 2.2 Spatio-temporal knowledge discovery and visual analytics
 
@@ -67,6 +74,95 @@ Spatial relations between point clusters are harder to conceptualize than it is 
 **Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data collection of any entity can be either continuous or discrete in time, it is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations. Linear conceptualization of time can be supported with cyclical and branching time, there can be discrepancies between the temporal parameters of the base map and the thematic overlay, or between the time interval of existence and representations. We'll untangle these complexities in chapter 4.
 
 **Relations specific to moving objects** – moving objects have a specific set of properties based on their spatio-temporal circumstances. These can be *instantaneous* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to external event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
+
+
+TODO -- move stuff from time section -- taxonomy of termporal events:
+how to measure velocity (already in chap 1)
+
+-- thickenss of durative code in wood's terms (different for real objects and for map layers too)
+-- other assessment -- events per unit of map time
+-- time scale, time resolution
+
+**Taxonomy of temporal events**
+
+To define the possibilities of visualisation of time, a taxonomy of temporal events is needed. From the perspective of location, three types of changes can be proposed - appearance or disappearance, mutation, and movement [20] @blok2005dynamic. From the perspective of the temporal domain, it is possible to distinguish moment, sequence, duration, pace, and frequency. Single events can also interact with each other and occur or partially overlay within the same space or/and time.
+
+
+
+@ott2001time
+
+taxonomic model of time (based on @frank1998different)
+
+|        |            | Total Order       | Partial Order       | Branching      | Multiple                        |
+|--------|------------|-------------------|---------------------|----------------|---------------------------------|
+| Linear | Ordinal    | Single experience | Multiple experience |                |                                 |
+|        |------------|-----------------------------------------|                |                                 |
+|        | Continuous | Continuous time                         | Branching time | Time with multiple perspectives |
+|--------|------------|-----------------------------------------|                |                                 |
+| Cyclic | Ordinal    | Cyclic time                             |                |                                 |
+|        |------------|                                         |                |                                 |
+|        | Continuous |                                         |                |                                 |
+|--------|------------|-----------------------------------------|----------------|---------------------------------|
+
+Both linear and cyclic time can have different granularities, (unit 1 chronon can have different values (1 year, 1day...))
+Changing granularity (through aggregation or conversly decomposition)
+
+bi-directional time structure (branching time) (based on @hazelton1992developments)
+
+past --> future
+     |---> future worlds modelled from past
+     |
+ <---|---> present
+ <---|
+retrospectivelly
+modelled worlds
+
+
+Relations between time intervals (after @allen1985common):
+
+before
+.....
+      .....
+
+starts
+......
+.........
+
+finishes
+..........
+    ......
+
+meet
+........
+      ............
+
+equals
+..........
+..........
+
+
+overlaps
+......
+  .....
+
+during
+............
+  .......
+
+notes from pelekis2004literature 
+
+Temporal relations
+
+![**Fig.** Temporal relations between time points. Adopted from @aigner2011visualization](imgs/time-relationships-1.png)
+
+![**Fig.** Temporal relations between time point and time interval. Adopted from @aigner2011visualization](imgs/time-relationships-2.png)
+
+![**Fig.** Temporal relations between two time intervals. Adopted from @aigner2011visualization](imgs/time-relationships-3.png)
+
+
+Time classifications: linear/cyclical, time points/time intervals, oredered time/branching time
+
+![**Fig.** Linear, branching and cyclical time](imgs/img-time-conceptualizaitons.png)
 
 
 ### 2.2.2 From data mining to visual analytics

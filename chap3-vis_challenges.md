@@ -1,8 +1,9 @@
-# 3 Dealing with graphic density in spatial big data visualisation
+# 3 Mapping spatial big data
 
 This chapter explores the possible solutions to high graphical density in maps with focus on hexbin aggregation and contextual interplay of map layers. Web rendering technologies that power these solutions are described afterwards. The chapter concludes with a case study report of urban recommendation system for the city of Brno.
 
-## 3.1 Visualisation challenges of dense spatial data
+## 3.1 Visualisation challenge: spatial and temporal density
+
 
 As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference form the most common raw material fed to the data processing pipeline of spatial big data. The *n=all* property of big data at the input generates a challenge of dealing with high graphic density in maps at the output.
 
@@ -11,6 +12,90 @@ How to process a high number of data points for visual exploration, and why is i
 Legibility in maps enables readers to separate signs from each other and to distinguish steps of visual variables. @bertin1983semiology names three parameters that determine legibility in information graphics: *graphic density*, *angular separation* and *retinal separation*. Graphic density is a number of marks per cm2, angular and retinal separation describe the perceptible differentiation in angles (e.g. to compare shapes or segments in line charts) and in visual variables (like hue or size). The joke charts in fig illustrate the visual problem posed by the high graphic density caused by high data load. Unlike angular and retinal separation that to a high degree result from the author's choice of symbolization, the graphic density is largely determined by parameters that cannot be influenced by the mapmaker. In the next section we will look closer on what these are.
 
 ![**Fig.** Big data scatter plot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on the limits of graphics, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
+
+TODO
+
+Apart from spatial/graphic density, there is also temporal density that comes as a result of spatial big data -- changes in object existence and attributes...
+
+Registering and visualising change in data may be valuable for supporting real-time decision making as well as for historical analysis of trend development.  
+
+@dykes2003seeking -- visualisation challenges
+Beware of change blindness -- @nowell2001change
+
+@thomas2005illuminating
+
+Navigation and other problems that involve reasoning about space are well studied; however, reasoning
+about sequence of events is not as well understood.
+
+Levels of interaction: human time constants
+
+Analysis of human time constants for human-computer interaction was initially discussed by Card et al. [1983], considered from a cognitive science point of view by Newell [1990], and discussed from an information visualization point of view by Card et al. [1999]. Newell describes four bands of time scales for human action (biologi- cal, cognitive, rational, and social) ranging from 100 microseconds to months. For purposes of a science of interaction for analytical reasoning, the two bands of greatest focus are Newell’s cognitive (100 milliseconds to 10 seconds) and rational (minutes to hours) bands. Card describes three distinct bands within Newell’s cognitive band. Note that these time constants represent approximate time ranges. That is, when we say ~100 milliseconds, we mean somewhere in the range of 50 to 300 milliseconds. 
+
+~100 milliseconds. Card refers to this as the perceptual fusion time constant, while Newell refers to it as the deliberate act time constant. This time constant is the rate necessary to produce the perception of a smooth animation. In animation, 10 frames per second equates to 100 milliseconds per frame. In interaction design, this time constant is the rate necessary to create the perception of an immediate response. Users expect to see an immediate response when they move a dynamic query slider [Ahlberg, 1994]. Likewise, as users brush over items of interest, they expect to see immediate corresponding highlighting of the linked items [Cleveland, 1999]. This time constant is also important because minimum human motor response time is around 250 milliseconds.
+
+~1 second. Card refers to this as the unprepared response time, while Newell refers
+to it as the operation time. For our purposes, this constant represents the necessary rate
+of response to simple user actions. For example, clicking a web link should produce
+the display of the next web page within 1 second to be effective. If the response might
+take more time, it is important to provide some kind of feedback in the 1-second
+timeframe to reassure the user that something is happening. This time constant is also
+important for interactive animation, like user-initiated transition animations (tran-
+sitions from one complex structure to another or one viewpoint to another). It has
+been demonstrated that providing a 1-second transition animation can reduce user
+task performance time compared to providing no transition animation [Robertson
+et al., 2002].
+
+~10 seconds. Both Card and Newell refer to this as the unit task time. This is
+the time within which users expect more complex user-initiated activities to com-
+plete (e.g., a complex search). Again, if an activity of this kind will take more than
+10 seconds to complete, it is important to provide the user with feedback within this
+10-second timeframe.
+
+~100 seconds (minutes to hours). This is referred to as the rational band. Higher-
+level reasoning processes, including the analytic reasoning and human-information
+discourse processes described in Chapter 2, take place in this band. Interaction tech-
+niques in this timeframe rely heavily on complex cognitive processing and are greatly
+affected by attentional resource demands such as interruptions and shifts in focus.
+These techniques are the least well understood and developed.
+ 
+@thomas2005illuminating
+
+Navigation and other problems that involve reasoning about space are well studied; however, reasoning
+about sequence of events is not as well understood.
+
+Levels of interaction: human time constants
+
+Analysis of human time constants for human-computer interaction was initially discussed by Card et al. [1983], considered from a cognitive science point of view by Newell [1990], and discussed from an information visualization point of view by Card et al. [1999]. Newell describes four bands of time scales for human action (biologi- cal, cognitive, rational, and social) ranging from 100 microseconds to months. For purposes of a science of interaction for analytical reasoning, the two bands of greatest focus are Newell’s cognitive (100 milliseconds to 10 seconds) and rational (minutes to hours) bands. Card describes three distinct bands within Newell’s cognitive band. Note that these time constants represent approximate time ranges. That is, when we say ~100 milliseconds, we mean somewhere in the range of 50 to 300 milliseconds. 
+
+~100 milliseconds. Card refers to this as the perceptual fusion time constant, while Newell refers to it as the deliberate act time constant. This time constant is the rate necessary to produce the perception of a smooth animation. In animation, 10 frames per second equates to 100 milliseconds per frame. In interaction design, this time constant is the rate necessary to create the perception of an immediate response. Users expect to see an immediate response when they move a dynamic query slider [Ahlberg, 1994]. Likewise, as users brush over items of interest, they expect to see immediate corresponding highlighting of the linked items [Cleveland, 1999]. This time constant is also important because minimum human motor response time is around 250 milliseconds.
+
+~1 second. Card refers to this as the unprepared response time, while Newell refers
+to it as the operation time. For our purposes, this constant represents the necessary rate
+of response to simple user actions. For example, clicking a web link should produce
+the display of the next web page within 1 second to be effective. If the response might
+take more time, it is important to provide some kind of feedback in the 1-second
+timeframe to reassure the user that something is happening. This time constant is also
+important for interactive animation, like user-initiated transition animations (tran-
+sitions from one complex structure to another or one viewpoint to another). It has
+been demonstrated that providing a 1-second transition animation can reduce user
+task performance time compared to providing no transition animation [Robertson
+et al., 2002].
+
+~10 seconds. Both Card and Newell refer to this as the unit task time. This is
+the time within which users expect more complex user-initiated activities to com-
+plete (e.g., a complex search). Again, if an activity of this kind will take more than
+10 seconds to complete, it is important to provide the user with feedback within this
+10-second timeframe.
+
+~100 seconds (minutes to hours). This is referred to as the rational band. Higher-
+level reasoning processes, including the analytic reasoning and human-information
+discourse processes described in Chapter 2, take place in this band. Interaction tech-
+niques in this timeframe rely heavily on complex cognitive processing and are greatly
+affected by attentional resource demands such as interruptions and shifts in focus.
+These techniques are the least well understood and developed.
+
+
+
 
 ### 3.1.1 Design constraints
 
@@ -499,135 +584,6 @@ native visual representations to facilitate exploration and discovery
 • Provide level of emphasis and detail appropriate to the user’s data and task.
 
 
-## 3.6 Case Study: Urban recommendation system
-
-Throughout this chapter we took a rather winding path trough various concepts -- data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles and user interface design. In this concluding section, we present a case study that aims to bring the previously described concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
-
-The origins for this case study stem from a 2018's demonstration application for a hackathon competition that this author attended. The intent was to develop an urban recommendation system that would help dwelling seekers to identify areas in the Brno city that best match their needs and expectations. The original implementation using Leaflet front end has been fully reworked by the author into Mapbox based application for the purpose of this thesis. Aside from the primary goal of spatial optimization tool, the application aims to demonstrate the ideas presented earlier in this chapter — the use of hexbin grid and layer entanglement to battle visual clutter, some recommendations for map UI design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed, and comparison of solutions based on Leaflet and Mapbox map rendering libraries is provided.
-
-### 3.6.1 Data sources and transformations
-- data from osm
-- interpolation to the grid
-- leaflet + db vs mapbox
-- data for buildings
-
-The application allows users to select several parameters and assign weights to them. Based on the selected parameters and weights a map is rendered dividing the city to areas of high to medium to low desirability. Changes to weights and parameters is reflected in the map as the desirability surface is recalculated on the fly.
-
-The parameters include both attractive and repulsive factors: proximity to schools and nurseries, parks and greenery, places of worship,  healthcare, sport, cultural and social facilities on one side, noise, crime and prices on the other side. The majority of the source layers is taken from the OpenStreetMap database, that allows for easy automated updates via it's API. The input data were harvested for the area of the city including a 5 Km buffer to prevent undesirable interpolation effects on the area borders. The table outlines the input layers with sources.
-
-(TODO table) — name, group, source, what is incueded (notes), spatial reference
-— todo — check the actual data
-
-culture
-health
-church
-parks
-social
-sport
-transport
-crime
-prices
-noise
-
-Sources come with both point and polygon spatial reference. To harmonize the sources into one common spatial format that would allow to apply weights and would allow dynamic re-classification based on scaled we created a 100 m point grid covering the area of Brno (the grid was spread in such a fashion that the spatial coordinates of individual points are rounded — so that the storage footprint is minimized). The point layers where then used to create distance surfaces using IDW interpolation in QGIS desktop tool. Data from these interpolations where then combined with existing zonal layers (noise, crime, property prices) to generate input for the attribute table of the point grid. This was done using the standard spatial join feature in QGIS (illustrated on fig). In the resulting point grid, each point contains an attribute containing a distance from the given point to a nearest facility of interest, or the given index for some layers (crime, noise...). Furthermore, these attributes have been normalized to fit into 0-1 scale across the city area.
-
-![**Fig.** Data preparation process.](imgs/img-cs1-dataprep.png)
-
-This allows for meaningful comparison of data and application of weights. (TODO — another tables — what means zero, what means one for various layers).
-
-TODO — how weights are applied
-
-3rd section — some dimensionality reduction
-- only if used — PCA vs t-SNE, autoencoders for spatial data
-https://lvdmaaten.github.io/tsne/
-https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding
+ Aside on UX -- enhancing usability with motion  
 
 
-### 3.6.2 App architecture (react redux mapbox)
-
-Old version:
-posgres + node on backed — React + Leaflet + Turf on the frontend
-
-New version
-Mapbox for layer storage — React + Mapbox on the frontend
-
-Why react-redux? -- modularity and global state management -- useful for web map apps eg. for dynamic legend, inset maps, etc.
-
-Data processing for vector tiles -- static tiles created with tippecanoe (exact command?), then uploaded to mbstudio for hosting
-https://geovation.github.io/build-your-own-static-vector-tile-pipeline
-
--- future -- tegola? better for "real-time publishing"
-
-### 3.6.3 User interface design
-
-Type 1 - see comopound livability score
-map field:
-- ability to 'prepend' transport layer for orientation
-- same for brno districts layer (optional dotted overlay with labels)
-- select building mask
-- histogram on Legend (TODO)
-.. think of something else...
-
-controls:
-- select groups, select layers, change weights
-
-Type 2 - see the distribution of selected layers both separately and together
-map field:
-- various types of symbol sizing within the grid
-
-controls:
-- inset map TODO
-- dynamic legend brackets
-
-Type 3 ? — square or triangle grid, better smooth appearance?
-
-### 3.6.4 Notable findings
-- what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
-
-### 3.6.5 Possible extensions
-
-Possibility of regular updates to keep the content true to reality.
-Possible Extensions to other cities .. automated data processing pipeline
--- vector tile pipeline:
-https://medium.com/nyc-planning-digital/using-the-new-mvt-function-in-postgis-75f8addc1d68
-https://geovation.github.io/build-your-own-static-vector-tile-pipeline
-https://github.com/addresscloud/serverless-tiles
-
-
-notes:
-
-— sdf icons required for recolorable icons,
-notes: https://github.com/mapbox/mapbox-gl-style-spec/issues/97
-https://halisavakis.com/my-take-on-shaders-ui-sdf-icon-shader/ (creating in pdf)
-https://habr.com/en/post/215905/
-https://github.com/elastic/kibana/issues/39715
-
-https://github.com/mapbox/mapbox-gl-js/issues/1817#issuecomment-497446984 (workaroud to enable coloring by editing the sprite's json)
-— sprite editing via api
-
-https://weekly-geekly.github.io/articles/215905/index.html
-
-— problems — how to create, how to tell if it was created?
-— how to upload — studio doesn't support it
-— only single-color icons
-
-— pros: can define color dynamically
-— can set halo
-— solution add programmatically as one time import:
-https://stackoverflow.com/a/53998098
-
-
-- nakoniec som nepouzil — normalne prefarbene svg
-
-———
-- aleterntativa — iba high wedge pre vsetky kategorie ale zmeny opacity... to nie
-- zmeny sirky, alebo odsadenie od stredu
-
-to research:
-JS streams API
-https://developer.mozilla.org/en-US/docs/Web/API/Streams_API
-
-
-do záveru?
-
-WebGL truly seems to be a promising platform for connecting (carto)graphic excellence, dynamic spatial data visualisation and user-friendly interaction.

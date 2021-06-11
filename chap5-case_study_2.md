@@ -1,5 +1,7 @@
 # 4 Dealing with temporal aspects of big data
 
+# good as intro?
+
 Aside from graphic density that causes illegibility of map symbolization, another direct impact of big data on cartographic visualisation stems from changes in data that happens through time. With accelerated change frequency two problems arise -- the data needs to be "streamed" in order to keep the picture up to date plus there is a rapidly growing log of historical data. Digital map interface then needs to adjust visualisation to the most recent changes in real time, appropriately notify the user of important changes, and enable historical analysis and reasoning about the upcoming trends.
 
 Challenges of dynamic data lie both in the data space -- where it is a question of efficient encoding, storing, transferring and decoding long time series of records, and in the visual space -- where we are interested in depicting evolving spatio temporal relations and correlations. Naturally, the nature of temporal-analytic features designed for the map interface have impact on the data processing pipeline. We will touch this matter in discussion of time series encoding for vector tiles. But the majority of this chapter will focus on visualisation and interaction design stressing the temporal aspect of big spatial data. 
@@ -8,162 +10,6 @@ Challenges of dynamic data lie both in the data space -- where it is a question 
 The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". We use this approach in the concluding case study about the changes in municipal traffic during the pandemic lock down in the city of Brno.
 
 
-## 4.1 Visualisation challenges of dynamic spatial data
-
-Registering and visualising change in data may be valuable for supporting real-time decision making as well as for historical analysis of trend development.  
-
--- Many innovative uses of Big Data could be called “now-casting,” said Varian. This term refers to the use of real-time data to describe contemporaneous activities before official data sources are available. “We’ve got a real-time variable, Google search queries, which are pretty much continuous,” said Varian.  “Even if all you’ve got is a contemporaneous correlation, you’ve still got a six-week lead on the reported values” for certain types of data. (which types?)
-@bollier2010promise
-
-@dykes2003seeking -- visualisation challenges
-
-@bach2014review -- space-time cubes https://hal.inria.fr/hal-01006140/document -- see e.g Khronos projector --  video time-space cube... 
-TODO -- check ^ for timespace taxonomies, operations ... etc, (link to previous section)
-
-Beware of change blindness -- @nowell2001change
-
-
-how to measure velocity (already in chap 1)
-
--- thickenss of durative code in wood's terms
--- other assessment -- events per unit of map time
--- time scale, time resolution
-
-
-@thomas2005illuminating
-
-Navigation and other problems that involve reasoning about space are well studied; however, reasoning
-about sequence of events is not as well understood.
-
-Levels of interaction: human time constants
-
-Analysis of human time constants for human-computer interaction was initially discussed by Card et al. [1983], considered from a cognitive science point of view by Newell [1990], and discussed from an information visualization point of view by Card et al. [1999]. Newell describes four bands of time scales for human action (biologi- cal, cognitive, rational, and social) ranging from 100 microseconds to months. For purposes of a science of interaction for analytical reasoning, the two bands of greatest focus are Newell’s cognitive (100 milliseconds to 10 seconds) and rational (minutes to hours) bands. Card describes three distinct bands within Newell’s cognitive band. Note that these time constants represent approximate time ranges. That is, when we say ~100 milliseconds, we mean somewhere in the range of 50 to 300 milliseconds. 
-
-~100 milliseconds. Card refers to this as the perceptual fusion time constant, while Newell refers to it as the deliberate act time constant. This time constant is the rate necessary to produce the perception of a smooth animation. In animation, 10 frames per second equates to 100 milliseconds per frame. In interaction design, this time constant is the rate necessary to create the perception of an immediate response. Users expect to see an immediate response when they move a dynamic query slider [Ahlberg, 1994]. Likewise, as users brush over items of interest, they expect to see immediate corresponding highlighting of the linked items [Cleveland, 1999]. This time constant is also important because minimum human motor response time is around 250 milliseconds.
-
-~1 second. Card refers to this as the unprepared response time, while Newell refers
-to it as the operation time. For our purposes, this constant represents the necessary rate
-of response to simple user actions. For example, clicking a web link should produce
-the display of the next web page within 1 second to be effective. If the response might
-take more time, it is important to provide some kind of feedback in the 1-second
-timeframe to reassure the user that something is happening. This time constant is also
-important for interactive animation, like user-initiated transition animations (tran-
-sitions from one complex structure to another or one viewpoint to another). It has
-been demonstrated that providing a 1-second transition animation can reduce user
-task performance time compared to providing no transition animation [Robertson
-et al., 2002].
-
-~10 seconds. Both Card and Newell refer to this as the unit task time. This is
-the time within which users expect more complex user-initiated activities to com-
-plete (e.g., a complex search). Again, if an activity of this kind will take more than
-10 seconds to complete, it is important to provide the user with feedback within this
-10-second timeframe.
-
-~100 seconds (minutes to hours). This is referred to as the rational band. Higher-
-level reasoning processes, including the analytic reasoning and human-information
-discourse processes described in Chapter 2, take place in this band. Interaction tech-
-niques in this timeframe rely heavily on complex cognitive processing and are greatly
-affected by attentional resource demands such as interruptions and shifts in focus.
-These techniques are the least well understood and developed.
-
-Develop visual representations and new analysis techniques for streaming
-data, including data collected by sensors. Develop visual analytic techniques
-that detect and show changes in the streams and that integrate with predictive
-modeling tools.
-
-The research challenge is to create a new class of visualizations for streaming data.
-Three significant problems must be addressed for streaming data visualizations:
-1. Provide situational awareness for data streams.
-2. Show changes in the state of the system and help users identify when the
-changes are significant.
-3. Fuse various types of information to provide an integrated view of the
-information.
-Visual representations by themselves are insufficient to answer many analytic
-questions and must integrate
-
-
-
-
-## 4.2 Taxonomy of temporal events
-
-To define the possibilities of visualisation of time, a taxonomy of temporal events is needed. From the perspective of location, three types of changes can be proposed - appearance or disappearance, mutation, and movement [20] @blok2005dynamic. From the perspective of the temporal domain, it is possible to distinguish moment, sequence, duration, pace, and frequency. Single events can also interact with each other and occur or partially overlay within the same space or/and time.
-
-
-
-@ott2001time
-
-taxonomic model of time (based on @frank1998different)
-
-|        |            | Total Order       | Partial Order       | Branching      | Multiple                        |
-|--------|------------|-------------------|---------------------|----------------|---------------------------------|
-| Linear | Ordinal    | Single experience | Multiple experience |                |                                 |
-|        |------------|-----------------------------------------|                |                                 |
-|        | Continuous | Continuous time                         | Branching time | Time with multiple perspectives |
-|--------|------------|-----------------------------------------|                |                                 |
-| Cyclic | Ordinal    | Cyclic time                             |                |                                 |
-|        |------------|                                         |                |                                 |
-|        | Continuous |                                         |                |                                 |
-|--------|------------|-----------------------------------------|----------------|---------------------------------|
-
-Both linear and cyclic time can have different granularities, (unit 1 chronon can have different values (1 year, 1day...))
-Changing granularity (through aggregation or conversly decomposition)
-
-bi-directional time structure (branching time) (based on @hazelton1992developments)
-
-past --> future
-     |---> future worlds modelled from past
-     |
- <---|---> present
- <---|
-retrospectivelly
-modelled worlds
-
-
-Relations between time intervals (after @allen1985common):
-
-before
-.....
-      .....
-
-starts
-......
-.........
-
-finishes
-..........
-    ......
-
-meet
-........
-      ............
-
-equals
-..........
-..........
-
-
-overlaps
-......
-  .....
-
-during
-............
-  .......
-
-notes from pelekis2004literature 
-
-Temporal relations
-
-![**Fig.** Temporal relations between time points. Adopted from @aigner2011visualization](imgs/time-relationships-1.png)
-
-![**Fig.** Temporal relations between time point and time interval. Adopted from @aigner2011visualization](imgs/time-relationships-2.png)
-
-![**Fig.** Temporal relations between two time intervals. Adopted from @aigner2011visualization](imgs/time-relationships-3.png)
-
-
-Time classifications: linear/cyclical, time points/time intervals, oredered time/branching time
-
-![**Fig.** Linear, branching and cyclical time](imgs/img-time-conceptualizaitons.png)
 
 
 ## 4.3 Spatial and temporal correlations
@@ -177,7 +23,7 @@ Causation-related questions for cartography:
 - overall, the ability of dynamic maps to find these collocations and link them to causation is to be assessed, but how? :)
 
 
-## 4.4 Representing time time in digital maps
+## 4.4 Representing time in digital maps
 
 @kriglestein2014pep
 
@@ -239,9 +85,6 @@ Unused potential of s-t cubes becomes clear when considered together with search
 how to encode and decode time based rles to vector tiles
 - rle - will save memory?
  
-
-
-## 4.6 Aside on UX -- enhancing usability with motion
 
 ## 4.7 Case Study: Pandemics traffic exploration
 
