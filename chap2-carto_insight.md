@@ -26,21 +26,21 @@ These notes underline that the distinction to stations, agents and events is jus
 
 ![**Fig.** Three types of point spatial objects in a time-space cube. Stations, actors and events generate different attribute histories.](imgs/img-cube.png)
 
-**Tab1** Properties of point spatial object. Existence is marked by records of spatial and temporal reference. Agent can have discrete existence if exiting and re-entering the area of interest.
-
-| type of object | existence               | attribute collection   | location |
-|––––––––––––––––|–––––––––––––––––––––––––|––––––––––––––––––––––––|––––––––––|
-| station        | continuous              | continuous or discrete | static   |
-| agent          | continuous or discrete  | continuous or discrete | dynamic  |
-| event          | discrete                | discrete               | static   |
-
-In the above image and a table we assume that the attribute collection is happening continuously for stations and agents. This does not mean that the attributes have to be collected continuously at all times. Some sensors can record at a regular time interval or only in case of an event. The data output can then contain several "no data" records or even no records at all if the triggering event did not happen. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but some part of its data collection is episodic – a photo is taken just when a speeding vehicle drives by. The  above classification differentiates between the existence of an object and the act of recording data by the object. We assume that the sensor's presence without recording has also some analytical potential as it proves the absence of event, while with no sensor in place we cannot say if the event did take place or not. 
+In the above image assume that the attribute collection is happening continuously for stations and agents. This does not mean that the attributes have to be collected continuously at all times. Some sensors can record at a regular time interval or only in case of an event. The data output can then contain several "no data" records or even no records at all if the triggering event did not happen. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but some part of its data collection is episodic – a photo is taken just when a speeding vehicle drives by. The  above classification differentiates between the existence of an object and the act of recording data by the object. We assume that the sensor's presence without recording has also some analytical potential as it proves the absence of event, while with no sensor in place we cannot say if the event did take place or not. 
 
 Compared to stations and agents, events with episodic presence seem to be the least data-rich, but their analytic potential stems from their large numbers. Clusters of georeferenced point event (a.k.a. point clouds) are at the core of spatial analysis based on mobile data.
 
-This is not to say that the above is the full extent of spatial big data. Cycling back to the second mode of generation mentioned in the section introduction, the big data properties can be expressed in large attribute volume while the spatial aspect of data remains static. For example, the road network density is not changing very fast in terms of adding and removing new road segments, but our ability to record vehicle speed on these segments in the real time makes handling the attributes attached to these segments a big data problem. So apart from the point spatial reference, we can have line, polygon or complex multipart spatial objects with big data attributes, all open to GIS-powered spatial analysis. However, looking at the attributes from tab1 we can describe these data as stations with other than point spatial reference.
+This is not to say that the above is the full extent of spatial big data. Cycling back to the second mode of generation mentioned in the section introduction, the big data properties can be expressed in large attribute volume while the spatial aspect of data remains static. For example, the road network density is not changing very fast in terms of adding and removing new road segments, but our ability to record vehicle speed on these segments in the real time makes handling the attributes attached to these segments a big data problem. So apart from the point spatial reference, we can have line, polygon or complex multipart spatial objects with big data attributes, all open to GIS-powered spatial analysis. However, looking at the location stability, existence in time, and attribute collection, we can describe these data as stations with other than point spatial reference. Tab 1 than provides a more general view of spatial big data types and their attributes.
 
-From the point of cartographic visualisation there are two kinds of challenges: the graphic density generated by spatial data and the attribute density caused by frequent change recording. Both of these problems will be further observed in chapter 3.
+**Tab1** Types of objects in spatial big data. Existence is marked by records of spatial and temporal reference. Agent can have discrete existence if exiting and re-entering the area of interest. Objects with other than point spatial reference usually fall under stations, agent and events are usually recorded as points.
+
+| type of object | existence               | attribute collection   | location | spatial reference |
+|––––––––––––––––|–––––––––––––––––––––––––|––––––––––––––––––––––––|––––––––––|–––––––––––––––––––|
+| station        | continuous              | continuous or discrete | static   | point, line, poly |
+| agent          | continuous or discrete  | continuous or discrete | dynamic  | point             |
+| event          | discrete                | discrete               | static   | point             |
+
+From the point of cartographic visualisation there are two kinds of challenges tied with spatial big data: the graphic density generated by spatial data and the attribute density caused by frequent change recording. Both of these problems will be further observed in chapter 3.
 
 
 ## 2.2 Spatio-temporal knowledge discovery and visual analytics
