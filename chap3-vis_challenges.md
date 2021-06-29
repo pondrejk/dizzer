@@ -2,7 +2,7 @@
 
 This chapter explores the possible solutions to high graphical density in maps with focus on hexbin aggregation and contextual interplay of map layers. Web rendering technologies that power these solutions are described afterwards. The chapter concludes with a case study report of urban recommendation system for the city of Brno.
 
-## 3.1 Visualisation challenge: spatial and temporal density
+## 3.1 Visualisation challenges: spatial and temporal density
 
 
 As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference form the most common raw material fed to the data processing pipeline of spatial big data. The *n=all* property of big data at the input generates a challenge of dealing with high graphic density in maps at the output.
@@ -413,6 +413,8 @@ OGC Vector Tiles Pilot 2 (VTP2)
 Thesis on vecctor tiles:
 <https://prism.ucalgary.ca/bitstream/handle/11023/2666/ucalgary_2015_shang_xiaohong.pdf;jsessionid=2B918A8E8B58693A9CF79058F07241AC?sequence=3>
 
+
+TODO -- vector tiles + big data (pros/cons now + future extensions)
 
 ## 3.4 Figures and grounds
 
