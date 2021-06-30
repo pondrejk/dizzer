@@ -1,15 +1,7 @@
-# 4 Dealing with temporal aspects of big data
-
-# good as intro?
-
-Aside from graphic density that causes illegibility of map symbolization, another direct impact of big data on cartographic visualisation stems from changes in data that happens through time. With accelerated change frequency two problems arise -- the data needs to be "streamed" in order to keep the picture up to date plus there is a rapidly growing log of historical data. Digital map interface then needs to adjust visualisation to the most recent changes in real time, appropriately notify the user of important changes, and enable historical analysis and reasoning about the upcoming trends.
-
-Challenges of dynamic data lie both in the data space -- where it is a question of efficient encoding, storing, transferring and decoding long time series of records, and in the visual space -- where we are interested in depicting evolving spatio temporal relations and correlations. Naturally, the nature of temporal-analytic features designed for the map interface have impact on the data processing pipeline. We will touch this matter in discussion of time series encoding for vector tiles. But the majority of this chapter will focus on visualisation and interaction design stressing the temporal aspect of big spatial data. 
-
-(TODO -- move shomwhere else)
-The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". We use this approach in the concluding case study about the changes in municipal traffic during the pandemic lock down in the city of Brno.
+# 5 Case Study: Lockdown traffic 
 
 
+The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". We use this approach in the concluding case study about changes in traffic speeds during the first two months of pandemic restrictions in Brno.
 
 
 ## 4.3 Spatial and temporal correlations

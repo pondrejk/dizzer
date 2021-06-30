@@ -1,101 +1,18 @@
 # 3 Mapping spatial big data
 
-This chapter explores the possible solutions to high graphical density in maps with focus on hexbin aggregation and contextual interplay of map layers. Web rendering technologies that power these solutions are described afterwards. The chapter concludes with a case study report of urban recommendation system for the city of Brno.
+This chapter explores possible cartographic solutions to high graphical and temporal density in spatial data. Focus lies on hexbin aggregation and contextual interplay of map layers. Web rendering technologies that power these solutions are described afterwards. 
 
 ## 3.1 Visualisation challenges: spatial and temporal density
 
-
-As we have seen in the previous chapter, *objects*, *agents* and *events* with point spatial reference form the most common raw material fed to the data processing pipeline of spatial big data. The *n=all* property of big data at the input generates a challenge of dealing with high graphic density in maps at the output.
+As we have seen in the previous chapter, *stations*, *agents* and *events* form the most common raw material fed to the data processing pipeline of spatial big data. The *n=all* property of big data at the input generates a challenge of dealing with high graphic density in maps at the output.
 
 How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as using visual tools to facilitate insight and support decision making of human recipients, then human cognitive capabilities are the main guiding factor to adhere to. There are variances in graphic literacy across the population, not to mention accessibility requirements for various sensory conditions and disabilities, but to even start addressing those issues, we first need to focus on the *legibility* as the base requirement common to every recipient.
 
-Legibility in maps enables readers to separate signs from each other and to distinguish steps of visual variables. @bertin1983semiology names three parameters that determine legibility in information graphics: *graphic density*, *angular separation* and *retinal separation*. Graphic density is a number of marks per cm2, angular and retinal separation describe the perceptible differentiation in angles (e.g. to compare shapes or segments in line charts) and in visual variables (like hue or size). The joke charts in fig illustrate the visual problem posed by the high graphic density caused by high data load. Unlike angular and retinal separation that to a high degree result from the author's choice of symbolization, the graphic density is largely determined by parameters that cannot be influenced by the mapmaker. In the next section we will look closer on what these are.
+Legibility in maps enables readers to separate signs from each other and to distinguish steps of visual variables. @bertin1983semiology names three parameters that determine legibility in information graphics: *graphic density*, *angular separation* and *retinal separation*. Graphic density is a number of marks per cm2, angular and retinal separation describe the perceptible differentiation in angles (e.g. to compare shapes or segments in line charts) and in visual variables (like hue or size). The joke charts in fig illustrate the visual problem posed by the high graphic density caused by high data load. Unlike angular and retinal separation that to a high degree result from the author's choice of symbolization, the graphic density is largely determined by constraints that cannot be influenced by the mapmaker. In the next section we will look closer on what these are.
 
 ![**Fig.** Big data scatter plot on the left and big data parallel coordinate plot on the right. A tongue-in-cheek reflection on the limits of graphics, modified after @fischer2015why.](imgs/bd-diagrams-joke.png)
 
-TODO
-
-Apart from spatial/graphic density, there is also temporal density that comes as a result of spatial big data -- changes in object existence and attributes...
-
-Registering and visualising change in data may be valuable for supporting real-time decision making as well as for historical analysis of trend development.  
-
-@dykes2003seeking -- visualisation challenges
-Beware of change blindness -- @nowell2001change
-
-@thomas2005illuminating
-
-Navigation and other problems that involve reasoning about space are well studied; however, reasoning
-about sequence of events is not as well understood.
-
-Levels of interaction: human time constants
-
-Analysis of human time constants for human-computer interaction was initially discussed by Card et al. [1983], considered from a cognitive science point of view by Newell [1990], and discussed from an information visualization point of view by Card et al. [1999]. Newell describes four bands of time scales for human action (biologi- cal, cognitive, rational, and social) ranging from 100 microseconds to months. For purposes of a science of interaction for analytical reasoning, the two bands of greatest focus are Newell’s cognitive (100 milliseconds to 10 seconds) and rational (minutes to hours) bands. Card describes three distinct bands within Newell’s cognitive band. Note that these time constants represent approximate time ranges. That is, when we say ~100 milliseconds, we mean somewhere in the range of 50 to 300 milliseconds. 
-
-~100 milliseconds. Card refers to this as the perceptual fusion time constant, while Newell refers to it as the deliberate act time constant. This time constant is the rate necessary to produce the perception of a smooth animation. In animation, 10 frames per second equates to 100 milliseconds per frame. In interaction design, this time constant is the rate necessary to create the perception of an immediate response. Users expect to see an immediate response when they move a dynamic query slider [Ahlberg, 1994]. Likewise, as users brush over items of interest, they expect to see immediate corresponding highlighting of the linked items [Cleveland, 1999]. This time constant is also important because minimum human motor response time is around 250 milliseconds.
-
-~1 second. Card refers to this as the unprepared response time, while Newell refers
-to it as the operation time. For our purposes, this constant represents the necessary rate
-of response to simple user actions. For example, clicking a web link should produce
-the display of the next web page within 1 second to be effective. If the response might
-take more time, it is important to provide some kind of feedback in the 1-second
-timeframe to reassure the user that something is happening. This time constant is also
-important for interactive animation, like user-initiated transition animations (tran-
-sitions from one complex structure to another or one viewpoint to another). It has
-been demonstrated that providing a 1-second transition animation can reduce user
-task performance time compared to providing no transition animation [Robertson
-et al., 2002].
-
-~10 seconds. Both Card and Newell refer to this as the unit task time. This is
-the time within which users expect more complex user-initiated activities to com-
-plete (e.g., a complex search). Again, if an activity of this kind will take more than
-10 seconds to complete, it is important to provide the user with feedback within this
-10-second timeframe.
-
-~100 seconds (minutes to hours). This is referred to as the rational band. Higher-
-level reasoning processes, including the analytic reasoning and human-information
-discourse processes described in Chapter 2, take place in this band. Interaction tech-
-niques in this timeframe rely heavily on complex cognitive processing and are greatly
-affected by attentional resource demands such as interruptions and shifts in focus.
-These techniques are the least well understood and developed.
- 
-@thomas2005illuminating
-
-Navigation and other problems that involve reasoning about space are well studied; however, reasoning
-about sequence of events is not as well understood.
-
-Levels of interaction: human time constants
-
-Analysis of human time constants for human-computer interaction was initially discussed by Card et al. [1983], considered from a cognitive science point of view by Newell [1990], and discussed from an information visualization point of view by Card et al. [1999]. Newell describes four bands of time scales for human action (biologi- cal, cognitive, rational, and social) ranging from 100 microseconds to months. For purposes of a science of interaction for analytical reasoning, the two bands of greatest focus are Newell’s cognitive (100 milliseconds to 10 seconds) and rational (minutes to hours) bands. Card describes three distinct bands within Newell’s cognitive band. Note that these time constants represent approximate time ranges. That is, when we say ~100 milliseconds, we mean somewhere in the range of 50 to 300 milliseconds. 
-
-~100 milliseconds. Card refers to this as the perceptual fusion time constant, while Newell refers to it as the deliberate act time constant. This time constant is the rate necessary to produce the perception of a smooth animation. In animation, 10 frames per second equates to 100 milliseconds per frame. In interaction design, this time constant is the rate necessary to create the perception of an immediate response. Users expect to see an immediate response when they move a dynamic query slider [Ahlberg, 1994]. Likewise, as users brush over items of interest, they expect to see immediate corresponding highlighting of the linked items [Cleveland, 1999]. This time constant is also important because minimum human motor response time is around 250 milliseconds.
-
-~1 second. Card refers to this as the unprepared response time, while Newell refers
-to it as the operation time. For our purposes, this constant represents the necessary rate
-of response to simple user actions. For example, clicking a web link should produce
-the display of the next web page within 1 second to be effective. If the response might
-take more time, it is important to provide some kind of feedback in the 1-second
-timeframe to reassure the user that something is happening. This time constant is also
-important for interactive animation, like user-initiated transition animations (tran-
-sitions from one complex structure to another or one viewpoint to another). It has
-been demonstrated that providing a 1-second transition animation can reduce user
-task performance time compared to providing no transition animation [Robertson
-et al., 2002].
-
-~10 seconds. Both Card and Newell refer to this as the unit task time. This is
-the time within which users expect more complex user-initiated activities to com-
-plete (e.g., a complex search). Again, if an activity of this kind will take more than
-10 seconds to complete, it is important to provide the user with feedback within this
-10-second timeframe.
-
-~100 seconds (minutes to hours). This is referred to as the rational band. Higher-
-level reasoning processes, including the analytic reasoning and human-information
-discourse processes described in Chapter 2, take place in this band. Interaction tech-
-niques in this timeframe rely heavily on complex cognitive processing and are greatly
-affected by attentional resource demands such as interruptions and shifts in focus.
-These techniques are the least well understood and developed.
-
-
-
+Aside from graphic density that causes illegibility in map symbolization, another direct impact of big data on cartographic visualisation stems from changes in data that happens through time. With accelerated change frequency two problems arise -- the data needs to be processed "real-time" in order to keep the picture up to date plus there is a rapidly growing log of historical data that needs to be processed. Digital map interface then needs to adjust visualisation to the most recent version, appropriately notify the user of important changes, and enable historical analysis and reasoning about the upcoming trends.
 
 ### 3.1.1 Design constraints
 
@@ -105,11 +22,15 @@ Let us consider the parameters that determine the graphic density in digital map
 
 1. *Axis of scale* determines the land area displayed in the map view. Unlike print, web map interfaces support dynamic change of scale (zoom in and out) and focus (panning). This is a great capability for exploring data and can help to mitigate some graphic fill issues, but also complicates cartographic design as the chosen symbolization should work on every scale level. This requires dynamic adjustment of symbology: for example, if point symbol size is kept constant across scales (default in many web mapping libraries) a larger point cluster soon becomes illegible due to overlaps. However, plain linear size adjustment can lead to empty-looking maps if the symbol size gets too small in larger scales. For the majority of projects, there is a range of meaningful scales. Until recently, web mapping libraries supported only limited number of discrete zoom levels (from 0 to 19, a limitation dictated by tiled raster base map sources), so there was a limited predictable range of zoom levels that cartographer needed to consider for a project. As we will describe further in this chapter, vector tiles allow for fractional levels so the zoom experience is smoother, therefore it is now more efficient to define a scale based function for symbology adjustment rather designing specifically for discrete steps.
 
-2. *Axis of screen space* determines how the map view reacts to varying screen sizes. The standard requirement for modern websites is *responsivity*, which means the site should adjust the browsing experience to reflect the size and capabilities of the viewing device (desktop, tablet, or mobile nowadays, plus whatever comes next in the future). For many map based web applications, responsivity to small mobile screens is not pursued as the resulting experience is suboptimal. But this niche is certainly worth exploring in the field of thematic cartography, mainly because the proportion of mobile-first users is likely to rise^[<http://mobilev.is/> aims to collect good examples of data interaction design for small screens].
+2. *Axis of screen space* determines how the map view reacts to varying screen sizes. The standard requirement for modern websites is responsivity, which means the site should adjust the browsing experience to reflect the size and capabilities of the viewing device (desktop, tablet, or mobile nowadays, plus whatever comes next in the future). For many map based web applications, responsivity to small mobile screens is not pursued as the resulting experience is suboptimal. But this niche is certainly worth exploring in the field of thematic cartography, mainly because the proportion of mobile-first users is likely to rise^[<http://mobilev.is/> aims to collect good examples of data interaction design for small screens].
 
-In a responsive web map, the screen size and aspect ratio influences the size and shape of the map view which in turn needs to be reflected in the initial map scale (zoom level). The so-called *visual information seeking mantra* states "overview first, zoom and filter, then details-on-demand" (@shneiderman2003eyes), which translates well to digital thematic maps -- we naturally expect to see the whole extent of the mapped area to be able see the general spatial pattern first. However, to provide the initial overview consistently across devices, the responsive map application needs not only to adjust the map view size but also to calculate the correct initial zoom level to fit the area of interest into that view. Fractional zoom levels in mapping libraries are a huge help in this, because the differences in whole number zoom levels often lead to insufficient fit.
+In a responsive web map, the screen size and aspect ratio influences the size and shape of the map view which in turn needs to be reflected in the initial map scale (zoom level). The so-called *visual information seeking mantra* states "overview first, zoom and filter, then details-on-demand" (@shneiderman2003eyes), which translates well to digital thematic maps -- we naturally expect to see the whole extent of the mapped area to be able see the general spatial pattern first. However, to provide the initial overview consistently across devices, the responsive map application needs not only to adjust the map view size but also to calculate the correct initial zoom level to fit the area of interest into that view. Fractional zoom levels in mapping libraries are a significant help in this, because the differences in whole number zoom levels often lead to insufficient fit.
 
-3. *Axis of data change* describes how application reacts to changes of displayed data. These changes can be far more complex than in case of the previous two axes as the number of possible data layers, configurations within them and interrelations between them is countless. The changes may be triggered by *user interaction* or in case of continuous data streams by *changes in data itself*. Users can change the visibility of data layers, modify visual variables, adjust the temporal scale, or change the aggregation level (drill-down and roll-up actions elmqvist2010hierarchical). The range of supported interactions is defined by application authors, but the actual outcomes of these interactions can be quite surprising, especially when combined with dynamic data. Real time visualisation then brings true unpredictability to the design process (dubbed "blindfolded cartography" @woodruff2015blindfolded) and has implications on data processing pipelines and on abstractions in data and visual space.
+3. *Axis of data change* describes how application reacts to changes of displayed data. These changes can be far more complex than in case of the previous two axes as the number of possible data layers, configurations within them and interrelations between them is countless. The changes may be triggered by *user interaction* or in case of continuous data streams by *changes in data itself*. Users can change the visibility of data layers, modify visual variables, adjust the temporal scale, or change the aggregation level (drill-down and roll-up actions elmqvist2010hierarchical). The range of supported interactions is defined by application authors, but the actual outcomes of these interactions can be quite surprising, especially when combined with dynamic data. Real time visualisation then brings true unpredictability to the design process (dubbed "blindfolded cartography" @woodruff2015blindfolded) and has implications on data processing pipelines and on abstractions in data and visual space. 
+
+Navigation and other problems that involve reasoning about space are well studied; however, reasoning
+about sequence of events is not as well understood. Dynamic data visualisation needs to be informed about human time constraints. Four distinct cognitive bands are of interest (@thomas2005illuminating): *~100 milliseconds* -- rate necessary to produce the perception of a smooth animation or immediate response in interaction design; *~1 second* -- necessary rate of response to simple user actions. If the response might take more time, it is important to provide some kind of feedback in the 1-second timeframe to reassure the user that something is happening. This time constant is also useful for user-initiated transition animations; 
+*~10 seconds* -- time within which users expect more complex user-initiated activities to complete; *~100 seconds* -- time frame for higher-level reasoning processes
 
 The fourth constraint is the axis of cartographer's ability -- for example, failure to adjust symbolization to scale changes can result in illegibility even in cases when the screen space is sufficient and the data load is moderate. Choice of symbolization can greatly support angular an retinal separation and also battle graphic fill. The three aforementioned axes are in fact inseparable and combined together they determine how effective will the digital map be in different situations. Delineating the space of possibilities and then designing the application's behaviour accordingly requires lot of imagination, effort and testing.
 
@@ -128,6 +49,8 @@ This all has to cope with the limitations that come from the characteristics of 
 For example, any aggregations in the visual end product enforced by human cognitive capabilities should get propagated back down the pipeline to make the earlier stages of the process more efficient. Simply put, there is no need to retrieve every data point individually if (a) we cannot render it (screen barrier) and (b) we cannot comprehend it (cognitive barrier). This can mean a significant improvement when performance and scalability are of concern.
 
 Hence the cartographic decisions made for the later stages in the processing pipeline have impact on the overall performance of this pipeline. The choice of visualisation and interaction methods has impact outward to the user but also backward to the previous stages of the pipeline. So far little has been done to asses cartographic methods from the point of view of the data-processing scalability, though in the era of dynamic source data, cartographers need to expand their awareness to that direction.
+
+Challenges of dynamic data lie both in the data space -- where it is a question of efficient encoding, storing, transferring and decoding long time series of records, and in the visual space -- where we are interested in depicting evolving spatio temporal relations and correlations. Again, the nature of temporal-analytic features designed for the map interface have impact on the data processing pipeline. 
 
 Not all data processing challenges translate to cartographic challenges. Some basic data visualisation methods are fairly immune to challenges of real time data inflow (e.g. pie charts are not less readable when based on massive number of observations), but positional types of visualisation suffer from graphic density. This can be worsen by a cluttered base layer, labels, or unexpected interaction results. Let us look at some ways of addressing graphic density in dynamic maps. 
 
