@@ -8,7 +8,7 @@
 
 ## 2.1 Spatial big data classification: stations, events, and agents
 
-To look closer at the properties of spatial big data, we can recall the two modes of spatial big data generation mentioned in the previous chapter -- either as *big data with added spatial reference* or as *spatial data with boosted attribute volume*. In both modes, the processing and visualisation challenges slightly differ.
+To look closer at the properties of spatial big data, we can recall the two modes of spatial big data generation mentioned in the previous chapter — either as *big data with added spatial reference* or as *spatial data with boosted attribute volume*. In both modes, the processing and visualisation challenges slightly differ.
 
 In the first mode, the vast majority of what is understood as spatial big data has *point spatial reference*. This prevalence comes naturally if we realize that the "data point" location is described basically as a coordinate pair – two digits that can be easily stored in standard database systems without the need to observe topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production.
 
@@ -75,12 +75,12 @@ Spatial relations between point clusters are harder to conceptualize than it is 
 **Relations specific to moving objects** – moving objects have a specific set of properties based on their spatio-temporal circumstances. These can be *instantaneous* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to external event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
 
 
-TODO -- move stuff from time section -- taxonomy of termporal events:
+TODO — move stuff from time section — taxonomy of termporal events:
 how to measure velocity (already in chap 1)
 
--- thickenss of durative code in wood's terms (different for real objects and for map layers too)
--- other assessment -- events per unit of map time
--- time scale, time resolution
+— thickenss of durative code in wood's terms (different for real objects and for map layers too)
+— other assessment — events per unit of map time
+— time scale, time resolution
 
 **Taxonomy of temporal events**
 
@@ -93,26 +93,26 @@ To define the possibilities of visualisation of time, a taxonomy of temporal eve
 taxonomic model of time (based on @frank1998different)
 
 |        |            | Total Order       | Partial Order       | Branching      | Multiple                        |
-|--------|------------|-------------------|---------------------|----------------|---------------------------------|
+|————|——————|—————————-|——————————-|————————|————————————————-|
 | Linear | Ordinal    | Single experience | Multiple experience |                |                                 |
-|        |------------|-----------------------------------------|                |                                 |
+|        |——————|————————————————————-|                |                                 |
 |        | Continuous | Continuous time                         | Branching time | Time with multiple perspectives |
-|--------|------------|-----------------------------------------|                |                                 |
+|————|——————|————————————————————-|                |                                 |
 | Cyclic | Ordinal    | Cyclic time                             |                |                                 |
-|        |------------|                                         |                |                                 |
+|        |——————|                                         |                |                                 |
 |        | Continuous |                                         |                |                                 |
-|--------|------------|-----------------------------------------|----------------|---------------------------------|
+|————|——————|————————————————————-|————————|————————————————-|
 
 Both linear and cyclic time can have different granularities, (unit 1 chronon can have different values (1 year, 1day...))
 Changing granularity (through aggregation or conversly decomposition)
 
 bi-directional time structure (branching time) (based on @hazelton1992developments)
 
-past --> future
-     |---> future worlds modelled from past
+past —> future
+     |—-> future worlds modelled from past
      |
- <---|---> present
- <---|
+ <—-|—-> present
+ <—-|
 retrospectivelly
 modelled worlds
 
@@ -354,17 +354,17 @@ Tailoring the map interaction to intended users is definitely something digital 
 
 ## 2.4 Objections and Responses
 
-Not surprisingly, data visualisation is seen as a great tool for achieving a desirable goal in most of the literature, this thesis included. But there are also voices raising objections against some naive expectations form data visualisation that may even get harmful with incorporation of big data. Such debates may shed some light on the possible future evolution of digital cartography, so let us briefly outline some of the main objections with possible responses to them.
+Not surprisingly, data visualisation is seen as a great tool for achieving a desirable goal in most of the literature, this thesis included. But there are also voices raising objections against some naive expectations form data visualisation that may get even more harmful with incorporation of big data. Such debates may shed some light on the possible future evolution of digital cartography, so let us briefly outline some of the main objections and possible responses to them.
 
 **Hiding system complexity**
 
-The first objection is related to modelling and visualizing complex systems. By reducing the complex system into comprehensible chunks, data visualisation may encourage confident predictions and estimations that may lead to decisions and interventions with harmful effects. The issue is that the used datasets and models may not include all aspects of reality, but absence of evidence is not evidence of absence. Incomplete models may rationalize decisions that despite claiming to be data-driven, actually stand on thin legs. This can lead to unpleasant surprises (for example, loosening of pandemic-related restrictions in Czech Republic before Christmas 2020 was based on models that did not account for the presence of a COVID-19 variant with increased transmissibility, leading to disastrous effects soon afterwards). Visualisation based on a bad model than acts basically as an accomplice, no matter how well crafted it is.
+The first objection is related to modelling and visualizing complex systems. By reducing the complex system into comprehensible chunks, data visualisation may encourage confident predictions and estimations that may lead to decisions and interventions with harmful effects. The issue is that the used datasets and models may not include all aspects of reality, but *absence of evidence is not evidence of absence*. Incomplete models may rationalize decisions that despite claiming to be "data-driven", actually stand on thin legs. This can lead to unpleasant surprises (for example, loosening of pandemic-related restrictions in Czech Republic before Christmas 2020 was based on models that did not account for the presence of a COVID-19 variant with increased transmissibility, leading to disastrous effects soon afterwards). Visualisation based on a bad model than acts as an accomplice, no matter how well crafted it is.
 
 Apart from missing relevant information in models, there are some aspects of complex systems that render prediction efforts highly problematic. Nonlinear relationships between system parts produce disproportional responses to change in input parameters. The boundaries between system components may be hazy or even imaginary. When the relationships between system components are vaguely understood (which is often the case in complex systems), any naive intervention can trigger a chain of cascading second order effects that can accelerate harm (@meadows2008thinking, @taleb2012antifragile). Moreover, extracting trends from historical data offers no preparation for the so called Black Swan events — large-scale unpredictable and irregular events of massive consequence (@taleb2007black).
 
-What can be done in response to these concerns? Models and visualisations could be more explicit about their own limits — like the properties of data used, statistical assumptions, margins of error, sources of uncertainty and possible other explanations. Incorporation of uncertainty into visualisations should be done in a way that cannot be easily ignored by the users (@kale2020visual, @correll2018value). Visualisations shouldn't simplify the depiction of data if it leads to hiding important aspects of the system. Overall, visualising interdependencies and feedback loops within a complex system poses an interesting challenge for visualisation community and for cartographers as well.
+What can be done in response to these concerns? Models and visualisations could be more explicit about their own limits — properties of data, statistical assumptions, margins of error, sources of uncertainty and possible other explanations. Incorporation of uncertainty into visualisations should be done in a way that cannot be easily ignored by the users (@kale2020visual, @correll2018value). Visualisations should not simplify the depiction of data if it leads to hiding important aspects of the system. Overall, visualising interdependencies and feedback loops within a complex system poses an interesting challenge for visualisation community and for cartographers as well.
 
-When it comes to reasoning about complex systems, visualisations can support a non-predictive approach that aims more at risk evaluation and moderating  exposure to the possible harm coming from unprecedented events. In relation to man made systems in general, we could strive to make them more akin to natural systems that are not only robust to error, but can also adapt and benefit from certain doses of volatility (so called antifragile systems @taleb2012antifragile). 
+When it comes to reasoning about complex systems, visualisations can support a *non-predictive* approach that aims more at risk evaluation and moderating exposure to the possible harm coming from unprecedented events. In relation to man made systems in general, we could strive to make them more akin to natural systems that are not only robust to error, but can also adapt and benefit from certain doses of volatility (so called antifragile systems @taleb2012antifragile). 
 
 **Misinterpretation**
 
@@ -372,7 +372,7 @@ The second objection is related to the first one, but rather than looking at lim
 
 For example, biases about the reliability of different sources may lead us to discount information from sources that we don't associate with (@thomas2005illuminating). When we form a preliminary judgment too early in the analytical process, we may hold firm to it long after the evidence invalidates it. Sometimes we settle for a “good enough” answer, stopping our analytical process before identifying critical information that would lead us to a different conclusion (@heuer1999psychology). We are also challenged to think statistically compared to our abilities to think associatively, metaphorically or causally. Furthermore, there is our overconfidence in what we think we know, and inability to acknowledge the full extent of what we don't know (@kahneman2011thinking). We also underestimate the role of chance in events, we tend to assume causality between events that just happen to occur at the same time (@taleb2012antifragile), and so on, and so on.
 
-To make the matters worse, experts who create visualisations are to susceptible to various biases. The design choices can drive results every bit as much as traditional “data-cleaning” choices. Hence visualization techniques contain embedded judgments (@bollier2010promise). Then there is the "curse of knowledge": the difficulty in imagining what it is like for someone else not to know something you know (@pinker2015sense). On the side of the application designer, it can lead to expecting the user to have same levels of skills and knowledge, but also the same values and views of the world.
+To make the matters worse, experts who create visualisations are also susceptible to various biases. The design choices can drive results every bit as much as traditional “data-cleaning” choices. Hence visualization techniques contain embedded judgments (@bollier2010promise). Then there is the "curse of knowledge": the difficulty in imagining what it is like for someone else not to know something you know (@pinker2015sense). On the side of the application designer, it can lead to expecting the user to have same levels of skills and knowledge, but also the same values and views of the world.
 
 What can be done in response to these concerns? First of all, we might benefit from a more realistic view of the impact of data visualisation. Insight comes from knowledge and experience and no data-driven tool can compensate for the lack of the two. Visualisation is a supporting tool, a mediator that can stimulate and amplify the thought process, but cannot act as a shortcut if no thinking is being done. Expecting to become an expert by looking at a picture is a false promise.
 
@@ -380,8 +380,8 @@ That being said, acknowledging the cognitive biases in the visualisation design 
 
 **Non-human decision makers**
 
-The third question is directed more at the future relevance of data visualisation in the face of artificial intelligence (AI). If more and more decisions will be carried out by algorithms the need for visualisations may diminish in many areas where it is deemed crucial nowadays, merely because computers, unlike human analysts, don't need to visualize things to gain insight and understand the problem. 
+The third question is directed more at the future relevance of data visualisation in the face of artificial intelligence (AI). If more and more decisions will be carried out by algorithms, the need for visualisations may diminish in many areas where it is deemed crucial nowadays, merely because computers, unlike human analysts, do not need to visualize things to gain insight and understand the problem. 
 
 Having described the range of cognitive biases one might welcome computational assistance, and in many areas we already rely on it, navigation being a prominent example. One the other hand, we can point out the current deficiencies of machine learning algorithms. Contrary to popular beliefs, the technology is not ready to step in for humans for the majority of tasks. Current machine learning is about extracting rules from vast training data sets, which is susceptible to various kinds of issues: sensitivity to gaps and errors in data, confinement to the specifics of training data, or the tendency to take unwanted shortcuts (@shane2019you). Furthermore, it is not certain that some breakthrough in artificial intelligence will come in the foreseeable future, either because its already large appetite for computing power will become economically, technically, and environmentally unsustainable (@thompson2020computational), or because the demand for artificial collaborators will perish — we will simply want to design AI as tools not as collaborators (@dennett2017bacteria).
 
-In a realistic view, the danger of AI is not in usurping us, but rather in us putting too much confidence into uncomprehending tools. But even if we will get to non-human decision makers, it wouldn't mean a demise of visualisation, contrary, it could open new opportunities for using visual artefacts. First, as a communication interface between humans and machines. Second, as a way to inspect and verify the workings of decision-making algorithms. It is not possible to check upon a black box, nor to negotiate with it, so gaining insight into how and why automated systems arrived at a particular decision may become a new frontier for the data visualisation community.
+In a realistic view, the danger of AI is not in usurping us, but rather in us putting too much confidence into uncomprehending tools. But even if we will get to non-human decision makers, it wouldn't mean a demise of visualisation. Contrary, it could open new opportunities for using visual artefacts: either as a communication interface between humans and machines or as a way to inspect and verify the workings of decision-making algorithms. It is not possible to check upon a black box, nor to negotiate with it, so gaining insight into how and why automated systems arrived at a particular decision may become a new frontier for the data visualisation community.
