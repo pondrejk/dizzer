@@ -1,4 +1,4 @@
-## 3.6 Case Study: Urban recommendation system
+## 4 Case Study: Urban recommendation system
 
 Throughout the previous chapter we took a rather winding path trough various concepts -- data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles and user interface design. In this concluding section, we present a case study that aims to bring the previously described concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
 
@@ -83,6 +83,12 @@ Type 3 ? — square or triangle grid, better smooth appearance?
 
 ### 3.6.4 Notable findings
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
+
+*issues*
+-- road structure not equally visible on dynamic data layers 
+-- css blending style (difference?) for the rescue -- not implemented in (mapox.gl), leaflet allows it? surely tree.js or pixi.js support it, however it would bring too much attention to the road network + other issues -- how to choose the main color so that the overlay produces meaningful scale, building a legend
+-- TODO some illustrator image about this?
+
 
 ### 3.6.5 Possible extensions
 
