@@ -80,6 +80,23 @@ how to encode and decode time based rles to vector tiles
 
 ## 4.7 Case Study: Pandemics traffic exploration
 
+
+Two aspects:
+- data processing: how to use vector tiles to present historical overview of data primarily intended for real time consumption? (compression should allow adding new data, shouldn't preclude the real-time scenario)
+- interactive cartographic visualisation: how to present data in variable time granularity, so that user can observe it smoothly, make assumptions and comparisons?
+
+
+draft classification:
+
+- high average speeds, low variability (highways)
+- low speeds and variability (tiny segments)
+- variable speeds throughout the day (inner city alleys)
+
+^ how this all changed during the lockdown?
+
+caveats
+Traffic speed does not bear information on car density? -- what is the relation? in pandemic it should be higher?
+
 ### 4.7.1 Data sources and transformations
 
 - description of initial data source from mapbox
