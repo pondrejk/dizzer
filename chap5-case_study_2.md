@@ -3,6 +3,8 @@
 
 The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". We use this approach in the concluding case study about changes in traffic speeds during the first two months of pandemic restrictions in Brno.
 
+We explore the possiilites and limitations of vector tiles to accomodate the temporal density of a dateset originally published as a live stream. 
+
 
 ## 4.3 Spatial and temporal correlations
 
@@ -76,6 +78,11 @@ Unused potential of s-t cubes becomes clear when considered together with search
 
 how to encode and decode time based rles to vector tiles
 - rle - will save memory?
+-- TODO popísať ako a prečo to nevyšlo
+
+time series compression algs -- https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
+možno do todos -- pg + timescale + tegola
+
  
 
 ## 4.7 Case Study: Pandemics traffic exploration
