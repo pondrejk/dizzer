@@ -5,8 +5,16 @@ The visual analysis tool should work equally well regardless of the velocity of 
 
 We explore the possiilites and limitations of vector tiles to accomodate the temporal density of a dateset originally published as a live stream. 
 
+Two aspects:
+- data processing: how to use vector tiles to present historical overview of data primarily intended for real time consumption? (compression should allow adding new data, shouldn't preclude the real-time scenario)
+- interactive cartographic visualisation: how to present data in variable time granularity, so that user can observe it smoothly, make assumptions and comparisons?
 
-## 4.3 Spatial and temporal correlations
+
+
+--- TODO sift through this and maybe move elsewhere --- 
+
+
+## Spatial and temporal correlations
 
 Causation-related questions for cartography:
 - finding spatio-temporal co-location that would support causation hypothesis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cumulative data within two choropleths can smooth the volatility in favor of the overall tendency). 
@@ -17,14 +25,14 @@ Causation-related questions for cartography:
 - overall, the ability of dynamic maps to find these collocations and link them to causation is to be assessed, but how? :)
 
 
-## 4.4 Representing time in digital maps
+## Representing time in digital maps
 
 @kriglestein2014pep
 
 Two ways of representing time: -- repr. time with space (e.g. time lines), rep. time with time (animation)
 
 
-### 4.4.1 Small multiples
+## Small multiples
 
 -- small multiples good for longer time periods -- empirical research: boyandin2012qualitative (We observed that with animation the subjects tended to make more findings concerning geographically local events and changes between subsequent years. With small-multiples more findings concerning longer time periods were made. Besides, our results suggest that switching from one view to the other might lead to an increase in the numbers of findings of specific types made by the subjects which can be beneficial for certain tasks.) and irina2008novel (eye tracking)
 
@@ -39,7 +47,7 @@ Some show parallelism, some depict motion -- in such case "viewers must interpol
 -- on confections: "...confection is an assembly of many visual events, selected (...) from various Streams of Story {quote from Rhushdie -- Haroun and the sea of stories}, than brought together and juxtaposed on the still flatland of paper. By means of multiplicity of image-events, confections illustrate an argument, show and enforce visual comparisons, combine the real and imagined and tell us yet another story.
 -- Dataviz can roll-back the time variously tinker with data representations thus bypassing the need to use metaphors and verbal descriptions.
 
-### 4.4.2 Animation 
+##  Animation 
 
 -- time interval for animation -- immediate expression, cummulative, something between
 
@@ -48,7 +56,7 @@ opseorafia vs kinematografia
 @weibel1996kurt v preklade @vcihak2013ponorna -- "Muybridgea následovali ti umělci kterí se zajímali o pohyb, dynamiku, montáž a imitaci reálného života; Mareye ti, kterím záležalo na vidění, přerušní a konstrukci filmové reality. Kinematografie nakonec využila aparátem poskytnutou iluzi pohybu aby film postavila do služeb literatury, divadla a opery. Opseografie chce naproti tomu film rozvíjet dále jako outonomní umění a udělat z něj umění vidění (vnímání)."
 
 
-### 4.4.3 Space time cubes and dimensionality
+## Space time cubes and dimensionality
 
 @richards2004individuals
 
@@ -74,7 +82,7 @@ On space-time cubes -- is a useful concept for imagining the relations between s
 Unused potential of s-t cubes becomes clear when considered together with searching for cyclical time patterns in spatial subsets (collumns of a cube) or when spatially correlating two phenomena with time delay (comparing slices). (TODO some picture of cubes to make it more clear)
 
 
-## 4.5 Time series data compression
+## Time series data compression
 
 how to encode and decode time based rles to vector tiles
 - rle - will save memory?
@@ -85,26 +93,7 @@ možno do todos -- pg + timescale + tegola
 
  
 
-## 4.7 Case Study: Pandemics traffic exploration
-
-
-Two aspects:
-- data processing: how to use vector tiles to present historical overview of data primarily intended for real time consumption? (compression should allow adding new data, shouldn't preclude the real-time scenario)
-- interactive cartographic visualisation: how to present data in variable time granularity, so that user can observe it smoothly, make assumptions and comparisons?
-
-
-draft classification:
-
-- high average speeds, low variability (highways)
-- low speeds and variability (tiny segments)
-- variable speeds throughout the day (inner city alleys)
-
-^ how this all changed during the lockdown?
-
-caveats
-Traffic speed does not bear information on car density? -- what is the relation? in pandemic it should be higher?
-
-### 4.7.1 Data sources and transformations
+## 5.1 Data sources and transformations
 
 - description of initial data source from mapbox
 <https://docs.mapbox.com/traffic-data/overview/data/>
@@ -189,7 +178,7 @@ How to encode time series into vector tiles
 - change z axis and camera view
 
 
-### 4.7.2 app architecture
+## 5.2 app architecture
 
 (describe database solution and other options)
 
@@ -204,7 +193,9 @@ How to encode time series into vector tiles
 tegola for tile creation + serving real time from the postgres database?
 https://tegola.io/documentation/getting-started/
 
-### 4.7.3 User interface design
+## 4.3 Cartographic decisions
+
+## 4.4 User interface design
 
 TODO: note on scale levels in mapbox streeets layer (example with live traffic screening)
 
@@ -213,8 +204,19 @@ https://api.mapbox.com/styles/v1/ppeettoo/ck4yfkusp1ejb1cmnpfnwvecc.html?fresh=t
 Images: img-live-mb-traffic-1,2,3.png
 
 
-### 4.7.4 Notable findings
+## 4.5 Notable findings
 
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
-### 4.7.5 Possible extensions
+draft classification:
+
+- high average speeds, low variability (highways)
+- low speeds and variability (tiny segments)
+- variable speeds throughout the day (inner city alleys)
+
+^ how this all changed during the lockdown?
+
+caveats
+Traffic speed does not bear information on car density? -- what is the relation? in pandemic it should be higher?
+
+## 4.6 Possible extensions
