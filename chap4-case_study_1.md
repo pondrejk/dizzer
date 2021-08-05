@@ -8,7 +8,7 @@ The origins of this idea date back to the 2018's hackathon that the author atten
 Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexbin aggregation and layer ordering to battle visual clutter, the benefits of vector tile technology, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
 
 
-### 3.6.1 Data sources and transformations
+## 4.1 Data sources and transformations
 
 - data from osm
 - interpolation to the grid
@@ -47,7 +47,7 @@ https://lvdmaaten.github.io/tsne/
 https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding
 
 
-### 3.6.2 App architecture (react redux mapbox)
+## 4.2 Application architecture 
 
 Old version:
 posgres + node on backed — React + Leaflet + Turf on the frontend
@@ -62,7 +62,9 @@ https://geovation.github.io/build-your-own-static-vector-tile-pipeline
 
 — future — tegola? better for "real-time publishing"
 
-### 3.6.3 User interface design
+## 4.3 Cartographic decisions
+
+## 4.4 User interface design
 
 Type 1 - see comopound livability score
 map field:
@@ -85,7 +87,7 @@ controls:
 
 Type 3 ? — square or triangle grid, better smooth appearance?
 
-### 3.6.4 Notable findings
+## 4.4 Notable findings
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
 *issues*
@@ -94,7 +96,7 @@ Type 3 ? — square or triangle grid, better smooth appearance?
 — TODO some illustrator image about this?
 
 
-### 3.6.5 Possible extensions
+## 4.5 Possible extensions
 
 Possibility of regular updates to keep the content true to reality.
 Possible Extensions to other cities .. automated data processing pipeline
