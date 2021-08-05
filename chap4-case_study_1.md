@@ -1,8 +1,12 @@
 ## 4 Case Study: Urban recommendation system
 
-Throughout the previous chapter we took a rather winding path trough various concepts -- data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles and user interface design. In this concluding section, we present a case study that aims to bring the previously described concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
+Throughout the previous chapter we took a rather winding path trough various concepts: data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles and user interface design. In this and the next chapter we present two experimental case studies that aim to bring the previously described concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
 
-The origins for this case study stem from a 2018's demonstration application for a hackathon competition that this author attended. The intent was to develop an urban recommendation system that would help dwelling seekers to identify areas in the Brno city that best match their needs and expectations. The original implementation using Leaflet front end has been fully reworked by the author into Mapbox based application for the purpose of this thesis. Aside from the primary goal of spatial optimization tool, the application aims to demonstrate the ideas presented earlier in this chapter — the use of hexbin grid and layer entanglement to battle visual clutter, some recommendations for map UI design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed, and comparison of solutions based on Leaflet and Mapbox map rendering libraries is provided.
+The first case study is a prototype of an urban recommendation system — a map based web application that could help dwelling seekers to identify areas in the city that best match their needs and expectations. Such system would allow users to assign weights to different spatial factors to recalculate the simple preference maps to show which areas in the city are desirable more than other. The benefits of interactive weight controls are manifold: users can reason about various alternative solutions, observe how even slight changes in their preferences influence their potential action radius, they can seek compromise between conflicting views, or model how would their range of possibilities alter should their life situation change. The selected spatial factors are aiming to suit civic user, however, inclusion of additional parameters could extend the target group to municipal planners or property developers, ^[
+The origins of this idea date back to the 2018's hackathon that the author attended as a member of one of the competing teams. The original demo application has been fully reworked by the author for the purpose of this thesis, though the input spatial data pre-processed at that time have been reused.]
+
+Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexbin aggregation and layer ordering to battle visual clutter, the benefits of vector tile technology, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
+
 
 ### 3.6.1 Data sources and transformations
 
@@ -51,12 +55,12 @@ posgres + node on backed — React + Leaflet + Turf on the frontend
 New version
 Mapbox for layer storage — React + Mapbox on the frontend
 
-Why react-redux? -- modularity and global state management -- useful for web map apps eg. for dynamic legend, inset maps, etc.
+Why react-redux? — modularity and global state management — useful for web map apps eg. for dynamic legend, inset maps, etc.
 
-Data processing for vector tiles -- static tiles created with tippecanoe (exact command?), then uploaded to mbstudio for hosting
+Data processing for vector tiles — static tiles created with tippecanoe (exact command?), then uploaded to mbstudio for hosting
 https://geovation.github.io/build-your-own-static-vector-tile-pipeline
 
--- future -- tegola? better for "real-time publishing"
+— future — tegola? better for "real-time publishing"
 
 ### 3.6.3 User interface design
 
@@ -85,16 +89,16 @@ Type 3 ? — square or triangle grid, better smooth appearance?
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
 *issues*
--- road structure not equally visible on dynamic data layers 
--- css blending style (difference?) for the rescue -- not implemented in (mapox.gl), leaflet allows it? surely tree.js or pixi.js support it, however it would bring too much attention to the road network + other issues -- how to choose the main color so that the overlay produces meaningful scale, building a legend
--- TODO some illustrator image about this?
+— road structure not equally visible on dynamic data layers 
+— css blending style (difference?) for the rescue — not implemented in (mapox.gl), leaflet allows it? surely tree.js or pixi.js support it, however it would bring too much attention to the road network + other issues — how to choose the main color so that the overlay produces meaningful scale, building a legend
+— TODO some illustrator image about this?
 
 
 ### 3.6.5 Possible extensions
 
 Possibility of regular updates to keep the content true to reality.
 Possible Extensions to other cities .. automated data processing pipeline
--- vector tile pipeline:
+— vector tile pipeline:
 https://medium.com/nyc-planning-digital/using-the-new-mvt-function-in-postgis-75f8addc1d68
 https://geovation.github.io/build-your-own-static-vector-tile-pipeline
 https://github.com/addresscloud/serverless-tiles
