@@ -1,15 +1,6 @@
-# 5 Case Study: Lockdown traffic 
+# 5 Case Study: Lockdown traffic speeds
 
-
-The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". We use this approach in the concluding case study about changes in traffic speeds during the first two months of pandemic restrictions in Brno.
-
-We explore the possiilites and limitations of vector tiles to accomodate the temporal density of a dateset originally published as a live stream. 
-
-Two aspects:
-- data processing: how to use vector tiles to present historical overview of data primarily intended for real time consumption? (compression should allow adding new data, shouldn't preclude the real-time scenario)
-- interactive cartographic visualisation: how to present data in variable time granularity, so that user can observe it smoothly, make assumptions and comparisons?
-
-
+In this case study we explore the possibilities and limitations of vector tiles to accommodate the temporal density of a dataset originally published as a live stream. For this purpose we chose to visualize changes in traffic speeds in the city of Brno. The temporal range of the source dataset e period form the 16th of March to the 10th of May 2020^[The author would like to thank Mapbox, Inc. for generously providing the traffic data sample for the purpose of this case study.]. This time period coincidentally matches with the first period of government restrictions in Czech Republic to prevent the spread of the COVID-19 pandemic. The size, spatial and temporal detail of the dataset posed a challenge both in terms of data processing as well as in terms of designing the interactive cartographic visualisation^[Live demo of the application is accessible at <pondrejk.eu/traffic>].
 
 --- TODO sift through this and maybe move elsewhere --- 
 
@@ -220,3 +211,5 @@ caveats
 Traffic speed does not bear information on car density? -- what is the relation? in pandemic it should be higher?
 
 ## 4.6 Possible extensions
+
+The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". 
