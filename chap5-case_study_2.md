@@ -2,88 +2,6 @@
 
 In this case study we explore the possibilities and limitations of vector tiles to accommodate the temporal density of a dataset originally published as a live stream. For this purpose we chose to visualize changes in traffic speeds in the city of Brno. The temporal range of the source dataset e period form the 16th of March to the 10th of May 2020^[The author would like to thank Mapbox, Inc. for generously providing the traffic data sample for the purpose of this case study.]. This time period coincidentally matches with the first period of government restrictions in Czech Republic to prevent the spread of the COVID-19 pandemic. The size, spatial and temporal detail of the dataset posed a challenge both in terms of data processing as well as in terms of designing the interactive cartographic visualisation^[Live demo of the application is accessible at <pondrejk.eu/traffic>, screenshots of the interface can be found in appendix c.].
 
---- TODO sift through this and maybe move elsewhere --- 
-
-
-## Spatial and temporal correlations
-
-Causation-related questions for cartography:
-- finding spatio-temporal co-location that would support causation hypothesis is in currently realized by comparing spatial patterns. The causal delays may hamper such comparison, one approach is extend the time range of records (e.g. comparing cumulative data within two choropleths can smooth the volatility in favor of the overall tendency). 
-- Another approach is in looking for some general similarities between two sets of snapshots (spatial patterns) – if there is some similarity occurring at some interval then we have identified the delay interval. This is spatial but not temporal collocation. Problem: this assumes causal relationships across the whole area of pattern – how to search for delay in just a sub area? Also e.g. in networks the cause and the effect are spatially secluded -- in networks the temporal delay points to source location in the network
-- Temporal but not spatial collocation – is map a good tool for displaying this (rather a bar chart? Yes e.g moving air masses – we infer the future state in place from the state in past elsewhere)
-- What amount of apparent spatio-temporal collocation allows to rule out epiphenomena? Can map alone rule out a hidden common variable?
-- How to map causal-like relationships, e.g. potential for causation to happen via variations of state across the area?
-- overall, the ability of dynamic maps to find these collocations and link them to causation is to be assessed, but how? :)
-
-
-## Representing time in digital maps
-
-@kriglestein2014pep
-
-Two ways of representing time: -- repr. time with space (e.g. time lines), rep. time with time (animation)
-
-
-## Small multiples
-
--- small multiples good for longer time periods -- empirical research: boyandin2012qualitative (We observed that with animation the subjects tended to make more findings concerning geographically local events and changes between subsequent years. With small-multiples more findings concerning longer time periods were made. Besides, our results suggest that switching from one view to the other might lead to an increase in the numbers of findings of specific types made by the subjects which can be beneficial for certain tasks.) and irina2008novel (eye tracking)
-
--- small movement of clusters are hard to detect with s.m. --griffin2006comparison (We found that map readers answer more quickly and identify more patterns correctly when using animated maps than when using static small-multiple maps. We also found that pace and cluster coherence interact so that different paces are more effective for identifying certain types of clusters (none vs. subtle vs. strong), and that there are some gender differences in the animated condition.)
-
--- limited number s.m. to be effective -- dransch2010assessing
-
-@tufte1998visual
--- on multiples: "Multiples represent and narate sequences of motions. Multiples amplify, intensify, and meaning in images. Multiples difectly depict comparisons, the essence of statistical thinking." --          for example of multiples think Muybridge.
-
-Some show parallelism, some depict motion -- in such case "viewers must interpolate between images, closing up  gaps." "Space replaces time as the sequencing dimension. ... Sequences of still images suffer the obvious (though no less important in being so) loss of the experiance of the passage of time, the loss of the rates and rythms of the actual motion," -- often aggravated by omitting any explicit time scale.
--- on confections: "...confection is an assembly of many visual events, selected (...) from various Streams of Story {quote from Rhushdie -- Haroun and the sea of stories}, than brought together and juxtaposed on the still flatland of paper. By means of multiplicity of image-events, confections illustrate an argument, show and enforce visual comparisons, combine the real and imagined and tell us yet another story.
--- Dataviz can roll-back the time variously tinker with data representations thus bypassing the need to use metaphors and verbal descriptions.
-
-##  Animation 
-
--- time interval for animation -- immediate expression, cummulative, something between
-
-opseorafia vs kinematografia
-
-@weibel1996kurt v preklade @vcihak2013ponorna -- "Muybridgea následovali ti umělci kterí se zajímali o pohyb, dynamiku, montáž a imitaci reálného života; Mareye ti, kterím záležalo na vidění, přerušní a konstrukci filmové reality. Kinematografie nakonec využila aparátem poskytnutou iluzi pohybu aby film postavila do služeb literatury, divadla a opery. Opseografie chce naproti tomu film rozvíjet dále jako outonomní umění a udělat z něj umění vidění (vnímání)."
-
-
-## Space time cubes and dimensionality
-
-@richards2004individuals
-
-Space-time cube -- maybe a simplistic view of time, but also a rich source for interpreting the world as we normally experience it.
-
-Dimensionality -- x-y-z-t, speaking of "absolute" space is doubtfull, althought instristically time and space may be absoulute, they are always measured in some arbitrary and subjective coordinate systems. 
-
-Euler vs Langrange -- Eulerian approach: making observations at fixed spaital locations (time series, etc.), which are used to infer the time-space structure of the phenomenon under investigation. Lagrangian representation: a finite unit is tacked along its course -- coordinate frame is static and dynamic phenomena are measured relative to iths course as it moves through the space (buoy).
-
-Collapse of dimensionality (e.g. transformation from 3D to 2D) can lead to loosing information, decreasing reliability.
-
-(And even the) brain has a difficulty coping with systems whose 4-D evolution destroys much of the evidence of their prior states...
-
-Large scale and long term require simplification. ...when high-dimensional system behaviour can be well described, it may be possible to identify consistent low-dimensional behavior patterns that can be represented more simply without direct reference to the underlying 4-D process.
-
-Phase space, in. geography e.g. Melton -- four dimensional phase space of drainage basin properties...
-Structure vs agency: The spatially distributed feedback between the form (structure) and process (agency) is therfore a broadly relevant conceptual framework for analysis of the dynamics of the systems...
-Agent based modelling -- Regions are essentially aggregates - of smaller entities, of common characteristics -  which in turn are are 'constructed' by the Lagrangian behaviour of the individuals within them. Places are therefore emergent properties of large-sample individual behaviour in 4-D space-time.
-
-
-On space-time cubes -- is a useful concept for imagining the relations between spatial, temporal and non-spatial dimensions (@guo2006visualization). Even though our spatial imagination is limited by 3-dimensionality of our everyday experience, data cubes allows us to assing visual clue to otherwise abstract database queries such as slicing and dicing. On the other hand intracting with the cube itself feels not user friendly, so intractive UIs typically use maps as slices of the cube -- so the spatial metaphor is always coherent timewise (true? maybe traces are an exception). 
-
-Unused potential of s-t cubes becomes clear when considered together with searching for cyclical time patterns in spatial subsets (collumns of a cube) or when spatially correlating two phenomena with time delay (comparing slices). (TODO some picture of cubes to make it more clear)
-
-
-## Time series data compression
-
-how to encode and decode time based rles to vector tiles
-- rle - will save memory?
--- TODO popísať ako a prečo to nevyšlo
-
-time series compression algs -- https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
-možno do todos -- pg + timescale + tegola
-
- 
-
 ## 5.1 Data sources and transformations
 
 - description of initial data source from mapbox
@@ -185,6 +103,11 @@ tegola for tile creation + serving real time from the postgres database?
 https://tegola.io/documentation/getting-started/
 
 ## 4.3 Cartographic decisions
+
+@kriglestein2014pep
+
+Two ways of representing time: -- repr. time with space (e.g. time lines), rep. time with time (animation)
+
 
 ## 4.4 User interface design
 
