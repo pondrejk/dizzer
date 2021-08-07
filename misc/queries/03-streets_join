@@ -1,0 +1,9 @@
+﻿create table streets_w01_d2 as
+SELECT 
+  streets.geom,
+  nd2.*
+FROM 
+  streets
+JOIN
+  public.w01_d2 as nd2
+  ON CONCAT(streets.start_node, streets.end_node) = CONCAT(nd2.field_1, nd2.field_2)

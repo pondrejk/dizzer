@@ -1,0 +1,7 @@
+﻿CREATE TABLE streets AS
+SELECT 
+  common_pairs_geom.end_node, 
+  common_pairs_geom.start_node, 
+  ST_MAKELINE(common_pairs_geom.start_geom, common_pairs_geom.end_geom) as geom
+FROM 
+  public.common_pairs_geom;
