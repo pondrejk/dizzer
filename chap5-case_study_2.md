@@ -16,117 +16,41 @@ This gives us an idea of the data volumes that needed to be processed. One file 
 
 There were several tasks to be completed in the initial phase of data processing. As the OpenStreetMap node IDs do not directly contain the spatial information, the actual coordinates for each node needed to be obtained. This was done in the following steps. First, to minimize redundant API calls later, we extracted the unique node IDs form the first two columns. As we have seen earlier, the node IDs can appear several times as route identifiers, either in bi-directional segments or in crossroads and other structures^[The python script based on the *numpy* library that was written to perform the unique node extraction can be found at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/01-get_unique_nodes.py>]. For each of the unique nodes the spatial coordinates were obtained by querying the Open Street Map API^[The script to do that using the *osm* Python library is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/02-get_node_coordinates.py>].
 
-With spatially defined unique nodes it was possible to filter out the subset of the nodes that belonged to the Brno municipal area. The most straightforward way to do that was to load the nodes to QGIS desktop to perform *select by location* against the polygon of the city area (with five kilometer buffer to provide some context of immediate surroundings). Armed with a collection of Brno nodes (the count was 131 257), we returned to the original traffic speed CSVs to extract the nodes from Brno, this time with speed attributes. The challenge was in searching for 131 257 nodes in the superset of 1 086 958 lines and then extracting the matching lines with all 2018 attributes^[The script to perform this action (using the *dask* Python library) is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/03-select_segments.py>].
+With spatially defined unique nodes it was possible to filter out the subset of the nodes that belonged to the Brno municipal area. The most straightforward way to do that was to load the nodes to QGIS desktop to perform *select by location* against the polygon of the city area (with five kilometer buffer to provide some context of immediate surroundings). Armed with a collection of Brno nodes (the count was 131 257), we returned to the original traffic speed CSVs to extract the nodes from Brno, this time with speed attributes. The challenge was in searching for 131 257 nodes in the superset of 1 086 958 lines and then extracting the matching lines, each with all of its 2018 attributes^[The script to perform this action (using the *dask* Python library) is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/03-select_segments.py>].
 
-TODO here aside on small Big data.
+Such task is reminiscent of situations described in the *Small big data manifesto* (@voss2017small) -- even though the big data is mainly associated with large scale clustered infrastructure, individuals increasingly come across situations when they need to process large dataset only with a single machine at their hands. Setting up a cluster of machines is not viable for many applications  due to financial, time or skillset demands. For one-time processing of data that does not fit into memory, we are left with a range of simple but often efficient computing tools and approaches (@turner2020process). One of them is reading input data in chunks that can fit to memory, applying a processing function to these chunks and using a reducer function that can combine the processed chunks into a final result. This way the memory size limitation is bypassed, however, computation time of the processing function can still become a bottleneck. Multi-threaded execution can ease the problem by running the execution function in parallel on individual CPU cores. The size of chucks and the number of threads needs to be fine tuned to fit the capabilities of given hardware, but in general these techniques can significantly reduce the processing time even on modest machines. Cycling back to our speed files, a simple script combining chunking and parallelization (using the Dask Python library) was able to complete the extraction of  Brno segments from one week file in 3 min 32.8s (on Intel i7 8 cores, 30 GiB RAM).
 
 The output of the previous operation was a list of eight CSV files in the original structure showing the estimated speeds for road segments in Brno. These weekly files where split into smaller chunks representing individual days to avoid hitting the database column length limitations^[Using this Python script <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/04-split_by_day.py>]. The resulting set of 56 files with 288 columns of speed data were finally loaded to the PostgreSQL database. At this point, the tables of Brno node pairs and node coordinates were also imported in order to create a line segment layer from the point coordinates using PostGIS plugin^[The query using PostGIS's ST_MAKELINE available at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/01-create_lines>]. From now on, the daily speed tables could be joined with the table of line segments to create futures spatial layers^[Example query at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/03-streets_join>]. During this process various visualisation experiments have been done using QGIS connected to the database. As a result of these experiments a decision has been made to reduce the temporal granularity of the speed layers from 5 minute intervals to one hour averages^[Example query at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/02-generate_hourly_averages>]. This significantly reduce the storage overhead in generated vector tiles while maintaining sufficient information density for visualisation purposes. 
 
-The database loaded with road spatial layers with associated hourly speed attributes provides a solid starting point from which many avenues could be taken, either in analytical or visualisation direction. Our focus is on interactive cartographic visualisation with vector tiles, therefore we created the necessary amount of vector tiles from GeoJSON exports from the database using the tippecanoe command line tool^[<https://github.com/mapbox/tippecanoe>]. The batch of resulting *.mbtile* files was then uploaded to the Mapbox server via the API^[The batch upload script is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/05-mapbox_upload.py>].
-
-
-process so far 
-- get just the first 2 collumns from one traffic files
-- extract unique node IDS from traffic data (form these 2 cols) -- script https://github.com/pondrejk/scripts/blob/master/data/unique-nodes.py
-- find coordinates for unique nodes -- https://github.com/pondrejk/scripts/blob/master/data/get-node-coordinates.py
-- load point coordinates to qgis, get intersection with buffered brno area
-- done Brno-selected_nodes.csv
-
-brno points length
-38293
-- then find all the segments that contain the said points (form the first 2 colls of the initial file, than deduplicate)
-brno segments length:
-131 257
-
-celkový rozsah dat pro brno
-131257 x 2016 x 14 = :
-
-- now the challenge is to extract the data lines for brno, this time with attributes (2016 cols) -- which means comparing and finding 131257 in 1086958 lines for 14 files.
-
-
-*out-of-core computation (small tools for big data)*
-
-- quick notes on manifesto
-https://smallbigdata.github.io/manifesto.html
-https://pythonspeed.com/memory/ -- mainly section on Data management techniques -- first estimaton, then basic techniques
-
-https://pythonspeed.com/articles/estimating-memory-usage/
-https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
-
-- code changes (not our case)
-- compression 
-- chunking 
-
-basically map reduce
-So here’s how you can go from code that reads everything at once to code that reads in chunks:
-
-    Separate the code that reads the data from the code that processes the data.
-    Use the new processing function, by mapping it across the results of reading the file chunk-by-chunk.
-    Figure out a reducer function that can combine the processed chunks into a final result.
-
-- indexing with sqlite 
-problem is the limitation to number of collumns (2000 in sqlite), it can be increased by setting a parameter at compile time, though using a custom compiled database makes the related code specific to it and not portable. Other solutions are data warehouses, alternative databases -- TODO check
-
-- parallelism -- dask (even with chunked storage, computation can become a bottleneck)
-
-Dask isn’t a panacea, of course:
-    Parallelism has overhead, it won’t always make things finish faster. And it doesn’t reduce the CPU time, so if you’re already saturating your CPUs it won’t speed things up on wallclock time either.
-    Some tuning is needed. Larger block sizes increase memory use, but up to a point also allow faster processing.
-
-Dask work -- final scrpt combining chunking and parallelization:
- https://github.com/pondrejk/scripts/blob/master/data/select-segments-03-dask.py
-
-Runing on i7 8 cores, 30 gb ram, 1 select:
-[########################################] | 100% Completed |  3min 32.8s
-
-
-- *inset* gpu utilization (coda??)
-- reading from disk mmap() vs. Zarr/HDF5 -- doesn't help much
-
-extra: GPU utilizaiton in computation:
-https://www.geeksforgeeks.org/running-python-script-on-gpu/ numba (only NVIDIA GPUs supported)
-- computation heavy solutions https://pytorch.org/docs/stable/notes/cuda.html
-- https://www.tensorflow.org/guide/gpu
-
-
-
-How to encode time series into vector tiles
-- split to files per week?
-- split spatially to districts?
-- connect to database? (good for additional diagrams)
-- change z axis and camera view
-
+A database loaded with road spatial layers with associated hourly speed attributes provides a solid starting point from which many avenues could be taken, either in analytical or visualisation direction. Our focus is on interactive cartographic visualisation with vector tiles, therefore we created the necessary amount of vector tiles from GeoJSON exports from the database using the tippecanoe command line tool^[<https://github.com/mapbox/tippecanoe>]. The batch of resulting *.mbtile* files was then uploaded to the Mapbox server via API^[The batch upload script is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/05-mapbox_upload.py>].
 
 ## 5.2 app architecture
 
-The building blocks of the application are basically the same as with the case study described in the previous chapter. Even though the PostgreSQL database played a vital role in the data preparation phase, the final application does not use it for back-end data storage. Instead, the vector tiles have been uploaded to Mapbox studio act as a server. The front-end application is build using React and Redux for state management. 
+The building blocks of the application are basically the same as with the case study described in the previous chapter. Even though the PostgreSQL database played a vital role in the data preparation phase, the final application does not use it for back-end data storage. Instead, the vector tiles have been uploaded to Mapbox to act as a vector tile server. The front-end interface is build using React library with Redux for state management, mapbox-gl.js is used as a rendering engine on the client. 
 
-(describe database solution and other options)
+## 5.3 Cartographic decisions
 
-- timescaledb?
-- influxdb?
-- geomesa?
-- geotrellis?
+The main requirement for the map view was the ability to display the whole dataset at the zoom level 10 so that the municipal traffic network can be observed as a whole. For vector tiles to be served on a Mapbox server a size limit of 500 Kb per tile is enforced. While this is a reasonable limitation to ensure fast rendering, it is hard to adhere to it especially with denser datasets in smaller scales where individual tiles cover larger area. One way to work around this is by limiting the number of features displayed across scales (see fig), which obviously has a downsize in loosing some resolution of the visualized data.
 
-- pipeline for generating vector tyles from these data?
-- analytical schema for vector tiles used for trafic display?
+![**Fig.** Live Mapbox traffic data layer at three zoom levels (city of Brno, smallest scale on the left). While reducing the number of displayed roads per importance is a one way to bypass the per-tile size limitation, it precludes observing the whole traffic network at once.  Styling by the author.](imgs/img-traffic-scaling.png)
 
-tegola for tile creation + serving real time from the postgres database?
-https://tegola.io/documentation/getting-started/
+The other way to grapple with this problem without abandoning the Mapbox infrastructure is to break the data up into several different tile sets. This is the approach we chose to achieve full data resolution at the zoom level 10 -- we decided to divide tile layers with daily speed coverage into halves, so that each tile layer covers twelve hours. This got us below the tile size limit but also comes with some implications to the smoothness of the user experience. When displaying the layer with a data driven style, any user-induced changes to displayed attribute are rendered smoothly wile the attribute change is within the same layer. Once a different layer needs to be loaded, there always is a visible gap between hiding the previously displayed layer and enabling the new one, which unfortunately can not be treated by any ease in effect in mapbox-gl. TODO -- maybe check layer ordering alternative (dynamically setting displayed after) -- pref issues?
 
-## 4.3 Cartographic decisions
+A color scale was selected to visualize traffic speeds, it spans from 0 to 140 kilometers per hour in 10 kilometer intervals. The color selection was guided by the need for sufficient contrast on the dark background. The break between the two hues used in the color scale rests at 60 km which should ensure the variability of speeds within the slower inner-city routes is visible while the distinction from fast transit highways is apparent. 
 
-@kriglestein2014pep
+An offset styling parameter allows to displace a line symbol from its spatial delineation by a certain distance to the side relative to the routes direction. This parameter had to be applied so that the symbols for bi-directional routes are both visible -- otherwise the lines would overlap as the start and end nodes of these segments have the same coordinates, it's only the orientation that differentiates them. Styling across the zoom range has been applied to both the line width and the line offset to secure a reasonable graphic fill across scales (see fig.).
 
-Two ways of representing time: -- repr. time with space (e.g. time lines), rep. time with time (animation)
+![**Fig.** The example of styling across the zoom range used in the application. The street line width is changing exponentially with scale. Screenshot from Mapbox Studio, a web-based tool to create and asses styles for vector tiles. ](imgs/img-line-width.png)
 
-Aim -- all data shown from zoomlevel 10 (compare with mapbox default layer)
 
-zoom based parameters -- road width and offset (screnshots from the studio)
+
 
 comparison -- options, why 3D was selected
 
-## 4.4 User interface design
+
+
+
+## 5.4 User interface design
 
 TODO: note on scale levels in mapbox streeets layer (example with live traffic screening)
 
@@ -135,7 +59,7 @@ https://api.mapbox.com/styles/v1/ppeettoo/ck4yfkusp1ejb1cmnpfnwvecc.html?fresh=t
 Images: img-live-mb-traffic-1,2,3.png
 
 
-## 4.5 Evaluation and possible extensions
+## 5.5 Evaluation and possible extensions
 
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 

@@ -297,5 +297,12 @@ On space-time cubes -- is a useful concept for imagining the relations between s
 
 Unused potential of s-t cubes becomes clear when considered together with searching for cyclical time patterns in spatial subsets (collumns of a cube) or when spatially correlating two phenomena with time delay (comparing slices). (TODO some picture of cubes to make it more clear)
 
+---------
+*out-of-core computation (small tools for big data)*
+
+https://smallbigdata.github.io/manifesto.html
+https://pythonspeed.com/memory/ -- mainly section on Data management techniques -- first estimaton, then basic techniques
+https://pythonspeed.com/articles/estimating-memory-usage/
+https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
 
 
