@@ -24,7 +24,6 @@ The output of the previous operation was a list of eight CSV files in the origin
 
 
 
-
 process so far 
 - get just the first 2 collumns from one traffic files
 - extract unique node IDS from traffic data (form these 2 cols) -- script https://github.com/pondrejk/scripts/blob/master/data/unique-nodes.py
