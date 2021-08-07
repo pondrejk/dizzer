@@ -20,7 +20,7 @@ With spatially defined unique nodes it was possible to filter out the subset of 
 
 TODO here aside on small Big data.
 
-The output of the previous operation was a list of eight CSV files in the original structure showing the estimated speeds for road segments in Brno. These weekly files where split into smaller chunks representing individual days to avoid hitting the database column length limitations.   
+The output of the previous operation was a list of eight CSV files in the original structure showing the estimated speeds for road segments in Brno. These weekly files where split into smaller chunks representing individual days to avoid hitting the database column length limitations^[Using this Python script <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/04-split_by_day.py>]. The resulting set of 56 files with 288 columns of speed data were finally loaded to the PostgreSQL database. 
 
 process so far 
 - get just the first 2 collumns from one traffic files
@@ -93,6 +93,7 @@ How to encode time series into vector tiles
 - connect to database? (good for additional diagrams)
 - change z axis and camera view
 
+<https://github.com/mapbox/tippecanoe>
 
 ## 5.2 app architecture
 
@@ -147,6 +148,8 @@ draft classification:
 caveats
 Traffic speed does not bear information on car density? -- what is the relation? in pandemic it should be higher?
 
+
+Exceed the tile size and (tippecanoe) and self host?
 
 
 The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". 
