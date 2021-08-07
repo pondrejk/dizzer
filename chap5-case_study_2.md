@@ -16,6 +16,7 @@ This gives us an idea of the data volumes that needed to be processed. One file 
 
 There were several tasks to be completed in the initial phase of data processing. As the OpenStreetMap node IDs do not directly contain the spatial information, the actual coordinates for each node needed to be obtained. This was done in the following steps. First, to minimize redundant API calls later, we extracted the unique node IDs form the first two columns. As we have seen earlier, the node IDs can appear several times as route identifiers, either in bi-directional segments or in crossroads and other structures^[The python script based on the *numpy* library that was written to perform the unique node extraction can be found at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/01-get_unique_nodes.py>]. For each of the unique nodes the spatial coordinates were obtained by querying the Open Street Map API^[A script to do that using the *osm* Python library is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/02-get_node_coordinates.py>].
 
+With spatially defined unique nodes it was possible to filter out the subset of the nodes that belonged to the Brno municipal area. The most straightforward way to do that was to load the nodes to QGIS desktop to perform *select by location* against the polygon of the city area (with five kilometer buffer to provide some context of immediate surroundings). Armed with a collection of Brno nodes (the count was 131 257), we returned to the original traffic speed CSVs to extract the nodes from Brno, this time with speed attributes. The challenge was in searching for 131 257 nodes in the superset of 1 086 958 lines and then extracting the matching lines with all 2018 attributes.
 
 
 process so far 
@@ -113,6 +114,11 @@ https://tegola.io/documentation/getting-started/
 
 Two ways of representing time: -- repr. time with space (e.g. time lines), rep. time with time (animation)
 
+Aim -- all data shown from zoomlevel 10 (compare with mapbox default layer)
+
+zoom based parameters -- road width and offset (screnshots from the studio)
+
+comparison -- options, why 3D was selected
 
 ## 4.4 User interface design
 
@@ -123,7 +129,7 @@ https://api.mapbox.com/styles/v1/ppeettoo/ck4yfkusp1ejb1cmnpfnwvecc.html?fresh=t
 Images: img-live-mb-traffic-1,2,3.png
 
 
-## 4.5 Notable findings
+## 4.5 Evaluation and possible extensions
 
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
@@ -138,6 +144,6 @@ draft classification:
 caveats
 Traffic speed does not bear information on car density? -- what is the relation? in pandemic it should be higher?
 
-## 4.6 Possible extensions
+
 
 The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". 
