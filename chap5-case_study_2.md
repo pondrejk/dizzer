@@ -4,18 +4,19 @@ In this case study we explore the possibilities and limitations of vector tiles 
 
 ## 5.1 Data sources and transformations
 
-- description of initial data source from mapbox
-<https://docs.mapbox.com/traffic-data/overview/data/>
+The source raw data were formatted as (compressed) CSV files containing an estimate traffic speeds at a specific location, at a specific time, based on historical observations. One such file showed the expected traffic speeds during one week^[The official description of the data source can be found at <https://docs.mapbox.com/traffic-data/overview/data/>].
 
-**Typical file content**
+Spatially, one file covered the area of a zoom level 6 tile, which meant that the data files for our problem area also covered a significant part of the Czech Republic (see Fig). 
 
-In their uncompressed form, each CSV file contains one line per road segment: segment_identifier,speed_1,speed_2,…,speed_2016
- - segment_identifier: Either a comma-separated pair of OpenStreetMap node IDs or an OpenLR string.
- - speed_1,speed_2,…,speed_2016: *2,016* comma-separated integer speeds in kilometers per hour, starting at 0:00 Sunday in the file’s time zone. Each value shows the usual speed during a five-minute period of a typical week within that road segment.
+![**Fig.** There are four tiles at zoom level six that cover Czech Republic, our area of interest, Brno municipal region fits into tile 120212 (screenshot taken from <https://labs.mapbox.com/what-the-tile/>).](imgs/img-quadkeys.png)
 
-Files (prague) at large zoomlevel:
-1 086 958 lines (segment pairs)
-2016 rows
+As for the original CSV structure, one line in the file represents one road segment. Each segment was identified by a pair of OpenStreetMap node IDs representing a start node and the end node of a road segment. Note that the node ordering also determines the direction of the recorded traffic, which means that bidirectional routes were recorded twice in the file -- one row for direction from node A to node B and another row for speeds in direction from B to A. Following the two columns containing node identifiers, there were 2016 columns containing speed estimates in 5 minute intervals per each segment (7 days × 24 hours × 12 five-minute periods). An example row in a CSV file could look like: *113054533,113096757,54,54,...57*, where the first two digits are node identifiers followed by an array of traffic speeds. All speeds were recorded in kilometers per hour. The starting speed record corresponds with Sunday 00:00 AM of the given week in the files time zone. The records continue in 5 minute increments until the concluding record marking the end of the week.
+
+This gives us an idea of the data volumes that needed to be processed. One file for the zoom level 6 tile (see fig.) contained approximately 1 086 958 lines representing the line segments (the line count could differ across the files as speeds were not provided for segments for which the volume and quality of data did not allow a high confidence estimate). Each row contained 2018 records (speeds + identifiers) which exceeds the default maximum column count per table in a PostgreSQL database (250 -- 1600 based on column type)^[Just for completion, the column limit can be extended, but this requires re-compiling the database from the source code. See <https://www.postgresql.org/docs/current/limits.html> for the overview of PostgreSQL limits]. Data was provided for eight weeks, so there were eight files files of these proportions to be processed.
+
+
+
+
 
 process so far 
 - get just the first 2 collumns from one traffic files
@@ -23,6 +24,7 @@ process so far
 - find coordinates for unique nodes -- https://github.com/pondrejk/scripts/blob/master/data/get-node-coordinates.py
 - load point coordinates to qgis, get intersection with buffered brno area
 - done Brno-selected_nodes.csv
+
 brno points length
 38293
 - then find all the segments that contain the said points (form the first 2 colls of the initial file, than deduplicate)
@@ -80,6 +82,7 @@ https://www.geeksforgeeks.org/running-python-script-on-gpu/ numba (only NVIDIA G
 - https://www.tensorflow.org/guide/gpu
 
 
+
 How to encode time series into vector tiles
 - split to files per week?
 - split spatially to districts?
@@ -88,6 +91,8 @@ How to encode time series into vector tiles
 
 
 ## 5.2 app architecture
+
+The building blocks of the application are basically the same as with the case study described in the previous chapter. Even though the PostgreSQL database played a vital role in the data preparation phase, the final application does not use it for back-end data storage. Instead, the vector tiles have been uploaded to Mapbox studio act as a server. The front-end application is build using React and Redux for state management. 
 
 (describe database solution and other options)
 
