@@ -220,6 +220,12 @@ TODO — how to import bitmaps (spritesheet) and svg to webgl canvas? — how to
 
 — also a sidenote on how to use GPU for other claculations (like python for big data — there is some library, python coda)
 
+  extra: GPU utilizaiton in computation:
+  https://www.geeksforgeeks.org/running-python-script-on-gpu/ numba (only NVIDIA GPUs supported)
+  - computation heavy solutions https://pytorch.org/docs/stable/notes/cuda.html
+  - https://www.tensorflow.org/guide/gpu
+
+
 ??
 Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL. The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet. ^VM = Javascript engine (https://en.wikipedia.org/wiki/JavaScript_engine)
 

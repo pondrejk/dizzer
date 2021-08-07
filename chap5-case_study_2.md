@@ -22,6 +22,7 @@ TODO here aside on small Big data.
 
 The output of the previous operation was a list of eight CSV files in the original structure showing the estimated speeds for road segments in Brno. These weekly files where split into smaller chunks representing individual days to avoid hitting the database column length limitations^[Using this Python script <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/04-split_by_day.py>]. The resulting set of 56 files with 288 columns of speed data were finally loaded to the PostgreSQL database. At this point, the tables of Brno node pairs and node coordinates were also imported in order to create a line segment layer from the point coordinates using PostGIS plugin^[The query using PostGIS's ST_MAKELINE available at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/01-create_lines>]. From now on, the daily speed tables could be joined with the table of line segments to create futures spatial layers^[Example query at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/03-streets_join>]. During this process various visualisation experiments have been done using QGIS connected to the database. As a result of these experiments a decision has been made to reduce the temporal granularity of the speed layers from 5 minute intervals to one hour averages^[Example query at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/02-generate_hourly_averages>]. This significantly reduce the storage overhead in generated vector tiles while maintaining sufficient information density for visualisation purposes. 
 
+The database loaded with road spatial layers with associated hourly speed attributes provides a solid starting point from which many avenues could be taken, either in analytical or visualisation direction. Our focus is on interactive cartographic visualisation with vector tiles, therefore we created the necessary amount of vector tiles from GeoJSON exports from the database using the tippecanoe command line tool^[<https://github.com/mapbox/tippecanoe>]. The batch of resulting *.mbtile* files was then uploaded to the Mapbox server via the API^[The batch upload script is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/05-mapbox_upload.py>].
 
 
 process so far 
@@ -95,7 +96,6 @@ How to encode time series into vector tiles
 - connect to database? (good for additional diagrams)
 - change z axis and camera view
 
-<https://github.com/mapbox/tippecanoe>
 
 ## 5.2 app architecture
 
@@ -138,6 +138,8 @@ Images: img-live-mb-traffic-1,2,3.png
 ## 4.5 Evaluation and possible extensions
 
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
+
+<https://github.com/pondrejk/dizzer/blob/master/misc/scripts/06-run_length_encode.py>
 
 draft classification:
 
