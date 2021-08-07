@@ -10,7 +10,7 @@ import osmapi as osm
 
 api = osm.OsmApi()
 
-parser = argparse.ArgumentParser(description='Get unique OSM nodes')
+parser = argparse.ArgumentParser(description='Get coordinates for OSM nodes')
 parser.add_argument('indir', type=os.path.abspath, help='Input CSV')
 parser.add_argument('outdir', type=os.path.abspath, help='Output CSVs')
 args = parser.parse_args()
