@@ -4,7 +4,7 @@
 
 > Cedric Price
 
-*This chapter first outlines the types of point spatial data, then explores the methods of spatio-temporal knowledge discovery. Then we explore how cartography can support understanding the world trough the lens of big data. In conclusion, some objections to using visualisation to generate insight are discussed.* 
+This chapter first outlines the types of point spatial data, then explores the methods of spatio-temporal knowledge discovery. Then we explore how cartography can support understanding the world trough the lens of big data. In conclusion, some objections to using visualisation to generate insight are discussed.
 
 ## 2.1 Spatial big data classification: stations, events, and agents
 
@@ -68,7 +68,7 @@ Point spatial data of large extent complicate observing such relations. We rarel
 
 Spatial relations between point clusters are harder to conceptualize than it is with polygonal features. @egenhofer1991point describe 16 types of spatial relations (9 if reduced to spatial regions relevant in GIS) in two dimensional space. However, in their approach @egenhofer1991point define the point sets by their exterior boundary and then treat them as polygons. But delineating the exterior boundary is a challenge in itself, for example when dealing with smooth transitions in point density at the border, or when outliers are present. Spatial relations between point clouds in three dimensions are the subject of extensive research in the fields of computer vision and indoor navigation (e.g tran2017extracting or chen2019deep). However, the motivation here is object identification. In these lines of research the point cloud is representing distinct solid objects in the real space that need to be extracted, so the point cloud itself is not an object of research. For cartography, the point sets already come with some assigned attributes, so there is usually no need to label them algorithmically. Large point sets tend to get unruly, and saying anything meaningful about spatio-temporal relations of multiple such clouds is increasingly challenging for the basic set theory (see Fig ). 
 
-![**Fig.** With polygonal features it is usually straightforward to identify the type of spatial relationship in 2D space (a). When replacing point clouds with polygon representations to apply set logic, the problem of meaningful boundary delineation arises (b). For several complex layers it is hard to say anything revealing about their spatio-temporal relationship (c)](imgs/point-cloud-spatial-relationships.png)
+![**Fig.** With polygonal features it is usually straightforward to identify the type of spatial relationship in 2D space (a). When replacing point clouds with polygon representations to apply set logic, the problem of meaningful boundary delineation arises (b). For several complex layers it is harder to say anything revealing about their spatio-temporal relationship (c).](imgs/point-cloud-spatial-relationships.png)
 
 **Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data collection of any entity can be either continuous or discrete in time, it is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations. Linear conceptualization of time can be supported with cyclical and branching time, there can be discrepancies between the temporal parameters of the base map and the thematic overlay, or between the time interval of existence and representations. We'll untangle these complexities in chapter 4.
 
@@ -161,7 +161,7 @@ Temporal relations
 
 Time classifications: linear/cyclical, time points/time intervals, oredered time/branching time
 
-![**Fig.** Linear, branching and cyclical time](imgs/img-time-conceptualizaitons.png)
+![**Fig.** Linear, branching and cyclical time](imgs/img-time-conceptualizations.png)
 
 
 ### 2.2.2 From data mining to visual analytics
