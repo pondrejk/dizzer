@@ -44,8 +44,7 @@ An offset styling parameter allows to displace a line symbol from its spatial de
 
 There is a range of cartographic methods that would allow comparison between the state of the traffic network in two moments. Two map view or a difference layer would be both viable options, though we wanted to employ some specific features of a WebGL based environment that would not be readily available in SVG or Canvas overlays. For that matter, we chose to apply fill-extrusion combined with tilted camera view. Fill-extrusion is a method intended for use with polygon features mainly to create 3D building models. But it is well applicable also to line layers, the base height extrusion parameter allows to lift the shape off the ground, which allows to stack multiple stripes on top of each other (Fig). Colour coding is still dynamically adjustable to allow simultaneous comparison of the progressions of speed levels in same day and time across two weeks. This method certainly has its limitations: it is not well suited for global comparison, tilted camera view is necessary as well as user activity to pan and change the view angle. This is necessary for observing the bi-directional routes, as each direction determines the colour for one side of the 3D stripe.
 
-TODO -- screenshot
-
+![**Fig.** Screenshot from the resulting application showing how the fill-extrusion parameter is used to allow comparison between weeks.](imgs/img-streets-comparison.png)
 
 ## 5.4 User interface design
 
@@ -57,6 +56,7 @@ Images: img-live-mb-traffic-1,2,3.png
 
 
 ## 5.5 Evaluation and possible extensions
+
 
 - what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
