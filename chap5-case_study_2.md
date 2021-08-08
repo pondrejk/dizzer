@@ -1,4 +1,4 @@
-# 5 Case Study: Lockdown traffic speeds
+# 5 Case study: traffic speeds
 
 In this case study we explore the possibilities and limitations of vector tiles to accommodate the temporal density of a dataset originally published as a live stream. For this purpose we chose to visualize changes in traffic speeds in the city of Brno. The temporal range of the source dataset e period form the 16th of March to the 10th of May 2020^[The author would like to thank Mapbox, Inc. for generously providing the traffic data sample for the purpose of this case study.]. This time period coincidentally matches with the first period of government restrictions in Czech Republic to prevent the spread of the COVID-19 pandemic. The size, spatial and temporal detail of the dataset posed a challenge both in terms of data processing as well as in terms of designing the interactive cartographic visualisation^[Live demo of the application is accessible at <pondrejk.eu/traffic>, screenshots of the interface can be found in appendix c.].
 
@@ -24,13 +24,13 @@ The output of the previous operation was a list of eight CSV files in the origin
 
 A database loaded with road spatial layers with associated hourly speed attributes provides a solid starting point from which many avenues could be taken, either in analytical or visualisation direction. Our focus is on interactive cartographic visualisation with vector tiles, therefore we created the necessary amount of vector tiles from GeoJSON exports from the database using the tippecanoe command line tool^[<https://github.com/mapbox/tippecanoe>]. The batch of resulting *.mbtile* files was then uploaded to the Mapbox server via API^[The batch upload script is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/05-mapbox_upload.py>].
 
-## 5.2 app architecture
+## 5.2 Application architecture
 
 The building blocks of the application are basically the same as with the case study described in the previous chapter. Even though the PostgreSQL database played a vital role in the data preparation phase, the final application does not use it for back-end data storage. Instead, the vector tiles have been uploaded to Mapbox to act as a vector tile server. The front-end interface is build using React library with Redux for state management, mapbox-gl.js is used as a rendering engine on the client. 
 
 ## 5.3 Cartographic decisions
 
-The main requirement for the map view was the ability to display the whole dataset at the zoom level 10 so that the municipal traffic network can be observed as a whole. For vector tiles to be served on a Mapbox server a size limit of 500 Kb per tile is enforced. While this is a reasonable limitation to ensure fast rendering, it is hard to adhere to it especially with denser datasets in smaller scales where individual tiles cover larger area. One way to work around this is by limiting the number of features displayed across scales (see fig), which obviously has a downsize in loosing some resolution of the visualized data.
+The main requirement for the map view was the ability to display the whole dataset at the zoom level 10 so that the municipal traffic network can be observed as a whole. For vector tiles to be served on a Mapbox server a size limit of 500 KB per tile is enforced. While this is a reasonable limitation to ensure fast rendering, it is hard to adhere to it especially with denser datasets in smaller scales where individual tiles cover larger area. One way to work around this is by limiting the number of features displayed across scales (see fig), which obviously has a downsize in loosing some resolution of the visualized data.
 
 ![**Fig.** Live Mapbox traffic data layer at three zoom levels (city of Brno, smallest scale on the left). While reducing the number of displayed roads per importance is a one way to bypass the per-tile size limitation, it precludes observing the whole traffic network at once.  Styling by the author.](imgs/img-traffic-scaling.png)
 
@@ -54,27 +54,25 @@ In the comparison mode, which can be enabled by clicking the "compare" checkbox,
 
 A care has been given to ensuring the responsiveness of the interface layout. The map field, selection slider and table are sized dynamically by the screen size. On small screens the right control pane is moved below the map field to leave sufficient screen width for the map. The legend is fixed at the right side of the interface, which on the one hand places it out of the spotlight on large screens, but on the other hand it makes sure that the legend is placed next to the map field on small screen devices.
 
-
 ## 5.5 Evaluation and possible extensions
 
+During the preparation phase, the tile sizes limit of 500 KB appeared as an unforeseen driving factor that influenced our decision making both in data and visualisation space. While there are alternative solutions like setting up a custom tile server, we chose to split vector tiles into chunks of same spatial coverage but shorter time intervals to reduce the attribute count. This is a proven solution within the selected infrastructure, however more experimental approaches were tested over the course of the work. One of them based on the fact that many road segments exhibited consequent runs of same speed values. The idea was to use an run length encoding algorithm to compress the attributes, which was successfully done on the database side^[Script using pandas and sqlalchemy Python libraries available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/06-run_length_encode.py>] -- the encoded values were stored in an array type column in PostgreSQL and then exported as vector tile layer. However, decoding the values on the client side showed to be beyond the scope of the mapbox-gl style definition language. There is also a question of the rendering performance as decoding the run length array and finding the right value for the selected time would have to be done for each displayed segment.
 
-- what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
+Another solution would be to classify the streets in the dataset, mainly to separate the segments with low speed variability that could be represented by a single value for a longer then just the hour period. Overall, there are three types of road segments in our problem area:
 
-<https://github.com/pondrejk/dizzer/blob/master/misc/scripts/06-run_length_encode.py>
+- Routes with low average speed and very low speed variability throughout the day. These are typically short segments with low traffic, cul-de-sacs leading to residential areas 
+- Routes with medium speeds and visible daily variability. These are mainly the inner-city veins
+- Routes with high average speeds and small daily speed variability. These are transit highways with high allowed speeds. 
 
-draft classification:
+In this setting it is hard to make any confident statements about the impact of the COVID-induced lockdown in the area, as only the second type of road segments could be influenced by government restrictions. Also the traffic speed is only an indirect indicator of traffic volumes. Lowered number 
+of vehicles during the lockdown period could have contributed to higher speeds in otherwise notoriously congested areas on the main city lines and near highway entrance ramps. Another impact could be in evening out the daily changes in traffic speeds and lowering the significance of peak hours.
 
-- high average speeds, low variability (highways)
-- low speeds and variability (tiny segments)
-- variable speeds throughout the day (inner city alleys)
+There are of course many areas in which the application could be extended. For example, summary data on individual road segment could be displayed upon selection. Additional modes of comparison could be added as well as ability to search and filter the mapped data e.g. by the street name. A capability to explore the speed changes across the itinerary form point a to b could be implemented as well as comparison of such itineraries. Reader may surely think of other extension. To conclude, the application points out the vector tiles combined with WebGl based rendering as a promising avenue to display and explore temporally dense data. Depicting subtle changes in traffic speeds lets us appreciate the city as a collective organism. 
 
-^ how this all changed during the lockdown?
+
+TODO -- connect with previous chapters: What spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
+
+The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". 
 
 caveats
 Traffic speed does not bear information on car density? -- what is the relation? in pandemic it should be higher?
-
-
-Exceed the tile size and (tippecanoe) and self host?
-
-
-The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". 
