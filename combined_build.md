@@ -5,11 +5,11 @@
 
 > @kitchin2016makes
 
-This chapter searches for defining properties of big data, focusing on characteristics with possible implications for cartographic practice. Review of related works outlines the main attitudes towards grasping the concept.
+In this chapter we search for the defining properties of big data with focus on characteristics with possible implications for cartographic practice. We outline the main attitudes towards grasping the concept. Special consideration is given to the notion of spatial big data and the related works from the Cartography and GIS community.
 
 ## 1.1 Ontological characteristics
 
-Despite the lively interest in the subject, the explanation of the term *big data* ^[Throughout the text we will treat the term as plural, without capitalization. Although there are strong arguments for "data" as singular (@widman2014when, @nunberg2013data, for counterargument emphasizing the plurality of big data see @wilson2017big) and some authors do capitalize, we chose to match with the majority of big data related literature. This does not apply to direct citations where we preserve the original author's formulation.] remains hazy. The term is frequently used often without clarity, as there is no widely accepted definition to the date. Perhaps the most systematic effort in this matter by @kitchin2014data (refined in @kitchin2016makes) summarizes the key properties attributed to big data. Kitchin critically evaluates these properties and goes on to assign them a relative importance in distinguishing big from "small" data. He also takes care to separate the concept in itself from accompanying social phenomena, hence he speaks of *ontological* characteristics.
+Despite the lively interest in the subject, the explanation of the term *big data* ^[Throughout the text we will treat the term as plural, without capitalization. Although there are strong arguments for "data" as singular (@widman2014when, @nunberg2013data, for counterargument emphasizing the plurality of big data see @wilson2017big) and some authors do capitalize, we chose to match with the majority of big data related literature. This does not apply to direct citations where we preserve the original author's formulation.] remains hazy. The term is often used without clarity, as there is no widely accepted definition to the date. Perhaps the most systematic effort in this matter by @kitchin2014data (refined in @kitchin2016makes) summarizes the key properties attributed to big data. Kitchin critically evaluates these properties and goes on to assign them a relative importance in distinguishing big from "small" data. He also takes care to separate the concept in itself from accompanying social phenomena, hence he speaks of *ontological* characteristics.
 
 Kitchin's taxonomy provides a useful starting point for our thinking of big data from the cartographic standpoint, so let us list the ontological characteristics including some of the Kitchin's comments:
 
@@ -154,7 +154,7 @@ Cartography and geographic information science have both developed distinct and 
 
 The above summary is inevitably simplistic as there are many other research areas in cartography and GIS that are relevant to big data efforts. Some will be touched on later in the thesis, others are unfortunately out of its scope. One such case for all is spatial imagery that is an example of truly big data source that is inherently spatial. "Big" in this case means unprecedented spatial, temporal and spectral resolutions brought about by improvements in global monitoring systems.
 
-In light of big data advent, authors form spatial fields consider what difference does it make to conceptualize a specifically *spatial* big data as opposed to big data per se. Is spatial big data a subset or an extension of big data? From the GIS point of view of view there are two ways of understanding spatial big data: either as *adding a spatial reference to big data* or as *adjusting the current spatial data models and processes to higher data load*. We can say that these two approaches arrive at the concept of spatial big data form the opposite sides, in the first case the path is *from big data to spatial big data*, whereas in the second case it is *from spatial data to spatial big data*.
+In light of big data advent, authors form spatial fields consider what difference does it make to conceptualize a specifically *spatial* big data as opposed to big data per se. Is spatial big data a subset or an extension of big data? From the GIS point of view there are two ways of understanding spatial big data: either as *adding a spatial reference to big data* or as *adjusting the current spatial data models and processes to higher data load*. We can say that these two approaches arrive at the concept of spatial big data form the opposite sides, in the first case the path is *from big data to spatial big data*, whereas in the second case it is *from spatial data to spatial big data*.
 
 Authors from the first group use some of the previously mentioned definition styles. For example to @jiang2017spatial, spatial big data refer to "georeferenced data whose volume, velocity, and variety exceed the capacity of current spatial computing platforms". This combines definitions by V-words and computational difficulties. @lee2015geospatial, on the other hand, combines definition by constraints and by example. In this context we can mention some early critique that condemned narrow understanding of big data, aiming mainly at analyzing geotagged social media content (labeled as "burger cartographies" by @crampton2013beyond and @shelton2017spatialities). As @leszczynski2016introduction note, social media content covers just a limited facet of the data productions, presences, and practices that fall under spatial big data.
 
@@ -222,20 +222,17 @@ Social media has created a new platform that apart from all good created unexpec
 The definition of big data is elusive perhaps also because the majority of involved actors, being positioned in the business world, is more focused on building productive big data ventures without much conceptual attention to the subject in itself. Then of course, the underlying technologies become a subject of marketing which often uses inflated overstatements based on expectations rather than reality. So far there is no settled consensus around big data definition in the academia either, but as @kitchin2016makes predict, the "genus" of big data will probably be further delineated and its various "species" identified. The question is if then such an umbrella term will be necessary. Anyways, the lack of common ground in understanding what big data is (illustrated by this chapter) may be a good predictor of the term's future relevance. Problems with definition is exactly what leads @davenport2014big to predict "a relatively short life span for this unfortunate term”. Indeed, looking at the peak of big data excitement in publications that took place around 2014 from the current perspective, the hype moved towards machine learning that gets inflated nowadays. On the other hand, the number of researchers and practitioners willing to invest their time in big data related endeavours is relatively high^[*Journal of Big Data*, *Big Data Research*, *International Journal of Data Science and Analytics*, *Big Data & Society*, *Big Data Analytics*, *Big Data* are examples of scientific journals tracking cross-disciplinary efforts in the field.], which sheds some positive light on the future vitality of the concept. 
 
 To @mayer2013big big data stand for "the ability of society to harness information in novel ways to produce useful insights or goods and services of significant value". Here, more than an exact definition, the importance lies in the real-life impacts that are likely to stay even when the big data hype is over. Even if we dismiss the term as a buzzword, the fact that more digital information gets created and can be linked more easily has many implications on the way we live. Together with that, there are changing attitudes to putting data to work. In the next chapter, we will look at how we can derive insight from big data as well as on the possible role cartography can take in these endeavours.
-
-
-
 # 2 Making sense of spatial big data 
 
 > *Technology is the answer, but what was the question?* 
 
 > Cedric Price
 
-*This chapter first outlines the types of point spatial data, then explores the methods of spatio-temporal knowledge discovery. Then we explore how cartography can support understanding the world trough the lens of big data. In conclusion, some objections to using visualisation to generate insight are discussed.* 
+In this chapter we classify spatial big data and explore the methods of spatio-temporal knowledge discovery. Then we focus on the possible ways how cartography can support understanding the world trough the lens of big data.
 
 ## 2.1 Spatial big data classification: stations, events, and agents
 
-To look closer at the properties of spatial big data, we can recall the two modes of spatial big data generation mentioned in the previous chapter — either as *big data with added spatial reference* or as *spatial data with boosted attribute volume*. In both modes, the processing and visualisation challenges slightly differ.
+To look closer at the properties of spatial big data, we can recall the two modes of spatial big data generation mentioned in the previous chapter — either as *big data with added spatial reference* or as *spatial data with boosted attribute volume*. The processing and visualisation challenges slightly differ between these modes.
 
 In the first mode, the vast majority of what is understood as spatial big data has *point spatial reference*. This prevalence comes naturally if we realize that the "data point" location is described basically as a coordinate pair – two digits that can be easily stored in standard database systems without the need to observe topological rules and other constraints that GIS vector data model enforces on line and polygon geometries. Point data are spatial data that are easily created and handled by non-spatial (meaning not GIS-enabled) systems that account for majority of data production.
 
@@ -253,11 +250,11 @@ These notes underline that the distinction to stations, agents and events is jus
 
 ![**Fig.** Three types of point spatial objects in a time-space cube. Stations, actors and events generate different attribute histories.](imgs/img-cube.png)
 
-In the above image assume that the attribute collection is happening continuously for stations and agents. This does not mean that the attributes have to be collected continuously at all times. Some sensors can record at a regular time interval or only in case of an event. The data output can then contain several "no data" records or even no records at all if the triggering event did not happen. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but some part of its data collection is episodic – a photo is taken just when a speeding vehicle drives by. The  above classification differentiates between the existence of an object and the act of recording data by the object. We assume that the sensor's presence without recording has also some analytical potential as it proves the absence of event, while with no sensor in place we cannot say if the event did take place or not. 
+In the above image we assume that the attribute collection is happening continuously for stations and agents. This does not mean that the attributes have to be collected continuously at all times. Some sensors can record at a regular time interval or only in case of an event. The data output can then contain several "no data" records or even no records at all if the triggering event did not happen. It then depends on the goal of the analysis how such data are conceptualized. For example a traffic camera is a stationary object but some part of its data collection is episodic – a photo is taken just when a speeding vehicle drives by. The  above classification differentiates between the existence of an object and the act of recording data by the object. We assume that the sensor's presence without recording has also some analytical potential as it proves the absence of event, while with no sensor in place we cannot say if the event did take place or not. 
 
 Compared to stations and agents, events with episodic presence seem to be the least data-rich, but their analytic potential stems from their large numbers. Clusters of georeferenced point event (a.k.a. point clouds) are at the core of spatial analysis based on mobile data.
 
-This is not to say that the above is the full extent of spatial big data. Cycling back to the second mode of generation mentioned in the section introduction, the big data properties can be expressed in large attribute volume while the spatial aspect of data remains static. For example, the road network density is not changing very fast in terms of adding and removing new road segments, but our ability to record vehicle speed on these segments in the real time makes handling the attributes attached to these segments a big data problem. So apart from the point spatial reference, we can have line, polygon or complex multipart spatial objects with big data attributes, all open to GIS-powered spatial analysis. However, looking at the location stability, existence in time, and attribute collection, we can describe these data as stations with other than point spatial reference. Tab 1 than provides a more general view of spatial big data types and their attributes.
+This is not to say that the above is the full extent of spatial big data. Cycling back to the second mode of generation mentioned in the section introduction, the big data properties can be expressed in large attribute volume while the spatial aspect of data remains static. For example, the road network density is not changing very fast in terms of adding and removing new road segments, but our ability to record vehicle speed on these segments in the real time makes handling the attributes attached to these segments a big data problem. So apart from the point spatial reference, we can have line, polygon or complex multipart spatial objects with big data attributes, all open to GIS-powered spatial analysis. However, looking at the three aforementioned aspects (location stability, existence in time, and attribute collection) we can describe these data as stations with other than point spatial reference. Tab 1 than provides a more general view of spatial big data types and their attributes.
 
 **Tab1** Types of objects in spatial big data. Existence is marked by records of spatial and temporal reference. Agent can have discrete existence if exiting and re-entering the area of interest. Objects with other than point spatial reference usually fall under stations, agent and events are usually recorded as points.
 
@@ -271,8 +268,6 @@ From the point of cartographic visualisation there are two kinds of challenges t
 
 
 ## 2.2 Spatio-temporal knowledge discovery and visual analytics
-
-In this section we will briefly discuss techniques for exploring spatio-temporal data, with emphasis on practices that would benefit from enhanced cartographic visualisation.
 
 The expectation that motivates people engaged in data-related practices is that their work can help to provide some insight into how the world works, that there is some knowledge that can be unlocked, mined, or distilled from otherwise inconceivable piles of data. Such insight seeking is the crux of *data mining*, *spatio-temporal knowledge discovery* and *visual analytics* that we will explore further.
 
@@ -617,8 +612,6 @@ In a realistic view, the danger of AI is not in usurping us, but rather in us pu
 This chapter explores possible cartographic solutions to high graphical and temporal density in spatial data. Focus lies on hexbin aggregation and contextual interplay of map layers. Web rendering technologies that power these solutions are described afterwards. 
 
 ## 3.1 Visualisation challenges: spatial and temporal density
-
-As we have seen in the previous chapter, *stations*, *agents* and *events* form the most common raw material fed to the data processing pipeline of spatial big data. The *n=all* property of big data at the input generates a challenge of dealing with high graphic density in maps at the output.
 
 How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we stick to the traditional understanding of visualization as using visual tools to facilitate insight and support decision making of human recipients, then human cognitive capabilities are the main guiding factor to adhere to. There are variances in graphic literacy across the population, not to mention accessibility requirements for various sensory conditions and disabilities, but to even start addressing those issues, we first need to focus on the *legibility* as the base requirement common to every recipient.
 
@@ -1140,7 +1133,7 @@ native visual representations to facilitate exploration and discovery
 
 # 5 Case study: traffic speeds
 
-In this case study we explore the possibilities and limitations of vector tiles to accommodate the temporal density of a dataset originally published as a live stream. For this purpose we chose to visualize changes in traffic speeds in the city of Brno. The temporal range of the source dataset e period form the 16th of March to the 10th of May 2020^[The author would like to thank Mapbox, Inc. for generously providing the traffic data sample for the purpose of this case study.]. This time period coincidentally matches with the first period of government restrictions in Czech Republic to prevent the spread of the COVID-19 pandemic. The size, spatial and temporal detail of the dataset posed a challenge both in terms of data processing as well as in terms of designing the interactive cartographic visualisation^[Live demo of the application is accessible at <pondrejk.eu/traffic>, screenshots of the interface can be found in appendix c.].
+In this case study we explore the possibilities and limitations of vector tiles to accommodate the temporal density of a dataset originally published as a live stream. For this purpose we chose to visualize changes in traffic speeds in the city of Brno. The temporal range of the source dataset is between the 16th of March to the 10th of May 2020^[The author would like to thank Mapbox, Inc. for generously providing the traffic data sample for the purpose of this case study.]. This time period coincidentally matches with the first period of government restrictions in Czech Republic to prevent the spread of the COVID-19 pandemic. The size, spatial and temporal detail of the dataset posed a challenge both in terms of data processing as well as in terms of designing the interactive cartographic visualisation^[Live demo of the application is accessible at <pondrejk.eu/traffic>, screenshots of the interface can be found in Appendix C.].
 
 ## 5.1 Data sources and transformations
 
@@ -1150,15 +1143,15 @@ Spatially, one file covered the area of a zoom level 6 tile, which meant that th
 
 ![**Fig.** There are four tiles at zoom level six that cover Czech Republic, our area of interest, Brno municipal region fits into tile 120212 (screenshot taken from <https://labs.mapbox.com/what-the-tile/>).](imgs/img-quadkeys.png)
 
-As for the original CSV structure, one line in the file represents one road segment. Each segment was identified by a pair of OpenStreetMap node IDs representing a start node and the end node of a road segment. Note that the node ordering also determines the direction of the recorded traffic, which means that bidirectional routes were recorded twice in the file -- one row for direction from node A to node B and another row for speeds in direction from B to A. Following the two columns containing node identifiers, there were 2016 columns containing speed estimates in 5 minute intervals per each segment (7 days × 24 hours × 12 five-minute periods). An example row in a CSV file could look like: *113054533,113096757,54,54,...57*, where the first two digits are node identifiers followed by an array of traffic speeds. All speeds were recorded in kilometers per hour. The starting speed record corresponds with Sunday 00:00 AM of the given week in the files time zone. The records continue in 5 minute increments until the concluding record marking the end of the week.
+As for the original CSV structure, one line in the file represents one road segment. Each segment was identified by a pair of OpenStreetMap node IDs representing a start node and the end node of a road segment. Note that the node ordering also determines the direction of the recorded traffic, which means that bidirectional routes were recorded twice in the file — one row for direction from node A to node B and another row for speeds in direction from B to A. Following the two columns containing node identifiers, there were 2016 columns containing speed estimates in 5 minute intervals per each segment (7 days × 24 hours × 12 five-minute periods). An example row in a CSV file could look like: *113054533,113096757,54,54,...57*, where the first two digits are node identifiers followed by an array of traffic speeds. All speeds were recorded in kilometers per hour. The starting speed record corresponds with Sunday 00:00 AM of the given week in the files time zone. The records continue in 5 minute increments until the concluding record marking the end of the week.
 
-This gives us an idea of the data volumes that needed to be processed. One file for the zoom level 6 tile (see fig.) contained approximately 1 086 958 lines representing the line segments (the line count could differ across the files as speeds were not provided for segments for which the volume and quality of data did not allow a high confidence estimate). Each row contained 2018 records (speeds + identifiers) which exceeds the default maximum column count per table in a PostgreSQL database (250 -- 1600 based on column type)^[Just for completion, the column limit can be extended, but this requires re-compiling the database from the source code. See <https://www.postgresql.org/docs/current/limits.html> for the overview of PostgreSQL limits]. Data was provided for eight weeks, so there were eight files files of these proportions to be processed.
+This gives us an idea of the data volumes that needed to be processed. One file for the zoom level 6 tile (see fig.) contained approximately 1 086 958 lines representing the line segments (the line count could differ across the files as speeds were not provided for segments for which the volume and quality of data did not allow a high confidence estimate). Each row contained 2018 records (speeds + identifiers) which exceeds the default maximum column count per table in a PostgreSQL database (250 — 1600 based on column type)^[Just for completion, the column limit can be extended, but this requires re-compiling the database from the source code. See <https://www.postgresql.org/docs/current/limits.html> for the overview of PostgreSQL limits]. Data was provided for eight weeks, so there were eight files files of these proportions to be processed.
 
 There were several tasks to be completed in the initial phase of data processing. As the OpenStreetMap node IDs do not directly contain the spatial information, the actual coordinates for each node needed to be obtained. This was done in the following steps. First, to minimize redundant API calls later, we extracted the unique node IDs form the first two columns. As we have seen earlier, the node IDs can appear several times as route identifiers, either in bi-directional segments or in crossroads and other structures^[The python script based on the *numpy* library that was written to perform the unique node extraction can be found at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/01-get_unique_nodes.py>]. For each of the unique nodes the spatial coordinates were obtained by querying the Open Street Map API^[The script to do that using the *osm* Python library is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/02-get_node_coordinates.py>].
 
 With spatially defined unique nodes it was possible to filter out the subset of the nodes that belonged to the Brno municipal area. The most straightforward way to do that was to load the nodes to QGIS desktop to perform *select by location* against the polygon of the city area (with five kilometer buffer to provide some context of immediate surroundings). Armed with a collection of Brno nodes (the count was 131 257), we returned to the original traffic speed CSVs to extract the nodes from Brno, this time with speed attributes. The challenge was in searching for 131 257 nodes in the superset of 1 086 958 lines and then extracting the matching lines, each with all of its 2018 attributes^[The script to perform this action (using the *dask* Python library) is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/03-select_segments.py>].
 
-Such task is reminiscent of situations described in the *Small big data manifesto* (@voss2017small) -- even though the big data is mainly associated with large scale clustered infrastructure, individuals increasingly come across situations when they need to process large dataset only with a single machine at their hands. Setting up a cluster of machines is not viable for many applications  due to financial, time or skillset demands. For one-time processing of data that does not fit into memory, we are left with a range of simple but often efficient computing tools and approaches (@turner2020process). One of them is reading input data in chunks that can fit to memory, applying a processing function to these chunks and using a reducer function that can combine the processed chunks into a final result. This way the memory size limitation is bypassed, however, computation time of the processing function can still become a bottleneck. Multi-threaded execution can ease the problem by running the execution function in parallel on individual CPU cores. The size of chucks and the number of threads needs to be fine tuned to fit the capabilities of given hardware, but in general these techniques can significantly reduce the processing time even on modest machines. Cycling back to our speed files, a simple script combining chunking and parallelization (using the Dask Python library) was able to complete the extraction of  Brno segments from one week file in 3 min 32.8s (on Intel i7 8 cores, 30 GiB RAM).
+Such task is reminiscent of situations described in the *Small big data manifesto* (@voss2017small) — even though the big data is mainly associated with large scale clustered infrastructure, individuals increasingly come across situations when they need to process large dataset only with a single machine at their hands. Setting up a cluster of machines is not viable for many applications  due to financial, time or skillset demands. For one-time processing of data that does not fit into memory, we are left with a range of simple but often efficient computing tools and approaches (@turner2020process). One of them is reading input data in chunks that can fit to memory, applying a processing function to these chunks and using a reducer function that can combine the processed chunks into a final result. This way the memory size limitation is bypassed, however, computation time of the processing function can still become a bottleneck. Multi-threaded execution can ease the problem by running the execution function in parallel on individual CPU cores. The size of chucks and the number of threads needs to be fine tuned to fit the capabilities of given hardware, but in general these techniques can significantly reduce the processing time even on modest machines. Cycling back to our speed files, a simple script combining chunking and parallelization (using the Dask Python library) was able to complete the extraction of  Brno segments from one week file in 3 min 32.8s (on Intel i7 8 cores, 30 GiB RAM).
 
 The output of the previous operation was a list of eight CSV files in the original structure showing the estimated speeds for road segments in Brno. These weekly files where split into smaller chunks representing individual days to avoid hitting the database column length limitations^[Using this Python script <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/04-split_by_day.py>]. The resulting set of 56 files with 288 columns of speed data were finally loaded to the PostgreSQL database. At this point, the tables of Brno node pairs and node coordinates were also imported in order to create a line segment layer from the point coordinates using PostGIS plugin^[The query using PostGIS's ST_MAKELINE available at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/01-create_lines>]. From now on, the daily speed tables could be joined with the table of line segments to create futures spatial layers^[Example query at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/03-streets_join>]. During this process various visualisation experiments have been done using QGIS connected to the database. As a result of these experiments a decision has been made to reduce the temporal granularity of the speed layers from 5 minute intervals to one hour averages^[Example query at <https://github.com/pondrejk/dizzer/blob/master/misc/queries/02-generate_hourly_averages>]. This significantly reduce the storage overhead in generated vector tiles while maintaining sufficient information density for visualisation purposes. 
 
@@ -1174,11 +1167,11 @@ The main requirement for the map view was the ability to display the whole datas
 
 ![**Fig.** Live Mapbox traffic data layer at three zoom levels (city of Brno, smallest scale on the left). While reducing the number of displayed roads per importance is a one way to bypass the per-tile size limitation, it precludes observing the whole traffic network at once.  Styling by the author.](imgs/img-traffic-scaling.png)
 
-The other way to grapple with this problem without abandoning the Mapbox infrastructure is to break the data up into several different tile sets. This is the approach we chose to achieve full data resolution at the zoom level 10 -- we decided to divide tile layers with daily speed coverage into halves, so that each tile layer covers twelve hours. This got us below the tile size limit but also comes with some implications to the smoothness of the user experience. When displaying the layer with a data driven style, any user-induced changes to displayed attribute are rendered smoothly wile the attribute change is within the same layer. Once a different layer needs to be loaded, there always is a visible gap between hiding the previously displayed layer and enabling the new one, which unfortunately can not be treated by any ease in effect in mapbox-gl. TODO -- maybe check layer ordering alternative (dynamically setting displayed after) -- pref issues?
+The other way to grapple with this problem without abandoning the Mapbox infrastructure is to break the data up into several different tile sets. This is the approach we chose to achieve full data resolution at the zoom level 10 — we decided to divide tile layers with daily speed coverage into halves, so that each tile layer covers twelve hours. This got us below the tile size limit but also comes with some implications to the smoothness of the user experience. When displaying the layer with a data driven style, any user-induced changes to displayed attribute are rendered smoothly wile the attribute change is within the same layer. Once a different layer needs to be loaded, there always is a visible gap between hiding the previously displayed layer and enabling the new one, which unfortunately can not be treated by any ease in effect in mapbox-gl. One way to work around this is in keeping all the layers in the visible state and change their order dynamically so that the selected layer is on top — however our testing proved this approach inefficient for large number of layers, in our case it was two layers per day, so 2 x 7 (days) x 8 (weeks) = 112 layers. 
 
 A color scale was selected to visualize traffic speeds, it spans from 0 to 140 kilometers per hour in 10 kilometer intervals. The color selection was guided by the need for sufficient contrast on the dark background. The break between the two hues used in the color scale rests at 60 km which should ensure the variability of speeds within the slower inner-city routes is visible while the distinction from fast transit highways is apparent. 
 
-An offset styling parameter allows to displace a line symbol from its spatial delineation by a certain distance to the side relative to the routes direction. This parameter had to be applied so that the symbols for bi-directional routes are both visible -- otherwise the lines would overlap as the start and end nodes of these segments have the same coordinates, it's only the orientation that differentiates them. Styling across the zoom range has been applied to both the line width and the line offset to secure a reasonable graphic fill across scales (see fig.).
+An offset styling parameter allows to displace a line symbol from its spatial delineation by a certain distance to the side relative to the routes direction. This parameter had to be applied so that the symbols for bi-directional routes are both visible — otherwise the lines would overlap as the start and end nodes of these segments have the same coordinates, it's only the orientation that differentiates them. Styling across the zoom range has been applied to both the line width and the line offset to secure a reasonable graphic fill across scales (see fig.).
 
 ![**Fig.** The example of styling across the zoom range used in the application. The street line width is changing exponentially with scale. Screenshot from Mapbox Studio, a web-based tool to create and asses styles for vector tiles. ](imgs/img-line-width.png)
 
@@ -1196,7 +1189,7 @@ A care has been given to ensuring the responsiveness of the interface layout. Th
 
 ## 5.5 Evaluation and possible extensions
 
-During the preparation phase, the tile sizes limit of 500 KB appeared as an unforeseen driving factor that influenced our decision making both in data and visualisation space. While there are alternative solutions like setting up a custom tile server, we chose to split vector tiles into chunks of same spatial coverage but shorter time intervals to reduce the attribute count. This is a proven solution within the selected infrastructure, however more experimental approaches were tested over the course of the work. One of them based on the fact that many road segments exhibited consequent runs of same speed values. The idea was to use an run length encoding algorithm to compress the attributes, which was successfully done on the database side^[Script using pandas and sqlalchemy Python libraries available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/06-run_length_encode.py>] -- the encoded values were stored in an array type column in PostgreSQL and then exported as vector tile layer. However, decoding the values on the client side showed to be beyond the scope of the mapbox-gl style definition language. There is also a question of the rendering performance as decoding the run length array and finding the right value for the selected time would have to be done for each displayed segment.
+During the preparation phase, the tile sizes limit of 500 KB appeared as an unforeseen driving factor that influenced our decision making both in data and visualisation space. While there are alternative solutions like setting up a custom tile server, we chose to split vector tiles into chunks of same spatial coverage but shorter time intervals to reduce the attribute count. This is a proven solution within the selected infrastructure, however more experimental approaches were tested over the course of the work. One of them based on the fact that many road segments exhibited consequent runs of same speed values. The idea was to use an run length encoding algorithm to compress the attributes, which was successfully done on the database side^[Script using pandas and sqlalchemy Python libraries available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/06-run_length_encode.py>] — the encoded values were stored in an array type column in PostgreSQL and then exported as vector tile layer. However, decoding the values on the client side showed to be beyond the scope of the mapbox-gl style definition language. There is also a question of the rendering performance as decoding the run length array and finding the right value for the selected time would have to be done for each displayed segment.
 
 Another solution would be to classify the streets in the dataset, mainly to separate the segments with low speed variability that could be represented by a single value for a longer then just the hour period. Overall, there are three types of road segments in our problem area:
 
@@ -1210,9 +1203,89 @@ of vehicles during the lockdown period could have contributed to higher speeds i
 There are of course many areas in which the application could be extended. For example, summary data on individual road segment could be displayed upon selection. Additional modes of comparison could be added as well as ability to search and filter the mapped data e.g. by the street name. A capability to explore the speed changes across the itinerary form point a to b could be implemented as well as comparison of such itineraries. Reader may surely think of other extension. To conclude, the application points out the vector tiles combined with WebGl based rendering as a promising avenue to display and explore temporally dense data. Depicting subtle changes in traffic speeds lets us appreciate the city as a collective organism. 
 
 
-TODO -- connect with previous chapters: What spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
+TODO — connect with previous chapters: What spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
 
 The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". 
 
 caveats
-Traffic speed does not bear information on car density? -- what is the relation? in pandemic it should be higher?
+Traffic speed does not bear information on car density? — what is the relation? in pandemic it should be higher?
+# Appendix A: Big data related research challenges and opportunities for cartography
+
+TODO intro and citation
+
+## Research Challenges for Cartography and Geospatial Big Data 
+
+Making sense of geospatial big data 
+
+* Develop visual analytical reasoning systems that help users add meaning to and organize what they discover from geospatial big data
+* Design effective map-based interfaces to support long-term analytical engagement with complex spatiotemporal problems and geospatial big data 
+* Develop new approaches for supporting collaborative decision making using the map as a mutual interface for analyzing geospatial big data 
+* Develop techniques that allow users to express and match a spatiotemporal pattern they have in mind using the map as an interface for analyzing geospatial big data 
+* Understand when, how and if maps can help us understand geospatial big data 
+
+Volume
+
+* Identify effective methods for creating overviews of geospatial big data
+* Develop methods that embody the volume of geospatial big data
+
+Variety
+
+* Design and develop cartographic interfaces that can handle the complexity of geospatial big data
+* Develop techniques for understanding change over time in geospatial big data 
+* Craft new approaches to support predictive analytics of dynamic phenomena with maps leveraging geospatial big data
+* Develop spatiotemporal visualization methods for geospatial big data that support a variety of uses and users
+
+Velocity
+
+* Develop methods that embody the velocity of geospatial big data
+* Create maps and map-oriented interfaces that prompt attention to important changes in dynamic geospatial big data sources 
+
+Veracity
+
+* Characterize the quality end certainty of geospatial big data 
+* Develop new approaches for visualizing the quality and certainty of geospatial big data 
+
+Art and geospatial big data
+
+* Encourage and maximize creative contributions far expressing geospatial big data
+* Build a library of artistic methods and techniques for representing geospatial big data
+* Generate artistic renderings of geospatial big data 
+* Dynamically link artworks to conventional geospatial big data representations
+
+
+## Research Opportunities for Cartography and Geospatial Big Data
+
+Visual methods for geospatial big data 
+
+* Systematically evaluate the ability of existing visual methods in thematic cartography to support analysis of geospatial big data
+* Adapt cartographic generalization principles and techniques to support visual analysis of geospatial big data
+* Couple computational methods and cartographic representation best practices into an automated framework that suggests appropriate design decisions on-the-fly for geospatial bug data
+* Leverage what we know about map animation and interactive cartography to construct visual solutions for dynamic sources of geospatial big data
+
+Computational methods for geospatial big data
+
+* Leverage knowledge about patterns across scales in the development of new computational methods for geospatial big data
+* Use what we know about human dynamics to find patterns in geospatial big data 
+* Connect concepts from complexity science to new visual analytics methods for geospatial big data
+
+Adapting artistic methods for geospatial big data
+
+* Facilitate engagement of artists with geospatial big data and the creation of an artistic geospatial language
+* Co-opt artistic methods and techniques to represent geospatial big data
+* Generate artistic renderings of geospatial big data
+* Link artworks to conventional representations in a visual analytics context to leverage geospatial big data
+# Appendix C: Traffic speeds
+
+This appendix provides a brief overview of the interface of the map based web application created for the second case study. Not that the best way to explore the application is by viewing the live demo at <pondrejk.eu/traffic> (the application has been tested on Firefox 90 and Chrome 92 browsers).
+
+ 
+![Full view of the interface](imgs/apx3/app-landing-page.png)
+
+![](imgs/apx3/side-pannel.png)
+![Selected time and date is visible both on the right panel and in the overview table below the map. To change the map in the normal mode user can eihter clict the selector buttons or use the slider to select the hour and day. The overview table can also be used to select day and week.](imgs/apx3/table-normal-mode.png)
+
+![](imgs/apx3/compare-mode.png)
+![In the comparison mode, user can select weeks to be compared on the control pannel after clicking the "comparison" checkbox. The selected weeks are then displayed on the overview table, which can still be used to select the day, as well as the slider.](imgs/apx3/table-compare-mode.png)
+
+
+![Example showing the map view in th comparinson mode, fill-extrusion is used with tiled camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
