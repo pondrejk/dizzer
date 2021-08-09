@@ -26,9 +26,11 @@ At this point, the tables of Brno node pairs and node coordinates were also impo
 
 A database loaded with road spatial layers with associated hourly speed attributes provides a solid starting point from which many avenues could be taken, either in analytical or visualisation direction. We decided to explore the vector tile format and its aptness for powering interactive cartographic visualisations. Therefore we created the necessary amount of vector tiles from GeoJSON database exports using the tippecanoe command line tool^[<https://github.com/mapbox/tippecanoe>]. The batch of resulting *.mbtile* files was then uploaded to the Mapbox server via API^[The batch upload script is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/05-mapbox_upload.py>].
 
+
 ## 5.2 Application architecture
 
 The building blocks of the application are basically the same as with the case study described in the previous chapter. Even though the PostgreSQL database played a vital role in the data preparation phase, the final application does not use it for back-end data storage. Instead, the vector tiles are loaded from Mapbox tile server. The front-end interface is build using the React library with Redux for state management, mapbox-gl.js is used as a rendering engine on the client.
+
 
 ## 5.3 Cartographic decisions
 
@@ -46,9 +48,10 @@ The *offset* styling parameter allows to displace a line symbol from its spatial
 
 ![**Fig. 3** The example of styling across the zoom range used in the application. The street line width is changing exponentially with scale (0.1px at zoom level 10, 2px at zoom level 14, 5px at zoom level 16). Screenshot from Mapbox Studio, a web-based tool to create and asses styles for vector tiles.](imgs/img-line-width.png)
 
-There is a range of cartographic methods that would allow comparison between the state of the traffic network in two moments. A dual map view or a difference layer would both be viable, though we wanted to employ some WebGl specific features of that would not be readily available in SVG or Canvas environments. For that matter, we chose to apply the *fill-extrusion* parameter combined with tilted camera view. Fill-extrusion is a method intended for use with polygon layers mainly to create 3D building models. But it is well applicable to line layers also. The *base height* fill-extrusion parameter allows to "lift" the shape off the ground, which enabled stacking multiple stripes on top of each other (Fig 4). Color coding of the fill-extrusion is still dynamically adjustable, which enables comparison of speed changes across weeks. This method certainly has its limitations: it is not well suited for global comparison, tilted camera view is necessary as well as user activity to pan and change the view angle. With bidirectional routes, each direction determines the colour of one side of the 3D stripe, so the directions can not be viewed simultaneously.
+There is a range of cartographic methods that would allow comparison between the state of the traffic network in two moments. A dual map view or a difference layer would both be viable, though we wanted to employ some WebGl specific features of that would not be readily available in SVG or Canvas environments. For that matter, we chose to apply the *fill-extrusion* parameter combined with tilted camera view. Fill-extrusion is a method intended for use with polygon layers mainly to create 3D building models. But it is well applicable to line layers also. The *base height* fill-extrusion parameter allows to "lift" the shape off the ground, which enabled stacking multiple stripes on top of each other (Fig 4). Color coding of the fill-extrusion is still dynamically adjustable, which enables comparison of speed changes across weeks. This method certainly has its limitations: it is not well suited for global comparison, tilted camera view is necessary as well as user activity to pan and change the view angle. With bidirectional routes, each direction determines the color of one side of the 3D stripe, so the directions can not be viewed simultaneously.
 
 ![**Fig. 4** Screenshot from the application in the comparison mode. The fill-extrusion parameter is used to support comparison across weeks.](imgs/img-streets-comparison.png)
+
 
 ## 5.4 User interface design
 
@@ -57,6 +60,7 @@ The resulting map based application works in two modes, the default *single-laye
 In the comparison mode, which can be enabled by clicking the *compare* checkbox, some of the mentioned controls behave a bit differently. This mode allows for selecting two weeks which is facilitated by two drop-down menus. The hour and day selectors on the right pane remain active, whereas the week selector is disabled in favor of the drop-downs. The hour slider also remains active as it allows to change hour and day for both selected weeks simultaneously. It is also possible to change the observed day by clicking columns in the overview table (that has got two fields highlighted to denote the selected weeks). 
 
 A care has been given to ensure responsiveness of the interface layout. The map field, selection slider and table are sized dynamically by the screen width. On small screens the right-side control pane is moved below the map field to leave sufficient screen width for the map. The legend is fixed on the right side of the interface, which on the one hand places it out of the spotlight on large screens, but on the other hand it makes sure that the legend is placed next to the map field on small screen devices.
+
 
 ## 5.5 Evaluation and possible extensions
 
