@@ -1,5 +1,8 @@
-Table 1
-# Research Challenges for Cartography and Geospatial Big Data 
+# Appendix A: Big data related research challenges and opportunities for cartography
+
+TODO intro and citation
+
+## Research Challenges for Cartography and Geospatial Big Data 
 
 Making sense of geospatial big data 
 
@@ -39,8 +42,7 @@ Art and geospatial big data
 * Dynamically link artworks to conventional geospatial big data representations
 
 
-Table 2
-# Research Opportunities for Cartography and Geospatial Big Data
+## Research Opportunities for Cartography and Geospatial Big Data
 
 Visual methods for geospatial big data 
 
@@ -61,5 +63,3 @@ Adapting artistic methods for geospatial big data
 * Co-opt artistic methods and techniques to represent geospatial big data
 * Generate artistic renderings of geospatial big data
 * Link artworks to conventional representations in a visual analytics context to leverage geospatial big data
-
-
