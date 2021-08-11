@@ -37,7 +37,8 @@ Sources come with both point and polygon spatial reference. To harmonize the sou
 
 ![**Fig.** Data preparation process.](imgs/img-cs1-dataprep.png)
 
-This allows for meaningful comparison of data and application of weights. (TODO — another tables — what means zero, what means one for various layers).
+This allows for meaningful comparison of data and application of weights.
+
 
 
 ## 4.2 Application architecture 
@@ -48,9 +49,9 @@ There are several advantages in using React for modularizing front end developme
 
 Why react-redux? — modularity and global state management — useful for web map apps eg. for dynamic legend, inset maps, etc.
 
-Redux -- ^[react hooks -- note, redux might not be needed -- learn more] 
+Redux — ^[react hooks — note, redux might not be needed — learn more] 
 
-Problems of selecting the grid density -- zoom level limitation tile layer in Mapbox infrastructure (500 KB per tile max).
+Problems of selecting the grid density — zoom level limitation tile layer in Mapbox infrastructure (500 KB per tile max).
 
 
 ## 4.3 Cartographic decisions
@@ -73,33 +74,25 @@ The supplementary layers not only ease the orientation in the area, but also hel
 
 Styling the supplementary layers is also impacted by the changing variance of the mapped values, the legibility of road network suffers in compound layers (see fig). While not currently available in mapox-gl, assigning a  transparency blend mode to the top layers could help here, e.g. the difference blend mode would make sure would stand out on any background, however this might distract the viewer from the main theme.   
 
-Additional spatial clues are provided by an overlay district layer with labels that can be enabled on demand. Another on demand layer provides a building mask. This comes from the original intent of the application to support dwelling seekers -- by reducing the geographic field of the hexagon grid to the built area we provide a more realistic picture of where the potential home-seeking opportunities are. The building mask  effectively turns the map dominated by the hexagon grid to a dasymetric map. The building layer is however impacted by the rendering efficiency measures that hide smaller buildings and drop vertices at smaller scales. As such, the building mask fits more to exploring the city at the district level, especially when the user can still tweak the hexagon layer parameters with the mask on.
+Additional spatial clues are provided by an overlay district layer with labels that can be enabled on demand. Another on demand layer provides a building mask. This comes from the original intent of the application to support dwelling seekers — by reducing the geographic field of the hexagon grid to the built area we provide a more realistic picture of where the potential home-seeking opportunities are. The building mask  effectively turns the map dominated by the hexagon grid to a dasymetric map. The building layer is however impacted by the rendering efficiency measures that hide smaller buildings and drop vertices at smaller scales. As such, the building mask fits more to exploring the city at the district level, especially when the user can still tweak the hexagon layer parameters with the mask on.
 
 *Mode 2*
 
 The second visualisation mode of the demo application aims to support observing the spatial patterns of theme layers individually and at the same time being able to identify areas where the patterns match or differ. While in the previous mode the individual patterns blended within the average layer, in the second mode we use graduated size symbols to keep the layers visually separated.
 
-The aim here is more experimental -- three types of graduated symbols are available for user to compare how efficient or inefficient are they for pattern visualisation at various scales. Hexagonal grid now acts more as guide for symbol placement. Each hexagon can be divided into six triangles that provide a space for graduated symbol placement. For this reason we selected a subset of six topics for visualisation and assigned four categories to each. We experimented with several symbol shapes and numerous size gradations were tested to come up with the three variants showcased in the application. 
+The aim here is more experimental — three types of graduated symbols are available for user to compare how efficient or inefficient are they for pattern visualisation at various scales. Hexagonal grid now acts more as guide for symbol placement. Each hexagon can be divided into six triangles that provide a space for graduated symbol placement. For this reason we selected a subset of six topics for visualisation and assigned four categories to each. We experimented with several symbol shapes and numerous size gradations were tested to come up with the three variants showcased in the application. 
 
-Technically, the layers were implemented using the same source hexagon layer as for mode 1 map. The mapbox-gl library supports symbol type layers and allows to set parameters like fill-color and the orientation of the symbol.  
-
-TODO
-
-sdf -- more ifo -- pros: efficient, just a small number of png images needeed (basically just the three size gradations for each variant). Orientation angle is set programatically per layers, so as the color hue.
-
-Cons -- just a single color image, no alpha transparency supported.
-
-Scale based sizing makes sure the symbols are correctly placed at the hexagonal grid across the scale range. 
+Technically, the layers were implemented using the same source hexagon layer as for mode 1 map. The mapbox-gl library supports symbol type layers and allows to set parameters like fill-color and the orientation of the symbol. This is convenient, as only three .PNG images per symbol type need to be reused to visualize all six layers. The mapbox-gl rendering engine supports using Signed Distance Field (SDF) to encode images for symbol layers. SDF allows to preserve sharp shape edges even when the symbol is enlarged past its original resolution. It also allows to set the color hue and orientation angle programmatically at runtime. On a flip side, variable transparency is not supported for icons in SDF mode. The symbol size was configured to change dynamically base on the zoom level so that the symbols are correctly placed at the hexagonal grid across the scale range. 
 
 ![**Fig.** The three types of graduated symbols displayed at two scales for all six layers.](imgs/)
 
 To compare the three selected shapes:
 
-* *Wedges* -- A number of wedge variants were tested. The aim was to minimize contact of the symbols in the map field, therefore the wedge symbols "grow" gradually from the sides of the hexagons and not from the center. This limits the symbol contact to three touching wedges from neighbouring hexagons, whereas symbols anchored in the hexagon center would yield six possible contacts. These considerations do not apply to the largest wedges in the size progression that are bound to contact. While this variant works reasonably well across scales, its resemblance to the pie chart may misguide users to think symbols represent the relative proportions of values in each hexagon.    
+* *Wedges* — A number of wedge variants were tested. The aim was to minimize contact of the symbols in the map field, therefore the wedge symbols "grow" gradually from the sides of the hexagons and not from the center. This limits the symbol contact to three touching wedges from neighbouring hexagons, whereas symbols anchored in the hexagon center would yield six possible contacts. These considerations do not apply to the largest wedges in the size progression that are bound to contact. While this variant works reasonably well across scales, its resemblance to the pie chart may misguide users to think symbols represent the relative proportions of values in each hexagon.    
 
-* *Bar* -- Less space-filling than the previous variant, it leaves more space to see the base layers, but is less legible at smaller scales. This time, the symbols "grow" from the center of the hexagon which can resemble the. This layout tends to create a visually pleasing impression of hatched surfaces, though due to frequent use of similar in wind maps, some users might be tricked to think that the map aims to depict directions.
+* *Bar* — Less space-filling than the previous variant, it leaves more space to see the base layers, but is less legible at smaller scales. This time, the symbols "grow" from the center of the hexagon which can resemble the. This layout tends to create a visually pleasing impression of hatched surfaces, though due to frequent use of similar in wind maps, some users might be tricked to think that the map aims to depict directions.
 
-* Circle -- This Bertin inspired variant is least prone to be confused with a proportional diagram like a pie chart. This is the only variant that allows symbol overlap. In smaller scales it seems to be most prone to triggering optical color mixing and moiré-like effects. 
+* Circle — This Bertin inspired variant is least prone to be confused with a proportional diagram like a pie chart. This is the only variant that allows symbol overlap. In smaller scales it seems to be most prone to triggering optical color mixing and moiré-like effects. 
 
 We can conclude that the combination of scaled symbol layers placed on the hexagonal grid generally succeeds in presenting where the hotspots are for individual layers, as well as how similar or dissimilar the layers are. Not surprisingly, the visual burden imposed on the reader rises with the number of layers, in ideal case an interactive environment should allow to compare just two or three layers at once. 
 
