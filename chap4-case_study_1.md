@@ -8,6 +8,7 @@ The benefits of interactive preference controls are manifold: users can reason a
 
 Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexbin aggregation and layer ordering to battle visual clutter, the benefits of vector tile technology, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
 
+
 ## 4.1 Data sources and transformations
 
 - data from osm

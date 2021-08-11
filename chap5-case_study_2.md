@@ -84,3 +84,4 @@ The visual analysis tool should work equally well regardless of the velocity of 
 
 caveats
 Traffic speed does not bear information on car density? — what is the relation? in pandemic it should be higher?
+
