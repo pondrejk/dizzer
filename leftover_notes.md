@@ -305,4 +305,11 @@ https://pythonspeed.com/memory/ -- mainly section on Data management techniques 
 https://pythonspeed.com/articles/estimating-memory-usage/
 https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
 
+# Dimensionality reduction
+- only if used — PCA vs t-SNE, autoencoders for spatial data
+https://lvdmaaten.github.io/tsne/
+https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding
+
+Data processing for vector tiles — static tiles created with tippecanoe (exact command?), then uploaded to mbstudio for hosting
+
 
