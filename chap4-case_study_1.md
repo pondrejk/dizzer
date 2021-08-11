@@ -39,19 +39,17 @@ Sources come with both point and polygon spatial reference. To harmonize the sou
 
 This allows for meaningful comparison of data and application of weights.
 
+Problems of selecting the grid density — zoom level limitation tile layer in Mapbox infrastructure (500 KB per tile max).
 
 
 ## 4.2 Application architecture 
 
-The vector tile sets were stored on the Mapbox tile server and accessed from the client, mapbox-gl library was used for tile rendering. The interface was build using React library with Redux for state management.
+The vector tile sets were stored on the Mapbox tile server, the client application uses the mapbox-gl library to render tiles in the WebGl context. The front-end user interface was build using React and Redux libraries.
 
-There are several advantages in using React for modularizing front end development, map-based applications benefit from this too.
+Let us take an aside on technologies not mentioned yet. *React* is a UI building library that enables defining UI components as self-contained reusable modules containing definitions of structure, styling and interactions (that were traditionally separated as HTML, CSS and JavaScript). Modules are defined so that their appearance is dependent on the input data (so called *state*). Once the state changes, all modules that consume it are re-rendered accordingly (@mardan2017react).
+In larger interfaces it may become challenging to keep track of all module states, *Redux* library can then be used to implement a *state container* a single data object that contains all application's data. Redux also provides methods to make changes in the state container in a predictable way^[Though at the time of writing, React itself already contains features (React Hooks) that allow to manage state globally]. 
 
-Why react-redux? — modularity and global state management — useful for web map apps eg. for dynamic legend, inset maps, etc.
-
-Redux — ^[react hooks — note, redux might not be needed — learn more] 
-
-Problems of selecting the grid density — zoom level limitation tile layer in Mapbox infrastructure (500 KB per tile max).
+When developing map-based web applications the ability to define modules that react to changes in shared data has many benefits. Often the map interfaces contain several linked components that need to adjust to changes in map view and vice versa (think of interactive legends, supplementary charts, or inset maps that). For example, the weights for topics in our application are stored in global state container, once they are changed (by using sliders on the panel module), the map module that also consumes the global state is re-rendered based on changed parameters. Having global state makes it also easier to persist data in multiple view applications, in our case -- if user makes changes in mode 1 of our application, then changes to mode 2 and subsequently revisits module 1, the previously made changes are persisted. 
 
 
 ## 4.3 Cartographic decisions
@@ -109,54 +107,14 @@ In mode 2 the control panel is simpler, user can select the symbol type and enab
 
 While responsiveness was not the main concern for the application and it could certainly be improved, we took some necessary steps to make the application usable on small screens. Legend in mode 1 is turned to vertical position and fixed on the right edge of the map view. The control panel can be minimized to the left in both application modes. This ensures that even thought the map and the panel can not be viewed both at once on small screens, user can at least jump between them easily.
 
+
 ## 4.5 Evaluation and possible extensions
 
-Possibility of regular updates to keep the content true to reality.
-Possible Extensions to other cities .. automated data processing pipeline
-— vector tile pipeline:
-https://medium.com/nyc-planning-digital/using-the-new-mvt-function-in-postgis-75f8addc1d68
-https://geovation.github.io/build-your-own-static-vector-tile-pipeline
-https://github.com/addresscloud/serverless-tiles
+One of the obvious extensions would be automating the described data processing solution so that hexagonal layer could be kept up to date. This could be done by regularly checking for data changes for the selected topics, updating the database and recalculating the distance layers. Then the updated hexagonal grid could be exported as .mbtiles file and re-uploaded the Mapbox tile server. Alternatively a self-hosted solution serving tiles directly from the database (using tool like Tegola^[<https://tegola.io/>]) could be used. When it comes to updating layers based on distance interpolation, a problem arises on how to efficiently update only the parts of the mesh that are affected by the change. Fig details one possible solution using Voronoi diagrams.
 
+![**Fig.** A notion of employing Voronoi polygons for selecting points to be updated after change in the source layer for the distance surface calculation.](imgs/img-voronoi-2.png)
 
-— future — tegola? better for "real-time publishing"
-https://geovation.github.io/build-your-own-static-vector-tile-pipeline
+The range of included datasets could be extended as there are loads of municipal data that get collected and published, often times in the disconnected form. A grid layout proves to be a plausible way how to integrate such disjoint datasets.
 
-notes:
-
-— sdf icons required for recolorable icons,
-notes: https://github.com/mapbox/mapbox-gl-style-spec/issues/97
-https://halisavakis.com/my-take-on-shaders-ui-sdf-icon-shader/ (creating in pdf)
-https://habr.com/en/post/215905/
-https://github.com/elastic/kibana/issues/39715
-
-https://github.com/mapbox/mapbox-gl-js/issues/1817#issuecomment-497446984 (workaroud to enable coloring by editing the sprite's json)
-— sprite editing via api
-
-https://weekly-geekly.github.io/articles/215905/index.html
-
-— problems — how to create, how to tell if it was created?
-— how to upload — studio doesn't support it
-— only single-color icons
-
-— pros: can define color dynamically
-— can set halo
-— solution add programmatically as one time import:
-https://stackoverflow.com/a/53998098
-
-
-- nakoniec som nepouzil — normalne prefarbene svg
-
-———
-- aleterntativa — iba high wedge pre vsetky kategorie ale zmeny opacity... to nie
-- zmeny sirky, alebo odsadenie od stredu
-
-to research:
-JS streams API
-https://developer.mozilla.org/en-US/docs/Web/API/Streams_API
-
-
-do záveru?
-
-WebGL truly seems to be a promising platform for connecting (carto)graphic excellence, dynamic spatial data visualisation and user-friendly interaction.
+A lot could be done to improve the user experience with the application, either in explaining the controls and logic behind them using an interactive wizard or by adding more functions. One possible extension would be defining some example "personas" with predefined selection of included layers and assigned weights.
 

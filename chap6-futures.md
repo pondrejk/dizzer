@@ -1,6 +1,8 @@
 Future trajectories
 -------------------
 
+WebGL truly seems to be a promising platform for connecting (carto)graphic excellence, dynamic spatial data visualisation and user-friendly interaction.
+
 # future improvements to vector tiles
 - incorporating dynamic data sources
 - CI -- dynamic tile creation pipelines
