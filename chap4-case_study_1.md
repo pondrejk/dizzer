@@ -60,7 +60,7 @@ To showcase the potential use of hexagonal grids to visualize complex datasets, 
 
 The first mode uses a color range to visualize the "livability score", which is a compound metric composed from the selected theme layers. The resulting layer is a weighted average of the proximity layers. As the values for each layer span from zero to one, the compound layer is also limited by these bounds. The variance of the values in the compound layers depends on the number of topics included in the average calculation. When viewing just a single layer, the whole variance tends to be exploited (with the exception of layers not calculated from proximity surfaces, which is affordability and crime stats). However, with inclusion of more layers the resulting variance tends to shrink and concentrate more around the average (see fig). This is due to the fact that the individual layers have often dissimilar spatial patterns, so the highs and lows tend to cancel each-other out in the final calculation. Lowering weight for a layer further contributes to flattening out of its variance.
 
-![**Fig.** The variance of the compound layer depends on the number of layers included. From left to right: parks & greenery layer; average of parks, sports and children facilities layers; and the average of all eleven layers.](imgs/)
+![**Fig.** The variance of the compound layer depends on the number of layers included. From left to right: parks & greenery layer; average of parks, sports and children facilities layers; and the average of all eleven layers.](imgs/img-variance.png)
 
 In such a situation we are unable to adhere to the cartographic rule saying that all legend items should be visible in the map field. The color scheme needed to be granular enough and have sufficiently versatile hues to show the spatial pattern in different variances. Even in small variance the color hue needs to communicate clearly if the area leans toward the more or less favourable end of the diverging spectrum. All hues needed to to sufficiently stand out from the background, which is even more necessary when the building mask is applied (see below).
 
@@ -82,7 +82,7 @@ The aim here is more experimental — three types of graduated symbols are avail
 
 Technically, the layers were implemented using the same source hexagon layer as for mode 1 map. The mapbox-gl library supports symbol type layers and allows to set parameters like fill-color and the orientation of the symbol. This is convenient, as only three .PNG images per symbol type need to be reused to visualize all six layers. The mapbox-gl rendering engine supports using Signed Distance Field (SDF) to encode images for symbol layers. SDF allows to preserve sharp shape edges even when the symbol is enlarged past its original resolution. It also allows to set the color hue and orientation angle programmatically at runtime. On a flip side, variable transparency is not supported for icons in SDF mode. The symbol size was configured to change dynamically base on the zoom level so that the symbols are correctly placed at the hexagonal grid across the scale range. 
 
-![**Fig.** The three types of graduated symbols displayed at two scales for all six layers.](imgs/)
+![**Fig.** The three types of graduated symbols displayed at two scales with all six layers enabled.](imgs/joined-images.png)
 
 To compare the three selected shapes:
 
@@ -103,7 +103,7 @@ The user interface in mode one revolves around various ways of selecting the lay
 
 In mode 2 the control panel is simpler, user can select the symbol type and enable or disable topics to be shown. Again, the checkbox color acts as a legend, and all four symbol size levels are shown for each topic. This legend is build programmatically by coloring and rotating a small set of SVGs based on topic parameters. 
 
-![**Fig.** Legend variants for three types of symbol layer in mode 2 of the application. Two of the six layers are show to display angle variation.](imgs/.png)
+![**Fig.** Legend variants for three types of symbol layer in mode 2 of the application. Two of the six layers are show to display angle variation.](imgs/img-legends.png)
 
 While responsiveness was not the main concern for the application and it could certainly be improved, we took some necessary steps to make the application usable on small screens. Legend in mode 1 is turned to vertical position and fixed on the right edge of the map view. The control panel can be minimized to the left in both application modes. This ensures that even thought the map and the panel can not be viewed both at once on small screens, user can at least jump between them easily.
 
