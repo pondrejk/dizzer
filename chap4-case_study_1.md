@@ -8,7 +8,6 @@ The benefits of interactive preference controls are manifold: users can reason a
 
 Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexbin aggregation and layer ordering to battle visual clutter, the benefits of vector tile technology, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
 
-
 ## 4.1 Data sources and transformations
 
 - data from osm
@@ -40,8 +39,6 @@ Sources come with both point and polygon spatial reference. To harmonize the sou
 
 This allows for meaningful comparison of data and application of weights. (TODO — another tables — what means zero, what means one for various layers).
 
-TODO — how weights are applied
-
 
 ## 4.2 Application architecture 
 
@@ -54,6 +51,7 @@ Why react-redux? — modularity and global state management — useful for web m
 Redux -- ^[react hooks -- note, redux might not be needed -- learn more] 
 
 Problems of selecting the grid density -- zoom level limitation tile layer in Mapbox infrastructure (500 KB per tile max).
+
 
 ## 4.3 Cartographic decisions
 
@@ -76,7 +74,6 @@ The supplementary layers not only ease the orientation in the area, but also hel
 Styling the supplementary layers is also impacted by the changing variance of the mapped values, the legibility of road network suffers in compound layers (see fig). While not currently available in mapox-gl, assigning a  transparency blend mode to the top layers could help here, e.g. the difference blend mode would make sure would stand out on any background, however this might distract the viewer from the main theme.   
 
 Additional spatial clues are provided by an overlay district layer with labels that can be enabled on demand. Another on demand layer provides a building mask. This comes from the original intent of the application to support dwelling seekers -- by reducing the geographic field of the hexagon grid to the built area we provide a more realistic picture of where the potential home-seeking opportunities are. The building mask  effectively turns the map dominated by the hexagon grid to a dasymetric map. The building layer is however impacted by the rendering efficiency measures that hide smaller buildings and drop vertices at smaller scales. As such, the building mask fits more to exploring the city at the district level, especially when the user can still tweak the hexagon layer parameters with the mask on.
-
 
 *Mode 2*
 
@@ -109,40 +106,15 @@ We can conclude that the combination of scaled symbol layers placed on the hexag
 
 ## 4.4 User interface design
 
-Type 1 - see comopound livability score
+The user interface in mode one revolves around various ways of selecting the layers and adjusting weights. To utilize the screen space efficient, we tried to couple the controls with signifiers of the application state as much as possible. In case of the mode 1 view, the selected weight is signified by the slider position and the number next to the topic title. Topic can be disabled by unchecking the checkbox or by pulling the slider to zero, disabled topic is grayed out. The color of the checkbox demonstrates group membership (See fig). Groups can be enabled and disabled at once using the checkbox row at the top of the panel.
 
+![**Fig.** Various possible states of theme layers as signified on the control panel in the mode 1 variant of the application.](imgs/img-sliders.png)
 
+In mode 2 the control panel is simpler, user can select the symbol type and enable or disable topics to be shown. Again, the checkbox color acts as a legend, and all four symbol size levels are shown for each topic. This legend is build programmatically by coloring and rotating a small set of SVGs based on topic parameters. 
 
+![**Fig.** Legend variants for three types of symbol layer in mode 2 of the application. Two of the six layers are show to display angle variation.](imgs/.png)
 
-
-map field:
-- ability to 'prepend' transport layer for orientation
-- same for brno districts layer (optional dotted overlay with labels)
-- select building mask
-- histogram on Legend (TODO)
-.. think of something else...
-
-controls:
-- select groups, select layers, change weights
-
-Type 2 - see the distribution of selected layers both separately and together
-map field:
-- various types of symbol sizing within the grid
-
-controls:
-- inset map TODO
-- dynamic legend brackets
-
-Type 3 ? — square or triangle grid, better smooth appearance?
-
-## 4.4 Notable findings
-- what spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
-
-*issues*
-— road structure not equally visible on dynamic data layers 
-— css blending style (difference?) for the rescue — not implemented in (mapox.gl), leaflet allows it? surely tree.js or pixi.js support it, however it would bring too much attention to the road network + other issues — how to choose the main color so that the overlay produces meaningful scale, building a legend
-— TODO some illustrator image about this?
-
+While responsiveness was not the main concern for the application and it could certainly be improved, we took some necessary steps to make the application usable on small screens. Legend in mode 1 is turned to vertical position and fixed on the right edge of the map view. The control panel can be minimized to the left in both application modes. This ensures that even thought the map and the panel can not be viewed both at once on small screens, user can at least jump between them easily.
 
 ## 4.5 Evaluation and possible extensions
 
