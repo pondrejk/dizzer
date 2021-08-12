@@ -121,13 +121,8 @@ Then there are approaches that try to combine the density and attribute visualis
 
 Another parameter to consider is the cell size in the hexagonal grid. If the bins are designed too big relative to the map scale, the pattern of phenomenon can become unrecognizable. On the other side, very small bins can lead to gaps in the grid in some implementations (see fig). Statisticians proposed several heuristics to select bin sizes for to aid sampling (@sturges1926choice, @scott1979optimal, @hyndman1995problem), though for visualisation purposes we usually prefer the finest grid that is technically possible simply because it yields most informative and aesthetically rewarding maps.
 
-There are many other interesting aspects to hexagonal grids that are not directly related to visualisation but may have some applicability in digital maps, for example coordinate systems, coordinate ranges or reflections withing the grid (for more see https://www.redblobgames.com/grids/hexagons/) 
+There are many other interesting aspects to hexagonal grids that are not directly related to visualisation but may have some applicability in digital maps, for example coordinate systems, coordinate ranges or reflections withing the grid (for more @patel2020hexagonal). Hexagonal grid is also often employed as a sample collection pattern and it apt for use with back-end tools to build approximate queries across datasets that are too large to permit full aggregation in real time (with bounded error and response time (@agarwal2013blinkdb)) or by performing online aggragation — showing continuously updating aggregates and confidence intervals in response to a stream of samples (@hellerstein1997online, @fisher2012trust)
 
-TODO If dataflow is too high to suport backend aggregation in real time:
-
-— research on combining sampling and aggregation: BlinkDB — builds fast approximate queries a multi-dimensional and multi-resolution stratified samples and computes aggregates over this reduced data. BlinkDB — queries with bounded errors and bounded response times @agarwal2013blinkdb
-
-— online aggregation — showing continuously updating aggregates and confidence intervals in response to a stream of samples — hellerstein1997online, fisher2012trust
 
 ### 3.2.3 Symbology fine tuning
 
