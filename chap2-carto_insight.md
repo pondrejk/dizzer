@@ -64,93 +64,11 @@ To develop further on the kinds of interaction with spatial data, we can explore
 
 Point spatial data of large extent complicate observing such relations. We rarely ask about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. The nature of some data sources can dictate some spatial relationships (such as vehicles being spatially bound the road network), but in many cases the density of point cloud obscures the base map and precludes depicting of attribute variability within the set.
 
-Spatial relations between point clusters are harder to conceptualize than it is with polygonal features. @egenhofer1991point describe 16 types of spatial relations (9 if reduced to spatial regions relevant in GIS) in two dimensional space. However, in their approach @egenhofer1991point define the point sets by their exterior boundary and then treat them as polygons. But delineating the exterior boundary is a challenge in itself, for example when dealing with smooth transitions in point density at the border, or when outliers are present. Spatial relations between point clouds in three dimensions are the subject of extensive research in the fields of computer vision and indoor navigation (e.g tran2017extracting or chen2019deep). However, the motivation here is object identification. In these lines of research the point cloud is representing distinct solid objects in the real space that need to be extracted, so the point cloud itself is not an object of research. For cartography, the point sets already come with some assigned attributes, so there is usually no need to label them algorithmically. Large point sets tend to get unruly, and saying anything meaningful about spatio-temporal relations of multiple such clouds is increasingly challenging for the basic set theory (see Fig ). 
+Spatial relations between point clusters are harder to conceptualize than it is with polygonal features. @egenhofer1991point describe 16 types of spatial relations (9 if reduced to spatial regions relevant in GIS) in two-dimensional space. However, in their approach @egenhofer1991point define the point sets by their exterior boundary and then treat them as polygons. But delineating the exterior boundary is a challenge in itself, for example when dealing with smooth transitions in point density at the border, or when outliers are present. Spatial relations between point clouds in three dimensions are the subject of extensive research in the fields of computer vision and indoor navigation (e.g tran2017extracting or chen2019deep). However, the motivation here is object identification. In these lines of research the point cloud is representing distinct solid objects in the real space that need to be extracted, so the point cloud itself is not an object of research. For cartography, the point sets already come with some assigned attributes, so there is usually no need to label them algorithmically. Large point sets tend to get unruly, and saying anything meaningful about spatio-temporal relations of multiple such clouds is increasingly challenging for the basic set theory (see Fig ). 
 
 ![**Fig.** With polygonal features it is usually straightforward to identify the type of spatial relationship in 2D space (a). When replacing point clouds with polygon representations to apply set logic, the problem of meaningful boundary delineation arises (b). For several complex layers it is harder to say anything revealing about their spatio-temporal relationship (c).](imgs/point-cloud-spatial-relationships.png)
 
-**Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data collection activity of any entity can be either continuous or discrete in time. It is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations. Linear conceptualization of time can be supported with cyclical and branching time, there can be discrepancies between the temporal parameters of the base map and the thematic overlay, or between the time interval of existence and representations.
-
-
-**Relations specific to moving objects** – moving objects have a specific set of properties based on their spatio-temporal circumstances. These can be *instantaneous* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to external event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
-
-
-TODO — move stuff from time section — taxonomy of termporal events:
-how to measure velocity (already in chap 1)
-
-— thickenss of durative code in wood's terms (different for real objects and for map layers too)
-— other assessment — events per unit of map time
-— time scale, time resolution
-
-**Taxonomy of temporal events**
-
-To define the possibilities of visualisation of time, a taxonomy of temporal events is needed. From the perspective of location, three types of changes can be proposed - appearance or disappearance, mutation, and movement [20] @blok2005dynamic. From the perspective of the temporal domain, it is possible to distinguish moment, sequence, duration, pace, and frequency. Single events can also interact with each other and occur or partially overlay within the same space or/and time.
-
-
-
-@ott2001time
-
-taxonomic model of time (based on @frank1998different)
-
-|        |            | Total Order       | Partial Order       | Branching      | Multiple                        |
-|————|——————|—————————-|——————————-|————————|————————————————-|
-| Linear | Ordinal    | Single experience | Multiple experience |                |                                 |
-|        |——————|————————————————————-|                |                                 |
-|        | Continuous | Continuous time                         | Branching time | Time with multiple perspectives |
-|————|——————|————————————————————-|                |                                 |
-| Cyclic | Ordinal    | Cyclic time                             |                |                                 |
-|        |——————|                                         |                |                                 |
-|        | Continuous |                                         |                |                                 |
-|————|——————|————————————————————-|————————|————————————————-|
-
-
-Both linear and cyclic time can have different granularities, (unit 1 chronon can have different values (1 year, 1day...))
-Changing granularity (through aggregation or conversly decomposition)
-
-bi-directional time structure (branching time) (based on @hazelton1992developments)
-
-past —> future
-     |—-> future worlds modelled from past
-     |
- <—-|—-> present
- <—-|
-retrospectivelly
-modelled worlds
-
-
-Relations between time intervals (after @allen1985common):
-
-before
-.....
-      .....
-
-starts
-......
-.........
-
-finishes
-..........
-    ......
-
-meet
-........
-      ............
-
-equals
-..........
-..........
-
-
-overlaps
-......
-  .....
-
-during
-............
-  .......
-
-notes from pelekis2004literature 
-
-Temporal relations
+**Temporal relations** are measures of coincidence between temporal events. A taxonomy of temporal events is helpful to define the possibilities of visualisation of time. From the perspective of location, three types of changes can be proposed -- *appearance or disappearance*, *mutation*, and *movement* (@blok2005dynamic). From the perspective of the temporal domain, it is possible to distinguish *moment*, *sequence*, *duration*, *pace*, and *frequency* (@ott2001time). There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data collection activity of any entity can be either continuous or discrete in time. It is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations (see figures).
 
 ![**Fig.** Temporal relations between time points. Adopted from @aigner2011visualization](imgs/time-relationships-1.png)
 
@@ -158,10 +76,11 @@ Temporal relations
 
 ![**Fig.** Temporal relations between two time intervals. Adopted from @aigner2011visualization](imgs/time-relationships-3.png)
 
+Though we perceive time as linear sequence of events, other conceptualizations are posible (see fig.). Cyclical time points out that many events arround us repeat in some stable intervals (such repetition is in fact a basis for time measurement units). Branching time is another concept that relies on our ability to model alternative future outcomes. @hazelton1992developments speaks of bi-directional time structure as we can also retrospectivelly model past words. We encounter branching time in our interaction with artificial systems where a sort of time travel is possible (think of the undo and redo buttons) -- for example if I move back in the history of my changes in a text editor and at some point I start to make new changes, I efectivey created a new branch of the document history (and in most editors, the changes in the abandoned then become inacessible). For even more elaborate taxonomic model of time see @frank1998different.
 
-Time classifications: linear/cyclical, time points/time intervals, oredered time/branching time
+![**Fig.** Illustrations of linear, branching and cyclical time concepts.](imgs/img-time-conceptualizations.png)
 
-![**Fig.** Linear, branching and cyclical time](imgs/img-time-conceptualizations.png)
+**Relations specific to moving objects** – moving objects have a specific set of properties based on their spatio-temporal circumstances. These can be *instantaneous* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to external event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
 
 
 ### 2.2.2 From data mining to visual analytics
@@ -268,8 +187,6 @@ Researchers in cartography and geovisualisation see big data as an opportunity a
 - *Develop methods that embody the volume of geospatial big data* – we need cartography that can intelligently process and display big data at a size and a format that users can realistically handle. This will require solutions that support coupled analysis and visualisation as big data often need to be analysed before they are visualised (the order is reversed in exploratory visualisation). 
 - *Create maps and map-oriented interfaces that prompt attention to important changes in dynamic geospatial big data sources* – We will need to work with global changes, local changes and combinations across scales. In addition, if we display every possible change at once, then the graphical displays become cluttered. Creating summaries of change may be the solution, but we do not yet know how to select important patterns and generalize to something that a user can understand.
 - *Leverage what we know about map animation and interactive cartography to construct visual solutions for dynamic sources of geospatial big data* –  Conventional solutions for interactive mapping, animated mapping or geovisual analytics can be used for representing big data. However, because of the high velocity characteristic of big data, it is necessary to develop solutions that can automate map design decisions to support interactive design solutions that respond (or potentially precede based on modelled outcomes) as the data changes.
-
-[TODO later link to sections that resonate with the above goals]
 
 As @thomas2005illuminating describes, "an emerging discipline progresses through four stages. It starts as a craft and is practiced by skilled artisans using heuristic methods. Later, researchers formulate scientific principles and theories to gain insights about the processes. Eventually, engineers refine these principles and insights to determine production rules. Finally, the technology becomes widely available. The challenge is to move from craft to science to engineering to systems that can be widely deployed". Cartography, being a university study field had arguably crossed the four stages in the past, though with constant advances in tools for data processing and building interactive applications, the field could benefit from regularly revisiting the craft stages to see how the new tools alter our concepts of mapmaking.
 
