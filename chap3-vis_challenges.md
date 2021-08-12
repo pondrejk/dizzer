@@ -318,10 +318,6 @@ OGC Vector Tiles Pilot 2 (VTP2)
     OGC Vector Tiles Pilot 2: Tile Set Metadata Engineering Report (19-082r1) PDF
     OGC Vector Tiles Pilot 2: Vector Tiles Filtering Language Engineering Report (19-084) PDF
 
-Thesis on vecctor tiles:
-<https://prism.ucalgary.ca/bitstream/handle/11023/2666/ucalgary_2015_shang_xiaohong.pdf;jsessionid=2B918A8E8B58693A9CF79058F07241AC?sequence=3>
-
-Este jedna česká ^
 
 also reliance on implementations — eg mapbox.gl didn't choose to implement blending modes
 
@@ -501,4 +497,7 @@ native visual representations to facilitate exploration and discovery
 
 
  Aside on UX — enhancing usability with motion  
+
+@willenskomer2017creating
+
 

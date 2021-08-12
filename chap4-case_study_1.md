@@ -1,46 +1,42 @@
 # 4 Case Study: Urban recommendation system
 
-Throughout the previous chapter we took a rather winding path trough various concepts: data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles and user interface design. In this and the next chapter we present two experimental case studies that aim to bring the previously described concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
+Throughout the previous chapter we took a rather winding path through various concepts: data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles or user interface design. In this and the next chapter we present two experimental case studies that aim to bring these concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
 
-The first case study is a prototype of an urban recommendation system — a map-based web application that could help dwelling seekers to identify areas in the city that best match their needs and expectations^[Live demo of the application is accessible at <pondrejk.eu/hex>, screenshots of the interface can be found in Appendix B.]. Such system would allow users to assign weights to different spatial factors to recalculate a simple preference map to show which areas in the city could be desirable for them.
+The first case study is a prototype of an *urban recommendation system* — a map-based web application that could help dwelling seekers to identify areas in the city that best match their needs and expectations^[Live demo of the application is accessible at <pondrejk.eu/hex>, screenshots of the interface can be found in Appendix B.]. Such system would allow users to assign weights to different spatial factors to calculate a simple preference map showing which areas in the city could be desirable for them.
 
 The benefits of interactive preference controls are manifold: users can reason about various alternative scenarios, observe how even slight changes in their preferences influence their potential action area, they can seek compromise between conflicting views, or model how their options would alter should their life situation change. The selected spatial factors are aiming to suit civic user, however, inclusion of additional parameters could extend the target group to municipal planners or property developers^[The origins of this idea date back to the 2018's hackathon that the author attended as a member of a competing team. The original demo application has been fully reworked by the author for the purpose of this thesis, though the input spatial data pre-processed at that time have been reused here.].
 
-Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexbin aggregation and layer ordering to battle visual clutter, the benefits of vector tile technology, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
+Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexagonal aggregation and layer ordering to cope with hight spatial density, the benefits of the vector tile format and the WebGL rendering environment, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
 
 
 ## 4.1 Data sources and transformations
 
-- data from osm
-- interpolation to the grid
-- leaflet + db vs mapbox
-- data for buildings
-
 The application allows users to select several parameters and assign weights to them. Based on the selected parameters and weights a map is rendered dividing the city to areas of high to medium to low desirability. Changes to weights and parameters is reflected in the map as the desirability surface is recalculated on the fly.
 
-The parameters include both attractive and repulsive factors: proximity to schools and nurseries, parks and greenery, places of worship,  healthcare, sport, cultural and social facilities on one side, noise, crime and prices on the other side. The majority of the source layers is taken from the OpenStreetMap database, that allows for easy automated updates via it's API. The input data were harvested for the area of the city including a 5 Km buffer to prevent undesirable interpolation effects on the area borders. The table outlines the input layers with sources.
+The parameters include both attractive and repulsive factors: proximity to schools and nurseries, parks and greenery, places of worship, healthcare facilities, sport, cultural and social facilities are supplemented with noise model, crime values and property prices. The majority of the source layers was sourced from the  Open Street Map database. The input spatial layers were collected for the area of the city including a 5 Km buffer to prevent undesirable interpolation effects on the city borders. The following list describes what belongs under the mapped thematic categories in greater detail:
 
-(TODO table) — name, group, source, what is incueded (notes), spatial reference
-— todo — check the actual data
+* culture — theaters, cinemas, music clubs
+* health — hospitals and ambulances
+* church — places of worship for various religions
+* parks — parks, forests, green spaces
+* social — cafés, pubs, restaurants
+* sport — sport grounds, gyms 
+* transport — public transport stops 
 
-culture
-health
-church
-parks
-social
-sport
-transport
-crime
-prices
-noise
+These layers were source from the OSM and mostly have point spatial reference, with the exception of parks that are defined as polygons. Some complementary layers from different sources were also included:  
 
-Sources come with both point and polygon spatial reference. To harmonize the sources into one common spatial format that would allow to apply weights and would allow dynamic re-classification based on scaled we created a 100 m point grid covering the area of Brno (the grid was spread in such a fashion that the spatial coordinates of individual points are rounded — so that the storage footprint is minimized). The point layers where then used to create distance surfaces using IDW interpolation in QGIS desktop tool. Data from these interpolations where then combined with existing zonal layers (noise, crime, property prices) to generate input for the attribute table of the point grid. This was done using the standard spatial join feature in QGIS (illustrated on fig). In the resulting point grid, each point contains an attribute containing a distance from the given point to a nearest facility of interest, or the given index for some layers (crime, noise...). Furthermore, these attributes have been normalized to fit into 0-1 scale across the city area.
+* crime (source: project Mapa kriminality^[<https://mapakriminality.cz>]) 
+* affordability (source: Brno municipal office)
+* noise (source: Brno municipal office^[<https://www.brno.cz/sprava-mesta/magistrat-mesta-brna/usek-1-namestka-primatorky/odbor-uzemniho-planovani-a-rozvoje/dokumenty/upp/hlukova-mapa/zobrazeni-hlukove-mapy-denni-doba/>]) 
 
-![**Fig.** Data preparation process.](imgs/img-cs1-dataprep.png)
+The spatial detail of these additional layer is coarser than in with the previous group, especially in case of crime statistics that were interpolated from a district-level polygon layer. 
 
-This allows for meaningful comparison of data and application of weights.
+The data preparation process then continued as follows (see also fig for illustration).
+To harmonize the varying sources into one spatial layer that would allow for dynamic re-classification, we created a point grid covering the area of Brno in 100 m intervals. The input layers from the OSM were used to create distance surfaces using IDW interpolation in the QGIS desktop tool. Data from these interpolations where then combined with existing zonal layers (noise, crime, property prices) to generate input for the attribute table of the point grid. This was done using the standard spatial join feature in QGIS.  In the resulting point grid, each point contains an attribute containing a distance from the given point to the nearest facility of interest, or the given index for some layers (crime, noise...). Furthermore, these attributes have been normalized to fit into 0-1 scale across the city area.
 
-Problems of selecting the grid density — zoom level limitation tile layer in Mapbox infrastructure (500 KB per tile max).
+![**Fig.** Data preparation process illustrated.](imgs/img-cs1-dataprep.png)
+
+The reasoning behind using a point grid as a harmonization layer was guided by the original intent to enable variable cell size for the final hexagonal grid that could be manipulated by the user. This idea was eventually abandoned and a fix-sized hexagonal grid was created by averaging the point values per cell. The aim was to find the smallest possible cell size that would still pass through the tile size limitation imposed on vector tiles by the Mabbox infrastructure (500 KB per tile). Once we found the hexagon size that would work across the intended zoom range, we uploaded it to the Mapbox tile server.
 
 
 ## 4.2 Application architecture 
@@ -50,7 +46,7 @@ The vector tile sets were stored on the Mapbox tile server, the client applicati
 Let us take an aside on technologies not mentioned yet. *React* is a UI building library that enables defining UI components as self-contained reusable modules containing definitions of structure, styling and interactions (that were traditionally separated as HTML, CSS and JavaScript). Modules are defined so that their appearance is dependent on the input data (so called *state*). Once the state changes, all modules that consume it are re-rendered accordingly (@mardan2017react).
 In larger interfaces it may become challenging to keep track of all module states, *Redux* library can then be used to implement a *state container* a single data object that contains all application's data. Redux also provides methods to make changes in the state container in a predictable way^[Though at the time of writing, React itself already contains features (React Hooks) that allow to manage state globally]. 
 
-When developing map-based web applications the ability to define modules that react to changes in shared data has many benefits. Often the map interfaces contain several linked components that need to adjust to changes in map view and vice versa (think of interactive legends, supplementary charts, or inset maps that). For example, the weights for topics in our application are stored in global state container, once they are changed (by using sliders on the panel module), the map module that also consumes the global state is re-rendered based on changed parameters. Having global state makes it also easier to persist data in multiple view applications, in our case -- if user makes changes in mode 1 of our application, then changes to mode 2 and subsequently revisits module 1, the previously made changes are persisted. 
+When developing map-based web applications the ability to define modules that react to changes in shared data has many benefits. Often the map interfaces contain several linked components that need to adjust to changes in map view and vice versa (think of interactive legends, supplementary charts, or inset maps that). For example, the weights for topics in our application are stored in global state container, once they are changed (by using sliders on the panel module), the map module that also consumes the global state is re-rendered based on changed parameters. Having global state makes it also easier to persist data in multiple view applications, in our case — if user makes changes in mode 1 of our application, then changes to mode 2 and subsequently revisits module 1, the previously made changes are persisted. 
 
 
 ## 4.3 Cartographic decisions
