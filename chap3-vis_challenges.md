@@ -113,6 +113,8 @@ From the cartographic point of view, there are other aspects of hexagonal grids 
 
 The assignment of value to the mosaic cell is another topic to consider. The composite objects communicate the information via assigned visualization method. Predominantly, the fill color is used to denote the point count or density within the region. If we are more interested in the attribute variation, we can assign color based on some statistic of member point attributes — mean, median, variance, etc. Each of these choices come with a toll (like hiding outliers) and should be tailored to the context of the visualisation or user-adjustable. Also any classification method will also have impact on the overall visualisation. Apart from the classical selection (equal interval, Jenks, quantile, logarithmic...) there are also newer promising contributions to the classification problem like *head/tail breaks*(@jiang2018complex), bayesian weighting (@correll2017surprise) or uncertainty-adjusted scales (@correll2018value). There is also a possibility to split cells to make them work similarly to pie or stacked charts (@lumley2015multi).
 
+Explorer -- TODO somewhere <https://tinlizzie.org/spatial/>
+
 Multi-parametric cartographic visualisation can also employ hexagonal grids, this time as an outline for placement of proportional symbols, compound charts or other visual artifacts. The shape of the hexagon allows for various kinds of proportional splitting and versatile symbol placement strategies (some experiments in chapter 4). Notice that using the hexagonal grid as a symbol placement outline disrupts the impression of a continuous surface the layer has when only hue is applied. Also it precludes applying masks to the hexagon layer to reduce the visual load and to provide geographic context (a.k.a. dasymetric method, see Fig)
 
 ![**Fig.** Dasymetric method, not applicable to most multivariate hexbin visualisation methods](imgs/img-textures-and-buildings.png)
@@ -295,7 +297,7 @@ Clients and styling:
 - MapboxGL (JS, C++ versions, syles in Mapbox GL JSON)
 
 
-- tiling precludes some types of analysis (where you need to look at adjacent tiles)
+- tiling precludes some types of analysis (where you need to look at adjacent tiles) -- true?
 - in context of BD maybe not such a problem as these are mainly point clouds.
 
 The map is rendering on the client’s side and requires a bit more powerful hardware. Data are generalized and therefore not suitable for direct edits
@@ -323,14 +325,20 @@ Este jedna česká ^
 
 also reliance on implementations — eg mapbox.gl didn't choose to implement blending modes
 
+Greater standardization efforts:
+https://github.com/Maps4HTML/MapML-Proposal
+https://maps4html.org/MapML/spec/#abstract
 
 
 
 ## 3.4 Figures and grounds
 
-Finally we will attempt to summarize the design possibilities the combination of vector tiles and direct WedGL offers mean for cartographic visualisation of big data.
+Finally we will attempt to summarize the design possibilities the combination of vector tiles and WedGL rendering environment offers for cartographic visualisation of big data.
 
+TODO -- drop?
 Vector tiles bring new possibilities for combining data layers in digital maps. To see how to best utilize this, let us take an aside to think about distinctions between topographic and thematic cartography.
+
+-- Tile layers good for both topogtraphic an thematic cartography. (Examples topo -- UK and Switzerland)
 
 I explore how to create thematic maps from Big data.
 
@@ -338,9 +346,11 @@ I explore how to create thematic maps from Big data.
 "Thematic map is a topographic map with one layer disproportionally enhanced"
 
 
-The starting point for a **topographic map** is a given territory, that is to be interpreted on a blank page/screen. In topographic maps we create a model of the surface, and we want to include all environmental characteristics that we believe to be relevant to the task — and the task is usually to help with orientation in the given territory. The real alchemy of the topographic practice is to depict all layers without clutter — the layers must be equally separable/retrievable. This is because we do not know beforehand which features or combination of features will become useful for orientation. Map creates a *taxonomic space* of what is to be known about the territory (let us set aside the power-related difficulties of what is being omitted and who does the selection on who's benefit) and puts these species to relationships. This synthetic aspect is for @wood2010rethinking one of the most important features of the map — the sign systems (layers) are in constant dialog, allowing us to extract meaning from those relations that would be hardly obtainable without using the map. Here, "the whole is greater than the sum of its parts.” — Aristotle.
+The starting point for a **topographic map** is a given territory, that is to be interpreted on a blank page/screen. 
 
-In **thematic maps**, the starting point is is a phenomenon. We want to learn something about it by studying its spatial distribution, by searching spatial correlations with other features, and also by mapping how the internal structure of the phenomenon changes across space.
+In *topographic mapping* we create a model of the surface, and we want to include all environmental characteristics that we believe to be relevant to the orientation in the given territory. As we do not know beforehand which features or combination of features will become useful for orientation, each layer needs to be individually retrievable without cluttering other layers. The synthetic aspect of the map is for @wood2010rethinking one of the most important features — the sign systems (layers) are in constant dialog, allowing us to extract meaning from those relations that would be hardly obtainable without using the map. 
+
+In *thematic maps*, the starting point is a phenomenon. We want to learn something about it by studying its spatial distribution, by searching spatial correlations with other features, and also by observe how the internal structure of the phenomenon changes across space and time.
 
 In both cases we overlay comprehensive sign systems (rivers, settlements, mountains...), though what differs is their relative visual prominence: we can say a thematic map is a topographic map that gives asymetric prominence to one layer of interest (though often richly differentiated in its cartographic presentation) and pushing the remaining layers to the role of toned down "base" merely aimed to provide geographical context for the reading of the topic. Sometimes things go as far as the base is reduced to the minimum (often administrative boundaries) or omitted alltogether (in such case the topographic context stems from the distribution of the signs in thematic layer — from what @wood2010rethinking calls a *tectonc* code of the map).
 
@@ -392,9 +402,6 @@ Looking at UI controls with a prism of design constraints described in chapter (
 — do some design and usability reading (don't make me think, check some books on product design...) <https://www.fastcompany.com/1292961/30-most-important-books-product-designers>
 — user personas, user stories...
 
-- Iteraction strategies
-Andrejenko's view of tasks
-
 - responsivity challenges
 https://codeburst.io/the-challenges-of-responsive-web-design-9d64971921fb
 
@@ -405,9 +412,6 @@ http://mobilev.is/
 - apple's human interface guidelines
 https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/
 
-
-
-- TODO: image 2 kinds of weather roses - wind diagrams (more and less complex), data from slovenská lavínová služba.
 
 - animation and movement: how does it support usability (blog creating usability )
 - strategies for density reduction in controls
