@@ -15,6 +15,8 @@ https://github.com/openlayers/openlayers/issues/11142
 https://observablehq.com/@fil/reprojecting-vector-tiles
 https://observablehq.com/@fil/web-mercator-tile-visibility
 
+TODO — vector tiles + big data (pros/cons now + future extensions) 
+VT don't support gis-style database joins post creation, all data processing operations should happen before tile generation (in the db or in gis sw).
 
 
 # Machine Learning in map design
