@@ -230,7 +230,7 @@ We will now focus on the advantages of vector tiles, but that is not to say that
 *Vector tiles*
 
 As the name suggests, vector tiles use vector data instead of raster images. 
-Vector tiles build on a data exchange format called *protocol buffer* (or protobuff). Protobuff is a binary format that enforces schema on encoded data, which makes it a much more efficient in storing structured data compared to human-readable formats like JSON, XML or CSV.
+Vector tiles build on a data exchange format called *protocol buffer* (or protobuff). Protobuff is a binary format that enforces *schema* on encoded data, which makes it a much more efficient in storing structured data compared to human-readable formats like JSON, XML or CSV.
 
 The hierarchical structure, the addressing system, spatial extents and scale levels for common implementations of vector tiles are the same as for raster tiles described above. The geometries are encoded within the extent of individual tiles^[For details see <https://docs.mapbox.com/vector-tiles/specification/#encoding-geometry>], the tile itself contains no information about the geographic bounds and projection. The individual tiles are then stored as protobuffs in a hierarchical folder structure for serving based on zoom levels^[Mapbox implementation supports a wrapper format .mbtiles that is essentially an sqlite database file.].
 
@@ -240,93 +240,41 @@ In contrast to raster tiles, rendering happens at the very end of the data excha
 
 There are four general types of software that is used to manage various aspects of vector tiles:^[There are several concurrent implementations for each of theses groups, for an updated overview see <https://github.com/mapbox/awesome-vector-tiles>] 
 
-* *Parsers and generators*: libraries that read and encode vector tiles. They vary by the implementation language, supported input formats, type of interface and so on. Their main utility is to generate vector tiles from more traditional data sources like SHP or GeoJSON or to easily preview existing vector tiles
-* *Clients*: tools that render vector tiles in the context of the device. The most widely used web-based client is probably mapbox-gl. Implementations vary by the language, offered developer tools, or by rendering contexts — those include web-based (WebGL), native to mobile and other devices (OpenGL), even terminal consoles (ASCII)
-* *Style editors*: tools for creating, reviewing and testing styles for vector tiles. Styles can be defined within vector tiles that are then served as base maps or they can be set by the client library when rendering^[Styling a complex base layer across zoom levels is demanding task. Companies like Mapbox and Carto invested years of fine-tuning to their base layers that now play a significant role in attracting new customers for their services. We mention this as a proof functional, aesthetic and economic value of quality cartography.]
-* *Servers*: tools for serving vector tiles via API. Some server solutions provide also tile generation and styling functionalities.
+* *Parsers and generators*: libraries that read and encode vector tiles. They vary by the implementation language, supported input formats, type of interface and so on. Their main utility is to generate vector tiles from more traditional data sources like SHP or GeoJSON or to easily preview existing vector tiles. Examples: *tippecanoe*, also PostGIS via *ST_AsMVTGeom()* and *ST_AsMVT()* functions.
+* *Clients*: tools that render vector tiles in the context of the device. The most widely used web-based client is probably mapbox-gl. Implementations vary by the language, offered developer tools, or by rendering contexts — those include web-based (WebGL), native to mobile and other devices (OpenGL), even terminal consoles (ASCII). Examples of web-based clients: *mapbox-gl*, *deck-gl*, *harp-gl*
+* *Style editors*: tools for creating, reviewing and testing styles for vector tiles. Styles can be defined within vector tiles that are then served as base maps or they can be set by the client library when rendering^[Styling a complex base layer across zoom levels is demanding task. Companies like Mapbox and Carto invested years of fine-tuning to their base layers that now play a significant role in attracting new customers for their services. We mention this as a proof functional, aesthetic and economic value of quality cartography.]. Examples: *Mapbox Studio*, *Maputnik*
+* *Servers*: tools for serving vector tiles via API. Some server solutions provide also tile generation and styling functionalities. Examples: *Tegola*, *TileStache*, *ArcGIS Online*
 
 The properties of vector tiles bring several advantages and caveats for cartographic visualisation of big data.
 
-Using protobuff encoding, the tile size is highly compressed. The size stems from the actual data content on the tile, so the feature-poor tiles are not such a burden. In most cases, vector tiles are fairly small, which turns into small storage footprint and network bandwidth consumption, enabling global high resolution maps, fast data delivery, fast map loading, and efficient caching^[For benchmarking and comparison to raster tiles see <https://www.giscloud.com/blog/realtime-map-tile-rendering-benchmark-rasters-vs-vectors/>]. Vector tiles are also faster to generate and as they are rendered only when requested by a client, they are more suited to keeping the data on the server continuously updated with data changes.
+Using protobuff encoding, the tile size is highly compressed. It stems from the actual data content in the tile, so the feature-poor tiles are not a burden. In most cases, vector tiles have fairly small storage footprint and network bandwidth consumption, enabling global high resolution maps, fast data delivery, fast map loading, and efficient caching (for performance benchmarking and comparison to raster tiles see @giscloud2010realtime). Vector tiles are also faster to generate as they are rendered only when requested by client, they are more suited to keeping the data on the server continuously updated.
 
-Being a vector file format, tiles can be styled upon request. Separating rendering from the data storage allows for creating many variant map styles based on the same global data source without significant storage footprint. Client side rendering also supports easier style customizations, e.g. font changes, label translations, showing and hiding elements, changing the layer ordering and combining data sources. Vector tiles style specification is powerful for example when it comes to scale specific styling — e.g. applying various scaled-based functions on sign properties like size and color.
+Being a vector file format, tiles can be styled upon request. Separating rendering from the data storage allows for creating many variant map styles based on the same global data source without significant storage footprint. Client-side rendering also supports easier style customizations, e.g. font changes, label translations, showing and hiding elements, changing the layer ordering and combining data sources. Scale-based styling is also supported in many client libraries — various scaled-dependent functions can be applied on sign properties like size and color.
 
-Vector tiles can contain attribute data which elevates the format beyond mere display techonology of the raster tiles. With raw data included, several types of interactions are possible — from basic pop-up info over points of interest towards advanced querying and filtering for in-browser analysis. Apart from changing feature visibility and layer order there is data driven styling that opens possibilities for thematic cartography. Once tiles are loaded, any user-induced filtering and style changes is executed on client without additional requests to the server (on-the-fly), which may support offline functionality. 
+Vector tiles can contain attribute data which elevates the format beyond mere display technology of raster tiles. With raw data included, several types of interactions are possible — from basic pop-up info over points of interest towards advanced querying and filtering for in-browser analysis. Apart from changing feature visibility and layer order is also the capability of data-driven styling that opens possibilities for thematic cartography. Once tiles are loaded, any user-induced style changes are executed on client without additional requests to the server, which may also support offline functionality. 
 
-For cartographer, the format and the capabilities of the client libraries opens several possibilities:
-- Vector tiles are good for both basemaps and also for thematic interactive overlays, also allows for better entanglement of the layers as the custom data layer can be put anywhere in the layer hierarchy, not only on the top.
-- Application of textures — clever clipping per feature (done in GPU) 
-- The client library supports additional actions like camera tilt or orientation change that were not possible with raster tiles. 
-- Also the smooth continuous zoom is supported as the vector tiles within one zoom level are not fixed in size by raster resolution, so smooth impression can be achieved by scaling tiles between zoom steps. This fixes the problem of fitting the mapped area to the html div reliably on various screen sizes and aspect ratios 
-- the 3D features can be added, and the 3D interaction is enabled out of the box. So the application can jump from 2D to 3D view without additional tools
-- data and scale driven styling allow form fine-grained control over how both the basemap and the thematic layer is displayed across scales
-- data within source — good for styling, tooltips, other users (machine learning?)
-- dynamic ordering of layers
-- dynamic generalization (well, simplification)
+For cartographer, the combination of the vector tile format, WebGL-based rendering environment and the capabilities of the client mapping libraries opens several possibilities:
+
+- Vector tiles work well for both base maps and thematic interactive overlays. Furthermore, the thematic layer can be put anywhere in the layer stack, not only on the top (more in the next section).
+- Bitmap images can be easily incorporated to the style — either as polygon textures or point symbols. Data driven styling of these bitmaps is also possible to a certain degree
+- WebGL-based client libraries support additional user actions like camera tilt or orientation change 
+- Continuous zoom is supported as the vector tiles are not fixed in size by raster resolution, so smooth impression can be achieved by scaling tiles between zoom steps. This also fixes the problem of fitting the mapped area to the html viewport reliably on various screen sizes and aspect ratios 
+- the 3D features can be added, end the application can jump from 2D to 3D view without additional tools
+- data and scale driven styling allow for fine-grained control over how is the map displayed across scales
 
 ![**Fig.** An example on application of bitmaps in WebGL rendering environment (mapbox-gl). Three 5x5px .png swatches are used to define the hatched texture. The texture is applied to polygons based on data-driven rules, and clipped to the given polygon extent. Screenshot taken from <elwar.uni.lu> (designed and implemented by the author)).](imgs/hatches.png) 
 
-Other advantages — various rendering contexts, depends on client implementation. In this thesis we will focus on web-based but there is a potential for much greater coverage — cars, IoT devices, or lower fidelity periferals (eg ascii renedering for ebook readers). Most of the cartographic implication we will discuss later are universal across devices.
+WebGL is just one of the possible rendering contexts for vector tiles. While focus of this thesis is on web applications, we should mention that vector tiles have potential for much wider adoption — be it in cars, IoT devices, or lower fidelity peripherals. 
 
-*issues*
+There are also some disadvantages and risks connected to vector tile adoption. As we mentioned earlier, vector tiles rely on a schema that defines which attributes are included, their naming and value types, the zoom levels range at which layers should appear, etc. There is no universally applicable schema, tile layer intended for analysis would need a different solution than layer meant as a base map. Even for general base map layers, there is a number of schemas^[Some general-purpose base map schemas: Mapbox Streets, OpenMapTiles, Mapzen Tilezen, Thunderforest] that are not interchangeable -- there are different priorities of layers, different classification of roads that appear at various zoom levels, etc. When designing style for a given schema, it will most likely not be portable to different schema.
 
-https://www.youtube.com/watch?v=savQWL0kq_g
+Tiling can preclude some types of analysis that need to consider features in adjacent tiles. Though, features that are split between the tiles can be reconstructed once rendered -- this is useful for example when implementing an on hover highlight of polygon features. The rendering engine can select all bits that need to be highlighted across the displayed tiles. It needs though to be considered at the moment of tile layer creation (in mapbox infrastructure on needs to run tippecanoe with *--generate-ids* options so that features can be identified across tiles by mapbox-gl). As with many situation around vector tiles a tight coordination across the whole tool chain is required.
 
-Various schema flavors and software implementations that need to act in accordance enlarges the risk of vendor lock-in.
+Even if we limit ourselves to web-based clients, there is a number of solutions that are not overly compatible. While some provide a domain specific language to define styles (mapbox-gl), some support writing custom GLSL shaders (deck.gl). The user experience as well as the developer experience varies. The breadth of supported styling actions is also varying (e.g. mapbox-gl does not support transparency blend modes, kepler.gl does).
 
-Schema consists of layer names, attribute names and values, feature selection, other cartographic choices
-- protobuff schema
-- not style definition
-- e.g.:
-https://openmaptiles.org/schema/
-- can I combine 2 schemas in one view? yes
-- what attributes
-- zoom level appearance or disappearance ...
+As rendering happens on the client, the performance depends on power of the client hardware. Tile servers can impose some size limits on tile layers that, unlike raster tiles, can be bloated with the large number of attributes.
 
-
-
-Not interchangable tile schemas: Thunderforest, Mapbox Streets, OpenMapTiles, Mapzen Tilezen
-- different priorities, different classification of roads that appear at various zoomlevels
-- not one schema for everyting
-- these are for displaying a map, not for analysis
-- need to port style to a different schema
-- no mature standardized tools
-
-Clients and styling: 
-- Mapnik (raster only, styles in mapnik xml or CartoCSS)
-- Tangram (js, C++ versions, styles in tangram scene files)
-- Openlayers, Leaflest (in browser only, OpenLayers supports mapboxgl format)
-- MapboxGL (JS, C++ versions, syles in Mapbox GL JSON)
-
-^ WebGL based or not, ammount of hand-holding, having developer features or meant more like a GUI (kepler.gl) 
-What style languages are in deck.gl and harp.gl -- find out
-
-- tiling precludes some types of analysis (where you need to look at adjacent tiles) -- true?
-- in context of BD maybe not such a problem as these are mainly point clouds.
-- But, note that features that are split between the tiles can be reconstructed once rendered -- this is useful for example when implementing an on hover highlight of polygon features -- the rendering engine can select all bits that need to be highlighted across the displayed tiles. It needs though to be considered at the moment of tile layer creation (in mapbox infrastructure on needs to run tippecanoe with *--generate-ids* options so that features can be identified across tiles by mapbox-gl). As with many situation around vector tiles a coordonation across the whole tool chain is required.
-
-The map is rendering on the client’s side and requires a bit more powerful hardware. Data are generalized and therefore not suitable for direct edits
-
-Filtering (several syntax types) - also some performance limits. Tile by tile change (known too well from network lags in raster data sources — missing and delayed tiles) can return with vector tiles with high data load on small machines as vertex buffers are supplied to the GPU tile by tile.
-
-Also reliance on implementations — eg mapbox.gl didn't choose to implement blending modes, available on kepler. some are based on Three.js, some work directly with WebGL.
-There is a varying approach to style definition -- mapbox-gl has own DSL, deck.gl lets you write your own shaders, 
-
--- editing vectors https://github.com/uber/nebula.gl
-
-Question of what should be implemented within the tile specification, what in dataset-specific schema and what on client.
-E.g. -- elevation in tiles (if missing then take from other layer), z index -- configurable on client as a set value or from attributes
-
-*standardization is on the way*
-<http://docs.opengeospatial.org/per/>
-OGC Vector Tiles Pilot 2 (VTP2)
-    OGC Vector Tiles Pilot 2: Summary Engineering Report (19-088r2) PDF
-    OGC Vector Tiles Pilot 2: Tile Set Metadata Engineering Report (19-082r1) PDF
-    OGC Vector Tiles Pilot 2: Vector Tiles Filtering Language Engineering Report (19-084) PDF
-
-
-This would be great because it should ensure some transferability between the client solutions. Also it would be clearer what can be expected from the tile definition.
-
+Overall, we still seem to lack mature standardized tools for working with various aspects of vector tiles. Diverging schema flavors and software implementations that need to act in accordance across the tool-chain enlarges the risk of vendor lock-in. On the positive note, there are some efforts under way to standardize vector tile metadata, server API or filtering language within OGC (see <http://docs.opengeospatial.org/per/> section *OGC Vector Tiles Pilot*)
 
 ## 3.4 Figures and grounds
 
