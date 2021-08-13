@@ -19,6 +19,26 @@ TODO — vector tiles + big data (pros/cons now + future extensions)
 VT don't support gis-style database joins post creation, all data processing operations should happen before tile generation (in the db or in gis sw).
 
 
+Some size limitations on vector tiles — 500 KB per tile. The way the format deals with it (during encoding) may not be optimal — dropping vertices in abrupt simplification, dropping data points. 
+-- find more creative options for data compression, encoding or decoding -- inspiration from timescale.db
+
+
+- how to connect to dynamic data source? Join with db? (just points — dynamic data overlay straight genreation of tiles within pipeline , )
+- more could be done on client with the data tile data -- how to allow additional calculations, possibly using js functions directly (not some wierd DSLs with limited capabilities, that have only visualisation in mind).
+
+A valid data sharing option for public offices () and open source projects
+
+TODO -- share projects -- new streets, cublr
+^ And businesses based on this data model -- morphcode, 
+
+Along with tile standardization:
+
+Greater standardization efforts:
+https://github.com/Maps4HTML/MapML-Proposal
+https://maps4html.org/MapML/spec/#abstract
+
+
+
 # Machine Learning in map design
 
 

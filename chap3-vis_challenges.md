@@ -211,7 +211,7 @@ To previous description is a simplified account -- for example, to complement on
 
 ### 3.3.3 Tour of Vector Tiles
 
-How is WebGL useful for cartographic visualisation? While it is certainly possible to develop spatial interfaces directly using WebGL scripting, many of the advances in client rendering has been already utilized in a format known as *vector tiles*. Vector tiles build on some concepts inherent to raster tiles that were until recently the main tool for serving spatial information online. In many other aspects the two technologies are far apart. Let us now briefly describe the raster tiles to be able to compare and contrast later on.
+How is WebGL relevant for cartographic visualisation? While it is certainly possible to develop spatial interfaces directly using WebGL scripting, many of the advances in client rendering has been already utilized in a format known as *vector tiles*. Vector tiles build on some concepts inherent to raster tiles that were until recently the main tool for serving spatial information online. In many other aspects the two technologies are far apart. Let us now briefly describe the raster tiles to be able to compare and contrast later on.
 
 *Raster tiles*
 
@@ -281,7 +281,11 @@ Schema consists of layer names, attribute names and values, feature selection, o
 - not style definition
 - e.g.:
 https://openmaptiles.org/schema/
-- can I combine 2 schemas in one view?
+- can I combine 2 schemas in one view? yes
+- what attributes
+- zoom level appearance or disappearance ...
+
+
 
 Not interchangable tile schemas: Thunderforest, Mapbox Streets, OpenMapTiles, Mapzen Tilezen
 - different priorities, different classification of roads that appear at various zoomlevels
@@ -296,20 +300,24 @@ Clients and styling:
 - Openlayers, Leaflest (in browser only, OpenLayers supports mapboxgl format)
 - MapboxGL (JS, C++ versions, syles in Mapbox GL JSON)
 
+^ WebGL based or not, ammount of hand-holding, having developer features or meant more like a GUI (kepler.gl) 
+What style languages are in deck.gl and harp.gl -- find out
 
 - tiling precludes some types of analysis (where you need to look at adjacent tiles) -- true?
 - in context of BD maybe not such a problem as these are mainly point clouds.
+- But, note that features that are split between the tiles can be reconstructed once rendered -- this is useful for example when implementing an on hover highlight of polygon features -- the rendering engine can select all bits that need to be highlighted across the displayed tiles. It needs though to be considered at the moment of tile layer creation (in mapbox infrastructure on needs to run tippecanoe with *--generate-ids* options so that features can be identified across tiles by mapbox-gl). As with many situation around vector tiles a coordonation across the whole tool chain is required.
 
 The map is rendering on the client’s side and requires a bit more powerful hardware. Data are generalized and therefore not suitable for direct edits
 
-Some size limitations on vector tiles — 500 KB per tile. The way the format deals with it (during encoding) may not be optimal — dropping vertices in abrupt simplification, dropping data points. 
-
 Filtering (several syntax types) - also some performance limits. Tile by tile change (known too well from network lags in raster data sources — missing and delayed tiles) can return with vector tiles with high data load on small machines as vertex buffers are supplied to the GPU tile by tile.
 
-- how to connect to dynamic data source? Join with db? (just points — dynamic data overlay straight genreation of tiles within pipeline , )
+Also reliance on implementations — eg mapbox.gl didn't choose to implement blending modes, available on kepler. some are based on Three.js, some work directly with WebGL.
+There is a varying approach to style definition -- mapbox-gl has own DSL, deck.gl lets you write your own shaders, 
 
+-- editing vectors https://github.com/uber/nebula.gl
 
-With a risk of getting ahead, note that features that are split between the tiles can be reconstructed once rendered -- this is useful for example when implementing an on hover highlight of polygon features -- the rendering engine can select all bits that need to be highlighted across the displayed tiles. It needs though to be considered at the moment of tile layer creation (in mapbox infrastructure on needs to run tippecanoe with *--generate-ids* options so that features can be identified across tiles by mapbox-gl). As with many situation around vector tiles a coordonation across the whole tool chain is required.
+Question of what should be implemented within the tile specification, what in dataset-specific schema and what on client.
+E.g. -- elevation in tiles (if missing then take from other layer), z index -- configurable on client as a set value or from attributes
 
 *standardization is on the way*
 <http://docs.opengeospatial.org/per/>
@@ -319,12 +327,7 @@ OGC Vector Tiles Pilot 2 (VTP2)
     OGC Vector Tiles Pilot 2: Vector Tiles Filtering Language Engineering Report (19-084) PDF
 
 
-also reliance on implementations — eg mapbox.gl didn't choose to implement blending modes
-
-Greater standardization efforts:
-https://github.com/Maps4HTML/MapML-Proposal
-https://maps4html.org/MapML/spec/#abstract
-
+This would be great because it should ensure some transferability between the client solutions. Also it would be clearer what can be expected from the tile definition.
 
 
 ## 3.4 Figures and grounds
