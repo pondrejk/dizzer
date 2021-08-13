@@ -255,7 +255,7 @@ Vector tiles can contain attribute data which elevates the format beyond mere di
 
 For cartographer, the combination of the vector tile format, WebGL-based rendering environment and the capabilities of the client mapping libraries opens several possibilities:
 
-- Vector tiles work well for both base maps and thematic interactive overlays. Furthermore, the thematic layer can be put anywhere in the layer stack, not only on the top (more in the next section).
+- Vector tiles work well for both base maps and thematic interactive overlays. Furthermore, the thematic layer can be put anywhere in the layer stack, not only on the top.
 - Bitmap images can be easily incorporated to the style — either as polygon textures or point symbols. Data driven styling of these bitmaps is also possible to a certain degree
 - WebGL-based client libraries support additional user actions like camera tilt or orientation change 
 - Continuous zoom is supported as the vector tiles are not fixed in size by raster resolution, so smooth impression can be achieved by scaling tiles between zoom steps. This also fixes the problem of fitting the mapped area to the html viewport reliably on various screen sizes and aspect ratios 
@@ -276,48 +276,6 @@ As rendering happens on the client, the performance depends on power of the clie
 
 Overall, we still seem to lack mature standardized tools for working with various aspects of vector tiles. Diverging schema flavors and software implementations that need to act in accordance across the tool-chain enlarges the risk of vendor lock-in. On the positive note, there are some efforts under way to standardize vector tile metadata, server API or filtering language within OGC (see <http://docs.opengeospatial.org/per/> section *OGC Vector Tiles Pilot*)
 
-## 3.4 Figures and grounds
-
-Finally we will attempt to summarize the design possibilities the combination of vector tiles and WedGL rendering environment offers for cartographic visualisation of big data.
-
-TODO -- drop?
-Vector tiles bring new possibilities for combining data layers in digital maps. To see how to best utilize this, let us take an aside to think about distinctions between topographic and thematic cartography.
-
--- Tile layers good for both topogtraphic an thematic cartography. (Examples topo -- UK and Switzerland)
-
-I explore how to create thematic maps from Big data.
-
-"Topographic map is a set of entangled thematic maps"
-"Thematic map is a topographic map with one layer disproportionally enhanced"
-
-
-The starting point for a **topographic map** is a given territory, that is to be interpreted on a blank page/screen. 
-
-In *topographic mapping* we create a model of the surface, and we want to include all environmental characteristics that we believe to be relevant to the orientation in the given territory. As we do not know beforehand which features or combination of features will become useful for orientation, each layer needs to be individually retrievable without cluttering other layers. The synthetic aspect of the map is for @wood2010rethinking one of the most important features — the sign systems (layers) are in constant dialog, allowing us to extract meaning from those relations that would be hardly obtainable without using the map. 
-
-In *thematic maps*, the starting point is a phenomenon. We want to learn something about it by studying its spatial distribution, by searching spatial correlations with other features, and also by observe how the internal structure of the phenomenon changes across space and time.
-
-In both cases we overlay comprehensive sign systems (rivers, settlements, mountains...), though what differs is their relative visual prominence: we can say a thematic map is a topographic map that gives asymetric prominence to one layer of interest (though often richly differentiated in its cartographic presentation) and pushing the remaining layers to the role of toned down "base" merely aimed to provide geographical context for the reading of the topic. Sometimes things go as far as the base is reduced to the minimum (often administrative boundaries) or omitted alltogether (in such case the topographic context stems from the distribution of the signs in thematic layer — from what @wood2010rethinking calls a *tectonc* code of the map).
-
-Let us make an aside about the limitations of the concept of layers (successfully used in graphic programs such as Illustrator or Photoshop) in cartography. Example of railroads and highways — when working with raw spatial data in a map making system, say QGIS, we can easily switch the order of layers, however on all intersections the same layer will be the one overlaying/crossing the other — we can switch the order but we can not treat the intersections differently per instance. So its ether *all* railroads passing over *all* highways or the other way around, but of course in reality both situations are likely. Of course, cartography has its ways to deal with this — to entangle (mostly line) layers with each other (some more manual than others — cituj prezentaciu švajčiarov s ich generovanými národnými mapami), but this points us to the fact that layers of the real world are not cleanly separable — our experience of reality creeps in to remind us we are playing with a model.
-
-So the layers in a topographic map are not merely overlayed, they are entangled, integrated with each other. We can turn the definition around and say the topographic map is woven from a collection of collection of thematic maps.
-
-In Wood's words if the *sign systems are talking to each other* and *each sign system is potentially figure and every sign system is potentially a ground*. The thematic cartography is reducing the dialog, toning down the base layers in favor of the dominant voice of the main layer.
-
-In thematic maps, the thematic layer *is* overlayed on the base, no entangling is done. For years before we could rather say the topic is overprinted. The alchemy of the thematic cartography is to make the topic in its complexity stand out, and paradoxically this is done by manipulating the base. For example, if we look at subtle palette of 6 colour tones used in Czech ZM maps, it's clear that future thematic overlays were considered (and done, as overprints or web map overlays). There is a clear and solid border between topic and base, partly due to the technical limitations but also given by understanding base as something solid and rather fixed and the topic as abstract, fluid and driven by data with high frequency of change.
-
-The border between the topic and the base has transcended also to modern web cartography. Here, the standard around year 2010 is a base given by some pluggable tile service (predominantly stored remotely and not open to style changes) overlayed by some SVG vector shapes. WMS services are often designed as topographic maps, though there are examples of toned down style fit for a base map.
-
-The interplay between the topographic base and the thematic overlay is at scrutiny on the following lines. The question is whether there is any value in breaking this border, now the technology that could facilitate this has arrived.
-
-This means trasferring from the SVG overlay to canvas or webGL. Canvas allows for filtering of the overlayed matter — so it is possible to "manipulate" the coloring of the external base maps — it should be possible to extend those filters to make them more selective. Recently emerged base maps based solely on WebGL provide options for figure and ground.
-
-Strategies:
-- simple: pushing theme to the base (underlay)
-- harder: data driven styling based on overlay — overlay algebra that is done without touching the source data (like overprint, of multiexposure shots in photography but really beyond these analogies). It is solely based on web-gl filtering
-
-— masking
 
 ## 3.5 Aside on UX, interaction and beyond
 ————————————————-
