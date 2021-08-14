@@ -277,134 +277,26 @@ As rendering happens on the client, the performance depends on power of the clie
 Overall, we still seem to lack mature standardized tools for working with various aspects of vector tiles. Diverging schema flavors and software implementations that need to act in accordance across the tool-chain enlarges the risk of vendor lock-in. On the positive note, there are some efforts under way to standardize vector tile metadata, server API or filtering language within OGC (see <http://docs.opengeospatial.org/per/> section *OGC Vector Tiles Pilot*)
 
 
-## 3.5 Aside on UX, interaction and beyond
-————————————————-
+## 3.5 Designing user interfaces for digital maps
 
-Controls are inevitable, need to be legible same as the map view. Moreover, users need to be able to intuitively grasp how they work (TODO norman — affordances, and signifiesrs.)
+In map-based web applications, it is inevitable to design some controls for users to interact with the map. @thomas2005illuminating remarks that often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. While there is a growing body of research in the problem area, some practical advice for dealing with complexity in user interfaces is often lacking.
 
-Dan Norman — affordances and signifiers being confused terms in regular use (norman2013design)
-affordance (realtionship between objects and users, what is possible)
-signifiers (tells users about what is possible — it is important to design them)
-
-Dan Norman — complexity (norman2016living)
-Living with complexity: Complexity is inevitable (asking for simplicity is in fact asking for understandability, simple looking things can actually be quite confusing)
-
-They both contribute and are affected by the graphic fill. Contribute, as they need to share the same screen space with the map view (side note — specialized hardware controls exist, but usable only regular access for stable interfaces — TODO, there are devices used to control graphic programsi (like photoshop) with knobs and sliders, custom interfaces of online maps are out of scope, but maybe some day to day professionals interacting with maps could use them.) and sometimes has to compete for it, affected because the variability of data translates to variability of symbolizations which then complicates the legend and controls.
-
-How many affordances are viable? (Map controls coupled with legend need to signify both the meaning of the map symbol as well as the affordance — in practice the signification of affordance is often hidden, and we often rely on users to find it out — e.g. by cursor change...)
-
-Looking at UI controls with a prism of design constraints described in chapter (TODO), all three axes affect the UX as well, thogh the screen space is naturally the most significant factor (fig).
+User interface (UI) controls contribute to the overall graphic density of the application as they share the same screen space with the map view and sometimes compete for it. Looking at UI controls through the prism of design constraints described in section 3.1.1, all three axes affect the UI, though the screen space is naturally the most significant factor (fig).
 
 ![**Fig.** Screen space is the constraint with the greatest influence on the design of map controls.](imgs/img-design_constraints-ux.png)
 
-- cartographic concepts applicable in UI design and vice versa (TODO some reading on UX)
-— visual weight, negative space, generalization of ui components
+The UI design for map-based applications needs to be informed by the spatial and temporal density of the visualized data sets. Variability in attributes translates to variability of map symbolization which then complicates both the legend and the controls. 
 
-- tighter coupling of intra and extracomposition
-— legend
-— do some design and usability reading (don't make me think, check some books on product design...) <https://www.fastcompany.com/1292961/30-most-important-books-product-designers>
-— user personas, user stories...
+@norman2013design draws distinction between *affordances* and *signifiers* in product design. Affordance describes a certain relationship between objects and users -- what is possible to do with an object (e.g. doors can be opened). Signifiers notify users about affordances to prevent confusion (e.g. a "pull" sticker on the doors telling us which way to open). As @norman2016living points out, complexity in user interfaces is often inevitable, and it may not be a problem if correct signifiers are presented. Users asking for simplicity in fact ask for understandability, and simple-looking things can actually be quite confusing due to missing signifiers.
 
-- responsivity challenges
-https://codeburst.io/the-challenges-of-responsive-web-design-9d64971921fb
+In application interface design we have a tension between trying to achieve a "clean", unobtrusive look and the need to supply all the necessary information about using the application. Often just to clearly signify what items are clickable is a challenge, designers often rely on changing the cursor style when user hovers over some item, though this is not too effective on touch screen devices where hovering is not available. Having the interface littered with textual descriptions is deemed unsatisfactory, additional information is therefore often hidden and displayed as on-hover pop-up windows. Though there is no guarantee user will discover them. Another approach is to use an explanatory "wizard" at the application startup, that can be closed and revisited.
 
-- some datavis responsivness talk, interaction challenges etc:
-http://dominikus.github.io/jsconfeu_2014/#/29
-- best practices and examples collection
-http://mobilev.is/
-- apple's human interface guidelines
-https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/
+One space-saving strategy for map-based applications is coupling the legends and other explanatory graphics that supplement the map with interactive controls. For example, an interface could have a color scheme legend coupled with interactive sliders to filter the categories in the map. This approach certainly saves some precious screen space compared to having two separate elements, on the other hand it poses a greater design challenge. Such legend needs to explain the map symbolization and at the same time clearly signify what user actions it offers.
 
+Responsive web design is a pressing issue for complex interfaces especially if we want to preserve the same information quality and affordances as in the large screen views. While there is a number well designed data exploration interfaces for small screens^[see for example <http://mobilev.is/> or <https://explorer.morphocode.com/map>], we usually need to trade between information content and some user comfort. 
 
-- animation and movement: how does it support usability (blog creating usability )
-- strategies for density reduction in controls
-- combining functions (legend and histogram and brushing control) - (využiť návrh na baptisteries, legendy aj timeline z toho proposalu )
+On large screens we expect to see all the interface controls at once. On small screens we can emulate this by providing a minified version of the interface. The controls are too small to be usable, but the user receives an initial global overview and can use touch gestures to zoom in and out. There are several issues with this approach, first, mobile screen have different aspect ratio, so unless we want to force the user to turn the device horizontally, some layout reordering in necessary. The second big issue is in distinguishing the zoom actions within the map context and within the context of the whole interface. It is more common to change the application layout for small screens, though this requires users to jump between the controls and the map, either by scrolling up and down or pulling some collapsible panel in and out. Though this is not optimal as well because we can not directly observe how the changes made using the controls affect the map view.
 
-**Visual storytelling vs dashboards (TODO — I'm not doing it, should be removed or moved to previous chapter?)**
-
-Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern.
-
-What is the audience - some notes from the field:
-<https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-after-data-journalism-3c68861b7f4c>
-
-more
-
-https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
-
-scrollytelling
-
-https://medium.com/nightingale/from-storytelling-to-scrollytelling-a-short-introduction-and-beyond-fbda32066964
-https://webflow.com/blog/scrollytelling-guide?fbclid=IwAR3yRP5GAYtrHgNcN_njPk-5HwW3_ppH6sloQpna5CpxEmOm5qjQCoXBeoY
-
-arcgis storymaps
-
-Naration is quite underused 
-Narration as a workaround for cartographic rules – legibility, etc. Static map must adhere to the cartographic rules. In interactive maps (both presentational and exploratory) the argument is as follows: application doesn't need to be cartographically legit in all of it's states provided that it shows a path from the messy state to the cartographically treated state.
-
-TODO: 
-- discussion of presentational vs exploratory cartography – or better on building interfaces to support one of them. – exploratory interfaces seen loftier, most commercial assignments are presentational – in fact the threshold between presentational and exploratory capabilities is something that needs to be considered. 
-
-Amount of hand-holding?
-(move to one of the questions)
-Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas – see below on weaponization of design).
-
-– este k engagement a interface – explorable explanations (orig.: Bret Victor)
-http://worrydream.com/ExplorableExplanations/
-(also: his other essays – ladder of abstraction, learnable programming, a bref rant)
-examples, elaborations:
-https://canvas.uw.edu/courses/1370850/pages/explorable-explanations
-https://github.com/sp4ke/awesome-explorables
-https://explorabl.es/
-
-
-### UX and interaction (TODO maybe to the next section)
-———————————
-@thomas2005illuminating
-
-Visual analytics is not simply about presenting information. Rather, an analysis session is more of a dialogue between the analyst and the data, where the visual representation is simply the interface or view into the data.
-— my note: the dialog metaphor is somewhat assuming that both sides have actually something to say... rephrase: Analysis session is like tuning a radio, sometimes you get a crystal clear reception, but often it's just a noise and often you can't say if you really hear something articulate behind  the walls of noise or if it's just a trick of your immagination.
-
-
-Too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
-
-The mantra by Shneiderman [1996] of “Overview first, zoom and filter, details on demand” is well-accepted, but what are the next steps, or additional different steps? — my note: noisy overview can be a good overview too.
-
-There are at least three ways to look at the science of interaction.
-* we can look at interaction from the point of view of human time constants. This is an important viewpoint because all interaction is constrained and driven by what the user is cognitively and perceptually capable of doing. (see next chapter)
-* we can look at how interaction is used to accomplish tasks such as data manipulation, manipulation of visual mappings, navigation, and dialogue.
-* we can look at the nature of the interaction itself, including the differences between interactions in 2-dimensional (2D) and 3-dimensional (3D) environments and the effects of the devices used for interaction. — And also across different devices (responsive web design).
-
-point 2 more precisely:
-— *Interactions for modifying data transformation (filtering)*. Several common techniques are in use today, including direct manipulation, dynamic queries [Ahlberg, 1994], brushing [Cleveland & McGill, 1984], and details-on-demand.
-— *Interactions for modifying visual mappings.* Dataflow systems [Haeberli, 1988] and Pivot Tables are two examples of techniques that allow the user to interactively change mappings between the data and their visual representations.
-— *Interactions for modifying view transformation (navigation).* Interaction techniques range from simple approaches like direct selection for selecting and highlighting objects of interest, to more complex camera control techniques in 3D environments. They also include techniques for panning and zooming [Bederson et al., 1996] as well as for achieving a balance between overview and detail [Plaisant et al., 1995].
-— *Interaction for human-information discourse.* The least well understood use of interaction is to support a true human-information discourse in which the mechanics of interaction vanish into a seamless flow of problem solving. Interactions are needed to support processes such as comparing and categorizing data, extracting and recombining data, creating and testing hypotheses, and annotating data.
-
-Goals for interactions:
-
-Similarly, combining or merging interactions and controls with visible represen- tations can also speed access, control, and manipulation operations. Often, users experience a cognitive separation between the task they want to accomplish and the mechanics for accomplishing the task. New techniques can be invented that do away with the separation of “what I want and the act of doing it” [Van Dam, 2001]. Integrating views, interactions, and analytics provides significant productivity improvement for the combined human, analytical, and data system.
-
-
-focus-and context across scales
-Analysts working with large data sets want to gain a global understanding of the data and then focus on particular data items and their attributes. Alternating among levels of detail generates moment-to-moment insights and spurs new questions. A number of visualization and user interface techniques have been developed to sup- port coordinated views of both overview and detail. Greene et al. [2000] found that previews and overviews help users quickly understand the scope of their data set and discriminate between interesting and uninteresting content. Existing techniques include the use of multiple coordinated windows at different focus levels, panning and zooming operations, and so-called “fisheye” views [Plaisant et al., 1995; Furnas, 1986]. Fisheye techniques are “focus+context” views, i.e., one in which both the overview and detail are presented side by side in the same view. The power of “focus+context” comes from the ability to subjugate unimportant information for contextual navigation while using attentive focus for effectively communicating information. While existing techniques in this area are very useful, new methods must be developed that take advantage of multiple and large-area computer displays to assist analysts with inquiries on the massive data sets evident in visual analytics.
-
-data abstraction vs visual abstraction
-There are two interrelated issues in dealing with abstraction. The first is the development of an analytic capability to transform data from one representation to another. Selecting relevant information, filtering out unneeded information, performing calculations, sorting, and clustering are all components of data abstraction. Second is the development of techniques for visual abstraction. Visual abstraction involves developing effective representations for different types of information. Visual abstraction also involves the control of emphasis and level of detail. Different representations of the same object may be needed at different levels of detail, depending on the importance of that object for the given task. Secondary visual attributes can also be used to connote additional attributes that are important in reasoning,
-such as the quality of the data or the confidence in the assessment.
-
-
-Develop visual representation methods for complex information that provide
-the appropriate level of abstraction.
-Research is necessary to:
-• Identify alternative visual representations of data that best support different
-analytical tasks
-• Develop transformation methods that allow the user to move among alter-
-native visual representations to facilitate exploration and discovery
-• Provide level of emphasis and detail appropriate to the user’s data and task.
-
-
- Aside on UX — enhancing usability with motion  
-
-@willenskomer2017creating
+There is a big gap in designing data interface research for small screens. The range of possible interaction modes on mobile devices (at least 12 types of screen gestures, gyroscope, etc.) seems to be largely unutilized. On touch devices it is important for the UI to provide feedback for user to be sure what kind of touch event was performed and whether it was registered (@willenskomer2017creating). Principles of motion design for increasing usability in the UI could as well be applied to interactions within the map field.
 
 
