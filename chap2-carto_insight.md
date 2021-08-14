@@ -1,8 +1,5 @@
 # 2 Making sense of spatial big data 
 
-> *Technology is the answer, but what was the question?* 
-
-> Cedric Price
 
 In this chapter we classify spatial big data and explore the methods of spatio-temporal knowledge discovery. Then we focus on the possible ways how cartography can support understanding the world trough the lens of big data.
 

@@ -1,25 +1,20 @@
 # 1 Defining Big Data
 
-
-> *Small data are slow and sampled. Big Data are quick and n=all.*
-
-> @kitchin2016makes
-
-In this chapter we search for the defining properties of big data with focus on characteristics with possible implications for cartographic practice. We outline the main attitudes towards grasping the concept. Special consideration is given to the notion of spatial big data and the related works from the Cartography and GIS community.
+In this chapter we search for what defines big data. We describe the main attitudes towards grasping the concept. Special consideration is given to the notion of spatial big data and the related works from the Cartography and GIS community.
 
 ## 1.1 Ontological characteristics
 
-Despite the lively interest in the subject, the explanation of the term *big data* ^[Throughout the text we will treat the term as plural, without capitalization. Although there are strong arguments for "data" as singular (@widman2014when, @nunberg2013data, for counterargument emphasizing the plurality of big data see @wilson2017big) and some authors do capitalize, we chose to match with the majority of big data related literature. This does not apply to direct citations where we preserve the original author's formulation.] remains hazy. The term is often used without clarity, as there is no widely accepted definition to the date. Perhaps the most systematic effort in this matter by @kitchin2014data (refined in @kitchin2016makes) summarizes the key properties attributed to big data. Kitchin critically evaluates these properties and goes on to assign them a relative importance in distinguishing big from "small" data. He also takes care to separate the concept in itself from accompanying social phenomena, hence he speaks of *ontological* characteristics.
+Despite the lively interest in the subject, the explanation of the term *big data* ^[Throughout the text we will treat the term as plural, without capitalization. Although there are strong arguments for "data" as singular and some authors do capitalize, we chose to match with the majority of big data related literature. This does not apply to direct citations where we preserve the original author's formulation. For arguments for singular data see @widman2014when, @nunberg2013data, for counterargument @wilson2017big] remains hazy. The term is often used without clarity, as there is no widely accepted definition to the date. Perhaps the most systematic effort in this matter by @kitchin2014data (refined in @kitchin2016makes) summarizes the key properties attributed to big data. Kitchin critically evaluates these properties and goes on to assign them a relative importance in distinguishing "big" from "small" data. He also takes care to separate the concept in itself from the accompanying social phenomena, hence he speaks of *ontological* characteristics.
 
 Kitchin's taxonomy provides a useful starting point for our thinking of big data from the cartographic standpoint, so let us list the ontological characteristics including some of the Kitchin's comments:
 
 - **Volume** — can be measured in storage requirements (terabytes or petabytes) or in number of records
-- **Velocity** — data generation happens in real-time either constantly (e.g. CCTV) or sporadically (e.g. web search); we can distinguish the frequency of generation from the frequency of data *handling*, *recording*, and *publishing*, where all three can be delayed from the time of generation
+- **Velocity** — data generation happens in real-time either constantly (CCTV) or sporadically (web search); frequency of generation can differ from the frequency of data *handling*, *recording*, and *publishing*
 - **Variety** — data are heterogeneous in nature, though this property is rather weak as various levels of organization are allowed (*structured*, *semi-structured* or *unstructured*)
-- **Exhaustivity** — an entire system is captured (*n=all*), rather than working with a subset created by sampling
-- **Resolution and indexicality** — fine-grained (in resolution) rather than being aggregated; uniquely indexical (in identification), which enables linking to other datasets
-- **Relationality** — containing common fields that enable the conjoining of different datasets
-- **Extensionality and scalability** — flexibility of data generation, possibility to add or change new fields easily, possibility to rapidly expand in size
+- **Exhaustivity** — the entire system is captured (*n=all*), rather than subset created by sampling
+- **Resolution and indexicality** — data are fine-grained rather than being aggregated; data are uniquely indexical, which enables linking to other datasets
+- **Relationality** — data contain common fields that enable the conjoining of different datasets
+- **Extensionality and scalability** — data generation is flexible, it is possible to add or change fields easily, data can rapidly expand in size
 
 In relation to these characteristics it is important to mention two open questions that for many people make attempts to define big data vague at best, sometimes to the point of questioning the existence of the phenomenon itself.
 
@@ -27,36 +22,35 @@ First, there are no quantitative thresholds that would define exactly how large 
 
 The second problem is that even if we had a clearly defined set of criteria, in practice we could hardly find a dataset that would fit all of them. Therefore not all properties are deemed mandatory, which in turn leads to confusion and labeling almost anything as big data. To articulate the gist of the term, more work is needed on the relations of the parameters, some might be merged (resolution is a consequence of exhaustivity, indexicality enables relationality) or discarded (extensionality and scalability seem to describe the infrastructure rather than data).
 
-Aware of these problems, @kitchin2016makes argues that *velocity* and *exhaustivity* are qualities that set big data apart and distinguish them from "small" data. We can add that these two characteristics also present the most interesting challenges to cartographic presentation of such data. So even though we will continue to use the established term in the following chapters, the little too simplistic adjective "big" will be meant as a proxy for **generated continuously in real time and containing an unreduced set of elements**.
-
+Aware of these problems, @kitchin2016makes argue that *velocity* and *exhaustivity* are qualities that set big data apart and distinguish them from "small" data. We can add that these two characteristics also present the most interesting challenges to cartographic visualisation of such data. If we adopt this view, we can treat the rather too simplistic adjective "big" as a short name for *generated continuously in real time and containing an unreduced set of elements*.
 
 ## 1.2 Other ways of understanding big data
 
-In this section we briefly review the writing of authors seeking to define big data. The term itself was fist used in context of dealing with massive datasets in mid-1990s by John Mashey [@diebold2012personal], but the heaviest circulation of the term in scientific and popular media takes place only in recent years. From the breadth of works, several tendencies can be identified, providing more or less illuminating interpretations of the subject.^[for an alternative summary of definitions see @gandomi2015beyond, for bibliometric analysis of related scientific literature see @nobre2017scientific.]
+In this section we briefly review the writing of authors that seek to define big data. The term itself was fist used in context of dealing with massive datasets in mid-1990s by John Mashey [@diebold2012personal], but the heaviest circulation of the term in scientific and popular media took place only in recent years. Some general tendencies keep reappearing in the plethora of works.^[For an alternative summary of definitions see @gandomi2015beyond, for bibliometric analysis of related scientific literature see @nobre2017scientific.]
 
 ### 1.2.1 Vs and keywords
 
-Kitchin's taxonomy mentioned in the previous section is based on a review of older definitions, starting with the often-cited three Vs (standing for *volume*, *velocity*, and *variety*) by @laney20013d. The notion of *exhaustivity* was added by @mayer2013big, concepts of *resolution* and *indexicality* came from @dodge2005codes, @boyd2012critical adds *relationality*, and the qualities of *extensionality* and *scalability* were taken from @marz2012big.
+Kitchin's taxonomy mentioned in the previous section is based on a review of older definitions, starting with the often-cited three Vs (*volume*, *velocity*, and *variety*) by @laney20013d. The notion of *exhaustivity* was added by @mayer2013big, concepts of *resolution* and *indexicality* came from @dodge2005codes, @boyd2012critical add *relationality*, and the qualities of *extensionality* and *scalability* were taken from @marz2012big.
 
-Other properties attributed to big data include *veracity* (data can be messy, noisy and contain uncertainty and error) and *value* (many insights can be extracted, data can be repurposed), both brought forward by @marr2014big referring to the messiness and trustworthiness that is usually less controllable in case of big data. One could argue that these properties are just an another aspect of variety, as data vary not only in type and structure, but also in quality. This is can be the case for small data as well, however as @marr2014big hopes, "the volumes often make up for the lack of quality or accuracy", which is sure debatable.
+Other properties attributed to big data include *veracity* (data can be messy, noisy and contain uncertainty and error) and *value* (many insights can be extracted, data can be repurposed), both brought forward by @marr2014big. One could argue that these properties are just aspects of variety, as data vary not only in type and structure but also in quality. This is can be the case for small data as well, @marr2014big argues that "the volumes often make up for the lack of quality or accuracy", which is surely debatable.
 
 Moreover, *variability* (the meaning obtainable from data is shifting in relation to the context in which they are generated) was identified by David Hopkins in relation to text analysis [@brunnelli2011will]. @li2016geospatial name also *visibility* (efficient access to data via cloud storage and computing) and more curiously *visualistation* as big data properties.
 
-@suthaharan2014big, dealing with a task of early recognition of big data characteristics in computer network traffic, argues that three Vs do not support such early detection in continuous data streams. Instead he proposes three Cs: *cardinality* (number of records), *continuity* (meaning both representation of data by continuous functions, and continuous growth of size with time), and *complexity* (which is again a combination of three parameters: *large varieties of data types*, *high dimensionality*, and *high speed of processing*). One might ask why authors seek to propose parameters in triples, even at the cost of occluding additional properties as sub-parameters. Possible answer might be that such triples allow to create three-dimensional parameter spaces or "cubes" where we can place datasets to create neat visualisations. Humor aside, Suthaharan's approach is interesting in observing the rate of change in parameters in real time.
+@suthaharan2014big, dealing with early recognition of big data characteristics in computer network traffic, argues that three Vs do not support such early detection in continuous data streams. Instead he proposes three Cs: *cardinality* (number of records), *continuity* (meaning both representation of data by continuous functions, and continuous growth of size with time), and *complexity* (which is again a combination of three parameters: *large varieties of data types*, *high dimensionality*, and *high speed of processing*). One might ask why the author seeks to propose parameters in triples, even at the cost of occluding additional properties as sub-parameters. Suthaharan's approach is though interesting in observing the rate of change in parameters in real time.
 
-Laney's 3 Vs were brought into commercial management-speak and became a slogan further powering the hype of big data. Nevertheless, it inspired a number of other authors to extend it quite creatively. For example @uprichard2013focus lists other v-words to be considered, both in positive (*versatility*, *virtuosity*, *vibrancy*...) and negative (*valueless*, *vampire-like*, *violating*...) light. @marr2014big describes five Vs of big data, @van20133v sees seven Vs, @boellstorff2015introduction propose three Rs and @lupton2015thirteen even uses thirteen p-words to describe the subject. But as @kitchin2016makes notes, "these additional v-words and new p-words are often descriptive of a broad set of issues associated with big data, rather than characterising the ontological traits of data themselves".
+Laney's 3 Vs were brought into commercial management-speak and became a slogan further powering the hype of big data. Nevertheless, it inspired a number of other authors to extend it quite creatively. For example @uprichard2013focus lists other v-words to be considered, both in positive (*versatility*, *virtuosity*, *vibrancy*...) and negative (*valueless*, *vampire-like*, *violating*...) light. @marr2014big describes five Vs of big data, @van20133v sees seven Vs, @boellstorff2015introduction propose three Rs and @lupton2015thirteen even uses thirteen p-words to describe the subject. But as @kitchin2016makes note, "these additional v-words and new p-words are often descriptive of a broad set of issues associated with big data, rather than characterising the ontological traits of data themselves".
 
 ### 1.2.2 A challenge for technical infrastructure
 
-Several authors understand big data mainly as a management issue, which is probably due to the fact that handling large datasets is challenging. Hence, the computational difficulties of storing and processing a dataset on a single machine often act as a defining measure. Consider for instance @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” Or similarly @shekhar2012spatial state that “the size, variety and update rate of datasets exceed the capacity of commonly used spatial computing and spatial database technologies to learn, manage, and process the data with reasonable effort”. 
+Several authors understand big data mainly as a management issue, which is probably due to the fact that handling large datasets is difficult. Hence, the computational difficulties of storing and processing a dataset on a single machine often act as a defining measure. Consider for instance @storm2012big quoting Hillary Mason: “Big Data usually refers to a dataset that is too big to fit into your available memory, or too big to store on your own hard drive, or too big to fit into an Excel spreadsheet.” Or similarly @shekhar2012spatial state that “the size, variety and update rate of datasets exceed the capacity of commonly used spatial computing and spatial database technologies to learn, manage, and process the data with reasonable effort”. 
 
-The problem with such definitions is determining exactly what size is "too big to fit" and what is the "reasonable effort". The computational power of hardware accessible for personal use is constantly increasing ^[Gordon Moore's 1965 paper [reprint @moore2006cramming] stated that the number of transistors on integrated circuits will double every two years. The prediction has proven accurate for several decades and became known as *Moore's law*. The pace has slowed down with smaller transistors suggesting that the prediction is reaching its technological limit, though the opinions here vary. The overuse of the idea as a synonym of progress has been criticized as too simplistic for example by @kreye2015moores], not to mention the technical infrastructure accessible to large enterprises and governmental organizations — datacenter construction is steadily growing and is expected to almost double the current capacity in 2021 [@statista2018data; @networking2018cisco].
+The problem with such definitions is in determining exactly what size is "too big to fit" and what is the "reasonable effort". The computational power of hardware accessible for personal use is constantly increasing ^[Gordon Moore's 1965 paper (reprint @moore2006cramming) stated that the number of transistors on integrated circuits will double every two years. The prediction has proven accurate for several decades and became known as *Moore's law*. The pace has slowed down with smaller transistors, which might mean we are reaching a technological limit, though opinions here vary. The overuse of the therm as a synonym of progress has been criticized as too simplistic for example by @kreye2015moores], not to mention the technical infrastructure accessible to large enterprises and governmental organizations — data center construction is steadily growing and is expected to almost double the 2016's capacity in 2021 (@statista2018data, @networking2018cisco, see also \ref{fig1}).
 
-At the same time, new technologies emerge to address the issue — virtualization of storage, networking, and memory make it possible to rent computational infrastructure from "cloud" providers, or to delegate workloads previously carried out by the operating system to remote platforms ^[*Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house [@rouse2018cloud]. The cloud models include providing infrastructure, platform or application as a service; main vendors of public cloud solutions are Amazon Web Services, Google Cloud Platform or Microsoft Azure.]. Other innovations take place in data processing algorithms, analytic engines, and in database design (a whole range of No-SQL databases as well as enablement of distributed processing in traditional databases) ^[Processing and analytical frameworks designed for big data include Apache Hadoop, Apache Spark, or Apache Flink. No-SQL databases use a column, graph, document, key-value, or multi-model solution as an alternative to traditional relational database design.]. Some attempts to summarize technical solutions for big data can be found in @paakkonen2015reference, or @jin2015significance.
+At the same time, new technologies emerge to address the issue — virtualization of storage, networking, and memory make it possible to rent computational infrastructure from "cloud" providers, or to delegate workloads previously carried out by the operating system to remote platforms ^[*Cloud computing* enables companies to consume a compute resource, such as a virtual machine, storage or an application, as a utility rather than having to build and maintain computing infrastructures in house [@rouse2018cloud]. The cloud models include providing infrastructure, platform or application as a service; most popular public cloud solutions to date are Amazon Web Services, Google Cloud Platform and Microsoft Azure.]. Other innovations take place in data processing algorithms, analytic engines, and in database design (a whole range of No-SQL databases as well as enablement of distributed processing in traditional databases) ^[Processing and analytical frameworks designed for big data include Apache Hadoop, Apache Spark, or Apache Flink. No-SQL databases use a column, graph, document, key-value, or multi-model solution as an alternative to traditional relational database design.]. Some attempts to summarize technical solutions for big data can be found in @paakkonen2015reference, or in @jin2015significance.
 
-As we can see, the "too big to fit" definitions are highly dependent on the resources currently available, plus we need to take into account future improvements that are hard to predict. That being said, understanding the subject as *data that prevent local offline processing on common desktop in reasonable time* is a useful shorthand for judging big from "small" data. The border between local (offline) and remote (cloud-dependent) processing exists even though it is a blurry and a dynamic one. As the remote processing may be more widely accessible in the future, it can be best advised to consider the scalability of any data-processing workflows early on. In other words, any workflow designed as a potential big data process will likely have an advantage, as design limitations may prove to be overcome harder than the technical ones. 
+As we can see, the "too big to fit" definitions are highly dependent on the resources at hand, plus we need to take into account future improvements that are hard to predict. That being said, understanding the subject as *data that prevent local offline processing on common desktop in reasonable time* is a useful shorthand for judging big from "small" data. The border between local (offline) and remote (cloud-dependent) processing exists, even though it is blurry and dynamic. Cloud processing will likely be increasingly accessible, one should consider the scalability of any data-processing workflows early on. In other words, any workflow designed as a potential big data process will likely have an advantage, as design limitations may prove to be overcome harder than the technical ones. 
 
-One point of confusion for readers of big data related literature that often reoccurs is mixing the characteristics of the subject (stored information) with properties of technologies used to process it (storage, analytics, visualisation, etc.). It is debatable if this is a fallacy, depending on to what degree we consider digital data independent from the technical infrastructure around it^[Real world analogies may not be helpful here: for example the properties of gold are independent of the tools used to mine it. On the other hand, many forms of interaction with digital data are inseparable from the technical infrastructure.]. To illustrate the difference, compare the following two definitions. Fist by @gartner2018what:
+One reoccurring point of confusion for readers of big data related literature is mixing the characteristics of the subject (stored information) with the technologies used to process it (storage, analytics, visualisation, etc.). If this is a fallacy is debatable, depending on to what degree we consider digital data independent from the surrounding technical infrastructure^[Real world analogies may not be helpful here: for example the properties of gold are independent of the tools used to mine it. On the other hand, many forms of interaction with digital data are inseparable from the technical infrastructure.]. To illustrate the difference, compare the following two definitions. Fist by @gartner2018what:
 
 *Big data is high-volume, high-velocity and/or high-variety information assets that demand cost-effective, innovative forms of information processing that enable enhanced insight, decision making, and process automation.*
 
@@ -64,16 +58,16 @@ The second by @gantz2011extracting defines big data as:
 
 *A new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data by enabling high-velocity capture, discovery, and/or analysis.*
 
-The understanding of big data as an asset prevails, though the second type portraying big data as an ecosystem is not uncommon (e.g. @demchenko2014defining or @olshannikova2015visualizing). Eventually, this division may lead to dual understanding of big data in narrow sense as a fuel or raw material and in broad sense as an ecosystem, architecture, or  framework. A good example of broader thinking is @demchenko2014defining that proposes a "Big Data Architecture Framework" comprised of big data infrastructure, big data analytics, data structures and models, big data life cycle management, and big data security.^[This is close to holistic definitions discussed later in this chapter, though these tend to be less confined in technology realm and mixing in procedural aspects and wider societal implications.] 
+The understanding of big data as an asset prevails, though the second type portraying big data as an ecosystem is not uncommon (e.g. @demchenko2014defining or @olshannikova2015visualizing). Eventually, this division may lead to dual understanding of big data in narrow sense as a fuel or raw material and in broad sense as an ecosystem, architecture, or  framework. A good example of broader thinking is @demchenko2014defining that proposes a "Big Data Architecture Framework" comprised of big data infrastructure, big data analytics, data structures and models, big data life cycle management, and big data security.^[This is close to holistic definitions discussed later in this chapter, though these tend to be less confined in technology realm, mixing in procedural aspects and wider societal implications.] 
 
 
 ### 1.2.3 Showing example sources and quantities
 
-A very common description of big data goes along the lines of "I will give you some numbers and you will get what I mean". Such writing may not provide an exact understanding of the concept, but can put us into context about the scales we are moving at. Doubtlessly the mass of retained data is growing, as @mcnulty2014understanding put it, "90% of all data ever created was generated in the past 2 years" (that was in 2014). In a notable attempt to estimate the World's overall data generation between 1986 and 2007, @hilbert2011world claim that more then 300 exabytes ^[1 exabyte = 1 000 000 000 gigabytes] of stored data existed in 2007 (for the methodology of reckoning see @hilbert2012measure). The key insight is the growing domination of digital technologies accounting for the majority of the annual growth after year 2000. More recent accounts report on machines potentially capable of processing brontobytes ^[1 brontobyte = 1 000 000 000 exabytes] of data [@bort2014there].
+A very common description of big data goes along the lines of "I will give you some numbers and you will get what I mean". Such writing may not provide an exact understanding of the concept, but can give us some context about the scale of things. Doubtlessly the mass of retained data is growing, as @mcnulty2014understanding puts it, "90% of all data ever created was generated in the past 2 years" (that was in 2014). In a notable attempt to estimate the World's overall data generation between 1986 and 2007, @hilbert2011world claim that more then 300 exabytes ^[1 exabyte = 1 000 000 000 gigabytes] of stored data existed in 2007 (for the methodology of reckoning see @hilbert2012measure). The key insight is the growing domination of digital technologies accounting for the majority of the annual growth after year 2000. More recent accounts report on machines potentially capable of processing brontobytes ^[1 brontobyte = 1 000 000 000 exabytes] of data [@bort2014there].
 
-Increasing the storage capacity itself does not speak of any qualitative change in what is stored, therefore some archives could indeed be described as big piles of small data. Under certain circumstances, new quality can arise from increased quantity, for example as @norvig2011unreasonable points out, an array of static images projected at a sufficient frame rate creates an illusion of movement, and hence the new medium also known as film. Multiplication of an old medium creates a new one. The remaining question is under what conditions this change of essence arises, and if such thing occurs or will occur in case of big data. To fast forward a bit, the cartographic version of this question would be: *will a digtal map based on big data (fast and n=all) be essentially different from web maps based on static and sampled data sources?*.
+Increasing the storage capacity itself does not speak of any qualitative change in what is stored -- archives and libraries could be described as big piles of small data. Under certain circumstances, new quality can arise from increased quantity, for example as @norvig2011unreasonable points out, an array of static images projected at a sufficient frame rate creates an illusion of movement, and hence the new medium also known as film. Multiplication of an old medium creates a new one. The remaining question is: under what conditions this change of essence arises, and if such thing occurs or will occur in case of big data. The cartographic version of this question would be: *would a digital map based on big data (fast and n=all) be essentially different from digital maps based on static and sampled data sources?*.
 
-![**Fig.1** Comparison of the World's estimated data storage capacity between years 1968 and 2007 (modified after @hilbert2011world) and the expected storage capacity of large scale data centers in the period from 2016 to 2021 (modified after @networking2018cisco)](imgs/img-storage-capacity.png)
+![**Fig.1** Comparison of the World's estimated data storage capacity between years 1968 and 2007 (modified after @hilbert2011world) and the expected storage capacity of large scale data centers in the period from 2016 to 2021 (modified after @networking2018cisco).\label{fig1}](imgs/img-storage-capacity.png)
 
 Rather than putting up to a gargantuan task of counting the mass of all existing data items, authors use the available statistics related to operations of large companies (@kambatla2014trends, @mcnulty2014understanding, @marr2014big and others). For example, Facebook was said to process 10 billion messages, 4.5 billion button clicks and 350 million picture uploads each day [@marr2014big]. It goes without saying these numbers are outdated and certainly outgrown today. Other companies prominently mentioned in context of big data are Google, Wallmart, or Amazon. This connection is justified, as these companies have put user (or customer) data analytics to the core of their businesses, thus supporting the progress in the field. Social media, web search and browsing data, online or offline shopping patterns, but also mobile devices, sensors and large scientific projects are mostly named as generators of big data.
 
@@ -225,9 +219,6 @@ To @mayer2013big big data stand for "the ability of society to harness informati
 
 # 2 Making sense of spatial big data 
 
-> *Technology is the answer, but what was the question?* 
-
-> Cedric Price
 
 In this chapter we classify spatial big data and explore the methods of spatio-temporal knowledge discovery. Then we focus on the possible ways how cartography can support understanding the world trough the lens of big data.
 
@@ -289,93 +280,11 @@ To develop further on the kinds of interaction with spatial data, we can explore
 
 Point spatial data of large extent complicate observing such relations. We rarely ask about a single specific point from the set, more often we seek to extract some tendency of the whole point cloud. The nature of some data sources can dictate some spatial relationships (such as vehicles being spatially bound the road network), but in many cases the density of point cloud obscures the base map and precludes depicting of attribute variability within the set.
 
-Spatial relations between point clusters are harder to conceptualize than it is with polygonal features. @egenhofer1991point describe 16 types of spatial relations (9 if reduced to spatial regions relevant in GIS) in two dimensional space. However, in their approach @egenhofer1991point define the point sets by their exterior boundary and then treat them as polygons. But delineating the exterior boundary is a challenge in itself, for example when dealing with smooth transitions in point density at the border, or when outliers are present. Spatial relations between point clouds in three dimensions are the subject of extensive research in the fields of computer vision and indoor navigation (e.g tran2017extracting or chen2019deep). However, the motivation here is object identification. In these lines of research the point cloud is representing distinct solid objects in the real space that need to be extracted, so the point cloud itself is not an object of research. For cartography, the point sets already come with some assigned attributes, so there is usually no need to label them algorithmically. Large point sets tend to get unruly, and saying anything meaningful about spatio-temporal relations of multiple such clouds is increasingly challenging for the basic set theory (see Fig ). 
+Spatial relations between point clusters are harder to conceptualize than it is with polygonal features. @egenhofer1991point describe 16 types of spatial relations (9 if reduced to spatial regions relevant in GIS) in two-dimensional space. However, in their approach @egenhofer1991point define the point sets by their exterior boundary and then treat them as polygons. But delineating the exterior boundary is a challenge in itself, for example when dealing with smooth transitions in point density at the border, or when outliers are present. Spatial relations between point clouds in three dimensions are the subject of extensive research in the fields of computer vision and indoor navigation (e.g tran2017extracting or chen2019deep). However, the motivation here is object identification. In these lines of research the point cloud is representing distinct solid objects in the real space that need to be extracted, so the point cloud itself is not an object of research. For cartography, the point sets already come with some assigned attributes, so there is usually no need to label them algorithmically. Large point sets tend to get unruly, and saying anything meaningful about spatio-temporal relations of multiple such clouds is increasingly challenging for the basic set theory (see Fig ). 
 
 ![**Fig.** With polygonal features it is usually straightforward to identify the type of spatial relationship in 2D space (a). When replacing point clouds with polygon representations to apply set logic, the problem of meaningful boundary delineation arises (b). For several complex layers it is harder to say anything revealing about their spatio-temporal relationship (c).](imgs/point-cloud-spatial-relationships.png)
 
-**Temporal relations** are measures of coincidence. There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data collection activity of any entity can be either continuous or discrete in time. It is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations. Linear conceptualization of time can be supported with cyclical and branching time, there can be discrepancies between the temporal parameters of the base map and the thematic overlay, or between the time interval of existence and representations.
-
-
-**Relations specific to moving objects** – moving objects have a specific set of properties based on their spatio-temporal circumstances. These can be *instantaneous* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to external event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
-
-
-TODO — move stuff from time section — taxonomy of termporal events:
-how to measure velocity (already in chap 1)
-
-— thickenss of durative code in wood's terms (different for real objects and for map layers too)
-— other assessment — events per unit of map time
-— time scale, time resolution
-
-**Taxonomy of temporal events**
-
-To define the possibilities of visualisation of time, a taxonomy of temporal events is needed. From the perspective of location, three types of changes can be proposed - appearance or disappearance, mutation, and movement [20] @blok2005dynamic. From the perspective of the temporal domain, it is possible to distinguish moment, sequence, duration, pace, and frequency. Single events can also interact with each other and occur or partially overlay within the same space or/and time.
-
-
-
-@ott2001time
-
-taxonomic model of time (based on @frank1998different)
-
-|        |            | Total Order       | Partial Order       | Branching      | Multiple                        |
-|————|——————|—————————-|——————————-|————————|————————————————-|
-| Linear | Ordinal    | Single experience | Multiple experience |                |                                 |
-|        |——————|————————————————————-|                |                                 |
-|        | Continuous | Continuous time                         | Branching time | Time with multiple perspectives |
-|————|——————|————————————————————-|                |                                 |
-| Cyclic | Ordinal    | Cyclic time                             |                |                                 |
-|        |——————|                                         |                |                                 |
-|        | Continuous |                                         |                |                                 |
-|————|——————|————————————————————-|————————|————————————————-|
-
-
-Both linear and cyclic time can have different granularities, (unit 1 chronon can have different values (1 year, 1day...))
-Changing granularity (through aggregation or conversly decomposition)
-
-bi-directional time structure (branching time) (based on @hazelton1992developments)
-
-past —> future
-     |—-> future worlds modelled from past
-     |
- <—-|—-> present
- <—-|
-retrospectivelly
-modelled worlds
-
-
-Relations between time intervals (after @allen1985common):
-
-before
-.....
-      .....
-
-starts
-......
-.........
-
-finishes
-..........
-    ......
-
-meet
-........
-      ............
-
-equals
-..........
-..........
-
-
-overlaps
-......
-  .....
-
-during
-............
-  .......
-
-notes from pelekis2004literature 
-
-Temporal relations
+**Temporal relations** are measures of coincidence between temporal events. A taxonomy of temporal events is helpful to define the possibilities of visualisation of time. From the perspective of location, three types of changes can be proposed -- *appearance or disappearance*, *mutation*, and *movement* (@blok2005dynamic). From the perspective of the temporal domain, it is possible to distinguish *moment*, *sequence*, *duration*, *pace*, and *frequency* (@ott2001time). There are thirteen possible relations between two temporal records described in @allen1984towards. As we have seen with stations, agents and events, the existence and data collection activity of any entity can be either continuous or discrete in time. It is therefore useful to distinguish between *time point* and *time interval* when investigating temporal relations (see figures).
 
 ![**Fig.** Temporal relations between time points. Adopted from @aigner2011visualization](imgs/time-relationships-1.png)
 
@@ -383,10 +292,11 @@ Temporal relations
 
 ![**Fig.** Temporal relations between two time intervals. Adopted from @aigner2011visualization](imgs/time-relationships-3.png)
 
+Though we perceive time as linear sequence of events, other conceptualizations are posible (see fig.). Cyclical time points out that many events arround us repeat in some stable intervals (such repetition is in fact a basis for time measurement units). Branching time is another concept that relies on our ability to model alternative future outcomes. @hazelton1992developments speaks of bi-directional time structure as we can also retrospectivelly model past words. We encounter branching time in our interaction with artificial systems where a sort of time travel is possible (think of the undo and redo buttons) -- for example if I move back in the history of my changes in a text editor and at some point I start to make new changes, I efectivey created a new branch of the document history (and in most editors, the changes in the abandoned then become inacessible). For even more elaborate taxonomic model of time see @frank1998different.
 
-Time classifications: linear/cyclical, time points/time intervals, oredered time/branching time
+![**Fig.** Illustrations of linear, branching and cyclical time concepts.](imgs/img-time-conceptualizations.png)
 
-![**Fig.** Linear, branching and cyclical time](imgs/img-time-conceptualizations.png)
+**Relations specific to moving objects** – moving objects have a specific set of properties based on their spatio-temporal circumstances. These can be *instantaneous* (actual position and speed), *interval-based* (e.g. travel distance from departure), *episodic* (related to external event) or *total* (related to entire trajectory). (@laube2007movement, andrienko2008basic). 
 
 
 ### 2.2.2 From data mining to visual analytics
@@ -494,8 +404,6 @@ Researchers in cartography and geovisualisation see big data as an opportunity a
 - *Create maps and map-oriented interfaces that prompt attention to important changes in dynamic geospatial big data sources* – We will need to work with global changes, local changes and combinations across scales. In addition, if we display every possible change at once, then the graphical displays become cluttered. Creating summaries of change may be the solution, but we do not yet know how to select important patterns and generalize to something that a user can understand.
 - *Leverage what we know about map animation and interactive cartography to construct visual solutions for dynamic sources of geospatial big data* –  Conventional solutions for interactive mapping, animated mapping or geovisual analytics can be used for representing big data. However, because of the high velocity characteristic of big data, it is necessary to develop solutions that can automate map design decisions to support interactive design solutions that respond (or potentially precede based on modelled outcomes) as the data changes.
 
-[TODO later link to sections that resonate with the above goals]
-
 As @thomas2005illuminating describes, "an emerging discipline progresses through four stages. It starts as a craft and is practiced by skilled artisans using heuristic methods. Later, researchers formulate scientific principles and theories to gain insights about the processes. Eventually, engineers refine these principles and insights to determine production rules. Finally, the technology becomes widely available. The challenge is to move from craft to science to engineering to systems that can be widely deployed". Cartography, being a university study field had arguably crossed the four stages in the past, though with constant advances in tools for data processing and building interactive applications, the field could benefit from regularly revisiting the craft stages to see how the new tools alter our concepts of mapmaking.
 
 This thesis does not have the ambition to imagine all the paths cartography could take in the future. However, in addition to mentioned agendas, we would like to highlight three overreaching questions that we feel are not widely discussed within cartography. Much of the work described in the remaining chapters of this thesis is rooted in pondering on the following questions about the practice of digital mapmaking:
@@ -520,13 +428,13 @@ Some of the classical cartographic techniques may be demanding to implement in t
 
 *(c) Should cartography focus more on the interaction design?*
 
-Creating digital maps is not only about assigning appropriate visualisation type to the data at hand. It also becomes increasingly about designing user interactions with map elements. The ways how the map application enables user actions, the way how map controls and map elements react to user-induced changes, the way how the whole map composition adapts to screen space constraints, this all weaves a complex net of interdependent design decisions that will become an inherent part of digital cartography. What is more, the challenges of high data density affect both map intra-composition as well as extra-composition^[TODO explain these terms?].
+Creating digital maps is not only about assigning appropriate visualisation type to the data at hand. It also becomes increasingly about designing user interactions with map elements. The ways how the map-based application enables user actions, the way how map controls and map elements react to user-induced changes, the way how the whole map composition adapts to screen space constraints, this all weaves a complex net of interdependent design decisions that will become an inherent part of digital cartography. What is more, the challenges of high data density affect both map intra-composition (more data in the map) as well as extra-composition (greater complexity of the user interface).
 
-As @robinson2017geospatial note, too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
+As @robinson2017geospatial note, too often in the visual analytic process, researchers tend to focus solely on visual representations of the data while interaction design is not given equal priority. Furthermore, they stress the need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
 
-In the IT industry there is a discipline of UX (user experience) that could provide some inspiration for example in accessibility evaluation, though most of its methods doesn't fit very well to the specifics of interactive maps. At the same time, large web map providers probably collect user interaction data that could power cartographic research if they were accessible.
+The IT industry is witnessing raising prominence of UX (user experience) design. This discipline could provide some inspiration for example in accessibility evaluation, though most of its methods does not fit very well to the specifics of interactive maps. At the same time, large web map providers most likely collect some user interaction data that could power cartographic research if they were accessible.
 
-But we shouldn't limit our sight to software interfaces to get inspiration. There are tons of well designed devices in the physical world that could serve as an example of clever interface design. There is a potential on expanding the repertoire of interaction techniques for digital maps. As mapped themes vary greatly the interactions could be tailor-fit as is often is with visualisations. As we have seen many times in history of innovation, progress is often hampered by mental roadblocks we don't even realize we have.
+But we should not limit our sight to software interfaces to get inspiration. There is a breadth of well designed devices in the physical world that could serve as an example of clever interface design. There is a potential on expanding the repertoire of interaction techniques for digital maps. As the mapped themes vary greatly, the interactions could be tailor-fit as is often is with visualisations. As we have seen many times in history of innovation, progress is often hampered by mental roadblocks we don't even realize we have.
 
 
 ### 2.3.2 How next? Challenges in collaborative practice
@@ -550,7 +458,7 @@ In this model the collaboration points lie at the transitions between the stages
 * *Communicating data mappings* – this is a concern when delivering static mockups for the development team. The mapping between data and the interface controls may not be obvious, especially when the complexity of data does not allow to exemplify all possible application states. Annotations within mockups try to ease this.
 * *Preserving data mapping integrity across iterations* – tracking implementation adherence to the design, finding errors, as well as checking if change requests from previous iterations got implemented is solely a matter of visual inspection and therefore prone to error. This can be fixed by automated testing, though it is not feasible for all types of projects, and even if implemented, the test coverage can rarely reach 100%.
 
-Project examples form @walny2019data show that the above challenges were formulated based on project experience with relatively static data inputs. This underlines why interactive cartographic visualisation of real-time data is hard: much of the advice is hard to impossible to follow when the real-time data inflow is volatile. [TODO link on chapter on data mocking]
+Project examples form @walny2019data show that the above challenges were formulated based on project experience with relatively static data inputs. This underlines why interactive cartographic visualisation of real-time data is hard: much of the advice is hard to impossible to follow when the real-time data inflow is volatile.
 
 ### 2.3.3 Who cares? Building user engagement
 
@@ -685,24 +593,21 @@ The variants of spatial aggregation can be differentiated by the type of the *co
 
 Both point clustering and binning are implemented in client mapping libraries in some form, either natively, via plug-ins or with combination of other libraries.^[For example Leaflet implements clusters via the Leaflet.MarkerCluster plugin, hexagonal binning is available in combination with D3.js or Turf.js libraries.]
 
-From the point of big data visualisation it is important to note how is the aggregation performed — whether on the client, or via some preprocessing on the server. Recalling our distinction from the img (TODO link) aggregation performed on the client is positioned more in the visual space. It has some advantages — possibility to show original data along with the aggregates or scale dependent aggregation without reloading the data from the server. Though, with large datasets theses virtues quickly turn to burdens — with high point density, showing the original points may not aid the map reading and recalculation of aggregates with every zoom change might pose a performance toll on the client.
+From the point of big data visualisation it is important to note how is the aggregation performed — whether on the client, or via some preprocessing on the server. Both variants have their pros and cons. Aggregation performed on the client gets us a possibility to show original data along with the aggregates or perform scale dependent aggregation without reloading the data from the server. Though, with large datasets theses virtues quickly turn to burdens — with high point density, showing the original points may not aid the map reading and recalculation of aggregates with every zoom change might pose a performance toll on the client.
 
 ![**Fig.** Automatic marker clustering example in two adjacent zoom levels (reas.cz).](imgs/img-point-clusters.png)
 
-In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions.
+In point clusters, the scale dependent processing allows to create just as many aggregates as it is needed by the existing congestions. The most widely used point clustering algorithm called *hierarchical greedy clustering* (see fig) starts with a random point in the dataset and selects all the points that are within a certain specified radius -- these points are marked as cluster members. Then the algorithm jumps to a different random point that is not part of the cluster, and the process is repeated until all points in the dataset have been visited. This is done with the source point locations only in the highest zoom level. In other zoom levels the same process is repeated using the centroids of the clusters from the previous zoom level as an input (@agafonkin2016clustering).  
 
-![**Fig.** Illustration of the marker clustering algorithm. One configurable parameter is the radius of the circle zone. ](imgs/img-marker-cluster-alg.png)
+![**Fig.** Illustration of the marker clustering algorithm. The single configurable parameter is the radius of the circle zone. Adopted from @agafonkin2016clustering.](imgs/img-marker-cluster-alg.png)
 
-TODO (img) — some description how the leaflet binning algorithm works and how it could be improved to incorporate also attribute information along with density (dynamic zone perimeter — so that unnecessary clusters are not formed, scale dependent and density dependent rules, cluster symbols as pie charts (adamov plugin),  offload count information on some administrative polygons that wouldn't change with scale) sources:
-
-https://blog.mapbox.com/clustering-millions-of-points-on-a-map-with-supercluster-272046ec5c97
-https://regionbound.com/region-aware-marker-clustering-for-maps
+Although the described algorithm proceeds fast (as the number points to be processed decreases exponentially with each zoom level), it leaves little room to adjusting the outcomes -- the only configurable parameter is the cluster radius. There some implementations that allow to set additional constraint, for example to make sure that clusters are not formed across some defined spatial boundaries (@region2020aware). 
 
 Scale dependent binning (fig) keeps the bin shapes constant relative to the map window — with zoom changes the number of data points falling into each bin changes, so does the area covered by the individual bin, which both influences the spatial pattern. The size of the bin is the parameter that needs to be specified so that it is granular enough for the desired scale interval. If the bin size is too large, the variance in the spatial pattern is smoothed, if bins are too small several no data gaps can appear (see fig.). With the discrete number of zoom intervals the number of aggregations is limited and small which is a good situation to support caching, on the other hand continuous zoom makes the number of possible aggregations much higher.  
 
 ![**Fig.** Hexbin aggregation using Leaflet with leaflet-d3 plugin. At too widely different scales the bin size remains constant. Input points are regrouped on with zoom level change on the client.](imgs/img-hex-sizes.png)
 
-The per-scale visualisation changes are also problematic form the cognitive point of view. Changes in spatial pattern cause a loss of orientation between zoom levels. It is not possible to easily trace how the aggregations in some zoom level match to what is displayed in higher or lower zoom levels. For example on fig (TODO above) it is hard to match the clusters between two zoom levels — their number, size, position and point count changes. Point clusters are especially taxing as they occlude the position of source points, their attribute values as well at the spatial extent of the cluster. Some implementations try to battle this by showing the spatial extent of the cluster on demand^[<https://github.com/Leaflet/Leaflet.markercluster>] or by the ability to expand the cluster to see the values of its members^[<https://github.com/adammertel/Leaflet.MarkerCluster.PlacementStrategies>]. Scale dependent hexbins also cause this problem, though they are better at communicating densities within one zoom level.
+The per-scale visualisation changes are also problematic form the cognitive point of view. Changes in spatial pattern cause a loss of orientation between zoom levels. It is not possible to easily trace how the aggregations in some zoom level match to what is displayed in higher or lower zoom levels. For example on fig it is hard to match the clusters between two zoom levels — their number, size, position and point count changes. Point clusters are especially taxing as they occlude the position of source points, their attribute values as well at the spatial extent of the cluster. Some implementations try to battle this by showing the spatial extent of the cluster on demand^[<https://github.com/Leaflet/Leaflet.markercluster>] or by the ability to expand the cluster to see the values of its members^[<https://github.com/adammertel/Leaflet.MarkerCluster.PlacementStrategies>]. Scale dependent hexbins also cause this problem, though they are better at communicating densities within one zoom level.
 
 These client implementations expect point data on the input and calculate clusters or bins on the fly based on some (limited) configuration parameters to determine the visualisation. As we haves seen, there are perceptual arguments for keeping the aggregation constant across the zoom levels — in case of binning it means keeping the true spatial coverage of the bin consistent across scales — so that the bin size on the screen adjusts with the zoom level. Such approach aligns well with the demands of big data processing that favor creating the aggregation on the server (most likely in the spatial database) and pass it to the client in some vector form. This way the client doesn't need to load any data points that eventually won't be displayed. Real time data inflow can be processed on the server where all kinds of optimizations can take place (e.g. just updating the bind that actually changed, parallel processing, etc.). On the other hand, this approach can hit some storage size limits in vector tiles (we will describe soon) as increasingly more data will be included ind higher level tiles.
 
@@ -719,7 +624,7 @@ When it comes to the shape of the referential geometry, we can chose from three 
 
 ![**Fig.** Comparison of selected mosaic shapes to circle. Hexagons are closest to the circle, which translates in more efficient data aggregation around the bin center.](imgs/bi-shapes-dist-to-edge.png)
 
-Considering polygons with equal area, the more similar to a circle this polygon is, the closer to the center the border points are (especially vertices — see fig). Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles. This makes the hexagon the best space filling mosaic, which also contains only one type of neighborhood (fig.) Centroids in the hexagonal mosaic form a triangular grid, so an individual hexagon has the same distance from all its neighbours.Hexagonal mosaic is therefore the most efficient and compact division of two dimensional plane.
+Considering polygons with equal area, the more similar to a circle this polygon is, the closer to the center the border points are (especially vertices — see fig). Thus any point inside a hexagon is closer to the center of any given point in an equal area square or triangle would be. This is because square and triangles have more acute angles. This makes the hexagon the best space filling mosaic, which also contains only one type of neighborhood (fig.) Centroids in the hexagonal mosaic form a triangular grid, so an individual hexagon has the same distance from all its neighbours.Hexagonal mosaic is therefore the most efficient and compact division of two-dimensional plane.
 
 ![**Fig.** Types of neighbourhood in regular shape mosaics.](imgs/binning-neighbourhoods-3.png)
 
@@ -727,23 +632,20 @@ The vertex type of neighbourhood can cause visual ambiguity about the compactnes
 
 From the cartographic point of view, there are other aspects of hexagonal grids that are interesting. If the grid is used for collecting spatial samples, it should be projected to the cartographic projection so that each cell really covers equal area. This may become a problem when the grid is used as an un-projected graphic overlaid over a large area influenced by distortions of the cartographic projection (see e.g. hexagons in the image in fig *Hexbin aggregation using Leaflet with leaflet-d3* cover gradually smaller area from south to north especially on the left image — due to the distortion of Mercator projection).
 
-The assignment of value to the mosaic cell is another topic to consider. The composite objects communicate the information via assigned visualization method. Predominantly, the fill color is used to denote the point count or density within the region. If we are more interested in the attribute variation, we can assign color based on some statistic of member point attributes — mean, median, variance, etc. Each of these choices come with a toll (like hiding outliers) and should be tailored to the context of the visualisation or user-adjustable. Also any classification method will also have impact on the overall visualisation. Apart from the classical selection (equal interval, Jenks, quantile, logarithmic...) there are also newer promising contributions to the classification problem like *head/tail breaks*(@jiang2018complex), bayesian weighting (@correll2017surprise) or uncertainty-adjusted scales (@correll2018value). There is also a possibility to split cells to make them work similarly to pie or stacked charts^[<https://cran.r-project.org/web/packages/hextri/vignettes/hexbin-classes.html>].
+The assignment of value to the mosaic cell is another topic to consider. The composite objects communicate the information via assigned visualization method. Predominantly, the fill color is used to denote the point count or density within the region. If we are more interested in the attribute variation, we can assign color based on some statistic of member point attributes — mean, median, variance, etc. Each of these choices come with a toll (like hiding outliers) and should be tailored to the context of the visualisation or user-adjustable. Also any classification method will also have impact on the overall visualisation. Apart from the classical selection (equal interval, Jenks, quantile, logarithmic...) there are also newer promising contributions to the classification problem like *head/tail breaks*(@jiang2018complex), bayesian weighting (@correll2017surprise) or uncertainty-adjusted scales (@correll2018value). There is also a possibility to split cells to make them work similarly to pie or stacked charts (@lumley2015multi).
 
-^Hexbin as a placement grid to include symbol visualisations — relation to overlays —TODO img some discussion on masking (dasymetric method) — http://wiki.gis.com/wiki/index.php/Dasymetric_map
+Explorer -- TODO somewhere <https://tinlizzie.org/spatial/>
+
+Multi-parametric cartographic visualisation can also employ hexagonal grids, this time as an outline for placement of proportional symbols, compound charts or other visual artifacts. The shape of the hexagon allows for various kinds of proportional splitting and versatile symbol placement strategies (some experiments in chapter 4). Notice that using the hexagonal grid as a symbol placement outline disrupts the impression of a continuous surface the layer has when only hue is applied. Also it precludes applying masks to the hexagon layer to reduce the visual load and to provide geographic context (a.k.a. dasymetric method, see Fig)
 
 ![**Fig.** Dasymetric method, not applicable to most multivariate hexbin visualisation methods](imgs/img-textures-and-buildings.png)
 
-Then there are approaches that try to combine the density and attribute visualisation either by employing a bipolar color scale or by placing supplementary signs to the grid^[see e.g. <https://github.com/adammertel/Leaflet.RegularGridCluster>]. If the proportion of various parameters within the cell is of interest, pie charts can be neatly placed to fit the hexagonal grid. This way we can also compare densities of multiple point datasets. Trying to visualize both the density and attribute information of one dataset leaves little room for comparison of multiple datasets, but then the interaction or multiple map views can be employed. Another approach to multiparametric visualisation is in proportionally scaling the grid cells themselves^[<https://geo.rocks/post/hexbins-js-hll/>]. Also 
+Then there are approaches that try to combine the density and attribute visualisation either by employing a bipolar color scale or by placing supplementary signs to the grid (see e.g. @mertel2021regular). If the proportion of various parameters within the cell is of interest, pie charts can be neatly placed to fit the hexagonal grid. This way we can also compare densities of multiple point datasets. Trying to visualize both the density and attribute information of one dataset leaves little room for comparison of multiple datasets, but then the interaction or multiple map views can be employed. Another approach to multi-parametric visualisation is in proportionally scaling the grid cells themselves (@weckmuller2019hyper).
 
 Another parameter to consider is the cell size in the hexagonal grid. If the bins are designed too big relative to the map scale, the pattern of phenomenon can become unrecognizable. On the other side, very small bins can lead to gaps in the grid in some implementations (see fig). Statisticians proposed several heuristics to select bin sizes for to aid sampling (@sturges1926choice, @scott1979optimal, @hyndman1995problem), though for visualisation purposes we usually prefer the finest grid that is technically possible simply because it yields most informative and aesthetically rewarding maps.
 
-There are many other interesting aspects to hexagonal grids that are not directly related to visualisation but may have some applicability in digital maps, for example coordinate systems, coordinate ranges or reflections withing the grid (for more see https://www.redblobgames.com/grids/hexagons/) 
+There are many other interesting aspects to hexagonal grids that are not directly related to visualisation but may have some applicability in digital maps, for example coordinate systems, coordinate ranges or reflections withing the grid (for more @patel2020hexagonal). Hexagonal grid is also often employed as a sample collection pattern and it apt for use with back-end tools to build approximate queries across datasets that are too large to permit full aggregation in real time (with bounded error and response time (@agarwal2013blinkdb)) or by performing online aggragation — showing continuously updating aggregates and confidence intervals in response to a stream of samples (@hellerstein1997online, @fisher2012trust)
 
-TODO If dataflow is too high to suport backend aggregation in real time:
-
-— research on combining sampling and aggregation: BlinkDB — builds fast approximate queries a multi-dimensional and multi-resolution stratified samples and computes aggregates over this reduced data. BlinkDB — queries with bounded errors and bounded response times @agarwal2013blinkdb
-
-— online aggregation — showing continuously updating aggregates and confidence intervals in response to a stream of samples — hellerstein1997online, fisher2012trust
 
 ### 3.2.3 Symbology fine tuning
 
@@ -753,14 +655,13 @@ Adjusting symbology properties is possibly the simplest first solution. Conflict
 
 ![**Fig.** Congestion resolution in proportional symbols — (a) reordering, (b) transparency, (c) scaling down, (d) displacement](imgs/img-conflict-res.png)
 
-
 The question of classical de-cluttering techniques becomes more interesting if we turn our attention towards automating them. The automation will increasingly become necessary because with dynamic systems we do not know beforehand how the data will look like — the congestions will arise dynamically and will have to be resolved on the fly. It certainly helps if some data properties can be estimated beforehand (e.g. the atmospheric temperature in some location is unlikely to break out of its previously measured bounds by the order of magnitude). On the first glance, the majority of mentioned techniques is achievable with current tools for web mapping^[maybe with the exception of symbol displacement, chart rendering libraries like D3.js support collision resolving in bubble charts though that is not being widely used in the context of web maps]. But if we put the current implementations under close scrutiny, even playing with something as simple as symbol transpareny can yield some unexpected variants that highlight the limitations of how we currently render maps on the web (see fig).
 
 ![**Fig.** A simple exploration of handling proportional symbol overlap. (a) The rendering order of symbols is from the largest to smallest. This can prevent hidden symbols, but doesn't allow to see the underlying layers. (b) Transparency alone can permit a glimpse trough, but the overlapping parts in the symbology create a distractive visual artefact, also it can be suboptimal for heavily congested areas (the small symbol in the centre is now illegible). (c) Darker outlines ensure all symbols are visible, but also contribute to the visual clutter in the overlapping parts. (d) One might attempt to omit fills altogether but that tends to make the irritation of overlaps even bigger — the artefacts created by intersections now visually compete with the actual symbols. (e) This is not the variant of *(a)* with white fills, here the fills are blank but overlapping borders are removed, which means the fills act as opaque when clashing with symbols in the same layer (removing the problem in *(d)*) but are fully transparent towards lower layers. From now on we move beyond what is readily available in client mapping libraries. (f) Combination of *(b)* and *(e)* can be useful when having fills is important e.g. for added symbolization. Toned down outlines help to identify individual symbols. We can say there are two modes of transparency within one symbol layer: while outlines are self-opaque (not visible in the self-overlapping areas of the symbol layer) the fills are self-transparent (overlaps are shown). Both fills and outlines are transparent towards the lower layers. (g) Variation of *(f)* — some displacement between the fill and the slightly transparent outline creates an interesting 3D effect. Though this is mainly a toy effect as it is highly dependent on the clean background — for the small symbols in the center it is not visible. (h) An example of how *(e)* might work in combination with another symbol layer. (i) A reversal of *(e)* where fills are solid towards lower layers but outlines are fully transparent. The progression of the border in the underlying layer is observable through transparent outlines in the symbol layer. (j)(k)(l) Additional complexity arises from using color scale to visualize an additional data attribute. Both fill and outline can be used to carry color. In theory, there are several possibilities to ensure legibility even for two overlaying bi-parametric symbol layers. The assignment of fill and the outline width determine which layer will seem dominant. In interactive environments the user could change symbolization to visually reorder layers while maintaining the overall picture.](imgs/img-circle-overlays-2.png)
 
-The images in fig were created in a desktop vector graphic programme (Adobe Illustrator) by manually playing with shapes not linked to any data or coordinate system. Adobe Illustrator features like *flatten transparency* were used to combine multiple layers to create the impression of dual transparency and other effects in pictures (f)—(l) of fig. As such, the process is not translatable to interactive maps based on dynamic data. To our knowing, graphic effects (e)—(l) would not be achievable neither in current web nor desktop mapping platforms. (TODO not true — in svg it is posible — check stack overflow post)
+The images in fig were created in a desktop vector graphic programme (Adobe Illustrator) by manually playing with shapes not linked to any data or coordinate system. Adobe Illustrator features like *flatten transparency* were used to combine multiple layers to create the impression of dual transparency and other effects in pictures (f)—(l) of fig. As such, the process is not translatable to interactive maps based on dynamic data. To our knowing, graphic effects (e)—(l) would not be achievable neither in current web nor desktop mapping platforms^[Though in pure SVG it is possible to the mask element to achieve similar effects, see <https://stackoverflow.com/questions/66000769/is-there-a-way-to-draw-shapes-so-that-their-fills-act-as-opaque-within-the-group>].
 
-It seems that current cartographers have to split their energy between three types of tools that are each good for some tasks but fairly deficient in other areas. Desktop graphic software like Adobe Illustrator or Inkscape allows for graphic idea profiling and advanced vector manipulation, desktop GIS programs like QGis or ArcGis provide a whole arsenal of spatial data manipulation tools, and web mapping solutions like Leaflet or Mapbox are great for interactive data presentation. These tools are not very interoperable and the synthesis is nowhere near^[TODO check ArcGis + ArcOnline alebo jak sa to vola]. 
+It seems that current cartographers have to split their energy between three types of tools that are each good for some tasks but fairly deficient in other areas. Desktop graphic software like Adobe Illustrator or Inkscape allows for graphic idea profiling and advanced vector manipulation, desktop GIS solutions like QGIS or ArcGIS provide a whole arsenal of spatial data manipulation tools, and web mapping solutions like Leaflet are great for interactive data presentation. These tools are not very interoperable and the synthesis is nowhere near.
 
 Often the visually problematic areas in the thematic layer do not span through the entire map field. Rather there are some clusters of concentrated symbols with high self-overlap and the rest of the field is distinguishable without treatment. Static maps deal with such clusters by insetting another map field in larger scale focused on the problematic area (common for example in socio-economic maps of Poland where the densely inhabited region of Silesia almost always exhibits symbol clutter). Although technically nothing prevents adding insets to dynamic web maps, it is not often seen in practice. Maters would be worse in real time visualisation of dynamic data as the position problematic areas is not known beforehand. Here the automatic cluster detection would make sense not only for inserting inset maps as needed but also for tracking the spatial and temporal distribution of clusters.
 
@@ -768,7 +669,7 @@ For dynamic (web) mapping we are not confined by a fixed scale, therefore we can
 
 Zooming and panning are interaction modes that for many users basically define what interactive map is. But it is peculiar that beyond these modes we don't see much more dynamic interaction options in web maps. WebGL based client libraries added the change of orientation and tilt around the z axis but when it comes to interacting with the thematic layer, we are usually left with some selection, filtering and on-hover pop-up bubbles that act as on-demand labels for selected features. Rarely the user is allowed to tamper with the actual symbolization. The linked view interfaces like GeoDa or more recently dashboards like Grafana rely on amassing several visualisation types for displaying various aspects of the same dataset, but the actual cartography in these interfaces is very simple (usually a choropleth). But for interacting with massive dynamically rendered datasets there must be more options for the user to moderate the cognitive load, including change of symbolization, visual weight and order of thematic layers.
 
-To minimize the risk of conflict between the base map and the thematic layer, web map developers use toned down base maps often stripped down to the bare visual minimum (e.g. Carto Positron is an example of popular base tile layer). But base map is not only a background canvas for thematic layer, in reality the spatial phenomena are in part a product of other spatial relations that constitute the overall environment and we feel there is an unexplored potential to portray this relationship in the interplay of figure and ground in the thematic maps (TODO see further in chapter).
+To minimize the risk of conflict between the base map and the thematic layer, web map developers use toned down base maps often stripped down to the bare visual minimum (e.g. Carto Positron is an example of popular base tile layer). But base map is not only a background canvas for thematic layer, in reality the spatial phenomena are in part a product of other spatial relations that constitute the overall environment and we feel there is an unexplored potential to portray this relationship in the interplay of figure and ground in the thematic maps.
 
 ## 3.3 Rendering Spatial Data  
 
@@ -776,7 +677,7 @@ How is the cartographic design influenced by the rendering technology employed? 
 
 ### 3.3.1 SVG, Canvas, WebGL
 
-**SVG** is a well known and much loved format for displaying two dimensional vector graphics on the web. Since the start of development in 1999 it has become an often used alternative to bitmaps with wide browser support. Unlike the remaining two technologies, SVG is a vector format, which implies scalability^[the acronym stands for Scalable Vector Graphics after all], constant graphic quality across devices, and smaller storage size. The straightforward XML syntax allows for easy integration with JavaScript and CSS. SVG files can be easily autogenerated, searched, compressed or indexed by web crawlers. SVG is an example of the "retained mode" graphics model, were graphic library constructs a scene from primitives defined by a declarative API and keeps the model of the scene in memory. Elements of an SVG graphic exist in the site's DOM which allows for attaching JavaScript event handlers to sub components of a graphic. This feature makes SVG a good choice for implementing interactive graphics — it powers popular web charting libraries like D3.js. Also, it is a default technology for data overlays in web mapping library Leaflet.
+**SVG** is a well known and much loved format for displaying two-dimensional vector graphics on the web. Since the start of development in 1999 it has become an often used alternative to bitmaps with wide browser support. Unlike the remaining two technologies, SVG is a vector format, which implies scalability^[the acronym stands for Scalable Vector Graphics after all], constant graphic quality across devices, and smaller storage size. The straightforward XML syntax allows for easy integration with JavaScript and CSS. SVG files can be easily autogenerated, searched, compressed or indexed by web crawlers. SVG is an example of the "retained mode" graphics model, were graphic library constructs a scene from primitives defined by a declarative API and keeps the model of the scene in memory. Elements of an SVG graphic exist in the site's DOM which allows for attaching JavaScript event handlers to sub components of a graphic. This feature makes SVG a good choice for implementing interactive graphics — it powers popular web charting libraries like D3.js. Also, it is a default technology for data overlays in web mapping library Leaflet.
 
 On the flip side, SVG graphics being a part of the DOM quickly becomes a bottleneck when working with large dynamic data sets or when animation is required. @eberhardt2020rendering reports that SVG charts can typically handle around 1,000 datapoints, @baur2015weighing mentions a maximum limit of 10,000 static elements and 1,000 animated elements^[For a simple benchmarking site to do your own experiments (with caution) visit <http://dominikus.github.io/stars/>].
 
@@ -796,7 +697,7 @@ On the other hand, the complexity of the developer experience is seen as the mai
 
 ### 3.3.2 GLSL and the GPU rendering pipeline
 
-As we outlined above, WebGL provides a JavaScript API that allows to create and manipulate GLSL constructs (called shaders) that access pixels and vertices the graphics card works with (see Fig). In the simplest terms, the graphics card or GPU decides how to use the pixels on the screen to create the image. GPU is a piece of hardware designed specifically for performing the complex mathematical and geometric calculations that are necessary for graphics rendering. These calculations are done in a massively parallel and hardware accelerated manner (math operations are resolved directly by the microchips instead of by software), which makes the computations many orders of magnitude faster than an equivalent computations performed on the CPU. The GPU understands vertices, textures, and little else; it has no concept of material, light, or transform. The translation between those high-level inputs and what the GPU puts on the screen is done by the shader, and the shader is created by the developer (@parisi2012webgl).
+As we have outlined above, WebGL provides a JavaScript API that allows to create and manipulate GLSL constructs (called shaders) that access pixels and vertices the graphics card works with (see Fig). In the simplest terms, the graphics card or GPU decides how to use the pixels on the screen to create the image. GPU is a piece of hardware designed specifically for performing the complex mathematical and geometric calculations that are necessary for graphics rendering. These calculations are done in a massively parallel and hardware accelerated manner (math operations are resolved directly by microchips instead of by software), which makes the computations many orders of magnitude faster than an equivalent computations performed on the CPU. The GPU understands vertices, textures, and little else; it has no concept of material, light, or transform. The translation between those high-level inputs and what the GPU puts on the screen is done by the shader, and the shader needs to be created by the developer (@parisi2012webgl).
 
 ![**Fig.** An attempt to illustrate the basic WebGL concepts. A triangle is the base graphic primitive from which the more complex graphics are built. The canvas provides a drawing context where the viewport is initialized. The viewport delimits the operating space and coordinate system. Vertices A,B,C hold coordinates and color (besides other data), the triangle fill is interpolated from vertices. The close-up circle shows the fragments (pixels) that make up the overall image. Both vertices and fragments can be directly manipulated by GLSL.](imgs/img-webgl-elements2.png)
 
@@ -808,7 +709,7 @@ Shaders are pieces of GLSL code that define how vertices, transformations, mater
 
 To understand shaders a bit clearer, let us describe what an application needs to do to render WebGL graphics as well as what are the steps the GPU performs to make it possible. The factual base for this section is owed to @parisi2012webgl, @agafonkin2017how, @vivo2015book, @ademovic20163d, and @oconnor2017gpu.
 
-In order to render WebGL into a page, an application must first obtain a drawing context for the canvas and then initialize the viewport in it. To WebGL, viewport is conceptually a 3D space, spanning between -1 and 1 on the x, y, and z axis (z axis is used even for 2D graphics to perform depth checks). Within this space, drawing is done with use of primitives — types of geometric objects (mostly triangles but also points and lines). Primitives use arrays of data, called buffers, which define the positions of the vertices. The application creates one or more vertex buffers and passes them to the GPU RAM. Next, the (simplified) graphic pipeline goes as follows (see also Fig):
+In order to render WebGL onto a page, an application must first obtain a drawing context for the canvas and then initialize the viewport in it. To WebGL, viewport is conceptually a 3D space, spanning between -1 and 1 on the x, y, and z axis (z axis is used even for 2D graphics to perform depth checks). Within this space, drawing is done with use of primitives — types of geometric objects (mostly triangles but also points and lines). Primitives use arrays of data, called buffers, which define the positions of the vertices. The application creates one or more vertex buffers and passes them to the GPU RAM. Next, the (simplified) graphic pipeline goes as follows (see also Fig):
 
 ![**Fig.** A simplified diagram of the GPU rendering pipeline, description in the text.](imgs/img-graphic-pipeline.png)
 
@@ -822,372 +723,154 @@ In order to render WebGL into a page, an application must first obtain a drawing
 
 * *Rendering target Output*. Finally the fragment is written to the render target – which is usually a frame buffer (memory object storing values pixels in the canvas). Before that, several validation tests are performed, depth check discards occluded fragments and transparent fragments are blended.
 
-The fact that shaders are executed on the GPU means that developers cannot rely on console output for testing and debugging as they are used to with programs run on the CPU. Instead they need to find a way to express your test or debugging condition in terms of color that is the only output of shader programs. Moreover, shaders are run for every vertex of fragment in parallel. Running in parallel means that the execution thread "blind" to what other threads are doing. There is no way to check the results of execution in one thread form the other parallel thread or pass data between threads. Also there is no persitent memory that would store of the previous computation results for fragments, so with changes the whole scene is rendered anew.  
+The fact that shaders are executed on the GPU means that developers cannot rely on console output for testing and debugging as they are used to with programs run on the CPU. Instead they need to find a way to express their test or debugging condition in terms of color that is the only output of shader programs. Moreover, shaders are run for every vertex of fragment in parallel. Running in parallel means that the execution thread is "blind" to what other threads are doing. There is no way to check the results of execution in one thread form the other parallel thread or pass data between threads. Also there is no persitent memory that would store the previous computation results for fragments, so with changes the whole scene is rendered anew. Besides the abstraction required to code a general function that changes the result pixel by pixel depending on its position, the blind and memoryless constraints make shaders not very popular among beginning programmers (@vivo2015book).
 
-Besides the abstraction required to code a general function that changes the result pixel by pixel depending on its position, the blind and memoryless constraints make shaders not very popular among beginning programmers (@vivo2015book).
+To improve the developer experience, a number of wrapper libraries have been created to provide high-level, developer-friendly features on top of raw WebGL^[Implementing such wrapper toolkits is made possible thanks to the performance increase in web browsers’ JavaScript virtual machines (VMs)]. Libraries like Three.js and Pixi.js make WebGL programming more accessible as a lot can be done in them using pure JavaScript. There is also a growing number of libraries supporting geospatial features we will describe in the next section.
 
+To previous description is a simplified account -- for example, to complement one important aspect -- the gpu rendering pipeline can also accept bitmaps as an input that is used mostly to generate textures during vertex shading. Bitmap swatches are applied repeatedly in a mosaic to create texture or to combine with values calculated from vertices (which is an example of using hatches in mapbox-gl see image below (TODO)). Also, bitmap icons (so called sprites) can be placed in the WebGL context either as map icons or text labels. We can conclude this section with a not that GPU-aided computation is likely to increase even beyond the field of computer graphics. Presently it is to employ (NVIDIA) GPUs in to preform heavy computations (see the *Cuda* and *TensorFlow* Python libraries). 
 
-TODO — how to import bitmaps (spritesheet) and svg to webgl canvas? — how to do it in MapboxGL? — library takes care of it — in pipeline bitmaps can be drawn during vertex shading.
-
-— also a sidenote on how to use GPU for other claculations (like python for big data — there is some library, python coda)
-
-  extra: GPU utilizaiton in computation:
-  https://www.geeksforgeeks.org/running-python-script-on-gpu/ numba (only NVIDIA GPUs supported)
-  - computation heavy solutions https://pytorch.org/docs/stable/notes/cuda.html
-  - https://www.tensorflow.org/guide/gpu
-
-
-??
-Each library does things a bit differently, but they share the goal of implementing high-level, developer-friendly features on top of raw WebGL. The fact that toolkits like Three.js exist at all is due, in no small part, to how powerful web browsers’ JavaScript virtual machines (VMs) have become in recent years. A few years back, VM performance would have made implementing such libraries prohibitive, and perhaps even made WebGL a nonstarter for practical use. Thankfully, today’s VMs scream, and, with libraries like Three.js, WebGL has been made accessible to the millions of web developers on the planet. ^VM = Javascript engine (https://en.wikipedia.org/wiki/JavaScript_engine)
-
-also reliance on implementations — eg mapbox.gl didn't choose to implement blending modes
 
 ### 3.3.3 Tour of Vector Tiles
 
-How is WebGL useful for cartographic visualisation? While it is certainly possible to develop spatial interfaces directly using WebGL scripting, many of the advances in client rendering has been already utilized in a format known as *vector tiles*.
-
-Vector tiles build on some concepts inherent to raster tiles that were until recently the main tool for serving spatial information online. In many other aspects the two technologies are far apart. Let us now briefly describe the raster tiles to be able to compare and contrast later on.
+How is WebGL relevant for cartographic visualisation? To answer this question, let us begin with the first stage in GPU rendering pipeline and a sub-question: how to efficiently load spatial data to the GPU? One of the options is a recent innovation, data-transfer format known as *vector tiles*. Vector tiles build on some concepts inherent to raster tiles that were until recently the main tool for serving maps online. In many aspects the two technologies are far apart, so let us first briefly describe the raster tile format for comparison.
 
 *Raster tiles*
 
-Traditionally, the large majority web maps were based on raster tiles technology and it is still used very often. The idea of raster tiles is basically to divide the world map 
-into manageable sections (tiles) that can be easily served over the network. In the browser, these tiles are assembled to create a seamless impression of the map for the specified area.    
+Traditionally, the large majority web maps was based on the raster tile technology. The idea of raster tiles is basically to divide the world map into manageable sections (tiles) that can be easily served over the network. In the browser, these tiles are assembled to create a seamless impression of the map for the specified area.
 
-Tiles are squared images (usually PNGs in 256×256 pixel dimensions), each with a fixed geographical area and scale. Each tile is assigned a quadratic key that determines its position in the scale hierarchy, tile coordinates and the zoom level.^[Tile coordinates are based on a hierarchical square net over the Mercator projection. As such, coordinates differ per zoom level: x goes from 0 (left edge 180 °W) to 2<sup>zoom</sup> − 1 (right edge is 180 °E); y goes from 0 (top edge is 85.0511 °N) to 2<sup>zoom</sup> − 1 (bottom edge is 85.0511 °S). The upper and lower bounds are cut off so that the whole world is encoded as one square. To explore these parameters see <https://labs.mapbox.com/what-the-tile/>]. Tiles are stored in a file structure or a database, so that the server can select and serve the needed files upon request.
+Tiles are square images (usually PNGs in 256×256 pixel dimensions), each with a fixed geographical area and scale. Each tile is assigned a quadratic key that determines its position in the scale hierarchy, tile coordinates and the zoom level.^[Tile coordinates are based on a hierarchical square net over the Mercator projection. As such, coordinates differ per zoom level: x goes from 0 (left edge 180 °W) to 2<sup>zoom</sup> − 1 (right edge is 180 °E); y goes from 0 (top edge is 85.0511 °N) to 2<sup>zoom</sup> − 1 (bottom edge is 85.0511 °S). The upper and lower bounds are cut off so that the whole world is encoded as one square.]. Tiles are stored in a hierarchical file structure or a database, so that the server can select and serve the needed files upon request.
 
-To consume raster tiles, the client mapping library (say Leaflet.js), based on initial parameters ( viewport size, initial coordinates of the central point and the zoom level, requests the tiles that are needed from the tile server. User interactions like pan and zoom trigger requests for additional tiles. The tiling keeps the amount of transferred data at bounded and predictable levels. On the flip side, the tiles being plain raster images have no concept of what data they display — feature rich tiles have the same storage size as the "empty" tiles (e.g. single-color ocean areas). Furthermore, tiles for the feature-empty areas need to be generated for all zoom levels the map supports. 
+To consume raster tiles, the client mapping library (say Leaflet.js), based on initial parameters (viewport size, initial coordinates of the central point and the zoom level) requests the tiles from the server. User interactions like pan and zoom trigger requests for additional tiles. The tiling keeps the amount of transferred data at bounded and predictable levels. On the flip side, the tiles (being plain raster images) have no concept of what data are displayed — feature rich tiles have the same storage size as the "empty" tiles (e.g. single-color ocean areas). Furthermore, tiles for the feature-empty areas need to be generated for all zoom levels the map supports. 
 
-There are several tools generate raster tiles form any source spatial data (Mapnik is the most used open source engine to do that). Styling the data and rendering the tiles is the first step in the process, which is not very flexible when there is a need to recreate tiles based on changing data (tile caching servers aim to ease the need for tile recreation TODO true?). Client is merely a consumer of the tiles that are not easily adjustable to client-specific needs, for example translation of labels based on browser locale is not possible unless there is a parallel language-specific version pre-rendered on the server.
+There are several tools generate raster tiles form any spatial data (*Mapnik* is the most used open source engine to do that). Styling the data and rendering the tiles is the first step in the process, which is not very flexible when there is a need to recreate tiles based on changing data. Client is merely a consumer of the tiles that are not easily adjustable to client-specific needs -- for example translation of labels based on browser locale is not possible unless there is a parallel language-specific version pre-rendered on the server.
 
-From the cartographic point of view, the raster tile technology brings several specifics. Fixed tile size means discrete zoom steps we discussed earlier. The cartographic decisions regarding the map appearance are done at the side of the tile provider. For client-based thematic mapping, the tiles are mainly used as a base map from an external source that is beyond cartographer's control^[That is if we exclude hacking with CSS and Canvas filters like in <http://humangeo.github.io/leaflet-tilefilter/demo.html>]. Mapping libraries natively allow for SVG and Canvas overlays for custom data, the mapmaker's task is to select a base map from wide array of providers^[For continuously updated overview see <https://leaflet-extras.github.io/leaflet-providers/preview/>] that fits the theme with the style and information content and doesn't clash too much with the overlaid data.
+Raster tiles have several specifics also from the cartographic point of view. Fixed tile size dictates discrete zoom levels. The cartographic decisions regarding the map appearance are done at the side of the tile provider. For client-based thematic mapping, the tiles are mainly used as a base map is beyond cartographer's control^[If we exclude fiddling with CSS and Canvas filters like in <http://humangeo.github.io/leaflet-tilefilter/demo.html>]. Client libraries natively allow for SVG and Canvas overlays for custom data, the mapmaker's task is to select a base map from the quite wide selection of providers^[For continuously updated overview see <https://leaflet-extras.github.io/leaflet-providers/preview/>] that fits the theme with the style and information content and doesn't clash too much with the overlaid data.
 
 We will now focus on the advantages of vector tiles, but that is not to say that raster tiles are no longer used or useful. Even though there are no utilization statistics available, with large map providers like Google Maps moving to vector tiles (in larger scales) we can assume that vector tiles are in majority when it comes to page views. That being said, raster tile sources are still demanded and used in many thematic map projects, not to mention legacy implementations. Also, some data sources warrant raster encoding, e.g. aerial photography or scans of heritage maps.
 
 *Vector tiles*
 
-As the name suggests, vector tiles are comprised of vector data instead of the rendered raster image. What remains unchanged is encoding into tile coordinates and zoom levels. Vector tiles build on a data exchange format called *protocol buffer* (or protobuff). Protobuff is a binary format that enforces schema on encoded data, which makes it a much more efficient in storing structured data compared to human-readable formats like JSON, XML or CSV.
+As the name suggests, vector tiles use vector data instead of raster images. 
+Vector tiles build on a data exchange format called *protocol buffer* (or protobuff). Protobuff is a binary format that enforces *schema* on encoded data, which makes it a much more efficient in storing structured data compared to human-readable formats like JSON, XML or CSV.
 
-The tile scheme, the addressing system, extents and scale levels for common implementations of vector tiles are the same as for raster tiles described above. The geometries are encoded within the extent of individual tiles^[For details see <https://docs.mapbox.com/vector-tiles/specification/#encoding-geometry>], the tile itself contains no information about the geographic bounds and projection. The individual tiles are then stored as protobuffs in a hierarchical folder structure for serving based on zoom levels^[Mapbox implementation supports a wrapper format .mbtiles that is essentially an sqlite database file.].
-
-(TODO — note about features split between the tiles? — reconstructing geometry)
+The hierarchical structure, the addressing system, spatial extents and scale levels for common implementations of vector tiles are the same as for raster tiles described above. The geometries are encoded within the extent of individual tiles^[For details see <https://docs.mapbox.com/vector-tiles/specification/#encoding-geometry>], the tile itself contains no information about the geographic bounds and projection. The individual tiles are then stored as protobuffs in a hierarchical folder structure for serving based on zoom levels^[Mapbox implementation supports a wrapper format .mbtiles that is essentially an sqlite database file.].
 
 Unlike raster tiles, vector tile also encodes feature attributes. Internally, the tile is structured so that it contains one or more layers comprised of features with defined geometry type, geometry and attributes.^[To dive deeper into vector tile schema definition and the internal structure see <https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4-internal-structure>] The protobuff format supports concatenation, which means we can easily add or combine layers from various tile sources. 
 
-In contrast to raster tiles, rendering happens at the very end of the data exchange process between the server and the client. The client library is responsible requesting the tiles form the server, applying the style information and passing the instructions to the rendering pipeline on the client (geometry and styling information from tiles is fed to GPU in form of vertex buffers — see FIG, one draw per tile per layer.).
-https://github.com/mapbox/mapbox-gl-js/issues/6791
+In contrast to raster tiles, rendering happens at the very end of the data exchange process between the server and the client. The client library is responsible for requesting the tiles, applying the style information and passing the instructions to the rendering pipeline on the client (geometry and styling information from tiles is fed to GPU in form of vertex buffers — see FIG, one rendering per tile per layer.).
 
-There are several types of software that is used to manage various aspects of vector tiles. We can distinguish the following main groups that each have different roles:^[There are several concurrent implementations for each of theses groups, for an updated list see <https://github.com/mapbox/awesome-vector-tiles>] 
+There are four general types of software that is used to manage various aspects of vector tiles:^[There are several concurrent implementations for each of theses groups, for an updated overview see <https://github.com/mapbox/awesome-vector-tiles>] 
 
-* *Parsers and generators*: libraries that read and encode vector tiles. They vary by the implementation language, supported input formats, type of interface and so on. The main utility is to generate vector tiles from more traditional data sources like SHP or GeoJSON or to easily preview existing vector tiles
-* *Clients*: tools that render vector tiles in the context of the device. Most widely used web-based client is probably Mapbox GL JS (though recent open source fork MapLibre GL may change this). Implementations vary by the language, offered developer tools, or by rendering contexts — those include web-based (WebGL), native to mobile and other devices (OpenGL), even terminal consoles (ASCII)
-* *Style editors*: tools for creating, reviewing and testing styles for vector tiles. Styles can be defined in vector tiles that are then served as a base maps or it can be set by the client library when rendering (which assumes the style schema of the server and client match) TODO — mention somewhere that styles are a big selling points for servicesa like mapbox or cart — years of fine tuning — big win for cartography (proof of functional, estethic and economic value) 
-* *Servers*: support rendering and serving vector tiles as map API. Some server solutions provide also tile generation and styling functionalities in one application.
+* *Parsers and generators*: libraries that read and encode vector tiles. They vary by the implementation language, supported input formats, type of interface and so on. Their main utility is to generate vector tiles from more traditional data sources like SHP or GeoJSON or to easily preview existing vector tiles. Examples: *tippecanoe*, also PostGIS via *ST_AsMVTGeom()* and *ST_AsMVT()* functions.
+* *Clients*: tools that render vector tiles in the context of the device. The most widely used web-based client is probably mapbox-gl. Implementations vary by the language, offered developer tools, or by rendering contexts — those include web-based (WebGL), native to mobile and other devices (OpenGL), even terminal consoles (ASCII). Examples of web-based clients: *mapbox-gl*, *deck-gl*, *harp-gl*
+* *Style editors*: tools for creating, reviewing and testing styles for vector tiles. Styles can be defined within vector tiles that are then served as base maps or they can be set by the client library when rendering^[Styling a complex base layer across zoom levels is demanding task. Companies like Mapbox and Carto invested years of fine-tuning to their base layers that now play a significant role in attracting new customers for their services. We mention this as a proof functional, aesthetic and economic value of quality cartography.]. Examples: *Mapbox Studio*, *Maputnik*
+* *Servers*: tools for serving vector tiles via API. Some server solutions provide also tile generation and styling functionalities. Examples: *Tegola*, *TileStache*, *ArcGIS Online*
 
-The properties of vector tiles bring several advantages, caveats and implications for cartographic visualisation of big data.
+The properties of vector tiles bring several advantages and caveats for cartographic visualisation of big data.
 
-Using protobuff encoding, the tile size is highly compressed. The size stems from the actual data content on the tile, so the feature-poor tiles are not such a burden. In most cases, vector tiles are fairly small, which turns into small storage footprint and network bandwidth consumption, enabling global high resolution maps, fast data delivery, fast map loading, and efficient caching^[For benchmarking and comparison to raster tiles see <https://www.giscloud.com/blog/realtime-map-tile-rendering-benchmark-rasters-vs-vectors/>]. Vector tiles are also faster to generate and as they are rendered only when requested by a client, they are more suited to keeping the data on the server continuously updated with data changes.
+Using protobuff encoding, the tile size is highly compressed. It stems from the actual data content in the tile, so the feature-poor tiles are not a burden. In most cases, vector tiles have fairly small storage footprint and network bandwidth consumption, enabling global high resolution maps, fast data delivery, fast map loading, and efficient caching (for performance benchmarking and comparison to raster tiles see @giscloud2010realtime). Vector tiles are also faster to generate as they are rendered only when requested by client, they are more suited to keeping the data on the server continuously updated.
 
-Being a vector file format, tiles can be styled upon request. Separating rendering from the data storage allows for creating many variant map styles based on the same global data source without significant storage footprint. Client side rendering also supports easier style customizations, e.g. font changes, label translations, showing and hiding elements, changing the layer ordering and combining data sources. Vector tiles style specification is powerful for example when it comes to scale specific styling — e.g. applying various scaled-based functions on sign properties like size and color.
+Being a vector file format, tiles can be styled upon request. Separating rendering from the data storage allows for creating many variant map styles based on the same global data source without significant storage footprint. Client-side rendering also supports easier style customizations, e.g. font changes, label translations, showing and hiding elements, changing the layer ordering and combining data sources. Scale-based styling is also supported in many client libraries — various scaled-dependent functions can be applied on sign properties like size and color.
 
-Vector tiles can contain attribute data which elevates the format beyond mere display techonology of the raster tiles. With raw data included, several types of interactions are possible — from basic pop-up info over points of interest towards advanced querying and filtering for in-browser analysis. Apart from changing feature visibility and layer order there is data driven styling that opens possibilities for thematic cartography. Once tiles are loaded, any user-induced filtering and style changes is executed on client without additional requests to the server (on-the-fly), which may support offline functionality. 
+Vector tiles can contain attribute data which elevates the format beyond mere display technology of raster tiles. With raw data included, several types of interactions are possible — from basic pop-up info over points of interest towards advanced querying and filtering for in-browser analysis. Apart from changing feature visibility and layer order is also the capability of data-driven styling that opens possibilities for thematic cartography. Once tiles are loaded, any user-induced style changes are executed on client without additional requests to the server, which may also support offline functionality. 
 
-For cartographer, the format and the capabilities of the client libraries opens several possibilities:
-- Vector tiles are good for both basemaps and also for thematic interactive overlays, also allows for better entanglement of the layers as the custom data layer can be put anywhere in the layer hierarchy, not only on the top.
-- Application of textures — clever clipping per feature (done in GPU) TODO example screenshot from elwar.
-- The client library supports additional actions like camera tilt or orientation change that were not possible with raster tiles. 
-- Also the smooth continuous zoom is supported as the vector tiles within one zoom level are not fixed in size by raster resolution, so smooth impression can be achieved by scaling tiles between zoom steps. This fixes the problem of initial area extent described in section — TODO
-- the 3D features can be added, and the 3D interaction is enabled out of the box. So the application can jump from 2D to 3D view without additional tools
-- data and scale driven styling allow form fine-grained control over how both the basemap and the thematic layer is displayed across scales
-- data within source — good for styling, tooltips, other users (machine learning?)
-- dynamic ordering of layers
-- dynamic generalization (well, simplification)
+For cartographer, the combination of the vector tile format, WebGL-based rendering environment and the capabilities of the client mapping libraries opens several possibilities:
 
-![**Fig.** An example on application of bitmaps in mapbox. Bitmap png swatches are applied to polygons based on data driven rulse. Textures are passed to GPU by the library, those are clipped to the polygon bounds in the vertex shading phase — ture? (elwar.uni.lu).](imgs/img-hatches.png) TODO — also show examples of swatches
+- Vector tiles work well for both base maps and thematic interactive overlays. Furthermore, the thematic layer can be put anywhere in the layer stack, not only on the top.
+- Bitmap images can be easily incorporated to the style — either as polygon textures or point symbols. Data driven styling of these bitmaps is also possible to a certain degree
+- WebGL-based client libraries support additional user actions like camera tilt or orientation change 
+- Continuous zoom is supported as the vector tiles are not fixed in size by raster resolution, so smooth impression can be achieved by scaling tiles between zoom steps. This also fixes the problem of fitting the mapped area to the html viewport reliably on various screen sizes and aspect ratios 
+- the 3D features can be added, end the application can jump from 2D to 3D view without additional tools
+- data and scale driven styling allow for fine-grained control over how is the map displayed across scales
 
-Other advantages — various rendering contexts, depends on client implementation. In this thesis we will focus on web-based but there is a potential for much greater coverage — cars, IoT devices, or lower fidelity periferals (eg ascii renedering for ebook readers). Most of the cartographic implication we will discuss later are universal across devices.
+![**Fig.** An example on application of bitmaps in WebGL rendering environment (mapbox-gl). Three 5x5px .png swatches are used to define the hatched texture. The texture is applied to polygons based on data-driven rules, and clipped to the given polygon extent. Screenshot taken from <elwar.uni.lu> (designed and implemented by the author)).](imgs/hatches.png) 
 
-*issues*
+WebGL is just one of the possible rendering contexts for vector tiles. While focus of this thesis is on web applications, we should mention that vector tiles have potential for much wider adoption — be it in cars, IoT devices, or lower fidelity peripherals. 
 
-https://www.youtube.com/watch?v=savQWL0kq_g
+There are also some disadvantages and risks connected to vector tile adoption. As we mentioned earlier, vector tiles rely on a schema that defines which attributes are included, their naming and value types, the zoom levels range at which layers should appear, etc. There is no universally applicable schema, tile layer intended for analysis would need a different solution than layer meant as a base map. Even for general base map layers, there is a number of schemas^[Some general-purpose base map schemas: Mapbox Streets, OpenMapTiles, Mapzen Tilezen, Thunderforest] that are not interchangeable -- there are different priorities of layers, different classification of roads that appear at various zoom levels, etc. When designing style for a given schema, it will most likely not be portable to different schema.
 
-Various schema flavors and software implementations that need to act in accordance enlarges the risk of vendor lock-in.
+Tiling can preclude some types of analysis that need to consider features in adjacent tiles. Though, features that are split between the tiles can be reconstructed once rendered -- this is useful for example when implementing an on hover highlight of polygon features. The rendering engine can select all bits that need to be highlighted across the displayed tiles. It needs though to be considered at the moment of tile layer creation (in mapbox infrastructure on needs to run tippecanoe with *--generate-ids* options so that features can be identified across tiles by mapbox-gl). As with many situation around vector tiles a tight coordination across the whole tool chain is required.
 
-Schema consists of layer names, attribute names and values, feature selection, other cartographic choices
-- protobuff schema
-- not style definition
-- e.g.:
-https://openmaptiles.org/schema/
-- can I combine 2 schemas in one view?
+Even if we limit ourselves to web-based clients, there is a number of solutions that are not overly compatible. While some provide a domain specific language to define styles (mapbox-gl), some support writing custom GLSL shaders (deck.gl). The user experience as well as the developer experience varies. The breadth of supported styling actions is also varying (e.g. mapbox-gl does not support transparency blend modes, kepler.gl does).
 
-Not interchangable tile schemas: Thunderforest, Mapbox Streets, OpenMapTiles, Mapzen Tilezen
-- different priorities, different classification of roads that appear at various zoomlevels
-- not one schema for everyting
-- these are for displaying a map, not for analysis
-- need to port style to a different schema
-- no mature standardized tools
+As rendering happens on the client, the performance depends on power of the client hardware. Tile servers can impose some size limits on tile layers that, unlike raster tiles, can be bloated with the large number of attributes.
 
-Clients and styling: 
-- Mapnik (raster only, styles in mapnik xml or CartoCSS)
-- Tangram (js, C++ versions, styles in tangram scene files)
-- Openlayers, Leaflest (in browser only, OpenLayers supports mapboxgl format)
-- MapboxGL (JS, C++ versions, syles in Mapbox GL JSON)
+Overall, we still seem to lack mature standardized tools for working with various aspects of vector tiles. Diverging schema flavors and software implementations that need to act in accordance across the tool-chain enlarges the risk of vendor lock-in. On the positive note, there are some efforts under way to standardize vector tile metadata, server API or filtering language within OGC (see <http://docs.opengeospatial.org/per/> section *OGC Vector Tiles Pilot*)
 
 
-- tiling precludes some types of analysis (where you need to look at adjacent tiles)
-- in context of BD maybe not such a problem as these are mainly point clouds.
+## 3.5 Designing user interfaces for digital maps
 
-The map is rendering on the client’s side and requires a bit more powerful hardware. Data are generalized and therefore not suitable for direct edits
+In map-based web applications, it is inevitable to design some controls for users to interact with the map. @thomas2005illuminating remarks that often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. While there is a growing body of research in the problem area, some practical advice for dealing with complexity in user interfaces is often lacking.
 
-Some size limitations on vector tiles — TODO find recommendations. The way the format deals with it (during encoding) may not be optimal — dropping vertices in abrupt simplification, dropping data points. 
-
-Filtering (several syntax types) - also some performance limits. Tile by tile change (known too well from network lags in raster data sources — missing and delayed tiles) can return with vector tiles with high data load on small machines as vertex buffers are supplied to the GPU tile by tile.
-
-- how to connect to dynamic data source? Join with db? (just points — dynamic data overlay straight genreation of tiles within pipeline , )
-- identification of items spannig through multiple tiles (tippecanoe generates the id that mapbox-gl reconnects — coordonation of toolchains is required)
-
-*standardization is on the way*
-<http://docs.opengeospatial.org/per/>
-OGC Vector Tiles Pilot 2 (VTP2)
-    OGC Vector Tiles Pilot 2: Summary Engineering Report (19-088r2) PDF
-    OGC Vector Tiles Pilot 2: Tile Set Metadata Engineering Report (19-082r1) PDF
-    OGC Vector Tiles Pilot 2: Vector Tiles Filtering Language Engineering Report (19-084) PDF
-
-Thesis on vecctor tiles:
-<https://prism.ucalgary.ca/bitstream/handle/11023/2666/ucalgary_2015_shang_xiaohong.pdf;jsessionid=2B918A8E8B58693A9CF79058F07241AC?sequence=3>
-
-
-TODO — vector tiles + big data (pros/cons now + future extensions)
-
-VT don't support gis-style database joins post creation (maybe qgis supports it — TODO find out), all data processing operations should happen before tile generation (in the db or in gis sw).
-
-
-
-## 3.4 Figures and grounds
-
-Finally we will attempt to summarize the design possibilities the combination of vector tiles and direct WedGL offers mean for cartographic visualisation of big data.
-
-Vector tiles bring new possibilities for combining data layers in digital maps. To see how to best utilize this, let us take an aside to think about distinctions between topographic and thematic cartography.
-
-I explore how to create thematic maps from Big data.
-
-"Topographic map is a set of entangled thematic maps"
-"Thematic map is a topographic map with one layer disproportionally enhanced"
-
-
-The starting point for a **topographic map** is a given territory, that is to be interpreted on a blank page/screen. In topographic maps we create a model of the surface, and we want to include all environmental characteristics that we believe to be relevant to the task — and the task is usually to help with orientation in the given territory. The real alchemy of the topographic practice is to depict all layers without clutter — the layers must be equally separable/retrievable. This is because we do not know beforehand which features or combination of features will become useful for orientation. Map creates a *taxonomic space* of what is to be known about the territory (let us set aside the power-related difficulties of what is being omitted and who does the selection on who's benefit) and puts these species to relationships. This synthetic aspect is for @wood2010rethinking one of the most important features of the map — the sign systems (layers) are in constant dialog, allowing us to extract meaning from those relations that would be hardly obtainable without using the map. Here, "the whole is greater than the sum of its parts.” — Aristotle.
-
-In **thematic maps**, the starting point is is a phenomenon. We want to learn something about it by studying its spatial distribution, by searching spatial correlations with other features, and also by mapping how the internal structure of the phenomenon changes across space.
-
-In both cases we overlay comprehensive sign systems (rivers, settlements, mountains...), though what differs is their relative visual prominence: we can say a thematic map is a topographic map that gives asymetric prominence to one layer of interest (though often richly differentiated in its cartographic presentation) and pushing the remaining layers to the role of toned down "base" merely aimed to provide geographical context for the reading of the topic. Sometimes things go as far as the base is reduced to the minimum (often administrative boundaries) or omitted alltogether (in such case the topographic context stems from the distribution of the signs in thematic layer — from what @wood2010rethinking calls a *tectonc* code of the map).
-
-Let us make an aside about the limitations of the concept of layers (successfully used in graphic programs such as Illustrator or Photoshop) in cartography. Example of railroads and highways — when working with raw spatial data in a map making system, say QGIS, we can easily switch the order of layers, however on all intersections the same layer will be the one overlaying/crossing the other — we can switch the order but we can not treat the intersections differently per instance. So its ether *all* railroads passing over *all* highways or the other way around, but of course in reality both situations are likely. Of course, cartography has its ways to deal with this — to entangle (mostly line) layers with each other (some more manual than others — cituj prezentaciu švajčiarov s ich generovanými národnými mapami), but this points us to the fact that layers of the real world are not cleanly separable — our experience of reality creeps in to remind us we are playing with a model.
-
-So the layers in a topographic map are not merely overlayed, they are entangled, integrated with each other. We can turn the definition around and say the topographic map is woven from a collection of collection of thematic maps.
-
-In Wood's words if the *sign systems are talking to each other* and *each sign system is potentially figure and every sign system is potentially a ground*. The thematic cartography is reducing the dialog, toning down the base layers in favor of the dominant voice of the main layer.
-
-In thematic maps, the thematic layer *is* overlayed on the base, no entangling is done. For years before we could rather say the topic is overprinted. The alchemy of the thematic cartography is to make the topic in its complexity stand out, and paradoxically this is done by manipulating the base. For example, if we look at subtle palette of 6 colour tones used in Czech ZM maps, it's clear that future thematic overlays were considered (and done, as overprints or web map overlays). There is a clear and solid border between topic and base, partly due to the technical limitations but also given by understanding base as something solid and rather fixed and the topic as abstract, fluid and driven by data with high frequency of change.
-
-The border between the topic and the base has transcended also to modern web cartography. Here, the standard around year 2010 is a base given by some pluggable tile service (predominantly stored remotely and not open to style changes) overlayed by some SVG vector shapes. WMS services are often designed as topographic maps, though there are examples of toned down style fit for a base map.
-
-The interplay between the topographic base and the thematic overlay is at scrutiny on the following lines. The question is whether there is any value in breaking this border, now the technology that could facilitate this has arrived.
-
-This means trasferring from the SVG overlay to canvas or webGL. Canvas allows for filtering of the overlayed matter — so it is possible to "manipulate" the coloring of the external base maps — it should be possible to extend those filters to make them more selective. Recently emerged base maps based solely on WebGL provide options for figure and ground.
-
-Strategies:
-- simple: pushing theme to the base (underlay)
-- harder: data driven styling based on overlay — overlay algebra that is done without touching the source data (like overprint, of multiexposure shots in photography but really beyond these analogies). It is solely based on web-gl filtering
-
-— masking
-
-## 3.5 Aside on UX, interaction and beyond
-————————————————-
-
-Controls are inevitable, need to be legible same as the map view. Moreover, users need to be able to intuitively grasp how they work (TODO norman — affordances, and signifiesrs.)
-
-Dan Norman — affordances and signifiers being confused terms in regular use (norman2013design)
-affordance (realtionship between objects and users, what is possible)
-signifiers (tells users about what is possible — it is important to design them)
-
-Dan Norman — complexity (norman2016living)
-Living with complexity: Complexity is inevitable (asking for simplicity is in fact asking for understandability, simple looking things can actually be quite confusing)
-
-They both contribute and are affected by the graphic fill. Contribute, as they need to share the same screen space with the map view (side note — specialized hardware controls exist, but usable only regular access for stable interfaces — TODO, there are devices used to control graphic programsi (like photoshop) with knobs and sliders, custom interfaces of online maps are out of scope, but maybe some day to day professionals interacting with maps could use them.) and sometimes has to compete for it, affected because the variability of data translates to variability of symbolizations which then complicates the legend and controls.
-
-How many affordances are viable? (Map controls coupled with legend need to signify both the meaning of the map symbol as well as the affordance — in practice the signification of affordance is often hidden, and we often rely on users to find it out — e.g. by cursor change...)
-
-Looking at UI controls with a prism of design constraints described in chapter (TODO), all three axes affect the UX as well, thogh the screen space is naturally the most significant factor (fig).
+User interface (UI) controls contribute to the overall graphic density of the application as they share the same screen space with the map view and sometimes compete for it. Looking at UI controls through the prism of design constraints described in section 3.1.1, all three axes affect the UI, though the screen space is naturally the most significant factor (fig).
 
 ![**Fig.** Screen space is the constraint with the greatest influence on the design of map controls.](imgs/img-design_constraints-ux.png)
 
-- cartographic concepts applicable in UI design and vice versa (TODO some reading on UX)
-— visual weight, negative space, generalization of ui components
+The UI design for map-based applications needs to be informed by the spatial and temporal density of the visualized data sets. Variability in attributes translates to variability of map symbolization which then complicates both the legend and the controls. 
 
-- tighter coupling of intra and extracomposition
-— legend
-— do some design and usability reading (don't make me think, check some books on product design...) <https://www.fastcompany.com/1292961/30-most-important-books-product-designers>
-— user personas, user stories...
+@norman2013design draws distinction between *affordances* and *signifiers* in product design. Affordance describes a certain relationship between objects and users -- what is possible to do with an object (e.g. doors can be opened). Signifiers notify users about affordances to prevent confusion (e.g. a "pull" sticker on the doors telling us which way to open). As @norman2016living points out, complexity in user interfaces is often inevitable, and it may not be a problem if correct signifiers are presented. Users asking for simplicity in fact ask for understandability, and simple-looking things can actually be quite confusing due to missing signifiers.
 
-- Iteraction strategies
-Andrejenko's view of tasks
+In application interface design we have a tension between trying to achieve a "clean", unobtrusive look and the need to supply all the necessary information about using the application. Often just to clearly signify what items are clickable is a challenge, designers often rely on changing the cursor style when user hovers over some item, though this is not too effective on touch screen devices where hovering is not available. Having the interface littered with textual descriptions is deemed unsatisfactory, additional information is therefore often hidden and displayed as on-hover pop-up windows. Though there is no guarantee user will discover them. Another approach is to use an explanatory "wizard" at the application startup, that can be closed and revisited.
 
-- responsivity challenges
-https://codeburst.io/the-challenges-of-responsive-web-design-9d64971921fb
+One space-saving strategy for map-based applications is coupling the legends and other explanatory graphics that supplement the map with interactive controls. For example, an interface could have a color scheme legend coupled with interactive sliders to filter the categories in the map. This approach certainly saves some precious screen space compared to having two separate elements, on the other hand it poses a greater design challenge. Such legend needs to explain the map symbolization and at the same time clearly signify what user actions it offers.
 
-- some datavis responsivness talk, interaction challenges etc:
-http://dominikus.github.io/jsconfeu_2014/#/29
-- best practices and examples collection
-http://mobilev.is/
-- apple's human interface guidelines
-https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/
+Responsive web design is a pressing issue for complex interfaces especially if we want to preserve the same information quality and affordances as in the large screen views. While there is a number well designed data exploration interfaces for small screens^[see for example <http://mobilev.is/> or <https://explorer.morphocode.com/map>], we usually need to trade between information content and some user comfort. 
 
+On large screens we expect to see all the interface controls at once. On small screens we can emulate this by providing a minified version of the interface. The controls are too small to be usable, but the user receives an initial global overview and can use touch gestures to zoom in and out. There are several issues with this approach, first, mobile screen have different aspect ratio, so unless we want to force the user to turn the device horizontally, some layout reordering in necessary. The second big issue is in distinguishing the zoom actions within the map context and within the context of the whole interface. It is more common to change the application layout for small screens, though this requires users to jump between the controls and the map, either by scrolling up and down or pulling some collapsible panel in and out. Though this is not optimal as well because we can not directly observe how the changes made using the controls affect the map view.
 
-
-- TODO: image 2 kinds of weather roses - wind diagrams (more and less complex), data from slovenská lavínová služba.
-
-- animation and movement: how does it support usability (blog creating usability )
-- strategies for density reduction in controls
-- combining functions (legend and histogram and brushing control) - (využiť návrh na baptisteries, legendy aj timeline z toho proposalu )
-
-**Visual storytelling vs dashboards (TODO — I'm not doing it, should be removed or moved to previous chapter?)**
-
-Data journalism helps to interpret the map and poses the argument leaving a passive role for the viewer, consequently making it harder for her to restate the qustion. Dataviz dashboards tend to give a stack of options but no clues on where to start, which is like leaving a person in the cockpit to figure out how to fly herself. In both cases there is a silence about a possibility of no discernable pattern.
-
-What is the audience - some notes from the field:
-<https://medium.com/@tophtucker/doing-enterprise-financial-data-visualization-after-data-journalism-3c68861b7f4c>
-
-more
-
-https://www.microsoft.com/en-us/research/project/user-experience-with-big-data/#!publications
-
-scrollytelling
-
-https://medium.com/nightingale/from-storytelling-to-scrollytelling-a-short-introduction-and-beyond-fbda32066964
-https://webflow.com/blog/scrollytelling-guide?fbclid=IwAR3yRP5GAYtrHgNcN_njPk-5HwW3_ppH6sloQpna5CpxEmOm5qjQCoXBeoY
-
-arcgis storymaps
-
-Naration is quite underused 
-Narration as a workaround for cartographic rules – legibility, etc. Static map must adhere to the cartographic rules. In interactive maps (both presentational and exploratory) the argument is as follows: application doesn't need to be cartographically legit in all of it's states provided that it shows a path from the messy state to the cartographically treated state.
-
-TODO: 
-- discussion of presentational vs exploratory cartography – or better on building interfaces to support one of them. – exploratory interfaces seen loftier, most commercial assignments are presentational – in fact the threshold between presentational and exploratory capabilities is something that needs to be considered. 
-
-Amount of hand-holding?
-(move to one of the questions)
-Here we need probably some inspiration from other fields. Aim is moving somewhere inbetween the presentation and exploratory interfaces, possibly to get the best of the both. Exploratory interfaces could do some hinting, notifying which findings make sense and which not. Designers of exploratory interfaces could give greater thought to what questions users might want to ask about the portrayed data. (But careful on generalization with user personas – see below on weaponization of design).
-
-– este k engagement a interface – explorable explanations (orig.: Bret Victor)
-http://worrydream.com/ExplorableExplanations/
-(also: his other essays – ladder of abstraction, learnable programming, a bref rant)
-examples, elaborations:
-https://canvas.uw.edu/courses/1370850/pages/explorable-explanations
-https://github.com/sp4ke/awesome-explorables
-https://explorabl.es/
-
-
-### UX and interaction (TODO maybe to the next section)
-———————————
-@thomas2005illuminating
-
-Visual analytics is not simply about presenting information. Rather, an analysis session is more of a dialogue between the analyst and the data, where the visual representation is simply the interface or view into the data.
-— my note: the dialog metaphor is somewhat assuming that both sides have actually something to say... rephrase: Analysis session is like tuning a radio, sometimes you get a crystal clear reception, but often it's just a noise and often you can't say if you really hear something articulate behind  the walls of noise or if it's just a trick of your immagination.
-
-
-Too often in the visual analytic process, researchers tend to focus on visual representations of the data but interaction design is not given equal priority. We need to develop a “science of interaction” rooted in a deep understanding of the different forms of interaction and their respective benefits.
-
-The mantra by Shneiderman [1996] of “Overview first, zoom and filter, details on demand” is well-accepted, but what are the next steps, or additional different steps? — my note: noisy overview can be a good overview too.
-
-There are at least three ways to look at the science of interaction.
-* we can look at interaction from the point of view of human time constants. This is an important viewpoint because all interaction is constrained and driven by what the user is cognitively and perceptually capable of doing. (see next chapter)
-* we can look at how interaction is used to accomplish tasks such as data manipulation, manipulation of visual mappings, navigation, and dialogue.
-* we can look at the nature of the interaction itself, including the differences between interactions in 2-dimensional (2D) and 3-dimensional (3D) environments and the effects of the devices used for interaction. — And also across different devices (responsive web design).
-
-point 2 more precisely:
-— *Interactions for modifying data transformation (filtering)*. Several common techniques are in use today, including direct manipulation, dynamic queries [Ahlberg, 1994], brushing [Cleveland & McGill, 1984], and details-on-demand.
-— *Interactions for modifying visual mappings.* Dataflow systems [Haeberli, 1988] and Pivot Tables are two examples of techniques that allow the user to interactively change mappings between the data and their visual representations.
-— *Interactions for modifying view transformation (navigation).* Interaction techniques range from simple approaches like direct selection for selecting and highlighting objects of interest, to more complex camera control techniques in 3D environments. They also include techniques for panning and zooming [Bederson et al., 1996] as well as for achieving a balance between overview and detail [Plaisant et al., 1995].
-— *Interaction for human-information discourse.* The least well understood use of interaction is to support a true human-information discourse in which the mechanics of interaction vanish into a seamless flow of problem solving. Interactions are needed to support processes such as comparing and categorizing data, extracting and recombining data, creating and testing hypotheses, and annotating data.
-
-Goals for interactions:
-
-Similarly, combining or merging interactions and controls with visible represen- tations can also speed access, control, and manipulation operations. Often, users experience a cognitive separation between the task they want to accomplish and the mechanics for accomplishing the task. New techniques can be invented that do away with the separation of “what I want and the act of doing it” [Van Dam, 2001]. Integrating views, interactions, and analytics provides significant productivity improvement for the combined human, analytical, and data system.
-
-
-focus-and context across scales
-Analysts working with large data sets want to gain a global understanding of the data and then focus on particular data items and their attributes. Alternating among levels of detail generates moment-to-moment insights and spurs new questions. A number of visualization and user interface techniques have been developed to sup- port coordinated views of both overview and detail. Greene et al. [2000] found that previews and overviews help users quickly understand the scope of their data set and discriminate between interesting and uninteresting content. Existing techniques include the use of multiple coordinated windows at different focus levels, panning and zooming operations, and so-called “fisheye” views [Plaisant et al., 1995; Furnas, 1986]. Fisheye techniques are “focus+context” views, i.e., one in which both the overview and detail are presented side by side in the same view. The power of “focus+context” comes from the ability to subjugate unimportant information for contextual navigation while using attentive focus for effectively communicating information. While existing techniques in this area are very useful, new methods must be developed that take advantage of multiple and large-area computer displays to assist analysts with inquiries on the massive data sets evident in visual analytics.
-
-data abstraction vs visual abstraction
-There are two interrelated issues in dealing with abstraction. The first is the development of an analytic capability to transform data from one representation to another. Selecting relevant information, filtering out unneeded information, performing calculations, sorting, and clustering are all components of data abstraction. Second is the development of techniques for visual abstraction. Visual abstraction involves developing effective representations for different types of information. Visual abstraction also involves the control of emphasis and level of detail. Different representations of the same object may be needed at different levels of detail, depending on the importance of that object for the given task. Secondary visual attributes can also be used to connote additional attributes that are important in reasoning,
-such as the quality of the data or the confidence in the assessment.
-
-
-Develop visual representation methods for complex information that provide
-the appropriate level of abstraction.
-Research is necessary to:
-• Identify alternative visual representations of data that best support different
-analytical tasks
-• Develop transformation methods that allow the user to move among alter-
-native visual representations to facilitate exploration and discovery
-• Provide level of emphasis and detail appropriate to the user’s data and task.
-
-
- Aside on UX — enhancing usability with motion  
+There is a big gap in designing data interface research for small screens. The range of possible interaction modes on mobile devices (at least 12 types of screen gestures, gyroscope, etc.) seems to be largely unutilized. On touch devices it is important for the UI to provide feedback for user to be sure what kind of touch event was performed and whether it was registered (@willenskomer2017creating). Principles of motion design for increasing usability in the UI could as well be applied to interactions within the map field.
 
 
 # 4 Case Study: Urban recommendation system
 
-Throughout the previous chapter we took a rather winding path trough various concepts: data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles and user interface design. In this and the next chapter we present two experimental case studies that aim to bring the previously described concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
+Throughout the previous chapter we took a rather winding path through various concepts: data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles or user interface design. In this and the next chapter we present two experimental case studies that aim to bring these concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
 
-The first case study is a prototype of an urban recommendation system — a map-based web application that could help dwelling seekers to identify areas in the city that best match their needs and expectations^[Live demo of the application is accessible at <pondrejk.eu/hex>, screenshots of the interface can be found in Appendix B.]. Such system would allow users to assign weights to different spatial factors to recalculate a simple preference map to show which areas in the city could be desirable for them.
+The first case study is a prototype of an *urban recommendation system* — a map-based web application that could help dwelling seekers to identify areas in the city that best match their needs and expectations^[Live demo of the application is accessible at <pondrejk.eu/hex>, screenshots of the interface can be found in Appendix B.]. Such system would allow users to assign weights to different spatial factors to calculate a simple preference map showing which areas in the city could be desirable for them.
 
 The benefits of interactive preference controls are manifold: users can reason about various alternative scenarios, observe how even slight changes in their preferences influence their potential action area, they can seek compromise between conflicting views, or model how their options would alter should their life situation change. The selected spatial factors are aiming to suit civic user, however, inclusion of additional parameters could extend the target group to municipal planners or property developers^[The origins of this idea date back to the 2018's hackathon that the author attended as a member of a competing team. The original demo application has been fully reworked by the author for the purpose of this thesis, though the input spatial data pre-processed at that time have been reused here.].
 
-Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexbin aggregation and layer ordering to battle visual clutter, the benefits of vector tile technology, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
+Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexagonal aggregation and layer ordering to cope with hight spatial density, the benefits of the vector tile format and the WebGL rendering environment, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
 
 
 ## 4.1 Data sources and transformations
 
-- data from osm
-- interpolation to the grid
-- leaflet + db vs mapbox
-- data for buildings
-
 The application allows users to select several parameters and assign weights to them. Based on the selected parameters and weights a map is rendered dividing the city to areas of high to medium to low desirability. Changes to weights and parameters is reflected in the map as the desirability surface is recalculated on the fly.
 
-The parameters include both attractive and repulsive factors: proximity to schools and nurseries, parks and greenery, places of worship,  healthcare, sport, cultural and social facilities on one side, noise, crime and prices on the other side. The majority of the source layers is taken from the OpenStreetMap database, that allows for easy automated updates via it's API. The input data were harvested for the area of the city including a 5 Km buffer to prevent undesirable interpolation effects on the area borders. The table outlines the input layers with sources.
+The parameters include both attractive and repulsive factors: proximity to schools and nurseries, parks and greenery, places of worship, healthcare facilities, sport, cultural and social facilities are supplemented with noise model, crime values and property prices. The majority of the source layers was sourced from the  Open Street Map database. The input spatial layers were collected for the area of the city including a 5 Km buffer to prevent undesirable interpolation effects on the city borders. The following list describes what belongs under the mapped thematic categories in greater detail:
 
-(TODO table) — name, group, source, what is incueded (notes), spatial reference
-— todo — check the actual data
+* culture — theaters, cinemas, music clubs
+* health — hospitals and ambulances
+* church — places of worship for various religions
+* parks — parks, forests, green spaces
+* social — cafés, pubs, restaurants
+* sport — sport grounds, gyms 
+* transport — public transport stops 
 
-culture
-health
-church
-parks
-social
-sport
-transport
-crime
-prices
-noise
+These layers were source from the OSM and mostly have point spatial reference, with the exception of parks that are defined as polygons. Some complementary layers from different sources were also included:  
 
-Sources come with both point and polygon spatial reference. To harmonize the sources into one common spatial format that would allow to apply weights and would allow dynamic re-classification based on scaled we created a 100 m point grid covering the area of Brno (the grid was spread in such a fashion that the spatial coordinates of individual points are rounded — so that the storage footprint is minimized). The point layers where then used to create distance surfaces using IDW interpolation in QGIS desktop tool. Data from these interpolations where then combined with existing zonal layers (noise, crime, property prices) to generate input for the attribute table of the point grid. This was done using the standard spatial join feature in QGIS (illustrated on fig). In the resulting point grid, each point contains an attribute containing a distance from the given point to a nearest facility of interest, or the given index for some layers (crime, noise...). Furthermore, these attributes have been normalized to fit into 0-1 scale across the city area.
+* crime (source: project Mapa kriminality^[<https://mapakriminality.cz>]) 
+* affordability (source: Brno municipal office)
+* noise (source: Brno municipal office^[<https://www.brno.cz/sprava-mesta/magistrat-mesta-brna/usek-1-namestka-primatorky/odbor-uzemniho-planovani-a-rozvoje/dokumenty/upp/hlukova-mapa/zobrazeni-hlukove-mapy-denni-doba/>]) 
 
-![**Fig.** Data preparation process.](imgs/img-cs1-dataprep.png)
+The spatial detail of these additional layer is coarser than in with the previous group, especially in case of crime statistics that were interpolated from a district-level polygon layer. 
 
-This allows for meaningful comparison of data and application of weights.
+The data preparation process then continued as follows (see also fig for illustration).
+To harmonize the varying sources into one spatial layer that would allow for dynamic re-classification, we created a point grid covering the area of Brno in 100 m intervals. The input layers from the OSM were used to create distance surfaces using IDW interpolation in the QGIS desktop tool. Data from these interpolations where then combined with existing zonal layers (noise, crime, property prices) to generate input for the attribute table of the point grid. This was done using the standard spatial join feature in QGIS.  In the resulting point grid, each point contains an attribute containing a distance from the given point to the nearest facility of interest, or the given index for some layers (crime, noise...). Furthermore, these attributes have been normalized to fit into 0-1 scale across the city area.
 
-Problems of selecting the grid density — zoom level limitation tile layer in Mapbox infrastructure (500 KB per tile max).
+![**Fig.** Data preparation process illustrated.](imgs/img-cs1-dataprep.png)
+
+The reasoning behind using a point grid as a harmonization layer was guided by the original intent to enable variable cell size for the final hexagonal grid that could be manipulated by the user. This idea was eventually abandoned and a fix-sized hexagonal grid was created by averaging the point values per cell. The aim was to find the smallest possible cell size that would still pass through the tile size limitation imposed on vector tiles by the Mabbox infrastructure (500 KB per tile).
 
 
 ## 4.2 Application architecture 
 
-The vector tile sets were stored on the Mapbox tile server, the client application uses the mapbox-gl library to render tiles in the WebGl context. The front-end user interface was build using React and Redux libraries.
+The vector tile set with the hexagon layer is stored on the Mapbox tile server, the client application uses the mapbox-gl library to render tiles in the WebGl context. The front-end user interface was build using React and Redux libraries.
 
-Let us take an aside on technologies not mentioned yet. *React* is a UI building library that enables defining UI components as self-contained reusable modules containing definitions of structure, styling and interactions (that were traditionally separated as HTML, CSS and JavaScript). Modules are defined so that their appearance is dependent on the input data (so called *state*). Once the state changes, all modules that consume it are re-rendered accordingly (@mardan2017react).
-In larger interfaces it may become challenging to keep track of all module states, *Redux* library can then be used to implement a *state container* a single data object that contains all application's data. Redux also provides methods to make changes in the state container in a predictable way^[Though at the time of writing, React itself already contains features (React Hooks) that allow to manage state globally]. 
+Let us take a short aside on technologies not mentioned yet. *React* is a user interface (UI) building library that enables defining UI components as self-contained reusable modules with definitions of structure, styling and interactions (that were traditionally separated in different files as HTML, CSS and JavaScript). Modules are defined so that their appearance is dependent on the input data (so called *state*). Once the state changes, all modules that consume it are re-rendered accordingly (@mardan2017react).
 
-When developing map-based web applications the ability to define modules that react to changes in shared data has many benefits. Often the map interfaces contain several linked components that need to adjust to changes in map view and vice versa (think of interactive legends, supplementary charts, or inset maps that). For example, the weights for topics in our application are stored in global state container, once they are changed (by using sliders on the panel module), the map module that also consumes the global state is re-rendered based on changed parameters. Having global state makes it also easier to persist data in multiple view applications, in our case -- if user makes changes in mode 1 of our application, then changes to mode 2 and subsequently revisits module 1, the previously made changes are persisted. 
+In larger interfaces it may become challenging to keep track of all module states, *Redux* library then comes handy. Redux implements a *state container* a single data object that contains all data needed by the application UI. Redux also provides methods to make changes to the state container in a predictable way^[Though at the time of writing, React itself already contains features (React Hooks) that allow to manage state globally]. 
+
+When developing map-based web applications the ability to define modules that react to changes in shared state has many benefits^[Also note that React integrations exist for popular client mapping libraries, e.g. *react-leaflet* or *react-map-gl*]. Map interfaces often contain several linked components that need to adjust to changes in map view and vice versa (think of interactive legends, supplementary charts, or inset maps). For example, the weights for topics in our application are stored in a global state container, and once they are changed (by using sliders on the panel module), the map module that also consumes the global state is re-rendered based on changed parameters. Having global state makes it also easier to persist data in multiple-view applications, in our case: if user makes changes in mode 1 of our application, then switches to mode 2 and subsequently revisits module 1, the previously defined settings are persisted. 
 
 
 ## 4.3 Cartographic decisions
@@ -1196,65 +879,61 @@ To showcase the potential use of hexagonal grids to visualize complex datasets, 
 
 *Mode 1*
 
-The first mode uses a color range to visualize the "livability score", which is a compound metric composed from the selected theme layers. The resulting layer is a weighted average of the proximity layers. As the values for each layer span from zero to one, the compound layer is also limited by these bounds. The variance of the values in the compound layers depends on the number of topics included in the average calculation. When viewing just a single layer, the whole variance tends to be exploited (with the exception of layers not calculated from proximity surfaces, which is affordability and crime stats). However, with inclusion of more layers the resulting variance tends to shrink and concentrate more around the average (see fig). This is due to the fact that the individual layers have often dissimilar spatial patterns, so the highs and lows tend to cancel each-other out in the final calculation. Lowering weight for a layer further contributes to flattening out of its variance.
+The first mode uses a diverging color scheme to visualize the "livability score" within a hexagonal grid layer. The score is a weighted average of proximity values of selected topics. As the values for all topics span from zero to one, the compound layer is also limited by these bounds. The variance of the average values in the compound layer depends on the number of topics included in the calculation. When viewing just a single topic, the variance tends to span across the whole continuum. However, with inclusion of more layers the resulting variance shrinks to concentrate around the central value (see fig). This is due to the fact that the individual topics have dissimilar spatial patterns, so the highs and lows tend to cancel each other out. Lowering topic weights further contributes to flattening of its variance.
 
 ![**Fig.** The variance of the compound layer depends on the number of layers included. From left to right: parks & greenery layer; average of parks, sports and children facilities layers; and the average of all eleven layers.](imgs/img-variance.png)
 
-In such a situation we are unable to adhere to the cartographic rule saying that all legend items should be visible in the map field. The color scheme needed to be granular enough and have sufficiently versatile hues to show the spatial pattern in different variances. Even in small variance the color hue needs to communicate clearly if the area leans toward the more or less favourable end of the diverging spectrum. All hues needed to to sufficiently stand out from the background, which is even more necessary when the building mask is applied (see below).
+In such a situation we are unable to adhere to the cartographic rule saying that all legend items should be visible in the map field. The color scheme needs to have sufficiently versatile hues to show the spatial pattern in different variances. All hues needed to sufficiently stand out from the background, which is even more crutial when the building mask is applied.
 
-Within the confinement of the hexagonal grid it is straightforward to re-calculate the average value per each hexagon once user selects or deselects a topic or adjusts weights. Technically, the calculation of the average is defined in the mapbox-gl style definition language that consumes the weight attributes from the application's state, an is recalculated and re-rendered upon any state change (once user interacts with the interface). This process does not require pulling any additional data from the tile server, it is working solely with data already available on the client.
+Within the confinement of the hexagonal grid it is straightforward to re-calculate the average value per each hexagon once user selects or deselects a topic or adjusts weights. Technically, the calculation is defined using the mapbox-gl style definition language that consumes the weight attributes from the application's state, an is recalculated and re-rendered upon any state change (once user interacts with the interface). This process does not require pulling any additional data from the tile server, it is working solely with data already available on the client.
 
-Additional layers were added for spatial context: road network, water bodies and green spaces. All these layers sit on top of the hexagonal grid in the layer structure. This demonstrates one of the advantages of using vector tiles in WebGl-based rendering environment: the order of base layers can be freely chosen freely by the application developer. Had we been using a raster tile base layer, we would not be able select which layers we wanted to include, plus we would have to lower the opacity of the thematic layer even visible, with all implications to overall legibility.
+Additional layers were included to provide spatial context: road network, water bodies and green spaces. All these layers sit on top of the hexagonal grid. This demonstrates one of the advantages of using vector tiles in WebGl-based rendering environment: the order of layers can be chosen freely by the application developer. Had we been using a raster-tile base layer, we would have to put the grid on top of it. Then to make the base even visible we would have to lower the opacity of the thematic layer, of course with implications to the overall legibility.
 
-The supplementary layers not only ease the orientation in the area, but also help to understand the spatial patterns of some layers, e.g. the dependence of the noise or public transport layers on the road network is obvious, also the development potential in the area south to the center in apparent on many compound layers in the application. 
+The supplementary layers not only ease the orientation in the area, but also help to understand some spatial patterns, e.g. the dependence of the noise or public transport layers on the road network is obvious. Also the development potential in the area south to the center is apparent on several variants of the map.
 
-Styling the supplementary layers is also impacted by the changing variance of the mapped values, the legibility of road network suffers in compound layers (see fig). While not currently available in mapox-gl, assigning a  transparency blend mode to the top layers could help here, e.g. the difference blend mode would make sure would stand out on any background, however this might distract the viewer from the main theme.   
-
-Additional spatial clues are provided by an overlay district layer with labels that can be enabled on demand. Another on demand layer provides a building mask. This comes from the original intent of the application to support dwelling seekers — by reducing the geographic field of the hexagon grid to the built area we provide a more realistic picture of where the potential home-seeking opportunities are. The building mask  effectively turns the map dominated by the hexagon grid to a dasymetric map. The building layer is however impacted by the rendering efficiency measures that hide smaller buildings and drop vertices at smaller scales. As such, the building mask fits more to exploring the city at the district level, especially when the user can still tweak the hexagon layer parameters with the mask on.
+Additional spatial clues are provided by a district overlay with labels that can be enabled on demand. Another on-demand layer is a building mask. This comes from the original intent of the application to support dwelling seekers — by reducing the geographic field of the hexagon grid to the built area, we provide a more realistic picture of where the potential home-seeking opportunities are. The building mask turns the map dominated by the hexagon grid to a dasymetric map. The building layer is however impacted by the rendering efficiency measures that hide smaller buildings and drop vertices at smaller scales. As such, the mask works best when exploring the city at the district level -- the user can still alter the hexagon layer underneath by tweaking weights.
 
 *Mode 2*
 
-The second visualisation mode of the demo application aims to support observing the spatial patterns of theme layers individually and at the same time being able to identify areas where the patterns match or differ. While in the previous mode the individual patterns blended within the average layer, in the second mode we use graduated size symbols to keep the layers visually separated.
+The second visualisation mode aims to support observing the spatial patterns of theme layers individually. At the same time, user should be able to identify the areas where the patterns match or differ. While in the previous mode the individual patterns blended within the average, in the second mode we use graduated symbol size to keep the layers visually separated.
 
-The aim here is more experimental — three types of graduated symbols are available for user to compare how efficient or inefficient are they for pattern visualisation at various scales. Hexagonal grid now acts more as guide for symbol placement. Each hexagon can be divided into six triangles that provide a space for graduated symbol placement. For this reason we selected a subset of six topics for visualisation and assigned four categories to each. We experimented with several symbol shapes and numerous size gradations were tested to come up with the three variants showcased in the application. 
+The aim here is more experimental — three types of graduated symbols are available for user to compare how efficient or inefficient they are for pattern visualisation at various scales. Hexagonal grid now acts more as guide for symbol placement. Each hexagon can be divided into six triangles. For this reason we selected a subset of six topics for visualisation and assigned four size categories to each of them. We experimented with several symbol shapes and numerous size gradations to come up with the three variants showcased in the application. 
 
-Technically, the layers were implemented using the same source hexagon layer as for mode 1 map. The mapbox-gl library supports symbol type layers and allows to set parameters like fill-color and the orientation of the symbol. This is convenient, as only three .PNG images per symbol type need to be reused to visualize all six layers. The mapbox-gl rendering engine supports using Signed Distance Field (SDF) to encode images for symbol layers. SDF allows to preserve sharp shape edges even when the symbol is enlarged past its original resolution. It also allows to set the color hue and orientation angle programmatically at runtime. On a flip side, variable transparency is not supported for icons in SDF mode. The symbol size was configured to change dynamically base on the zoom level so that the symbols are correctly placed at the hexagonal grid across the scale range. 
+Technically, the layers were implemented using the same source hexagon layer as for the mode 1 map. The mapbox-gl library supports symbol type layers and allows to set parameters like *fill-color* and *orientation*. This is convenient, as only three .PNG images per symbol type are reused for all six layers. The mapbox-gl rendering engine supports using Signed Distance Field (SDF) to encode images for symbol layers. SDF allows to preserve sharp shape edges even when the symbol is enlarged past its original resolution. It also allows to set the color hue and orientation angle programmatically at runtime. On a flip side, variable transparency is not supported for icons in SDF mode. The symbol size was configured to change dynamically based on the zoom level so that the symbols are correctly placed at the hexagonal grid across scales. 
 
 ![**Fig.** The three types of graduated symbols displayed at two scales with all six layers enabled.](imgs/joined-images.png)
 
 To compare the three selected shapes:
 
-* *Wedges* — A number of wedge variants were tested. The aim was to minimize contact of the symbols in the map field, therefore the wedge symbols "grow" gradually from the sides of the hexagons and not from the center. This limits the symbol contact to three touching wedges from neighbouring hexagons, whereas symbols anchored in the hexagon center would yield six possible contacts. These considerations do not apply to the largest wedges in the size progression that are bound to contact. While this variant works reasonably well across scales, its resemblance to the pie chart may misguide users to think symbols represent the relative proportions of values in each hexagon.    
+* *Wedges* — A number of wedge variants were tested. The aim was to minimize contact of the symbols in the map field, therefore the wedge symbols "grow" gradually from the sides of the hexagons and not from the center. This limits the symbol contact to three touching wedges from neighbouring hexagons, whereas symbols anchored in the hexagon center would yield six possible contacts. While this variant works reasonably well across scales, its resemblance to the pie chart may misguide users to think that the symbols represent relative proportions of values in each hexagon, which is not true.    
 
-* *Bar* — Less space-filling than the previous variant, it leaves more space to see the base layers, but is less legible at smaller scales. This time, the symbols "grow" from the center of the hexagon which can resemble the. This layout tends to create a visually pleasing impression of hatched surfaces, though due to frequent use of similar in wind maps, some users might be tricked to think that the map aims to depict directions.
+* *Bars* — Less space-filling than the previous variant, it leaves more room to see the base layers, but is less legible at smaller scales. This time, the symbols "grow" from the center of the hexagon which can resemble a radial chart. This layout tends to create a visually pleasing impression of hatched surfaces, though due to frequent use of similar techniques in wind maps, some users might be tricked to think that the map shows directions.
 
-* Circle — This Bertin inspired variant is least prone to be confused with a proportional diagram like a pie chart. This is the only variant that allows symbol overlap. In smaller scales it seems to be most prone to triggering optical color mixing and moiré-like effects. 
+* *Circles* — This Bertin inspired variant is least prone to be misunderstood as a compound shape representing proportions within a grid cell. It is the only variant that allows symbol overlap. In smaller scales it seems to be most prone to triggering optical color mixing and moiré-like effects. 
 
-We can conclude that the combination of scaled symbol layers placed on the hexagonal grid generally succeeds in presenting where the hotspots are for individual layers, as well as how similar or dissimilar the layers are. Not surprisingly, the visual burden imposed on the reader rises with the number of layers, in ideal case an interactive environment should allow to compare just two or three layers at once. 
+We can conclude that the combination of scaled symbol layers placed on the hexagonal grid generally succeeds in presenting where the hotspots are for individual layers, as well as how similar or dissimilar the layers are. Not surprisingly, the visual burden imposed on the reader rises with the number of layers, the interactive environment therefore allows users to display just two or three layers at once. 
 
 
 ## 4.4 User interface design
 
-The user interface in mode one revolves around various ways of selecting the layers and adjusting weights. To utilize the screen space efficient, we tried to couple the controls with signifiers of the application state as much as possible. In case of the mode 1 view, the selected weight is signified by the slider position and the number next to the topic title. Topic can be disabled by unchecking the checkbox or by pulling the slider to zero, disabled topic is grayed out. The color of the checkbox demonstrates group membership (See fig). Groups can be enabled and disabled at once using the checkbox row at the top of the panel.
+The user interface in mode 1 revolves around various ways of selecting the layers and adjusting weights. To use the screen space efficiently, we coupled the controls with signifiers of the application state as much as possible. In case of the mode 1 view, the selected weight is signified by the slider position and the number next to the topic title. Topic can be disabled by unchecking the checkbox or by pulling the slider to zero, disabled topic is grayed out. The color of the checkbox demonstrates group membership (See fig). Groups can be enabled and disabled at once using the checkbox row at the top of the panel.
 
 ![**Fig.** Various possible states of theme layers as signified on the control panel in the mode 1 variant of the application.](imgs/img-sliders.png)
 
-In mode 2 the control panel is simpler, user can select the symbol type and enable or disable topics to be shown. Again, the checkbox color acts as a legend, and all four symbol size levels are shown for each topic. This legend is build programmatically by coloring and rotating a small set of SVGs based on topic parameters. 
+In mode 2 the control panel is simpler, user can select the symbol type and enable or disable topics to be shown. Again, the checkbox color also acts as a legend box. Four symbol size levels are shown for each topic. This legend is built programmatically by coloring and rotating a small set of SVGs based on topic parameters. 
 
-![**Fig.** Legend variants for three types of symbol layer in mode 2 of the application. Two of the six layers are show to display angle variation.](imgs/img-legends.png)
+![**Fig.** Legend variants for three types of symbol layer in mode 2. Two of the six layers are show to display angle variation.](imgs/img-legends.png)
 
-While responsiveness was not the main concern for the application and it could certainly be improved, we took some necessary steps to make the application usable on small screens. Legend in mode 1 is turned to vertical position and fixed on the right edge of the map view. The control panel can be minimized to the left in both application modes. This ensures that even thought the map and the panel can not be viewed both at once on small screens, user can at least jump between them easily.
+While responsiveness was not the main concern and it could certainly be improved, we took some necessary steps to make the application usable on small screens. Legend in mode 1 is turned to vertical position and fixed to the right edge of the map view. The control panel can be minimized in both application modes. This ensures that even thought the map and the panel can not be viewed both at once on small screens, user can at least jump between them easily.
 
 
 ## 4.5 Evaluation and possible extensions
 
-One of the obvious extensions would be automating the described data processing solution so that hexagonal layer could be kept up to date. This could be done by regularly checking for data changes for the selected topics, updating the database and recalculating the distance layers. Then the updated hexagonal grid could be exported as .mbtiles file and re-uploaded the Mapbox tile server. Alternatively a self-hosted solution serving tiles directly from the database (using tool like Tegola^[<https://tegola.io/>]) could be used. When it comes to updating layers based on distance interpolation, a problem arises on how to efficiently update only the parts of the mesh that are affected by the change. Fig details one possible solution using Voronoi diagrams.
+One of the obvious extensions would be automating the described data processing solution so that hexagonal layer could be kept up to date. This could be done by regularly checking for data changes for the selected topics, updating the database and recalculating the distance layers. Then the updated hexagonal grid could be exported as .mbtiles file and re-uploaded the Mapbox tile server. Alternatively a self-hosted solution serving tiles directly from the database (using tool like Tegola^[<https://tegola.io/>]) could be used. When it comes to updating layers based on distance interpolation, an interesting problem arises on how to efficiently update only the parts of the point grid that are affected by the change. Fig details one possible solution using Voronoi diagrams.
 
-![**Fig.** A notion of employing Voronoi polygons for selecting points to be updated after change in the source layer for the distance surface calculation.](imgs/img-voronoi-2.png)
+![**Fig.** A notion of employing Voronoi polygons for selecting points to be updated after change in the source layer for the distance surface calculation. If a point is added or removed, the point grid needs to be updated only in the areas of the newly created or disappeared Voronoi cells](imgs/img-voronoi-2.png) -- TODO legend within the image
 
-The range of included datasets could be extended as there are loads of municipal data that get collected and published, often times in the disconnected form. A grid layout proves to be a plausible way how to integrate such disjoint datasets.
-
-A lot could be done to improve the user experience with the application, either in explaining the controls and logic behind them using an interactive wizard or by adding more functions. One possible extension would be defining some example "personas" with predefined selection of included layers and assigned weights.
+The range of included datasets could be extended -- there is a wide variety of municipal data that collected and published, often times in not very interoperable form. A grid layout can be a plausible way to integrate such disjoint datasets. A lot could be done to improve the user experience with the application, either in explaining the controls and logic behind them using some interactive wizard or by adding more functions and state signifiers. One possible extension would be defining example "personas" with predefined selection of included layers and assigned weights.
 
 # 5 Case study: Traffic speeds
 
@@ -1334,15 +1013,6 @@ In this setting, it is hard to make any confident statements about the impact of
 
 There are of course many areas in which the application could be extended. For example, summary data on individual road segments could be displayed upon selection. Additional modes of comparison could be added as well as a capability to search and filter the mapped data e.g. by the street name. A detailed overview of the speed changes across the user-selected could be implemented, possibly with comparison of multiple itineraries. Reader may surely think of other extensions. To conclude, the application underlines the potential of the vector tile format combined with WebGl based rendering environment to handle both spatially and temporally dense datasets. Depicting the subtle changes in traffic speed patters lets us at the minimum appreciate the collective organism or the city. 
 
----
-
-TODO — connect with previous chapters: What spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
-
-The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". 
-
-caveats
-Traffic speed does not bear information on car density? — what is the relation? in pandemic it should be higher?
-
 # Appendix A: Big data related research challenges and opportunities for cartography
 
 TODO intro and citation
@@ -1408,6 +1078,8 @@ Adapting artistic methods for geospatial big data
 * Co-opt artistic methods and techniques to represent geospatial big data
 * Generate artistic renderings of geospatial big data
 * Link artworks to conventional representations in a visual analytics context to leverage geospatial big data
+
+
 # Appendix C: Urban recommendation system
 
 This appendix provides a brief overview of the interface of the map based web application created for the first case study. Not that the best way to explore the application is by viewing the live demo at <pondrejk.eu/hex> (the application has been tested on Firefox 90 and Chrome 92 browsers).
@@ -1419,6 +1091,8 @@ This appendix provides a brief overview of the interface of the map based web ap
 ![Mode 1 view with buildings overlay enabled.](imgs/apx2/img-with-buildings.png)
 
 ![Mode 1 view with districts overlay enabled.](imgs/apx2/img-districts-on.png)
+
+
 # Appendix C: Traffic speeds
 
 This appendix provides a brief overview of the interface of the map based web application created for the second case study. Not that the best way to explore the application is by viewing the live demo at <pondrejk.eu/traffic> (the application has been tested on Firefox 90 and Chrome 92 browsers).
@@ -1434,3 +1108,5 @@ This appendix provides a brief overview of the interface of the map based web ap
 
 
 ![Example showing the map view in th comparinson mode, fill-extrusion is used with tiled camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
+
+
