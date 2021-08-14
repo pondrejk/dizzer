@@ -63,3 +63,5 @@ Adapting artistic methods for geospatial big data
 * Co-opt artistic methods and techniques to represent geospatial big data
 * Generate artistic renderings of geospatial big data
 * Link artworks to conventional representations in a visual analytics context to leverage geospatial big data
+
+

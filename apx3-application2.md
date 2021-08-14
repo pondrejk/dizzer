@@ -13,3 +13,5 @@ This appendix provides a brief overview of the interface of the map based web ap
 
 
 ![Example showing the map view in th comparinson mode, fill-extrusion is used with tiled camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
+
+

@@ -76,12 +76,3 @@ In this setting, it is hard to make any confident statements about the impact of
 
 There are of course many areas in which the application could be extended. For example, summary data on individual road segments could be displayed upon selection. Additional modes of comparison could be added as well as a capability to search and filter the mapped data e.g. by the street name. A detailed overview of the speed changes across the user-selected could be implemented, possibly with comparison of multiple itineraries. Reader may surely think of other extensions. To conclude, the application underlines the potential of the vector tile format combined with WebGl based rendering environment to handle both spatially and temporally dense datasets. Depicting the subtle changes in traffic speed patters lets us at the minimum appreciate the collective organism or the city. 
 
----
-
-TODO — connect with previous chapters: What spatio-temporal queries are enabled by this kind of visualisation? Which are not? (see chapter 2)
-
-The visual analysis tool should work equally well regardless of the velocity of data generation or the cadence of change. For that matter, the temporally dense dataset should serve well for designing a cartographic interface even though the dataset is not itself consumed "real-time". 
-
-caveats
-Traffic speed does not bear information on car density? — what is the relation? in pandemic it should be higher?
-

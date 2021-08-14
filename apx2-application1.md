@@ -9,3 +9,5 @@ This appendix provides a brief overview of the interface of the map based web ap
 ![Mode 1 view with buildings overlay enabled.](imgs/apx2/img-with-buildings.png)
 
 ![Mode 1 view with districts overlay enabled.](imgs/apx2/img-districts-on.png)
+
+
