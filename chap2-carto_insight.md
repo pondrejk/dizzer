@@ -31,9 +31,9 @@ This is not to say that the above classification covers the full extent of spati
 
 **Tab. 1** Types of objects in spatial big data. Existence is marked by records of spatial and temporal reference. Agent can have discrete existence if exiting and re-entering the area of interest. Objects with other than point spatial reference usually fall under stations, agent and events are usually recorded as points.
 
-| type of object | existence               | attribute collection   | location | spatial reference |
-|––––––––––––––––|–––––––––––––––––––––––––|––––––––––––––––––––––––|––––––––––|–––––––––––––––––––|
-| station        | continuous              | continuous or discrete | static   | point, line, poly |
+| **type of object* | **existence** | **attribute collection**   | **location** | **spatial reference** |
+|-|-|------------------|----------|--------------|
+| station        | continuous              | continuous or discrete | static   | point, line, polygon |
 | agent          | continuous or discrete  | continuous or discrete | dynamic  | point             |
 | event          | discrete                | discrete               | static   | point             |
 
