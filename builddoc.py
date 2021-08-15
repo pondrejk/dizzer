@@ -12,7 +12,7 @@
 import os
 import subprocess
 
-filenames = ['chap1-definitions.md', 'chap2-carto_insight.md', 'chap3-vis_challenges.md', 'chap4-case_study_1.md', 'chap5-case_study_2.md', 'apx1-carto_research_challenges.md', 'apx2-application1.md', 'apx3-application2.md']
+filenames = ['chap1-definitions.md', 'chap2-carto_insight.md', 'chap3-vis_challenges.md', 'chap4-case_study_1.md', 'chap5-case_study_2.md', 'apx1-carto_research_challenges.md', 'apx2-application1.md', 'apx3-application2.md', 'sources.md']
 pwd = os.getcwd()
 outname = 'combined_build.md'
 outpath = pwd + '/' + outname
