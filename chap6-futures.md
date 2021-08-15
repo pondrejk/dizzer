@@ -129,18 +129,3 @@ https://datavizproject.com/  (organization by: Family Input Function Shape)
 https://www.data-to-viz.com/ (tree structure)
 http://geo.janmiklin.cz/metody-tematicke-kartografie-navrh-hierarchicke-klasifikace/ (more cartography-realed, hierarchical classification of thematic cartography methods)
 
-
-
-# Testing map based applications
-
-# Data emulation for map based apps
-
-mocking
---------
- -- one approach, get a timeline, historical dataset, treat it like it was a datastream and         test your visualisateon assumptions
--- secnd approach -- create synthetic data
-
-synthetic datasets -- a science of its own:
-------------------
-journalist article -- why useful: https://news.mit.edu/2020/real-promise-synthetic-data-1016
-opensource tools (check out, use?): synthetic data vault https://sdv.dev/
