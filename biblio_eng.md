@@ -11,7 +11,7 @@
 |                         | *Faculty of Science Masaryk University Department of Geography* |
 |**Academic Year**:       | 2020/2021                                       |
 |**Number of Pages**:     |                                                 |
-|**Keywords**:            | Big Data; Cartographic Visualisation; Hexagonal Aggregation; Vector Tiles; WebGL                |
+|**Keywords**:            | Big Data; Cartographic Visualization; Hexagonal Aggregation; Vector Tiles; WebGL                |
                                                                             
                                                                             
                                                                             

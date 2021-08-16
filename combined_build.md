@@ -11,7 +11,28 @@
 |                         | *Faculty of Science Masaryk University Department of Geography* |
 |**Academic Year**:       | 2020/2021                                       |
 |**Number of Pages**:     |                                                 |
-|**Keywords**:            | Big Data; Cartographic Visualisation; Hexagonal Aggregation; Vector Tiles; WebGL                |
+|**Keywords**:            | Big Data; Cartographic Visualization; Hexagonal Aggregation; Vector Tiles; WebGL                |
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+# Bibliografický záznam
+
+|||
+|--|--|
+|**Autor**:              | Mgr. Peter Ondrejka                             |
+|                        | *Přírodovědecká fakulta Masarykova univerzita Geografický ústav* |
+|**Název práce**:        |  Kartografická vizuální analýza masivních datových sad  |
+|**Studijní program**:   | Geografie                                       |
+|**Studijní obor**:      | Kartografie, geoinformatika a dálkový průzkum Země |
+|**Vedoucí práce**:      | Mgr. Karel Staněk, Ph.D.                        |
+|                        | *Přírodovědecká fakulta Masarykova univerzita Geografický ústav* |
+|**Akademický rok**:     | 2020/2021                                       |
+|**Počet stran**:        |                                                 |
+|**Klíčová slova**:      | Velká data; Kartografická vizualizace; Hexagonální mozaiky; Vektorové dlaždice; WebGL                |
                                                                             
                                                                             
                                                                             
