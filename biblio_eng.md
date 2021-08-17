@@ -1,4 +1,4 @@
-# Bibliographic Entry
+**Bibliographic Entry**
 
 |||
 |--|--|
