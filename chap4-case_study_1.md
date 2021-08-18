@@ -38,7 +38,7 @@ The data preparation process then continued as follows (see also Figure 31). To 
 The reasoning behind using a point grid as a harmonization layer was guided by the original intent to enable variable cell size for the final hexagonal grid that could be manipulated by the user. This idea was eventually abandoned and a fix-sized hexagonal grid was created by averaging the point values per cell. The aim was to find the smallest possible cell size that would still pass through the tile size limitation imposed on vector tiles by the Mapbox infrastructure (500 KB per tile, see also Figure 21).
 
 
-## 4.2 Application architecture 
+## 4.2 Application architecture
 
 The vector tile set with the hexagon layer is stored on the Mapbox tile server, the client application uses the mapbox-gl library to render tiles in the WebGl context. The front-end user interface was built using React and Redux libraries.
 
@@ -103,7 +103,7 @@ In mode 2 the control panel is simpler, user can select the symbol type and enab
 While responsiveness of the application was not the main concern and it could certainly be improved, we took some necessary steps to make the application usable on small screens. Legend in mode 1 is turned to vertical position and fixed to the right edge of the map view. The control panel can be minimized in both application modes. This ensures that even though the map and the panel can not be viewed at once on small screens, user can at least jump between them easily. A simple onboarding is also implemented to explain the main application interaction modes on startup.
 
 
-## 4.5 Evaluation and possible extensions 
+## 4.5 Evaluation and possible extensions
 
 One of the obvious extensions would be automating the described data processing solution so that the hexagonal layer is kept up to date. This could be done by regularly checking for data changes for the selected topics, updating the database and recalculating the distance layers. Then the updated hexagonal grid could be exported as mbtiles file and re-uploaded to the Mapbox tile server. Alternatively a self-hosted solution serving tiles directly from the database (using tool like Tegola^[<https://tegola.io/>]) could be used. Recalling Figure 17, these would be data space improvements that are not the main focus of this thesis. 
 

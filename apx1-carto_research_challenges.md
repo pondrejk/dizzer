@@ -1,7 +1,7 @@
 # Appendix A: Big data related research challenges and opportunities for cartography
 
 This appendix lists large-scale and long-term research challenges that will face cartography in relation to big data as well as some short-term research opportunities for
-more concentrated investigation as formulated by @obinson2017geospatial.
+more concentrated investigation as formulated by @robinson2017geospatial.
 
 ## Research Challenges for Cartography and Geospatial Big Data 
 

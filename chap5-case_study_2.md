@@ -27,7 +27,7 @@ At this point, the tables of Brno node pairs and node coordinates were also impo
 A database loaded with road spatial layers with associated hourly speed attributes provides a solid starting point from which many avenues could be taken, either in analytical or visualisation direction. We decided to explore the vector tile format and its aptness for powering interactive cartographic visualisations. Therefore we created the necessary amount of vector tiles from GeoJSON database exports using the tippecanoe command line tool. The batch of resulting *.mbtile* files was then uploaded to the Mapbox server via API^[The batch upload script is available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/05-mapbox_upload.py>].
 
 
-## 5.2 Application architecture
+## 5.2 Application architecture
 
 The building blocks of the application are basically the same as with the case study described in the previous chapter. Even though the PostgreSQL database played a vital role in the data preparation phase, the final application does not use it for back-end data storage. Instead, the vector tiles are loaded from Mapbox tile server. The front-end interface is built using the React library with Redux for state management, mapbox-gl is used as a rendering engine on the client.
 
@@ -62,7 +62,7 @@ In the comparison mode, which can be enabled by clicking the *compare* checkbox,
 We ensured responsiveness of the interface layout. The map field, the selection slider and the table are sized dynamically by the screen width. On small screens the right-side control pane is moved below the map field to leave sufficient screen width for the map. The legend is fixed to the right margin of the interface, which on the one hand places it out of the spotlight on large screens, but on the other hand it makes sure that the legend is placed next to the map field across all screen sizes.
 
 
-## 5.5 Evaluation and possible extensions
+## 5.5 Evaluation and possible extensions
 
 During the preparation phase, the tile size limit of 500 KB appeared as an unforeseen driving factor that influenced our decision making both in data and visual space. While there are some alternative solutions like setting up a custom tile server, we chose to split vector tiles into chunks of the same spatial coverage but shorter time coverage to reduce the attribute count. This is a proven solution within the selected infrastructure, however more experimental approaches were tested over the course of the work. One of them is based on the fact that many road segments exhibited consequent runs of same speed values. The idea was to use a *run length encoding* algorithm to compress the attributes, which was successfully done on the database side^[Script using *pandas* and *sqlalchemy* Python libraries available at <https://github.com/pondrejk/dizzer/blob/master/misc/scripts/06-run_length_encode.py>] — the encoded values were stored in an array type column in PostgreSQL and then exported as vector tile layers. However, decoding the values on the client side showed to be beyond the scope of the mapbox-gl style definition language. There is also a question of the rendering performance as decoding the run length array and finding the right value for the selected time would have to be done for each displayed segment with every application state change.
 
