@@ -51,16 +51,16 @@ Předkládaná  disertační  práce  se  zabývá  problematikou vizualizace ve
 
 # Introduction
 
-The motivation for writing this thesis stems from the author's long time interest in cartographic visualisation in digital environments coupled with his practical experience with design and development of map-based web applications.
+The main goal of this thesis is to explore the possibilities of cartographic visualisation of big data sets using practical examples based on real data from the city of Brno. We aimed to thoroughly asses the big data related limitations as well as the unfulfilled potential across the whole process of creating a digital interactive map. This includes the challenges of data processing, data analysis, choosing cartographic visualisation methods, designing interaction modes and user experience, and developing the final web application. Besides the findings presented in the text, two interactive web applications were created to demonstrate some of the outcomes.  
 
-We recognize three main shifts that stared to alter how digital maps are produced, disseminated and interacted with. We believe that these tendencies will continue to have a growing influence and will gradually transfer digital mapmaking into new realities. Scientists and practitioners in fields of Cartography and Geoinformatics should not overlook these trends, to maintain the future relevance of these fields. At the same time, Cartography and Geoinformatics are uniquely positioned to take part in these efforts to work towards greater spatial enablement of general society. 
+The motivation for writing this thesis stems from the unprecedented global increase in generated and stored data and the related societal implications that are only starting to unfold. Another, more personal motivation was to ** the author's long time interest in cartographic visualisation in digital environments coupled with his practical experience with design and development of map-based web applications.
+
+We argue that there are three main shifts that started to alter how digital maps are produced, disseminated and interacted with. We believe that these tendencies will continue to have a growing influence and will gradually transfer digital mapmaking into new realities. Scientists and practitioners in fields of Cartography and Geoinformatics should not overlook these trends, to maintain the future relevance of these fields. At the same time, Cartography and Geoinformatics are uniquely positioned to take part in these efforts to work towards greater spatial enablement of general society. 
 
 The mentioned shifts are threefold:
 
 1. Changes in the characteristics of mapped data 
-
 2. Changes in how maps are distributed over the network
-
 3. Changes in how maps are rendered for users
 
 These topics are reflected in the structure of the thesis. 
