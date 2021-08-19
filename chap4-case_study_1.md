@@ -51,7 +51,7 @@ When developing digital maps, the ability to define modules that react to change
 
 ## 4.3 Cartographic decisions
 
-To showcase the potential of hexagonal grids to visualize complex datasets, we designed two visualisation modes for the resulting application. 
+To showcase the potential of hexagonal grids to visualize complex datasets, we designed two visualization modes for the resulting application. 
 
 *Mode 1*
 
@@ -71,9 +71,9 @@ Additional spatial clues are provided by a district overlay with labels that can
 
 *Mode 2*
 
-The second visualisation mode aims to support observing the spatial patterns of theme layers individually. At the same time, user should be able to identify the areas where the patterns match or differ. While in the previous mode the individual patterns blended, in the second mode we use graduated symbol size to keep the layers visually separated.
+The second visualization mode aims to support observing the spatial patterns of theme layers individually. At the same time, user should be able to identify the areas where the patterns match or differ. While in the previous mode the individual patterns blended, in the second mode we use graduated symbol size to keep the layers visually separated.
 
-The aim here is more experimental — three types of graduated symbols are available for user to compare how efficient or inefficient they are for pattern visualisation at various scales. Hexagonal grid now acts more as guide for symbol placement. Each hexagon can be divided into six triangles. For this reason we selected a subset of six topics for visualisation and assigned four size categories to each of them. We experimented with several symbol shapes and numerous size gradations to come up with the three variants showcased in the application. 
+The aim here is more experimental — three types of graduated symbols are available for user to compare how efficient or inefficient they are for pattern visualization at various scales. Hexagonal grid now acts more as guide for symbol placement. Each hexagon can be divided into six triangles. For this reason we selected a subset of six topics for visualization and assigned four size categories to each of them. We experimented with several symbol shapes and numerous size gradations to come up with the three variants showcased in the application. 
 
 Technically, the layers were implemented using the same source hexagon layer as for the mode 1 map. The mapbox-gl library supports symbol type layers and allows to set parameters like *fill-color* and *orientation*. This is convenient, as only three PNG images per symbol type are reused for all six layers. The mapbox-gl rendering engine supports using Signed Distance Field (SDF) to encode images for symbol layers. SDF allows to preserve sharp shape edges even when the image is enlarged past its original resolution. It also allows to set the color hue and orientation angle programmatically at runtime. On the flip side, variable transparency is not supported for icons in SDF mode. The symbol size was configured to change dynamically based on the zoom level so that the symbols are correctly placed within the hexagonal grid across scales. 
 
