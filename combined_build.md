@@ -40,6 +40,50 @@
                                                                             
                                                                             
                                                                             
+**Abstract**
+
+This thesis deals with the problems of spatial big data visualisation in digital environment.
+
+
+**Abstrakt**
+
+Předkládaná  disertační  práce  se  zabývá  problematikou vizualizace velkých prostorových datových sad v digitálním prostředí. 
+
+# Introduction
+
+The motivation for writing this thesis stems from the author's long time interest in cartographic visualisation in digital environments coupled with his practical experience with design and development of map-based web applications.
+
+We recognize three main shifts that stared to alter how digital maps are produced, disseminated and interacted with. We believe that these tendencies will continue to have a growing influence and will gradually transfer digital mapmaking into new realities. Scientists and practitioners in fields of Cartography and Geoinformatics should not overlook these trends, to maintain the future relevance of these fields. At the same time, Cartography and Geoinformatics are uniquely positioned to take part in these efforts to work towards greater spatial enablement of general society. 
+
+The mentioned shifts are threefold:
+
+1. Changes in the characteristics of mapped data 
+
+2. Changes in how maps are distributed over the network
+
+3. Changes in how maps are rendered for users
+
+These topics are reflected in the structure of the thesis. 
+
+*Changes in the characteristics of mapped data that can be mapped* refer to the onset of big data sets. Chapter 1 looks at the definition of big data and provides a thorough literature review of various ways how this concept is understood. Special consideration is given to the notion of spatial big data and the related works from the spatial fields.
+
+Chapter 2 further considers spatial big data from the point of analysis. The possible role of Cartography are also discussed, be it in fulfilling big data related research agendas, developing user engagement with applications or in facilitating collaboration in greater teams.
+
+The topic of spatial big data extends also to Chapter 3. Here we discuss how the defining properties of big data translate to cartographic challenges of high spatial and temporal density, and how we can address them within the design constraints of digital mapping environments. We look more closely on the method of hexagonal aggregation and its advantages in addressing the spatial density of big data sets. The issue of user interactions with digital maps are also discussed.    
+
+*Changes in how maps are distributed over the network* refer to the growing adoption of the vector tile exchange format. In Chapter 3 we discuss the specifics of the format compared to raster tiles. We describe the technical specifics of vector tile creation, dissemination, rendering and styling. 
+
+*Changes in how maps are rendered for users* is closely connected to the capabilities of WebGL rendering environments. In Chapter 3 we thoroughly discuss how the combination of WebGL and vector tiles enables new options of cartographic visualisation as well as new modes of interaction for users.
+
+The potential and limitations of transforming spatial big data into vector tiles for visualisation in WebGL-based environments are exemplified in two case studies in Chapters 4 and 5.
+
+Chapter 4 describes the design and development of an urban recommendation system for the city of Brno. This prototype application shows the potential of dynamic visualisation based on hexagonal grid. Two modes of cartographic visualisation are showcased and evaluated.
+
+Chapter 5 describes an application for viewing traffic patterns in the city of Brno during the eight weeks of the spring lockdown.
+
+The thesis concludes in our outlook for the future developments in spatial data processing and visualisation.
+
+
 # 1 Defining Big Data
 
 In this chapter we search for what defines big data. We describe the main attitudes towards grasping the concept. Special consideration is given to the notion of spatial big data and the related works from the Cartography and GIS community.
@@ -1113,13 +1157,13 @@ Adapting artistic methods for geospatial big data
 
 This appendix provides a brief overview of the interface of the map based web application created for the first case study. Not that the best way to explore the application is by viewing the live demo at <https://pondrejk.eu/hex> (the application has been tested on Firefox 90 and Chrome 92 browsers).
 
-![Full view of the interface in mode 1 view](imgs/apx2/img-full_page_type1.png)
+![**Fig. Ab-1.** Full view of the interface in mode 1 view in large screen layout.](imgs/apx2/img-full_page_type1.png)
 
-![Full view of the interface in mode 2 view](imgs/apx2/img-full_page_type2.png)
+![**Fig. Ab-2.** Full view of the interface in mode 2 view in large screen layout.](imgs/apx2/img-full_page_type2.png)
 
-![Mode 1 view with buildings overlay enabled.](imgs/apx2/img-with-buildings.png)
+![**Fig. Ab-3.** Mode 1 view with buildings overlay enabled.](imgs/apx2/img-with-buildings.png)
 
-![Mode 1 view with districts overlay enabled.](imgs/apx2/img-districts-on.png)
+![**Fig. Ab-4.** Mode 1 view with districts overlay enabled.](imgs/apx2/img-districts-on.png)
 
 
 # Appendix C: Traffic speeds
@@ -1127,16 +1171,16 @@ This appendix provides a brief overview of the interface of the map based web ap
 This appendix provides a brief overview of the interface of the map based web application created for the second case study. Not that the best way to explore the application is by viewing the live demo at <https://pondrejk.eu/traffic> (the application has been tested on Firefox 90 and Chrome 92 browsers).
 
  
-![Full view of the interface](imgs/apx3/app-landing-page.png)
+![**Fig. Ac-1.** Full view of the interface in large screen layout.](imgs/apx3/app-landing-page.png)
 
 ![](imgs/apx3/side-pannel.png)
-![Selected time and date is visible both on the right panel and in the overview table below the map. To change the map in the normal mode user can eihter clict the selector buttons or use the slider to select the hour and day. The overview table can also be used to select day and week.](imgs/apx3/table-normal-mode.png)
+![**Fig. Ac-2.** Selected time and date is visible both on the right panel and in the overview table below the map. To change the map in the normal mode user can eihter clict the selector buttons or use the slider to select the hour and day. The overview table can also be used to select day and week.](imgs/apx3/table-normal-mode.png)
 
 ![](imgs/apx3/compare-mode.png)
-![In the comparison mode, user can select weeks to be compared on the control pannel after clicking the "comparison" checkbox. The selected weeks are then displayed on the overview table, which can still be used to select the day, as well as the slider.](imgs/apx3/table-compare-mode.png)
+![**Fig. Ac-3.** In the comparison mode, user can select weeks to be compared on the control pannel after clicking the "comparison" checkbox. The selected weeks are then displayed on the overview table, which can still be used to select the day, as well as the slider.](imgs/apx3/table-compare-mode.png)
 
 
-![Example showing the map view in th comparinson mode, fill-extrusion is used with tiled camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
+![**Fig. Ac-4.** Example showing the map view in th comparinson mode, fill-extrusion is used with tiled camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
 
 
 # Sources
