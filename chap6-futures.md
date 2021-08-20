@@ -1,22 +1,27 @@
 # Discussion and conclusions
 
-Issues in vector tiles
+This section provides a general discussion of results to complement the evaluation of case studies from sections 4.5 and 5.5. A general conclusion is also provided.
 
-Hard to use tools
-WebGL hard to learn and write vs. Wrapper libraries provide a limited set of functions
+While we argue that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data sets, we can still find problem areas where these technologies deemed unsatisfactory.
 
-React Redux component library (storybook design system), with testing. Btw testing a challenge in cartography (compare with UI tests)
+In light of a big data source that is changing in real time, vector tiles may seem bit inflexible. Once a tile set is generated there are no options to alter it, join attributes from external sources, etc. To accommodate fast-paced changes, the data processing pipeline has to regenerate the data anew. The original of the format was presentational (to show intricate base maps). Analytical features are not too supported within the format specification itself, and the GIS-like operations are also lacking in the client mapping libraries. 
 
-# Conclusions
+Problems of data spaces
 
-Bright future in vector tiles -- if standardization across implemetnations
-tight coupling of tile layer definition and schemas with style definition and client libraries. Some standardized style language?  Across gl contexts we can use shaders...
+As we have seen with both case studies, tile data size limitations have a profound impact on the final digital map, be it in the achievable zoom ranges or in smoothness of user experience. Currently the limitations can be overcome by slicing the tile layers in various ways, though there are no standard solutions for compression within the tile attribute spaces and decoding on client.
+Clever encoding and decoding of attributes -- protobuff capabilites, using data in shaders
 
-Mature cross operational tools missing
+Still prove its aptness for analytical use cases.
+
+We have already mentioned the lack of mature standardized tools across creation, serving, rendering and styling. We have a tight coupling of tile schemas with style definitions, which are not interoperable across client libraries. WebGL is a unifying concept of these libraries but writing GLSL code is challenging. Some standardization and cross operational tools would be vital to the future adoption of vector tiles.  
+
+
 
 More variance in schemas -- not only basemap display -- analysis, machine learning input, routing etc, serverless spatial analysis capabilites (offline)
 
-Clever encoding and decoding of attributes -- protobuff capabilites, using data in shaders
+
+React Redux component library (storybook design system), with testing. Btw testing a challenge in cartography (compare with UI tests)
+
 
 For something like figure 26 -- own shaders?
 
@@ -25,13 +30,19 @@ Other opportunities stemming from vector tiles:
 - mapbox data model -- API -- inspiration for public offices 
 - new businesses 
 
+A valid data sharing option for public offices () and open source projects
+traditional data providers (ordinance survey, swisstopo)
+TODO -- share projects -- new streets, cublr
+^ And businesses based on this data model -- morphcode, 
+
 
 Future of cartography -- possibility to break out from the desktop web environment and ocassionaly mobile to greater use in iot, embedded devices and whatever comes next.
 
 Transferability of cartographic work across rendering contexts.
 
-For that we need to thing of map as an interaction mode, extend interest to science of interactions...
+For that we need to think of map as an interaction mode, extend interest to science of interactions...
 
+Getting back to questions from section  2.3.2
 - Is cartography fully exploiting the digital medium?
 - What inspiration can digital cartography take from the heritage of pre-digital mapping?
 
@@ -39,7 +50,6 @@ need to put own imput into crated tools -- point clustering is an example of the
 
 Get their hands dirty with the tools
 
-Getting back to questions from section  2.3.2
 
 - Should cartography focus more on interaction design?
 
@@ -83,14 +93,5 @@ Some size limitations on vector tiles — 500 KB per tile. The way the format de
 - how to connect to dynamic data source? Join with db? (just points — dynamic data overlay straight genreation of tiles within pipeline , )
 - more could be done on client with the data tile data -- how to allow additional calculations, possibly using js functions directly (not some wierd DSLs with limited capabilities, that have only visualisation in mind).
 
-A valid data sharing option for public offices () and open source projects
 
-TODO -- share projects -- new streets, cublr
-^ And businesses based on this data model -- morphcode, 
-
-Along with tile standardization:
-
-Greater standardization efforts:
-https://github.com/Maps4HTML/MapML-Proposal
-https://maps4html.org/MapML/spec/#abstract
-
+This thesis aimed to --
