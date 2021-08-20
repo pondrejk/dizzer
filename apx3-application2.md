@@ -12,6 +12,6 @@ This appendix provides a brief overview of the interface of the map based web ap
 ![**Fig. Ac-3.** In the comparison mode, user can select weeks to be compared on the control pannel after clicking the "comparison" checkbox. The selected weeks are then displayed on the overview table, which can still be used to select the day, as well as the slider.](imgs/apx3/table-compare-mode.png)
 
 
-![**Fig. Ac-4.** Example showing the map view in th comparinson mode, fill-extrusion is used with tiled camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
+![**Fig. Ac-4.** Example showing the map view in th comparinson mode, fill-extrusion is used with tilted camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
 
 
