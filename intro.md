@@ -1,7 +1,0 @@
-In the majority of history (of cartography) data were hard to get. In old times map-makers were limited to limited sources, supplied with speculation / imagination, later on data sets effortedly created by individuals or institutions. Such static inputs invited careful analysis and subsequent visualisation, the kind of perfectionism that gave rise to products that we admire for centuries (an sure will in future as well). Meanwhile cartography evolved as a discipline and a science, working on perfecting its principles... The process goes on, we learn more about congnitive (and what other) aspects, while pacing technological advance continuously enhances the production and distribution processes. Now it has to adjust to changed circumstances regarding the input data. 
-
-This dissertation aims to rethink, fit ... the cartographic principles from the point of view of fluid data. Call it big data, liquid data, ... Cartographers are in the situation of visulalising the data before they actually become available. The goal is to design a visualisation system that could provide as much insight as possible (that's old) based on the data properties assessed at real time and adjust continuously as new entries fall in (that's new). The system should learn itself what is the best way to facilitate visual processing -- and allow real time as well as retrospective exploration.
-
-This thesis will focus on defining cartographic properties of such system, formulate possible cartographic contribution to making sense of whats going on various scales of our reality.
-
-
