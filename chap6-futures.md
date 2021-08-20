@@ -1,10 +1,18 @@
 # Discussion and conclusions
 
-This section provides a general discussion of results to complement the evaluation of case studies from sections 4.5 and 5.5. A general conclusion is also provided.
+This section provides a general discussion of results that complements the evaluation of case studies from sections 4.5 and 5.5. A general conclusion is also provided.
 
-While we argue that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data sets, we can still find problem areas where these technologies deemed unsatisfactory.
+While we argue that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data, we can still find problem areas where these technologies could be deemed unsatisfactory.
 
-In light of a big data source that is changing in real time, vector tiles may seem bit inflexible. Once a tile set is generated there are no options to alter it, join attributes from external sources, etc. To accommodate fast-paced changes, the data processing pipeline has to regenerate the data anew. The original of the format was presentational (to show intricate base maps). Analytical features are not too supported within the format specification itself, and the GIS-like operations are also lacking in the client mapping libraries. 
+For big data sources that change in real time, vector tiles may seem inflexible. Once a tile set is generated, there are limited options to extend or alter it. 
+
+Client libraries can filter features and apply styles, client side data joins.
+
+To accommodate fast-paced changes, the data processing pipeline has to regenerate the tile set anew. 
+
+The original of the format was presentational (to show intricate base maps). Analytical features are not too supported within the format specification itself, and the GIS-like operations are also lacking in the client mapping libraries. 
+
+join attributes from external sources, etc.
 
 Problems of data spaces
 
