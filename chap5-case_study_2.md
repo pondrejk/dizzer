@@ -1,4 +1,4 @@
-# 5 Case study: Traffic speeds
+# 5 Case study: Lockdown traffic
 
 In this case study we explore the possibilities and limitations of vector tiles to accommodate the temporal density of a dataset originally published as a live stream. For this purpose we chose to visualize changes in traffic speeds in the city of Brno between the 16th of March to the 10th of May 2020^[The author would like to thank Mapbox, Inc. for providing the traffic data sample for the purpose of this case study.]. The time range coincidentally matches with the first period of government restrictions in Czech Republic to prevent the spread of the COVID-19 pandemic. The spatial and temporal detail of the dataset posed a challenge both in terms of data processing as well as in terms of designing the interactive cartographic visualization^[Live demo of the application is accessible at <https://pondrejk.eu/traffic>, screenshots of the interface can be found in Appendix C.].
 

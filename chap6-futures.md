@@ -2,21 +2,17 @@
 
 This section provides a general discussion of results that complements the evaluation of case studies from sections 4.5 and 5.5. A general conclusion is also provided.
 
-While we argue that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data, 
--- real time component not exemplified in case studies...
-several approaches...
+The thesis states that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data. The two provided use cases then aim to support this statement. But one might note that the "real time" property of big data is not expressed too well. 
 
-takze nie kritika tajlov ale vysvetlenie chybajuceho real time componentu...
-(TODO rephrase to be less negative) we can still find problem areas where these technologies could be deemed unsatisfactory.
-
-For big data sources that change in real time, vector tiles may seem inflexible. Once a tile set is generated, there are limited options to extend or alter it. Client libraries can filter features and apply styles, and also perform client side data joins to external tabular data sources provided that there is a common identifier column in the tile layer and the joined table. But to accommodate fast-paced changes in the spatial definition of data, the data processing pipeline has to regenerate the tile set anew. (todo someting about stations/events, e.g., Doesn't Tegola and other tile servers solve this?). 
-Problems of back-end infrastructures in data space, not too cartographic.
-
+For big data sources that change in real time, vector tiles may seem inflexible. Once a tile set is generated, there are limited options to extend or alter it. Client libraries can filter features and apply styles, and also perform client side data joins to external tabular data sources provided that there is a common identifier column in the tile layer and the joined table. But to accommodate fast-paced changes in the spatial definition of data, the data processing pipeline has to regenerate the tile set anew. Solvable, but these are Problems of back-end infrastructures in data space, not too cartographic...
 
 The original of the format was presentational (to show intricate base maps). Analytical features are not too supported within the format specification itself, and the GIS-like operations are also lacking in the client mapping libraries. 
 
 Analytic potential -- cross cutting across tiles
 
+Possible future developments:
+- in vector tiles
+- in cartogr visuaiosation (more solution on rendering side)
 
 As we have seen with both case studies, tile data size limitations have a profound impact on the final digital map, be it in the achievable zoom ranges or in smoothness of user experience. Currently the limitations can be overcome by slicing the tile layers in various ways, though there are no standard solutions for compression within the tile attribute spaces and decoding on client.
 Clever encoding and decoding of attributes -- protobuff capabilites, using data in shaders
@@ -24,6 +20,8 @@ Clever encoding and decoding of attributes -- protobuff capabilites, using data 
 Still prove its aptness for analytical use cases.
 
 We have already mentioned the lack of mature standardized tools across creation, serving, rendering and styling. We have a tight coupling of tile schemas with style definitions, which are not interoperable across client libraries. WebGL is a unifying concept of these libraries but writing GLSL code is challenging. Some standardization and cross operational tools would be vital to the future adoption of vector tiles.  
+
+SVG overlay on raster tiles
 
 
 
@@ -105,3 +103,9 @@ Some size limitations on vector tiles — 500 KB per tile. The way the format de
 
 
 This thesis aimed to --
+
+
+
+outline
+discuss
+describe
