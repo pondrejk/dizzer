@@ -3,11 +3,15 @@
 This section provides a general discussion of results that complements the evaluation of case studies from sections 4.5 and 5.5. A general conclusion is also provided.
 
 While we argue that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data, 
+-- real time component not exemplified in case studies...
+several approaches...
 
+takze nie kritika tajlov ale vysvetlenie chybajuceho real time componentu...
 (TODO rephrase to be less negative) we can still find problem areas where these technologies could be deemed unsatisfactory.
 
 For big data sources that change in real time, vector tiles may seem inflexible. Once a tile set is generated, there are limited options to extend or alter it. Client libraries can filter features and apply styles, and also perform client side data joins to external tabular data sources provided that there is a common identifier column in the tile layer and the joined table. But to accommodate fast-paced changes in the spatial definition of data, the data processing pipeline has to regenerate the tile set anew. (todo someting about stations/events, e.g., Doesn't Tegola and other tile servers solve this?). 
 Problems of back-end infrastructures in data space, not too cartographic.
+
 
 The original of the format was presentational (to show intricate base maps). Analytical features are not too supported within the format specification itself, and the GIS-like operations are also lacking in the client mapping libraries. 
 
