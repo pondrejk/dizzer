@@ -1,89 +1,25 @@
-# Discussion and conclusions
+# 6 Discussion and conclusions
 
-This section provides a general discussion of results that complements the evaluation of case studies from sections 4.5 and 5.5. A general conclusion is also provided.
+This section provides a general discussion of results that complements the evaluation of case studies from sections 4.5 and 5.5. A general conclusion is also presented.
 
-The thesis states that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data. The two provided use cases then aim to support this statement. But it can be argued that the "real time" property of big data is not expressed too well in the case studies. This is partly due to the limited availability of such sources for our problem area, and partly it is given by the scope of the thesis being more on the cartographic solutions rather than on building complex back-end infrastructures for real-time applications. 
+The thesis states that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data. The two provided applications aim to support this statement. But it can be argued that the "real time" property of big data is not expressed too well in these case studies. This is partly due to the limited availability of continuous sources for our problem area, and partly it is given by the scope of the thesis being more on the cartographic solutions rather than on building complex back-end infrastructures for real-time applications. 
 
-That being said, we can add that for big data sources that change in real time, vector tiles may seem as a bit inflexible solution. Once a tile set is generated, there are limited options to extend or alter it. Client libraries can filter features and apply styles, and also perform client side data joins to external tabular data sources provided that there is a common identifier column in the tile layer and the joined table. But to accommodate fast-paced changes in the spatial definition of data, the data processing pipeline has to regenerate the tile set anew. Solvable, but these are Problems of back-end infrastructures in data space, not too cartographic...
+That being said, we can add that for big data sources that change in real time, vector tiles may seem as a bit inflexible solution. Once a tile set is generated, there are limited options to extend or alter the spatial definition of features. Client libraries can filter features, apply styles, and also perform client side data joins with external tabular data sources. But to accommodate fast-paced changes in the spatial definition of data, the data processing pipeline has to regenerate the tile set anew. 
 
-The original of the format was presentational (to show intricate base maps). Analytical features are not too supported within the format specification itself, and the GIS-like operations are also lacking in the client mapping libraries. 
+We have already mentioned the lack of mature standardized tools across creation, serving, rendering and styling vector tiles. Currently we have a tight coupling of tile schemas with style definitions, which are not transferable across client libraries. Even though WebGL/OpenGL is an unifying concept of the libraries, writing GLSL code is challenging and not all libraries expose it directly. Some standardization in schemas and style definition languages and cross operational tools are therefore vital for the future adoption of vector tiles.  
 
-Analytic potential -- cross cutting across tiles
+The original intent behind vector tiles was presentational -- to show intricate base maps efficiently across zoom levels. Analytical usage of the format may be complicated by some of its characteristics, for example there is the need to reconstruct features spread across several tiles. But there is a great potential for vector tile schemas defined with spatial analysis in mind -- this would enable client libraries to perform GIS-like operations across various types of devices.
 
-Possible future developments:
-- in vector tiles
-- in cartogr visuaiosation (more solution on rendering side)
+As we have seen with both case studies, tile data size limitations have a profound impact on the final digital map, be it in the achievable zoom ranges or in smoothness of user experience. Currently the limitations can be overcome by slicing the tile layers in various ways, or by applying some simplification functions on geometries, though there are no standard solutions for compression within the tile attribute spaces and decoding on client. As we have suggested in Chapter 5, finding options for attribute compression in specific cases like time series encoding is another promising research area for vector tiles.
 
-As we have seen with both case studies, tile data size limitations have a profound impact on the final digital map, be it in the achievable zoom ranges or in smoothness of user experience. Currently the limitations can be overcome by slicing the tile layers in various ways, though there are no standard solutions for compression within the tile attribute spaces and decoding on client.
-Clever encoding and decoding of attributes -- protobuff capabilites, using data in shaders
+With the ability to store attributes of layers, vector tiles could redefine the use of base map layers. For example, a road network layer can synthesize thematic information to be used for various purposes on client. This could include traffic speeds, taxi activity or sidewalk quality for navigation purposes (see project *SharedStreets*^[<https://sharedstreets.io>]), or all kinds of population and environmental data for urban planning purposes (ventures like *Remix*^[<https://www.remix.com/>], or *Morphcode*^[<https://morphocode.com/>]). As we have indicated in Chapter 4, keeping such layers up to date while allowing historical comparison is a true big data infrastructure problem. Having both spatial and attribute information in one form that is efficiently downloadable for defined problem area makes vector tiles an ideal input for spatially-enabled machine learning algorithms.
 
-Still prove its aptness for analytical use cases.
+Furthermore, making tiles available through a server via controlled API is a viable option for both public and commercial data providers as it allows to differentiate citizen consumers from businesses by the access count. Some public map providers already started to adopt the technology (Ordinance Survey, swisstopo).
 
-We have already mentioned the lack of mature standardized tools across creation, serving, rendering and styling. We have a tight coupling of tile schemas with style definitions, which are not interoperable across client libraries. WebGL is a unifying concept of these libraries but writing GLSL code is challenging. Some standardization and cross operational tools would be vital to the future adoption of vector tiles.  
+At this point, we can revisit the questions presented in section 2.3.2. 
+We can say that learning about the capabilities of WebGL can help to shed some light on the first two questions (*Is cartography fully exploiting the digital medium?* and *What inspiration can digital cartography take from the heritage of pre-digital mapping?*). As the two case studies hope to show, the capabilities of WebGl based rendering environment offer excellent possibilities for thematic cartography. Note that these applications use just the subset of WebGL capabilities made available by the mapbox-gl. Stepping down at the level of individual shaders would allow for implementing say the examples from Figure 26, and much more. Seeing how WebGL is utilized in gaming industry, we can argue that cartography is not yet fully exploiting its potential. Though this is a promise with a grain of salt, as writing GLSL code is not something cartographers usually have on their CVs, but it might be an exciting path for some to get on. When it comes to the question of deriving inspiration from non-digital maps, we can say that WebGL-based client libraries offer greater freedom to experiment with non-obvious symbolization (e.g. Figure 29 or Figure 33) than it was with the previous generation of mapping libraries (SVG over raster tiles).
 
-SVG overlay on raster tiles
+Arriving at the third question from section 2.3.2 (*Should cartography focus more on interaction design?*), we anticipate that designing interactions with digital maps will increasing be a part of cartographic practice. Reading a map and controlling it via an UI will be increasingly understood as two sides of the same coin. For many digital maps, the richness of possible interactions and the range of possible outcomes go beyond the typical UX design schemes (user personas, scenarios, etc.). As we have described in section 4.2, the features of the React library make it well applicable to creating map interfaces. Moreover, there is a room for developing a set of reusable map-specific components that can not be found in mainstream component libraries (like Bootstrap, or Material Design). In general, creating digital maps is in many aspects different form the bread-and-butter web development, with specific requirements in areas like data mocking or automated UI testing.  
 
-
-
-More variance in schemas -- not only basemap display -- analysis, machine learning input, routing etc, serverless spatial analysis capabilites (offline)
-
-
-React Redux component library (storybook design system), with testing. Btw testing a challenge in cartography (compare with UI tests)
-
-
-For something like figure 26 -- own shaders?
-
-Other opportunities stemming from vector tiles:
-- new modes of data desiminaiton - new modes of urban planning (examples)
-- mapbox data model -- API -- inspiration for public offices 
-- new businesses 
-
-A valid data sharing option for public offices () and open source projects
-traditional data providers (ordinance survey, swisstopo)
-TODO -- share projects -- new streets, cublr
-^ And businesses based on this data model -- morphcode, 
-
-
-Future of cartography -- possibility to break out from the desktop web environment and ocassionaly mobile to greater use in iot, embedded devices and whatever comes next.
-
-Transferability of cartographic work across rendering contexts.
-
-For that we need to think of map as an interaction mode, extend interest to science of interactions...
-
-Getting back to questions from section  2.3.2
-- Is cartography fully exploiting the digital medium?
-- What inspiration can digital cartography take from the heritage of pre-digital mapping?
-
-need to put own imput into crated tools -- point clustering is an example of the method where computational considerations precede cartographic reasoning
-
-Get their hands dirty with the tools
-
-
-- Should cartography focus more on interaction design?
-
-cartographic principles altered by big data
-
-
-- Software testing map-based applications --  (isqtb) ideas form sw testing in cartography, visual testing neeeded, google analytics? 
-- Simulating data load -- mocking data, preparing fake data with right properties for systems prototyping data emulation 
-- Vector tiles standard -- new era of spatial data distribution (contextual imformation in layers)
-- Machine learning -- realistic -- first to take on manual tasks, then for map design related tasks? (down to earth assesment :P)
-
- Vector tiles for in-browser data analyisis?
- 44 -- elaborate on the similarity of analysis and rendering issues (building the     vector tiles, data-driven styling, aggregate/summarize data)
-
-- source for ML?
-*coordinate conversions within tiles?*
-- no more fucking spherical Mercator https://www.maptiler.com/google-maps-coordinates-tile-bounds-projection/
-https://github.com/openlayers/openlayers/issues/11142
-https://observablehq.com/@fil/reprojecting-vector-tiles
-https://observablehq.com/@fil/web-mercator-tile-visibility
-
-WebGL truly seems to be a promising platform for connecting cartographic excellence, dynamic spatial data visualisation and user-friendly interaction.
-
-
-Some size limitations on vector tiles — 500 KB per tile. The way the format deals with it (during encoding) may not be optimal — dropping vertices in abrupt simplification, dropping data points. 
--- find more creative options for data compression, encoding or decoding -- inspiration from timescale.db
-
-
+As we hope to have shown with both theoretical and practical arguments in this thesis, WebGL is currently the most promising platform for connecting cartographic excellence, dynamic spatial data visualisation and user-friendly interaction. What remains is investing more effort into the capability of vector tiles to accommodate big data sources and into some standardization of technologies. This would paint a bright picture for the future of our field: transferability of cartographic work across rendering contexts would allow maps to break out from the desktop/mobile environments towards greater use in all kinds of future embedded devices.
 
