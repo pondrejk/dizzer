@@ -42,20 +42,20 @@
                                                                             
 **Abstract**
 
-This thesis deals with the issues of cartographic visualization of spatial big data in digital environment. First we outline the defining properties of big data and we classify spatial big data. Spatial and temporal density of big data sets are identified as the main challenges to cartographic visualization and methods to address them are evaluated with main focus on hexagonal aggregation. Issues of user interaction and user engagement are also discussed. Then the thesis describes the big data related advantages and limitations of vector tile format and the WebGL rendering environment. These technologies are then employed in two map-based web appications: an urban recommendation system and a traffic explorer, both for the city of Brno.
+This thesis explores the issues of cartographic visualization of spatial big data in digital environment. Based on a literature review, the defining properties of big data are outlined with classification of spatial big data types. In addition to that, the thesis discusses how cartography can support spatio-temporal knowledge discovery based on big data. Then it describes how big data properties translate to cartographic challenges of high spatial and temporal density, and how to address them within the design constraints of digital mapping environments. In that matter, hexagonal aggregation is explored in greater detail. Selected issues of user interaction and user engagement are also examined. The practical part of the thesis sets out the advantages and limitations of vector tile format and WebGL rendering environment for cartographic visualisation of big data. These technologies are then used in two map-based web applications: *Hexbin explorer* that maps selected aspects of urban quality of life and *Lockdown traffic* that displays detailed traffic speed records, both for the city of Brno.
 
 
 **Abstrakt**
 
-Předkládaná disertační práce se zabývá problematikou kartografické vizualizace velkých prostorových datových sad v digitálním prostředí. Práce popisuje charakteristické vlasnosti velkých dat a předkládá klasifikaci prostorových velkých dat. Kartografické metody pro spracováni prostorového a časového rozlišení velkých dat jsou zhodoceny s hlavním důrazem na metodu hexagonální agregace. Náslendě jsou popsány výhody a limity vektorových dlaždic a renderovacího prostředí WebGL pro vizualizaci velkých dat. Tyto technologie jsou pak použity ve dvou interaktivních mapových aplikacích: městský doporučovací systém a prohlížeč dopravních dat, obě pro oblast Brna.
+Předkládaná disertační práce se zabývá problematikou kartografické vizualizace velkých prostorových datových sad v digitálním prostředí. Práce popisuje charakteristické vlasnosti velkých dat a navrhuje klasifikaci prostorových velkých dat. Kartografické metody pro zpracováni prostorového a časového rozlišení velkých dat jsou zhodoceny s hlavním důrazem na metodu hexagonální agregace. Následně jsou popsány výhody a limity vektorových dlaždic a renderovacího prostředí WebGL pro vizualizaci velkých dat. Tyto technologie jsou pak použity ve dvou interaktivních mapových aplikacích: městský doporučovací systém a prohlížeč dopravních dat, obě pro oblast města Brna.
 
 # Introduction
 
-The main goal of this thesis is to explore the possibilities of cartographic visualization of big data sets using practical examples based on real data from the city of Brno. We aimed to thoroughly asses the big data related limitations as well as the unfulfilled potential across the whole process of creating a digital interactive map. This includes the challenges of data processing, data analysis, choosing cartographic visualization methods, designing interaction modes and user experience, and developing the final web application. Besides the findings offered in the text, two interactive web applications are presented to demonstrate some of the outcomes.  
+The main goal of this thesis is to explore the possibilities of cartographic visualization of big data sets using practical examples based on real data from the city of Brno. We aimed to thoroughly asses the big data related limitations as well as the unfulfilled potential across the whole process of creating a digital interactive map. This includes the challenges of data processing, data analysis, choice of cartographic visualization methods, designing interaction modes and user experience, and implementing the final web application. Besides the findings offered in the text, two interactive web applications are presented to demonstrate some of the outcomes.  
 
 The motivation for writing this thesis stemmed from the unprecedented global increase in generated and stored data, together with related societal implications that are only starting to unfold. Another, more personal motivation was to channel the author's long time interest in cartographic visualization and to summarize his practical experience with design and development of map-based web applications.
 
-We can argue that there are three main shifts that started to alter how digital maps are produced, disseminated and interacted with. We believe that these tendencies will continue to have a growing influence and will gradually transfer digital mapmaking to new realities. Scientists and practitioners in fields of Cartography and Geoinformatics should not overlook these trends, in order to maintain future relevance of these disciplines. At the same time, Cartography and Geoinformatics are uniquely positioned to take part in these efforts to work towards greater spatial enablement of general society. 
+We argue that there are three main shifts that started to alter how digital maps are produced, disseminated and interacted with. We believe that these tendencies will continue to have a growing influence and will gradually transfer digital mapmaking to new realities. Scientists and practitioners in fields of Cartography and Geoinformatics should not overlook these trends, because their disciplines are uniquely positioned to take part in efforts to work towards greater spatial enablement of general society. 
 
 The mentioned shifts are threefold:
 
@@ -65,11 +65,11 @@ The mentioned shifts are threefold:
 
 These three points are reflected in the structure of the thesis. 
 
-*Changes in the characteristics of mapped data* refer to the onset of big data sets. Chapter 1 looks at the definition of big data and provides a thorough literature review of various ways how this concept is understood. Special consideration is given to the notion of spatial big data and the related works from the spatial fields.
+*Changes in the characteristics of mapped data* refer to the onset of big data. Chapter 1 pursues the definition of big data by providing a thorough literature review to outline the various ways how the subjects is understood. Special consideration is given to the notion of spatial big data and the related works from the spatial fields.
 
-Chapter 2 further considers spatial big data from the point of analysis. The possible role of Cartography is also discussed, be it in fulfilling big data related research agendas, developing user engagement with applications or in facilitating collaboration in greater teams.
+Chapter 2 further considers spatial big data from the point of analysis. The possible role of Cartography is also discussed, be it in fulfilling big data related research agendas, developing user engagement with applications or in facilitating collaboration within greater teams.
 
-The topic of spatial big data extends also to Chapter 3. Here we discuss how the defining properties of big data translate to cartographic challenges of high spatial and temporal density, and how we can address them within the design constraints of digital mapping environments. We look more closely on the method of hexagonal aggregation and its advantages in addressing the spatial density of big data sets. Issues of user interactions with digital maps are also discussed.    
+The topic of spatial big data extends also to Chapter 3. Here we discuss how the defining properties of big data translate to cartographic challenges of high spatial and temporal density, and how we can address them within the design constraints of digital mapping environments. We look more closely on the method of hexagonal aggregation and its advantages in addressing the spatial density of big data sets. Selected issues of user interactions with digital maps are also discussed.    
 
 *Changes in how maps are distributed over the network* refer to the growing adoption of the vector tile format. In Chapter 3 we discuss the characteristics of the format compared to raster tiles. We describe the technical specifics of vector tile creation, dissemination, rendering and styling. 
 
@@ -894,11 +894,11 @@ When viewing digital maps on large screens, we expect to see all the interface c
 When it comes to research on designing map interfaces for small screens there is certainly a noticeable gap. The range of possible interaction modes on mobile devices (at least 12 types of screen gestures, gyroscope, etc.) seems to be largely unutilized. The UI on touch devices should provide feedback for user to be sure what kind of touch event was performed and whether it was registered (@willenskomer2017creating). Other parameters like physical distance from the device (e.g. when holding it vs when driving), viewing time or environmental conditions (indoors vs outdoors, day vs night) should be considered when designing the interface [@slaughter2017designing]. Principles of motion design for increasing the UI usability could as well be applied to interactions within the map field.
 
 
-# 4 Case Study: Urban recommendation system
+# 4 Case Study: Hexbin explorer
 
 Throughout the previous chapter we took a rather winding path through various concepts: data processing pipelines, hexagonal aggregation, rendering technologies, vector tiles or user interface design. In this and the next chapter we present two experimental case studies that aim to bring these concepts and ideas together, hopefully to demonstrate how they could enrich thematic cartography in practice.
 
-The first case study is a prototype of an *urban recommendation system* — a map-based web application that could help dwelling seekers to identify areas in the city that best match their needs and expectations^[Live demo of the application is accessible at <https://pondrejk.eu/hex>, screenshots of the interface can be found in Appendix B.]. Such system would allow users to assign weights to different spatial factors to draw a simple preference map showing which areas in the city could be desirable for them.
+The first case study is a prototype of a map-based web application that could help dwelling seekers to identify areas in the city that best match their needs and expectations^[Live demo of the application is accessible at <https://pondrejk.eu/hex>, screenshots of the interface can be found in Appendix B.]. Such system would allow users to assign weights to different spatial factors to draw a simple preference map showing which areas in the city could be desirable for them.
 
 The benefits of interactive preference controls are manifold: users can reason about various alternative scenarios, observe how even slight changes in their preferences influence their potential action area, they can seek compromise between conflicting views, or model how their options would alter should their life situation change. The selected spatial factors are aiming to suit civic user, however, inclusion of additional parameters could extend the target group to municipal planners or property developers^[The origins of this idea date back to the 2018's hackathon that the author attended as a member of a competing team. The original demo application has been fully reworked by the author for the purpose of this thesis, though the input spatial data pre-processed at that time have been reused here.].
 
@@ -1005,7 +1005,7 @@ One of the obvious extensions would be automating the described data processing 
 
 The range of included datasets could be extended — there is a wide variety of municipal data collected and published, often times in a not very interoperable form. A grid layout can be a plausible way to integrate such disjoint datasets. A lot could be done to improve the user experience with the application, either in explaining the controls and logic behind them using some interactive wizard or by adding more functions and state signifiers. One possible extension would be defining example "personas" with predefined selection of layers and weights.
 
-# 5 Case study: Traffic speeds
+# 5 Case study: Lockdown traffic
 
 In this case study we explore the possibilities and limitations of vector tiles to accommodate the temporal density of a dataset originally published as a live stream. For this purpose we chose to visualize changes in traffic speeds in the city of Brno between the 16th of March to the 10th of May 2020^[The author would like to thank Mapbox, Inc. for providing the traffic data sample for the purpose of this case study.]. The time range coincidentally matches with the first period of government restrictions in Czech Republic to prevent the spread of the COVID-19 pandemic. The spatial and temporal detail of the dataset posed a challenge both in terms of data processing as well as in terms of designing the interactive cartographic visualization^[Live demo of the application is accessible at <https://pondrejk.eu/traffic>, screenshots of the interface can be found in Appendix C.].
 
@@ -1152,7 +1152,7 @@ Adapting artistic methods for geospatial big data
 * Link artworks to conventional representations in a visual analytics context to leverage geospatial big data
 
 
-# Appendix B: Urban recommendation system
+# Appendix B: Hexbin explorer
 
 This appendix provides a brief overview of the interface of the map based web application created for the first case study. Not that the best way to explore the application is by viewing the live demo at <https://pondrejk.eu/hex> (the application has been tested on Firefox 90 and Chrome 92 browsers).
 
@@ -1165,7 +1165,7 @@ This appendix provides a brief overview of the interface of the map based web ap
 ![**Fig. Ab-4.** Mode 1 view with districts overlay enabled.](imgs/apx2/img-districts-on.png)
 
 
-# Appendix C: Traffic speeds
+# Appendix C: Lockdown traffic
 
 This appendix provides a brief overview of the interface of the map based web application created for the second case study. Not that the best way to explore the application is by viewing the live demo at <https://pondrejk.eu/traffic> (the application has been tested on Firefox 90 and Chrome 92 browsers).
 

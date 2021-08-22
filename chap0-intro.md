@@ -14,9 +14,9 @@ The mentioned shifts are threefold:
 
 These three points are reflected in the structure of the thesis. 
 
-*Changes in the characteristics of mapped data* refer to the onset of big data sets. Chapter 1 looks at the definition of big data and provides a thorough literature review of various ways how this concept is understood. Special consideration is given to the notion of spatial big data and the related works from the spatial fields.
+*Changes in the characteristics of mapped data* refer to the onset of big data. Chapter 1 pursues the definition of big data by providing a thorough literature review to outline the various ways how the subjects is understood. Special consideration is given to the notion of spatial big data and the related works from the spatial fields.
 
-Chapter 2 further considers spatial big data from the point of analysis. The possible role of Cartography is also discussed, be it in fulfilling big data related research agendas, developing user engagement with applications or in facilitating collaboration within greater teams.
+Chapter 2 further considers spatial big data from the point of spatio-temporal knowledge discovery. The possible role of Cartography is also discussed, be it in fulfilling big data related research agendas, developing user engagement with applications or in facilitating collaboration within greater teams.
 
 The topic of spatial big data extends also to Chapter 3. Here we discuss how the defining properties of big data translate to cartographic challenges of high spatial and temporal density, and how we can address them within the design constraints of digital mapping environments. We look more closely on the method of hexagonal aggregation and its advantages in addressing the spatial density of big data sets. Selected issues of user interactions with digital maps are also discussed.    
 
@@ -24,7 +24,7 @@ The topic of spatial big data extends also to Chapter 3. Here we discuss how the
 
 *Changes in how maps are rendered for users* are closely connected to the capabilities of WebGL rendering environments. In Chapter 3 we thoroughly discuss how the combination of WebGL and vector tiles enables cartographic visualization as well as new modes of interaction for users.
 
-The advantages and limitations of transforming spatial big data into vector tiles for visualization in WebGL-based environments are exemplified in two case studies in Chapters 4 and 5.
+The advantages and limitations of transforming spatial big data into vector tiles for visualization in WebGL based environments are exemplified in two case studies in Chapters 4 and 5.
 
 Chapter 4 describes the design and development of an urban recommendation system for the city of Brno. This prototype application shows the potential of dynamic visualization based on hexagonal grid. Two modes of cartographic visualization are showcased and evaluated.
 

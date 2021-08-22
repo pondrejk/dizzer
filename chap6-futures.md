@@ -2,9 +2,9 @@
 
 This section provides a general discussion of results that complements the evaluation of case studies from sections 4.5 and 5.5. A general conclusion is also provided.
 
-The thesis states that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data. The two provided use cases then aim to support this statement. But one might note that the "real time" property of big data is not expressed too well. 
+The thesis states that the combination of vector tiles and a WebGL based rendering environment is an adequate solution for cartographic visualisation of big data. The two provided use cases then aim to support this statement. But it can be argued that the "real time" property of big data is not expressed too well in the case studies. This is partly due to the limited availability of such sources for our problem area, and partly it is given by the scope of the thesis being more on the cartographic solutions rather than on building complex back-end infrastructures for real-time applications. 
 
-For big data sources that change in real time, vector tiles may seem inflexible. Once a tile set is generated, there are limited options to extend or alter it. Client libraries can filter features and apply styles, and also perform client side data joins to external tabular data sources provided that there is a common identifier column in the tile layer and the joined table. But to accommodate fast-paced changes in the spatial definition of data, the data processing pipeline has to regenerate the tile set anew. Solvable, but these are Problems of back-end infrastructures in data space, not too cartographic...
+That being said, we can add that for big data sources that change in real time, vector tiles may seem as a bit inflexible solution. Once a tile set is generated, there are limited options to extend or alter it. Client libraries can filter features and apply styles, and also perform client side data joins to external tabular data sources provided that there is a common identifier column in the tile layer and the joined table. But to accommodate fast-paced changes in the spatial definition of data, the data processing pipeline has to regenerate the tile set anew. Solvable, but these are Problems of back-end infrastructures in data space, not too cartographic...
 
 The original of the format was presentational (to show intricate base maps). Analytical features are not too supported within the format specification itself, and the GIS-like operations are also lacking in the client mapping libraries. 
 
@@ -72,40 +72,18 @@ cartographic principles altered by big data
  Vector tiles for in-browser data analyisis?
  44 -- elaborate on the similarity of analysis and rendering issues (building the     vector tiles, data-driven styling, aggregate/summarize data)
 
-
-Future trajectories
--------------------
-
-WebGL truly seems to be a promising platform for connecting (carto)graphic excellence, dynamic spatial data visualisation and user-friendly interaction.
-
-# future improvements to vector tiles
-- incorporating dynamic data sources
-- CI -- dynamic tile creation pipelines
 - source for ML?
-
 *coordinate conversions within tiles?*
 - no more fucking spherical Mercator https://www.maptiler.com/google-maps-coordinates-tile-bounds-projection/
-
 https://github.com/openlayers/openlayers/issues/11142
 https://observablehq.com/@fil/reprojecting-vector-tiles
 https://observablehq.com/@fil/web-mercator-tile-visibility
 
-TODO — vector tiles + big data (pros/cons now + future extensions) 
-VT don't support gis-style database joins post creation, all data processing operations should happen before tile generation (in the db or in gis sw).
+WebGL truly seems to be a promising platform for connecting cartographic excellence, dynamic spatial data visualisation and user-friendly interaction.
 
 
 Some size limitations on vector tiles — 500 KB per tile. The way the format deals with it (during encoding) may not be optimal — dropping vertices in abrupt simplification, dropping data points. 
 -- find more creative options for data compression, encoding or decoding -- inspiration from timescale.db
 
 
-- how to connect to dynamic data source? Join with db? (just points — dynamic data overlay straight genreation of tiles within pipeline , )
-- more could be done on client with the data tile data -- how to allow additional calculations, possibly using js functions directly (not some wierd DSLs with limited capabilities, that have only visualisation in mind).
 
-
-This thesis aimed to --
-
-
-
-outline
-discuss
-describe
