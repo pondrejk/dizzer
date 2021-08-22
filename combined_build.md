@@ -42,12 +42,14 @@
                                                                             
 **Abstract**
 
-This thesis explores the issues of cartographic visualization of spatial big data in digital environment. Based on a literature review, the defining properties of big data are outlined with classification of spatial big data types. In addition to that, the thesis discusses how cartography can support spatio-temporal knowledge discovery based on big data. Then it describes how big data properties translate to cartographic challenges of high spatial and temporal density, and how to address them within the design constraints of digital mapping environments. In that matter, hexagonal aggregation is explored in greater detail. Selected issues of user interaction and user engagement are also examined. The practical part of the thesis sets out the advantages and limitations of vector tile format and WebGL rendering environment for cartographic visualisation of big data. These technologies are then used in two map-based web applications: *Hexbin explorer* that maps selected aspects of urban quality of life and *Lockdown traffic* that displays detailed traffic speed records, both for the city of Brno.
+This thesis explores the issues of cartographic visualization of spatial big data in digital environment. The defining properties of big data are outlined with classification of spatial big data types. The thesis then searches how to address the problem of high graphic fill in maps based on big data within the constraints of digital mapping environments. In that matter, hexagonal aggregation is examinded in greater detail. Selected issues of user interaction and user engagement are also described. The practical part of the thesis sets out the advantages and limitations of vector tile format and WebGL rendering environment for cartographic visualisation of big data. These technologies are then used in two map-based web applications: *Hexbin explorer* that maps selected aspects of urban quality of life and *Lockdown traffic* that displays detailed traffic speed records, both for the city of Brno.
 
 
 **Abstrakt**
 
-Předkládaná disertační práce se zabývá problematikou kartografické vizualizace velkých prostorových datových sad v digitálním prostředí. Práce popisuje charakteristické vlasnosti velkých dat a navrhuje klasifikaci prostorových velkých dat. Kartografické metody pro zpracováni prostorového a časového rozlišení velkých dat jsou zhodoceny s hlavním důrazem na metodu hexagonální agregace. Následně jsou popsány výhody a limity vektorových dlaždic a renderovacího prostředí WebGL pro vizualizaci velkých dat. Tyto technologie jsou pak použity ve dvou interaktivních mapových aplikacích: městský doporučovací systém a prohlížeč dopravních dat, obě pro oblast města Brna.
+Předkládaná disertační práce se zabývá problematikou kartografické vizualizace velkých prostorových datových sad v digitálním prostředí. Práce popisuje charakteristické vlasnosti velkých dat a navrhuje klasifikaci prostorových velkých dat. Následně je rozvedeno jak se vlastnosti velkých dat promítají do kartografických problémú grafického zaplněni 
+
+Kartografické metody pro zpracováni prostorového a časového rozlišení velkých dat jsou zhodoceny s hlavním důrazem na metodu hexagonální agregace. Následně jsou popsány výhody a limity vektorových dlaždic a renderovacího prostředí WebGL pro vizualizaci velkých dat. Tyto technologie jsou pak použity ve dvou interaktivních mapových aplikacích: městský doporučovací systém a prohlížeč dopravních dat, obě pro oblast města Brna.
 
 # Introduction
 
@@ -67,7 +69,7 @@ These three points are reflected in the structure of the thesis.
 
 *Changes in the characteristics of mapped data* refer to the onset of big data. Chapter 1 pursues the definition of big data by providing a thorough literature review to outline the various ways how the subjects is understood. Special consideration is given to the notion of spatial big data and the related works from the spatial fields.
 
-Chapter 2 further considers spatial big data from the point of analysis. The possible role of Cartography is also discussed, be it in fulfilling big data related research agendas, developing user engagement with applications or in facilitating collaboration within greater teams.
+Chapter 2 further considers spatial big data from the point of spatio-temporal knowledge discovery. The possible role of Cartography is also discussed, be it in fulfilling big data related research agendas, developing user engagement with applications or in facilitating collaboration within greater teams.
 
 The topic of spatial big data extends also to Chapter 3. Here we discuss how the defining properties of big data translate to cartographic challenges of high spatial and temporal density, and how we can address them within the design constraints of digital mapping environments. We look more closely on the method of hexagonal aggregation and its advantages in addressing the spatial density of big data sets. Selected issues of user interactions with digital maps are also discussed.    
 
@@ -75,7 +77,7 @@ The topic of spatial big data extends also to Chapter 3. Here we discuss how the
 
 *Changes in how maps are rendered for users* are closely connected to the capabilities of WebGL rendering environments. In Chapter 3 we thoroughly discuss how the combination of WebGL and vector tiles enables cartographic visualization as well as new modes of interaction for users.
 
-The advantages and limitations of transforming spatial big data into vector tiles for visualization in WebGL-based environments are exemplified in two case studies in Chapters 4 and 5.
+The advantages and limitations of transforming spatial big data into vector tiles for visualization in WebGL based environments are exemplified in two case studies in Chapters 4 and 5.
 
 Chapter 4 describes the design and development of an urban recommendation system for the city of Brno. This prototype application shows the potential of dynamic visualization based on hexagonal grid. Two modes of cartographic visualization are showcased and evaluated.
 
