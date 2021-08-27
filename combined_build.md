@@ -1120,7 +1120,7 @@ Nothing suggests that the pace of data generation should get any less intense in
 
 # Appendix A: Big data related research challenges and opportunities for cartography
 
-This appendix lists large-scale and long-term research challenges that will face cartography in relation to big data as well as some short-term research opportunities for
+This appendix lists large-scale and long-term research challenges that will face Cartography in relation to big data as well as some short-term research opportunities for
 more concentrated investigation as formulated by @robinson2017geospatial.
 
 ## Research Challenges for Cartography and Geospatial Big Data 
@@ -1188,7 +1188,7 @@ Adapting artistic methods for geospatial big data
 
 # Appendix B: Hexbin explorer
 
-This appendix provides a brief overview of the interface of the map based web application created for the first case study. Not that the best way to explore the application is by viewing the live demo at <https://pondrejk.eu/hex> (the application has been tested on Firefox 90 and Chrome 92 browsers).
+This appendix provides an interface overview of the map-based web application created for the first case study. Note that the best way to explore the application is by viewing the live demo at <https://pondrejk.eu/hex> (the application has been tested on Firefox 90 and Chrome 92 browsers).
 
 ![**Fig. Ab-1.** Full view of the interface in mode 1 view in large screen layout.](imgs/apx2/img-full_page_type1.png)
 
@@ -1201,16 +1201,16 @@ This appendix provides a brief overview of the interface of the map based web ap
 
 # Appendix C: Lockdown traffic
 
-This appendix provides a brief overview of the interface of the map based web application created for the second case study. Not that the best way to explore the application is by viewing the live demo at <https://pondrejk.eu/traffic> (the application has been tested on Firefox 90 and Chrome 92 browsers).
+This appendix provides a brief interface overview of the map-based web application created for the second case study. Note that the best way to explore the application is by viewing the live demo at <https://pondrejk.eu/traffic> (the application has been tested on Firefox 90 and Chrome 92 browsers).
 
  
 ![**Fig. Ac-1.** Full view of the interface in large screen layout.](imgs/apx3/app-landing-page.png)
 
-![**Fig. Ac-2.** Selected time and date is visible both on the right panel and in the overview table below the map. To change the map in the normal mode user can eihter clict the selector buttons or use the slider to select the hour and day. The overview table can also be used to select day and week.](imgs/apx3/view-normal.png)
+![**Fig. Ac-2.** Selected time and date is visible both on the right panel and in the overview table below the map. To change the map in the normal mode user can either click the selector buttons or use the slider to select the hour and day. The overview table can also be used to select day and week.](imgs/apx3/view-normal.png)
 
-![**Fig. Ac-3.** In the comparison mode, user can select weeks to be compared on the control pannel after clicking the "comparison" checkbox. The selected weeks are then displayed on the overview table, which can still be used to select the day, as well as the slider.](imgs/apx3/view-compare.png)
+![**Fig. Ac-3.** In the comparison mode, user can select weeks to be compared on the control panel after clicking the "comparison" checkbox. The selected weeks are then displayed on the overview table, which can still be used to select the day, same as the slider.](imgs/apx3/view-compare.png)
 
-![**Fig. Ac-4.** Example showing the map view in th comparinson mode, fill-extrusion is used with tilted camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
+![**Fig. Ac-4.** Example showing the map view in the comparison mode. The fill-extrusion parameter is used with tilted camera view to allow layer comparison. Application is shown in the small screen layout, with the side panel broken down below the map view (outside of the image).](imgs/apx3/small-screen.png)
 
 
 # Sources
