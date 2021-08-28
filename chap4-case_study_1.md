@@ -6,7 +6,7 @@ The first case study is a prototype of a map-based web application that could he
 
 The benefits of interactive preference controls are manifold: users can reason about various alternative scenarios, observe how even slight changes in their preferences influence their potential action area, they can seek compromise between conflicting views, or model how their options would alter should their life situation change. The selected spatial factors are aiming to suit civic user, however, inclusion of additional parameters could extend the target group to municipal planners or property developers.^[The origins of this idea date back to the 2018's hackathon that the author attended as a member of a competing team. The original demo application has been fully reworked by the author for the purpose of this thesis, though the input spatial data pre-processed at that time have been reused here.]
 
-Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis — the use of hexagonal aggregation and layer ordering to cope with hight spatial density, the benefits of the vector tile format and the WebGL rendering environment, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
+Aside from its primary use, the application also aims to demonstrate the ideas presented earlier in this thesis—the use of hexagonal aggregation and layer ordering to cope with hight spatial density, the benefits of the vector tile format and the WebGL rendering environment, or the power of scale-based styling. Some recommendations for map interface design are also showcased. In terms of software implementation, the benefits of the React front-end framework for creating interactive maps are discussed.
 
 
 ## 4.1 Data sources and transformations
@@ -15,13 +15,13 @@ The application allows users to select several parameters and assign weights to 
 
 The parameters include both attractive and repulsive factors: proximity to schools and nurseries, parks and greenery, places of worship, healthcare facilities, sport, cultural and social facilities on the one hand, noise model, crime incidence and property prices on the other. Layers were sourced from the Open Street Map (OSM) database. The input spatial layers were collected for the area of the city including a 5 Km buffer to prevent undesirable interpolation effects on the city borders. The following list describes what belongs under thematic categories in greater detail:
 
-* culture — theaters, cinemas, music clubs
-* health — hospitals and ambulances
-* church — places of worship for various religions
-* parks — parks, forests, green spaces
-* social — cafés, pubs, restaurants
-* sport — sport grounds, gyms 
-* transport — public transport stops 
+* culture—theaters, cinemas, music clubs
+* health—hospitals and ambulances
+* church—places of worship for various religions
+* parks—parks, forests, green spaces
+* social—cafés, pubs, restaurants
+* sport—sport grounds, gyms 
+* transport—public transport stops 
 
 These layers were obtained from the OSM and have point spatial reference, with the exception of parks that are defined as polygons. Some complementary layers from different sources were also included:  
 
@@ -67,13 +67,13 @@ Additional layers were included to provide spatial context: road network, water 
 
 The supplementary layers not only ease the orientation in the area, but also help to understand some spatial patterns, for example the dependence of noise or public transport layers on the road network is obvious. Also, the development potential in the area south to the center is apparent on several map variants.
 
-Additional spatial clues are provided by a district overlay with labels that can be enabled on demand. Another on-demand layer is a building mask. This comes from the original intent of the application to support dwelling seekers — by reducing the geographic field of the hexagon grid to the built area, we provide a more realistic picture of where the potential home-seeking opportunities are. The building mask turns the map dominated by the hexagon grid to a dasymetric map. However, the building layer is impacted by the rendering efficiency measures that hide smaller buildings and drop vertices at smaller scales. As such, the mask works best when exploring the city at the district level — the user can still alter the hexagon layer underneath by tweaking weights.
+Additional spatial clues are provided by a district overlay with labels that can be enabled on demand. Another on-demand layer is a building mask. This comes from the original intent of the application to support dwelling seekers—by reducing the geographic field of the hexagon grid to the built area, we provide a more realistic picture of where the potential home-seeking opportunities are. The building mask turns the map dominated by the hexagon grid to a dasymetric map. However, the building layer is impacted by the rendering efficiency measures that hide smaller buildings and drop vertices at smaller scales. As such, the mask works best when exploring the city at the district level—the user can still alter the hexagon layer underneath by tweaking weights.
 
 *Mode 2*
 
 The second visualization mode aims to support observing the spatial patterns of theme layers individually. At the same time, user should be able to identify the areas where the patterns match or differ. While in the previous mode the individual patterns blended, in the second mode we use graduated symbol size to keep the layers visually separated.
 
-The aim here is more experimental — three types of graduated symbols are available for user to compare how efficient or inefficient they are for pattern visualization at various scales. Hexagonal grid now acts more as guide for symbol placement. Each hexagon can be divided into six triangles. For this reason we selected a subset of six topics for visualization and assigned four size categories to each of them. We experimented with several symbol shapes and numerous size gradations to come up with the three variants showcased in the application. 
+The aim here is more experimental—three types of graduated symbols are available for user to compare how efficient or inefficient they are for pattern visualization at various scales. Hexagonal grid now acts more as guide for symbol placement. Each hexagon can be divided into six triangles. For this reason we selected a subset of six topics for visualization and assigned four size categories to each of them. We experimented with several symbol shapes and numerous size gradations to come up with the three variants showcased in the application. 
 
 Technically, the layers were implemented using the same source hexagon layer as for the mode 1 map. The mapbox-gl library supports symbol type layers and allows to set parameters like *fill-color* and *orientation*. This is convenient, as only three PNG images per symbol type are reused for all six layers. The mapbox-gl rendering engine supports using Signed Distance Field (SDF) to encode images for symbol layers. SDF allows to preserve sharp shape edges even when the image is enlarged past its original resolution. It also allows to set the color hue and orientation angle programmatically at runtime. On the flip side, variable transparency is not supported for icons in SDF mode. The symbol size was configured to change dynamically based on the zoom level so that the symbols are correctly placed within the hexagonal grid across scales. 
 
@@ -81,11 +81,11 @@ Technically, the layers were implemented using the same source hexagon layer as 
 
 To compare the three selected shapes (Figure 33):
 
-* *Triangles* — Several triangle variants were tested. The aim was to minimize the contact of the symbols in the map field, therefore the triangles "grow" gradually from the sides of the hexagons and not from the center. This limits the symbol contact to three touching triangles from neighbouring hexagons, whereas symbols anchored in the hexagon center would yield six possible contacts. While this variant works reasonably well across scales, its resemblance to the pie chart may misguide users to think that the symbols represent relative proportions of values in each hexagon, which is not true. This variant also works best when tested with colorblind simulation filters.    
+* *Triangles*—Several triangle variants were tested. The aim was to minimize the contact of the symbols in the map field, therefore the triangles "grow" gradually from the sides of the hexagons and not from the center. This limits the symbol contact to three touching triangles from neighbouring hexagons, whereas symbols anchored in the hexagon center would yield six possible contacts. While this variant works reasonably well across scales, its resemblance to the pie chart may misguide users to think that the symbols represent relative proportions of values in each hexagon, which is not true. This variant also works best when tested with colorblind simulation filters.    
 
-* *Bars* — Less space-filling than the previous variant, it leaves more room to see the base layers, but is less legible at smaller scales. This time, the symbols "grow" from the center of the hexagon which can resemble a radial chart. This layout tends to create a visually pleasing impression of hatched surfaces, which might also be a disadvantage as the opposite symbols in the hexagon tend to meld. Due to a frequent use of similar techniques in wind maps, some users might be tricked to think that the map shows directions.
+* *Bars*—Less space-filling than the previous variant, it leaves more room to see the base layers, but is less legible at smaller scales. This time, the symbols "grow" from the center of the hexagon which can resemble a radial chart. This layout tends to create a visually pleasing impression of hatched surfaces, which might also be a disadvantage as the opposite symbols in the hexagon tend to meld. Due to a frequent use of similar techniques in wind maps, some users might be tricked to think that the map shows directions.
 
-* *Circles* — This Bertin inspired variant is least prone to be misunderstood as a compound shape representing proportions within a grid cell. It is the only variant that allows symbol overlap which lets the hotspots in the layer stand out more. In smaller scales it seems to be most prone to triggering optical color mixing and moiré-like effects. 
+* *Circles*—This Bertin inspired variant is least prone to be misunderstood as a compound shape representing proportions within a grid cell. It is the only variant that allows symbol overlap which lets the hotspots in the layer stand out more. In smaller scales it seems to be most prone to triggering optical color mixing and moiré-like effects. 
 
 We can conclude that the combination of scaled symbol layers placed on the hexagonal grid generally succeeds in presenting where the hotspots are for individual layers, as well as how similar or dissimilar the layers are. Recalling Section 2.3.1 the map supports reading at both the elementary and global levels. Not surprisingly, the visual burden imposed on the reader rises with the number of layers. Here the interactive environment helps users to tune the cognitive load by enabling and disabling layers. For comparison tasks, the map works best with just two or three layers enabled at once. 
 
@@ -107,5 +107,5 @@ While responsiveness of the application was not the main concern and it could ce
 
 One of the obvious extensions would be automating the described data processing solution so that the hexagonal layer is kept up to date. This could be done by regularly checking for data changes for the selected topics, updating the database and recalculating the distance layers. Then the updated hexagonal grid could be exported as mbtiles file and re-uploaded to the Mapbox tile server. Alternatively a self-hosted solution serving tiles directly from the database (using tool like Tegola^[<https://tegola.io/>]) could be used. Recalling Figure 17, these would be data space improvements that are not the main focus of this thesis. 
 
-The range of included data sets could be extended — there is a wide variety of municipal data collected and published, often times in a not very interoperable form. A grid layout can be a plausible way to integrate such disjoint data sets. A lot could be done to improve the user experience with the application, either in explaining the controls and logic behind them using some interactive wizard or by adding more functions and state signifiers. One possible extension would be defining example "personas" with predefined selection of layers and weights.
+The range of included data sets could be extended—there is a wide variety of municipal data collected and published, often times in a not very interoperable form. A grid layout can be a plausible way to integrate such disjoint data sets. A lot could be done to improve the user experience with the application, either in explaining the controls and logic behind them using some interactive wizard or by adding more functions and state signifiers. One possible extension would be defining example "personas" with predefined selection of layers and weights.
 
