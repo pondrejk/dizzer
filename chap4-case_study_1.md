@@ -51,7 +51,7 @@ When developing digital maps, the ability to define modules that react to change
 
 ## 4.3 Cartographic decisions
 
-To showcase the potential of hexagonal grids to visualize complex datasets, we designed two visualization modes for the resulting application. 
+To showcase the potential of hexagonal grids to visualize complex data sets, we designed two visualization modes for the resulting application. 
 
 *Mode 1*
 
@@ -107,5 +107,5 @@ While responsiveness of the application was not the main concern and it could ce
 
 One of the obvious extensions would be automating the described data processing solution so that the hexagonal layer is kept up to date. This could be done by regularly checking for data changes for the selected topics, updating the database and recalculating the distance layers. Then the updated hexagonal grid could be exported as mbtiles file and re-uploaded to the Mapbox tile server. Alternatively a self-hosted solution serving tiles directly from the database (using tool like Tegola^[<https://tegola.io/>]) could be used. Recalling Figure 17, these would be data space improvements that are not the main focus of this thesis. 
 
-The range of included datasets could be extended — there is a wide variety of municipal data collected and published, often times in a not very interoperable form. A grid layout can be a plausible way to integrate such disjoint datasets. A lot could be done to improve the user experience with the application, either in explaining the controls and logic behind them using some interactive wizard or by adding more functions and state signifiers. One possible extension would be defining example "personas" with predefined selection of layers and weights.
+The range of included data sets could be extended — there is a wide variety of municipal data collected and published, often times in a not very interoperable form. A grid layout can be a plausible way to integrate such disjoint data sets. A lot could be done to improve the user experience with the application, either in explaining the controls and logic behind them using some interactive wizard or by adding more functions and state signifiers. One possible extension would be defining example "personas" with predefined selection of layers and weights.
 

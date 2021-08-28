@@ -28,7 +28,7 @@ The advantages and limitations of transforming spatial big data into vector tile
 
 Chapter 4 describes the design and development of an urban recommendation system for the city of Brno. This prototype application shows the spatial distribution of selected parameters of urban quality of life. Two modes of cartographic visualization based on hexagonal grid are demonstrated and evaluated.
 
-Chapter 5 describes the design and development of an application for viewing traffic speed patterns in the city of Brno during eight weeks of the 2020 spring lockdown. Here we test how vector tiles accommodate the temporal density of a dataset originally published as a live stream. Also, we describe a variety of technologies used to process the voluminous input dataset.
+Chapter 5 describes the design and development of an application for viewing traffic speed patterns in the city of Brno during eight weeks of the 2020 spring lockdown. Here we test how vector tiles accommodate the temporal density of a data set originally published as a live stream. Also, we describe a variety of technologies used to process the voluminous input data set.
 
 The concluding chapter of the thesis synthesizes the results, lists the next research avenues and presents an outlook of the future developments in spatial data processing and visualization.
 
