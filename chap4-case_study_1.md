@@ -100,7 +100,7 @@ In mode 2 the control panel is simpler, user can select the symbol type and enab
 
 ![**Fig. 35** Legend variants for the three types of symbol layer in mode 2 of the application. Two of the six layers are show to display angle variation.](imgs/img-legends.png)
 
-While responsiveness of the application was not the main concern and it could certainly be improved, we took some necessary steps to make the application usable on small screens. Legend in mode 1 is turned to vertical position and fixed to the right edge of the map view. The control panel can be minimized in both application modes. This ensures that even though the map and the panel can not be viewed at once on small screens, user can at least jump between them easily. A simple onboarding is also implemented to explain the main application interaction modes on startup.
+While responsiveness of the application was not the main concern and it could certainly be improved, we took some necessary steps to make the application usable on small screens. Legend in mode 1 is turned to vertical position and fixed to the right edge of the map view. The control panel can be minimized in both application modes. This ensures that even though the map and the panel cannot be viewed at once on small screens, user can at least jump between them easily. A simple onboarding is also implemented to explain the main application interaction modes on startup.
 
 
 ## 4.5 Evaluation and possible extensions
