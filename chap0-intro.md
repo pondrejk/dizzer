@@ -24,7 +24,7 @@ The topic of spatial big data extends also to Chapter 3. Here we discuss how the
 
 *Changes in how maps are rendered for users* are closely connected to the capabilities of WebGL rendering environments. In Chapter 3 we thoroughly discuss how the combination of WebGL and vector tiles enables cartographic visualization as well as new modes of interaction for users.
 
-The advantages and limitations of transforming spatial big data into vector tiles for visualization in WebGL based environments are then exemplified in the two case studies in Chapters 4 and 5.
+The advantages and limitations of transforming spatial big data into vector tiles for visualization in WebGL-based environments are then exemplified in the two case studies in Chapters 4 and 5.
 
 Chapter 4 describes the design and development of an urban recommendation system for the city of Brno. This prototype application shows the spatial distribution of selected parameters of urban quality of life. Two modes of cartographic visualization based on hexagonal grid are demonstrated and evaluated.
 
