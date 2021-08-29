@@ -3,7 +3,7 @@
 This chapter explores possible cartographic solutions to high spatial and temporal density in spatial big data. Rendering technologies that power these solutions are described afterwards. The impact of big data on the digital map UI design is also discussed.
 
 
-## 3.1 Visualisation challenges: spatial and temporal density
+## 3.1 Visualization challenges: spatial and temporal density
 
 How to process a high number of data points for visual exploration, and why is it hard from the cartographic point of view? If we want our maps to be understood and used, then the human cognitive capabilities are the main guiding factor to adhere to. Graphic literacy varies across the population, not to mention accessibility requirements for various sensory conditions, but to even start addressing those issues, we first need to focus on the *legibility* as the base requirement common to every recipient.
 
